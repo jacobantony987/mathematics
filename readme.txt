@@ -1,0 +1,41 @@
+M.Sc. Mathematics
+
+Semester 1
+11abstract_algebra.tex
+12linear_algebra.tex
+13basic_topology.tex
+14real_analysis.tex
+15graph_theory.tex
+
+Semester 2
+21advanced_abstract_algebra.tex
+22advanced_topology.tex
+23numerical_analysis_with_python.tex
+24complex_analysis.tex
+25measure_and_integration.tex
+
+Semester 3
+31advanced_complex_analysis.tex
+32partial_differential_equations.tex
+33multivariate_calculus_and_integral_transforms.tex
+34functional_analysis.tex
+35optimization_technique.tex
+
+Semester 4
+41spectral_theory.tex
+42analytic_number_theory.tex
+
+Electives Group 1
+43differential_geometry.tex
+44algorithmic_graph_theory.tex
+45combinatorics.tex
+
+Electives Group 2
+46probability_theory.tex
+47operational_research.tex
+48coding_theory.tex
+
+Electives Group 3
+49commutative_algebra.tex
+4Aordinary_differential_equations.tex
+4Bclassical_mechanics.tex
