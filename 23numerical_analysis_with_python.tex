@@ -43,7 +43,7 @@ There exists a unique polynomial of degree $n$ that satisfy $(n+1)$ distinct dat
 \end{enumerate*}. The Neville's method is out of scope.
 
 \subsection{Lagrange's Method}
-Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of degree $n$ is not mathematically sound. It is quite a confusing a notation when it comes to Newton's method especially for a mathematics student.} is given by,
+Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of degree $n$. It is quite a confusing a notation when it comes to Newton's method as author construct a psuedo-recursive definition.} is given by,
 \begin{equation}
 	P(x) = \sum_{i=0}^n y_i l_i(x),\text{ where } \l_i(x) = \prod_{j = 0,j \ne i}^n \frac{x-x_i}{x_j-x_i}
 \end{equation}
@@ -52,11 +52,11 @@ Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of de
 	$$l_i(x_j) = \delta_{ij} = \begin{cases} 0,\ i = j \\ 1,\ i \ne j \end{cases}$$
 \end{remark}
 \begin{proposition}
-	Error in polynomial interpolation\footnote{Author says $\xi \in (x_0,x_n)$, which is not mathematically precise. Since, the order of data points doesn't have any meaning.} is given by
+	Error in polynomial interpolation is given by
 	\begin{equation}
 		f(x) - P(x) = \frac{(x-x_0)(x-x_1)\cdots(x-x_n)}{(n+1)!} f^{(n+1)}(\xi)
 	\end{equation}
-	where $\xi \in (\min x_k, \max x_k)$
+	where $\xi \in (x_0, x_n)$
 \end{proposition}
 \begin{remark}
 	The error increases as $x$ moves away from the unknown value $\xi$.
@@ -68,6 +68,9 @@ The interpolation polynomial is given by,
 	P(x) = a_0 + a_1(x-x_0) + \cdots + a_n(x-x_0)(x-x_1)\cdots(x-x_{n-1})
 \end{equation}
 where $a_i = \nabla^i y_i,\ i = 0,1,\cdots,n$.
+\begin{remark}
+	For Newton's Method, it is assumed that $x_0 < x_1 < \cdots < x_n$.
+\end{remark}
 \begin{remark}
 	 Lagrange's method is conceptually simple. But, Newton's method is computationaly more efficient than Lagrange's method.
 \end{remark}
