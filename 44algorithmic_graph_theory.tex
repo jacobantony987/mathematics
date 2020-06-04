@@ -425,9 +425,9 @@
 \chapter{Matchings and Factorizations}
 \section{An Introduction to Matching}
 \begin{description}
-	\item[marriage problem] Given a collection of men and women, where each womon knows some of the men. Can every women marry a man she knows ?
-	\item[assignment problem] Given several job openings and applicants for one or more of these positions. Find an assignment so that maximum positions are filled ?
-	\item[optimal assignment problem] Given several job openings and applicants for one or more of these positions. The benefits of employing these applicants on those positions are also given. Find an assignment of maximum benefit to the company ?
+	\item[Marriage Problem] Given a collection of men and women, where each womon knows some of the men. Can every women marry a man she knows ?
+	\item[Assignment Problem] Given several job openings and applicants for one or more of these positions. Find an assignment so that maximum positions are filled ?
+	\item[Optimal Assignment Problem] Given several job openings and applicants for one or more of these positions. The benefits of employing these applicants on those positions are also given. Find an assignment of maximum benefit to the company ?
 \end{description}
 \begin{definition}
 	\begin{description}
@@ -449,26 +449,40 @@
 	\end{description}
 \end{definition}
 \begin{theorem}
-Let $M_1,M_2$ be two matchings in $G$ such that there is a spanning subgraph $H$ of $G$ with edges that are either in $M_1$ or $M_2$, but not both. Then the components of $H$ are either \begin{enumerate*} \item isolated vertex \item even cycle with edge alternately from $M_1$ and $M_2$ \item a non-trivial path with edges alternately from $M_1$ and $M_2$ such that each end vertex is single with respect to either $M_1$ or $M_2$, but not both. \end{enumerate*}
+	Let $M_1,M_2$ be two matchings in $G$ such that there is a spanning subgraph $H$ of $G$ with edges that are either in $M_1$ or $M_2$, but not both. Then the components of $H$ are either \begin{enumerate*} \item isolated vertex \item even cycle with edge alternately from $M_1$ and $M_2$ \item a non-trivial path with edges alternately from $M_1$ and $M_2$ such that each end vertex is single with respect to either $M_1$ or $M_2$, but not both. \end{enumerate*}
 \end{theorem}
+
 \begin{theorem}
 	A matching $M$ in a graph $G$ is maximum iff there is no augmenting path with respect to $M$ in $G$.
 \end{theorem}
+
 \begin{definition}
-	matched, matched under, nondeficient
+	Let $U_1,U_2$ be two nonempty, disjoint, subsets of the vertex set of a graph $G$. Then $U_1$ is matched to $U_2$ if there exists a matching $M$ in $G$ such that every edge in $M$ incident with a vertex in $U_1$ and a vertex in $U_2$. And every vertex of $U_1$ (or $U_2$) is incident with some edge in $M$. Suppose $M^*$ be a matching such that $M \subset M^*$, then $U_1$ is matched under $M^*$ to $U_2$.
 \end{definition}
+
+\begin{definition}
+	Let $U$ be a nonempty set of vertices of a graph $G$. $U$ is nondeficient, if $|N(s)| \ge |S|$ for every nonempty subset $S$ of $U$.
+\end{definition}
+
 \begin{theorem}
 	Let $G$ be a bipartite graph with partite sets $V_1,V_2$. The set $V_1$ can be matched to a subset of $V_2$ iff $V_1$ is nondeficient.
 \end{theorem}
 \begin{corollary}
 	Every $r$-regular bipartite multigraph has a perfect matching.
 \end{corollary}
+
 \begin{theorem}
 	A collection $S_1,S_2,\cdots,S_n$ of finite non-empty sets has a system of distinct representatives iff for each $k,\ 0 \le k \le n$, the union of any $k$ of these sets contains at least $k$ elements.
 \end{theorem}
-\begin{definition}
-	hall marriage problem
-\end{definition}
+
+\begin{remark}[Hall's Marriage Theorem]
+	Suppose there are $n$ women. Then every women can marry a man she knows iff each subset of $k$ women $(1 \le k \le n)$ colletively knows atleast $k$ men. 
+\end{remark}
+
+\begin{remark}
+	Let $W$ be a set of $n$ women. Then there are $2^n-1$ nonempty subset for $W$. Thus, Hall's Marriage Theorem suggests that we ensure $|N(S)| \ge |S|$ for every nonempty subset $S$ of $W$. This method has complexity $O(2^n)$.
+\end{remark}
+
 \section{Maximum Matching in Bipartite Graphs}
 
 %\section{Maximum Matching in General Graphs*}
