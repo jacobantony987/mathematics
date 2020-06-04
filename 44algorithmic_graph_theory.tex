@@ -424,9 +424,55 @@
 %Module 4
 \chapter{Matchings and Factorizations}
 \section{An Introduction to Matching}
-%\section{Maximum Matching in Bipartite Graphs*}
+\begin{description}
+	\item[marriage problem] Given a collection of men and women, where each womon knows some of the men. Can every women marry a man she knows ?
+	\item[assignment problem] Given several job openings and applicants for one or more of these positions. Find an assignment so that maximum positions are filled ?
+	\item[optimal assignment problem] Given several job openings and applicants for one or more of these positions. The benefits of employing these applicants on those positions are also given. Find an assignment of maximum benefit to the company ?
+\end{description}
+\begin{definition}
+	\begin{description}
+		\item[matching] in $G$ is a $1$-regular\footnote{A graph $G$ is $k$-regular, if every vertex of $G$ has degree $k$.} subgraph of $G$.
+		\item[maximum matching] in $G$ is a matching of $G$ with maximum cardinality.
+		\item[perfect matching] in $G$ is a matching of cardinality $p/2$. ie, $p/2$ edges.
+		\item[maximum weight matching] in a weighted graph $G$ is a matching with maximum weight.
+	\end{description}
+\end{definition}
+\begin{definition}
+	Let $M$ be a matching in a graph $G$,
+	\begin{description}
+		\item[matched edge] is an edge in subgraph $M$ of $G$.
+		\item[unmatched edge] is an edge of $G$ that doesn't belong to $M$.
+		\item[matched vertex] with respect to $M$ is a vertex incident with an edge of $M$.
+		\item[single vertex] is a vertex that is not incident with any edge of $M$.
+		\item[alternating path] in $G$ is a path with edges alternately matched and unmatched.
+		\item[augmenting path] in $G$ is a non-trivial alternating path with single vertices as end vertices.
+	\end{description}
+\end{definition}
+\begin{theorem}
+Let $M_1,M_2$ be two matchings in $G$ such that there is a spanning subgraph $H$ of $G$ with edges that are either in $M_1$ or $M_2$, but not both. Then the components of $H$ are either \begin{enumerate*} \item isolated vertex \item even cycle with edge alternately from $M_1$ and $M_2$ \item a non-trivial path with edges alternately from $M_1$ and $M_2$ such that each end vertex is single with respect to either $M_1$ or $M_2$, but not both. \end{enumerate*}
+\end{theorem}
+\begin{theorem}
+	A matching $M$ in a graph $G$ is maximum iff there is no augmenting path with respect to $M$ in $G$.
+\end{theorem}
+\begin{definition}
+	matched, matched under, nondeficient
+\end{definition}
+\begin{theorem}
+	Let $G$ be a bipartite graph with partite sets $V_1,V_2$. The set $V_1$ can be matched to a subset of $V_2$ iff $V_1$ is nondeficient.
+\end{theorem}
+\begin{corollary}
+	Every $r$-regular bipartite multigraph has a perfect matching.
+\end{corollary}
+\begin{theorem}
+	A collection $S_1,S_2,\cdots,S_n$ of finite non-empty sets has a system of distinct representatives iff for each $k,\ 0 \le k \le n$, the union of any $k$ of these sets contains at least $k$ elements.
+\end{theorem}
+\begin{definition}
+	hall marriage problem
+\end{definition}
+\section{Maximum Matching in Bipartite Graphs}
+
+%\section{Maximum Matching in General Graphs*}
 \setcounter{section}{3}
-\section{Maximum Matching in General Graphs}
 \section{Factorizations}
 \section{Block Designs}
 
