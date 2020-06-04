@@ -18,4 +18,88 @@
 \chapter{Expressions}
 \chapter{Calculus}
 \chapter{Interpolation \& Curve Fitting}
+\begin{definition}
+	Given $(n+1)$ data points $(x_k, y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that satisfy the data points is the interpolation problem. ie, $y(x_k) = y_k,\ k = 0,1,\cdots,n$.
+\end{definition}
+\begin{definition}
+	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that is sufficiently close to the data points is the curve-fitting problem.\\ ie, Given $\epsilon > 0,\ |y(x_k)-y_k| < \epsilon,\ k = 0,1,\cdots,n$.
+\end{definition}
+\begin{remark}
+	The data could be from scientific experiments or computations on mathematical models. The interpolation problem assumes that the data is accurate. But, curve-fitting problem assumes that there are some errors involved which are sufficiently small.
+\end{remark}
+\begin{definition}
+	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a polynomial function of degree $n$ that satisfy the data points is the polynomial interpolation problem.
+\end{definition}
+\begin{remark}
+	Polynomial is the simplest interpolant.(\cite{kiusalaas} 3.2)
+\end{remark}
+
+\section{Polynomial Interpolation}
+There exists a unique polynomial of degree $n$ that satisfy $(n+1)$ distinct data points. There are a few methods to find this polynomial : 
+\begin{enumerate*}
+	\item Lagrange's method
+	\item Newton's method
+	\item Neville's method
+\end{enumerate*}. The Neville's method is out of scope.
+
+\subsection{Lagrange's Method}
+Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of degree $n$. It is quite a confusing a notation when it comes to Newton's method as author construct a psuedo-recursive definition.} is given by,
+\begin{equation}
+	P(x) = \sum_{i=0}^n y_i l_i(x),\text{ where } \l_i(x) = \prod_{j = 0,j \ne i}^n \frac{x-x_i}{x_j-x_i}
+\end{equation}
+\begin{remark}
+	Lagrange's cardinal functions $l_i$, are polynomials of degree $n$ and
+	$$l_i(x_j) = \delta_{ij} = \begin{cases} 0,\ i = j \\ 1,\ i \ne j \end{cases}$$
+\end{remark}
+\begin{proposition}
+	Error in polynomial interpolation is given by
+	\begin{equation}
+		f(x) - P(x) = \frac{(x-x_0)(x-x_1)\cdots(x-x_n)}{(n+1)!} f^{(n+1)}(\xi)
+	\end{equation}
+	where $\xi \in (x_0, x_n)$
+\end{proposition}
+\begin{remark}
+	The error increases as $x$ moves away from the unknown value $\xi$.
+\end{remark}
+
+\subsection{Newton's Method}
+The interpolation polynomial is given by,
+\begin{equation}
+	P(x) = a_0 + a_1(x-x_0) + \cdots + a_n(x-x_0)(x-x_1)\cdots(x-x_{n-1})
+\end{equation}
+where $a_i = \nabla^i y_i,\ i = 0,1,\cdots,n$.
+\begin{remark}
+	For Newton's Method, it is assumed that $x_0 < x_1 < \cdots < x_n$.
+\end{remark}
+\begin{remark}
+	 Lagrange's method is conceptually simple. But, Newton's method is computationaly more efficient than Lagrange's method.
+\end{remark}
+\subsubsection{Computing coefficients $a_i$ of the polynomial}
+The coefficients are given by,
+\begin{equation}
+	a_0 = y_0,\ a_1 = \nabla y_1,\ a_2 = \nabla^2 y_2,\ a_3 = \nabla^3 y_3,\cdots, a_n = \nabla^n y_n
+\end{equation}
+\begin{remark}
+	The divided difference $\nabla^i y_i$ are computed as follows:
+	\begin{align*}
+		\nabla y_1 = \frac{y_1 - y_0}{x_1 - x_0} & & \\
+		\nabla y_2 = \frac{y_2 - y_1}{x_2 - x_1} &\qquad \nabla^2 y_2 = \frac{\nabla y_2 - \nabla y_1}{x_2-x_1} & \\
+		\nabla y_3 = \frac{y_3 - y_2}{x_3 - x_2} &\qquad \nabla^2 y_3 = \frac{\nabla y_3 - \nabla y_2}{x_3-x_2} & \nabla^3 y_3 = \frac{\nabla^2 y_3 - \nabla^2 y_2}{x_3-x_2}
+	\end{align*}
+\end{remark}
+\begin{table}[hb]
+	\centering
+	\begin{tabular}{|c||c|c|c|c|c|}
+		\hline
+		$x_0$ & $y_0$ & & & & \\ \hline
+		$x_1$ & $y_1$ & $\nabla y_1$ & & &   \\ \hline
+		$x_2$ & $y_2$ & $\nabla y_2$ & $\nabla^2 y_2$ & &   \\ \hline
+		\dots & \dots & \dots & \dots & $\ddots$ & \\ \hline
+		$x_n$ & $y_n$ & $\nabla y_n$ & $\nabla^2 y_n$ & \dots & $\nabla^n y_n$  \\ \hline
+	\end{tabular}
+	\caption{Newton's Method $\nabla^i y_i$ Computation Table}
+\end{table}
+\subsection{Limitations of Polynomial Interpolation}
+
 \chapter{Matrix Operations}
+
