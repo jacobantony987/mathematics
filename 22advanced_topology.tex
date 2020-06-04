@@ -45,6 +45,47 @@
 
 \chapter{Nets and Filters}
 \section{Definition and Convergence of Nets}
+\begin{definition}
+	A directed set $D$ is a set with a partial order $\ge$(`follows') such that
+	\begin{enumerate}
+		\item The relation `follows'($\ge$) is transitive. ie, $m \ge n,\ n \ge p \implies m \ge p$
+		\item The relation `follows'($\ge$) is reflexive. ie, For every $m \in D,\ m \ge m$
+		\item For any $m,n \in D$, there exists $p \in D$ such that $p \ge m$ and $p \ge n$.
+	\end{enumerate}
+\end{definition}
+\begin{description}
+	\item[sequence in a set $X$] is a function $f$ from the set of all integers into $X$.
+\end{description}
+\begin{definition}
+	A net in a set $X$ is a function $S$ from a directed set $D$ into the set $X$.
+\end{definition}
+\begin{remark}
+	The set $\mathbb{N}$ together with the relation `less than or equal to'($\le$) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset $E$ of $D$ has an element $p$ such that $p$ follow each element of $E$. This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of $\mathbb{N}$ has a least element in it.}of the set of all integers. Thus $\mathbb{N}$ is a directed set and every sequence in $X$ is also a net in $X$. 
+\end{remark}
+
+\begin{remark}
+	Examples of Directed Sets
+	\begin{enumerate}
+		\item Let $X$ be a topological space and $x \in X$. Then the neighbourhood system $\mathcal{N}_x$ is a directed set with the binary relation $\subset$ (subset/inclusion).
+			\begin{enumerate}
+				\item Let $U,V,W$ be any three neighbourhoods of $x \in X$ such that $U \subset V$ and $V \subset W$. Then, clearly $U \subset W$.\\ Therefore, $U \ge V,\ V \ge W \implies U \ge W$.
+				\item Let $U$ be any neighbourhood of $x \in X$, then $U \subset U$.\\ Therefore, $U \ge U$.
+				\item Let $U,V$ be any two neighbourhoods of $x \in X$, then there exists their intersection $W = U\cap V$, which is a neighbourhood of $x$. Clearly $W \subset U$ and $W \subset V$.\\ Therefore $\forall U,V \in \mathcal{N}_x, \exists W \in \mathcal{N}_x$ such that $W \ge U$ and $W \ge V$.
+			\end{enumerate}
+		\item Let $\mathcal{P}$ be the set of all partitions on closed unit interval $[0,1]$. A partition $P \in \mathcal{P}$ is a refinement of $Q \in \mathcal{P}$ if every subinterval in $P$ is contained in some subinterval of $Q$. Then $\mathcal{P}$ with the binary relation refinement is a directed set.\\
+
+			For example, let $P = \{ 0,\ 0.3,\ 0.7,\ 1 \}$. Then the subintervals in $P$ are $[0,0.3]$, $[0.3,0.7]$ and $[0.7,1]$. Let $Q = \{ 0,\ 0.3,\ 0.5,\ 1 \}$ and $R = \{ 0,\ 0.3,\ 0.5,\ 0.7,\ 1 \}$. Then $R$ is a refinement of $P$, but $Q$ is not a refinement of $P$ since there is a subinterval $[0.5,1]$ in $Q$ which is not properly contained in any subinterval of $P$. However, $R$ is a refinement of $Q$ as well.
+			\begin{enumerate}
+				\item Suppose $P,Q,R$ are three partitions of $[0,1]$ such that $P$ is a refinement of $Q$ and $Q$ is a refinement of $R$, then clearly $P$ is a refinement of $R$ since each subinterval of $P$ is contained some subinterval of $Q$, which is contained in some subinterval of $R$.\\
+					Therefore, $P \ge Q,\ Q \ge R \implies P \ge R$
+				\item Suppose $P$ is a partition of $[0,1]$. Then trivialy, $P$ is a refinement of itself since every subinterval of $P$ is contained in the same subinterval of $P$.\\
+					Therefore, $\forall P \in \mathcal{P},\ P \ge P$
+				\item Suppose $P,Q$ be any two partition of $[0,1]$. Then $R = P \cup Q$ is a refinement of both the partitions.\\
+					Therefore $\forall P,Q \in \mathcal{P},\ \exists R \in \mathcal{P}$ such that $R \ge P$ and $R \ge Q$
+			\end{enumerate}
+	\end{enumerate}
+\end{remark}
+	
 %\section{Topology and Convergence of Nets*}
 %\section{Filters and Their Convergence*}
 %\section{Ultrafilters and Compactness*}
