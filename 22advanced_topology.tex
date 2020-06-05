@@ -46,7 +46,7 @@
 \chapter{Nets and Filters}
 \section{Definition and Convergence of Nets}
 \begin{definition}
-	A directed set $D$ is a set with a partial order $\ge$(`follows') such that
+	A directed set $D$ is a set with a binary relation $\ge$(`follows') such that
 	\begin{enumerate}
 		\item The relation `follows'($\ge$) is transitive. ie, $m \ge n,\ n \ge p \implies m \ge p$
 		\item The relation `follows'($\ge$) is reflexive. ie, For every $m \in D,\ m \ge m$
@@ -60,7 +60,12 @@
 	A net in a set $X$ is a function $S$ from a directed set $D$ into the set $X$.
 \end{definition}
 \begin{remark}
-	The set $\mathbb{N}$ together with the relation `less than or equal to'($\le$) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset $E$ of $D$ has an element $p$ such that $p$ follow each element of $E$. This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of $\mathbb{N}$ has a least element in it.}of the set of all integers. Thus $\mathbb{N}$ is a directed set and every sequence in $X$ is also a net in $X$. 
+	The set $\mathbb{N}$ together with the relation `less than or equal to'($\le$) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset $E$ of $D$ has an element $p \in E$ such that $p$ follows each element of $E$. This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of $\mathbb{N}$ has a least element in it.}of the set of all integers. Thus $\mathbb{N}$ is a directed set and every sequence in $X$ is also a net in $X$. 
+\end{remark}
+\begin{remark}[Significance of Net]
+	A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence $\mathbb{N}$ into a directed set. The notion directed set is derived by assuming a few properties of $\mathbb{N}$.\\
+
+	The convergence of sequence is not strong enough to characterise topologies as the limit of convergent sequences are unique from both Hausdorff and Co-countable spaces. The notion of Net allows us to differentiate between Hausdorff spaces from Co-countable spaces in terms of convergence of nets. The limit of a convergent net on a topological space is unique iff it is a Hausdorff space. ie, We have removed a few restrictions, so that we will have some convergent nets (which are obviously not sequences) with multiple limit points for Co-countable spaces.
 \end{remark}
 
 \begin{remark}
@@ -83,6 +88,22 @@
 				\item Suppose $P,Q$ be any two partition of $[0,1]$. Then $R = P \cup Q$ is a refinement of both the partitions.\\
 					Therefore $\forall P,Q \in \mathcal{P},\ \exists R \in \mathcal{P}$ such that $R \ge P$ and $R \ge Q$
 			\end{enumerate}
+	\end{enumerate}
+\end{remark}
+
+\begin{remark}
+	Examples of Nets
+	\begin{enumerate}
+		\item $S : \mathcal{N}_x \to X$
+		\item Riemann Net - Let $D = (\mathcal{P},\xi)$ where $\mathcal{P}$ is the set of all partitions on $[0,1]$ and $\xi$ is a finite sequence in $[0,1]$ such that consecutive terms belongs to consecutive subintervals of the partition. The set $(\mathcal{P},\xi)$ is directed set with $\ge$ given by $(P,\eta) \ge (Q,\psi)$ iff $P$ is a refinement of $Q$.\\
+			
+			For example, let $P \in \mathcal{P}$ is given by $P = \{\ 0,\ 0.3,\ 0.7,\ 1\ \}$ and $\eta = \{\ 0.2,\ 0.6,\ 0.9\ \}$. Then $(P,\eta) \in (\mathcal{P},\xi)$.\\
+
+			Let $f : \mathbb{R} \to \mathbb{R}$ be any function, then the function,
+			$$S : (\mathcal{P},\xi) \to \mathbb{R} \text{ defined by } S(P,\eta) = \sum_{j=1}^k f(\eta_k)(a_k-a_{k-1})$$
+			where $P = \{ a_0,\ a_1,\cdots,\ a_k \ \}$ is the Riemann Net with respect to the real function $f$.\\
+
+			For example, let $f(x) = x^2$ and $P,\eta$ are same as above example, then $S(P,\eta) = 0.2^2(0.3-0) + 0.6^2(0.7-0.3) + 0.9(1-0.7) = 3.99$
 	\end{enumerate}
 \end{remark}
 	
