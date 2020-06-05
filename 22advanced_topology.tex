@@ -94,7 +94,9 @@
 \begin{remark}
 	Examples of Nets
 	\begin{enumerate}
-		\item $S : \mathcal{N}_x \to X$
+		\item Let $X$ be a topological space and $x \in X$. Let $\mathcal{N}_x$ be the set of all neighbourhoods of $x$. Let $D = (\mathcal{N}_x,X)$ be the directed set given by $(N,y) \in (\mathcal{N}_x,X)$ if $N \in \mathcal{N}_x$ and $y \in N$ and $(N,y) \ge (M,z)$ if $N \subset M$. Then the function $S : (\mathcal{N}_x,X) \to X$ given by $S(N,y) = y$ is a net on $X$.\\
+
+			For example, let $X = \{ a,b,c,d \}$ and $\mathcal{T} = \{ \{a\},\ \{a,b\},\ \{a,b,c\},\ \{a,b,c,d\} \}$. Also let $S : (\mathcal{N}_b,X) \to X$ defined by $S(N,y) = y$. Suppose $C = \{a,b,c\}$. Then $C \in \mathcal{N}_b$. ie, $C$ is a neighbourhood of $b$. Then $S(C,c) = c$.
 		\item Riemann Net - Let $D = (\mathcal{P},\xi)$ where $\mathcal{P}$ is the set of all partitions on $[0,1]$ and $\xi$ is a finite sequence in $[0,1]$ such that consecutive terms belongs to consecutive subintervals of the partition. The set $(\mathcal{P},\xi)$ is directed set with $\ge$ given by $(P,\eta) \ge (Q,\psi)$ iff $P$ is a refinement of $Q$.\\
 			
 			For example, let $P \in \mathcal{P}$ is given by $P = \{\ 0,\ 0.3,\ 0.7,\ 1\ \}$ and $\eta = \{\ 0.2,\ 0.6,\ 0.9\ \}$. Then $(P,\eta) \in (\mathcal{P},\xi)$.\\
