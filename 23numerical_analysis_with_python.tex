@@ -31,7 +31,7 @@
 	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a polynomial function of degree $n$ that satisfy the data points is the polynomial interpolation problem.
 \end{definition}
 \begin{remark}
-	Polynomial is the simplest interpolant.(\cite{kiusalaas} 3.2)
+	Polynomial is the simplest interpolant.\cite[3.2]{kiusalaas}
 \end{remark}
 
 \section{Polynomial Interpolation}
@@ -97,9 +97,23 @@ The coefficients are given by,
 		\dots & \dots & \dots & \dots & $\ddots$ & \\ \hline
 		$x_n$ & $y_n$ & $\nabla y_n$ & $\nabla^2 y_n$ & \dots & $\nabla^n y_n$  \\ \hline
 	\end{tabular}
-	\caption{Newton's Method $\nabla^i y_i$ Computation Table}
+	\caption{The $\nabla^i y_i$ Computation Table}
 \end{table}
+\begin{remark}Practise Problems
+	\begin{enumerate}
+		\item Given $\{(0,7),\ (2,11),\ (3,28)\}$, interpolate $y$ at $x=1$ ?
+		\item Given $\{(-2,-1),\ (1,2),\ (4,59),\ (-1,4),\ (3,24),\ (-4,-53) \}$, find interpolation polynomial by Newton's Method ? (\cite[Example 3.2]{kiusalaas})
+	\end{enumerate}
+\end{remark}
 \subsection{Limitations of Polynomial Interpolation}
+\begin{enumerate}
+	\item Inaccuracy - The error in interpolation increases as the point moves away from most of the data points.
+	\item Oscilation - As the number of data points considered for polynomial interpolation increases, the degree of the polynomial increases. And the graph of the interpolant tend to oscilate excessively. In such cases, the error in interpolation is quite high. 
+	\item The best practice is to consider four to six data points nearest to the point of interest and ignore the rest of them.
+\end{enumerate}
+\begin{remark}
+	The interpolant obtained by joining cubic polynomials corresponding to four nearest data points each, is a cubic spline\footnote{Cubic spline is a function, the graph of which is piece-wise cubic}.
+\end{remark}
 
 \chapter{Matrix Operations}
 

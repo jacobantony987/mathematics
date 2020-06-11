@@ -109,6 +109,31 @@
 	\end{enumerate}
 \end{remark}
 	
+\begin{definition}
+	A net $S:D \to X$ converges to a point $x \in X$ if for any nbd $U$ of $x$, there exists $m \in D$ such that $n \in D,\ n \ge m \implies S(n) \in U$
+\end{definition}
+\begin{remark}
+	The choice of $m$ depends on the choice of neighbourhood $U$.
+	$$S: D \to X,\ S \to x \iff \left( \forall U \in \mathcal{N}_x,\ \exists m_U \in D,\text{ such that } n \ge m \implies S(n) \in U \right)$$
+\end{remark}
+
+\begin{theorem}
+	A topological space is Hausdorff iff limits of all nets in it are unique.
+\end{theorem}
+\begin{proof}
+	Let $X$ be a  Hausdorff space. Suppose $S : D \to X$ is net on $X$ such that $S$ converges to two distinct points $x,y \in X$.
+	Since $X$ is a Hausdorff space and $x \ne y$, there exists open sets $U,V$ such that $x \in U,\ y \in V, U \cap V = \phi$.\\
+
+	The net $S$ converges to $x \in X$, therefore $\exists m_x \in D$ such that $n \ge m_x \implies S(n) \in U$
+	And, the net $S$ converges to $y \in X$, therefore $\exists m_y \in D$ such that $n \ge m_y \implies S(n) \in V$.\\
+
+	Since $D$ is a directed set and $m_x, m_y \in D$, there exists $p \in D$ such that $p \ge m_x$ and $p \ge m_y$. Now, $n \ge p \implies n \ge m_x,\ n \ge m_y$, since $\ge$ is transitive. (ie, $n \ge p,\ p \ge m_x \implies n \ge m_x$, and $n \ge p,\ p \ge m_y \implies n \ge m_y$).\\
+
+	We have $n \ge p \implies n \ge m_x$ and $n \ge m_x \implies S(n) \in U$. Therefore, $n \ge p \implies S(n) \in U$. Similarly, $n \ge p \implies n \ge m_y \implies S(n) \in V$. Therefore $S(n) \in U \cap V$ which is a contradiction, since $U \cap V = \phi$. Therefore, if a net $S$ converges to two points $x,y$, then $x = y$. That is, if a net $S$ in a Hausdorff space $X$ is convergent then its limit is unique.\\
+
+	Conversely, suppose that $X$ is a topological space and every convergent net in $X$ has a unique limit. Suppose $X$ is not a Haudorff space. Then there exists at least two distinct points $x,y \in X$ such that every neighbourhood of $x$ intersects with every neighbourhood of $y$. Now consider the set $D = \mathcal{N}_x \times \mathcal{N}_y$ and relation $\ge$ on $D$ such that $(U_1,V_1) \ge (U_2,V_2)$ if $U_1 \subset U_2$ and $V_1 \subset V_2$.--to be continued--
+\end{proof}
+
 %\section{Topology and Convergence of Nets*}
 %\section{Filters and Their Convergence*}
 %\section{Ultrafilters and Compactness*}
@@ -118,19 +143,19 @@
 	In this chapter, we have two other notions of compactness - countable compactness and sequential compactness.\footnote{For $\mathbb{R}$, Compactness \& Sequentially compactness are equivalent to the completeness axiom.}
 
 	\begin{description}
-		\item[Compact] A topological space is compact iff every open cover of it has a finite subcover. (\cite{joshi} 6.1.1) [Heine-Borel]
-		\item[Countably Compact] A topological space is countably compact iff every countable, open cover of it has a finite subcover. (\cite{joshi} 11.1.1)
-		\item[Sequentially Compact] A topological space is sequentially compact iff every sequence in it has a convergent subsequence. (\cite{joshi} 11.1.8) [Bolzano-Weierstrass]
+		\item[Compact] A topological space is compact iff every open cover of it has a finite subcover. (\cite[6.1.1]{joshi}) [Heine-Borel]
+		\item[Countably Compact] A topological space is countably compact iff every countable, open cover of it has a finite subcover. \cite[11.1.1]{joshi}
+		\item[Sequentially Compact] A topological space is sequentially compact iff every sequence in it has a convergent subsequence. \cite[11.1.8]{joshi} [Bolzano-Weierstrass]
 	\end{description}
 
-	Countable compactness is a weaker notion compared to compactness.\footnote{Every compact space is countably compact.} However, sequentially compact and compact are not necessarily comparable.\footnote{$\mathcal{T}_1, \mathcal{T}_2$ are non-comparable, if $\mathcal{T}_1 \not\subset \mathcal{T}_2$ and $\mathcal{T}_2 \not\subset \mathcal{T}_1$.(\cite{joshi} 4.2.1)}.\\
+	Countable compactness is a weaker notion compared to compactness.\footnote{Every compact space is countably compact.} However, sequentially compact and compact are not necessarily comparable.\footnote{$\mathcal{T}_1, \mathcal{T}_2$ are non-comparable, if $\mathcal{T}_1 \not\subset \mathcal{T}_2$ and $\mathcal{T}_2 \not\subset \mathcal{T}_1$.\cite[4.2.1]{joshi}}.\\
 
 	We have seen earlier that compactness has the following properties
 \begin{enumerate*}
-	\item compactness is weakly hereditary(\cite{joshi} 6.1.10)
-	\item compactness is preserved under continuous functions(\cite{joshi} 6.1.8)
-	\item every continuous real functions on compact space is bounded and attains its extrema(\cite{joshi} 6.1.6)
-	\item every continuous real function on a compact, metric space is uniformly continuous by Lebesgue covering lemma.(\cite{joshi} 6.1.7)
+	\item compactness is weakly hereditary.\cite[6.1.10]{joshi}
+	\item compactness is preserved under continuous functions.\cite[6.1.8]{joshi}
+	\item every continuous real functions on compact space is bounded and attains its extrema.\cite[6.1.6]{joshi}
+	\item every continuous real function on a compact, metric space is uniformly continuous by Lebesgue covering lemma.\cite[6.1.7]{joshi}
 \end{enumerate*}\\
 
 	Countably compact spaces, Sequentially compact spaces have all the four properites listed above.
@@ -140,7 +165,7 @@
 	A subspace $(A,\mathcal{T}_{/_A})$ being countably compact doesn't imply that $(X,\mathcal{T})$ is countably compact. However, if $(X,\mathcal{T})$ is a countably compact space and \textsf{$A$ is a closed subset of $X$}, then $(A,\mathcal{T}_{/_A})$ is also a countably compact space. In other words, countably compactness is weakly hereditary.
 
 \begin{theorem}
-	Countable compactness is weakly hereditary.(\cite{joshi} 11.1.3)
+	Countable compactness is weakly hereditary.\cite[11.1.3]{joshi}
 \end{theorem}
 \begin{synopsis}
 	Let $A$ be a closed subset of countably compact space, $X$. If $A$ has a countable open cover $\mathcal{U}$, then we can obtain a respective countable, open cover for $X$ by attaching $X-A$ to the extensions of members of $\mathcal{U}$ to $X$. This cover has a finite subcover. Then restricting them to $A$, we get a finite subcover of $\mathcal{U}$.
@@ -164,10 +189,10 @@
 \end{remark}
 
 \subsubsection{The behaviour of countinous functions}
-	We will now study the nature of continuous functions defined on countably compact spaces. Suppose $X,Y$ are topological space and function $f : X \to Y$ is continuous. If $X$ is countably compact, then $f(X)$ is also countably compact. Continuous images of countably compact spaces are countably compact. In other words, countable compactness is preserved under continuous functions.\footnote{A topological property is preserved under continuous functions if whenever a space has that property so does every continuous image of it.(\cite{joshi} 6.1.9)}
+	We will now study the nature of continuous functions defined on countably compact spaces. Suppose $X,Y$ are topological space and function $f : X \to Y$ is continuous. If $X$ is countably compact, then $f(X)$ is also countably compact. Continuous images of countably compact spaces are countably compact. In other words, countable compactness is preserved under continuous functions.\footnote{A topological property is preserved under continuous functions if whenever a space has that property so does every continuous image of it.\cite[6.1.9]{joshi}}
 	
 \begin{theorem}
-	Countable compactness is preserved under continuous functions. (\cite{joshi} 11.1.2)
+	Countable compactness is preserved under continuous functions.\cite[11.1.2]{joshi}
 \end{theorem}
 \begin{synopsis}
 	Let $X$ be countably compact and $f:X\to Y$ be continuous. Suppose $\mathcal{U}$ is a countable cover of $f(X)$, then $X$ has a countable cover $\mathcal{V}$ obtained by taking inverse images. Since $X$ is countably compact, $\mathcal{V}$ has a finite subcover $\mathcal{V}'$. Now taking images of members of $\mathcal{V}'$, we get a finite subcover $\mathcal{U}'$ of $f(X)$.
@@ -199,10 +224,10 @@
 \end{remark}
 
 \begin{theorem}
-	Every continuous, real-valued function on a countably compact, metric space is bounded and attains its extrema.(\cite{joshi} 11.1.7)
+	Every continuous, real-valued function on a countably compact, metric space is bounded and attains its extrema.\cite[11.1.7]{joshi}
 \end{theorem}
 \begin{synopsis}
-	Let $X$ be a countably compact space and function $f : X \to \mathbb{R}$ be continuous. Then $f(X) \subset \mathbb{R}$ is countably compact. Real line $\mathbb{R}$ is metrisable\footnote{\cite{joshi} 4.2 Example 4, $\mathbb{R}$ with usual metric $d:R \to R,\ d(x,y) = |x-y|$}. Then $f(X)$ is countably compact, metric space. Therefore $f(X)$ compact\footnote{\cite{joshi} 11.1.11 On metric spaces, countable compactness $\implies$ compactness.}. The subset $f(X)$ of $\mathbb{R}$ is bounded and closed, since every compact subset of $\mathbb{R}$ is bounded and closed. Thus $f(X)$ contains its supremum and infimum. Therefore, $f$ is bounded and attains its extrema.
+	Let $X$ be a countably compact space and function $f : X \to \mathbb{R}$ be continuous. Then $f(X) \subset \mathbb{R}$ is countably compact. Real line $\mathbb{R}$ is metrisable\footnote{\cite[4.2 Example 4]{joshi}, $\mathbb{R}$ with usual metric $d:R \to R,\ d(x,y) = |x-y|$}. Then $f(X)$ is countably compact, metric space. Therefore $f(X)$ compact.\footnote{\cite[11.1.11]{joshi} On metric spaces, countable compactness $\implies$ compactness.}. The subset $f(X)$ of $\mathbb{R}$ is bounded and closed, since every compact subset of $\mathbb{R}$ is bounded and closed. Thus $f(X)$ contains its supremum and infimum. Therefore, $f$ is bounded and attains its extrema.
 \end{synopsis}
 \begin{proof}
 	Let $X$ be a countably compact space and $f : X \to \mathbb{R}$ be continuous, real-valued function on the countably compact space, $X$. We have to show that $f$ is bounded and attains its extrema.\\
@@ -228,7 +253,7 @@ Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
 %\end{proof}
 
 \begin{proposition}
-	Let $X$ be a first countable, Hausdorff space. Then every countably compact subset $A$ of $X$ is closed.(\cite{joshi} Exercises 11.1.7)
+	Let $X$ be a first countable, Hausdorff space. Then every countably compact subset $A$ of $X$ is closed.\cite[Exercises 11.1.7]{joshi}
 \end{proposition}
 %\begin{synopsis}
 %\end{synopsis}
@@ -246,7 +271,7 @@ Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
 \subsection{Sequential Compactness}
 \subsubsection{Weakly hereditary property}
 \begin{theorem}
-	Sequential compactness is weakly hereditary.(\cite{joshi} Exercises 11.1.3)
+	Sequential compactness is weakly hereditary.\cite[Exercises 11.1.3]{joshi}
 \end{theorem}
 %\begin{synopsis}
 %\end{synopsis}
@@ -255,7 +280,7 @@ Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
 
 \subsubsection{The behaviour of countinous functions}
 \begin{theorem}
-	Sequential compactness is preserved under continuous functions. (\cite{joshi} Exercises 11.1.4)
+	Sequential compactness is preserved under continuous functions.\cite[Exercises 11.1.4]{joshi}
 \end{theorem}
 \begin{synopsis}
 	Let $X$ be sequentially compact and function $f : X \to Y$ be continuous. Then any sequence, $\{y_k\}$ in $f(X)$ has a sequence, $\{x_k\}$ in $X$ such that $f(x_k) = y_k$. Sequence $\{x_k\}$ has a subsequence $\{x_{n_k}\}$ converging to $x$, then sequence $\{ f(x_n)\}$ in $f(X)$ has the subsequence $\{f(x_{n_k})\}$ converging to $f(x)$.
@@ -281,19 +306,19 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{theorem}
 
 \begin{theorem}
-	Every continuous, real-valued function on a sequentially compact, metric space is uniformly continuous.(\cite{joshi} Exercises 11.1.6)
+	Every continuous, real-valued function on a sequentially compact, metric space is uniformly continuous.\cite[Exercises 11.1.6]{joshi}
 \end{theorem}
 
 \subsection{Countable Compactness on $T_1$ spaces}
 	In this section, we are going to see four different characterisations of countable compactness in $T_1$ spaces.	The first two characterisations doesn't have anything to do with the $T_1$ axiom.
 
 \begin{description}
-	\item[$T_1$ Space] A topological space $X$ satisfy $T_1$ axiom if for any two distinct points $x,y \in X$, there exists an open set $U \subset X$ containing $x$ but not $y$.(\cite{joshi} 7.1.2)
-	\item[countable compactness] A topological space is countably compact if every countable open cover has a finite subcover.(\cite{joshi} 11.1.1)
-	\item[finite intersection property] A family $\mathcal{F}$ of subsets of $X$ has finite intersection property(f.i.p.) if every finite subfamily of $\mathcal{F}$ has a non-empty intersection.(\cite{joshi} 10.2.6)
-	\item[accumulation point] A point $x \in X$ is accumulation point of a subset $A \subset X$ if every open set containing $x$ has atleast one point of $A$ other than $x$.(\cite{joshi} 5.2.7)
-	\item[limit point] A point $x \in X$ is a limit point of a sequence $< x_k >$ in $X$ if for every open set $U$ containing $x$, there exists an integer $N \in \mathbb{N}$ such that $x_k \in U$ for every $k \ge N$.(\cite{joshi} 4.1.7)
-	\item[cluster point] A point $x \in X$ is a cluster point of a sequence $< x_k >$ in $X$ if for any neighbourhood $V$ of $x$, the sequence $< x_k >$ assumes a point in $V$ infinitely many times.\footnote{$x$ is a cluster point of $< x_k >$ if for every integer N, there exists $k > N$ such that $x_k \in V$.In other words, $< x_k >$ is frequently in $V$.(\cite{joshi} 10.1.9)}
+	\item[$T_1$ Space] A topological space $X$ satisfy $T_1$ axiom if for any two distinct points $x,y \in X$, there exists an open set $U \subset X$ containing $x$ but not $y$.\cite[7.1.2]{joshi}
+	\item[countable compactness] A topological space is countably compact if every countable open cover has a finite subcover.\cite[11.1.1]{joshi}
+	\item[finite intersection property] A family $\mathcal{F}$ of subsets of $X$ has finite intersection property(f.i.p.) if every finite subfamily of $\mathcal{F}$ has a non-empty intersection.\cite[10.2.6]{joshi}
+	\item[accumulation point] A point $x \in X$ is accumulation point of a subset $A \subset X$ if every open set containing $x$ has atleast one point of $A$ other than $x$.\cite[5.2.7]{joshi}
+	\item[limit point] A point $x \in X$ is a limit point of a sequence $< x_k >$ in $X$ if for every open set $U$ containing $x$, there exists an integer $N \in \mathbb{N}$ such that $x_k \in U$ for every $k \ge N$.\cite[4.1.7]{joshi}
+	\item[cluster point] A point $x \in X$ is a cluster point of a sequence $< x_k >$ in $X$ if for any neighbourhood $V$ of $x$, the sequence $< x_k >$ assumes a point in $V$ infinitely many times.\footnote{$x$ is a cluster point of $< x_k >$ if for every integer N, there exists $k > N$ such that $x_k \in V$.In other words, $< x_k >$ is frequently in $V$.\cite[10.1.9]{joshi}}
 \end{description}
 
 \subsubsection{Countable compactness in $T_1$ spaces}
@@ -396,7 +421,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	Every countably compact, first countable space is Sequentially compact.
 \end{theorem}
 \begin{proof}
-	Let $X$ be a countably compact, first countable space. Let $\{x_n\}$ be a sequence in $X$. By, equivalent conditions\footnote{\cite{joshi} 11.1 Conditions 1,2, and 4 are equivalent. $2 \implies 4$ without $T_1$ axiom is out of scope.} of countably compact spaces, every sequence in countably compact space $X$ has a cluster point, say $x$. We have, $X$ is first countable. Therefore, $X$ has a countable local base $\mathcal{L}$ at $x \in X$. How to construct a subsequence of $\{x_n\}$ converging to $x$ ?$\star$\footnote{\cite{joshi} Exercise 10.1.11}
+	Let $X$ be a countably compact, first countable space. Let $\{x_n\}$ be a sequence in $X$. By, equivalent conditions\footnote{\cite[11.1]{joshi} Conditions 1,2, and 4 are equivalent. $2 \implies 4$ without $T_1$ axiom is out of scope.} of countably compact spaces, every sequence in countably compact space $X$ has a cluster point, say $x$. We have, $X$ is first countable. Therefore, $X$ has a countable local base $\mathcal{L}$ at $x \in X$. How to construct a subsequence of $\{x_n\}$ converging to $x$ ?$\star$\footnote{\cite[Exercises 10.1.11]{joshi}
 \end{proof}
 
 \begin{remark}
@@ -404,14 +429,14 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{remark}
 
 \begin{theorem}
-	In a second countable space, all the three forms of compactness are equivalent.(\cite{joshi} 11.1.10)
+	In a second countable space, all the three forms of compactness are equivalent.\cite[11.1.10]{joshi}
 \end{theorem}
 \begin{proof}
 	Every second countable space is both first countable and Lindeloff. Every countably compact, Lindeloff space is countably compact. Therefore every countably compact, second countable space compact. Again, every countably compact, first countable space is sequentially compact. Therefore every countably compact, second countable space is sequentially compact. Conversely, every compact space is countably compact and every sequentially compact space is countably compact.\footnote{Countable compactness is a weaker notion than sequential compactness as well.}
 \end{proof}
 
 \begin{theorem}
-	In a metric space, all the three forms of compactness are equivalent.(\cite{joshi} 11.1.11)
+	In a metric space, all the three forms of compactness are equivalent.\cite[11.1.11]{joshi}
 \end{theorem}
 \begin{proof}
 	In a metric space each form of compactness implies second countability. And in second countable spaces, they are all equivalent.
