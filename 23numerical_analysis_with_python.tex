@@ -46,6 +46,7 @@ There exists a unique polynomial of degree $n$ that satisfy $(n+1)$ distinct dat
 Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of degree $n$. It is quite a confusing a notation when it comes to Newton's method as author construct a psuedo-recursive definition.} is given by,
 \begin{equation}
 	P(x) = \sum_{i=0}^n y_i l_i(x),\text{ where } \l_i(x) = \prod_{j = 0,j \ne i}^n \frac{x-x_i}{x_j-x_i}
+	\label{equ:lagrange}
 \end{equation}
 \begin{remark}
 	Lagrange's cardinal functions $l_i$, are polynomials of degree $n$ and
@@ -55,6 +56,7 @@ Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of de
 	Error in polynomial interpolation is given by
 	\begin{equation}
 		f(x) - P(x) = \frac{(x-x_0)(x-x_1)\cdots(x-x_n)}{(n+1)!} f^{(n+1)}(\xi)
+		\label{equ:error}
 	\end{equation}
 	where $\xi \in (x_0, x_n)$
 \end{proposition}
@@ -66,6 +68,7 @@ Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of de
 The interpolation polynomial is given by,
 \begin{equation}
 	P(x) = a_0 + a_1(x-x_0) + \cdots + a_n(x-x_0)(x-x_1)\cdots(x-x_{n-1})
+	\label{equ:newton}
 \end{equation}
 where $a_i = \nabla^i y_i,\ i = 0,1,\cdots,n$.
 \begin{remark}
@@ -101,12 +104,13 @@ The coefficients are given by,
 \end{table}
 
 \begin{remark}
-	Practise Problems
+	Practise Problems\\
+	Find interpolation polynomial for the following data points :
 	\begin{enumerate}
 		\item $\{(0,7),\ (2,11),\ (3,28)\}$\\ \cite[Example 3.1]{kiusalaas}
 		\item $\{(-2,-1),\ (1,2),\ (4,59),\ (-1,4),\ (3,24),\ (-4,-53) \}$\\ \cite[Example 3.2]{kiusalaas}
 		\item $\{(-1.2,-5.76),\ (0.3,-5.61),\ (1.1,-3.69)\}$\\ \cite[Problem Set 3.1.1]{kiusalaas}
-		\item $\{(0,-1.00),\ (0.5,1.75),\ (1,4.00),\ (1.5,5.75),\ (2,7.00)\}$\\ \cite[Problem Set 3.1.4]{kiusalaas}
+	%	\item $\{(0,-1.00),\ (0.5,1.75),\ (1,4.00),\ (1.5,5.75),\ (2,7.00)\}$\\ \cite[Problem Set 3.1.4]{kiusalaas}
 		\item $\{(-2,-1),\ (1,2),\ (4,59),\ (-1,4),\ (3,24),\ (-4,-53)\}$\\ \cite[Problem Set 3.1.6]{kiusalaas}
 		\item $\{(-3,0),\ (2,5),\ (-1,-4),\ (3,12),\ (1,0)\}$\\ \cite[Problem Set 3.1.7]{kiusalaas}
 		\item $\{(0,1.225),(3,0.905),(6,0.652)\}$\\ \cite[Problem Set 3.1.9]{kiusalaas}
@@ -114,11 +118,17 @@ The coefficients are given by,
 \end{remark}
 
 \begin{remark}
+	In Lagrange's Method, we can interpolate at the given point even without computing the polynomial. In Newton's method, we have to compute polynomial and then interpolate for the given point.\\
+
+	That is, evaluate the value of cardinal polynomials at the point and substitute in Equation \ref{equ:lagrange} as shown in Section 3.2.\cite[Example 3.1]{kiusalaas}
+\end{remark}
+
+\begin{remark}
 	Programming Problems
 	\begin{enumerate}
 %		\item $\{(4.0,-0.06604),\ (3.9,-0.02724),\ (3.8,0.01282),\ (3.7,0.05383)\}$\\ \cite[Example 3.3]{kiusalaas}
-		\item $\{(0.15,4.79867),\ (2.30,4.49013),\ (3.15,4.2243),\ (4,85,3.47313),\ (6.25,2.66674),\ (7.95,1.51909)\}$\\ \cite[Example 3.4]{kiusalaas}
-		\item $\{(0,1.8421),\ (0.5,2.4694),\ (1,2.4921),\ (1.5,1.9047),\ (2,0.8509),\ (2.5,-0.4112),\ (3,-1.5727)\}$\\ \cite[Problem Set 3.1.2]{kiusalaas}
+		\item $\{(0.15,4.79867),\ (2.30,4.49013),\ (3.15,4.2243),\ (4,85,3.47313),\\ (6.25,2.66674),\ (7.95,1.51909)\}$ \cite[Example 3.4]{kiusalaas}
+%		\item $\{(0,1.8421),\ (0.5,2.4694),\ (1,2.4921),\ (1.5,1.9047),\ (2,0.8509),\ (2.5,-0.4112),\ (3,-1.5727)\}$\\ \cite[Problem Set 3.1.2]{kiusalaas}
 		\item $\{(0,-0.7854),\ (0.5,0.6529),\ (1,1.7390),\ (1.5,2.2071),\ (2,1.9425)\}$\\ \cite[Problem Set 3.1.5]{kiusalaas}
 	\end{enumerate}
 \end{remark}
