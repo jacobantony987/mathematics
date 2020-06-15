@@ -123,6 +123,86 @@ The coefficients are given by,
 	That is, evaluate the value of cardinal polynomials at the point and substitute in Equation \ref{equ:lagrange} as shown in Section 3.2.\cite[Example 3.1]{kiusalaas}
 \end{remark}
 
+\subsection{Implementation of Newton's Method}
+
+\begin{program}Computing Coefficients
+	\begin{python}
+		def coefficients(xData,yData):
+			m = len(xData)
+			a = yData.copy()
+			for k in range(1,m):
+				a[k:m] = (a[k:m]-a[k-1])/(xData[k:m]-xData[k-1])
+			return a
+	\end{python}
+	Line 1 : \textbf{Defines a function which takes two arguments/parameters, named $xData$ and $yData$.} In \cite[3.2]{kiusalaas}, you will find coeffts which I have changed to coefficients. $xData$,$yData$ are numpy array objects. $xData$ is a array with values $x_0,x_1,\cdots,x_n$. And $yData$ is array with values $y_0,y_1,\cdots,y_n$. For example, the value of $x_3$ can be accessed as $xData[3]$.\\
+	
+	Line 2 : \textbf{The functon $len()$ is extended by numpy to give the length of array objects.} In this context, $len(xData)$ will return the value $n+1$, since there are $n+1$ values in $xData$ array.\\
+
+	Line 3 : We need a copy of $yData$ to work with. Unlike other programming languages like java, in python $a = yData$ will assign a new label $a$ to the same memory location and manipulating $a$ will corrupt the original data in $yData$ as well. In order to avoid this, we are \textbf{making a copy of the array object using the array method provided by the numpy library.}\\
+
+	Line 4 : \textbf{This is a python loop statement. This ask python interpreter to repeat the following sub-block $m-1$ times.}\footnote{Python block is a group of statement with same level of indentation. A sub-block is a block with an additional indentation.} In this context, Line 5 will be executed $n$ times, since the $range(1,m)$ object is a list-type object with values $1,2,\cdots,m-1$. And intepreter executes Line 5 for each values in the $range()$ object, ie, $k=1,2,\cdots, m-1$ before interpreting Line 6.\\
+
+	Line 5 : This is very nice feature available in python. \textbf{This statement, evaluates $m-k$ values in a single step.ie, $a[k],a[k+1],\cdots,a[m]$. This calculation corresponds to subsequent columns of the divided difference table, that we are familiar with.} For example, executing Line 5 with $k=3$ is same as evaluating the $\nabla^3y_j$ column. Note that the value $a[0]$ is never updated and similarly $a[2]$ changes when Line 5 is executed with $k=1,2$. From column 3 onward, $a[2]$ is not updated. Therefore, \textbf{after completing $n$th executing of the Line 5, we have $a[0] = y_0,\ a[1]=\nabla y_1,\ a[2]=\nabla^2 y_2,\cdots,\ a[n]=\nabla^n y_n$.}\\
+
+	Line 6 : \textbf{This returns the array $a$ which is the array of coefficients.}\\
+
+	The logic of this program is in Line 4 and Line 5. So they need more explanation/understanding than anything else.
+\end{program}
+
+\begin{program}Interpolating using Newton's Method
+	\begin{python}
+		def interpolate(a,xData,x):
+			n = len(xData)-1
+			p = a[n]
+			for k in range(1,n+1):
+				p = a[n-k]+(x-xData[n-k])*p
+			return p
+	\end{python}
+	The logic this program is in Line 3, Line 4 and Line 5.\\
+
+	Line 3 : We initialize the polynomial with the coefficient $a[n] = \nabla^n y_n = a_n$.\\
+
+	Line 4 : We are going define the polynomial recursively. This takes exactly $n$ steps further. So we use a loop which repeats $n$ times.\\
+
+	Line 5 : The value of $p$ and $k$ changes each time Line 5 is executed. Let $P_j$ be the value in $p$ after executing Line 5 with $k=j$. Then,\\ $P_0 = p = a[n]$\\ $P_1 = a[n-1]+(x-x_{n-1})P_0$\\ $P_2 = a[n-2]+(x-x_{n-2})P_1$\\ $\vdots$\\ $P_n = a[0]+(x-x_0)P_{n-1}$.\\ Clearly, $P_n$ is the unique $n$ degree polynomial given by the Newton's method.
+\end{program}
+
+\begin{program}How to interpolate ?
+	\begin{python}
+		from numpy import array
+		xData = ([-2,1,4,-1,3,-4]) #change as needed
+		yData = ([-1,2,59,4,24,-53]) #change as needed
+		a = coefficients(xData,yData)
+		print(interpolate(a,xData,2))
+	\end{python}
+
+	You will have to define both the functions (coefficients, interpolate) before doing this.\\
+
+	Line 1 : For defining array objects, we need to import them from numpy library.\\
+
+	Line 2 : You can change this line according to the first component of the given data points.\\
+
+	Line 3 : You can change this line according to the second component of the given data points.\\
+
+	Line 4 : Call function \texttt{coefficients} and store the array returned into a\\
+
+	Line 5 : Call function \texttt{interpolate} to interpolate at $x = 2$ and print the value $P(2)$
+\end{program}
+
+\begin{program}[Just for Fun]
+	We can do more using sympy !
+	\begin{python}
+		from numpy import array
+		from sympy import Symbol
+		xData = ([-2,1,4,-1,3,-4])
+		yData = ([-1,2,59,4,24,-53])
+		a = coefficients(xData,yData)
+		x = Symbol('x')
+		p = interpolate(a,xData,x)
+		p.subs({x:2})
+	\end{python}
+\end{program}
+
 \begin{remark}
 	Programming Problems
 	\begin{enumerate}
