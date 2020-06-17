@@ -170,8 +170,8 @@ The coefficients are given by,
 \begin{program}How to interpolate ?
 	\begin{python}
 		from numpy import array
-		xData = ([-2,1,4,-1,3,-4]) #change as needed
-		yData = ([-1,2,59,4,24,-53]) #change as needed
+		xData = array([-2,1,4,-1,3,-4]) #change as needed
+		yData = array([-1,2,59,4,24,-53]) #change as needed
 		a = coefficients(xData,yData)
 		print(interpolate(a,xData,2))
 	\end{python}
@@ -194,8 +194,8 @@ The coefficients are given by,
 	\begin{python}
 		from numpy import array
 		from sympy import Symbol
-		xData = ([-2,1,4,-1,3,-4])
-		yData = ([-1,2,59,4,24,-53])
+		xData = array([-2,1,4,-1,3,-4])
+		yData = array([-1,2,59,4,24,-53])
 		a = coefficients(xData,yData)
 		x = Symbol('x')
 		p = interpolate(a,xData,x)
