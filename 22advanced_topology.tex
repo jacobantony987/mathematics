@@ -45,7 +45,7 @@
 
 \chapter{Nets and Filters}
 \section{Definition and Convergence of Nets}
-\begin{definition}
+\begin{definition}[Directed Set]\cite[10.1.1]{joshi}\\
 	A directed set $D$ is a set with a binary relation $\ge$(`follows') such that
 	\begin{enumerate}
 		\item The relation `follows'($\ge$) is transitive. ie, $m \ge n,\ n \ge p \implies m \ge p$
@@ -53,15 +53,19 @@
 		\item For any $m,n \in D$, there exists $p \in D$ such that $p \ge m$ and $p \ge n$.
 	\end{enumerate}
 \end{definition}
+
 \begin{description}
 	\item[sequence in a set $X$] is a function $f$ from the set of all integers into $X$.
 \end{description}
-\begin{definition}
+
+\begin{definition}[Net]\cite[10.1.2]{joshi}\\
 	A net in a set $X$ is a function $S$ from a directed set $D$ into the set $X$.
 \end{definition}
+
 \begin{remark}
 	The set $\mathbb{N}$ together with the relation `less than or equal to'($\le$) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset $E$ of $D$ has an element $p \in E$ such that $p$ follows each element of $E$. This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of $\mathbb{N}$ has a least element in it.}of the set of all integers. Thus $\mathbb{N}$ is a directed set and every sequence in $X$ is also a net in $X$. 
 \end{remark}
+
 \begin{remark}[Significance of Net]
 	A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence into a directed set. The notion directed set is derived by assuming a few properties of $\mathbb{N}$.\\
 
@@ -109,15 +113,16 @@
 	\end{enumerate}
 \end{remark}
 	
-\begin{definition}
-	A net $S:D \to X$ converges to a point $x \in X$ if for any nbd $U$ of $x$, there exists $m \in D$ such that $n \in D,\ n \ge m \implies S(n) \in U$
+\begin{definition}[Convergence of a Net]\cite[10.1.3]{joshi}\\
+	A net $S:D \to X$ converges to a point $x \in X$ if for any nbd $U$ of $x$, there exists $m \in D$ such that $n \in D,\ n \ge m \implies S(n) \in U$. And $x$ is a limit of the net $S$.
 \end{definition}
+
 \begin{remark}
 	The choice of $m$ depends on the choice of neighbourhood $U$.
-	$$S: D \to X,\ S \to x \iff \left( \forall U \in \mathcal{N}_x,\ \exists m_U \in D,\text{ such that } n \ge m \implies S(n) \in U \right)$$
+	$$S: D \to X,\ S \to x \iff \left( \forall U \in \mathcal{N}_x,\ \exists m_U \in D,\text{ such that } n \ge m_U \implies S(n) \in U \right)$$
 \end{remark}
 
-\begin{theorem}
+\begin{theorem}[Net characterisation of Hausdorff space]\cite[10.1.4]{joshi}\\
 	A topological space is Hausdorff iff limits of all nets in it are unique.
 \end{theorem}
 \begin{proof}
@@ -131,7 +136,107 @@
 
 	We have $n \ge p \implies n \ge m_x$ and $n \ge m_x \implies S(n) \in U$. Therefore, $n \ge p \implies S(n) \in U$. Similarly, $n \ge p \implies n \ge m_y \implies S(n) \in V$. Therefore $S(n) \in U \cap V$ which is a contradiction, since $U \cap V = \phi$. Therefore, if a net $S$ converges to two points $x,y$, then $x = y$. That is, if a net $S$ in a Hausdorff space $X$ is convergent then its limit is unique.\\
 
-	Conversely, suppose that $X$ is a topological space and every convergent net in $X$ has a unique limit. Suppose $X$ is not a Haudorff space. Then there exists at least two distinct points $x,y \in X$ such that every neighbourhood of $x$ intersects with every neighbourhood of $y$. Now consider the set $D = \mathcal{N}_x \times \mathcal{N}_y$ and relation $\ge$ on $D$ such that $(U_1,V_1) \ge (U_2,V_2)$ if $U_1 \subset U_2$ and $V_1 \subset V_2$.--to be continued--
+	Conversely, suppose that $X$ is a topological space and every convergent net in $X$ has a unique limit. Suppose $X$ is not a Haudorff space. Then there exists at least two distinct points $x,y \in X$ such that every neighbourhood of $x$ intersects with every neighbourhood of $y$. Now consider the set $D = \mathcal{N}_x \times \mathcal{N}_y$ and relation $\ge$ on $D$ such that $(U_1,V_1) \ge (U_2,V_2)$ if $U_1 \subset U_2$ and $V_1 \subset V_2$.\\
+
+	By the axiom of choice, a function $S : D \to X$ such that $S(U,V) \in U\cap V$ is well defined, since every nbd of $x$ intersects every nbd of $y$. Thus, $S$ is a net in $X$. We claim that $S$ converges to both $x$ and $y$.\\
+
+	Let $U$ be a nbd of $x$. Then $S(U',V') \in U' \cap V'$. We have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies U' \subset U$. Then, $S(U',V' \in U' cap V' \subset U \cap X = U$. Thus, for any nbd $U$ containing $x$, we have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies S(U',V') \in U$. Therefore, $S$ converges to $x \in X$.\\
+	
+	Similarly, Let $V$ be a nbbd of $y$. Then for any nbd $V$ containing $y$, we have $(X,V) \in D$ such that $(U',V') \ge (X,V) \implies S(U',V') \in V$, since $S(U',V') \in U' \cap V' \subset X \cap V = V$. Therefore, $S$ converges to $y \in X$ as well, where $x \ne y$. This is a contradition to the assumption that every convergent net in $X$ has a unique limit. Therefore, for any two points $x,y \in X$, there should be some nbd of $x$ that doesn't intersect some nbd of $y$. Therefore, $X$ is a Hausdorff space.
+\end{proof}
+
+\begin{definition}[Eventual Subset]\cite[10.1.5]{joshi}\\
+	A subset $E$ of a directed set $D$ is an eventual subset of $D$ if there exists $m \in D$ such that $n \ge m \implies n \in E$.
+\end{definition}
+
+\begin{remark}
+	Let $E$ be an eventual subset of $D$ such that $n \ge m \implies n \in E$. Then $p \in E \not\!\!\!\implies p \ge m$. ie, Subset $E$ may contain elements that doesn't follow the above $m$.
+\end{remark}
+
+\begin{remark}\cite[10.1.6]{joshi}\\
+	Let $E$ be an eventual subset of $D$, then $E$ is a directed set.
+	\begin{enumerate}
+		\item $m,n,p \in E,\ m \ge n,\ n \ge p \implies m,n,p \in D,\ m \ge n,\ n \ge p \implies m \ge p$
+		\item $m \in E \implies m \in D \implies m \ge m$
+		\item $m,n \in E \implies m,n \in D \implies \exists p \in D$ such that $p \ge m$ and $\ \ge n$.\\
+			Since $E$ is eventual, $\exists m' \in D$ such that $n' \ge m' \implies n' \in E$.\\
+			Also, $p,m' \in D$, $\exists p' \in D$ such that $p' \ge p$ and $p' \ge m'$.(Condition 3)\\
+			Since, $E$ is eventual subset of $D$ with respect to $m'$, $p' \ge m' \implies p' \in E$.\\
+			And since $p' \ge p,\ p \ge m \implies p' \ge m$ and $p' \ge p,\ p \ge n \implies p' \ge n$.\\
+			Therefore $\forall m,n \in E,\ \exists p' \in E$ such that $p' \ge m$ and $p' \ge n$.
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}[Net eventually in $A$]\cite[10.1.5]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Then $S$ is eventually in subset $A$ of $X$ if $S^{-1}(A)$ is an eventual subset of $D$.
+\end{definition}
+
+\begin{remark}
+	Let $S : D \to X$ be a net in $X$. Then $S$ converges to $x \in X$ if $S$ is eventually in each nbd $U$ of $x$.
+\end{remark}
+
+\begin{definition}[Cofinal subset]\cite[10.1.7]{joshi}\\
+	A subset $F$ of a directed $D$ is a cofinal subset of $D$ if for any $m \in D$, there exists $n \in F$ such that $n \ge m$.
+\end{definition}
+
+\begin{remark}\cite[10.1.8]{joshi}\\
+	Let $F$ be a cofinal subset of $D$, then $F$ is a directed set.
+	\begin{enumerate}
+		\item $m,n,p \in F,\ m \ge n,\ n \ge p \implies m,n,p \in D,\ m \ge n,\ n \ge p \implies m \ge p$
+		\item $m \in F \implies m \in D \implies m \ge m$
+		\item $m,n \in F \implies m,n \in D \implies \exists p \in D$ such that $p \ge m$ and $\ \ge n$.\\
+			Since $E$ is cofinal, $p \in D \implies \exists p' \in F$ such that $p' \ge p$.\\
+			And since $p' \ge p,\ p \ge m \implies p' \ge m$ and $p' \ge p,\ p \ge n \implies p' \ge n$.\\
+			Therefore $\forall m,n \in F,\ \exists p' \in F$ such that $p' \ge m$ and $p' \ge n$.
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}[Net frequently in $A$]\cite[10.1.7]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Then $S$ is frequently in subset $B$ of $X$ if $S^{-1}(B)$ is a cofinal subset of $D$.
+\end{definition}
+
+\begin{proposition}\cite[10.1.6]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Let $E$ be an eventual subset of $D$. Then, $S$ converges to $x$ iff $S_{/_E}$ converges to $x$.\cite[10.1.6]{joshi}
+\end{proposition}
+\begin{proof}
+	Let $S : D \to X$ be a net in $X$, $E$ be an eventual subset of $D$, and $x \in X$. Then, $S_{/_E} : E \to X$ is defined by $n \in E \implies S_{/_E}(n) = S(n)$\\
+	
+	Suppose $S$ converges to $x$. Let $U$ be a nbd of $x$, then $S$ is eventually in $U$. ie, $S^{-1}(U)$ is an eventual subset of $D$. Then $\exists m \in D$ such that $n \ge m \implies n \in S^{-1}(U) \implies S(n) \in U$. Since set $E$ is eventual subset of $D$, $\exists m' \in D$ such that $n \ge m' \implies n \in E$.\\
+	
+	Since $E$ is a directed set, $S_{/_E} : E \to X$ is a net in $X$. And $m,m' \in D \implies \exists p \in D$ such that $p \ge m$ and $p \ge m'$. We have, $p \ge m' \implies p \in E$. And $n \ge' p \implies n \ge p,\ p \ge m \implies n \ge m \implies S(n) \in U \implies S_{/_E}(n) \in U$. Therefore, $n \ge' p \implies S_{/_E}(n) \in U$. Since $U$ is arbitrary, $S_{/_E}$ converges to $x$.\\
+
+	Conversely, suppose that $S_{/_E}$ converges to $x$. Let $U$ be a nbd of $x$, then $S_{/_E}$ is eventually in $U$. ie, $S_{/_E}^{-1}(U)$ is an eventual subset of $D$. ie, $\exists m \in D$ such that $n \ge m \implies n \in S_{/_E}^{-1}(U) \implies S_{/_E}(n) \in U \implies S(n) \in U$. Therefore, $n \ge m \implies S(n) \in U$. Since, $U$ is arbitrary, $S$ converges to every nbd of $x$. ie, $S$ converges to $x$.
+\end{proof}
+
+\begin{proposition}\cite[10.1.8]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Let $F$ be a cofinal subset of $D$. If $S$ converges to $x$, then $S_{/_F}$ converges to $x$.
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[Cluster point]\cite[10.1.9]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$, if $S$ is frequently in each nbd $U$ of $x$ in $X$.
+\end{definition}
+
+\begin{proposition}\cite[10.1.10]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster points of $X$, if $S_{/_F}$ converges to $x$ for some cofinal subset $F$ of $D$.
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[Subnet]\cite[10.1.11]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Then a net $T : E \to X$ in $X$, is a subnet of $S$ if there exists a function $N : E \to D$ such that $S \circ N = T$ and $\forall m \in D,\ \exists p \in E$ such that $n \ge' p \implies N(n) \ge m$.
+\end{definition}
+
+\begin{remark}[True ?].\\
+	A net $T : E \to X$ is a subnet of $S : D \to X$ if $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
+	A net $T : E \to X$ is a subnet of $S : D \to X$. If $T$ eventually in $A$ subset of $X$, then $S$ is frequently in $A$.
+\end{remark}
+
+\begin{proposition}\cite[10.1.12]{joshi}\\
+	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$ iff there exists a subnet of $S$ which converges to $x$.
+\end{proposition}
+\begin{proof}
 \end{proof}
 
 %\section{Topology and Convergence of Nets*}
