@@ -46,7 +46,7 @@
 \chapter{Nets and Filters}
 \section{Definition and Convergence of Nets}
 \begin{definition}[Directed Set]\cite[10.1.1]{joshi}\\
-	A directed set $D$ is a set with a binary relation $\ge$(`follows') such that
+	A directed set $D$ is a pair $(D,\ge)$ where $D$ is a nonempty set and  $ge$ is a binary relation on $D$ such that
 	\begin{enumerate}
 		\item The relation `follows'($\ge$) is transitive. ie, $m \ge n,\ n \ge p \implies m \ge p$
 		\item The relation `follows'($\ge$) is reflexive. ie, For every $m \in D,\ m \ge m$
@@ -212,7 +212,14 @@
 	Let $S : D \to X$ be a net in a topological space $X$. Let $F$ be a cofinal subset of $D$. If $S$ converges to $x$, then $S_{/_F}$ converges to $x$.
 \end{proposition}
 \begin{proof}
+	Let $S : D \to X$ be a net in $X$ and $S$ converges to $x \in X$. Also let $F$ be a cofinal subset of $D$. Then $S_{/_F}$ is also a net in $X$, since $(F,\ge')$ is a directed set where $\forall m,n \in F,\ m \ge n \implies m \ge' n$.\\
+
+	Since $S$ converges to $x$, for any nbd $U$ of $x$, $\exists m \in D$, such that $n \ge m \implies S(n) \in U$. Since $F$ is cofinal, $\exists p \in F$ such that $p \ge m$. Thus $n \ge' p \implies n \ge p,\ p \ge m \implies n \ge m \implies S(n) \in U \implies S_{/_F}(n) \in U$. Therefore, $\exists p \in F$ such that $n \ge' p \implies S_{/_F}(n) \in U$. Since $U$ is arbitrary, $S_{/_F}$ is eventually in every nbd of $x$. ie, $S_{/_F}$ converges to $x$.
 \end{proof}
+
+\begin{remark}
+	But converse of the above is not true. $S_{/_F}$ converges to $x$ does not imply that $S$ converges to $x$, since cofinal subset $F$ not necessarily contain every element following a particular $m$.
+\end{remark}
 
 \begin{definition}[Cluster point]\cite[10.1.9]{joshi}\\
 	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$, if $S$ is frequently in each nbd $U$ of $x$ in $X$.
@@ -222,13 +229,18 @@
 	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster points of $X$, if $S_{/_F}$ converges to $x$ for some cofinal subset $F$ of $D$.
 \end{proposition}
 \begin{proof}
+	Let $S : D \to X$ be a net in $X$ and $(F,\ge')$ be a cofinal subset of $(D,\ge)$. Then $S_{/_F}$ is also a net in $X$. Suppose $S_{/_F}$ converges to $x \in X$. Let $U$ be a nbd of $x$, then $\exists m \in F$ such that $n \ge' m \implies S_{/_F}(n) \in U$.\\
+
+	Let $m' \in D$. Then $\exists p' \in F$ such that $p' \ge m'$, since $F$ is a cofinal subset of $D$. We have, $m,p' \in F$, then $\exists p \in F$ such that $p \ge' m$ and $p \ge' p'$. Since $F \subset D$, we have $p,m \in F \implies p,m \in D$ and $p \ge' m \implies p \ge m$.\\
+	
+	Also $p \ge' m \implies S_{/_F}(p) \in U \implies S(p) \in U$. Therefore, $\forall m' \in D,\ \exists p \in D$ such that $p \ge m'$ and $S(p) \in U$. Since $U,m'$ are arbitrary, $S$ is frequently in every nbd of $x$. ie, $x$ is a cluster point of $S$.
 \end{proof}
 
 \begin{definition}[Subnet]\cite[10.1.11]{joshi}\\
 	Let $S : D \to X$ be a net in a topological space $X$. Then a net $T : E \to X$ in $X$, is a subnet of $S$ if there exists a function $N : E \to D$ such that $S \circ N = T$ and $\forall m \in D,\ \exists p \in E$ such that $n \ge' p \implies N(n) \ge m$.
 \end{definition}
 
-\begin{remark}[True ?].\\
+\begin{remark}
 	A net $T : E \to X$ is a subnet of $S : D \to X$ if $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
 	A net $T : E \to X$ is a subnet of $S : D \to X$. If $T$ eventually in $A$ subset of $X$, then $S$ is frequently in $A$.
 \end{remark}
@@ -237,6 +249,20 @@
 	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$ iff there exists a subnet of $S$ which converges to $x$.
 \end{proposition}
 \begin{proof}
+	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
+
+	We have, $T$ is a subnet of $S$. Then $\exists N : E \to D$ such that\\
+	$\forall m' \in D,\ \exists p \in E$ such that $n \ge' p \implies N(n) \ge m'$.\\
+	And $p \ge' p \implies N(p) = p' \ge m'$ and $S(p') = S(N(p)) = T(p) \in T(E)$.\\
+	Therefore, $\forall m' \in D$, $\exists p' \in D$ such that $S(p') \in T(E)$.\\
+	Thus $S$ is frequently in $T(E)$.\\
+
+	We have, $T$ converges to $x$. ie, $T$ is eventually in each nbd $U$ of $x$. Therefore, $S$ is frequently in each nbd $U$ of $x$. ie, $x$ is a cluster point of $S$.\\
+
+	We have, $T$ converges to $x$.\\
+	Thus for each nbd $U$ of $x$, $\exists m \in E$ such that $n \ge' m \implies T(n) \in U$.\\
+	Also, $m' \in D \implies \exists p \in E$ such that $n \ge' p \implies N(n) \ge m'$.\\
+	We have, $m,p \in E \implies \exists q \in E$ such that $q \ge' m$ and $q \ge' p$.
 \end{proof}
 
 %\section{Topology and Convergence of Nets*}
@@ -478,7 +504,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	In this document, we will see that from metric space point of view these two notions were equivalent to the compactness and were used alternatively. For example : in functional analysis (semester 3), you will find definitions like `a normed space is compact iff every sequence in it has a convergent subsequence', which is clearly sequential compactness for a topologist.
 
 \begin{description}
-	 \item[Lindeloff] A topological space is Lindeloff iff every open cover has a countable subcover.
+	\item[Lindeloff] A topological space is Lindeloff iff every open cover has a countable subcover.
 	\item[First countable] A topological space is first countable iff every point in it has a countable local base.
 	\item[Second countable] A topological space is second countable iff it has a countable base.
 	\item[Base] A family of subsets $\mathcal{B}$ of $X$ is a base of a topological space if every open set can be expressed as union of some members of $\mathcal{B}$
