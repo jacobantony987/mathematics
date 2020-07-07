@@ -232,22 +232,30 @@
 \end{definition}
 
 \begin{remark}
-	$g = \mathcal{K}f \implies f = \mathcal{K}^{-1} g$. And Inverse Fourier Transform is given by
-	$$f(x) = \lim_{\alpha \to \infty} \frac{1}{2\pi}\int_{-\alpha}^\alpha g(u) e^{ixu} du$$
+	Integral transforms(operators) are linear operators.\\
+	 ie, $\mathscr{K}(af_1 + bf_2) = a\mathscr{K}f_1 + b\mathscr{K}f_2$
 \end{remark}
 
+\begin{remark} A few commonly used integral transforms,
 \begin{enumerate}
-	\item Exponential Fourier Transform,
+	\item Exponential Fourier Transform $\mathscr{F}$,
 		$$\int_{-\infty}^\infty e^{ixy}f(x)\ dx$$
 	\item Fourier Cosine Transform,
 		$$\int_0^\infty \cos xy f(x)\ dx$$
 	\item Fourier Sine Transform,
 		$$\int_0^\infty \sin xy f(x)\ dx$$
-	\item Laplace Transform,
+	\item Laplace Transform $\mathscr{L}$,
 		$$\int_0^\infty e^{-xy} f(x)\ dx$$
 	\item Mellin Transform,
 		$$\int_0^\infty x^{y-1}f(x)\ dx$$
 \end{enumerate}
+\end{remark}
+
+\begin{remark}
+	$g = \mathscr{F}f \implies f = \mathscr{F}^{-1} g$.\\
+	$$f(x) = \lim_{\alpha \to \infty} \frac{1}{2\pi}\int_{-\alpha}^\alpha g(u) e^{ixu} du$$
+	is the formula for \textbf{inverse fourier integral transformation}.
+\end{remark}
 
 \chapter{Multivariate Differential Calculus}
 \chapter{Implicit Functions and Extremum Problems}
