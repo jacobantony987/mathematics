@@ -478,10 +478,16 @@
 \begin{theorem}
 	Let $M_1,M_2$ be two matchings in $G$ such that there is a spanning subgraph $H$ of $G$ with edges that are either in $M_1$ or $M_2$, but not both. Then the components of $H$ are either \begin{enumerate*} \item isolated vertex \item even cycle with edge alternately from $M_1$ and $M_2$ \item a non-trivial path with edges alternately from $M_1$ and $M_2$ such that each end vertex is single with respect to either $M_1$ or $M_2$, but not both. \end{enumerate*}
 \end{theorem}
+\begin{synopsis}
+	$\Delta(H) \le 2$ by Pigeonhole principle. Any component of $H$ is either a path or a cycle. A cycle with edge alternately from $M_1$ and $M_2$ is even. If an end vertex of a non-trivial path is matched with respect to $M_1$(WLOG), then it is there in $M_1-M_2$ ie, it is not there in $M_2$. If there is another edge in $M_2$ incident with it, then it has to be in $H$ and it will cease to be an end vertex of path component. Therefore, it is unmatched with respect to $M_2$.
+\end{synopsis}
 
 \begin{theorem}
 	A matching $M$ in a graph $G$ is maximum iff there is no augmenting path with respect to $M$ in $G$.
 \end{theorem}
+\begin{synopsis}
+	If $M$ is maximum matching and $P$ an $M$-augmenting path. Since both end-vertices are single, length of $P$ is odd. Let $M',M''$ be edges of $P$ which are in $M$ and not in $M$ respectively. Then $M - M' + M''$ is a matching of cardinality one greater than that of $M$ which is a contradiction since $M$ is maximum. Conversely, suppose $M$ be a matching such that there no $M$-augmenting paths in $G$. Let $M'$ be a maximum matching in $G$. Then a nontrivial path component of the graph induced by $M \Delta M'$ is of even length otherwise both end-vertices are matched with respect to one of the matching $M$ or $M'$ which is a contradiction. Again every cycle components are even. Therefore $|M| = |M'|$, since $M \Delta M'$ doesn't have a nontrivial component of another kind.
+\end{synopsis}
 
 \begin{definition}
 	Let $U_1,U_2$ be two nonempty, disjoint, subsets of the vertex set of a graph $G$. Then \textbf{$U_1$ is matched to $U_2$} if there exists a matching $M$ in $G$ such that every edge in $M$ incident with a vertex in $U_1$ and a vertex in $U_2$. And every vertex of $U_1$ (or $U_2$) is incident with some edge in $M$. Suppose $M^*$ be a matching such that $M \subset M^*$, then \textbf{$U_1$ is matched under $M^*$ to $U_2$}.
