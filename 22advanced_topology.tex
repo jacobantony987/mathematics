@@ -248,22 +248,40 @@
 \begin{proposition}\cite[10.1.12]{joshi}\\
 	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$ iff there exists a subnet of $S$ which converges to $x$.
 \end{proposition}
+\begin{synopsis}
+	Let $(D,\ge)$, $(E,\ge')$ be two directed sets.\\
+
+	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$. And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$. Therefore, $S$ is frequently in each nbd $U$ of $x$. Thus, $x$ is a cluster point of $S$.
+\end{synopsis}
 \begin{proof}
 	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
 
-	We have, $T$ is a subnet of $S$. Then $\exists N : E \to D$ such that\\
-	$\forall m' \in D,\ \exists p \in E$ such that $n \ge' p \implies N(n) \ge m'$.\\
-	And $p \ge' p \implies N(p) = p' \ge m'$ and $S(p') = S(N(p)) = T(p) \in T(E)$.\\
-	Therefore, $\forall m' \in D$, $\exists p' \in D$ such that $S(p') \in T(E)$.\\
-	Thus $S$ is frequently in $T(E)$.\\
+	We have, $T$ convergers to $x$, thus for any neighbourhood $U$ of $x$, there exists $m' \in E$ such that $n' \ge' m' \implies T(n') \in U$.\\
 
-	We have, $T$ converges to $x$. ie, $T$ is eventually in each nbd $U$ of $x$. Therefore, $S$ is frequently in each nbd $U$ of $x$. ie, $x$ is a cluster point of $S$.\\
+	Also we have, $T$ is a subnet of $S$. Then $\exists N : E \to D$ such that
+	$\forall m \in D,\ \exists p' \in E$ such that $n' \ge' p' \implies N(n') \ge m$.\\
 
-	We have, $T$ converges to $x$.\\
-	Thus for each nbd $U$ of $x$, $\exists m \in E$ such that $n \ge' m \implies T(n) \in U$.\\
-	Also, $m' \in D \implies \exists p \in E$ such that $n \ge' p \implies N(n) \ge m'$.\\
-	We have, $m,p \in E \implies \exists q \in E$ such that $q \ge' m$ and $q \ge' p$.
+	Now, for any $m \in D$, we have $m',p' \in E$. Since $E$ is a directed set, there exists $n' \in E$ such that $n' \ge' m'$ and $n' \ge' p'$.\\
+
+	Then, $n' \ge m' \implies T(n') \in U$ and $n' \ge' p' \implies N(n') \ge m$.\\
+	
+	Thus for any $m \in D$, there exists $N(n') = n \in D$ such that $S(n) = S(N(n')) = T(n') \in U$.\\
+
+	Thus $S$ is frequently in any neighbourhood $U$ of $x$. Therefore, $x$ is a cluster point of $S$.\\
+
+	Conversely, suppose that $x$ is a cluster point of $S$. We have to construct a directed set $(E,\ge')$ and a function $N : E \to D$ such that $T$ is a subnet of $S$ and $T$ converges to $x$.\\
+
+	Consider $E = D \times \mathcal{N}(x)$ and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (p,U\cap V) \in E$ such that $(p,U\cap V) \ge' (n,U)$ and $(p,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
+
+	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$. Now, we have $T : E \to X$ defined by $T(n,U) = S(N(n,U)) = S(n)$. Therefore, $T$ is a subset of $S$.
+-- to be continued page 234--
 \end{proof}
+
+\begin{remark}
+	A proof that doesn't work : If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$. Thus, there exists a cofinal subset $E \subset D$ which is a direct set with $\ge$ restricted to $E$. Then $N : E \to D$ defined by $N(n)=n$ gives a subset $T : E \to X$ of $S$. However, this subnet need not converge to $x$. The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$'.\\
+
+	$N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$.
+\end{remark}
 
 %\section{Topology and Convergence of Nets*}
 %\section{Filters and Their Convergence*}
