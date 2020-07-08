@@ -257,6 +257,55 @@
 	is the formula for \textbf{inverse fourier integral transformation}.
 \end{remark}
 
+\section{Convolutions}
+\begin{definition}
+	Let $f,g \in L(-\infty,\infty)$. Let $S$ be the set of all points $x$ for which the Lebesgue integral
+	$$h(x) = \int_{-\infty}^\infty f(t) g(x-t) dt$$
+	exists. Then the function $h : S \to \mathbb{R}$ is a convolution of $f$ and $g$. And $h = f \ast g$.
+\end{definition}
+
+\begin{remark}
+	Convolution operator is commutative.\\
+	ie, $ h = f \ast g = g \ast f$
+\end{remark}
+
+\begin{theorem}
+	Let $f,g \in L(\mathbb{R})$ and either $f$ or $g$ is bounded in $\mathbb{R}$. Then the convoluton integral
+	$$h(x) = \int_{-\infty}^\infty f(t) g(x-t) dt$$
+	exists for every $x \in \mathbb{R}$ and the function $h$ so defined is bouned in $\mathbb{R}$. In addition, if the bounded function is continuous on $\mathbb{R}$, then $h$ is continuous and $h \in L(\mathbb{R})$.
+\end{theorem}
+\begin{synopsis}
+\end{synopsis}
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	If $f,g$ are both unbounded, the convolution integral may not exist.
+	$$\text{ eg: } f(t) = \frac{1}{\sqrt{t}},\ g(t) = \frac{1}{\sqrt{1-t}}$$
+\end{remark}
+
+\begin{theorem}
+	Let $f,g \in L^2(\mathbb{R})$. Then the convolution integral $f \ast g$ exists for each $x$ in $\mathbb{R}$ and the function $h : \mathbb{R} \to \mathbb{R}$ defined by $h(x) = f \ast g (x)$ is bounded in $\mathbb{R}$.
+\end{theorem}
+\begin{synopsis}
+\end{synopsis}
+\begin{proof}
+\end{proof}
+
+\section{The Convolution Theorem for Fourier Tranforms}
+\begin{theorem}
+	Let $f,g \in L(\mathbb{R})$ and either $f$ or $g$ is continuous and bounded on $\mathbb{R}$. Let $h = f \ast g$. Then for every real $u$,
+	$$ \int_{-\infty}^\infty h(x) e^{-ixu} dx = \left( \int_{-\infty}^\infty f(t) e^{-itu} dt \right) \left( \int_{-\infty}^\infty g(y) e^{-iyu} dy \right)$$
+	The integral on the left exists both as a Lebesgue integral and an improper Riemann integral.
+\end{theorem}
+\begin{synopsis}
+\end{synopsis}
+\begin{proof}
+\end{proof}
+
+\begin{remark}[Application of Convolution Theorem]
+	$$B(p,q) = \frac{\Gamma{p} \Gamma{q}}{\Gamma{p+q}},\text{ where } B(p,q) = \int_0^1 x^{p-1} (1-x)^{q-1} dx,\ \Gamma{p} = \int_0^\infty t^{p-1} e^{-t} dt$$
+\end{remark}
 \chapter{Multivariate Differential Calculus}
 \chapter{Implicit Functions and Extremum Problems}
 %\chapter{Multiple Riemann Integrals*}
