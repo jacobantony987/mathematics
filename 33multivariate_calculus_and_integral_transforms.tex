@@ -228,7 +228,7 @@
 \section{Integral Transforms}
 \begin{definition}
 	Integral transform $g(y)$ of $f(x)$ is a Lebesgue integral or Improper Riemann integral of the form
-	$$g(y) = \int_{-\infty}^\infty K(x,y) f(x)\ dx$$, where $K$ is the kernal of the transform. We write $g = \mathcal{K}(f)$.
+	$$g(y) = \int_{-\infty}^\infty K(x,y) f(x)\ dx$$, where $K$ is the kernal of the transform. We write $g = \mathscr{K}(f)$.
 \end{definition}
 
 \begin{remark}
@@ -239,13 +239,13 @@
 \begin{remark} A few commonly used integral transforms,
 \begin{enumerate}
 	\item Exponential Fourier Transform $\mathscr{F}$,
-		$$\int_{-\infty}^\infty e^{ixy}f(x)\ dx$$
+		$$\mathscr{F}f = \int_{-\infty}^\infty e^{ixy}f(x)\ dx$$
 	\item Fourier Cosine Transform,
 		$$\int_0^\infty \cos xy f(x)\ dx$$
 	\item Fourier Sine Transform,
 		$$\int_0^\infty \sin xy f(x)\ dx$$
 	\item Laplace Transform $\mathscr{L}$,
-		$$\int_0^\infty e^{-xy} f(x)\ dx$$
+		$$\mathscr{L}f = \int_0^\infty e^{-xy} f(x)\ dx$$
 	\item Mellin Transform,
 		$$\int_0^\infty x^{y-1}f(x)\ dx$$
 \end{enumerate}
