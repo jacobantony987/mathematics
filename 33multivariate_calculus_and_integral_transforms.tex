@@ -239,15 +239,15 @@
 \begin{remark} A few commonly used integral transforms,
 \begin{enumerate}
 	\item Exponential Fourier Transform $\mathscr{F}$,
-		$$\mathscr{F}f = \int_{-\infty}^\infty e^{ixy}f(x)\ dx$$
+		$$\mathscr{F}f = \int_{-\infty}^\infty e^{-ixy}f(x)\ dx$$
 	\item Fourier Cosine Transform $\mathscr{C}$,
-		$$\int_0^\infty \cos xy f(x)\ dx$$
+		$$\mathscr{C}f = \int_0^\infty \cos xy f(x)\ dx$$
 	\item Fourier Sine Transform $\mathscr{S}$,
-		$$\int_0^\infty \sin xy f(x)\ dx$$
+		$$\mathscr{S}f = \int_0^\infty \sin xy f(x)\ dx$$
 	\item Laplace Transform $\mathscr{L}$,
 		$$\mathscr{L}f = \int_0^\infty e^{-xy} f(x)\ dx$$
 	\item Mellin Transform $\mathscr{M}$,
-		$$\int_0^\infty x^{y-1}f(x)\ dx$$
+		$$\mathscr{M}f = \int_0^\infty x^{y-1}f(x)\ dx$$
 \end{enumerate}
 \end{remark}
 
@@ -257,7 +257,7 @@
 	Therefore Fourier Cosine $\mathscr{C}$ and Sine $\mathscr{S}$ transforms are special cases of fourier integral transform, $\mathscr{F}$ provided $f$ vanishes on negative real axis.
 \end{remark}
 
-\begin{remark} Let $y = u+iv$.
+\begin{remark} Let $y = u+iv$, $f(x) = 0,\ \forall x < 0$.
 	$$\int_0^\infty e^{-xy}f(x) = \int_0^\infty e^{-xu}e^{-ixv}f(x)\ dx = \int_0^\infty e^{-ixv} \phi_u(x) dx$$
 	where $\phi_u(x) = e^{-xu}f(x)$.
 	$$\mathscr{L}f = \mathscr{F}\phi_u$$
@@ -267,12 +267,22 @@
 \begin{remark} Let $g(y) = \mathscr{F}f(x)$.
 	$$g(y) = \int_{-\infty}^\infty e^{-ixy}f(x)\ dx$$
 	Suppose $f$ is continuous at $x$, then by fourier integral theorem,
-	$$f(x) = \frac{2}{\pi} \int_{-\infty}^\infty \int_{-\infty}^\infty f(x) e^{iv(u-x)} du dv = \frac{2}{\pi} \int_{-\infty}^\infty e^{iuv} \int_{-\infty}^\infty e{-ivx} f(x)\ du \ dv$$
-	Therefore,
-	$$f(x) = \mathscr{F}^{-1}\mathscr{F}f = \mathscr{F} \mathscr{F}^{-1}f$$
-	$$f(x) = \lim_{\alpha \to \infty} \frac{1}{2\pi}\int_{-\alpha}^\alpha g(u) e^{ixu} du$$
-	Then $f(x) = \mathscr{F}^{-1} g(y)$ where the formula given above is the \textbf{inverse fourier integral transformation} of $f$.
+	\begin{align*}
+		f(x)	& = \frac{1}{2\pi} \int_{-\infty}^\infty \left( \int_{-\infty}^\infty f(u) e^{iv(u-x)} du \right) dv\\
+			& = \int_{-\infty}^\infty e^{-ivx} \left( \frac{1}{2\pi} \int_{-\infty}^\infty e^{ivu} f(u)\ du \right) dv\\
+			& = \int_{-\infty}^\infty g(v) e^{-ivx} dv = \mathscr{F}g \text{ where } g(v) = \frac{1}{2\pi}\int_{-\infty}^\infty f(u) e^{ivu} du 
+	\end{align*}
+	The above function $g(v)$ gives the \textbf{inverse fourier transformation} of $f$.\\
+
+	Let $g$ be fourier transform of $f$, then $f$ is uniquely determined by its fourier transform $g$ by,
+	$$f(x) = \mathscr{F}^{-1}g(y) = \frac{1}{2\pi} \lim_{\alpha \to \infty} \int_{-\alpha}^\alpha g(y) e^{ixy} dy$$
 \end{remark}
+
+\begin{enumerate}
+	\setcounter{enumi}{5}
+	\item Inverse Fourier Transform $\mathscr{F}^{-1}$,
+		$$\mathscr{F}^{-1}f = \int_{-\infty}^\infty \frac{e^{ixy}}{2\pi}f(x)\ dx$$
+\end{enumerate}
 
 \section{Convolutions}
 \begin{definition}
@@ -284,6 +294,15 @@
 \begin{remark}
 	Convolution operator is commutative.\\
 	ie, $ h = f \ast g = g \ast f$
+\end{remark}
+
+\begin{remark}
+	Suppose $f,g$ vanishes on negative real axis, then
+	$$h(x) = \int_{-\infty}^\infty f(t)\ g(x-t)\ dt = \int_{-\infty}^0 + \int_0^x  + \int_x^\infty f(t)\ g(x-t)\ dt = \int_0^x f(t)\ g(x-t)\ dt $$ 
+\end{remark}
+
+\begin{remark}
+	Singularity is a point at which the convolution integral fails to exists.
 \end{remark}
 
 \begin{theorem}
