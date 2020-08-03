@@ -222,5 +222,58 @@ The coefficients are given by,
 	The interpolant obtained by joining cubic polynomials corresponding to four nearest data points each, is a cubic spline\footnote{Cubic spline is a function, the graph of which is piece-wise cubic}.
 \end{remark}
 
+\section{Roots of a Function}
+\begin{definition}
+	Let $f : \mathbb{R} \to \mathbb{R}$, then $x \in \mathbb{R}$ is a root of $f$ if $f(x) = 0$.
+\end{definition}
+
+\begin{remark}
+	Suppose $a <  b$ and $f(a), f(b)$ are nonzero and are of different signs. If $f$ is continuous in $[a,b]$, then there is a point $c \in [a,b]$ such that $f(c) = 0$.\\
+	
+	Thus given $a<b$ and $f(a),f(b)$ are nonzero values of different sign, then there may be a bracketed root in $[a,b]$.\\
+	
+	Note : There is no guarantee that there exists a root in $[a,b]$ as we are not sure about the continuity of $f$.
+\end{remark}
+
+\begin{remark} Given a bracketed root, we can find it using
+	\begin{enumerate}
+		\item Bisection Method or
+		\item Newton-Raphson Method
+	\end{enumerate}
+\end{remark}
+
+\subsection{Bisection Method}
+	Suppose $a < b$ and $f(a),f(b)$ are nonzero values of different signs. We evaluate $f(c)$ where $c = \frac{a+b}{2}$. If $f(c)$ is a nonzero value, then at least one of the pairs $f(a),f(c)$ or $f(c),f(b)$ are of different signs. WLOG suppose that $f(a),f(c)$ are of different signs, then set $b = c$ and $c = \frac{a+b}{2}$. And continue this process until we get sufficiently accurate value of a root.
+
+\begin{remark}
+	Suppose $f(x) = x^5 - 2$. Then $f(0) = -2,\ f(1) = -1,\ f(2) = 30$. Since $f$ is known to be continuous, there is a bracketed root in $[1,2]$. Now $f(1.5) > 0 \implies [1,1.5]$\\
+	$f(1.25) > 0 \implies [1,1.25]$\\
+	$f(1.125) < 0 \implies [1.125,1.25]$\\
+	$f(1.1825)>0 \implies [1.125,1.1825]$\\
+	$f(1.15375)>0 \implies [1.125,1.15375]$\\
+	$f(1.139375) < 0 \implies [1.139375,1.15375]$\\
+	$f(1.1465625) < 0 \implies [1.1465625,1.15375]$\\
+	$f(1.150156250) > 0 \implies [1.1465625,1.15015625]$\\
+	$f(1.148359375) < 0 \implies [1.1483594,1.15015625]$\\
+	$f(1.149257825) > 0 \implies [1.1483594,1.14925783]$\\
+	
+	Thus, we have $1.14$ is a root of $f$ with accuracy upto two decimal points.
+\end{remark}
+%fifth root of 2 = 1.14869835
+
+\subsection{Newton-Raphson Method}
+	Suppose $f$ is differentiable at $x \in \mathbb{R}$ and $f(x) \ne 0$. Then compute $x = x - \frac{f(x)}{df(x)}$ and evaluate $f(x)$. Repeat this process to get more accurate value of a root near $x$.
+
+\begin{remark}
+	Suppose $f(x) = x^5 - 2$. Then $df(x) = 5x^4$. Let $x = 2$. Then\\
+	$x = 2 - \frac{30}{80} \implies f(1.625) = 9.330 $\\
+	$x = 1.625 - \frac{9.330}{34.86} \implies f(1.35735) = 2.6074$ \\
+	$x = 1.35735 - \frac{2.6074}{16.9721} \implies f(1.20373) = 0.52733$ \\
+	$x = 1.20373 - \frac{0.52733}{10.4975} \implies f(1.15351) = 0.04224$ \\
+	$x = 1.15351 - \frac{0.042245}{8.85225} \implies f(1.148738) = 0.00034312 $\\
+
+	Thus we have $1.1487$ is quite close to a root of $f$.
+\end{remark}
+
 \chapter{Matrix Operations}
 

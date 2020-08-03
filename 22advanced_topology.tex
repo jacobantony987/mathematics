@@ -140,9 +140,9 @@
 
 	By the axiom of choice, a function $S : D \to X$ such that $S(U,V) \in U\cap V$ is well defined, since every nbd of $x$ intersects every nbd of $y$. Thus, $S$ is a net in $X$. We claim that $S$ converges to both $x$ and $y$.\\
 
-	Let $U$ be a nbd of $x$. Then $S(U',V') \in U' \cap V'$. We have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies U' \subset U$. Then, $S(U',V' \in U' cap V' \subset U \cap X = U$. Thus, for any nbd $U$ containing $x$, we have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies S(U',V') \in U$. Therefore, $S$ converges to $x \in X$.\\
+	Let $U$ be a nbd of $x$. Then $S(U',V') \in U' \cap V'$. We have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies U' \subset U$. Then, $S(U',V') \in U' \cap V' \subset U \cap X = U$. Thus, for any nbd $U$ containing $x$, we have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies S(U',V') \in U$. Therefore, $S$ converges to $x \in X$.\\
 	
-	Similarly, Let $V$ be a nbbd of $y$. Then for any nbd $V$ containing $y$, we have $(X,V) \in D$ such that $(U',V') \ge (X,V) \implies S(U',V') \in V$, since $S(U',V') \in U' \cap V' \subset X \cap V = V$. Therefore, $S$ converges to $y \in X$ as well, where $x \ne y$. This is a contradition to the assumption that every convergent net in $X$ has a unique limit. Therefore, for any two points $x,y \in X$, there should be some nbd of $x$ that doesn't intersect some nbd of $y$. Therefore, $X$ is a Hausdorff space.
+	Similarly, Let $V$ be a nbd of $y$. Then for any nbd $V$ containing $y$, we have $(X,V) \in D$ such that $(U',V') \ge (X,V) \implies S(U',V') \in V$, since $S(U',V') \in U' \cap V' \subset X \cap V = V$. Therefore, $S$ converges to $y \in X$ as well, where $x \ne y$. This is a contradition to the assumption that every convergent net in $X$ has a unique limit. Therefore, for any two points $x,y \in X$, there should be some nbd of $x$ that doesn't intersect some nbd of $y$. Therefore, $X$ is a Hausdorff space.
 \end{proof}
 
 \begin{definition}[Eventual Subset]\cite[10.1.5]{joshi}\\
@@ -178,6 +178,10 @@
 \begin{definition}[Cofinal subset]\cite[10.1.7]{joshi}\\
 	A subset $F$ of a directed $D$ is a cofinal subset of $D$ if for any $m \in D$, there exists $n \in F$ such that $n \ge m$.
 \end{definition}
+
+\begin{remark}
+	Let $X$ be a topological space and $x \in X$. Let $\mathcal{N}_x$ be the set of all neighbourhood of $x$ and $\mathcal{L}$ be a local base of $X$ at $x$. We have, $(\mathcal{N}_x,\ge)$ is a directed set where $\forall U,V \in \mathcal{N}_x,\ U \ge V \iff U \subset V$, then $\mathcal{L}$ is cofinal in $\mathcal{N}_x$.
+\end{remark}
 
 \begin{remark}\cite[10.1.8]{joshi}\\
 	Let $F$ be a cofinal subset of $D$, then $F$ is a directed set.
