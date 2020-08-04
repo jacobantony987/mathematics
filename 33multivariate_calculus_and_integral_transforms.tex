@@ -344,8 +344,9 @@
 
 \chapter{Multivariate Differential Calculus}
 
-	In this chapter, we deal with real functions of several variables. Instead of $\mathbf{c}$, we write \( \overline{c} \in \mathbb{R}^n \), then \( \overline{c} = (c_1, c_2, \dotsc, c_n) \) where \( c_j \in \mathbb{R} \) for every \(j = 1,2, \dotsc, n\). Again, suppose \(f : \mathbb{R}^n \to \mathbb{R}^m\) and \(f(\overline{x}) = \overline{y}\), then \(\overline{y} = (y_1, y_2, \dotsc, y_m)\) where each $y_k$ is real.\\
+	In this chapter, we deal with real functions of several variables. Instead of $\mathbf{c}$, we write \( \overline{c} \in \mathbb{R}^n \), then \( \overline{c} = (c_1, c_2, \dotsc, c_n) \) where \( c_j \in \mathbb{R} \) for every \(j = 1,2, \dotsc, n\). Again, suppose \(f : \mathbb{R}^n \to \mathbb{R}^m\) and \(f(\overline{x}) = \overline{y}\), then \(\overline{y} = (y_1, y_2, \dotsc, y_m)\) where each $y_k$ is real. The unit co-ordinate vector, $\overline{u_k}$ is given by \( {u_k}_j = \delta_{j,k} \)
 
+\section{Directional Derivative}
 	\textsl{Motivation : The existence of all partial derivatives of a multivariate real function $f$ at a point $\overline{c}$ doesn't imply the continuity of $f$ at $\overline{c}$. Thus, we need a suitable generalisation for the partial derivative which could characterise continuity. And directional derivative is such an attempt.}
 
 \begin{definition}[Directional Derivative]
@@ -356,7 +357,7 @@
 \end{definition}
 
 \begin{remark}
-	The direction derivative of $f$ at an interior point $\overline{c}$ in the direction of $\overline{u}$ exists only if the above limit exists.
+	The direction derivative of $f$ at an interior point $\overline{c}$ in the direction $\overline{u}$ exists only if the above limit exists.
 \end{remark}
 
 \begin{remark}Example, \cite[Exercise 12.2a]{apostol}\\
@@ -366,22 +367,57 @@
 
 \begin{remark}[Properties] Let \(f : S \to \mathbb{R}^m \), where \( S \subset \mathbb{R}^n\)
 	\begin{enumerate}
-		\item \( \overline{u} = 0 \implies f'(\overline{c},\overline{u}) = 0 \)
-		\item \( \overline{u} = u_k \implies f'(\overline{c},\overline{u}) = \frac{\partial f}{\partial u_k}(\overline{c}) = D_k f(\overline{c}) \), the $k^{th}$ partial derivative of $f$.
+		\item \( f'(\overline{c},\overline{0}) = \overline{0} \)\\
+			\textsl{Note : The zero vectors belongs to $\mathbb{R}^n, \mathbb{R}^m$ respectively.}
+		\item \( f'(\overline{c},\overline{u_k}) = \frac{\partial f}{\partial u_k}(\overline{c}) = D_k f(\overline{c}) \), the $k^{th}$ partial derivative of $f$.
 		\item Let \( f = (f_1, f_2, \cdots, f_m), \text{ such that } f(\overline{c}) = \left(f_1(\overline{c}),f_2(\overline{c}),\dotsc,f_m(\overline{c})\right) \). Then, 
 			\[ \exists f'(\overline{c},\overline{u}) \iff \forall k, \exists f_k'(\overline{c},\overline{u}) \text{ and } f'(\overline{c},\overline{u}) = \left(f_1'(\overline{c},\overline{u}),f_2'(\overline{c},\overline{u}),\dotsc,f_m'(\overline{c},\overline{u})\right) \]
-			ie, directional derivative of $f$ exists iff directional derivative of each component function $f_k$ exists and components of directional derivatives of $f$ are the directional derivaties of components of $f$.\\
+			ie, Directional derivative of $f$ exists iff directional derivative of each component function $f_k$ exists. And the components of the directional derivatives of $f$ are the directional derivaties of the components of $f$.\\
 			Thus \( D_k f(\overline{c}) = \left(D_k f_1(\overline{c}),D_k f_2(\overline{c}),\dotsc,D_k f_m(\overline{c}) \right) \) holds.
 		\item Let \( F(t) = f(\overline{c}+t\overline{u}) \), then \( F'(0) = f'(\overline{c},\overline{u}) \) and \( F'(t) = f'(\overline{c}+t\overline{u},\overline{u}) \)
 		\item Let \( f(\overline{c}) = \overline{c}\cdot\overline{c} = \|\overline{c}\|^2 \), and \(F(t) = f(\overline{c}+t\overline{u}) \), then \( F'(t) = 2\overline{c}\cdot\overline{u}+2t\|\overline{u}\|^2 \) and \( F'(0) = f'(\overline{c},\overline{u}) = 2\overline{c}\cdot\overline{u} \)
 		\item Let \(f\) be linear, then \( f'(\overline{c},\overline{u}) = f(\overline{u}) \)
 		\item Existence of all partial derivatives doesn't imply existence of all directional derivatives.
 			\[ f(x,y) = \begin{cases} x+y \qquad \text{ if } x = 0 \text{ or } y = 0 \\ 1 \qquad \qquad \text{otherwise} \end{cases} \]
-			For above \(f\), directional derivatives exists only in the direction of co\nobreakdash-ordinates (ie, partial derivatives).
+			For above \(f\), directional derivatives exists only along the co\nobreakdash-ordinates (ie, partial derivatives).
 		\item Existence of all directional derivatives doesn't imply continuity.
 			\[ f(x,y) = \begin{cases} xy^2(x^2+y^4) \qquad x \ne 0 \\ 0 \hspace{2.5cm} x = 0 \end{cases} \]
 				Above \(f\) is discontinuous at \((0,0)\), however all directional derivatives exists and has finite value.
 	\end{enumerate}
+\end{remark}
+
+\section{Total Derivative}
+	We may define a total derivative \( T_c(h) = hf'(c) \) in the case of real-functions of single variable as follows :-\\
+
+	\[ \text{Let }E_c(h) = \begin{cases} \frac{f(c+h)-f(c)}{h} - f'(c),\qquad h \ne 0 \\ 0,\hspace{3.4cm} h = 0 \end{cases} \]
+		Then, \( f(c+h) = f(c) + hf'(c) + hE_c(h) \) and as \( h \to 0 \), \( E_c(h) \to 0\). Also \( T_c(h) = f'(c)h \) is a linear function of $h$. ie, \( T_c(ah_1+bh_2) = aT_c(h_1)+bT_c(h_2) \). Now, we will define a total derivative of multivariate function that has these two properties.
+
+\begin{definition}[Total Derivative]
+	The function \( f: \mathbb{R}^n \to \mathbb{R}^m \) is differentiable at $\overline{c}$ if there exists a \textbf{linear} function \( T_{\overline{c}} : \mathbb{R}^n \to \mathbb{R}^m \) such that \( f(\overline{c}+\overline{v}) = f(\overline{c}) + T_{\overline{c}}(\overline{v}) + \|\overline{v}\| E_{\overline{c}}(\overline{v}) \) where \( E_{\overline{c}}(\overline{v}) \to 0 \) as \( \overline{v} \to 0 \).
+\end{definition}
+
+	The linear function $T_{\overline{c}}$ is the total derivative of $f$ as $\overline{c}$ and the condition above is the First Order Taylor's Formula for $f(\overline{c}+\overline{v})$.
+
+\begin{theorem}
+	If $f$ is differentiable at $\overline{c}$ with total derivative $T_{\overline{c}}$, then for every $\overline{u} \in \mathbb{R}^n$, $T_{\overline{c}}(\overline{u}) = f'(\overline{c},\overline{u})$.
+\end{theorem}
+\begin{proof}
+	For \( \overline{v} = \overline{0}$, we have $T_{\overline{c}}(\overline{0}) = 0 = f'(\overline{c},\overline{0}) \).\\
+
+	Suppose \( \overline{v} \ne \overline{0} \), then \( \overline{v} = h\overline{u} \) for some \( \overline{u} \). Since $f$ is differentiable at $\overline{c}$, $f$ has total derivative at $\overline{c}$. That is, there exists a linear function $T_{\overline{c}}$ such that \( f(\overline{c}+h\overline{u}) = f(\overline{c}) + T_{\overline{c}}(h\overline{u}) + \|h\overline{u}\|E_{\overline{c}} (h\overline{u}) \) where $E_{\overline{c}}(h\overline{u}) \to \overline{0}$ as $h\overline{u} \to \overline{0}$.
+
+	\begin{align*}
+		\implies  & f(\overline{c}+h\overline{u}) = f(\overline{c}) + hT_{\overline{c}}(\overline{u}) + |h|\|\overline{u}\|E_{\overline{c}} (h\overline{u}),\ E_{\overline{c}}(h\overline{u}) \to \overline{0} \text{ as } h\overline{u} \to \overline{0} \\
+		\implies  & \frac{f(\overline{c}+h\overline{u}) - f(\overline{c})}{h} = T_{\overline{c}}(\overline{u}) + \frac{|h|\|\overline{u}\|E_{\overline{c}}(h\overline{u})}{h},\  E_{\overline{c}}(h\overline{u}) \to \overline{0} \text{ as } h \to 0 \\
+		\implies  & \lim_{h \to 0} \frac{f(\overline{c}+h\overline{u}) - f(\overline{c})}{h} = T_{\overline{c}}(\overline{u}) + \lim_{h \to 0} \frac{|h|\|\overline{u}\|E_{\overline{c}}(h\overline{u})}{h} \\
+		\implies & f'(\overline{c},\overline{u}) = T_{\overline{c}}(\overline{u})
+	\end{align*}
+\end{proof}
+
+\begin{remark}
+	$T_{\overline{c}}$ is linear, however $E_{\overline{c}}$ is not linear. Thus $E_{\overline{c}}(h\overline{u}) \ne h E_{\overline{c}} (\overline{u})$.\\
+
+	As $h \to 0$, $h\overline{u} \to \overline{0}$ and \( E_{\overline{c}}(h\overline{u}) \to \overline{0}$. Since the order of the function \( E_{\overline{c}}(h\overline{u}) \) is much smaller than that of $h$, the limit on the right converges to 0.
 \end{remark}
 
 \chapter{Implicit Functions and Extremum Problems}
