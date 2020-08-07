@@ -393,19 +393,37 @@
 		Then, \( f(c+h) = f(c) + hf'(c) + hE_c(h) \) and as \( h \to 0 \), \( E_c(h) \to 0\). Also \( T_c(h) = f'(c)h \) is a linear function of $h$. ie, \( T_c(ah_1+bh_2) = aT_c(h_1)+bT_c(h_2) \). Now, we will define a total derivative of multivariate function that has these two properties.
 
 \begin{definition}[Total Derivative]
-	The function \( f: \mathbb{R}^n \to \mathbb{R}^m \) is differentiable at $\overline{c}$ if there exists a \textbf{linear} function \( T_{\overline{c}} : \mathbb{R}^n \to \mathbb{R}^m \) such that \( f(\overline{c}+\overline{v}) = f(\overline{c}) + T_{\overline{c}}(\overline{v}) + \|\overline{v}\| E_{\overline{c}}(\overline{v}) \) where \( E_{\overline{c}}(\overline{v}) \to 0 \) as \( \overline{v} \to 0 \).
+	The function \( f: \mathbb{R}^n \to \mathbb{R}^m \) is differentiable at $\overline{c}$ if there exists a \textbf{linear} function \( T_{\overline{c}} : \mathbb{R}^n \to \mathbb{R}^m \) such that \( f(\overline{c}+\overline{v}) = f(\overline{c}) + T_{\overline{c}}(\overline{v}) + \|\overline{v}\| E_{\overline{c}}(\overline{v}) \) where \( E_{\overline{c}}(\overline{v}) \to \overline{0} \) as \( \overline{v} \to \overline{0} \).
 \end{definition}
 
-	The linear function $T_{\overline{c}}$ is the total derivative of $f$ as $\overline{c}$ and the condition above is the First Order Taylor's Formula for $f(\overline{c}+\overline{v})$.
+	The linear function $T_{\overline{c}}$ is the total derivative of $f$ at $\overline{c}$, \( T_{\overline{c}}(\overline{0}) = \overline{0} \) and the condition above gives the First Order Taylor's Formula for \( f(\overline{c}+\overline{v})-f(\overline{c}) \).
+
+\begin{remark}[Properties] Let \( f : \mathbb{R}^n \to \mathbb{R}^m \) and \( f'(\overline{c})(\overline{v}) = T_{\overline{c}}(\overline{v}) \) be the total derivative of $f$ at $\overline{c}$ evaluated at $\overline{v}$. Then, 
+	\begin{enumerate}
+		\item \( f'(\overline{c})(\overline{v}) = f'(\overline{c},\overline{u}) \)
+		\item If $f$ is differentiable at $\overline{c}$, then $f$ is continuous at $\overline{c}$.
+		\item \( f'(\overline{c})(\overline{v}) = v_1 D_1 f(\overline{c}) + v_2 D_2 f(\overline{c}) + \dots + v_n D_n f(\overline{c}) \)
+	\end{enumerate}
+\end{remark}
+
+\begin{note}
+	The above $f'$ is a function from $\mathbb{R}^n$ to the set of all linear functions \( \mathscr{L} = \{ h : \mathbb{R}^n \to \mathbb{R}^m\} \). $f'(\overline{c})$ is a linear function (in fact, total derivative $T_{\overline{c}}$) which maps $\overline{v}$ into the directional derivatives of $f$ at $\overline{c}$ in the direction $\overline{v}$. This notation generalises $f'$ for univariate $f$ as well.(put $n=m=1$)\\
+
+	In this subject, we use the following notations,
+	\begin{description}
+		\item[$D_kf(\overline{c})$] partial derivative
+		\item[$f'(\overline{c},\overline{v})$] directional derivative
+		\item[$f'(\overline{c})(\overline{v})$] total derivative
+	\end{description}
+\end{note}
 
 \begin{theorem}
-	If $f$ is differentiable at $\overline{c}$ with total derivative $T_{\overline{c}}$, then for every $\overline{u} \in \mathbb{R}^n$, $T_{\overline{c}}(\overline{u}) = f'(\overline{c},\overline{u})$.
+	If $f$ is differentiable at $\overline{c}$ with total derivative $T_{\overline{c}}$, then for every $\overline{u} \in \mathbb{R}^n$, $T_{\overline{c}}(\overline{u}) = f'(\overline{c},\overline{u})$. ( ie, \( f'(\overline{c})(\overline{v}) = f'(\overline{c},\overline{v}) \) )
 \end{theorem}
 \begin{proof}
 	For \( \overline{v} = \overline{0}$, we have $T_{\overline{c}}(\overline{0}) = 0 = f'(\overline{c},\overline{0}) \).\\
 
-	Suppose \( \overline{v} \ne \overline{0} \), then \( \overline{v} = h\overline{u} \) for some \( \overline{u} \). Since $f$ is differentiable at $\overline{c}$, $f$ has total derivative at $\overline{c}$. That is, there exists a linear function $T_{\overline{c}}$ such that \( f(\overline{c}+h\overline{u}) = f(\overline{c}) + T_{\overline{c}}(h\overline{u}) + \|h\overline{u}\|E_{\overline{c}} (h\overline{u}) \) where $E_{\overline{c}}(h\overline{u}) \to \overline{0}$ as $h\overline{u} \to \overline{0}$.
-
+	Suppose \( \overline{v} \ne \overline{0} \), then put \( \overline{v} = h\overline{u} \). Since $f$ is differentiable at $\overline{c}$, $f$ has total derivative at $\overline{c}$. That is, there exists a linear function $T_{\overline{c}}$ such that \( f(\overline{c}+h\overline{u}) = f(\overline{c}) + T_{\overline{c}}(h\overline{u}) + \|h\overline{u}\|E_{\overline{c}} (h\overline{u}) \) where $E_{\overline{c}}(h\overline{u}) \to \overline{0}$ as $h\overline{u} \to \overline{0}$.
 	\begin{align*}
 		\implies  & f(\overline{c}+h\overline{u}) = f(\overline{c}) + hT_{\overline{c}}(\overline{u}) + |h|\|\overline{u}\|E_{\overline{c}} (h\overline{u}),\ E_{\overline{c}}(h\overline{u}) \to \overline{0} \text{ as } h\overline{u} \to \overline{0} \\
 		\implies  & \frac{f(\overline{c}+h\overline{u}) - f(\overline{c})}{h} = T_{\overline{c}}(\overline{u}) + \frac{|h|\|\overline{u}\|E_{\overline{c}}(h\overline{u})}{h},\  E_{\overline{c}}(h\overline{u}) \to \overline{0} \text{ as } h \to 0 \\
@@ -414,12 +432,36 @@
 	\end{align*}
 \end{proof}
 
-\begin{remark}
+\begin{note}
 	$T_{\overline{c}}$ is linear, however $E_{\overline{c}}$ is not linear. Thus $E_{\overline{c}}(h\overline{u}) \ne h E_{\overline{c}} (\overline{u})$.\\
 
 	As $h \to 0$, $h\overline{u} \to \overline{0}$ and \( E_{\overline{c}}(h\overline{u}) \to \overline{0}$. Since the order of the function \( E_{\overline{c}}(h\overline{u}) \) is much smaller than that of $h$, the limit on the right converges to 0.
-\end{remark}
+\end{note}
 
+\begin{theorem}
+	If $f$ is differentiable at \( \overline{c} \), then $f$ is continuous at \( \overline{c} \).
+\end{theorem}
+\begin{proof}
+	Let $\overline{v} \ne 0$, then
+	\begin{align*}
+		\overline{v} = v_1 \overline{u_1} & + v_2 \overline{u_2} + \dots + v_n \overline{u_n},\\
+		\overline{v} \to \overline{0} \implies & \forall j,\ v_j \to 0 \\
+		T \text{ is linear }\implies & T_{\overline{c}} (\overline{v}) = v_1 T_{\overline{c}}(\overline{u_1}) + v_2 T_{\overline{c}}(\overline{u_2}) + \dots + v_n T_{\overline{c}}(\overline{u_n})\\
+		\text{Thus, } & T_{\overline{c}}(\overline{v}) \to \overline{0} \text{ as } \overline{v} \to 0
+	\end{align*}
+	Since $f$ differentiable at \( \overline{c} \), there exists linear function $T_{\overline{c}}$ such that
+	\begin{align*}
+		f(\overline{c}+\overline{v}) & =  f(\overline{c}) + T_{\overline{c}}(\overline{v}) + \|v\|E_{\overline{c}}(\overline{v}) \\
+		\implies & \lim_{\overline{v} \to \overline{0}} f(\overline{c}+\overline{v}) = f(\overline{c}) + \lim_{\overline{v} \to \overline{0}} T_{\overline{c}}(\overline{v}) + \lim_{\overline{v} \to \overline{0}} \|v\|E_{\overline{c}}(\overline{v})\\
+		\implies & \lim_{\overline{v} \to \overline{0}} f(\overline{c}+\overline{v}) = f(\overline{c})
+	\end{align*}
+\end{proof}
+
+\begin{theorem}
+	Let $S \subset \mathbb{R}^n$ and $f : S \to \mathbb{R}^m$ --continue page 345--
+\end{theorem}
+\begin{proof}
+\end{proof}
 \chapter{Implicit Functions and Extremum Problems}
 %\chapter{Multiple Riemann Integrals*}
 %\chapter{Multiple Lebesgue Integrals*}
