@@ -414,6 +414,7 @@
 		\item[$D_kf(\overline{c})$] partial derivative
 		\item[$f'(\overline{c},\overline{v})$] directional derivative
 		\item[$f'(\overline{c})(\overline{v})$] total derivative
+		\item[$\nabla{}f(\overline{c})$] gradient vector
 	\end{description}
 \end{note}
 
@@ -458,10 +459,25 @@
 \end{proof}
 
 \begin{theorem}
-	Let $S \subset \mathbb{R}^n$ and $f : S \to \mathbb{R}^m$ --continue page 345--
+	Let $S \subset \mathbb{R}^n$ and $f : S \to \mathbb{R}^m$ be differentiable at an interior point $\overline{c}$ of $S$, where $S \subseteq \mathbb{R}^n$. If $\overline{v} = v_1\overline{u_1}+v_2\overline{u_2} + \cdots + v_n\overline{u_n}$, then
+	\[ f'(\overline{c})(\overline{v}) = \sum_{k=1}^n v_k D_k f(\overline{c}) \]
+	In particular, if $f$ is real-valued $(m = 1)$ we have, $f'(\overline{c})(\overline{v}) = \nabla{}f(\overline{c}).\overline{v}$
 \end{theorem}
 \begin{proof}
+	Suppose $f : S \to \mathbb{R}^m$ is differentiable at $\overline{c}$, then there exists a linear function $f'(\overline{c}) : S \to \mathbb{R}^m$ such that $f(\overline{c}+\overline{v}) = f(\overline{c}) + f'(\overline{c})(\overline{v}) + \|\overline{v}\| E_{\overline{c}}(\overline{c})$ where $E_{\overline{c}} \to \overline{0}$ as $\overline{v} \to \overline{0}$.
+	\begin{align*}
+		f'(\overline{c})(\overline{v}) & = f'(\overline{c})\left(\sum_{k=1}^n v_k \overline{u_k}\right)\\
+			& = \sum_{k=1}^n v_k f'(\overline{c})(\overline{u_k}), \text{ since $f'(\overline{c})$ is linear}\\
+			& = \sum_{k=1}^n v_k D_k f(\overline{c}), \text{ since $f'(\overline{c})(\overline{u_k}) = f'(\overline{c},\overline{u_k}) = D_k f(\overline{c})$}\\
+		\intertext{Let $m = 1$, then $f : S \to \mathbb{R}$ }
+		f'(\overline{c})(\overline{v}) & = \sum_{k=1}^n v_k D_k f(\overline{c}) = \nabla{}f(\overline{c}).\overline{v}\\
+		& \text{ since } \nabla{}f(\overline{c}) = \left( D_1f(\overline{c}),\ D_2f(\overline{c}),\ \cdots ,\ D_nf(\overline{c}) \right)
+	\end{align*}
 \end{proof}
+
+\begin{remark}
+	Let $f : S \to \mathbb{R}$, then $f(\overline{c}+\overline{v}) = f(\overline{c}) + \nabla{}f(\overline{c}).\overline{v} + o(\|\overline{v}\|)$ as $\overline{v} \to \overline{0}$.
+\end{remark}
 \chapter{Implicit Functions and Extremum Problems}
 %\chapter{Multiple Riemann Integrals*}
 %\chapter{Multiple Lebesgue Integrals*}
