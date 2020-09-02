@@ -29,9 +29,171 @@
 \setcounter{chapter}{6}
 \chapter{Separation Axioms}
 \section{Compactness and Separation Axioms}
-\section{The Urysohn Characterisation of Normality}
-\section{Tietze Characterisation of Normality}
+\begin{proposition}
+	Let $X$ be a $T_2$ space, $x \in X$ and $F$ is a compact subset of $X$ not containing $x$. Then there exist opensets $U,\ V$ such that $x \in U$, $F \subset V$ \& $U \cap V = \phi$.
+\end{proposition}
+%\begin{proof}
+%\end{proof}
 
+\begin{corollary}
+	A compact subset in a $T_2$ space is closed.
+\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+\begin{corollary}
+	Every map from a compact space into a $T_2$ space is closed. And its range is a quotient space of the domain.
+\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+\begin{corollary}
+	A continuous bijection from a compact space onto a $T_2$ sspace is a homeomorphism.
+\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+\begin{corollary}
+	Every continuous, one-to-one function from a compact space into a $T_2$ space is an embedding.
+\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+\begin{theorem}
+	Every compact $T_2$ space is a $T_3$ space.
+\end{theorem}
+%\begin{proof}
+%\end{proof}
+
+\begin{proposition}
+	Let $X$ be a regular space, $C$ a closed subset of $X$ and $F$ a compact subset of $X$, such that $C \cap F = \phi$. Then there exist open sets $U,\ V$ such that $C \subset U$, $F \subset V$ and $U \cap V = \phi$.
+\end{proposition}
+%\begin{proof}
+%\end{proof}
+
+\begin{theorem}
+	Every regular, Lindeloff space is normal.
+\end{theorem}
+%\begin{proof}
+%\end{proof}
+
+\begin{corollary}
+	Every regular, second countable space is normal.
+\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+\begin{corollary}
+	Every compact $T_2$ space is $T_4$.
+\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+%\begin{remark} Exercises 7.2
+%	\begin{enumerate}
+%		\item Prove that unit circle $S^1$ is compact.
+%		\item For any map \(f : S^1 \to \mathbb{R}\) prove that there exists a point \( x_0 \in S^1 \) such that \( f(x_0) = f(-x_0) \).
+%		\item Let $A,\ B$ be closed subsets of $S^1$ such that \( S^1 = A \cup B \). Prove that at least one of $A$ and $B$ contains a pair of mutually antipodal points.
+%		\item Let $X$ be any infinite set with a distinguished element $\ast$. Let $\mathcal{T}$ be the topology on $X$ consisting of the empty set and all subsets of $X$ containing $\ast$. Prove that $X$ has a compact subset whose closure is not compact.
+%		\item Prove that the closure of a compact subset of a regular space is compact.
+%		\item Prove that the real line with the semi-open interval topology is normal.
+%			---continue page 176---
+%	\end{enumerate}
+%\end{remark}
+
+\section{The Urysohn Characterisation of Normality}
+\begin{proposition}
+	Let $A\ B$ be subsets of a space $X$ and suppose there exists a continuous function $f:X \to [0,1]$, such that $f(x)=0,\ \forall x \in A$ and $f(x)=1,\ \forall x \in B$. Then there exists disjoint open sets $U,\ V$ such that $A \subset U$ and $B \subset V$.
+\end{proposition}
+%\begin{proof}
+%\end{proof}
+
+\begin{corollary}
+	If $X$ has the property that for any disjoint closed subsets $A,\ B$ of $X$, there exists a continuous function $f : X \to [0,1]$ such that $f(x)=0,\ \forall x \in A$ and $f(x)=1,\ \forall x \in B$, then $X$ is normal.
+\end{corollary}
+%\begin{proof}
+%\end{proof}
+
+\begin{theorem}
+	A topological space $X$ is normal iff it has the property that for every mutually disjoint, closed subsets $A,\ B$ of $X$, there exists a continuous function \( f : X \to [0,1] \) such that \( f(x) = 0 \) for all $x \in A$ and \( f(x) = 1 \) for all \( x \in B \)
+\end{theorem}
+%\begin{proof}
+%\end{proof}
+
+\begin{lemma}
+	Let \( f : X \to [0,1] \) be continuous. For each \( t \in \mathbb{R} \) let \( F_t  \{ x \in X : f(x) < t \} \). Then the indexed family \( \{F_t : t \in \mathbb{R} \} \) has the following properties
+	\begin{enumerate}
+		\item \( F_t \) is an open subset of \( X \) for each \( t \in \mathbb{R} \)
+		\item \( F_t = \phi \) for \( t < 0 \)
+		\item \( F_t = X \) for \( t > 1 \)
+		\item For any \( s,\ t \in \mathbb{R},\ s < t \implies \overline{F_s} \subset F_t \).
+	\end{enumerate}
+	Moreover, for each \( x \in X,\ f(x) = \inf \{t \in \mathbb{Q} : x \in F_t \} \).
+\end{lemma}
+%\begin{proof}
+%\end{proof}
+
+\begin{lemma}
+	Let \( X \) be a topological space and suppose \( \{ F_t : t \in \mathbb{Q} \} \) is a family of sets in \( X \) such that 
+	\begin{enumerate}
+		\item \( F_t \) is open in \( X \) for each \( t \in \mathbb{Q} \)
+		\item \( F_t = \phi \) for \( t \in \mathbb{Q},\ t < 0 \)
+		\item \( F_t = X \) for \( t \in \mathbb{Q},\ t > 1 \)
+		\item \( \overline{F_s} \subset F_t \) for \( s,\ t \in \mathbb{Q},\ s < t \)
+	\end{enumerate}
+	For \( x \in X \), let \( f(x) = \inf \{ t \in \mathbb{Q} : x \in F_t \} \). Then \( f \) is a continuous real-valued function on \( X \) and it takes values in the unit interval \( [0,1] \).
+\end{lemma}
+%\begin{proof}
+%\end{proof}
+
+\begin{corollary}
+	All \( T_4 \) spaces are completely regular and hence Tychonoff.
+\end{corollary}
+\begin{proof}
+	Let \( x \in X \) and \( D \) be closed subset not containing \( x \). We have \( X \) is a \( T_4 \) space. Therefore \( X \) is \( T_1 \) as well as normal.  Now the singleton set, \( \{ x \} \) is closed, since \( X \) is a \( T_1 \) space. And by Urysohn's lemma for disjoint, closed subsets \( \{ x \},\ D \) there exists a continuous, real-valued function \( f : X \to [0,1] \) such that \( f(x) = 0 \) and \( f(y) = 1 \) for all \( y \in D \). Therefore the space \( X \) is completely regular and hence Tychonoff.
+\end{proof}
+
+\begin{remark}[Urysohn function]
+	The function whose existence is asserted by Urysohn's lemma is called a Urysohn function
+\end{remark}
+
+\section{Tietze Characterisation of Normality}
+\begin{proposition}
+	Let \( A \) be a subset of a space \( X \) and let \( f : A \to \mathbb{R} \) be continuous. Then any two extensions of \( f \) to \( X \) agree on \( \overline{A} \). In other words, if at all an extension of \( f \) exists its values on \( \overline{A} \) are uniquely determined by values of \( f \) on \( A \).
+\end{proposition}
+%\begin{proof}
+%\end{proof}
+
+\begin{proposition}
+	Suppose a topological space \( X \) has the property that for every closed subset \( A \) of \( X \), every continuous real valued function on \( A \) has a continuous extension to \( X \). Then \( X \) is normal.
+\end{proposition}
+%\begin{proof}
+%\end{proof}
+
+\begin{definition}[Pointwise Convergence]
+	Let \( X \) be a topological space and \( (Y,d) \) a metric space. Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges pointwise to \( f \) if for every \( x \in X \) the sequence \( \{ f_n(x) \} \) converges to \( f(x) \) in \( Y \).\\
+	
+	In other words, given a very small value, \( \epsilon > 0 \), there exists some \( \delta > 0 \) such that for every \( x \in X \) there exists \( N_x \in \mathbb{N} \). This \( N_x \) may be different for different values of \( x \) and for every \( n > N_x \), \( d(f(x),f_n(x)) < \delta \).
+\end{definition}
+
+\begin{definition}[Uniform Convergence]
+	Let \( X \) be a topological space and \( (Y,d) \) a metric space. Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges uniformly to \( f \) if given a small \( \epsilon > 0 \), there exists \( \delta > 0 \) such that there exists \( N \in \mathbb{N} \). This $N$ is independent of the value of \( x \) and for every \( n > N \), \( d(f(x),f_n(x)) < \delta \).
+\end{definition}
+
+\begin{proposition}
+	Let \( X,\ (Y,d),\ \{ f_n \} \text{ and } f \) be as above and suppose \( \{ f_n \} \) converges to \( f \) uniformly. If each \( f_n \) is continuous, then \( f \) is continuous.
+\end{proposition}
+
+\begin{definition}[Uniform Convergence of Series]
+	Let \( X \) be a topological space and \( (Y,d) \) be a metric space. Then a series of function \( \sum^\infty_{n = 1} f_n \) converges uniformly to \( f \) if the sequence of partial sums converges uniformly to \( f \).\\
+
+	In other words, let \( g_m = \sum^m_{n = 1} f_n \). Then \( \sum^\infty_{n = 1} f_n \) converges to \( f \) uniformly if the sequence of partial sums \( \{ g_m \} \) converges to \( f \) uniformly.
+\end{definition}
+
+\begin{proposition}
+	Let \( \sum^\infty_{n = 1} M_n \) be a convergent series of non-negative real numbers. Suppose \( \{ f_n \} \) is a sequence of real valued functions on a space \( X \) such that for each \( x \in X \) and \( n \in \mathbb{N},\ |f_n(x)| \le M_n \). Then the series \( \sum^\infty_{n = 1} f_n \) converges uniformly to a real valued function on \( X \).
+\end{proposition}
+---continue page 185---
 \chapter{Products and Coproducts}
 \section{Cartesian Products of Families of Sets}
 \section{The Product Topology}
@@ -46,28 +208,28 @@
 \chapter{Nets and Filters}
 \section{Definition and Convergence of Nets}
 \begin{definition}[Directed Set]\cite[10.1.1]{joshi}\\
-	A directed set $D$ is a pair $(D,\ge)$ where $D$ is a nonempty set and  $ge$ is a binary relation on $D$ such that
+	A directed set \(D\) is a pair \( (D,\ge) \) where \( D \) is a nonempty set and  \( ge \) is a binary relation on \( D \) such that
 	\begin{enumerate}
-		\item The relation `follows'($\ge$) is transitive. ie, $m \ge n,\ n \ge p \implies m \ge p$
-		\item The relation `follows'($\ge$) is reflexive. ie, For every $m \in D,\ m \ge m$
-		\item For any $m,n \in D$, there exists $p \in D$ such that $p \ge m$ and $p \ge n$.
+		\item The relation `follows'( \( \ge \) ) is transitive. ie,  \( m \ge n,\ n \ge p \implies m \ge p \)
+		\item The relation `follows'( \( \ge \) ) is reflexive. ie, For every \( m \in D,\ m \ge m \)
+		\item For any \( m,n \in D \), there exists \( p \in D \) such that \( p \ge m \) and \( p \ge n \).
 	\end{enumerate}
 \end{definition}
 
 \begin{description}
-	\item[sequence in a set $X$] is a function $f$ from the set of all integers into $X$.
+	\item[sequence in a set \( X \)] is a function \( f \) from the set of all integers into \( X \).
 \end{description}
 
 \begin{definition}[Net]\cite[10.1.2]{joshi}\\
-	A net in a set $X$ is a function $S$ from a directed set $D$ into the set $X$.
+	A net in a set \( X \) is a function \( S \) from a directed set \( D \) into the set \( X \).
 \end{definition}
 
 \begin{remark}
-	The set $\mathbb{N}$ together with the relation `less than or equal to'($\le$) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset $E$ of $D$ has an element $p \in E$ such that $p$ follows each element of $E$. This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of $\mathbb{N}$ has a least element in it.}of the set of all integers. Thus $\mathbb{N}$ is a directed set and every sequence in $X$ is also a net in $X$. 
+	The set \( \mathbb{N} \) together with the relation `less than or equal to'( \( \le \) ) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset \( E \) of \( D \) has an element \( p \in E \) such that \( p \) follows each element of \( E \). This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of \( \mathbb{N} \) has a least element in it.}of the set of all integers. Thus \( \mathbb{N} \) is a directed set and every sequence in \( X \) is also a net in \( X \). 
 \end{remark}
 
 \begin{remark}[Significance of Net]
-	A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence into a directed set. The notion directed set is derived by assuming a few properties of $\mathbb{N}$.\\
+	A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence into a directed set. The notion directed set is derived by assuming a few properties of \( \mathbb{N} \).\\
 
 	The convergence of sequence is not strong enough to characterise topologies as the limit of convergent sequences are unique for both Hausdorff and Co-countable spaces. The notion of Net allows us to differentiate between Hausdorff spaces from Co-countable spaces in terms of convergence of nets. The limit of a convergent net on a topological space is unique iff it is a Hausdorff space. ie, We have removed a few restrictions, so that we will have some convergent nets (which are obviously not sequences) with multiple limit points for Co-countable spaces.
 \end{remark}
@@ -75,22 +237,22 @@
 \begin{remark}
 	Examples of Directed Sets
 	\begin{enumerate}
-		\item Let $X$ be a topological space and $x \in X$. Then the neighbourhood system $\mathcal{N}_x$ is a directed set with the binary relation $\subset$ (subset/inclusion).
+		\item Let \( X \) be a topological space and \( x \in X \). Then the neighbourhood system \( \mathcal{N}_x \) is a directed set with the binary relation \( \subset \) (subset/inclusion).
 			\begin{enumerate}
-				\item Let $U,V,W$ be any three neighbourhoods of $x \in X$ such that $U \subset V$ and $V \subset W$. Then, clearly $U \subset W$.\\ Therefore, $U \ge V,\ V \ge W \implies U \ge W$.
-				\item Let $U$ be any neighbourhood of $x \in X$, then $U \subset U$.\\ Therefore, $U \ge U$.
-				\item Let $U,V$ be any two neighbourhoods of $x \in X$, then there exists their intersection $W = U\cap V$, which is a neighbourhood of $x$. Clearly $W \subset U$ and $W \subset V$.\\ Therefore $\forall U,V \in \mathcal{N}_x, \exists W \in \mathcal{N}_x$ such that $W \ge U$ and $W \ge V$.
+				\item Let \( U,\ V,\ W \) be any three neighbourhoods of \( x \in X \) such that \( U \subset V \) and \( V \subset W \). Then, clearly \( U \subset W \).\\ Therefore, \( U \ge V,\ V \ge W \implies U \ge W \).
+				\item Let \( U \) be any neighbourhood of \( x \in X \), then \( U \subset U \).\\ Therefore, \( U \ge U \).
+				\item Let \( U,V \) be any two neighbourhoods of \( x \in X \), then there exists their intersection \( W = U\cap V \), which is a neighbourhood of \( x \). Clearly \( W \subset U \) and \( W \subset V \).\\ Therefore \( \forall U,V \in \mathcal{N}_x, \exists W \in \mathcal{N}_x \) such that \( W \ge U \) and \( W \ge V \).
 			\end{enumerate}
-		\item Let $\mathcal{P}$ be the set of all partitions on closed unit interval $[0,1]$. A partition $P \in \mathcal{P}$ is a refinement of $Q \in \mathcal{P}$ if every subinterval in $P$ is contained in some subinterval of $Q$. Then $\mathcal{P}$ with the binary relation refinement is a directed set.\\
+		\item Let \( \mathcal{P} \) be the set of all partitions on closed unit interval \( [0,1] \). A partition \( P \in \mathcal{P} \) is a refinement of \( Q \in \mathcal{P} \) if every subinterval in \( P \) is contained in some subinterval of \( Q \). Then \( \mathcal{P} \) with the binary relation refinement is a directed set.\\
 
-			For example, let $P = \{ 0,\ 0.3,\ 0.7,\ 1 \}$. Then the subintervals in $P$ are $[0,0.3]$, $[0.3,0.7]$ and $[0.7,1]$. Let $Q = \{ 0,\ 0.3,\ 0.5,\ 1 \}$ and $R = \{ 0,\ 0.3,\ 0.5,\ 0.7,\ 1 \}$. Then $R$ is a refinement of $P$, but $Q$ is not a refinement of $P$ since there is a subinterval $[0.5,1]$ in $Q$ which is not properly contained in any subinterval of $P$. However, $R$ is a refinement of $Q$ as well.
+			For example, let \( P = \{ 0,\ 0.3,\ 0.7,\ 1 \} \). Then the subintervals in \( P \) are \( [0,0.3] \), \( [0.3,0.7] \) and \( [0.7,1] \). Let \( Q = \{ 0,\ 0.3,\ 0.5,\ 1 \} \) and \( R = \{ 0,\ 0.3,\ 0.5,\ 0.7,\ 1 \} \). Then \( R \) is a refinement of \( P \), but \( Q \) is not a refinement of \( P \) since there is a subinterval \( [0.5,1] \) in \( Q \) which is not properly contained in any subinterval of \( P \). However, \( R \) is a refinement of \( Q \) as well.
 			\begin{enumerate}
-				\item Suppose $P,Q,R$ are three partitions of $[0,1]$ such that $P$ is a refinement of $Q$ and $Q$ is a refinement of $R$, then clearly $P$ is a refinement of $R$ since each subinterval of $P$ is contained some subinterval of $Q$, which is contained in some subinterval of $R$.\\
-					Therefore, $P \ge Q,\ Q \ge R \implies P \ge R$
-				\item Suppose $P$ is a partition of $[0,1]$. Then trivialy, $P$ is a refinement of itself since every subinterval of $P$ is contained in the same subinterval of $P$.\\
-					Therefore, $\forall P \in \mathcal{P},\ P \ge P$
-				\item Suppose $P,Q$ be any two partition of $[0,1]$. Then $R = P \cup Q$ is a refinement of both the partitions.\\
-					Therefore $\forall P,Q \in \mathcal{P},\ \exists R \in \mathcal{P}$ such that $R \ge P$ and $R \ge Q$
+				\item Suppose \(P,\ Q,\ R \)  are three partitions of \( [0,1] \) such that \( P \) is a refinement of \( Q \) and \( Q \) is a refinement of \( R \), then clearly \( P \) is a refinement of \( R \) since each subinterval of \( P \) is contained some subinterval of \( Q \), which is contained in some subinterval of \( R \).\\
+					Therefore, \( P \ge Q,\ Q \ge R \implies P \ge R \)
+				\item Suppose \( P \) is a partition of \( [0,1] \). Then trivialy, \( P \) is a refinement of itself since every subinterval of \( P \) is contained in the same subinterval of \( P \).\\
+					Therefore, \( \forall P \in \mathcal{P},\ P \ge P \)
+				\item Suppose \( P,\ Q \) be any two partition of \( [0,1] \). Then \( R = P \cup Q \) is a refinement of both the partitions.\\
+					Therefore \( \forall P,Q \in \mathcal{P},\ \exists R \in \mathcal{P} \) such that \( R \ge P \) and \( R \ge Q \)
 			\end{enumerate}
 	\end{enumerate}
 \end{remark}
@@ -98,7 +260,7 @@
 \begin{remark}
 	Examples of Nets
 	\begin{enumerate}
-		\item Let $X$ be a topological space and $x \in X$. Let $\mathcal{N}_x$ be the set of all neighbourhoods of $x$. Let $D = (\mathcal{N}_x,X)$ be the directed set given by $(N,y) \in (\mathcal{N}_x,X)$ if $N \in \mathcal{N}_x$ and $y \in N$ and $(N,y) \ge (M,z)$ if $N \subset M$. Then the function $S : (\mathcal{N}_x,X) \to X$ given by $S(N,y) = y$ is a net on $X$.\\
+		\item Let \( X \) be a topological space and \( x \in X \). Let \( \mathcal{N}_x \) be the set of all neighbourhoods of \( x \). Let \( D = (\mathcal{N}_x,X) \) be the directed set given by \( (N,y) \in (\mathcal{N}_x,X) \) if \( N \in \mathcal{N}_x \) and \( y \in N \) and \( (N,y) \ge (M,z) \) if \( N \subset M \). Then the function \( S : (\mathcal{N}_x,X) \to X \) given by \( S(N,y) = y \) is a net on \( X \).\\
 
 			For example, let $X = \{ a,b,c,d \}$ and $\mathcal{T} = \{ \{a\},\ \{a,b\},\ \{a,b,c\},\ \{a,b,c,d\} \}$. Also let $S : (\mathcal{N}_b,X) \to X$ defined by $S(N,y) = y$. Suppose $C = \{a,b,c\}$. Then $C \in \mathcal{N}_b$. ie, $C$ is a neighbourhood of $b$. Then $S(C,c) = c$.
 		\item Riemann Net - Let $D = (\mathcal{P},\xi)$ where $\mathcal{P}$ is the set of all partitions on $[0,1]$ and $\xi$ is a finite sequence in $[0,1]$ such that consecutive terms belongs to consecutive subintervals of the partition. The set $(\mathcal{P},\xi)$ is directed set with $\ge$ given by $(P,\eta) \ge (Q,\psi)$ iff $P$ is a refinement of $Q$.\\
