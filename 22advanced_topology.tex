@@ -193,7 +193,8 @@
 \begin{proposition}
 	Let \( \sum^\infty_{n = 1} M_n \) be a convergent series of non-negative real numbers. Suppose \( \{ f_n \} \) is a sequence of real valued functions on a space \( X \) such that for each \( x \in X \) and \( n \in \mathbb{N},\ |f_n(x)| \le M_n \). Then the series \( \sum^\infty_{n = 1} f_n \) converges uniformly to a real valued function on \( X \).
 \end{proposition}
----continue page 185---
+\textcolor{red}{---continue page 185---}
+
 \chapter{Products and Coproducts}
 \section{Cartesian Products of Families of Sets}
 \section{The Product Topology}
@@ -408,16 +409,19 @@
 
 \begin{remark}
 	A net $T : E \to X$ is a subnet of $S : D \to X$ if $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
-	A net $T : E \to X$ is a subnet of $S : D \to X$. If $T$ eventually in $A$ subset of $X$, then $S$ is frequently in $A$.
+	Let $T : E \to X$ be a subnet of $S : D \to X$ and $A$ be a subset of $X$. If $T$ eventually in $A$, then $S$ is frequently in $A$.
 \end{remark}
 
 \begin{proposition}\cite[10.1.12]{joshi}\\
 	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$ iff there exists a subnet of $S$ which converges to $x$.
 \end{proposition}
 \begin{synopsis}
-	Let $(D,\ge)$, $(E,\ge')$ be two directed sets.\\
+	Let $(D,\ge)$, $(E,\ge')$ be two directed sets. And $T : E \to X$ be a subnet of $S : D \to X$.\\
 
-	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$. And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$. Therefore, $S$ is frequently in each nbd $U$ of $x$. Thus, $x$ is a cluster point of $S$.
+	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$. And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$. Therefore, $S$ is frequently in each nbd $U$ of $x$. Thus, $x$ is a cluster point of $S$.\\
+
+	\textcolor{blue}{If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. }
+	\textcolor{red}{---continue---}
 \end{synopsis}
 \begin{proof}
 	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
@@ -440,7 +444,8 @@
 	Consider $E = D \times \mathcal{N}(x)$ and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (p,U\cap V) \in E$ such that $(p,U\cap V) \ge' (n,U)$ and $(p,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
 
 	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$. Now, we have $T : E \to X$ defined by $T(n,U) = S(N(n,U)) = S(n)$. Therefore, $T$ is a subset of $S$.
--- to be continued page 234--
+	\textcolor{blue}{...}
+	\textcolor{red}{-- to be continued page 234--}
 \end{proof}
 
 \begin{remark}
