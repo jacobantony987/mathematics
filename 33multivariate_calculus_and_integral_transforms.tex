@@ -1,4 +1,4 @@
-%Text Books : \cite{apostol}, \cite{rudin}
+Text Books : \cite{apostol}, \cite{rudin}
 %Module 1:
 %The Weirstrass theorem, other forms of Fourier series, the Fourier integral theorem, the exponential form of the Fourier integral theorem, integral transforms and convolutions, the convolution theorem for Fourier transforms.
 %(Chapter 11 Sections 11.15 to 11.21 of \cite{apostol}) (20 hours.)
@@ -478,7 +478,34 @@
 \begin{remark}
 	Let $f : S \to \mathbb{R}$, then $f(\overline{c}+\overline{v}) = f(\overline{c}) + \nabla{}f(\overline{c}).\overline{v} + o(\|\overline{v}\|)$ as $\overline{v} \to \overline{0}$.
 \end{remark}
-\chapter{Implicit Functions and Extremum Problems}
+
+\begin{remark}[Complex-valued Functions]Seminar - Rohitha
+\end{remark}
+
+\marginpar{\textcolor{blue}{Fri Sep  4, 2020}}
+
+\section{Matrix of Linear Function}
+	Let $T : \mathbb{R}^n \to \mathbb{R}^m$ be a linear function. Let $\{\overline{u_1},\ \overline{u_2},\ \cdots,\ \overline{u_n}\}$ be standard basis for $\mathbb{R}^n$ and  $\{\overline{e_1},\ \overline{e_2},\ \cdots,\ \overline{e_m}\}$ be standard basis for $\mathbb{R}^m$. Let $\overline{v} \in \mathbb{R}^n$, then $T(\overline{v}) = \sum_{k=1}^n v_k T(\overline{u_k})$ and
+	\[ T(\overline{v}) = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} T
+	\begin{bmatrix}
+		\overline{u_1}\\ \overline{u_2} \\ \vdots \\ \overline{u_n}
+	\end{bmatrix} = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} 
+	\begin{bmatrix}
+		t_{11} & t_{12} & \cdots & t_{1n} \\
+		t_{21} & t_{22} & \cdots & t_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		t_{m1} & t_{m2} & \cdots & t_{mn}
+	\end{bmatrix}
+	\begin{bmatrix}	\overline{e_1} \\ \overline{e_2} \\ \vdots \\ \overline{e_m}	\end{bmatrix}
+	\]
+
+	Thus matrix of the tranformation, $m(T) = (t_{ik})$ where $T(\overline{u_k}) = \sum_{k=1}^n t_{ik}\overline{e_i}$.\\
+
+\begin{remark}
+	For example : Let $T : \mathbb{R}^3 \to \mathbb{R}^2$ defined by $T(x,y,z)=(2x+y,y-z)$. Then
+	\[ m(T) = \begin{bmatrix} 2 & 0 \\ 1 & 1\\ 0 & -1 \end{bmatrix},\ T(1,2,3) = \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ 1 & 1 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} \overline{e_1} \\ \overline{e_2} \end{bmatrix} = 4\overline{e_1}-\overline{e_2} = (4,-1) \]
+\end{remark}
+%\chapter{Implicit Functions and Extremum Problems}
 %\chapter{Multiple Riemann Integrals*}
 %\chapter{Multiple Lebesgue Integrals*}
 %\chapter{Cauchy's Theorem and the Residue Calculus*}

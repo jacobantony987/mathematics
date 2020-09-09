@@ -420,8 +420,8 @@
 
 	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$. And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$. Therefore, $S$ is frequently in each nbd $U$ of $x$. Thus, $x$ is a cluster point of $S$.\\
 
-	\textcolor{blue}{If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. }
-	\textcolor{red}{---continue---}
+	If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. \textcolor{blue}{Let $N : E \to D$ be $N(n,U) = n$.}
+	\textcolor{blue}{Construct a directed subset $E$ of $D \times \mathcal{N}_x$ such that $(n,U) \in E \iff S(n) \in U$. Now $T$ is eventually in every nbd $U$ of $x$, as those points with images outside $U$ are removed by construction. Therefore, it is sufficient to show that $T : E \to X$ is a subnet of the net $S : D \to X$. Clearly, $E$ is a directed set and $N : E \to D$ defined by $N(n,U) =n$ satisfies both $S \circ N = T$ and $\forall n \in D$, $\exists p \in E$ such that $m \ge p \implies N(m) \ge n$.}
 \end{synopsis}
 \begin{proof}
 	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
@@ -441,17 +441,16 @@
 
 	Conversely, suppose that $x$ is a cluster point of $S$. We have to construct a directed set $(E,\ge')$ and a function $N : E \to D$ such that $T$ is a subnet of $S$ and $T$ converges to $x$.\\
 
-	Consider $E = D \times \mathcal{N}(x)$ and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (p,U\cap V) \in E$ such that $(p,U\cap V) \ge' (n,U)$ and $(p,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
+	Consider \textcolor{blue}{$E = \{ (n,U) \in D \times \mathcal{N}(x) : S(n) \in U \}$} and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. \textcolor{blue}{Also, there exists $q \in D$ such that $S(q) \in U$ and $q \ge' p$, since $S$ is frequently in every nbd $U$ of $x$}. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (q,U\cap V) \in E$ such that $(q,U\cap V) \ge' (n,U)$ and $(q,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
 
-	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$. Now, we have $T : E \to X$ defined by $T(n,U) = S(N(n,U)) = S(n)$. Therefore, $T$ is a subset of $S$.
-	\textcolor{blue}{...}
-	\textcolor{red}{-- to be continued page 234--}
+	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$. Now, we have $T : E \to X$ defined by $T(n,U) = S(N(n,U)) = S(n)$. Therefore, $T$ is a \textcolor{blue}{subnet} of $S$. \textcolor{blue}{Now every points in $E$ are so defined that $(n,U) \in E \implies S(n) \in U$, we have $T(n,U) \in U$. Thus, $T$ is eventually in every nbd of $x$. ie, subnet $T$ of net $S$ is convergent to $x$.}
 \end{proof}
 
 \begin{remark}
-	A proof that doesn't work : If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$. Thus, there exists a cofinal subset $E \subset D$ which is a direct set with $\ge$ restricted to $E$. Then $N : E \to D$ defined by $N(n)=n$ gives a subset $T : E \to X$ of $S$. However, this subnet need not converge to $x$. The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$'.\\
-
-	$N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$.
+	\begin{itemize}
+		\item  \textcolor{blue}{Importance of Construction of $E$}\\ If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$. Thus, \textcolor{blue}{if we consider any cofinal subset $D'$ of $D$} which is a direct set with $\ge$ restricted to \textcolor{blue}{$D'$}. Then $N : D' \to D$ defined by $N(n)=n$ gives a \textcolor{blue}{ subnet $T : D' \to X$ of the net } $S$. However, this subnet need not converge to $x$. The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$' \textcolor{blue}{, since $N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$. This problem is overcame by constructing $E$ which is dependent on each nbd $U$ of $x$.}
+		\item \textcolor{blue}{Existence of $q \in D$ such that $q \ge' p$ and $S(q) \in U$. We have, $p$ follows both $n \& m$ and $U \cap V$ is a subset of both $U \& V$. However, since $S$ is only frequently in $U$, $p$ not necessarily be in $U$. But there is always someone following $p$ which has its image in $U$. This $q$ follows both $n \& m$, since $\ge'$ is transitive.}
+	\end{itemize}
 \end{remark}
 
 %\section{Topology and Convergence of Nets*}
