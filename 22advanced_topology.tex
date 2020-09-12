@@ -788,3 +788,43 @@ Given every sequentially compact, metric space is countably compact. We may asse
 %\section{Paracompactness}
 %\section{Use of Ordinal Numbers}
 %\section{Topological Groups}
+
+%James R. Munkres
+%\chapter{Set Theory and Logic}
+%\chapter{Topological Spaces and Continuous Functions}
+%\chapter{Connectedness and Compactness}
+%\chapter{Countability and Separation Axioms}
+%\chapter{The Tychonoff Theorem}
+%\chapter{Metrization Theorems and Paracompactness}
+%\chapter{Compact Metric Spaces and Function Spaces}
+%\chapter{Baire Spaces and Dimension Theory}
+\chapter{The Fundamental Group}
+\section{Homotopy of Paths}
+\begin{definition}
+	Let $X,\ Y$ be topological spaces and $f : X \to Y$, $f':X \to Y$ be continuous functions. Then $f,\ f'$ are homotopic if there exists a continuous function $F : X \times I \to Y$ such that for every $x \in X$, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$. And we write, $f \cong f'$.
+\end{definition}
+
+\begin{definition}
+	Let $Y$ be a topological space and $f : I \to Y$ and $f' : I \to Y$ be two paths. Then $f,\ f'$ are path-homotopic if they have same initial point $x_0$ (ie, $x_0=f(0)=f'(0)$), same final point $x_1$ (ie, $x_1=f(1)=f'(1)$) and they are homotopic (ie, $\exists F: I \times I \to Y$ such that $\forall x \in I$, $F(x,0)=f(x)$ and $F(x,1)=f'(x)$ also fixed at the end points $x_0$ and $x_1$(ie, $\forall t \in I$, $F(0,t) = x_0$ and $F(1,t) = x_1$). And we write $f \cong_p f'$.
+\end{definition}
+
+\begin{remark}
+	If two paths $f,\ f'$are homotopic, then they have the same end points and there exists a (topologically) continuous deformation from one path into another.
+\end{remark}
+
+\begin{proposition}
+	The relations $\cong,\ \cong_p$ are equivalence relations.
+\end{proposition}
+
+\begin{remark}[Straight line homotopy]
+	Let $X$ be a topological space, and $f,\ g$ be continous functions from $X$ into a eucilidean space, say $\mathbb{R}^2$. Then $f,\ g$ are straight line homotopic if there exists a continuous function $F$ from $X \times I$ such that $F$ deforms $f$ into $g$ along straight line segments joining them.\\
+
+	For example, $F(x,t) = (1-t)f(x)+tg(x)$.
+\end{remark}
+\begin{remark}
+	Let $A$ be a convex subspace of $\mathbb{R}^n$. Then any two paths in $A$ from $x_0$ to $x_1$ are path homotopic in $A$.
+\end{remark}
+%\chapter{Separation Theorems in the Plane}
+%\chapter{The Seifert-van Kampen Theorem}
+%\chapter{Classification of Covering Spaces}
+%\chapter{Classification of Surfaces}
