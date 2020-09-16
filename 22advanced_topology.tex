@@ -420,8 +420,7 @@
 
 	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$. And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$. Therefore, $S$ is frequently in each nbd $U$ of $x$. Thus, $x$ is a cluster point of $S$.\\
 
-	If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. \textcolor{blue}{Let $N : E \to D$ be $N(n,U) = n$.}
-	\textcolor{blue}{Construct a directed subset $E$ of $D \times \mathcal{N}_x$ such that $(n,U) \in E \iff S(n) \in U$. Now $T$ is eventually in every nbd $U$ of $x$, as those points with images outside $U$ are removed by construction. Therefore, it is sufficient to show that $T : E \to X$ is a subnet of the net $S : D \to X$. Clearly, $E$ is a directed set and $N : E \to D$ defined by $N(n,U) =n$ satisfies both $S \circ N = T$ and $\forall n \in D$, $\exists p \in E$ such that $m \ge p \implies N(m) \ge n$.}
+	If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. Let $N : E \to D$ be $N(n,U) = n$. Construct a directed subset $E$ of $D \times \mathcal{N}_x$ such that $(n,U) \in E \iff S(n) \in U$. Now $T$ is eventually in every nbd $U$ of $x$, as those points with images outside $U$ are removed by construction. Therefore, it is sufficient to show that $T : E \to X$ is a subnet of the net $S : D \to X$. Clearly, $E$ is a directed set and $N : E \to D$ defined by $N(n,U) =n$ satisfies both $S \circ N = T$ and $\forall n \in D$, $\exists p \in E$ such that $m \ge p \implies N(m) \ge n$.
 \end{synopsis}
 \begin{proof}
 	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
@@ -439,17 +438,17 @@
 
 	Thus $S$ is frequently in any neighbourhood $U$ of $x$. Therefore, $x$ is a cluster point of $S$.\\
 
-	Conversely, suppose that $x$ is a cluster point of $S$. We have to construct a directed set $(E,\ge')$ and a function $N : E \to D$ such that $T$ is a subnet of $S$ and $T$ converges to $x$.\\
+	Conversely, suppose that $x$ is a cluster point of $S$. We have to construct a directed set $(E,\ge')$ and a function $N : E \to D$ such that $T$ is a subnet of $S$ and $T$ converges to $x$. \textcolor{blue}{Let $\mathcal{N}_x$ be the family of all neighbourhood of $x$ in $X$.}\\
 
-	Consider \textcolor{blue}{$E = \{ (n,U) \in D \times \mathcal{N}(x) : S(n) \in U \}$} and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. \textcolor{blue}{Also, there exists $q \in D$ such that $S(q) \in U$ and $q \ge' p$, since $S$ is frequently in every nbd $U$ of $x$}. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (q,U\cap V) \in E$ such that $(q,U\cap V) \ge' (n,U)$ and $(q,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
+	Consider $E = \{ (n,U) \in D \times \mathcal{N}(x) : S(n) \in U \}$ and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. Also, \textcolor{blue}{$U \cap V \in \mathcal{N}_x$ and} there exists $q \in D$ such that $S(q) \in \textcolor{blue}{U \cap V}$ and $q \ge' p$, since $S$ is frequently in every nbd of $x$. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (q,U\cap V) \in E$ such that $(q,U\cap V) \ge' (n,U)$ and $(q,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
 
-	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$. Now, we have $T : E \to X$ defined by $T(n,U) = S(N(n,U)) = S(n)$. Therefore, $T$ is a \textcolor{blue}{subnet} of $S$. \textcolor{blue}{Now every points in $E$ are so defined that $(n,U) \in E \implies S(n) \in U$, we have $T(n,U) \in U$. Thus, $T$ is eventually in every nbd of $x$. ie, subnet $T$ of net $S$ is convergent to $x$.}
+	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$. Now, we have $T : E \to X$ defined by $T(n,U) = S(N(n,U)) = S(n)$. Therefore, $T$ is a subnet of $S$. Now every points in $E$ are so defined that $(n,U) \in E \implies S(n) \in U$, we have $T(n,U) \in U$. Thus, $T$ is eventually in every nbd of $x$. ie, subnet $T$ of net $S$ is convergent to $x$.
 \end{proof}
 
 \begin{remark}
 	\begin{itemize}
-		\item  \textcolor{blue}{Importance of Construction of $E$}\\ If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$. Thus, \textcolor{blue}{if we consider any cofinal subset $D'$ of $D$} which is a direct set with $\ge$ restricted to \textcolor{blue}{$D'$}. Then $N : D' \to D$ defined by $N(n)=n$ gives a \textcolor{blue}{ subnet $T : D' \to X$ of the net } $S$. However, this subnet need not converge to $x$. The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$' \textcolor{blue}{, since $N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$. This problem is overcame by constructing $E$ which is dependent on each nbd $U$ of $x$.}
-		\item \textcolor{blue}{Existence of $q \in D$ such that $q \ge' p$ and $S(q) \in U$. We have, $p$ follows both $n \& m$ and $U \cap V$ is a subset of both $U \& V$. However, since $S$ is only frequently in $U$, $p$ not necessarily be in $U$. But there is always someone following $p$ which has its image in $U$. This $q$ follows both $n \& m$, since $\ge'$ is transitive.}
+		\item  Importance of Construction of $E$\\ If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$. Thus, if we consider any cofinal subset $D'$ of $D$ which is a direct set with $\ge$ restricted to $D'$. Then $N : D' \to D$ defined by $N(n)=n$ gives a subnet $T : D' \to X$ of the net $S$. However, this subnet need not converge to $x$. The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$', since $N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$. This problem is overcame by constructing $E$ which is dependent on each nbd $U$ of $x$.
+		\item Existence of $q \in D$ such that $q \ge' p$ and $S(q) \in U$. We have, $p$ follows both $n \& m$ and $U \cap V$ is a subset of both $U \& V$. However, since $S$ is only frequently in $U$, $p$ not necessarily be in $U$. But there is always someone following $p$ which has its image in $U$. This $q$ follows both $n \& m$, since $\ge'$ is transitive.
 	\end{itemize}
 \end{remark}
 
@@ -791,21 +790,80 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 %James R. Munkres
 %\chapter{Set Theory and Logic}
+%\section{Fundamental Concepts}
+%\section{Functions}
+%\section{Relations}
+%\section{The Integers and the Real Numbers}
+%\section{Cartesian Products}
+%\section{Finite Sets}
+%\section{Countable and Uncountable Sets}
+%\section{The Principle of Recursive Definition}
+%\section{Infinite Sets and the Axiom of Choice}
+%\section{Well-Ordered Set}
+%\section{The Maximum Principle}
+% Zorn's lemma 11.3
+
 %\chapter{Topological Spaces and Continuous Functions}
+%\section{Topological Spaces}
+%\section{Basis for a Topology}
+%\section{The Order Topology}
+%\section{The Product Topology on $X \times Y$}
+%\section{The Subspace Topology}
+%\section{Closed Sets and Limit Points}
+%\section{Continuous Functions}
+% Pasting Lemma 18.3
+%\section{The Product Topology}
+%\section{The Metric Topology}
+%\section{The Metric Topology(continued)}
+%\section{The Quotient Topology}
+
 %\chapter{Connectedness and Compactness}
+%\section{Connected Spaces}
+%\section{Connected Subspaces of the Real Line}
+%\section{Components and Local Connectedness}
+%\section{Compact Spaces}
+%\section{Compact Subspaces of the Real Line}
+%\section{Limit Point Compactness}
+%\section{Local Compactness}
 %\chapter{Countability and Separation Axioms}
+%\section{The Countability Axioms}
+%\section{The Separation Axioms}
+%\section{Normal Spaces}
+%\section{The Urysohn Lemma}
+%\section{The Urysohn Metrization Theorem}
+%\section{The Tietze Extension Theorem}
+%\section{Imbedding of Manifolds}
+
 %\chapter{The Tychonoff Theorem}
+%\section{The Tychonoff Theorem}
+%\section{The Stone-\~Cech Compactification}
+
 %\chapter{Metrization Theorems and Paracompactness}
+%\section{Local Finiteness}
+%\section{The Nagata-Smirnov Metrization Theorem}
+%\section{Paracompactness}
+%\section{The Smirnov Metrization Theorem}
+
 %\chapter{Compact Metric Spaces and Function Spaces}
+%\section{Complete Metric Spaces}
+%\section{A Space-Filling Curve}
+%\section{Compactness in Metric Spaces}
+%\section{Pointwise and Compact Convergence}
+%\section{Ascoli's Theorem}
+
 %\chapter{Baire Spaces and Dimension Theory}
+%\section{Baire Spaces}
+%\section{A Nowhere-Differentiable Function}
+%\section{Introduction to Dimension Theory}
+
 \chapter{The Fundamental Group}
 \section{Homotopy of Paths}
 \begin{definition}
-	Let $X,\ Y$ be topological spaces and $f : X \to Y$, $f':X \to Y$ be continuous functions. Then $f,\ f'$ are homotopic if there exists a continuous function $F : X \times I \to Y$ such that for every $x \in X$, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$. And we write, $f \cong f'$.
+	Let $X,\ Y$ be topological spaces and $f : X \to Y$, $f':X \to Y$ be continuous functions. Then $f,\ f'$ are homotopic if there exists a continuous function $F : X \times I \to Y$ such that for every $x \in X$, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$. And we write, $f \simeq f'$.
 \end{definition}
 
 \begin{definition}
-	Let $Y$ be a topological space and $f : I \to Y$ and $f' : I \to Y$ be two paths. Then $f,\ f'$ are path-homotopic if they have same initial point $x_0$ (ie, $x_0=f(0)=f'(0)$), same final point $x_1$ (ie, $x_1=f(1)=f'(1)$) and they are homotopic (ie, $\exists F: I \times I \to Y$ such that $\forall x \in I$, $F(x,0)=f(x)$ and $F(x,1)=f'(x)$ also fixed at the end points $x_0$ and $x_1$(ie, $\forall t \in I$, $F(0,t) = x_0$ and $F(1,t) = x_1$). And we write $f \cong_p f'$.
+	Let $Y$ be a topological space and $f : I \to Y$ and $f' : I \to Y$ be two paths. Then $f,\ f'$ are path-homotopic if they have same initial point $x_0$ (ie, $x_0=f(0)=f'(0)$), same final point $x_1$ (ie, $x_1=f(1)=f'(1)$) and they are homotopic (ie, $\exists F: I \times I \to Y$ such that $\forall x \in I$, $F(x,0)=f(x)$ and $F(x,1)=f'(x)$ also fixed at the end points $x_0$ and $x_1$(ie, $\forall t \in I$, $F(0,t) = x_0$ and $F(1,t) = x_1$). And we write $f \simeq_p f'$.
 \end{definition}
 
 \begin{remark}
@@ -813,18 +871,102 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{remark}
 
 \begin{proposition}
-	The relations $\cong,\ \cong_p$ are equivalence relations.
+	The relations $\simeq,\ \simeq_p$ are equivalence relations.
 \end{proposition}
+\begin{proof}
+	Homotopy : Let $f,\ f'$ be continuous functions from $X$ into $Y$. Then $f$ and $f'$ are homotopic, $f \simeq f' \iff \exists F : X \times I \to Y$ such that $F$ is continuous, $F(x,0)=f(x)$, and $F(x,1)=f'(x)$
+	\begin{enumerate}
+		\item $f \simeq f$ \\
+			We have $f : X \to Y$ is continuous. Define $F : X \times I \to Y$ such that $F(x,t)=f(x)$. Clearly, $F$ is continuous, $F(x,0) = f(x)$ and $F(x,1) = f(x)$. And $\exists F : X \times I \to Y \implies f \simeq f$.
+		\item $f \simeq f' \implies f' \simeq f$\\ We have, $f \simeq f'$. Thus there exists a continuous function $F : X \times I \to Y$ such that $F(x,0) = f(x)$ and $F(x,1) = f'(x)$.\\ Consider $F' : X \times I \to Y$ defined by $F'(x,t) = F(x,1-t)$. Clearly, $F'$ is continuous, $F'(x,0) = F(x,1) = f'(x)$, and $F'(x,1) = F(x,0) = f(x)$. Thus, $\exists F'(x,t) : X \times I \to Y \implies f' \simeq_p f$
+		\item $f \simeq f',\ f' \simeq f'' \implies f \simeq f''$\\
+			We have, $f \simeq f' \iff \exists F : X \times I \to Y$ such that $F$ is continuous, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$.\\
+			
+			Similarly, $f' \simeq f'' \iff \exists F' : X \times I \to Y$ such that $F'$ is continuous, $F'(x,0) = f'(x)$ and $F'(x,1) = f''(x)$.\\
+
+			Consider $G:X \times I \to Y$ defined by \[ G(x,t) = \begin{cases} F(x,2t) & , t \in [0,\frac{1}{2}]\\ F'(x,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \] We have, $G(x,\frac{1}{2}) = F(x,1) = F'(x,0) = f'(x)$. Thus, $G$ is continuous by pasting lemma since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$. Also $G(x,0) = F(x,0) = f(x)$ and $G(x,1) = F'(x,1) = f''(x)$. Thus, $\exists G : X \times I \to Y \implies f \simeq f''$
+	\end{enumerate}
+	Path Homotopy : Let $f,\ f',\ f''$ be paths in $Y$. Then $f$ and $f'$ are path homotopic, $f \simeq_p f' \iff \exists F : I \times I \to Y$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$
+	\begin{enumerate}
+		\item $f \simeq_p f$ \\
+			We have $f : I \to Y$ is continuous. Define $F : I \times I \to Y$ such that $\forall s,t \in [0,1],\ F(s,t)=f(s)$. Clearly, $F$ is continuous, $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f(s)$ and $\forall t \in [0,1],\ F(0,t) = f(0),\ F(1,t) = f(1)$. Thus, $\exists F : I \times I \to Y \implies f \simeq_p f$.
+		\item $f \simeq_p f' \implies f' \simeq_p f$\\
+			We have, $f \simeq_p f'$. Thus there exists a continuous function $F : I \times I \to Y$ such that $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t) = f(1) = f'(1)$.\\
+			
+			Consider $F' : I \times I \to Y$ defined by $F'(s,t) = F(s,1-t)$. Clearly, $F'$ is continuous. And $F'(s,0) = F(s,1) = f'(s)$, and $F'(s,1) = F(s,0) = f(s)$. Also, $F'(0,t) = F(0,1-t) = f(0) = f'(0)$ and $F'(1,t) = F(1,1-t) = f(1) = f'(1)$. Thus, $\exists F'(s,t) : I \times I \to Y \implies f' \simeq_p f$
+		\item $f \simeq f',\ f' \simeq f'' \implies f \simeq f''$\\
+			We have, $f \simeq f' \iff \exists F : I \times I \to Y$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$\\
+			
+			Similarly, $f' \simeq f'' \iff \exists F' : I \times I \to Y$ such that $F'$ is continuous, $\forall s \in [0,1],\ F'(s,0)=f'(s),\ F'(s,1)=f''(s)$ and $\forall t \in [0,1],\ F'(0,t)=f'(0)=f''(0),\ F'(1,t)=f'(1)=f''(1)$\\
+
+			Consider $G:I \times I \to Y$ defined by \[ G(s,t) = \begin{cases} F(s,2t) & , t \in [0,\frac{1}{2}]\\ F'(s,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \]
+				
+			We have, $G(s,\frac{1}{2}) = F(s,1) = F'(s,0) = f'(s)$. Thus, $G$ is continuous by pasting lemma since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$.\\
+			
+			Also $G(s,0) = F(s,0) = f(s)$ and $G(s,1) = F'(s,1) = f''(s)$.\\
+
+			Again, $\forall t \in [0,\frac{1}{2}],\ G(0,t) = F(0,2t) = f(0) = f'(0) = f''(0)$ and $\forall t \in [\frac{1}{2},1],\ G(0,t) = F'(0,2t-1) = f(0) = f'(0) = f''(0)$. Therefore, $\forall t \in [0,1],\ G(0,t) = f(0) = f''(0)$.\\
+			
+			Similarly, $\forall t \in [0,\frac{1}{2}],\ G(1,t) = F(1,2t) = f(1) = f'(1) = f''(1)$ and $\forall t \in [\frac{1}{2},1],\ G(1,t) = F'(1,2t-1) = f(1) = f'(1) = f''(1)$. Therefore, $\forall t \in [0,1],\ G(1,t) = f(1) = f''(1)$. Thus, $\exists G : I \times I \to Y \implies f \simeq f''$
+	\end{enumerate}
+\end{proof}
+
+\begin{remark}
+	Let $f$ be a path in $X$ (ie, $f : I \to X$), then $[f]$ is the equivalence class of all paths homotopic to $f$ in $X$. (ie, $g \in [f] \iff f \simeq_p g$)
+\end{remark}
 
 \begin{remark}[Straight line homotopy]
-	Let $X$ be a topological space, and $f,\ g$ be continous functions from $X$ into a eucilidean space, say $\mathbb{R}^2$. Then $f,\ g$ are straight line homotopic if there exists a continuous function $F$ from $X \times I$ such that $F$ deforms $f$ into $g$ along straight line segments joining them.\\
+	Let $X$ be a topological space, and $f,\ g$ be continuous functions from $X$ into a eucilidean space, say $\mathbb{R}^2$. Then $f,\ g$ are straight line homotopic if there exists a continuous function $F$ from $X \times I$ such that $F$ deforms $f$ into $g$ along straight line segments joining them.\\
 
 	For example, $F(x,t) = (1-t)f(x)+tg(x)$.
 \end{remark}
 \begin{remark}
 	Let $A$ be a convex subspace of $\mathbb{R}^n$. Then any two paths in $A$ from $x_0$ to $x_1$ are path homotopic in $A$.
 \end{remark}
+
+\begin{definition}
+	Let $f,\ g$ be two paths in $X$ (ie, $f : I \to X$ and $g: I \to X$) such that $f(0)=x_0$, $f(1)=g(0)=x_1$ and $g(1)=x_2$. Then the prduct $h = f \ast g$ is given by $h : I \to X$ and \[ h(s) = \begin{cases} f(2s) & , s \in [0,\frac{1}{2}] \\ g(2s-1) & , s \in [\frac{1}{2},1] \end{cases} \]
+\end{definition}
+% h is well-defined \footnote{Pasting Lemma, Local formulation of Continuity (\cite[pp. 106]{munkres})}
+
+
+%\section{The Fundamental Group}
+%\section{Covering Spaces}
+%\section{The Fundamental Group of the Circle}
+%\section{Retractions and Fixed Points}
+%\section{The Fundamental Theorem of Algebra}
+%\section{The Borsuk-Ulam Theorem}
+%\section{Deformation Tracts and Homotopy Type}
+%\section{The Fundamental Group of $S^n$}
+%\section{Fundamental Groups of Some Surfaces}
+
 %\chapter{Separation Theorems in the Plane}
+%\section{The Jordan Separation Theorem}
+%\section{Invariance of Domain}
+%\section{The Jordan Curve Theorem}
+%\section{Imbedding Graphs in the Plane}
+%\section{The Winding Number of a Simple Closed Curve}
+%\section{The Cauchy Integral Formula}
+
 %\chapter{The Seifert-van Kampen Theorem}
+%\section{Direct Sums of Abelian Groups}
+%\section{Free Prooducts of Groups}
+%\section{Free Groups}
+%\section{The Seifert-van Kampen Theorem}
+%\section{The Fundamental Group of a Wedge of Circles}
+%\section{Adjoining a Two-cell}
+%\section{The Fundamental Groups of the Torus and the Dunce Cap}
+
 %\chapter{Classification of Covering Spaces}
+%\section{Equivalence of Cover Spaces}
+%\section{The Universal Covering Space}
+%\section{Covering Transformations}
+%\section{Existence of Covering Spaces}
+
 %\chapter{Classification of Surfaces}
+%\section{Fundamental Groups of Surfaces}
+%\section{Homotopy of Surfaces}
+%\section{Cutting and Pasting}
+%\section{The Classification Theorem}
+%\section{Constructing Compact Surfaces}
+
