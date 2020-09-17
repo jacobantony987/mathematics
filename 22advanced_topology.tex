@@ -422,6 +422,114 @@
 
 	If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. Let $N : E \to D$ be $N(n,U) = n$. Construct a directed subset $E$ of $D \times \mathcal{N}_x$ such that $(n,U) \in E \iff S(n) \in U$. Now $T$ is eventually in every nbd $U$ of $x$, as those points with images outside $U$ are removed by construction. Therefore, it is sufficient to show that $T : E \to X$ is a subnet of the net $S : D \to X$. Clearly, $E$ is a directed set and $N : E \to D$ defined by $N(n,U) =n$ satisfies both $S \circ N = T$ and $\forall n \in D$, $\exists p \in E$ such that $m \ge p \implies N(m) \ge n$.
 \end{synopsis}
+\begin{figure}
+	\centering
+	\scalebox{0.6}{
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(1.14,-2.78) rectangle (18.95,9.78);
+\draw [rotate around={-91.65:(3.65,3.49)}] (3.65,3.49) ellipse (2.73cm and 1.69cm);
+\draw [rotate around={-91.65:(9.93,3.41)}] (9.93,3.41) ellipse (2.73cm and 1.69cm);
+\draw [rotate around={-91.65:(16.35,3.39)}] (16.35,3.39) ellipse (2.73cm and 1.69cm);
+\draw (16,4) circle (1.06cm);
+\draw (16.31,2.6) circle (1.43cm);
+\draw (2.49,5.28)-- (2.5,2);
+\draw (4.89,1.99)-- (2.5,2);
+\draw (2.49,5)-- (5,5);
+\draw (2.49,4.5)-- (5.11,4.53);
+\draw (2.5,3)-- (5,3);
+\draw (3,2)-- (3,5.5);
+\draw (4.5,2)-- (4.5,5.5);
+\draw (3.72,2)-- (3.76,5.5);
+\draw [shift={(6.86,-3.61)}] plot[domain=1.31:1.82,variable=\t]({1*9.91*cos(\t r)+0*9.91*sin(\t r)},{0*9.91*cos(\t r)+1*9.91*sin(\t r)});
+\draw [shift={(13.36,-3.01)}] plot[domain=1.29:1.87,variable=\t]({1*9.42*cos(\t r)+0*9.42*sin(\t r)},{0*9.42*cos(\t r)+1*9.42*sin(\t r)});
+\draw [shift={(10,-4.43)}] plot[domain=1.01:2.11,variable=\t]({1*12.43*cos(\t r)+0*12.43*sin(\t r)},{0*12.43*cos(\t r)+1*12.43*sin(\t r)});
+\draw (6.41,6.9) node[anchor=north west] {$N : E \to D$};
+\draw (12.2,6.99) node[anchor=north west] {$S : D \to X$};
+\draw (9.69,8.6) node[anchor=north west] {$T : E \to X$};
+\draw [shift={(6.69,-2.37)},dotted]  plot[domain=1.09:2.03,variable=\t]({1*8.24*cos(\t r)+0*8.24*sin(\t r)},{0*8.24*cos(\t r)+1*8.24*sin(\t r)});
+\draw [shift={(13.11,1.53)},dotted]  plot[domain=0.84:2.23,variable=\t]({1*4.32*cos(\t r)+0*4.32*sin(\t r)},{0*4.32*cos(\t r)+1*4.32*sin(\t r)});
+\draw [shift={(6.19,0.44)},dotted]  plot[domain=0.97:2.11,variable=\t]({1*4.74*cos(\t r)+0*4.74*sin(\t r)},{0*4.74*cos(\t r)+1*4.74*sin(\t r)});
+\draw [shift={(10.22,-4.38)},dotted]  plot[domain=0.97:1.73,variable=\t]({1*8.84*cos(\t r)+0*8.84*sin(\t r)},{0*8.84*cos(\t r)+1*8.84*sin(\t r)});
+\draw [shift={(6.98,-3.03)},dotted]  plot[domain=1:1.96,variable=\t]({1*6.52*cos(\t r)+0*6.52*sin(\t r)},{0*6.52*cos(\t r)+1*6.52*sin(\t r)});
+\draw [shift={(11.7,-6.99)},dotted]  plot[domain=1.09:1.7,variable=\t]({1*9.53*cos(\t r)+0*9.53*sin(\t r)},{0*9.53*cos(\t r)+1*9.53*sin(\t r)});
+\draw [-latex] (10.49,2.47) -- (8.86,4.35);
+\draw [-latex] (10.49,2.47) -- (10.46,4.95);
+\draw [-latex] (8.96,2.13) -- (10.49,2.47);
+\draw [shift={(13.2,-0.87)},dotted]  plot[domain=1.06:2.53,variable=\t]({1*5.19*cos(\t r)+0*5.19*sin(\t r)},{0*5.19*cos(\t r)+1*5.19*sin(\t r)});
+\draw [-latex,dash pattern=on 1pt off 3pt on 5pt off 4pt] (8.96,2.13) -- (8.86,4.35);
+\draw [-latex,dash pattern=on 1pt off 3pt on 5pt off 4pt] (8.96,2.13) -- (10.46,4.95);
+\draw (4.85,3.54)-- (2.5,3.54);
+\draw [shift={(6.19,1.12)},dotted]  plot[domain=0.35:2.18,variable=\t]({1*2.95*cos(\t r)+0*2.95*sin(\t r)},{0*2.95*cos(\t r)+1*2.95*sin(\t r)});
+\draw [shift={(5.95,1.34)},dotted]  plot[domain=0.26:2.36,variable=\t]({1*3.12*cos(\t r)+0*3.12*sin(\t r)},{0*3.12*cos(\t r)+1*3.12*sin(\t r)});
+\draw [shift={(5.64,1.4)},dotted]  plot[domain=0.22:2.46,variable=\t]({1*3.4*cos(\t r)+0*3.4*sin(\t r)},{0*3.4*cos(\t r)+1*3.4*sin(\t r)});
+\begin{scriptsize}
+\draw[color=black] (4.55,6.39) node {$E,\ge'$};
+\draw[color=black] (10.38,6.41) node {$D,\ge$};
+\draw[color=black] (16.87,6.45) node {$X,\mathcal{T}$};
+\fill[color=black] (16.31,3.56) circle (1.5pt);
+\draw[color=black] (16.46,3.84) node {$x$};
+\draw[color=black] (15.74,5.25) node {$U$};
+\draw[color=black] (17.17,3.52) node {$V$};
+\fill [color=black] (3,2) circle (1.5pt);
+\draw[color=black] (3.00,1.70) node {$U$};
+\fill [color=black] (3.72,2) circle (1.5pt);
+\draw[color=black] (3.75,1.70) node {$V$};
+\fill [color=black] (4.5,2) circle (1.5pt);
+\draw[color=black] (4.50,1.70) node {$U\cap V$};
+\fill [color=black] (2.5,3) circle (1.5pt);
+\draw[color=black] (2.28,3.06) node {$p$};
+\fill [color=black] (2.49,4.5) circle (1.5pt);
+\draw[color=black] (2.28,4.56) node {$m$};
+\fill [color=black] (2.49,5) circle (1.5pt);
+\draw[color=black] (2.28,5.08) node {$n$};
+\fill [color=black] (3,5) circle (1.5pt);
+\draw[color=black] (3.41,5.28) node {$(n,U)$};
+\draw [color=black] (4.5,5) circle (1.5pt);
+\draw[color=black] (5.09,5.28) node {}; %$(n,U\cap V)$};
+\draw [color=black] (3.75,5) circle (1.5pt);
+\draw[color=black] (4.16,5.28) node {}; %$(n,V)$};
+\fill [color=black] (3.75,4.5) circle (1.5pt);
+\draw[color=black] (4.19,4.78) node {$(m,V)$};
+\draw [color=black] (4.5,4.53) circle (1.5pt);
+\draw[color=black] (5.13,4.8) node {}; %$(m,U\cap V)$};
+\draw [color=black] (3,4.53) circle (1.5pt);
+\draw[color=black] (3.46,4.8) node {}; %$(m,U)$};
+\draw [color=black] (3,3) circle (1.5pt);
+\draw[color=black] (3.41,3.28) node {}; %$(p,U)$};
+\fill [color=black] (4.5,3) circle (1.5pt);
+\draw[color=black] (5.14,3.28) node {$(p,U\cap V)$};
+\draw [color=black] (3.73,3) circle (1.5pt);
+\fill [color=black] (3.74,3) circle (1.5pt);
+\draw[color=black] (4.14,3.28) node {$(p,V)$};
+\fill [color=black] (2.5,3.54) circle (1.5pt);
+\draw[color=black] (2.28,3.61) node {$q$};
+\fill [color=black] (3,3.54) circle (1.5pt);
+\draw[color=black] (3.41,3.82) node {$(q,U)$};
+\fill [color=black] (3.74,3.54) circle (1.5pt);
+\draw[color=black] (4.14,3.82) node {$(q,V)$};
+\fill [color=black] (4.5,3.54) circle (1.5pt);
+\draw[color=black] (5.13,3.82) node {$(q,U \cap V)$};
+\fill [color=black] (10.46,4.95) circle (1.5pt);
+\draw[color=black] (10.33,5.1) node {$n$};
+\fill [color=black] (8.86,4.35) circle (1.5pt);
+\draw[color=black] (9.01,4.65) node {$m$};
+\fill [color=black] (10.49,2.47) circle (1.5pt);
+\draw[color=black] (10.4,2.27) node {$p$};
+\fill [color=black] (15.99,4.76) circle (1.5pt);
+\draw[color=black] (16.46,4.61) node {$S(n)$};
+\fill [color=black] (15.24,2.9) circle (1.5pt);
+\draw[color=black] (15.63,2.58) node {$S(m)$};
+\fill [color=black] (16.12,1.46) circle (1.5pt);
+\draw[color=black] (16.49,1.74) node {$S(p)$};
+\fill [color=black] (8.96,2.13) circle (1.5pt);
+\draw[color=black] (8.75,2.06) node {$q$};
+\fill [color=black] (15.76,3.65) circle (1.5pt);
+\draw[color=black] (15.93,3.39) node {$S(q)$};
+\end{scriptsize}
+\end{tikzpicture}
+}
+\caption{$E$ is a directed set}
+\end{figure}
 \begin{proof}
 	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
 
