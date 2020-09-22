@@ -210,7 +210,7 @@
 \section{Definition and Convergence of Nets}
 \begin{definition}[Directed Set]\cite[10.1.1]{joshi}\\
 	A directed set \(D\) is a pair \( (D,\ge) \) where \( D \) is a nonempty set and  \( ge \) is a binary relation on \( D \) such that
-	\begin{enumerate}
+	\begin{enumerate}%[label=DS\arabic*]
 		\item The relation `follows'( \( \ge \) ) is transitive. ie,  \( m \ge n,\ n \ge p \implies m \ge p \)
 		\item The relation `follows'( \( \ge \) ) is reflexive. ie, For every \( m \in D,\ m \ge m \)
 		\item For any \( m,n \in D \), there exists \( p \in D \) such that \( p \ge m \) and \( p \ge n \).
@@ -226,54 +226,66 @@
 \end{definition}
 
 \begin{remark}
-	The set \( \mathbb{N} \) together with the relation `less than or equal to'( \( \le \) ) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset \( E \) of \( D \) has an element \( p \in E \) such that \( p \) follows each element of \( E \). This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of \( \mathbb{N} \) has a least element in it.}of the set of all integers. Thus \( \mathbb{N} \) is a directed set and every sequence in \( X \) is also a net in \( X \). 
+\begin{commentary}
+	The set \( \mathbb{N} \) together with the relation `less than or equal to'( \( \le \) ) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset \( E \) of \( D \) has an element \( p \in E \) such that \( p \) follows each element of \( E \). This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of \( \mathbb{N} \) has a least element in it.}of the set of all integers. Thus \( \mathbb{N} \) is a directed set and every sequence in \( X \) is also a net in \( X \).
+\end{commentary}
 \end{remark}
 
 \begin{remark}[Significance of Net]
-	A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence into a directed set. The notion directed set is derived by assuming a few properties of \( \mathbb{N} \).\\
+\begin{commentary}
+	\par A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence into a directed set. The notion directed set is derived by assuming a few properties of \( \mathbb{N} \).\\
 
-	The convergence of sequence is not strong enough to characterise topologies as the limit of convergent sequences are unique for both Hausdorff and Co-countable spaces. The notion of Net allows us to differentiate between Hausdorff spaces from Co-countable spaces in terms of convergence of nets. The limit of a convergent net on a topological space is unique iff it is a Hausdorff space. ie, We have removed a few restrictions, so that we will have some convergent nets (which are obviously not sequences) with multiple limit points for Co-countable spaces.
+	\par The convergence of sequence is not strong enough to characterise topologies as the limit of convergent sequences are unique for both Hausdorff and Co-countable spaces. The notion of Net allows us to differentiate between Hausdorff spaces from Co-countable spaces in terms of convergence of nets. The limit of a convergent net on a topological space is unique iff it is a Hausdorff space. ie, We have removed a few restrictions, so that we will have some convergent nets (which are obviously not sequences) with multiple limit points for Co-countable spaces.
+\end{commentary}
 \end{remark}
 
 \begin{remark}
 	Examples of Directed Sets
 	\begin{enumerate}
 		\item Let \( X \) be a topological space and \( x \in X \). Then the neighbourhood system \( \mathcal{N}_x \) is a directed set with the binary relation \( \subset \) (subset/inclusion).
-			\begin{enumerate}
-				\item Let \( U,\ V,\ W \) be any three neighbourhoods of \( x \in X \) such that \( U \subset V \) and \( V \subset W \). Then, clearly \( U \subset W \).\\ Therefore, \( U \ge V,\ V \ge W \implies U \ge W \).
-				\item Let \( U \) be any neighbourhood of \( x \in X \), then \( U \subset U \).\\ Therefore, \( U \ge U \).
-				\item Let \( U,V \) be any two neighbourhoods of \( x \in X \), then there exists their intersection \( W = U\cap V \), which is a neighbourhood of \( x \). Clearly \( W \subset U \) and \( W \subset V \).\\ Therefore \( \forall U,V \in \mathcal{N}_x, \exists W \in \mathcal{N}_x \) such that \( W \ge U \) and \( W \ge V \).
-			\end{enumerate}
-		\item Let \( \mathcal{P} \) be the set of all partitions on closed unit interval \( [0,1] \). A partition \( P \in \mathcal{P} \) is a refinement of \( Q \in \mathcal{P} \) if every subinterval in \( P \) is contained in some subinterval of \( Q \). Then \( \mathcal{P} \) with the binary relation refinement is a directed set.\\
+		\begin{commentary}
+		\begin{enumerate}
+			\item Let \( U,\ V,\ W \) be any three neighbourhoods of \( x \in X \) such that \( U \subset V \) and \( V \subset W \). Then, clearly \( U \subset W \).\\ Therefore, \( U \ge V,\ V \ge W \implies U \ge W \).
+			\item Let \( U \) be any neighbourhood of \( x \in X \), then \( U \subset U \).\\ Therefore, \( U \ge U \).
+			\item Let \( U,V \) be any two neighbourhoods of \( x \in X \), then there exists their intersection \( W = U\cap V \), which is a neighbourhood of \( x \). Clearly \( W \subset U \) and \( W \subset V \).\\ Therefore \( \forall U,V \in \mathcal{N}_x, \exists W \in \mathcal{N}_x \) such that \( W \ge U \) and \( W \ge V \).
+		\end{enumerate}
+		\end{commentary}
+		\item Let \( \mathcal{P} \) be the set of all partitions on closed unit interval \( [0,1] \). A partition \( P \in \mathcal{P} \) is a refinement of \( Q \in \mathcal{P} \) if every subinterval in \( P \) is contained in some subinterval of \( Q \). Then \( \mathcal{P} \) with the binary relation refinement is a directed set.
 
-			For example, let \( P = \{ 0,\ 0.3,\ 0.7,\ 1 \} \). Then the subintervals in \( P \) are \( [0,0.3] \), \( [0.3,0.7] \) and \( [0.7,1] \). Let \( Q = \{ 0,\ 0.3,\ 0.5,\ 1 \} \) and \( R = \{ 0,\ 0.3,\ 0.5,\ 0.7,\ 1 \} \). Then \( R \) is a refinement of \( P \), but \( Q \) is not a refinement of \( P \) since there is a subinterval \( [0.5,1] \) in \( Q \) which is not properly contained in any subinterval of \( P \). However, \( R \) is a refinement of \( Q \) as well.
-			\begin{enumerate}
-				\item Suppose \(P,\ Q,\ R \)  are three partitions of \( [0,1] \) such that \( P \) is a refinement of \( Q \) and \( Q \) is a refinement of \( R \), then clearly \( P \) is a refinement of \( R \) since each subinterval of \( P \) is contained some subinterval of \( Q \), which is contained in some subinterval of \( R \).\\
-					Therefore, \( P \ge Q,\ Q \ge R \implies P \ge R \)
-				\item Suppose \( P \) is a partition of \( [0,1] \). Then trivialy, \( P \) is a refinement of itself since every subinterval of \( P \) is contained in the same subinterval of \( P \).\\
-					Therefore, \( \forall P \in \mathcal{P},\ P \ge P \)
-				\item Suppose \( P,\ Q \) be any two partition of \( [0,1] \). Then \( R = P \cup Q \) is a refinement of both the partitions.\\
-					Therefore \( \forall P,Q \in \mathcal{P},\ \exists R \in \mathcal{P} \) such that \( R \ge P \) and \( R \ge Q \)
-			\end{enumerate}
+		\begin{commentary}
+		\begin{enumerate}
+			\item Suppose \(P,\ Q,\ R \)  are three partitions of \( [0,1] \) such that \( P \) is a refinement of \( Q \) and \( Q \) is a refinement of \( R \), then clearly \( P \) is a refinement of \( R \) since each subinterval of \( P \) is contained some subinterval of \( Q \), which is contained in some subinterval of \( R \).\\
+			Therefore, \( P \ge Q,\ Q \ge R \implies P \ge R \)
+			\item Suppose \( P \) is a partition of \( [0,1] \). Then trivialy, \( P \) is a refinement of itself since every subinterval of \( P \) is contained in the same subinterval of \( P \).\\
+			Therefore, \( \forall P \in \mathcal{P},\ P \ge P \)
+			\item Suppose \( P,\ Q \) be any two partition of \( [0,1] \). Then \( R = P \cup Q \) is a refinement of both the partitions.\\
+			Therefore \( \forall P,Q \in \mathcal{P},\ \exists R \in \mathcal{P} \) such that \( R \ge P \) and \( R \ge Q \)
+		\end{enumerate}
+		\end{commentary}
 	\end{enumerate}
+\begin{commentary}
+	For example, let \( P = \{ 0,\ 0.3,\ 0.7,\ 1 \} \). Then the subintervals in \( P \) are \( [0,0.3] \), \( [0.3,0.7] \) and \( [0.7,1] \). Let \( Q = \{ 0,\ 0.3,\ 0.5,\ 1 \} \) and \( R = \{ 0,\ 0.3,\ 0.5,\ 0.7,\ 1 \} \). Then \( R \) is a refinement of \( P \), but \( Q \) is not a refinement of \( P \) since there is a subinterval \( [0.5,1] \) in \( Q \) which is not properly contained in any subinterval of \( P \). However, \( R \) is a refinement of \( Q \) as well.
+\end{commentary}
 \end{remark}
 
 \begin{remark}
-	Examples of Nets
-	\begin{enumerate}
-		\item Let \( X \) be a topological space and \( x \in X \). Let \( \mathcal{N}_x \) be the set of all neighbourhoods of \( x \). Let \( D = (\mathcal{N}_x,X) \) be the directed set given by \( (N,y) \in (\mathcal{N}_x,X) \) if \( N \in \mathcal{N}_x \) and \( y \in N \) and \( (N,y) \ge (M,z) \) if \( N \subset M \). Then the function \( S : (\mathcal{N}_x,X) \to X \) given by \( S(N,y) = y \) is a net on \( X \).\\
+\begin{commentary}
+Examples of Nets
+\begin{enumerate}
+	\item Let \( X \) be a topological space and \( x \in X \). Let \( \mathcal{N}_x \) be the set of all neighbourhoods of \( x \). Let \( D = (\mathcal{N}_x,X) \) be the directed set given by \( (N,y) \in (\mathcal{N}_x,X) \) if \( N \in \mathcal{N}_x \) and \( y \in N \) and \( (N,y) \ge (M,z) \) if \( N \subset M \). Then the function \( S : (\mathcal{N}_x,X) \to X \) given by \( S(N,y) = y \) is a net on \( X \).\\
 
-			For example, let $X = \{ a,b,c,d \}$ and $\mathcal{T} = \{ \{a\},\ \{a,b\},\ \{a,b,c\},\ \{a,b,c,d\} \}$. Also let $S : (\mathcal{N}_b,X) \to X$ defined by $S(N,y) = y$. Suppose $C = \{a,b,c\}$. Then $C \in \mathcal{N}_b$. ie, $C$ is a neighbourhood of $b$. Then $S(C,c) = c$.
-		\item Riemann Net - Let $D = (\mathcal{P},\xi)$ where $\mathcal{P}$ is the set of all partitions on $[0,1]$ and $\xi$ is a finite sequence in $[0,1]$ such that consecutive terms belongs to consecutive subintervals of the partition. The set $(\mathcal{P},\xi)$ is directed set with $\ge$ given by $(P,\eta) \ge (Q,\psi)$ iff $P$ is a refinement of $Q$.\\
+	For example, let $X = \{ a,b,c,d \}$ and $\mathcal{T} = \{ \{a\},\ \{a,b\},\ \{a,b,c\},\ \{a,b,c,d\} \}$. Also let $S : (\mathcal{N}_b,X) \to X$ defined by $S(N,y) = y$. Suppose $C = \{a,b,c\}$. Then $C \in \mathcal{N}_b$. ie, $C$ is a neighbourhood of $b$. Then $S(C,c) = c$.
+	\item Riemann Net - Let $D = (\mathcal{P},\xi)$ where $\mathcal{P}$ is the set of all partitions on $[0,1]$ and $\xi$ is a finite sequence in $[0,1]$ such that consecutive terms belongs to consecutive subintervals of the partition. The set $(\mathcal{P},\xi)$ is directed set with $\ge$ given by $(P,\eta) \ge (Q,\psi)$ iff $P$ is a refinement of $Q$.\\
 			
-			For example, let $P \in \mathcal{P}$ is given by $P = \{\ 0,\ 0.3,\ 0.7,\ 1\ \}$ and $\eta = \{\ 0.2,\ 0.6,\ 0.9\ \}$. Then $(P,\eta) \in (\mathcal{P},\xi)$.\\
+	For example, let $P \in \mathcal{P}$ is given by $P = \{\ 0,\ 0.3,\ 0.7,\ 1\ \}$ and $\eta = \{\ 0.2,\ 0.6,\ 0.9\ \}$. Then $(P,\eta) \in (\mathcal{P},\xi)$.\\
 
-			Let $f : \mathbb{R} \to \mathbb{R}$ be any function, then the function,
-			$$S : (\mathcal{P},\xi) \to \mathbb{R} \text{ defined by } S(P,\eta) = \sum_{j=1}^k f(\eta_k)(a_k-a_{k-1})$$
-			where $P = \{ a_0,\ a_1,\cdots,\ a_k \ \}$ is the Riemann Net with respect to the real function $f$.\\
+	Let $f : \mathbb{R} \to \mathbb{R}$ be any function, then the function,
+	$$S : (\mathcal{P},\xi) \to \mathbb{R} \text{ defined by } S(P,\eta) = \sum_{j=1}^k f(\eta_k)(a_k-a_{k-1})$$
+	where $P = \{ a_0,\ a_1,\cdots,\ a_k \ \}$ is the Riemann Net with respect to the real function $f$.\\
 
-			For example, let $f(x) = x^2$ and $P,\eta$ are same as above example, then $S(P,\eta) = 0.2^2(0.3-0) + 0.6^2(0.7-0.3) + 0.9(1-0.7) = 3.99$
+	For example, let $f(x) = x^2$ and $P,\eta$ are same as above example, then $S(P,\eta) = 0.2^2(0.3-0) + 0.6^2(0.7-0.3) + 0.9(1-0.7) = 3.99$
 	\end{enumerate}
+\end{commentary}
 \end{remark}
 	
 \begin{definition}[Convergence of a Net]\cite[10.1.3]{joshi}\\
@@ -281,8 +293,10 @@
 \end{definition}
 
 \begin{remark}
+\begin{commentary}
 	The choice of $m$ depends on the choice of neighbourhood $U$.
 	$$S: D \to X,\ S \to x \iff \left( \forall U \in \mathcal{N}_x,\ \exists m_U \in D,\text{ such that } n \ge m_U \implies S(n) \in U \right)$$
+\end{commentary}
 \end{remark}
 
 \begin{theorem}[Net characterisation of Hausdorff space]\cite[10.1.4]{joshi}\\
@@ -313,7 +327,9 @@
 \end{definition}
 
 \begin{remark}
+\begin{commentary}
 	Let $E$ be an eventual subset of $D$ such that $n \ge m \implies n \in E$. Then $p \in E \not\!\!\!\implies p \ge m$. ie, Subset $E$ may contain elements that doesn't follow the above $m$.
+\end{commentary}
 \end{remark}
 
 \begin{remark}\cite[10.1.6]{joshi}\\
@@ -322,10 +338,15 @@
 		\item $m,n,p \in E,\ m \ge n,\ n \ge p \implies m,n,p \in D,\ m \ge n,\ n \ge p \implies m \ge p$
 		\item $m \in E \implies m \in D \implies m \ge m$
 		\item $m,n \in E \implies m,n \in D \implies \exists p \in D$ such that $p \ge m$ and $\ \ge n$.\\
-			Since $E$ is eventual, $\exists m' \in D$ such that $n' \ge m' \implies n' \in E$.\\
-			Also, $p,m' \in D$, $\exists p' \in D$ such that $p' \ge p$ and $p' \ge m'$.(Condition 3)\\
-			Since, $E$ is eventual subset of $D$ with respect to $m'$, $p' \ge m' \implies p' \in E$.\\
-			And since $p' \ge p,\ p \ge m \implies p' \ge m$ and $p' \ge p,\ p \ge n \implies p' \ge n$.\\
+
+			$\exists m' \in D$ such that $n' \ge m' \implies n' \in E$. ( $E$ is an eventual subset of $D$ )\\
+
+			$p,m' \in D \implies \exists p' \in D$ such that $p' \ge p$ and $p' \ge m'$.($D$ is a directed Set)\\
+
+			$p' \ge m' \implies p' \in E$. ( $E$ is eventual subset of $D$ with respect to $m'$)\\
+
+			$p' \ge p,\ p \ge m \implies p' \ge m$ and $p' \ge p,\ p \ge n \implies p' \ge n$.\\
+
 			Therefore $\forall m,n \in E,\ \exists p' \in E$ such that $p' \ge m$ and $p' \ge n$.
 	\end{enumerate}
 \end{remark}
@@ -352,8 +373,11 @@
 		\item $m,n,p \in F,\ m \ge n,\ n \ge p \implies m,n,p \in D,\ m \ge n,\ n \ge p \implies m \ge p$
 		\item $m \in F \implies m \in D \implies m \ge m$
 		\item $m,n \in F \implies m,n \in D \implies \exists p \in D$ such that $p \ge m$ and $\ \ge n$.\\
-			Since $E$ is cofinal, $p \in D \implies \exists p' \in F$ such that $p' \ge p$.\\
-			And since $p' \ge p,\ p \ge m \implies p' \ge m$ and $p' \ge p,\ p \ge n \implies p' \ge n$.\\
+
+			$E$ is cofinal, $p \in D \implies \exists p' \in F$ such that $p' \ge p$.\\
+
+			$p' \ge p,\ p \ge m \implies p' \ge m$ and $p' \ge p,\ p \ge n \implies p' \ge n$.\\
+
 			Therefore $\forall m,n \in F,\ \exists p' \in F$ such that $p' \ge m$ and $p' \ge n$.
 	\end{enumerate}
 \end{remark}
@@ -385,7 +409,9 @@
 \end{proof}
 
 \begin{remark}
+\begin{commentary}
 	But converse of the above is not true. $S_{/_F}$ converges to $x$ does not imply that $S$ converges to $x$, since cofinal subset $F$ not necessarily contain every element following a particular $m$.
+\end{commentary}
 \end{remark}
 
 \begin{definition}[Cluster point]\cite[10.1.9]{joshi}\\
@@ -408,25 +434,29 @@
 \end{definition}
 
 \begin{remark}
+\begin{commentary}
 	A net $T : E \to X$ is a subnet of $S : D \to X$ if $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
 	Let $T : E \to X$ be a subnet of $S : D \to X$ and $A$ be a subset of $X$. If $T$ eventually in $A$, then $S$ is frequently in $A$.
+\end{commentary}
 \end{remark}
 
 \begin{proposition}\cite[10.1.12]{joshi}\\
 	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$ iff there exists a subnet of $S$ which converges to $x$.
 \end{proposition}
 \begin{synopsis}
+\begin{commentary}
 	Let $(D,\ge)$, $(E,\ge')$ be two directed sets. And $T : E \to X$ be a subnet of $S : D \to X$.\\
 
 	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$. And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$. Therefore, $S$ is frequently in each nbd $U$ of $x$. Thus, $x$ is a cluster point of $S$.\\
 
 	If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. Let $N : E \to D$ be $N(n,U) = n$. Construct a directed subset $E$ of $D \times \mathcal{N}_x$ such that $(n,U) \in E \iff S(n) \in U$. Now $T$ is eventually in every nbd $U$ of $x$, as those points with images outside $U$ are removed by construction. Therefore, it is sufficient to show that $T : E \to X$ is a subnet of the net $S : D \to X$. Clearly, $E$ is a directed set and $N : E \to D$ defined by $N(n,U) =n$ satisfies both $S \circ N = T$ and $\forall n \in D$, $\exists p \in E$ such that $m \ge p \implies N(m) \ge n$.
+\end{commentary}
 \end{synopsis}
 \begin{figure}
 	\centering
 	\scalebox{0.6}{
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
-\clip(1.14,-2.78) rectangle (18.95,9.78);
+\clip(1.8,0) rectangle (18.5,8.5);
 \draw [rotate around={-91.65:(3.65,3.49)}] (3.65,3.49) ellipse (2.73cm and 1.69cm);
 \draw [rotate around={-91.65:(9.93,3.41)}] (9.93,3.41) ellipse (2.73cm and 1.69cm);
 \draw [rotate around={-91.65:(16.35,3.39)}] (16.35,3.39) ellipse (2.73cm and 1.69cm);
@@ -528,7 +558,7 @@
 \end{scriptsize}
 \end{tikzpicture}
 }
-\caption{$E$ is a directed set}
+\caption{\scriptsize{$\forall (n,U),(m,V) \in E,\ \exists (q,W) \in E$ such that $(q,W) \ge' (n,U),\ (q,W) \ge' (m,V)$}}
 \end{figure}
 \begin{proof}
 	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
@@ -550,14 +580,18 @@
 
 	Consider $E = \{ (n,U) \in D \times \mathcal{N}(x) : S(n) \in U \}$ and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. Also, \textcolor{blue}{$U \cap V \in \mathcal{N}_x$ and} there exists $q \in D$ such that $S(q) \in \textcolor{blue}{U \cap V}$ and $q \ge' p$, since $S$ is frequently in every nbd of $x$. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (q,U\cap V) \in E$ such that $(q,U\cap V) \ge' (n,U)$ and $(q,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
 
-	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$. Now, we have $T : E \to X$ defined by $T(n,U) = S(N(n,U)) = S(n)$. Therefore, $T$ is a subnet of $S$. Now every points in $E$ are so defined that $(n,U) \in E \implies S(n) \in U$, we have $T(n,U) \in U$. Thus, $T$ is eventually in every nbd of $x$. ie, subnet $T$ of net $S$ is convergent to $x$.
+	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$.\\
+	
+	\textcolor{blue}{It remains to prove that, $T$ converges to $x$. Let $U \in \mathcal{N}_x$ be a nbd of $x$ in $X$. We have, $x$ is a cluster points of $S$. Therefore, $\forall m \in D,\ \exists p \in D$ such that $S(p) \in U$. By the constructon of $E$, we have $(p,U) \in E$. Suppose $(n,V) \ge' (p,U)$, then $n \ge p,\ V \subset U, \text{ and } S(n) \in V$. Clearly $S(n) \in U$. Therefore, $\forall (n,V) \ge' (p,U),\ T(n,V) \in U$. That is, $T$ is eventually in every nbd of $x$. ie, subnet $T$ is convergent to $x$. Therefore, for each cluster point of the net $S$, there exists some subset converging to it.}
 \end{proof}
 
 \begin{remark}
+\begin{commentary}
 	\begin{itemize}
 		\item  Importance of Construction of $E$\\ If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$. Thus, if we consider any cofinal subset $D'$ of $D$ which is a direct set with $\ge$ restricted to $D'$. Then $N : D' \to D$ defined by $N(n)=n$ gives a subnet $T : D' \to X$ of the net $S$. However, this subnet need not converge to $x$. The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$', since $N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$. This problem is overcame by constructing $E$ which is dependent on each nbd $U$ of $x$.
 		\item Existence of $q \in D$ such that $q \ge' p$ and $S(q) \in U$. We have, $p$ follows both $n \& m$ and $U \cap V$ is a subset of both $U \& V$. However, since $S$ is only frequently in $U$, $p$ not necessarily be in $U$. But there is always someone following $p$ which has its image in $U$. This $q$ follows both $n \& m$, since $\ge'$ is transitive.
 	\end{itemize}
+\end{commentary}
 \end{remark}
 
 %\section{Topology and Convergence of Nets*}
@@ -971,7 +1005,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{definition}
 
 \begin{definition}
-	Let $Y$ be a topological space and $f : I \to Y$ and $f' : I \to Y$ be two paths. Then $f,\ f'$ are path-homotopic if they have same initial point $x_0$ (ie, $x_0=f(0)=f'(0)$), same final point $x_1$ (ie, $x_1=f(1)=f'(1)$) and they are homotopic (ie, $\exists F: I \times I \to Y$ such that $\forall x \in I$, $F(x,0)=f(x)$ and $F(x,1)=f'(x)$ also fixed at the end points $x_0$ and $x_1$(ie, $\forall t \in I$, $F(0,t) = x_0$ and $F(1,t) = x_1$). And we write $f \simeq_p f'$.
+	Let $X$ be a topological space and $f : I \to X$ and $f' : I \to X$ be two paths. Then $f,\ f'$ are path-homotopic if they have same initial point $x_0$ (ie, $x_0=f(0)=f'(0)$), same final point $x_1$ (ie, $x_1=f(1)=f'(1)$) and they are homotopic (ie, $\exists F: I \times I \to X$ such that $\forall x \in I$, $F(x,0)=f(x)$ and $F(x,1)=f'(x)$ also fixed at the end points $x_0$ and $x_1$(ie, $\forall t \in I$, $F(0,t) = x_0$ and $F(1,t) = x_1$). And we write $f \simeq_p f'$.
 \end{definition}
 
 \begin{remark}
@@ -994,49 +1028,135 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 			Consider $G:X \times I \to Y$ defined by \[ G(x,t) = \begin{cases} F(x,2t) & , t \in [0,\frac{1}{2}]\\ F'(x,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \] We have, $G(x,\frac{1}{2}) = F(x,1) = F'(x,0) = f'(x)$. Thus, $G$ is continuous by pasting lemma since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$. Also $G(x,0) = F(x,0) = f(x)$ and $G(x,1) = F'(x,1) = f''(x)$. Thus, $\exists G : X \times I \to Y \implies f \simeq f''$
 	\end{enumerate}
-	Path Homotopy : Let $f,\ f',\ f''$ be paths in $Y$. Then $f$ and $f'$ are path homotopic, $f \simeq_p f' \iff \exists F : I \times I \to Y$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$
+	Path Homotopy : Let $f,\ f',\ f''$ be paths in $X$. Then $f$ and $f'$ are path homotopic, $f \simeq_p f' \iff \exists F : I \times I \to X$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$
 	\begin{enumerate}
 		\item $f \simeq_p f$ \\
-			We have $f : I \to Y$ is continuous. Define $F : I \times I \to Y$ such that $\forall s,t \in [0,1],\ F(s,t)=f(s)$. Clearly, $F$ is continuous, $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f(s)$ and $\forall t \in [0,1],\ F(0,t) = f(0),\ F(1,t) = f(1)$. Thus, $\exists F : I \times I \to Y \implies f \simeq_p f$.
+			We have $f : I \to X$ is continuous. Define $F : I \times I \to X$ such that $\forall s,t \in [0,1],\ F(s,t)=f(s)$. Clearly, $F$ is continuous, $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f(s)$ and $\forall t \in [0,1],\ F(0,t) = f(0),\ F(1,t) = f(1)$. Thus, $\exists F : I \times I \to X \implies f \simeq_p f$.
 		\item $f \simeq_p f' \implies f' \simeq_p f$\\
-			We have, $f \simeq_p f'$. Thus there exists a continuous function $F : I \times I \to Y$ such that $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t) = f(1) = f'(1)$.\\
+			We have, $f \simeq_p f'$. Thus there exists a continuous function $F : I \times I \to X$ such that $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t) = f(1) = f'(1)$.\\
 			
-			Consider $F' : I \times I \to Y$ defined by $F'(s,t) = F(s,1-t)$. Clearly, $F'$ is continuous. And $F'(s,0) = F(s,1) = f'(s)$, and $F'(s,1) = F(s,0) = f(s)$. Also, $F'(0,t) = F(0,1-t) = f(0) = f'(0)$ and $F'(1,t) = F(1,1-t) = f(1) = f'(1)$. Thus, $\exists F'(s,t) : I \times I \to Y \implies f' \simeq_p f$
+			Consider $F' : I \times I \to X$ defined by $F'(s,t) = F(s,1-t)$. Clearly, $F'$ is continuous. And $F'(s,0) = F(s,1) = f'(s)$, and $F'(s,1) = F(s,0) = f(s)$. Also, $F'(0,t) = F(0,1-t) = f(0) = f'(0)$ and $F'(1,t) = F(1,1-t) = f(1) = f'(1)$. Thus, $\exists F'(s,t) : I \times I \to X \implies f' \simeq_p f$
 		\item $f \simeq f',\ f' \simeq f'' \implies f \simeq f''$\\
-			We have, $f \simeq f' \iff \exists F : I \times I \to Y$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$\\
+			We have, $f \simeq f' \iff \exists F : I \times I \to X$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$\\
 			
-			Similarly, $f' \simeq f'' \iff \exists F' : I \times I \to Y$ such that $F'$ is continuous, $\forall s \in [0,1],\ F'(s,0)=f'(s),\ F'(s,1)=f''(s)$ and $\forall t \in [0,1],\ F'(0,t)=f'(0)=f''(0),\ F'(1,t)=f'(1)=f''(1)$\\
+			Similarly, $f' \simeq f'' \iff \exists F' : I \times I \to X$ such that $F'$ is continuous, $\forall s \in [0,1],\ F'(s,0)=f'(s),\ F'(s,1)=f''(s)$ and $\forall t \in [0,1],\ F'(0,t)=f'(0)=f''(0),\ F'(1,t)=f'(1)=f''(1)$\\
 
-			Consider $G:I \times I \to Y$ defined by \[ G(s,t) = \begin{cases} F(s,2t) & , t \in [0,\frac{1}{2}]\\ F'(s,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \]
+			Consider $G:I \times I \to X$ defined by \[ G(s,t) = \begin{cases} F(s,2t) & , t \in [0,\frac{1}{2}]\\ F'(s,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \]
 				
-			We have, $G(s,\frac{1}{2}) = F(s,1) = F'(s,0) = f'(s)$. Thus, $G$ is continuous by pasting lemma since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$.\\
+				We have, $G(s,\frac{1}{2}) = F(s,1) = F'(s,0) = f'(s)$. Thus, $G$ is continuous by pasting lemma\cite[\S{}18.3 pp. 106]{munkres}, since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$.\\
 			
 			Also $G(s,0) = F(s,0) = f(s)$ and $G(s,1) = F'(s,1) = f''(s)$.\\
 
 			Again, $\forall t \in [0,\frac{1}{2}],\ G(0,t) = F(0,2t) = f(0) = f'(0) = f''(0)$ and $\forall t \in [\frac{1}{2},1],\ G(0,t) = F'(0,2t-1) = f(0) = f'(0) = f''(0)$. Therefore, $\forall t \in [0,1],\ G(0,t) = f(0) = f''(0)$.\\
 			
-			Similarly, $\forall t \in [0,\frac{1}{2}],\ G(1,t) = F(1,2t) = f(1) = f'(1) = f''(1)$ and $\forall t \in [\frac{1}{2},1],\ G(1,t) = F'(1,2t-1) = f(1) = f'(1) = f''(1)$. Therefore, $\forall t \in [0,1],\ G(1,t) = f(1) = f''(1)$. Thus, $\exists G : I \times I \to Y \implies f \simeq f''$
+			Similarly, $\forall t \in [0,\frac{1}{2}],\ G(1,t) = F(1,2t) = f(1) = f'(1) = f''(1)$ and $\forall t \in [\frac{1}{2},1],\ G(1,t) = F'(1,2t-1) = f(1) = f'(1) = f''(1)$. Therefore, $\forall t \in [0,1],\ G(1,t) = f(1) = f''(1)$. Thus, $\exists G : I \times I \to X \implies f \simeq_p f''$
 	\end{enumerate}
 \end{proof}
 
-\begin{remark}
+\begin{definition}
 	Let $f$ be a path in $X$ (ie, $f : I \to X$), then $[f]$ is the equivalence class of all paths homotopic to $f$ in $X$. (ie, $g \in [f] \iff f \simeq_p g$)
+\end{definition}
+
+\begin{remark}
+	The set of homotopy classes of functions from $X$ into $Y$ is dentoed by $[X,Y]$. And, the set of all path-homotopic classes on $X$ is denoted by $[I,X]$.
 \end{remark}
 
-\begin{remark}[Straight line homotopy]
+\begin{remark}[Straight-line homotopy]\cite[\S{}51 Example 1 pp. 320]{munkres}
 	Let $X$ be a topological space, and $f,\ g$ be continuous functions from $X$ into a eucilidean space, say $\mathbb{R}^2$. Then $f,\ g$ are straight line homotopic if there exists a continuous function $F$ from $X \times I$ such that $F$ deforms $f$ into $g$ along straight line segments joining them.\\
 
 	For example, $F(x,t) = (1-t)f(x)+tg(x)$.
 \end{remark}
+
 \begin{remark}
 	Let $A$ be a convex subspace of $\mathbb{R}^n$. Then any two paths in $A$ from $x_0$ to $x_1$ are path homotopic in $A$.
 \end{remark}
+\begin{proof}
+	---continue page 321---
+\end{proof}
+
+\begin{remark}\cite[\S{}51 Example 2 pp. 321]{munkres}
+\begin{commentary}
+	This demonstrates that the straight-line homotopy is very sensitive to the holes in the space.
+\end{commentary}
+\end{remark}
 
 \begin{definition}
-	Let $f,\ g$ be two paths in $X$ (ie, $f : I \to X$ and $g: I \to X$) such that $f(0)=x_0$, $f(1)=g(0)=x_1$ and $g(1)=x_2$. Then the prduct $h = f \ast g$ is given by $h : I \to X$ and \[ h(s) = \begin{cases} f(2s) & , s \in [0,\frac{1}{2}] \\ g(2s-1) & , s \in [\frac{1}{2},1] \end{cases} \]
+	Let $f,\ g$ be two paths in $X$ (ie, $f : I \to X$ and $g: I \to X$) such that $f(0)=x_0$, $f(1)=g(0)=x_1$ and $g(1)=x_2$. Then the prduct $h = f \ast g$ is given by $h : I \to X$ and
+	\[ h(s) = \begin{cases} f(2s) & , s \in [0,\frac{1}{2}] \\ g(2s-1) & , s \in [\frac{1}{2},1] \end{cases} \]
+		This $h$ is well-defined, and continuous by pasting lemma.\footnote{Pasting Lemma : Let $X = A \cup B$, where $A$ and $B$ are closed in $A$. Let $f : A \to Y$ and $g : B \to Y$ be continuous. If $f(x) = g(x)$ for every $x \in A \cup B$, then $f$ and $g$ combine to give a continuous function $h : X \to Y$, defined by setting $h(x) = f(x)$ if $x \in A$ and $h(x) = g(x)$ if $x \in B$.}
 \end{definition}
-% h is well-defined \footnote{Pasting Lemma, Local formulation of Continuity (\cite[pp. 106]{munkres})}
 
+\begin{definition}
+	The product operation on path-homotopy classes is defined by $[f]\ast[g] = [f\ast{}g]$.
+\end{definition}
+\begin{remark} The product of path-homotopic classes is well-defined.\end{remark}
+\begin{proof}
+	Let $F$ be a path-homotopy between $f,\ f' \in [f]$ and $G$ be a path-homotopy between $g,\ g' \in [g]$. Then $H : I \times I \to X$ defined by
+	\[ H(s,t) = \begin{cases} F(2s,t) & s \in [0,\frac{1}{2}] \\ G(2s-1,t) & s \in [\frac{1}{2},1] \end{cases} \]
+	Then $H$ is well-defined, and continuous by pasting lemma.\\
+	
+\noindent $\forall s \in [0,\frac{1}{2}],\ H(s,0) = F(2s,0) = f(2s)$ and\\
+	$\forall s \in [\frac{1}{2},1],\ H(s,0) = G(2s-1,0) = g(2s-1)$.\\
+	$\implies H(s,0) = (f\ast{}g)(s)$, by the definition of $f\ast{}g$\\
+
+\noindent $\forall s \in [0,\frac{1}{2}],\ H(s,1) = F(2s,1) = f'(2s)$ and\\
+	$\forall s \in [\frac{1}{2},1],\ H(s,1) = G(2s-1,1) = g'(2s-1)$.\\
+	$\implies H(s,1) = (f'\ast{}g')(s)$, by the definition of $f'\ast{}g'$\\
+
+\noindent $H(0,t) = F(0,t) = f(0) = x_0 = (f\ast{}g)(0)$, and\\
+	$H(1,t) = G(1,t) = g'(1) = x_2 =  (f'\ast{}g')(1)$\\
+
+	Then $H : I \times I \to X$ is a path-homotopy between $f\ast{}g$ and $f'\ast{}g'$.
+\end{proof}
+
+\begin{definition}[Groupoid]
+\begin{commentary}
+	Let $G$ be a set and $\ast$ be a binary operation on $G$. Then $(G,\ast)$ is a groupoid if it satisfies the following axioms
+	\begin{enumerate}[label=g\arabic*]
+		\item Associativity - $\forall x,y,z \in G,\ (x\ast{}y)\ast{}z = x \ast{}(y\ast{}z)$
+		\item Existence of left and right identies - There exist unique elements $e_L$ and $e_R$ such that $\forall x \in G,\ x\ast{}e_R = x$ and $e_L\ast{}x = x$.
+		\item Existence of inverse\\
+			$\forall x \in G,\ \exists x^{-1} \in G$ such that $x \ast{} x^{-1} = e_L$ and $x^{-1} \ast{} x = e_R$
+	\end{enumerate}
+\end{commentary}
+\end{definition}
+
+\begin{theorem}
+	Let $f,g,h$ be paths in a topological space $X$, and $[f],[g],[h]$ be respective path-homotopy classes. Suppose the operation product, $\ast$ is defined by
+	\[ [f]\ast{}[g] = [f \ast{'} g] \text{ where } (f \ast{'} g)(s) = \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ g(2s-1) & s \in [\frac{1}{2},1] \end{cases} \]
+	Then the product, $\ast{}$ has the following properties : 
+	\begin{enumerate}
+		\item Associativity
+			\[ \forall [f],[g],[h] \in [I,X],\ \left([f]\ast{}[g]\right)\ast{}[h] = [f] \ast{}\left([g]\ast{}[h]\right) \]
+		\item Existence of left and right identies\\
+			Let $e_x : I \to X$ defined by $\forall s \in [0,1],\ e_x(s) = x$. Let $f$ be a path from $x_0$ to $x_1$, then there exist unique paths $e_{x_0}$ and $e_{x_1}$ such that $[f]\ast{}[e_{x_1}] = [f]$ and $[e_{x_0}]\ast{}[f] = [f]$.
+			\begin{commentary} That is, $e_{x_0},\ e_{x_1}$ are respectively the left and right path-homotopy-identities. \end{commentary}
+		\item Existence of inverse\\
+			Let $f$ be a path in $X$. The path,$\bar{f}$, defined by $\bar{f}(s) = f(1-s)$ is the reverse path of $f$. Then $[f]\ast{}[\bar{f}] = [e_{x_0}]$ and $[\bar{f}]\ast{}[f] = [e_{x_1}]$.
+			\begin{commentary} That is, the inverse of class of $f$ is the class of reverse path of $f$. \end{commentary}
+	\end{enumerate}
+	\begin{commentary}
+		In other words, Set of all path-homotopy classes together with binary operation product, $\ast$ is a groupoid. ie, $([I,X],\ast{})$ is a groupoid.
+	\end{commentary}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+	Let $f,\ f'$ be two paths in $X$ and $k : X \to Y$ be a continuous function. Let $F$ be the path homotopy in $X$ between the paths $f$ and $f'$. Then $k \circ{} F$ is a path homotopy in $Y$ between that paths $k \circ{} f$ and $k \circ{} f'$
+	\begin{commentary} That is, path homotopy is preserved under a continuous function.\end{commentary}
+\end{lemma}
+
+\begin{lemma}
+	Let $f,\ g$ be two paths in $X$ with $f(1) = g(0)$ and $k : X \to Y$ be a continous function. Then $k \circ{} (f \ast{} g) = (k \ast{} f) \circ{} (k \ast{} g)$
+\end{lemma}
+
+\begin{theorem}
+	Let $f$ be a path in $X$, and $a_0, a_1, \cdots, a_n$ be numbers such that $0 = a_0 < a_1 < \cdots < a_n = 1$. Let $f_i : I \to X$ be the path that equals the positive linear map of $f$ onto $[a_{i-1},a_i]$ followed by $f$. Then $[f] = [f_1]\ast{}[f_2]\ast{}\cdots[f_n]$.
+	\begin{commentary}In other words, every path is path-homotopic to a piecewise-linear path.\end{commentary}
+\end{theorem}
+\begin{proof}
+\end{proof}
 
 %\section{The Fundamental Group}
 %\section{Covering Spaces}

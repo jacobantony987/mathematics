@@ -15,9 +15,10 @@
 %Programs
 %Online Program, Explanation, Algorithm, Function Syntax, Terminology
 \part{ME010203 Numerical Analysis with Python}
-\chapter{Expressions}
-\chapter{Calculus}
-\chapter{Interpolation \& Curve Fitting}
+%\chapter{Expressions}
+%\chapter{Calculus}
+\chapter{Module III}
+%\chapter{Interpolation \& Curve Fitting}
 \begin{definition}
 	Given $(n+1)$ data points $(x_k, y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that satisfy the data points is the interpolation problem. ie, $y(x_k) = y_k,\ k = 0,1,\cdots,n$.
 \end{definition}
@@ -25,13 +26,13 @@
 	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that is sufficiently close to the data points is the curve-fitting problem.\\ ie, Given $\epsilon > 0,\ |y(x_k)-y_k| < \epsilon,\ k = 0,1,\cdots,n$.
 \end{definition}
 \begin{remark}
-	The data could be from scientific experiments or computations on mathematical models. The interpolation problem assumes that the data is accurate. But, curve-fitting problem assumes that there are some errors involved which are sufficiently small.
+	\textcolor{purple}{The data could be from scientific experiments or computations on mathematical models. The interpolation problem assumes that the data is accurate. But, curve-fitting problem assumes that there are some errors involved which are sufficiently small.}
 \end{remark}
 \begin{definition}
 	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a polynomial function of degree $n$ that satisfy the data points is the polynomial interpolation problem.
 \end{definition}
 \begin{remark}
-	Polynomial is the simplest interpolant.\cite[3.2]{kiusalaas}
+	Polynomial is the `simplest' interpolant.\cite[3.2]{kiusalaas}
 \end{remark}
 
 \section{Polynomial Interpolation}
@@ -72,7 +73,7 @@ The interpolation polynomial is given by,
 \end{equation}
 where $a_i = \nabla^i y_i,\ i = 0,1,\cdots,n$.
 \begin{remark}
-	For Newton's Method, it is assumed that $x_0 < x_1 < \cdots < x_n$.
+	For Newton's Method, usually it is assumed that $x_0 < x_1 < \cdots < x_n$.
 \end{remark}
 \begin{remark}
 	 Lagrange's method is conceptually simple. But, Newton's method is computationaly more efficient than Lagrange's method.
@@ -107,13 +108,13 @@ The coefficients are given by,
 	Practise Problems\\
 	Find interpolation polynomial for the following data points :
 	\begin{enumerate}
-		\item $\{(0,7),\ (2,11),\ (3,28)\}$\\ \cite[Example 3.1]{kiusalaas}
-		\item $\{(-2,-1),\ (1,2),\ (4,59),\ (-1,4),\ (3,24),\ (-4,-53) \}$\\ \cite[Example 3.2]{kiusalaas}
-		\item $\{(-1.2,-5.76),\ (0.3,-5.61),\ (1.1,-3.69)\}$\\ \cite[Problem Set 3.1.1]{kiusalaas}
+		\item $\{(0,7),\ (2,11),\ (3,28)\}$\\ \textcolor{blue}{Ans : $5x^2-8x+7$} \\ \cite[Example 3.1]{kiusalaas}
+		\item $\{(-2,-1),\ (1,2),\ (4,59),\ (-1,4),\ (3,24),\ (-4,-53) \}$\\ \textcolor{blue}{Ans : $x^3-2x+3$}\\ \cite[Example 3.2]{kiusalaas}
+		\item $\{(-1.2,-5.76),\ (0.3,-5.61),\ (1.1,-3.69)\}$\\ \textcolor{blue}{Ans : $x^2+x-6$}\\ \cite[Problem Set 3.1.1]{kiusalaas}
 	%	\item $\{(0,-1.00),\ (0.5,1.75),\ (1,4.00),\ (1.5,5.75),\ (2,7.00)\}$\\ \cite[Problem Set 3.1.4]{kiusalaas}
-		\item $\{(-2,-1),\ (1,2),\ (4,59),\ (-1,4),\ (3,24),\ (-4,-53)\}$\\ \cite[Problem Set 3.1.6]{kiusalaas}
-		\item $\{(-3,0),\ (2,5),\ (-1,-4),\ (3,12),\ (1,0)\}$\\ \cite[Problem Set 3.1.7]{kiusalaas}
-		\item $\{(0,1.225),(3,0.905),(6,0.652)\}$\\ \cite[Problem Set 3.1.9]{kiusalaas}
+	%	\item $\{(-2,-1),\ (1,2),\ (4,59),\ (-1,4),\ (3,24),\ (-4,-53)\}$\\ \cite[Problem Set 3.1.6]{kiusalaas}
+		\item $\{(-3,0),\ (2,5),\ (-1,-4),\ (3,12),\ (1,0)\}$\\ \textcolor{blue}{Ans : $x^2+2x-3$}\\ \cite[Problem Set 3.1.7]{kiusalaas}
+		\item $\{(0,1.225),(3,0.905),(6,0.652)\}$\\ \textcolor{blue}{Ans : $0.0037x^2-0.1178x+1.225$}\\ \cite[Problem Set 3.1.9]{kiusalaas}
 	\end{enumerate}
 \end{remark}
 
@@ -134,6 +135,8 @@ The coefficients are given by,
 				a[k:m] = (a[k:m]-a[k-1])/(xData[k:m]-xData[k-1])
 			return a
 	\end{python}
+\end{program}
+\begin{commentary}
 	Line 1 : \textbf{Defines a function which takes two arguments/parameters, named $xData$ and $yData$.} In \cite[3.2]{kiusalaas}, you will find coeffts which I have changed to coefficients. $xData$,$yData$ are numpy array objects. $xData$ is a array with values $x_0,x_1,\cdots,x_n$. And $yData$ is array with values $y_0,y_1,\cdots,y_n$. For example, the value of $x_3$ can be accessed as $xData[3]$.\\
 	
 	Line 2 : \textbf{The functon $len()$ is extended by numpy to give the length of array objects.} In this context, $len(xData)$ will return the value $n+1$, since there are $n+1$ values in $xData$ array.\\
@@ -147,7 +150,7 @@ The coefficients are given by,
 	Line 6 : \textbf{This returns the array $a$ which is the array of coefficients.}\\
 
 	The logic of this program is in Line 4 and Line 5. So they need more explanation/understanding than anything else.
-\end{program}
+\end{commentary}
 
 \begin{program}Interpolating using Newton's Method
 	\begin{python}
@@ -275,5 +278,55 @@ The coefficients are given by,
 	Thus we have $1.1487$ is quite close to a root of $f$.
 \end{remark}
 
-\chapter{Matrix Operations}
+%\chapter{Matrix Operations}
+\chapter{Module IV}
+\section{Gauss elimination method}
+\par Gauss Elimination method is a method for solving simultaneous equations.(ie, system of linear equations of the form $Ax = B$). It consists of two phases \begin{enumerate*} \item elimination \item back substitution \end{enumerate*}. The elimination phase transforms the equation into $Ux = C$ form where $U$ is an upper-triangular\footnote{upper triangular - all the entries below the main diagonal are zero. ie $U_{ij} = 0,\ \text{ if }i<j$} matrix. And the unknown variables are evaluated in the reverse order substituting those which are discovered.\\
+
+\subsection{Illustrative example}
+Consider the following system of linear equations,
+\begin{align} 4x_1  - 2x_2  + x_3 & = 11 \label{eqn:a1}\\ -2x_1  + 4x_2 - 2x_3 & = -16 \label{eqn:a2}\\ x_1  - 2x_2 + 4x_3 & = 17 \label{eqn:a3}\end{align} 
+\par We may represent the above system of linear equations using matrices,
+\[ \begin{bmatrix} 4 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 11 \\ -16 \\ 17 \end{bmatrix} \]
+
+\par Phase 1 : Elimination Process\\
+
+Using eq.\ref{eqn:a1}, the unknown $x_1$ is eliminated from all subsequent equations. An equivalent operation can be performed on the augmented\footnote{We use augmented matrix $[A:B]$ for computational simplicity.} matrix by adding suitable scalar multiples of row 1 to each row underneath it.
+\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ -2 & 4 & -2 & -16 \\ 1 & -2 & 4 & 17 \end{bmatrix} \xrightarrow{\substack{R_2 = R_2 + 0.5R_1\\ R_3 = R_3 - 0.25R_1}} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix}\]
+And using eq.\ref{eqn:a2}, $x_2$ is eliminated from all subsequent equations( only those rows below it). Again, we perform this by adding suitable scalar multiples of row 2 to each row below.
+\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix} \xrightarrow{R_3 = R_3 + 0.5R_2} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \]
+	We continue this process until pivot\footnote{Here, we use $A_{ii}$ as the pivot element of row $i$ instead of taking first non-zero value.} element of each row, is the only non-zero entry in its column.
+
+\par Phase 2 : Back substitution Process\\
+
+The unknowns are easily found from the equations by solving them in the reverse order. The unknowns are solved from the bottom and solved variables are used to solve the remain unknowns.
+\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \to \begin{cases} 4x_1 - 2x_2 + &x_3  = 11 \\ \quad \qquad 3x_2 - &1.5x_3  = -10.5 \\  &3x_3 = 9 \end{cases}  \]
+
+\begin{align*} x_3 & = \frac{9}{3} = 3 \\  x_2 & = \frac{-10.5 + 1.5x_3}{3} = -2 \\ x_1 & = \frac{11-x_3+2x_2}{4}=1 \end{align*}
+
+\begin{remark}\textcolor{purple}{Why don't they use row-reduced echelon matrix of $A$ to simplify the back substitution phase ?}\\
+
+\textcolor{purple}{This doesn't have much advantage from algorithmic point of view. That is, the time complexity ( number of steps for computation) is unaffected. And algorithms always prefer methods even with slight advantage in time or memory. And they won't consider complications in the manual execution of the method. Therefore, programmers won't consider alternate algorithm for the sake of computational simplicity.}
+\end{remark}
+
+\subsection{Algorithm : Gauss elimination method}
+\begin{program}[Gauss elimination]
+	\begin{python}
+	def gaussElimination(a,b):
+		n = len(b)
+		for k in range(0,n-1):
+			for i in range(k+1,n):
+				if a[i,k] != 0.0:
+					lam = a[i,k]/a[k,k]
+					a[i,k+1:n] = a[i,k+1:n]-lam*a[k,k+1:n]
+					b[i] = b[i]-lam*b[k]
+		for k in range(n-1,-1,-1):
+			x[k] = (b[k]-dot(a[k,k+1:n],x[k+1:n]))/a[k,k]
+		return b
+	\end{python}
+\end{program}
+
+\begin{remark}[Program Explanation]
+	We define a python function ``gaussElimination()'' as a function which takes two arguments (inputs). First argument is the coefficient matrix $A$ and second argument is the constant matrix $B$ of the linear system of the form $Ax = B$.
+\end{remark}
 
