@@ -15,8 +15,13 @@
 %Programs
 %Online Program, Explanation, Algorithm, Function Syntax, Terminology
 \part{ME010203 Numerical Analysis with Python}
+
+%\chapter{Module I}
 %\chapter{Expressions}
+
+%\chapter{Module II}
 %\chapter{Calculus}
+
 \chapter{Module III}
 %\chapter{Interpolation \& Curve Fitting}
 \begin{definition}
@@ -26,7 +31,9 @@
 	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that is sufficiently close to the data points is the curve-fitting problem.\\ ie, Given $\epsilon > 0,\ |y(x_k)-y_k| < \epsilon,\ k = 0,1,\cdots,n$.
 \end{definition}
 \begin{remark}
-	\textcolor{purple}{The data could be from scientific experiments or computations on mathematical models. The interpolation problem assumes that the data is accurate. But, curve-fitting problem assumes that there are some errors involved which are sufficiently small.}
+\begin{commentary}
+The data could be from scientific experiments or computations on mathematical models. The interpolation problem assumes that the data is accurate. But, curve-fitting problem assumes that there are some errors involved which are sufficiently small.
+\end{commentary}
 \end{remark}
 \begin{definition}
 	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a polynomial function of degree $n$ that satisfy the data points is the polynomial interpolation problem.
@@ -178,7 +185,10 @@ The coefficients are given by,
 		a = coefficients(xData,yData)
 		print(interpolate(a,xData,2))
 	\end{python}
+\end{program}
 
+\begin{remark}
+\begin{commentary}
 	You will have to define both the functions (coefficients, interpolate) before doing this.\\
 
 	Line 1 : For defining array objects, we need to import them from numpy library.\\
@@ -190,7 +200,8 @@ The coefficients are given by,
 	Line 4 : Call function \texttt{coefficients} and store the array returned into a\\
 
 	Line 5 : Call function \texttt{interpolate} to interpolate at $x = 2$ and print the value $P(2)$
-\end{program}
+\end{commentary}
+\end{remark}
 
 \begin{program}[Just for Fun]
 	We can do more using sympy !
@@ -215,12 +226,14 @@ The coefficients are given by,
 		\item $\{(0,-0.7854),\ (0.5,0.6529),\ (1,1.7390),\ (1.5,2.2071),\ (2,1.9425)\}$\\ \cite[Problem Set 3.1.5]{kiusalaas}
 	\end{enumerate}
 \end{remark}
+
 \subsection{Limitations of Polynomial Interpolation}
 \begin{enumerate}
 	\item Inaccuracy - The error in interpolation increases as the point moves away from most of the data points.
 	\item Oscilation - As the number of data points considered for polynomial interpolation increases, the degree of the polynomial increases. And the graph of the interpolant tend to oscilate excessively. In such cases, the error in interpolation is quite high. 
 	\item The best practice is to consider four to six data points nearest to the point of interest and ignore the rest of them.
 \end{enumerate}
+
 \begin{remark}
 	The interpolant obtained by joining cubic polynomials corresponding to four nearest data points each, is a cubic spline\footnote{Cubic spline is a function, the graph of which is piece-wise cubic}.
 \end{remark}
@@ -238,7 +251,8 @@ The coefficients are given by,
 	Note : There is no guarantee that there exists a root in $[a,b]$ as we are not sure about the continuity of $f$.
 \end{remark}
 
-\begin{remark} Given a bracketed root, we can find it using
+\begin{remark}
+	Given a bracketed root, we can find it using
 	\begin{enumerate}
 		\item Bisection Method or
 		\item Newton-Raphson Method
@@ -280,33 +294,47 @@ The coefficients are given by,
 
 %\chapter{Matrix Operations}
 \chapter{Module IV}
+
 \section{Gauss elimination method}
-\par Gauss Elimination method is a method for solving simultaneous equations.(ie, system of linear equations of the form $Ax = B$). It consists of two phases \begin{enumerate*} \item elimination \item back substitution \end{enumerate*}. The elimination phase transforms the equation into $Ux = C$ form where $U$ is an upper-triangular\footnote{upper triangular - all the entries below the main diagonal are zero. ie $U_{ij} = 0,\ \text{ if }i<j$} matrix. And the unknown variables are evaluated in the reverse order substituting those which are discovered.\\
+	Gauss Elimination method is a method for solving simultaneous equations.(ie, system of linear equations of the form $Ax = B$). It consists of two phases \begin{enumerate*} \item elimination \item back substitution \end{enumerate*}. In elimination phase, the system of equations are reduced to an equivalent system of equations in such a way that unknowns are eliminated in succession. That is, the number of unknowns in each equation is one less than the previous one. This is performed by transforming the equation $Ax = B$ into $Ux = C$ form where $U$ is an upper-triangular\footnote{upper triangular - all the entries below the main diagonal are zero. ie $U_{ij} = 0,\ \text{ if }i<j$} matrix. And in the next phase, the unknown variables are evaluated in the reverse order by substitution.
 
 \subsection{Illustrative example}
-Consider the following system of linear equations,
-\begin{align} 4x_1  - 2x_2  + x_3 & = 11 \label{eqn:a1}\\ -2x_1  + 4x_2 - 2x_3 & = -16 \label{eqn:a2}\\ x_1  - 2x_2 + 4x_3 & = 17 \label{eqn:a3}\end{align} 
-\par We may represent the above system of linear equations using matrices,
-\[ \begin{bmatrix} 4 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 11 \\ -16 \\ 17 \end{bmatrix} \]
+	Consider the following system of linear equations,
+	\begin{align}
+		4x_1  - 2x_2  + x_3 & = 11 \label{eqn:a1}\\
+		-2x_1  + 4x_2 - 2x_3 & = -16 \label{eqn:a2}\\
+		x_1  - 2x_2 + 4x_3 & = 17 \label{eqn:a3}
+	\end{align} 
+	We may represent the above system of linear equations using matrices,
 
-\par Phase 1 : Elimination Process\\
+	\[ \begin{bmatrix} 4 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 4 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 11 \\ -16 \\ 17 \end{bmatrix} \]
 
-Using eq.\ref{eqn:a1}, the unknown $x_1$ is eliminated from all subsequent equations. An equivalent operation can be performed on the augmented\footnote{We use augmented matrix $[A:B]$ for computational simplicity.} matrix by adding suitable scalar multiples of row 1 to each row underneath it.
-\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ -2 & 4 & -2 & -16 \\ 1 & -2 & 4 & 17 \end{bmatrix} \xrightarrow{\substack{R_2 = R_2 + 0.5R_1\\ R_3 = R_3 - 0.25R_1}} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix}\]
-And using eq.\ref{eqn:a2}, $x_2$ is eliminated from all subsequent equations( only those rows below it). Again, we perform this by adding suitable scalar multiples of row 2 to each row below.
-\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix} \xrightarrow{R_3 = R_3 + 0.5R_2} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \]
-	We continue this process until pivot\footnote{Here, we use $A_{ii}$ as the pivot element of row $i$ instead of taking first non-zero value.} element of each row, is the only non-zero entry in its column.
+	Phase 1 : Elimination Process\\
 
-\par Phase 2 : Back substitution Process\\
+	Using eq.\ref{eqn:a1}, the unknown $x_1$ is eliminated from all subsequent equations. An equivalent operation can be performed on the augmented\footnote{We use augmented matrix $[A:B]$ for computational simplicity.} matrix by adding suitable scalar multiples of row 1 to each row underneath it.
 
-The unknowns are easily found from the equations by solving them in the reverse order. The unknowns are solved from the bottom and solved variables are used to solve the remain unknowns.
-\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \to \begin{cases} 4x_1 - 2x_2 + &x_3  = 11 \\ \quad \qquad 3x_2 - &1.5x_3  = -10.5 \\  &3x_3 = 9 \end{cases}  \]
+	\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ -2 & 4 & -2 & -16 \\ 1 & -2 & 4 & 17 \end{bmatrix} \xrightarrow{\substack{R_2 = R_2 + 0.5R_1\\ R_3 = R_3 - 0.25R_1}} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix}\]
 
-\begin{align*} x_3 & = \frac{9}{3} = 3 \\  x_2 & = \frac{-10.5 + 1.5x_3}{3} = -2 \\ x_1 & = \frac{11-x_3+2x_2}{4}=1 \end{align*}
+	And using eq.\ref{eqn:a2}, $x_2$ is eliminated from all subsequent equations( only those rows below it). Again, we perform this by adding suitable scalar multiples of row 2 to each row below.
 
-\begin{remark}\textcolor{purple}{Why don't they use row-reduced echelon matrix of $A$ to simplify the back substitution phase ?}\\
+	\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix} \xrightarrow{R_3 = R_3 + 0.5R_2} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \]
 
-\textcolor{purple}{This doesn't have much advantage from algorithmic point of view. That is, the time complexity ( number of steps for computation) is unaffected. And algorithms always prefer methods even with slight advantage in time or memory. And they won't consider complications in the manual execution of the method. Therefore, programmers won't consider alternate algorithm for the sake of computational simplicity.}
+	We continue this process until pivot\footnote{Here, we use $A_{ii}$ as the pivot element of row $i$ instead of taking first non-zero value.} element of each row, is the only non-zero entry in its column.\\
+
+	Phase 2 : Back substitution Process\\
+
+	The unknowns are easily found from the equations by solving them in the reverse order. The unknowns are solved from the bottom and solved variables are used to solve the remain unknowns.
+
+	\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \to \begin{cases} 4x_1 - 2x_2 + &x_3  = 11 \\ \quad \qquad 3x_2 - &1.5x_3  = -10.5 \\  &3x_3 = 9 \end{cases}  \]
+
+	\begin{align*} x_3 & = \frac{9}{3} = 3 \\  x_2 & = \frac{-10.5 + 1.5x_3}{3} = -2 \\ x_1 & = \frac{11-x_3+2x_2}{4}=1 \end{align*}
+
+\begin{remark}
+\begin{commentary}
+		Why don't they use row-reduced echelon matrix of $A$ to simplify the back substitution phase ?\\
+
+		This doesn't have much advantage from algorithmic point of view. That is, the time complexity ( number of steps for computation) is unaffected. And algorithms always prefer methods even with slight advantage in time or memory. And they won't consider complications in the manual execution of the method. Therefore, programmers won't consider alternate algorithm for the sake of computational simplicity.
+\end{commentary}
 \end{remark}
 
 \subsection{Algorithm : Gauss elimination method}
@@ -326,7 +354,21 @@ The unknowns are easily found from the equations by solving them in the reverse 
 	\end{python}
 \end{program}
 
-\begin{remark}[Program Explanation]
-	We define a python function ``gaussElimination()'' as a function which takes two arguments (inputs). First argument is the coefficient matrix $A$ and second argument is the constant matrix $B$ of the linear system of the form $Ax = B$.
+\begin{remark}Explaination
+\begin{commentary}
+\begin{itemize}
+	\item \texttt{def gaussElimination(a,b):}\\ it defines ``gaussElimination()'' as a function which takes two arguments (inputs). First argument is the coefficient matrix $A$ and second argument is the constant matrix $B$ of the linear system of the form $Ax = B$.
+	\item \texttt{$n = len(b)$}\\ it assigns the length of the list $b$ into variable $n$ which is obviously the number of equations.
+	\item \texttt{for $k$ in range($0$,$n-1$):}  \\ it is a loop construct. Five instructions following it are part of this loop body, which are executed for each values of $k$ ie, $k = 0, 1, \cdots, n-1$. For each value of $k$, the unknown $x_{k+1}$ is selected for elimination process.
+	\item \texttt{for i in range($k+1$,$n$):}\\ it is a loop inside another loop. Four instructions following it are part of this loop body, which are executed for each values of $i$, ie, $i = k+1, k+2, \cdots, n$. This eliminates $x_{k+1}$ from all the equations after the $k$th equation of the system. Value of $i$ gives the equation from which $x_{k+1}$ is eliminated.
+	\item \texttt{if $a[i,k] != 0.0$:} \\ If $a[i,k] \ne 0$, then those three instruction following it are executed. Otherwise, it skips the execution of those three statements. If $x_{k+1}$ is not there in the $k$th equation, it doesn't need to be eliminated.\footnote{I am a bit confused about the validity of this logic.}
+	\item \texttt{$lam = a[i,k]/a[k,k]$} \\ $\lambda = \frac{A_{ik}}{A_{kk}}$
+	\item \texttt{$a[i,k+1:n] = a[i,k+1:n]-lam*a[k,k+1:n]$}
+	\item \texttt{$b[i] = b[i]-lam*b[k]$}
+	\item \texttt{for $k$ in range($n-1$,$-1$,$-1$):}
+	\item \texttt{$x[k] = (b[k]-dot(a[k,k+1:n],x[k+1:n]))/a[k,k]$}
+	\item \texttt{return b}
+\end{itemize}
+\end{commentary}
 \end{remark}
 
