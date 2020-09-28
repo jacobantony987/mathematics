@@ -329,10 +329,19 @@ The coefficients are given by,
 	\[ \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \cdots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1} & A_{i2} & \cdots & A_{in} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix} \xrightarrow{R_i \leftarrow R_i + \lambda{}R_k} \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \cdots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1}+\lambda{}A_{k1} & A_{i2}+\lambda{}A_{k2} & \cdots & A_{in}+\lambda{}A_{kn} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix}\]
 		\[ \begin{bmatrix} \vdots \\ b_k \\ \vdots \\ b_i \\ \vdots \end{bmatrix} \xrightarrow{R_i \leftarrow R_i + \lambda{}R_k} \begin{bmatrix} \vdots \\ b_k \\ \vdots \\ b_i + \lambda{}b_k \\ \vdots \end{bmatrix} \]
 			
-	However, we can reduce the number of operations\footnote{Number of steps is an important measure of the quality of algorithm.} required for the elimination. First we will eliminate $x_1$ from row $R_i,\ i = 2,3,\cdots,n$ using a suitable scalar, say $A_{i1}/A_{11}$. Then, we will eliminate $x_2$ from $R_i,\ i = 3,4,\cdots,n$. And so on.\\
+%	However, we can reduce the number of operations\footnote{Number of steps is an important measure of the quality of algorithm.} required for the elimination. First we will eliminate $x_1$ from row $R_i,\ i = 2,3,\cdots,n$ using a suitable scalar, say $A_{i1}/A_{11}$. Then, we will eliminate $x_2$ from $R_i,\ i = 3,4,\cdots,n$. And so on.\\
 
-	When $x_1$ is eliminated from $R_2$, we get $A_{k1} = 0,\ k=2,3,\cdots,n$. Similarly, $x_2,x_3,\cdots,x_{k-1}$ are eliminated and we get $R_{ij} = 0, j < k < i$.
-	\[ \begin{bmatrix} A_{11} & \cdots & A_{1k} & \cdots & A_{1,n} \\ \vdots & \ddots & \vdots & \ddots & \vdots \\ A_{k,1}^* & \cdots & A_{k,k}^* & \cdots & A_{k,n}^* \\ 0 & \cdots & A_{k+1,k}^* & \cdots & A_{k+1,n}^* \end{bmatrix}\]
+%	When $x_1$ is eliminated from $R_2$, we get $A_{k1} = 0,\ k=2,3,\cdots,n$. The variable $x_2$, is eliminated from equations $3,4,\cdots,n$ by the operation, $R_i \rightarrow R_i + \lambda{}R_2$ where $i = 3,4,\cdots,n$. However, $A_{21}$ is already reduced to zero, therefore we have to add only the scalar multiples of the nonzero values in the row $R_2$. Consider the elimination of $x_k$ from equation $i$ where $ i = k+1,k+2,\cdots,n$, we have $A_{k,1},A_{k,2},\cdots, \text{and}, A_{k,k-1}$ are already zero due to the elimination of $x_1,x_2,\cdots, \text{and} ,x_{k-1}$. Thus, adding scalar multiple (zero) of these entries can be avoided to reduce the number of operations.
+
+\subsection{Back substitution}
+	Let $Ux = c$ be a system of $n$ linear equations in $n$ unknowns and $U$ is an upper triangular matrix. Then we can solve the system of equations from the back.
+	\[ \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n-1} & U_{1,n} \\ 0 & U_{2,2} & \cdots & U_{2,n-1} & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & U_{n-1,n-1} & U_{n-1,n} \\ 0 & 0 & \cdots & 0 & U_{n,n} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_{n-1} \\ x_n \end{bmatrix} = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_{n-1} \\ c_n \end{bmatrix} \]
+	\begin{align*}
+		U_{n,n}\ x_n = c_n & \implies x_n = \frac{c_n}{U_{n,n}} \\
+		\sum_{i=n-1}^{n} U_{n-1,i}\ x_i = c_{n-1}  & \implies x_{n-1} = \frac{c_{n-1} - U_{n-1,n} x_n}{U_{n-1,n-1}} \\
+		& \cdots \\
+		\sum_{i=1}^n U_{1,i}\ x_i  = c_1 & \implies x_1 = \frac{c_1 - \sum_{i = 2}^{n} U_{1,i} x_i}{U_{1,1}}
+	\end{align*}
 
 \subsection{Illustrative example}
 	Consider the following system of linear equations,
@@ -347,15 +356,17 @@ The coefficients are given by,
 
 	Phase 1 : Elimination Process\\
 
-	Using eq.1, the unknown $x_1$ is eliminated from all subsequent equations. An equivalent operation can be performed on the augmented\footnote{We use augmented matrix $[A:B]$ for computational simplicity.} matrix by adding suitable scalar multiples of row 1 to each row underneath it.
+	Using eq.1, the unknown $x_1$ is eliminated from all subsequent equations. An equivalent operation can be performed on both the matrices $A$ and $b$ by adding a suitable scalar multiples of row $R_1$ to row $R_2$ and $R_3$. 
 
-	\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ -2 & 4 & -2 & -16 \\ 1 & -2 & 4 & 17 \end{bmatrix} \xrightarrow{\substack{R_2 = R_2 + 0.5R_1\\ R_3 = R_3 - 0.25R_1}} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix}\]
+	\[ \begin{bmatrix} 4 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 4 \end{bmatrix} \xrightarrow{\substack{R_2 \leftarrow R_2 + 0.5R_1\\ R_3 \leftarrow R_3 - 0.25R_1}} \begin{bmatrix} 4 & -2 & 1 \\ 0 & 3 & -1.5 \\ 0 & -1.5 & 3.75 \end{bmatrix}\]
+	\[ \begin{bmatrix} 11 \\ -16 \\ 17 \end{bmatrix} \xrightarrow{\substack{R_2 \leftarrow R_2 + 0.5R_1 \\ R_3 \leftarrow R_3 - 0.25R_1}} \begin{bmatrix} 11 \\ -10.5 \\ 14.25 \end{bmatrix} \]
 
-	And using eq.2, $x_2$ is eliminated from all subsequent equations( only those rows below it). Again, we perform this by adding suitable scalar multiples of row 2 to each row below.
+	And using eq.2, $x_2$ is eliminated from all subsequent equations( only those rows below it). Again, we perform this by adding suitable scalar multiples of row 2 to row $R_3$.
 
-	\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & -1.5 & 3.75 & 14.25 \end{bmatrix} \xrightarrow{R_3 = R_3 + 0.5R_2} \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \]
+	\[ \begin{bmatrix} 4 & -2 & 1 \\ 0 & 3 & -1.5 \\ 0 & -1.5 & 3.75 \end{bmatrix} \xrightarrow{R_3 \leftarrow R_3 + 0.5R_2} \begin{bmatrix} 4 & -2 & 1 \\ 0 & 3 & -1.5 \\ 0 & 0 & 3 \end{bmatrix} \]
+	\[ \begin{bmatrix} 11 \\ -16 \\ 17 \end{bmatrix}  \xrightarrow{R_3 \leftarrow R_3 + 0.5R_2} \begin{bmatrix} 11 \\ -10.5 \\ 9 \end{bmatrix} \]
 
-	Since all entries below the diagonal elements are reduced to zero, we get an upper triangular matrix by this elimination process.\\
+	The elimination process is complete when all entries below the diagonal elements are reduced to zero. ie, upper triangular matrix.\\
 
 	Phase 2 : Back substitution Process\\
 
@@ -394,38 +405,49 @@ The coefficients are given by,
 \begin{remark}Explaination
 \begin{commentary}
 \begin{itemize}
-	\item \texttt{from numpy import dot} \\ Imports the ``dot()'' function for numpy arrays which is the same as dot product of vectors.
-	\item \texttt{def gaussElimination(a,b):}\\ it defines ``gaussElimination()'' as a function which takes two arguments (inputs). First argument is the coefficient matrix $A$ and second argument is the constant matrix $B$ of the linear system of the form $Ax = B$.
+	\item \texttt{from numpy import dot} \\ Imports the ``dot()'' function for numpy arrays which takes two `numpy arrays' as input arguments and returns the dot product of them.
+	\item \texttt{def gaussElimination(a,b):}\\ it defines ``gaussElimination()'' as a function which takes two arguments (inputs). First argument is the coefficient matrix $A$ and second argument is the constant matrix $b$ of the linear system of the form $Ax = b$.
 	\item \texttt{$n = len(b)$}\\ it assigns the length of the list $b$ into variable $n$ which is obviously the number of equations.
 	\item \texttt{for $k$ in range($0$,$n-1$):}  \\ it is a loop construct. Five instructions following it are part of this loop body, which are executed for each values of $k$ ie, $k = 0, 1, \cdots, n-1$. For each value of $k$, the unknown $x_{k+1}$ is selected for elimination process.
-	\item \texttt{for i in range($k+1$,$n$):}\\ it is a loop inside another loop. Four instructions following it are part of this loop body, which are executed for each values of $i$, ie, $i = k+1, k+2, \cdots, n$. This eliminates $x_{k+1}$ from all the equations after the $k+1$th equation of the system. Value of $i+1$ is the equation\footnote{Python starts counting from zero. For example : $A_{11} = a[0,0]$, $x_1 = x[0]$ and $B_1 = b[0]$} from which $x_{k+1}$ is eliminated.
+	\item \texttt{for i in range($k+1$,$n$):}\\ it is a loop inside another loop. Four instructions following it are part of this loop body, which are executed for each values of $i$, ie, $i = k+1, k+2, \cdots, n$. This eliminates $x_{k+1}$ from all the equations after the $k+1$th equation of the system. Value of $i+1$ is the equation\footnote{Python starts counting from zero. For example : $A_{11} = a[0,0]$, $x_1 = x[0]$ and $b_1 = b[0]$} from which $x_{k+1}$ is eliminated.
 	\item \texttt{if $a[i,k] != 0.0$:} \\ If $a[i,k] = A_{i+1,k+1} \ne 0$, then those three instruction following it are executed. Otherwise, it skips the execution of those three statements. If $x_{k+1}=x[k]$ is not there in the $i$th equation, it doesn't need to be eliminated.
 	\item \texttt{$lam = a[i,k]/a[k,k]$} \\ In this step, $\lambda$ is computed so that equ.($i+1$) - $\lambda$ equ.($k+1$) doesn't have $x_{k+1}$ term in it.
-	\item \texttt{$a[i,k+1:n] = a[i,k+1:n]-lam*a[k,k+1:n]$} \\ Coefficient of $i$th equation are updated.\\ Equivalent to equ.($i+1$) $\leftarrow$ equ.($i+1$) - $\lambda$ equ.($k+1$)
-	\item \texttt{$b[i] = b[i]-lam*b[k]$} \\ We are not using augmented matrix, instead we keep them as two different matrices but perform the same operation on both.
+	\item \texttt{$a[i,k+1:n] = a[i,k+1:n]-lam \times a[k,k+1:n]$} \\ Coefficients of $(i+1)$th equation are updated.\\ Equivalent to $a[i,0:n] = a[i,0:n] - lam \times a[k,0:n]$, since zeroes need not be substracted. This is same as equ.($i+1$) $\leftarrow$ equ.($i+1$) - $\lambda$ equ.($k+1$)
+	\item \texttt{$b[i] = b[i]-lam*b[k]$} \\ The same row operations are performed on the matrix $b$ instead of using an augmented matrix.
 	\item \texttt{for $k$ in range($n-1$,$-1$,$-1$):} \\ This is another loop construct. The following statement is executed $n$ times for values of $k = n-1, n-2, \cdots, 0$. Value of $k+1$ gives the unknown $x_{k+1}$ which is solved by the back substitution process.
-	\item \texttt{$x[k] = (b[k]-dot(a[k,k+1:n],x[k+1:n]))/a[k,k]$} \\ This is the back substitution process. After elimination phase we have $k$ equation in the form $A_{k,k}x_{k} + A_{k,k+1}x_{k+1}+\cdots+A_{k,n}x_n = B_k$. And we already have values of $x_{k+1},\ x_{k+2},\ \cdots,\ x_n$. Then
-	\[x_{k} = \frac{B_k - (A_{k,k+1}x_{k+1} + A_{k,k+2}x_{k+2}+\cdots)}{A_{k,k}}\]
+	\item \texttt{$x[k] = (b[k]-dot(a[k,k+1:n],x[k+1:n]))/a[k,k]$} \\ This is the back substitution process. After elimination phase we have $k$ equation in the form $A_{k,k}x_{k} + A_{k,k+1}x_{k+1}+\cdots+A_{k,n}x_n = b_k$. And we already have values of $x_{k+1},\ x_{k+2},\ \cdots,\ x_n$. Then
+	\[x_{k} = \frac{b_k - (A_{k,k+1}x_{k+1} + A_{k,k+2}x_{k+2}+\cdots)}{A_{k,k}}\]
 	This is equivalent to 
-	\[ B_k \leftarrow \frac{ B_k - \begin{bmatrix}A_{k,k+1} & A_{k,k+2} & \cdots A_{k,n} \end{bmatrix}\begin{bmatrix} x_{k+1} \\ x_{k+2} \\ \vdots \\ x_n \end{bmatrix}}{A_{k,k}} \]
-	Remember : The values of $x_k$ are updated into $B_k$ as they are computed. Thus $x_{k}, x_{k+1}, \cdots, x_n$ are readily available in $B$ for next back substitution ie, for evaluating $x_{k-1}$. We start with $x_{n-1}$, as $x_n = B_n$ is already solved.
-	\item \texttt{return b} \\ It returns the new $B$ matrix as output of the ``gaussElimination()'' function where $x_k = B_k,\ \forall k$.
+	\[ b_k \leftarrow \frac{ b_k - \begin{bmatrix}A_{k,k+1} & A_{k,k+2} & \cdots A_{k,n} \end{bmatrix}\begin{bmatrix} x_{k+1} \\ x_{k+2} \\ \vdots \\ x_n \end{bmatrix}}{A_{k,k}} \]
+	Remember : The values of $x_k$ are updated into $b_k$ as they are computed. Thus $x_{k}, x_{k+1}, \cdots, x_n$ are stored in $b$ for next back substitution ie, for evaluating $x_{k-1}$. We start with $x_{n-1}$, as $x_n = b_n$ is already solved.
+	\item \texttt{return b} \\ It returns the new $b$ matrix as output of the ``gaussElimination()'' function where $x_k = b_k,\ \forall k$.
 \end{itemize}
 \end{commentary}
 \end{remark}
 
 \section{LU Decomposition Method : Doolittle}
-Let $Ax = B$ be a linear system of equations and let $A = LU$ for some lower triangular matrix $L$ and upper triangular matrix $U$. Then we have $LUx = Ly = B$ where $y = Ux$. We can solve $Ly = b$ using forward substitution process and then solve $Ux = y$ using back substitution process. In Doolittle's decomposition method, the diagonal entries of the lower triangular matrix $L$ are all 1. ie, $L_{ii} = 1,\ \forall i$.\\
+	Let $Ax = b$ be a linear system of $n$ equations in $n$ unknowns and let $A = LU$ for some lower triangular matrix $L$ and upper triangular matrix $U$. Then we have $LUx = Ly = b$ where $y = Ux$. There are two phases for this method : \begin{enumerate*} \item LU decomposition and \item substitution \end{enumerate*}.\\
 
-Suppose, we have a system of three linear equations, then
+	First, we compute $L$ and $U$ such that $A = LU$ using gauss elimination. Then We can solve $Ly = b$ using forward substitution process and then solve $Ux = y$ using back substitution process.\\
 
-\[ A = LU = \begin{bmatrix} 1 & 0 & 0 \\ L_{21} & 1 & 0 \\ L_{31} & L_{32} & 1 \end{bmatrix} \begin{bmatrix} U_{11} & U_{12} & U_{13} \\ 0 & U_{22} & U_{23} \\ 0 & 0 & U_{33} \end{bmatrix} \]
+	For Doolittle decomposition,
+	\[ A = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ L_{21} & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ L_{n1} & L_{n2} & \cdots & 1 \end{bmatrix} \begin{bmatrix} U_{11} & U_{12} & \cdots & U_{1n} \\ 0 & U_{22} & \cdots & U_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & U_{nn} \end{bmatrix} \]
 
-\[ A= \begin{bmatrix} U_{11} & U_{12} & U_{13} \\ U_{11}L_{21} & U_{12}L_{21} + U_{22} & U_{13}L_{21}+U_{23} \\ U_{11}L_{31} & U_{12}L_{31}+U_{22}L_{32} & U_{13}L_{31} + U_{23}L_{31} + U_{33} \end{bmatrix} \]
+	\[ [L\text{\textbackslash{}}U] = \begin{bmatrix} U_{11} & U_{12} & \cdots & U_{1n} \\ L_{21} & U_{22} & \cdots & U_{2n} \\ \vdots & \vdots & \ddots & \vdots \\  L_{n1} & L_{n2} & \cdots & U_{nn} \end{bmatrix} \]
+
+	is the combined matrix containing both the triangular matrices.
+
+	\begin{commentary}Note that in Doolittle's decomposition method, the diagonal entries of the lower triangular matrix $L$ are all 1. ie, $L_{ii} = 1,\ \forall i$. Thus, we can use an $n \times n$ matrix to represent both $L$ and $U$ by overwriting trivial entries( zeroes and ones) of both the matrices. And this matrix is reprensented by $[L\text{\textbackslash{}}U]$ Thus, we can use an $n \times n$ matrix to represent both $L$ and $U$ by overwriting trivial entries of both the matrices. And this matrix is reprensented by $[L\text{\textbackslash{}}U]$.\footnote{algorithmic implementation all decomposition algorithms prefer to use a combined matrix}\end{commentary}\\
+
+\subsection{Illustrative example}
+	Suppose, we have a system of three linear equations, then
+
+	\[ A = LU = \begin{bmatrix} 1 & 0 & 0 \\ L_{21} & 1 & 0 \\ L_{31} & L_{32} & 1 \end{bmatrix} \begin{bmatrix} U_{11} & U_{12} & U_{13} \\ 0 & U_{22} & U_{23} \\ 0 & 0 & U_{33} \end{bmatrix} \]
+
+	\[ A= \begin{bmatrix} U_{11} & U_{12} & U_{13} \\ U_{11}L_{21} & U_{12}L_{21} + U_{22} & U_{13}L_{21}+U_{23} \\ U_{11}L_{31} & U_{12}L_{31}+U_{22}L_{32} & U_{13}L_{31} + U_{23}L_{31} + U_{33} \end{bmatrix} \]
 
 	Thus, we can compute $L$ and $U$ using the gauss elimination process\footnote{We usually need a proof for such a strong statement}. The matrix obtained after gauss elimination on $A$ is $U$ and the values of the variable $lam$ used in gauss elimination are the entries in $L$.
 
-\subsection{Illustrative example}
 
 \subsection{Algorithm : Doolittle's LU Decomposition method}
 \begin{program}
@@ -457,24 +479,20 @@ Suppose, we have a system of three linear equations, then
 
 	But remember the loop at Line 4 has inner loop at Line 5 and Line 7-9 are at same level of indentation which means they all are either executed or skipped depending on the truthness of the condition in Line 6. And Line 6-9 are executed for each instance of inner loop. Again, Line 5-9 are executed for each instance of the outer loop.\\
 
-This time the gaussElimination() function which you have seen earlier is split into two functions \begin{enumerate*} \item LUdecomposition() and \item LUsolve() \end{enumerate*}.
-\begin{itemize}
-	\item \texttt{def LUdecomposition(a):} \\ LUdecomposition($A$) computes $L$ and $U$ such that $A = LU$ and combine\footnote{algorithmic implementation all decomposition algorithms prefer to use a combined matrix} both triangular matrices into a single matrix $[L/U]$, by over-writting their trivial entries. And returns this combined matrix (ie, the output of the LUdecomposition($A$) function).\\
-		
-	For Doolittle decomposition,
-	\[ A = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ L_{21} & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ L_{n1} & L_{n2} & \cdots & 1 \end{bmatrix} \begin{bmatrix} U_{11} & U_{12} & \cdots & U_{1n} \\ 0 & U_{22} & \cdots & U_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & U_{nn} \end{bmatrix} \]
-	\[ [L\text{\textbackslash{}}U] = \begin{bmatrix} U_{11} & U_{12} & \cdots & U_{1n} \\ L_{21} & U_{22} & \cdots & U_{2n} \\ \vdots & \vdots & \ddots & \vdots \\  L_{n1} & L_{n2} & \cdots & U_{nn} \end{bmatrix} \]
-	is the combined matrix containing both the triangular matrices.
-	\item \texttt{$a[i,k]=lam$} \\ Clearly, $\lambda_{i,k} = a[i,k]/a[k,k] = L[i,k],\ \forall k, \forall i>k$. Also $a[i,k]$ which is reduced zero by gaussian elimination process is not used anymore in gaussian elimination process. Thus $L[i,k]$ can stored at $a[i,k]$ straight away. And $U[i,j],\ j\le i$ are already the entries of the matrix obained from gaussian elimination. Thus for each iterations of $k$, the matrix $a$ is updated ($k+1$th row and $k+1$th column) with respective entries of the combined matrix $[L\text{\textbackslash{}}U]$.
-	\item \texttt{return $a$} \\ Matrix $a$ is already $[L\text{\textbackslash{}}U]$, and thus LUdecomposition($A$) returns $[L\text{\textbackslash{}}U]$ such that $A = LU$.
-	\item \texttt{def LUsolve(a,b):} \\ LUsolve() function does both forward substitution and back substitution. Suppose $Ax = B$ is the system to be solved. Then the inputs of LUsolve() are $ a = [L\text{\textbackslash{}}U]$ where $A = LU$ and $b = B$.
-	\item \texttt{$n = len(a)$} \\ We have to compute this again as this function starts fresh and thus value of the variable $n$ from LUdecomposition() is lost.
-	\item \texttt{for $k$ in range($1$,$n$):} \\ This is the loop for forward substitution.
-	\item \texttt{$b[k] = b[k]-dot(a[k,0:k],b[0:k])$} \\ Forward substitution process.
-	\item \texttt{$b[n-1] = b[n-1]/a[n-1,n-1]$} \\ Updating $b$ with $y$ for back substitution process. ie, $b[i+1]=y_i$ such that $Ly = B$
-	\item \texttt{for $k$ in range($n-2$,$-1$,$-1$):}  \\ This is the loop for back substitution.
-	\item \texttt{$b[k] = (b[k] - dot(a[k,k+1:n],b[k+1:n]))/a[k,k]$} \\ back substitution process and updating $b$ with $x$ such that $Ux = y$.
-	\item \texttt{return $b$} \\ LUsolve($[L\text{\textbackslash{}}U]$,$B$) returns $b$ where $b[i+1]=x_i$.
+This time the gaussElimination() function which you have seen earlier is split into two functions \begin{enumerate*} \item LUdecomposition() and \item LUsolve() \end{enumerate*}. And forward substituion is also added to LUsolve().
+
+	\begin{itemize}
+		\item \texttt{def LUdecomposition(a):} \\ LUdecomposition($A$) computes $L$ and $U$ such that $A = LU$ and combine both triangular matrices into a single matrix $[L/U]$, by over-writting their trivial entries. And returns this combined matrix
+		\item \texttt{$a[i,k]=lam$} \\ Clearly, $\lambda_{i,k} = a[i,k]/a[k,k] = L[i,k],\ \forall k, \forall i>k$. Also $a[i,k]$ which is reduced zero by gaussian elimination process is not used anymore in gaussian elimination process. Thus $L[i,k]$ can stored at $a[i,k]$ straight away. And $U[i,j],\ j\le i$ are already the entries of the matrix obained from gaussian elimination. Thus for each iterations of $k$, the matrix $a$ is updated ($k+1$th row and $k+1$th column) with respective entries of the combined matrix $[L\text{\textbackslash{}}U]$.
+		\item \texttt{return $a$} \\ Matrix $a$ is already $[L\text{\textbackslash{}}U]$, and thus LUdecomposition($A$) returns $[L\text{\textbackslash{}}U]$ such that $A = LU$.
+		\item \texttt{def LUsolve(a,b):} \\ LUsolve() function does both forward substitution and back substitution. Suppose $Ax = b$ is the system to be solved. Then the inputs of LUsolve() are $ a = [L\text{\textbackslash{}}U]$ where $A = LU$. 
+		\item \texttt{$n = len(a)$} \\ We have to compute this again as this function starts fresh and thus value of the variable $n$ from LUdecomposition() is lost.
+		\item \texttt{for $k$ in range($1$,$n$):} \\ This is the loop for forward substitution.
+		\item \texttt{$b[k] = b[k]-dot(a[k,0:k],b[0:k])$} \\ Forward substitution process.
+		\item \texttt{$b[n-1] = b[n-1]/a[n-1,n-1]$} \\ Updating $b$ with $y$ for back substitution process. ie, $b[i+1]=y_i$ such that $Ly = b$
+		\item \texttt{for $k$ in range($n-2$,$-1$,$-1$):}  \\ This is the loop for back substitution.
+		\item \texttt{$b[k] = (b[k] - dot(a[k,k+1:n],b[k+1:n]))/a[k,k]$} \\ back substitution process and updating $b$ with $x$ such that $Ux = y$.
+		\item \texttt{return $b$} \\ LUsolve($[L\text{\textbackslash{}}U]$,$b$) returns $b$ where $b[i+1]=x_i$.
 \end{itemize}
 	There are few things to remember when spliting a function into two functions. \begin{enumerate*} \item These functions are completely independent of one another \item Variables defined inside a function are not available outside \item Best way to give/take data to/from a function is through arguements/return-value \end{enumerate*}.
 \end{commentary}
