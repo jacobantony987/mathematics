@@ -1121,26 +1121,30 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{commentary}
 \end{definition}
 
-\begin{theorem}
-	Let $f,g,h$ be paths in a topological space $X$, and $[f],[g],[h]$ be respective path-homotopy classes. Suppose the operation product, $\ast$ is defined by
-	\[ [f]\ast{}[g] = [f \ast{'} g] \text{ where } (f \ast{'} g)(s) = \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ g(2s-1) & s \in [\frac{1}{2},1] \end{cases} \]
-	Then the product, $\ast{}$ has the following properties : 
-	\begin{enumerate}
-		\item Associativity
-			\[ \forall [f],[g],[h] \in [I,X],\ \left([f]\ast{}[g]\right)\ast{}[h] = [f] \ast{}\left([g]\ast{}[h]\right) \]
-		\item Existence of left and right identies\\
-			Let $e_x : I \to X$ defined by $\forall s \in [0,1],\ e_x(s) = x$. Let $f$ be a path from $x_0$ to $x_1$, then there exist unique paths $e_{x_0}$ and $e_{x_1}$ such that $[f]\ast{}[e_{x_1}] = [f]$ and $[e_{x_0}]\ast{}[f] = [f]$.
-			\begin{commentary} That is, $e_{x_0},\ e_{x_1}$ are respectively the left and right path-homotopy-identities. \end{commentary}
-		\item Existence of inverse\\
-			Let $f$ be a path in $X$. The path,$\bar{f}$, defined by $\bar{f}(s) = f(1-s)$ is the reverse path of $f$. Then $[f]\ast{}[\bar{f}] = [e_{x_0}]$ and $[\bar{f}]\ast{}[f] = [e_{x_1}]$.
-			\begin{commentary} That is, the inverse of class of $f$ is the class of reverse path of $f$. \end{commentary}
-	\end{enumerate}
+\begin{definition}[Positive Linear Map]
+	A positive liear map $p : [a,b] \to [c,d]$ is the unique map of the form $p(x) = mx+k$ such that $p(a) = c$ and $p(b)=d$.
 	\begin{commentary}
-		In other words, Set of all path-homotopy classes together with binary operation product, $\ast$ is a groupoid. ie, $([I,X],\ast{})$ is a groupoid.
+		Clearly, scaling factor, $m =  \frac{d-c}{b-a}$ as we want to transform an interval of length $b-a$ into an interval of length $d-c$. And offset $k$ is given by,
+		\[ p(a) = \frac{d-c}{b-a}a+k = c \implies k = c - \frac{a(d-c)}{b-a} = \frac{bc-ad}{b-a} \]
+		But, we won't fix $m$ and $k$ in $p(x) = mx+k$, instead we will focus on the unique map with graph of positive slope and passing through required end points.
 	\end{commentary}
-\end{theorem}
-\begin{proof}
-\end{proof}
+	The graph of a positive linear map from $[a,b]$ to $[c,d]$ is always a straight-line with positive slope.
+\end{definition}
+
+\begin{remark}
+	The inverse of a positive linear map is also a positive linear map.
+	\begin{commentary}
+		Given $p : [a,b] \to [c,d], p(x) = mx+k,\text{ where } m = \frac{d-c}{b-a},\ k = \frac{bc-ad}{b-a}$. Then it's inverse, $\bar{p} : [c,d] \to [a,b]$ is given by $p(y) : m'y+k',\text{ where } m' = \frac{b-a}{d-c} = \frac{1}{m},\ k' =  \frac{ad-bc}{d-c} = \frac{-k}{m}$. Clearly $m > 0 \implies m' = \frac{1}{m} > 0$.
+	\end{commentary}
+\end{remark}
+
+\begin{remark}
+	The composite of two positive linear maps is also a (piece-wise) positive linear map. \begin{commentary} Let $f$, $g$ be two positive linear maps. Then their composite map $f \ast g$ is given by
+	\[ (f \ast g) (x) = \begin{cases} f(2x) & x \in [a,\frac{a+b}{2}] \\ g(2\left(x-\frac{b-a}{2}\right)) & x \in [\frac{a+b}{2},b] \end{cases} \]
+		Remember $f \ast g$ exists only if $f(b) = g(a)$. Therefore, $f \ast g$ is a well-defined, continuous (by pasting lemma) and (piecewise) positive linear map.
+%	Here comes the trouble, we should use a pair $(f,g)$ such that the end of map $f$, $f(\frac{a+b}{2})$ and start of map $g$, $g(\frac{a+b}{2})$ coincides. Thus, instead of focussing on values of slope and offset, we should focus on the graph of the map. And squeeze them into half horizontally, then stick them together. But, still I have some trouble imagining graph of $f \ast g$ which is linear and contains both $f$ and $g$.
+	\end{commentary}
+\end{remark}
 
 \begin{lemma}
 	Let $f,\ f'$ be two paths in $X$ and $k : X \to Y$ be a continuous function. Let $F$ be the path homotopy in $X$ between the paths $f$ and $f'$. Then $k \circ{} F$ is a path homotopy in $Y$ between that paths $k \circ{} f$ and $k \circ{} f'$
@@ -1152,10 +1156,103 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{lemma}
 
 \begin{theorem}
-	Let $f$ be a path in $X$, and $a_0, a_1, \cdots, a_n$ be numbers such that $0 = a_0 < a_1 < \cdots < a_n = 1$. Let $f_i : I \to X$ be the path that equals the positive linear map of $f$ onto $[a_{i-1},a_i]$ followed by $f$. Then $[f] = [f_1]\ast{}[f_2]\ast{}\cdots[f_n]$.
+	Let $f,g,h$ be paths in a topological space $X$, and $[f],[g],[h]$ be respective path-homotopy classes. Suppose the operation product, $\ast$ is defined by
+	\[ [f]\ast{}[g] = [f \ast{'} g] \text{ where } (f \ast{'} g)(s) = \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ g(2s-1) & s \in [\frac{1}{2},1] \end{cases} \]
+	Then the product, $\ast{}$ has the following properties : 
+	\begin{enumerate}
+		\item Associativity
+			\[ \forall [f],[g],[h] \in [I,X],\ \left([f]\ast{}[g]\right)\ast{}[h] = [f] \ast{}\left([g]\ast{}[h]\right) \]
+		\item Existence of left and right identies\\
+			Let $e_x : I \to X$ defined by $\forall s \in [0,1],\ e_x(s) = x$. Let $f$ be a path from $x_0$ to $x_1$, then there exist unique paths $e_{x_0}$ and $e_{x_1}$ such that $[f]\ast{}[e_{x_1}] = [f]$ and $[e_{x_0}]\ast{}[f] = [f]$.
+		\begin{commentary}
+			That is, $e_{x_0},\ e_{x_1}$ are respectively the left and right path-homotopy-identities.
+		\end{commentary}
+		\item Existence of inverse\\
+			Let $f$ be a path in $X$. The path,$\bar{f}$, defined by $\bar{f}(s) = f(1-s)$ is the reverse path of $f$. Then $[f]\ast{}[\bar{f}] = [e_{x_0}]$ and $[\bar{f}]\ast{}[f] = [e_{x_1}]$.
+		\begin{commentary}
+			That is, the inverse of class of $f$ is the class of reverse path of $f$.
+		\end{commentary}
+	\end{enumerate}
+\begin{commentary}
+	In other words, Set of all path-homotopy classes together with binary operation product, $\ast$ is a groupoid. ie, $([I,X],\ast{})$ is a groupoid.
+\end{commentary}
+\end{theorem}
+\begin{proof}
+	Step 1 : Properties $2 \& 3$\\
+
+	Let $e_0 : I \to I$ such that $e_0(t) = 0,\ \forall t \in I$. And $i : I \to I$ such that $i(t)=t,\ \forall t \in I$. Then $e_0 \ast{} i$ is also a path. Since $I$ is convex, there is a path homotopy\footnote{$ G : I \times I \to I,\ G(s,0) = i(s),\ G(s,1) = (e_0 \ast{} i)(s),\ G(0,t) = 0,\ G(1,t) = 1$.} $G$ between $i$ and $e_0 \ast{} i$. Let $f : I \to X$ be continuous path in $X$ from $x_0$ to $x_1$. Then $f \circ G$ is a path homotopy (by Lemma 2) in $X$ between $f \circ i$ and $f \circ e_0 \ast{} i$ where $f \circ i$ and $f \circ e_0$ are paths from $x_0$ to $x_1$ in $X$.
+\begin{align*}
+	f \circ (e_0 \ast i) = & (f \circ e_0)  \ast (f \circ i), \text{ by Lemma 1} \\
+	= & e_{x_0} \ast f, \text{ since } \forall s \in I,\ f(e_0(s)) = x_0 = e_{x_0}(s) \text{ and }f \ast{} i \simeq_p f
+\end{align*}
+	Therefore $[e_{x_0}] \ast [f] \simeq_p [f]$, since $e_0 \ast i \simeq_p i$, and $f \circ (e_0 \ast i) \simeq_p f \circ i = f$. \\
+	
+	Similarly, $e_1 : I \to I$ such that $e_1(t) = 1$. Let $H$ be a path homotopy\footnote{$H : I \times I \to I,\ H(s,0)=(i \ast e_1)(s),\ H(s,1) = i(s),\ H(0,t) = 0,\ H(1,t) = 1$} between $i \ast e_1$ and $i$. Thus, $f \circ H$ is a path homotopy in $X$ from $f \circ (i \ast e_1)$ and $f \circ i$.
+\begin{align*}
+	f \circ (i \ast e_1) = & (f \circ i) \ast (f \circ e_1), \text{ by Lemma 1} \\
+	= & f \ast e_{x_1}, \text{ since } f \ast i \simeq_p f,\ i \ast e_1 \simeq_p e_1,\ \forall s \in I,\ (f(e_1(s)) = x_1 = e_{x_1}(s) 
+\end{align*}
+	Since $i \ast e_1 \simeq_p i$, we have $f \circ (i \ast e_1) \simeq_p f \circ i = f$. Therefore $[f] \ast [e_{x_1}] \simeq_p [f]$. Thus, $[f] \ast [e_{x_1}] \simeq_p [f] \simeq_p [e_{x_0}] \ast [f]$. Therefore, $[f]$ has left and right inverses ie, property 2 holds.\\
+
+	Consider inverse path $\bar{i} : I \to I,\ \bar{i}(s) = 1-s$. Then $i \ast \bar{i}$ is a path in $I$ with both end points at $0$. We have, $e_0 : I \to I,\ e_0(s) = 0$ is also a path with both end points at $0$. Since $I$ is convex, there is a path homotopy $H$ in $I$ between $e_0$ and $i \ast \bar{i}$. Then $f \circ H$ is a path homotopy between $f \circ e_0 = e_{x_0}$ and $f \circ (i \ast \bar{i}) = (f \circ i) \ast (f \circ \bar{i}) = f \ast \bar{f}$. Therefore, $[e_{x_0}] \simeq_p [f] \ast [\bar{f}]$.\\
+
+	Similarly $\bar{i} \ast i$ and $e_1$ are paths with both end points at $1$. Since $I$ is convex, there is a path homotopy $G$ in $I$ between $\bar{i} \ast i$ and $e_1$. Then $f \circ G$ is a path homotopy between $f \circ (\bar{i} \ast i) = (f \circ \bar{i}) \ast (f \circ i) = \bar{f} \ast f$ and $f \circ e_1 = e_{x_1}$. Therefore, $[\bar{f}] \ast [f] \simeq_p [e_{x_1}]$. Thus the path $\bar{f} : I \to X,\ \bar{f}(s) = f(1-s),\ \forall s \in I$ is reverse of $f$. Also $[f] \ast [\bar{f}] = [e_{x_0}]$ and $[\bar{f}] \ast [f] = [e_{x_1}]$. ie, property 3 holds.
+
+	Step 2 : Property 1 \\
+
+	Let $f,g,h$ be three paths in $X$ and $f(1) = g(0) = x_1$ and $g(1) = h(0) = x_2$. Then $f \ast (g \ast h)$ is defined by 
+	\[ (g \ast h)(s) = \begin{cases} g(2s) & s \in [0,\frac{1}{2}] \\ h(2s-1) & s \in [\frac{1}{2},1] \end{cases} \]
+	\begin{align*}
+		(f \ast (g\ast{}h))(s) =  & \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ (g \ast h)(2s-1) & s \in [\frac{1}{2},1] \end{cases} \\
+			= & \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ g(2(2s-1)) & s \in [\frac{1}{2},\frac{3}{4}] \\ h(2(2s-1)-1) & s \in [\frac{3}{4},1] \end{cases}
+	\end{align*}
+	Similarly, $(f \ast g) \ast h$ is defined by,
+	\[ (f \ast g)(s) = \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ g(2s-1) & s \in [\frac{1}{2},1] \end{cases} \]
+	\begin{align*}
+		((f \ast g) \ast h)(s) = & \begin{cases} (f \ast g)(2s) & s \in [0,\frac{1}{2}] \\ h(2s-1) & s \in [\frac{1}{2},1] \end{cases} \\
+			= & \begin{cases} f(2(2s)) & s \in [0,\frac{1}{4} \\ g(2(2s-1)) & s \in [\frac{1}{4},\frac{1}{2}] \\ h(2s-1) & s \in [\frac{1}{2},\frac{3}{4}] \end{cases}
+	\end{align*}
+
+	Clearly, $f \ast (g \ast h)$ and $(f \ast g) \ast h$ are distinct path with common endpoints. ie, $(f \ast (g \ast h))(0) = f(0) = ((f \ast g) \ast h)(0)$. And $(f \ast (g \ast h)(1) = h(1) = ((f \ast g) \ast h)(1)$.\\
+
+	We need to define a path homotopy $G$ between $f \ast (g \ast h)$ and $(f \ast g) \ast h$. Let $[a,b], [c,d] \subset I$. Consider the path $p : I \to I$ defined by the following three unique\footnote{$p_1(t) = \frac{ct}{a},\ p_2(t) = \frac{(d-c)t}{b-a}+\frac{bc-ad}{b-a},\ p_3(t) = \frac{(1-d)t}{1-b}+\frac{d-b}{1-b}$} positive linear maps $p_1 : [0,a] \to [0,c]$, $p_2 : [a,b] \to [c,d]$ and $p_3 : [b,1] \to [d,1]$.
+	\[ p(t) = \begin{cases} p_1(t) & t \in [0,a] \\ p_2(t) & t \in [a,b] \\ p_3(t) & t \in [b,1] \end{cases} \]
+	We can easily construct, a path homotopy $P$ between identity map $i : I \to I,\ i(s) = s$ and $p$ as follows :
+	\[ P(s,t) = \begin{cases} t + (p_1(t)-t)\frac{s}{a} & s \in [0,a] \\ t + (p_2(t)-t)\frac{(s-a)}{(b-a)} & s \in [a,b] \\ t+(p_3(t)-t)\frac{(s-b)}{(1-b)} & s \in [b,1] \end{cases} \]
+
+		Therefore, we have $f \ast (g \ast h) \simeq_p i$ since there exists a path homotopy $P$ corresponding to  $[a,b]=[\frac{1}{2},\frac{3}{4}]$ and $[c,d] = [x_1,x_2]$. Similarly $(f \ast g) \ast h \simeq_p i$ since there exists a path homotopy $P$ where $[a,b]=[\frac{1}{4},\frac{1}{2}]$ and $[c,d] = [x_1,x_2]$. ie, $[f \ast (g \ast h)] \simeq_p [(f \ast g) \ast h]$.
+\end{proof}
+
+
+\begin{theorem}
+	Let $f$ be a path in $X$, and $a_0, a_1, \cdots, a_n$ be numbers such that $0 = a_0 < a_1 < \cdots < a_n = 1$. Let $f_i : I \to X$ be the path that equals the positive linear map of $I$ onto $[a_{i-1},a_i]$ followed by $f$. Then $[f] = [f_1]\ast{}[f_2]\ast{}\cdots[f_n]$.
 	\begin{commentary}In other words, every path is path-homotopic to a piecewise-linear path.\end{commentary}
 \end{theorem}
 \begin{proof}
+	Let $f$ be a piece-wise positive linear map such that
+	\[ f(t) = \begin{cases} f_1(t) & t \in [0=a_0,a_1] \\ f_2(t) & t \in [a_1,a_2] \\ \vdots & \vdots \\ f_n(t) & t \in [a_{n-1},a_n] \end{cases} \]
+	where $f_i : I \to [a_{i-1},a_i]$ such that $f_i(t)$ are a positive linear maps. \\
+
+	Consider the path $p : I \to I$  defined by the unique positive linear maps on the subintervals of any partition $\{ 0 = x_0, x_1, \cdots, x_n \}$ of $I$. \\
+	ie, $0 = x_0 < x_1 < \cdots < x_n=1$
+	\begin{align*}
+		p_1 : [x_0,x_1] & \to [a_0,a_1] \\
+		p_2 : [x_1,x_2] & \to [a_1,a_2] \\
+		& \vdots \\
+		p_n : [x_{n-1},x_n] & \to [a_{n-1},a_n]
+	\end{align*}
+	\[ \text{ Define, } p(t) = \begin{cases} p_1(t) & t \in [x_0,x_1] \\ p_2(t) & t \in [x_1,x_2] \\  \vdots  & \vdots \\ p_n(t) & t \in [x_{n-1},x_n]\end{cases} \]
+	Then there exists a path homotopy $P$ between identity map $i : I \to I,\ i(t) = t$  and $p$ given by
+	\[ P(s,t) = \begin{cases} t + (p_1(t)-t)\frac{a_1}{x_1} & s \in [0,x_1] \\ t + (p_2(t)-t)\frac{s-x_1}{x_2-x_1} & s \in [x_1,x_2] \\ \vdots & \\ t + (p_n(t)-t)\frac{s-x_{n-1}}{x_n - x_{n-1}} & s \in [x_{n-1},x_n] \end{cases} \]
+	
+	Since any product of $f_1$, $f_2$, $\cdots$, $f_n$ is a path $p$ for some partition decided by the order of associativity. This partition can be constructed as follows :\\
+	Let the last product operation (by associtivity) corresponds to $\frac{1}{2}$. The expression on its left corresponds to $[0,\frac{1}{2}]$ and expression on the right corresponds to $[\frac{1}{2},1]$. If there are any operations on any of these parts, the last operation (by associtivity) in them corresponds to the midpoint the respective subinterval and so on.\\
+
+\begin{commentary}
+	For examples : Consider, $(f_1 \ast ( f_2 \ast f_3)) \ast (f_4 \ast f_5)$. Suppose we number the operations, $(f_1 \ast_1 ( f_2 \ast_2 f_3)) \ast_3 (f_4 \ast_4 f_5)$. Then we have,  $\ast_3 \to \frac{1}{2} \implies \ast_1 \to \frac{1}{4} \implies \ast_2 \to \frac{3}{8}$. Again $\ast_3 \to \frac{1}{2} \implies \ast_4 \to \frac{3}{4}$. Thus, we have $\{0, \frac{1}{4}, \frac{3}{8}, \frac{1}{2}, \frac{3}{4},1 \}$.\\
+\end{commentary}
+	
+	Thus given two paths $f$ and $f'$ with distinct order of associativity of $n$ paths : $f_1$, $f_2$, $\cdots$, $f_n$. We have path homotopy $P$, $P'$ given by the $P(s,t)$ for the respective partition constructed according to the order of associativity. Then, we have $f \simeq_p p$ and $f' \simeq_p p$. Thus, irrespective of the order of associativity all these paths are path homotopic. ie, $[f] = [f_1] \ast [f_2] \cdots [f_n]$
 \end{proof}
 
 %\section{The Fundamental Group}
