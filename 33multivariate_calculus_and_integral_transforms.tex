@@ -31,8 +31,8 @@
 %\chapter{Sequences of Functions*}
 %\chapter{The Lebesgue Integral*}
 
-\chapter{Fourier Series and Fourier Integrals}
-
+%\chapter{Fourier Series and Fourier Integrals}
+\chapter{Module 1}
 \section{The Weierstrass Approximation Theorem}
 	Every continuous, real valued function on a compact interval has a polynomial approximation.\cite[Theorem 11.17]{apostol}
 
@@ -341,7 +341,8 @@
 	\[ B(p,q) = \frac{\Gamma{p} \Gamma{q}}{\Gamma{p+q}},\text{ where } B(p,q) = \int_0^1 x^{p-1} (1-x)^{q-1} dx,\ \Gamma{p} = \int_0^\infty t^{p-1} e^{-t} dt \]
 \end{remark}
 
-\chapter{Multivariate Differential Calculus}
+%\chapter{Multivariate Differential Calculus}
+\chapter{Module 2}
 
 	In this chapter, we deal with real functions of several variables. Instead of $\mathbf{c}$, we write \( \overline{c} \in \mathbb{R}^n \), then \( \overline{c} = (c_1, c_2, \dotsc, c_n) \) where \( c_j \in \mathbb{R} \) for every \(j = 1,2, \dotsc, n\). Again, suppose \(f : \mathbb{R}^n \to \mathbb{R}^m\) and \(f(\overline{x}) = \overline{y}\), then \(\overline{y} = (y_1, y_2, \dotsc, y_m)\) where each $y_k$ is real. The unit co-ordinate vector, $\overline{u_k}$ is given by \( {u_k}_j = \delta_{j,k} \)
 
@@ -481,23 +482,146 @@
 \begin{remark}[Complex-valued Functions]Seminar - Rohitha
 \end{remark}
 
-%\marginpar{\textcolor{blue}{Fri Sep  4, 2020}}
-
 \section{Matrix of Linear Function}
-	Let $T : \mathbb{R}^n \to \mathbb{R}^m$ be a linear function. Let $\{\overline{u_1},\ \overline{u_2},\ \cdots,\ \overline{u_n}\}$ be standard basis for $\mathbb{R}^n$ and  $\{\overline{e_1},\ \overline{e_2},\ \cdots,\ \overline{e_m}\}$ be standard basis for $\mathbb{R}^m$. Let $\overline{v} \in \mathbb{R}^n$, then $T(\overline{v}) = \sum_{k=1}^n v_k T(\overline{u_k})$ and
-
-	\begin{align*}
-		T(\overline{v}) & =  \begin{bmatrix} T(\overline{u_1}) & T(\overline{u_2}) & \cdots & T(\overline{u_n}) \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n  \end{bmatrix}  =  \begin{bmatrix} \rotatebox[origin=c]{-90}{$t_{11}\overline{e_1} + \cdots + t_{1m}\overline{e_m} $} & \rotatebox[origin=c]{-90}{$t_{21}\overline{e_1} + \cdots + t_{2m}\overline{e_m} $} & \cdots &  \rotatebox[origin=c]{-90}{$t_{n1}\overline{e_n} + \cdots + t_{nm}\overline{e_m} $}  \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n  \end{bmatrix} \\
-				& = \begin{bmatrix} \overline{e_1} & \overline{e_2} & \cdots & \overline{e_m} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1m} \\ t_{21} & t_{22} & \cdots & t_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ t_{n1} & t_{n2} & \cdots & t_{nm} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix}
-	\end{align*}
-
+	Let $T : \mathbb{R}^n \to \mathbb{R}^m$ be a linear function. Let $\{\overline{u_1},\ \overline{u_2},\ \cdots,\ \overline{u_n}\}$ be standard basis for $\mathbb{R}^n$ and  $\{\overline{e_1},\ \overline{e_2},\ \cdots,\ \overline{e_m}\}$ be standard basis for $\mathbb{R}^m$. Let $\overline{v} \in \mathbb{R}^n$, then $\overline{v} = \sum_{k=1}^n v_k\overline{u_k}$ and $T(\overline{v}) = \sum_{k=1}^n v_k T(\overline{u_k})$ and
+\begin{commentary}
+\begin{align*}
+	T(\overline{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} T(\overline{u_1}) \\ T(\overline{u_2}) \\ \cdots \\ T(\overline{u_n}) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}\overline{e_1}+t_{21}\overline{e_2}+\cdots+t_{m1}\overline{e_m} \\ t_{12}\overline{e_1}+t_{22}\overline{e_2}+\cdots+t_{m2}\overline{e_m} \\ \cdots \\ t_{1n}\overline{e_1}+t_{2n}\overline{e_2}+\cdots+t_{mn}\overline{e_m} \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} \overline{e_1} \\ \overline{e_2} \\ \cdots \\ \overline{e_m} \end{bmatrix} \\
+	\intertext{ We may take the transpose,}
+	T(\overline{v}) & = \begin{bmatrix} \overline{e_1} & \overline{e_2} & \cdots & \overline{e_m} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
+\end{align*}
+\end{commentary}
 	\[ T(\overline{v}) = T \left( \sum_{k=1}^n v_k \overline{u_k} \right) = \sum_{k=1}^n v_k T(\overline{u_k}) = \sum_{k=1}^n v_n \sum_{j=1}^m t_{kj}\overline{e_j} \]
-	Thus matrix of $T$ is given by, $m(T) = (t_{ik})$ where $T(\overline{u_k}) = \sum_{k=1}^n t_{ik}\overline{e_i}$.\\
-
-\begin{remark}
-	Let $T : \mathbb{R}^3 \to \mathbb{R}^2$ defined by $T(x,y,z)=(2x+y,y-z)$. Then
-	\[ m(T) = \begin{bmatrix} 2 & 0 \\ 1 & 1\\ 0 & -1 \end{bmatrix},\ T(1,2,3) = \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ 1 & 1 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} \overline{e_1} \\ \overline{e_2} \end{bmatrix} = 4\overline{e_1}-\overline{e_2} = (4,-1) \]
+	Thus matrix of $T$ is given by, $m(T) = (t_{ik})$ where $T(\overline{u_k}) = \sum_{k=1}^n t_{ik}\overline{e_i}$.
+\begin{commentary}
+\begin{remark}[Example]
+	Let $T : \mathbb{R}^3 \to \mathbb{R}^2$ defined by $T(x,y,z)=(2x+y,y-z)$.
+	\begin{align*}
+		T(1,2,3) = & T((1,0,0) + 2(0,1,0) + 3(0,0,1)) \\
+		= & T(\overline{u_1}+2\overline{u_2}+3\overline{u_3}) \\
+		= & T(\overline{u_1}) + 2T(\overline{u_2}) + 3T(\overline{u_3}) \\
+		= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} T(\overline{u_1}) \\ T(\overline{u_2}) \\ T(\overline{u_3}) \end{bmatrix} \\
+		= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} (2,0) \\ (1,1) \\ (0,-1) \end{bmatrix} \\
+			= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2(1,0) \\ (1,0)+(0,1) \\ -1(0,1) \end{bmatrix} \\
+		= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2\overline{e_1} \\ \overline{e_1}+\overline{e_2} \\ -\overline{e_2} \end{bmatrix} \\
+		= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ 1 & 1 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} \overline{e_1} \\ \overline{e_2} \end{bmatrix} \\
+		= & 4\overline{e_1}-\overline{e_2} = 4(1,0) - 1(0,1) = (4,-1)
+	\end{align*}
+	\[ \text{ In the above case, }m(T) = \begin{bmatrix} 2 & 0 \\ 1 & 1\\ 0 & -1 \end{bmatrix}\]
+	Using the matrix of linear function $m(T)$, we can compute the image of any point in $R^3$ by matrix multiplication.
 \end{remark}
+\end{commentary}
+
+\subsection{Matrix of the composition of two linear functions}
+	Let $T : \mathbb{R}^n \to \mathbb{R}^m$ and $S : \mathbb{R}^m \to \mathbb{R}^p$ be two linear functions with domain of $S$ containing the range of $T$ (so that $S \circ T$ is well defined). Then $S \circ T : \mathbb{R}^n \to \mathbb{R}^p$ is defined by
+	\[ S \circ T(\overline{x}) = S(T(\overline{x})),\ \forall \overline{x} \in \mathbb{R}^n\]
+	Since $S,T$ are linear, $S \circ T$ is also linear.
+	\begin{align*}
+		S \circ T(a \overline{x} + b \overline{y}) = & S(T(a \overline{x} + b\overline{y})) = S(a T(\overline{x}) + b T(\overline{y})) = a S(T(\overline{x}))) + b S(T(\overline{y})) \\
+		= & a S \circ T(\overline{x}) + b S \circ T(\overline{y}),\ \forall a,b \in \mathbb{R},\ \forall \overline{x},\overline{y} \in \mathbb{R}^n
+	\end{align*}
+	Let $\{\overline{u_1},\overline{u_2},\cdots,\overline{u_n}\}$ be the standards basis for $\mathbb{R}^n$, $\{\overline{e_1},\overline{e_2},\cdots,\overline{e_m}\}$ be the standards basis for $\mathbb{R}^m$ and $\{\overline{w_1},\overline{w_2},\cdots,\overline{w_p}\}$ be the standards basis for $\mathbb{R}^p$. Let $\overline{v} \in \mathbb{R}^n$, then $\overline(v) = \sum_{i=1}^n v_i\overline{u_i}$, and $S \circ T(\overline{v})=\sum_{i=1}^n v_n S \circ T(\overline{u_i})$
+\begin{commentary}
+\begin{align*}
+	S \circ T(\overline{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} S \circ T(\overline{u_1}) \\ S \circ T(\overline{u_2}) \\ \cdots \\ S \circ T(\overline{u_n}) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} S(t_{11}\overline{e_1} + \cdots + t_{m1}\overline{e_m}) \\ S(t_{12}\overline{e_1} + \cdots + t_{m2}\overline{e_m}) \\ \cdots \\ S(t_{1n}\overline{e_1} + \cdots + t_{mn}\overline{e_m}) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}S(\overline{e_1}) + \cdots + t_{m1}S(\overline{e_m}) \\ t_{12}S(\overline{e_1}) + \cdots + t_{m2}S(\overline{e_m}) \\ \cdots \\ t_{n1}S(\overline{e_1}) + \cdots + t_{mn}S(\overline{e_m}) \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} S(\overline{e_1}) \\ S(\overline{e_2}) \\ \cdots \\ S(\overline{e_m}) \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11}\overline{w_1}+s_{12}\overline{w_2}+\cdots+s_{1p}\overline{w_p} \\ s_{12}\overline{w_1}+s_{22}\overline{w_2}+\cdots+s_{p2}\overline{w_p} \\ \cdots \\ s_{1m}\overline{w_1}+ s_{2m}\overline{w_2}+\cdots+s_{pm}\overline{w_p} \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11} & s_{21} & \cdots & s_{p1} \\ s_{12} & s_{22} & \cdots & s_{p2} \\ \vdots & \vdots & \ddots & \vdots \\ s_{1m} & s_{2m} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} \overline{w_1} \\ \overline{w_2} \\ \vdots \\ \overline{w_p} \end{bmatrix}\\
+	\intertext{We may take transpose,}
+	S \circ T(\overline{v}) & = \begin{bmatrix} \overline{w_1} & \overline{w_2} & \vdots & \overline{w_p} \end{bmatrix} \begin{bmatrix} s_{11} & s_{12} & \cdots & s_{1m} \\ s_{21} & s_{22} & \cdots & s_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ s_{p1} & s_{p2} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
+\end{align*}
+	Remember : Given $T : \mathbb{R}^n \to \mathbb{R}^m$, then we may take $m(T)$ either as $m \times n$ matrix or $n \times m$ matrix. Since, we chose $m \times n$, $m(S \circ T) = m(S)m(T)$. Otherwise, $m(S \circ T) = m(T)m(S)$. This may change for different authors.\\
+\end{commentary}
+
+	Suppose $m(S) = (s_{ij})$ and $m(T) = (t_{ij})$ respectively. Then
+	\[ S(e_k) = \sum_{i=1}^p s_{ik} \overline{w_i},\ k=1,2,\cdots,m \text{ and }\]
+	\[ T(u_j) = \sum_{k=1}^m t_{kj} \overline{e_k},\ j=1,2,\cdots,n \]
+	\begin{align*}
+		(S \circ T)(\overline{u_j}) = & S(T(\overline{u_j})) = S\left(\sum_{k=1}^m t_{kj}\overline{e_k}\right) = \sum_{k=1}^m t_{kj}S(\overline{e_k}) \\ 
+		= & \sum_{k=1}^m t_{kj}\left( \sum_{i=1}^p s_{ik} \overline{w_i}\right) = \sum_{i=1}^p \left(\sum_{k=1}^m s_{ik}t_{kj}\right)\overline{w_i}
+	\end{align*}
+	Therefore, $m(S \circ T) = \sum_{k=1}^m s_{ik}t_{kj} = (s_{ik})(t_{kj}) =  m(S)m(T)$.
+
+\section{The Jacobian Matrix}
+
+	Let $\overline{u_1}, \overline{u_2}, \cdots, \overline{u_n}$ be the unit co-ordinate vectors in $\mathbb{R}^n$ and $\overline{e_1}, \overline{e_2}, \cdots, \overline{e_m}$ be the unit co-ordinate vectors in $\mathbb{R}^m$. Let function $f : \mathbb{R}^n \to \mathbb{R}^m$ be differentiable at $\overline{c} \in \mathbb{R}^n$. Then there exists a linear function $T = f'(\overline{c}) : \mathbb{R}^n \to \mathbb{R}^m$ such that $f(\overline{c}+\overline{v}) = f(\overline{c})+f'(\overline{c})(\overline{v}) + \|\overline{v}\|+E_{\overline{c}}(\overline{v})$. We have, $T(\overline{u_k}) = f'(\overline{c})(\overline{u_k}) = f'(\overline{c},\overline{u_k}) = D_kf(\overline{c}) = D_k \sum_{i=1}^m f_i(\overline{c})\overline{e_i}$.\\
+
+	Clearly, the matrix of total derivative $T$, $m(T) = (t_{ik}) = (D_k f_i(\overline{c}))$. This matrix is called Jacobian matrix of $f$ at $\overline{c}$ and is denoted by $Df(\overline{c})$.
+	\[ Df(\overline{c}) = \begin{bmatrix} D_1 f_1(\overline{c}) & D_2 f_1(\overline{c}) & \cdots & D_n f_1(\overline{c}) \\ D_1 f_2(\overline{c}) & D_2 f_2(\overline{c}) & \cdots & D_n f_2(\overline{c}) \\ \vdots & \vdots & \ddots & \vdots \\ D_1 f_m(\overline{c}) & D_2 f_m(\overline{c}) & \cdots & D_n f_m(\overline{c}) \end{bmatrix} \]
+
+\subsection{Properties of Jacobian matrix}
+\begin{enumerate}
+	\item $k$th row of $Df(\overline{c})$ is gradient vector of $f_k$
+		\[\nabla f_k(\overline{c}) = (D_1f_k(\overline{c}),D_2f_k(\overline{c}),\cdots,D_nf_k(\overline{c}))\]
+	\item When $m = 1$, $Df(\overline{c}) = \nabla f(\overline{c})$.
+	\item $f'(\overline{c})(\overline{v}) = \sum_{k=1}^m \left(\nabla f_k(\overline{c}) \cdot \overline{v}\right) \overline{e_k}$
+	\item $\|f'(\overline{c})(\overline{v})\| \le M\|v\|$ where $M = \sum_{k=1}^m \|\nabla f_k(\overline{c}\| $, by property (3)
+	\item $f'(\overline{c})(\overline{v}) \to \overline{0}$ as $\overline{v} \to \overline{0}$, by property (4)
+\end{enumerate}
+
+\subsection{Chain Rule}
+\begin{commentary}
+	Chain Rule for real function : $\frac{d F \circ G}{dx}(x) = \frac{d}{dy}F(y) \frac{d}{dx}G(x) = F'(y)\ G'(x)$\\
+	For example : $\frac{d}{dx} (ax+3)^3 = \frac{d}{dy}y^3 \frac{d}{dx} \left(ax+3\right) = 3ay^2 = 3a(ax+3)^2$
+\end{commentary}
+\begin{theorem}
+	Let $g$ be differentiable at $\overline{a}$, with total derivative $g'(\overline{a})$ and $\overline{b} = g(\overline{a})$. Let $f$ is differentiable at $\overline{b}$, with total derivative $f'(\overline{b})$. Then $h = f \circ g$ is differentiable at $\overline{a}$ with total derivative $h'(\overline{a}) = f'(\overline{b}) \circ g'(\overline{a})$.
+\begin{commentary}
+	Try to read $h'(\overline{a}) = H$, $f'(\overline{b}) = F$, $g'(\overline{a}) = G$, then $H = F \circ G \implies H(x) = F(G(x))$
+	In other words, $h'(\overline{a})(\overline{v}) = f'(\overline{b}) \circ g'(\overline{a})\ (\overline{v}) = f'(\overline{b})(g'(\overline{a})(\overline{v}))$.
+\end{commentary}
+\end{theorem}
+\begin{proof}
+	Given $\epsilon > 0$, let $y \in \mathbb{R}^p$ such that $\|y\| < \epsilon$. Let $f : \mathbb{R}^n \to \mathbb{R}^m$ and $g : \mathbb{R}^p \to \mathbb{R}^n$, then $h = f \circ g : \mathbb{R}^p \to \mathbb{R}^m$.\\
+
+	We have, $h(\overline{a}+\overline{y})-h(\overline{y}) = f(g(\overline{a}+\overline{y})) - f(g(\overline{a})) = f(\overline{b}+\overline{v}) - f(\overline{b})$ where $\overline{b} = g(\overline{a})$, and  $\overline{v} = g(\overline{a}+\overline{y})-g(\overline{a})$.\\
+
+	Since $g$ is differentiable at $\overline{a}$, $g$ satisfies first-order Taylor's formula.
+	\begin{align*}
+		g(\overline{a}+\overline{y}) & =  g(\overline{a}) + g'(\overline{a})(\overline{y}) + \|\overline{y}\| E_{\overline{a}}(\overline{y}) \text{ where } E_{\overline{a}} \to \overline{0} \text{ as } \overline{y} \to \overline{0} \\
+		\implies & \overline{v} = g(\overline{a}+\overline{y})-g(\overline{a}) = g'(\overline{a})(\overline{y}) + \|\overline{y}\| E_{\overline{a}}(\overline{y})
+	\end{align*}
+	Clearly, as $\overline{y} \to \overline{0} \implies \overline{v} \to g'(\overline{a})(\overline{0}) = \overline{0}$. Again,  we have $f$ is differentiable at $\overline{b}$, thus $f$ satisfies first-order Taylor's formula.
+	\[ f(\overline{b}+\overline{v}) = f(\overline{b}) + f'(\overline{b})(\overline{v}) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \text{ where } E_{\overline{b}} \to \overline{0} \text{ as } \overline{v} \to \overline{0} \]
+	\begin{align*}
+		\implies f(\overline{b}+\overline{v}) - f(\overline{b}) & = f'(\overline{b})(\overline{v}) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \\
+		& = f'(\overline{b})\left( g'(\overline{a})(\overline{y}) + \|\overline{y}\|E_{\overline{a}}(\overline{y}) \right) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \\
+		& = f'(\overline{b})(g'(\overline{a})(\overline{y})) + \|\overline{y}\| E(\overline{y}) \\
+		& \text{ where } E(\overline{y}) = f'(\overline{b})(E_{\overline{a}}(\overline{y})) + \frac{\|\overline{v}\|}{\|\overline{y}\|} E_{\overline{b}}(\overline{y}),\ \overline{y} \ne \overline{0}
+	\end{align*}
+	\[ \implies h(\overline{a}+\overline{y})-h(\overline{a}) = f(\overline{b}+\overline{v}) - f(\overline{b}) = f'(\overline{b})(g'(\overline{a})(\overline{y})) + \|\overline{y}\|E(\overline{y}) \]
+
+	Since $f'(\overline{b})$ and $g'(\overline{a})$ are linear, their composition is also linear. Therefore, $h$ is differentiable at $\overline{a}$ with a linear, total derivative $h'(\overline{a}) = f'(\overline{b}) \circ g'(\overline{a})$ as it satisfies first-order Taylor's formula if $E_{\overline{y}} \to \overline{0}$ as $\overline{y} \to \overline{0}$. \\
+
+	We have, $\|\overline{v}\| \le \|g'(\overline{a})(\overline{y})\| + \|\overline{y}\|\ \|E_{\overline{a}}(\overline{y})\| \le M\|y\| + \|E_{\overline{a}}(\overline{y})\|\ \|\overline{y}\|$.
+	\[ \implies \frac{\|\overline{v}\|}{\|\overline{y}\|} \le M + \|E_{\overline{a}}(\overline{y})\| \]
+
+	Thus, $\overline{v} \to \overline{0}$ as $\overline{y} \to \overline{0}$. Then $f'(\overline{b})(\overline{v}) \to f'(\overline{b})(\overline{0}) = \overline{0}$. And $E_{\overline{a}}(\overline{y}) \to \overline{0}$. Therefore, $E(\overline{y}) \to \overline{0} + M\overline{0} = \overline{0}$ as $\overline{y} \to \overline{0}$.
+\end{proof}
+\subsection{Matrix form of the chain rule}
+	Let $f : \mathbb{R}^n \to \mathbb{R}^m$, $g : \mathbb{R}^p \to \mathbb{R}^n$. And $h = f \circ g : \mathbb{R}^p \to \mathbb{R}^m$. Suppose $g$ is differentiable at $\overline{a} \in \mathbb{R}^p$ and $f$ is differentiable at $g(\overline{a}) = \overline{b} \in \mathbb{R}^n$. Then $h$ is differentiable at $\overline{a}$ and the Jacobian matrix of $h$ is given by the chain rule,
+\[ Dh(\overline{a}) = Df(\overline{b})Dg(\overline{a}) \text{ where } h = f \circ g,\ \overline{b} = g(\overline{a})\]
+In other words,
+\[ D_jh_i(\overline{a}) = \sum_{k=1}^n D_k f_i(\overline{b}) D_j g_k(\overline{a}),\ i=1,2,\cdots,m,\ j=1,2,\cdots,p \]
+
+	For $m=1$, $D_j h(\overline{a}) = \sum_{k=1}^n D_kf(\overline{b}) D_jg_k(\overline{a})$.\\
+	
+	For $m=1$ and $p=1$, $h'(\overline{a}) = \sum_{k=1}^n Df(\overline{b}) g_k'(\overline{a}) = \nabla f(\overline{b}) \cdot Dg(\overline{a})$.
+
+\begin{theorem}
+	Let $f$ and $D_2f$ be continuous functions on a rectangle $[a,b] \times [c,d]$. Let $p$ and $q$ be differentiable on $[c,d]$, where $p(y) \in [a,b]$ and $q(y) \in [c,d]$ for each $y \in [c,d]$. Define $F$ by the equation,
+	\[ F(y) = \int_{p(y)}^{q(y)} f(x,y) dx,\ y \in [c,d] \]
+	Then $F'(y)$ exists for each $y \in (c,d)$ and is given by,
+	\[ F'(y) = \int_{p(y)}^{q(y)} D_2 f(x,y) dx + f((q,y),y)q'(y) - f(p(y),y)p'(y) \]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+---continue page 353 ---
 
 %\chapter{Implicit Functions and Extremum Problems}
 %\chapter{Multiple Riemann Integrals*}
