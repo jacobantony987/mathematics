@@ -559,7 +559,7 @@
 		\[\nabla f_k(\overline{c}) = (D_1f_k(\overline{c}),D_2f_k(\overline{c}),\cdots,D_nf_k(\overline{c}))\]
 	\item When $m = 1$, $Df(\overline{c}) = \nabla f(\overline{c})$.
 	\item $f'(\overline{c})(\overline{v}) = \sum_{k=1}^m \left(\nabla f_k(\overline{c}) \cdot \overline{v}\right) \overline{e_k}$
-	\item $\|f'(\overline{c})(\overline{v})\| \le M\|v\|$ where $M = \sum_{k=1}^m \|\nabla f_k(\overline{c}\| $, by property (3)
+	\item $\|f'(\overline{c})(\overline{v})\| \le M\|v\|$ where $M = \sum_{k=1}^m \|\nabla f_k(\overline{c})\| $, by property (3)
 	\item $f'(\overline{c})(\overline{v}) \to \overline{0}$ as $\overline{v} \to \overline{0}$, by property (4)
 \end{enumerate}
 
@@ -578,7 +578,7 @@
 \begin{proof}
 	Given $\epsilon > 0$, let $y \in \mathbb{R}^p$ such that $\|y\| < \epsilon$. Let $f : \mathbb{R}^n \to \mathbb{R}^m$ and $g : \mathbb{R}^p \to \mathbb{R}^n$, then $h = f \circ g : \mathbb{R}^p \to \mathbb{R}^m$.\\
 
-	We have, $h(\overline{a}+\overline{y})-h(\overline{y}) = f(g(\overline{a}+\overline{y})) - f(g(\overline{a})) = f(\overline{b}+\overline{v}) - f(\overline{b})$ where $\overline{b} = g(\overline{a})$, and  $\overline{v} = g(\overline{a}+\overline{y})-g(\overline{a})$.\\
+	We have, $h(\overline{a}+\overline{y})-h(\overline{a}) = f(g(\overline{a}+\overline{y})) - f(g(\overline{a})) = f(\overline{b}+\overline{v}) - f(\overline{b})$ where $\overline{b} = g(\overline{a})$, and  $\overline{v} = g(\overline{a}+\overline{y})-g(\overline{a})$.\\
 
 	Since $g$ is differentiable at $\overline{a}$, $g$ satisfies first-order Taylor's formula.
 	\begin{align*}
@@ -591,7 +591,7 @@
 		\implies f(\overline{b}+\overline{v}) - f(\overline{b}) & = f'(\overline{b})(\overline{v}) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \\
 		& = f'(\overline{b})\left( g'(\overline{a})(\overline{y}) + \|\overline{y}\|E_{\overline{a}}(\overline{y}) \right) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \\
 		& = f'(\overline{b})(g'(\overline{a})(\overline{y})) + \|\overline{y}\| E(\overline{y}) \\
-		& \text{ where } E(\overline{y}) = f'(\overline{b})(E_{\overline{a}}(\overline{y})) + \frac{\|\overline{v}\|}{\|\overline{y}\|} E_{\overline{b}}(\overline{y}),\ \overline{y} \ne \overline{0}
+		& \text{ where } E(\overline{y}) = f'(\overline{b})(E_{\overline{a}}(\overline{y})) + \frac{\|\overline{v}\|}{\|\overline{y}\|} E_{\overline{b}}(\overline{v}),\ \overline{y} \ne \overline{0}
 	\end{align*}
 	\[ \implies h(\overline{a}+\overline{y})-h(\overline{a}) = f(\overline{b}+\overline{v}) - f(\overline{b}) = f'(\overline{b})(g'(\overline{a})(\overline{y})) + \|\overline{y}\|E(\overline{y}) \]
 
