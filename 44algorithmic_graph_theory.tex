@@ -15,52 +15,51 @@
 
 %Need to get a copy of this book !!
 %List of Algorithms
-\part{ME800402 Algorithmic Graph Theory}
 %Module 1 - \cite{chartrand} 1, 2
 %Module 2 - \cite{chartrand} 3, 4
 %Module 3 - \cite{chartrand} 5
 %Module 4 - \cite{chartrand} 6
 %Missing - 7, 8?
 
-\chapter{An Introduction to Graphs}
-\section{What is a Graph ?}
-\section{The Degree of a Vertex}
-\section{Isomorphic Graphs}
-\section{Subgraphs}
-\section{Degree Sequences}
-\section{Connected Graphs}
-\section{Cut-Vertices and Bridges}
-\section{Special Graphs}
-\section{Digraphs}
+%\chapter{An Introduction to Graphs}
+%\section{What is a Graph ?}
+%\section{The Degree of a Vertex}
+%\section{Isomorphic Graphs}
+%\section{Subgraphs}
+%\section{Degree Sequences}
+%\section{Connected Graphs}
+%\section{Cut-Vertices and Bridges}
+%\section{Special Graphs}
+%\section{Digraphs}
 
-\chapter{An Introduction to Algorithms}
-\section{Algorithmic Complexity}
-\section{Serach Algorithms}
-\section{Sorting Algorithms}
+%\chapter{An Introduction to Algorithms}
+%\section{Algorithmic Complexity}
+%\section{Serach Algorithms}
+%\section{Sorting Algorithms}
 %\section{Introducing NP-Completeness*}
-\setcounter{section}{4}
-\section{Greedy Algorithms}
-\section{Representing Graphs in a Computer}
+%\setcounter{section}{4}
+%\section{Greedy Algorithms}
+%\section{Representing Graphs in a Computer}
 
 %Module 2
-\chapter{Trees}
-\section{Properties of Trees}
-\section{Rooted Trees}
-\section{Depth-First Search}
-\section{Depth-First Search : A Tool for Finding Blocks}
-\section{Breadth-First Search}
-\section{The Minimum Spanning Tree Problem}
+%\chapter{Trees}
+%\section{Properties of Trees}
+%\section{Rooted Trees}
+%\section{Depth-First Search}
+%\section{Depth-First Search : A Tool for Finding Blocks}
+%\section{Breadth-First Search}
+%\section{The Minimum Spanning Tree Problem}
 
-\chapter{Paths and Distance in Graphs}
-\section{Distance in Graphs}
-\section{Distance in Weighted Graphs}
-\section{The Center and Median of a Graph}
-\section{Activity Digraphs and Critical Paths}
+%\chapter{Paths and Distance in Graphs}
+%\section{Distance in Graphs}
+%\section{Distance in Weighted Graphs}
+%\section{The Center and Median of a Graph}
+%\section{Activity Digraphs and Critical Paths}
 %\section{Error Correcting Codes*}
 
 %Module 3
-\chapter{Networks}
-\section{An Introduction to Networks}
+\section{Networks}
+\subsection{An Introduction to Networks}
 \begin{definition}
 	A \textbf{network} $N$ is a digraph $D$ with two special vertices source $s$ and sink $t$ together with a capacity function $c : E(D) \to \mathbb{Z}$ such that for every arc $a = (u,v)$ of the digraph, $c(u,v)$ is non-negative.
 \end{definition}
@@ -194,7 +193,7 @@
 	\end{enumerate}
 \end{remark}
 
-\section{The Max-Flow Min-Cut Theorem}
+\subsection{The Max-Flow Min-Cut Theorem}
 \begin{description}
 	\item[maximum flow] A flow $f$ in network $N$ is maximum flow in $N$, if $f(N) \ge f'(N)$ for each flow $f'$ in $N$.
 	\item[minimum cut] A cut $(P,\bar{P})$ in network $N$ is minimum cut of $N$,\\ if $c(P,\bar{P}) \le c(X,\bar{X})$ for each cut $(X,\bar{X})$ in $N$.
@@ -312,7 +311,7 @@
 	\end{enumerate}
 \end{remark}
 
-\section{A max-flow min-cut algorithm}
+\subsection{A max-flow min-cut algorithm}
 \begin{theorem}
 	Let $N$ be a network with underlying digraph $D$, source $s$, sink $t$, capacity function $c$ and flow $f$. Let $D'$ be the digraph with same vertex set as $D$ and arc set defined by $E(D') = \{ (x,y) : (x,y) \in E(D),\ c(x,y) > f(x,y) \text{ or } (y,x) \in E(D),\ f(y,x) > 0 \}$. ie, $D'$ has only the unsaturated arcs of $D$. Then $D'$ has an $s-t$ directed path iff $D$ has an $f$-augmenting semipath. Moreover, shortest $s-t$ path in $D'$ has the same length as shortest $f$-augmenting semipath in $D$.
 \end{theorem}
@@ -359,9 +358,9 @@
 %\end{remark}
 
 %\section{The Complexity of the Max-Flow Min-Cut Theorem*}
-\setcounter{section}{4}
+\setcounter{subsection}{4}
 
-\section{Connectivity and Edge-Connectivity}
+\subsection{Connectivity and Edge-Connectivity}
 
 \begin{description}
 	\item[edge cutset] is the set $U$ subset of $E(G)$ such that $G-U$ is disconnected.
@@ -414,7 +413,7 @@
 	\end{enumerate}
 \end{remark}
 
-\section{Menger's Theorem}
+\subsection{Menger's Theorem}
 \begin{theorem}
 	For a non-trivial graph $G$, $\lambda(u,v) = M'(u,v)$ for every pair $(u,v)$ of vertices of $G$.
 \end{theorem}
@@ -447,9 +446,8 @@
 	\end{enumerate}
 \end{algorithm}
 
-%Module 4
-\chapter{Matchings and Factorizations}
-\section{An Introduction to Matching}
+\section{Matchings and Factorizations}
+\subsection{An Introduction to Matching}
 \begin{description}
 	\item[Marriage Problem] Given a collection of men and women, where each womon knows some of the men. Can every women marry a man she knows ?
 	\item[Assignment Problem] Given several job openings and applicants for one or more of these positions. Find an assignment so that maximum positions are filled ?
@@ -516,7 +514,7 @@
 	Let $W$ be a set of $n$ women. Then there are $2^n-1$ nonempty subset for $W$. Thus, Hall's Marriage Theorem suggests that we ensure $|N(S)| \ge |S|$ for every nonempty subset $S$ of $W$. This method has complexity $O(2^n)$.
 \end{remark}
 
-\section{Maximum Matching in Bipartite Graphs}
+\subsection{Maximum Matching in Bipartite Graphs}
 
 \begin{definition}
 	Let $M$ be a matching in a graph $G$ and $P$ is an augmenting path with respect to $M$. Let $M'$ be set of edge in $P$ and $M$. And $M''$ be the set of edges in $P$ and not in $M$. Then $M_1 = (M-M') \cup M''$ is the \textbf{matching obtained by augmenting M along path P}.
@@ -605,8 +603,8 @@
 \end{algorithm}
 
 %\section{Maximum Matching in General Graphs*}
-\setcounter{section}{3}
-\section{Factorizations}
+\setcounter{subsection}{3}
+\subsection{Factorizations}
 \begin{definition}
 	A \textbf{factor} of a graph $G$ is a spanning\footnote{Spanning subgraph of a graph $G$ has every vertex of $G$} subgraph of $G$.
 \end{definition}
@@ -696,7 +694,7 @@
 %	\end{description}
 %\end{remark}
 
-\section{Block Designs}
+\subsection{Block Designs}
 \begin{definition}
 	A block design on a set $V$ is a collection of $k$-element subsets of $V$ such that each element of $V$ appears exactly in $r$ subsets.
 \end{definition}
