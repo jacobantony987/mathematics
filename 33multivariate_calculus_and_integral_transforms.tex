@@ -693,9 +693,9 @@ In other words,
 	where each component of the error function $E_k(\overline{v}) \to 0$ as $\overline{v} \to \overline{0}$. Also since $f'(\overline{c})$ is linear, each of its components $f'_k : \mathbb{R}^n \to \mathbb{R}$ are linear.
 	\begin{align*}
 		f(\overline{c}+\overline{v}) = & \left( f_1(\overline{c}+\overline{v}), f_2(\overline{c}+\overline{v}), \cdots, f_m(\overline{c}+\overline{v}) \right) \\
-		= & \left( f_1(\overline{c}, f_2(\overline{c}, \cdots, f_m(\overline{c} \right) + \left( f'_1(\overline{v}), f'_2(\overline{v}, \cdots, f'_k(\overline{v}) \right) \\
+		= & \left( f_1(\overline{c}), f_2(\overline{c}), \cdots, f_m(\overline{c}) \right) + \left( f'_1(\overline{v}), f'_2(\overline{v}), \cdots, f'_m(\overline{v}) \right) \\
 		& + \|\overline{v}\|\left(E_1(\overline{v}), E_2(\overline{v}), \cdots, E_m(\overline{v}) \right) \text{ where } E_k(\overline{v}) \to 0 \text{ as } \overline{v} \to \overline{0}\\
-		= & \left( f_1(\overline{c}, f_2(\overline{c}, \cdots, f_m(\overline{c} \right) + \left( f'_1(\overline{v}), f'_2(\overline{v}, \cdots, f'_k(\overline{v}) \right) \\
+		= & \left( f_1(\overline{c}), f_2(\overline{c}), \cdots, f_m(\overline{c}) \right) + \left( f'_1(\overline{v}), f'_2(\overline{v}), \cdots, f'_m(\overline{v}) \right) \\
 		& + \left(\|\overline{v}\|E_1(\overline{v}), \|\overline{v}\|E_2(\overline{v}), \cdots, \|\overline{v}\|E_m(\overline{v}) \right) \text{ where } E_k(\overline{v}) \to 0 \text{ as } \overline{v} \to \overline{0}\\
 		= & \left( f_1(\overline{c}) + f'_1(\overline{v}) + \|\overline{v}\|E_1(\overline{v}), \cdots, f_m(\overline{c}) + f'_m(\overline{v}) + \|\overline{v}\|E_m(\overline{v}) \right) 
 	\end{align*}
@@ -730,10 +730,9 @@ In other words,
 	\begin{equation}
 	f(\overline{c}+\overline{v}) - f(\overline{c}) = \sum_{k = 1}^n f(\overline{b_k} + \lambda{}y_k\overline{u_k})-f(\overline{b_k})
 	\end{equation}
-	Since $f$ is continuous in $B(\overline{c})$ for values of $k \ge 2$, from mean-value theorem we have
+	We know that all partial derivatives exists in $B(\overline{c})$. Thus $f$ is continuous in $B(\overline{c})$. Therefore by mean-value theorem we have,
 	\[ f(\overline{b_k}+\lambda{}y_k\overline{u_k}) - f(\overline{b_k}) = \lambda{}y_kD_kf(\overline{a_k}) \text{ where } \overline{a_k} \in L(\overline{b_k},\overline{b_k}+\lambda{}y_k\overline{u_k}) \]
 
-	And $D_1f$ exists, thus the same equation also holds for $k = 1$.  Therefore we have,
 	\begin{equation}
 		f(\overline{c}+\overline{v}) - f(\overline{c}) = \lambda{} \sum_{k = 1}^n y_kD_kf(\overline{a_k}) \text{ where } \overline{a_k} \in L(\overline{b_k},\overline{b_k}+\lambda{}y_k\overline{u_k})
 	\end{equation}
@@ -742,11 +741,11 @@ In other words,
 	
 	As $\lambda{} \to 0,\ \overline{v} \to \overline{0}$. And both $\overline{b_k},\ \overline{b_k}+\lambda{}y_k\overline{u_k} \to \overline{c}$. Clearly, $\overline{a_k}$ in the line between $\overline{b_k}$ and $\overline{b_k}+\lambda{} y_k \overline{u_k}$ also converges to $\overline{c}$.\\
 	
-	We have $D_kf$ are continuous in the $n$-ball $B(\overline{c})$. Thus $D_kf(\overline{a_k}) \to D_kf(\overline{c})$. We may write, $D_kf(\overline{a_k}) = D_kf(\overline{c}) + E_k(\lambda)$ where $E_k(\lambda) \to \overline{0}$ as $\lambda{} \to 0$.
-	
+	For $k \ge 2$, $D_kf$ are continuous in the $n$-ball $B(\overline{c})$. Thus $D_kf(\overline{a_k}) \to D_kf(\overline{c})$. We may write, $D_kf(\overline{a_k}) = D_kf(\overline{c}) + E_k(\lambda)$ where $E_k(\lambda) \to \overline{0}$ as $\lambda{} \to 0$. Also, since $D_1 f$ exists, $D_1f(\overline{c}+\lambda{} y_1\overline{u_1}) \to D_1f(\overline{c})$ as $\lambda{} \to 0$. \begin{commentary} \[ \text{ Remember : } D_1 f(\overline{c}) = \lim_{h \to 0} \frac{f(\overline{c}+h\overline{u_1}) - f(\overline{c})}{h} \] \end{commentary}
 	\begin{align*}
 		f(\overline{c}+\overline{v}) - f(\overline{c}) = & \lambda{} \sum_{k = 1}^n y_kD_kf(\overline{c}) + \lambda{} \sum_{k = 1}^n y_kE_kf(\lambda{})\\
-		= & \nabla f(\overline{c}) \cdot \overline{v} + \|\overline{v}\|E(\lambda) \text{ where } E(\lambda{}) = \sum_{k = 1}^n y_k E_k(\lambda{}) \to \overline{0} \text{ as } \overline{v} \to \overline{0}
+		= & \nabla f(\overline{c}) \cdot \overline{v} + \|\overline{v}\|E(\lambda) \\
+		& \text{ where } E(\lambda{}) = \sum_{k = 1}^n y_k E_k(\lambda{}) \to \overline{0} \text{ as } \overline{v} \to \overline{0}
 	\end{align*}
 	That is, we have a linear function which satisfies first-order Taylor's formula at $\overline{c}$. Therefore, $f$ is differentiable.
 \end{proof}
@@ -754,7 +753,7 @@ In other words,
 \subsection{Sufficient conditions for the equality of mixed partial derivatives}
 Let $f : \mathbb{R}^n \to \mathbb{R}^m$. Then $D_r f$ and $D_k f$ are two partial derivatives of $f$. And $D_{r,k} f = D_r(D_k f)$ and $D_{k,r} f = D_k (D_r f)$.
 \[ D_{r,k} f = \frac{\partial^2 f}{\partial x_r \partial x_k} = \frac{\partial}{\partial x_r} \frac{\partial f}{\partial x_k} \text{ and } D_{k,r} f = \frac{\partial^2 f}{\partial x_k \partial x_r} = \frac{\partial}{\partial x_k} \frac{\partial f}{\partial x_r}  \]
-\begin{commentary}There are two sufficient conditions for the equality of these mixed partial derivatives in our scope. First of all the partial derivatives should exist and then $f$ should have \begin{enumerate*} \item differentiability or \item continuity \end{enumerate*} at $\overline{c}$ where the mixed partial derivatives are to be equal.\end{commentary}
+\begin{commentary}There are two sufficient conditions for the equality of these mixed partial derivatives in our scope. \begin{enumerate*} \item differentiability of $D_k f$ or \item continuity of $D_{r,k} f$ and $D_{k,r}$ \end{enumerate*} at $\overline{c}$ where the mixed partial derivatives are to be equal.\end{commentary}
 \subsubsection{Differentiability}
 \begin{theorem}
 	Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\overline{c}$ and are both differentiable at $\overline{c}$. Then $D_{r,k} f = D_{k,r} f$.
@@ -772,10 +771,15 @@ Let $f : \mathbb{R}^n \to \mathbb{R}^m$. Then $D_r f$ and $D_k f$ are two partia
 	
 	\par{Step 3:} $D_{1,2} f = \frac{\nabla(h)}{h^2} = D_{2,1} f$\\
 
-	Define $G(x) = f(x,h)-f(x,0)$. Then $\nabla(h) = G(h)-G(0)$. By 1-dimensional mean value theorem, $G(h)-G(0) = hG'(x_1) = h\left( D_1f(x_1,h)-D_1f(x_1,0)\right)$ where $x_1 \in (0,h)$.\\
-	
-
-	We have $D_1 f$ is differentiable at $(0,0)$. There exists linear, total derivative function $(D_1f)'(0,0)$ where $(D_1f)'(0,0)(x,y) = \nabla D_1 f(0,0) \cdot{} (x,y)$ satisfiying first-order Taylor's formula at $(0,0)$. \begin{commentary} Remember : $f'(\overline{c})(\overline{v}) = \sum_{k = 1}^n v_k D_k f(\overline{c}) = \nabla f(\overline{c}) \cdot{} \overline{v}$ \end{commentary} That is,
+	Define $G(x) = f(x,h)-f(x,0)$. Then  we have, $\nabla(h) = G(h)-G(0)$ and $G'(x) = D_1f(x,h) - D_1f(x,0)$. By 1-dimensional mean value theorem,
+	\begin{align*}
+		G(h)-G(0) = & hG'(x_1)  \text{ where } x_1 \in (0,h) \\
+		= & h\left( D_1f(x_1,h)-D_1f(x_1,0)\right)
+	\end{align*}
+	We have $D_1 f$ is differentiable at $(0,0)$. There exists linear, total derivative function $(D_1f)'(0,0)$ where $(D_1f)'(0,0)(x,y) = \nabla D_1 f(0,0) \cdot{} (x,y)$ satisfiying first-order Taylor's formula at $(0,0)$.\\ 
+	\begin{commentary}
+		\[ \text{ Remember :} f'(\overline{c})(\overline{v}) = \sum_{k = 1}^n v_k D_k f(\overline{c}) = \nabla f(\overline{c}) \cdot{} \overline{v} \]
+	\end{commentary}
 	\begin{align*}
 		D_1 f((0,0) + (x_1,h)) = & D_1 f(0,0) + \nabla D_1 f(0,0) \cdot{} (x_1,h) + \|(x_1,h)\| E_1(h) \\
 		& \text{ where } E_1(h) \to 0 \text{ as } h \to 0\\
@@ -792,8 +796,11 @@ Let $f : \mathbb{R}^n \to \mathbb{R}^m$. Then $D_r f$ and $D_k f$ are two partia
 	\begin{equation}
 		\lim_{h \to 0} \frac{\nabla(h)}{h^2} = D_{2,1} f(0,0)
 	\end{equation}
-	Define $H(y) = f(h,y)-f(0,y)$. Then $\nabla(h) = H(h)-H(0)$. By 1-dimensional mean value theorem, $H(h)-H(0) = hH'(y_1) = h \left( D_2f(h,y_1)-D_2f(0,y_1) \right)$ where $y_1 \in (0,h)$.\\
-
+	Define $H(y) = f(h,y)-f(0,y)$. Then we have, $\nabla(h) = H(h)-H(0)$ and $H'(y) = D_2f(h,y) - D_2f(0,y)$. By 1-dimensional mean value theorem,
+	\begin{align*}
+		H(h)-H(0) = & hH'(y_1)  \text{ where } y_1 \in (0,h) \\
+		= & h \left( D_2f(h,y_1)-D_2f(0,y_1) \right)
+	\end{align*}
 	We have $D_2 f$ is differentiable at $(0,0)$. Thus there exists a linear, total derivative function $(D_2f)'(0,0)$ where $(D_2f)'(0,0)(x,y) = \nabla D_2 f(0,0) \cdot{} (x,y)$ satisfying first-order Taylor's formula at $(0,0)$. That is,
 	\begin{align*}
 		D_2 f((0,0)+(h,y_1)) = & D_2 f(0,0) + \nabla D_2 f(0,0) \cdots{} (h,y_1) + \|(h,y_1)\| E_3(h) \\
@@ -815,11 +822,12 @@ Let $f : \mathbb{R}^n \to \mathbb{R}^m$. Then $D_r f$ and $D_k f$ are two partia
 \end{proof}
 \subsubsection{Continuity}
 \begin{theorem}
-	Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\overline{c}$ and are both continuous at $\overline{c}$. Then $D_{r,k} f = D_{k,r} f$.
+	Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\overline{c}$. And $D_{r,k} f$ and $D_{k,r} f$ are continuous at $\overline{c}$. Then $D_{r,k} f = D_{k,r} f$.
 \end{theorem}
 \begin{proof}
-	\begin{commentary} This is proof is almost ready and quite easy. But, I am not sure whether they might consider asking you to prove this as Apostol skipped the proof. \end{commentary}
+	We have $D_r f = (D_r f_1 , D_r f_2, \cdots, D_r f_m)$. Therefore, it is sufficient to prove the theorem for real-valued functions. Suppose $n = 2$, $\overline{c} = (0,0)$ and the partial derivatives $D_1 f$ and $D_2 f$ exist and are continuous in some $2$-ball about $(0,0)$. Suppose $(h,h)$ lies in that $2$-ball, then $D_1 f(h,h) \to D_1 f(0,0)$ as $h \to 0$.
 \end{proof}
+
 \begin{remark} A function $f$ such that $D_{1,2} f \ne D_{2,1} f$.
 	\[ \text{Let, }f(x,y) = \begin{cases} \frac{xy(x^2-y^2)}{x^2+y^2} & (x,y) \ne (0,0) \\ 0 & (x,y) = (0,0) \end{cases} \]
 	\begin{align*}
@@ -839,6 +847,137 @@ Let $f : \mathbb{R}^n \to \mathbb{R}^m$. Then $D_r f$ and $D_k f$ are two partia
 \end{remark}
 
 %\chapter{Implicit Functions and Extremum Problems}
+\subsection{Implicit Functions and Extremum Problems}
+\begin{definition}[Implicit function]
+	Let $f$ be a function. Consider the equation, $f(\overline{x},\overline{y}) = 0$. If there exists a function $g$ such that $\overline{x} = g(\overline{y})$, then $g$ is an implicit form of $f$ or $g$ is defined implicitly by $f$.\\
+
+	For example, a linear system of equations $Ax-b = 0$ implicitly defines $x = A^{-1}b$ provided $ A$ has non-zero determinant.
+\end{definition}
+
+\begin{definition}[Jacobian Determinant]
+	Let $f : \mathbb{R}^n \to \mathbb{R}^n$, then determinant of the Jacobian matrix $Df(\overline{x})$ is the Jacobian determinant of $f$, $J_f(\overline{x})$.
+\end{definition}
+
+\begin{theorem}
+	Let $f : \mathbb{C} \to \mathbb{C}$. Then $J_f(z) = |f'(z)|^2$.
+\end{theorem}
+\begin{proof}
+	Suppose $f : \mathbb{C} \to \mathbb{C}$ where $f(z) = u(z) + iv(z)$ where $u : \mathbb{C} \to \mathbb{R}$ and $v : \mathbb{C} \to \mathbb{R}$. \begin{commentary}These real-valued functions $u,v$ have respective $u^*,v^*$ multivariate real functions such that $u^* : \mathbb{R}^2 \to \mathbb{R}$, where $u(z) = u^*(x,y)$ and $z = x+iy$. Let $f(z) = z^2+1$. Then $u^*(x,y) = x^2-y^2+1$ and $v^*(x,y) = -2xy$. And theoretically we use derivatives of $u^*$ when we mention derivatives of $u$.\end{commentary}\\
+
+	Then $f$ has a derivative at $z$ only if the partial derivatives $D_1u,D_2u,D_1v,D_2v$ exists at $z$ and satisfies Cauchy-Riemann equations. ie $D_1u(z) = D_2v(z)$ and $D_2v(z) = -D_1v(z)$.\cite[Theorem 5.22]{apostol}.\\
+		
+	Thus we have $f'(z) = D_1u + iD_1v$ \cite[Theorem 12.6]{apostol}\footnote{Prove using first-order Taylor's formula}.
+	\begin{align*}
+		f'(z) & = D_1u(z) + iD_1v(z) \\
+		|f'(z)|^2 & = (D_1u(z))^2 + (D_1v(z))^2\\
+		\intertext{For ease of representation, we write $D_1u$ instead of $D_1u(z)$}
+		|f'(z)|^2 & = (D_1u)^2 + (D_1v)^2
+	\end{align*}
+	We also have
+	\[ J_f(z) = |Df(z)| = \begin{vmatrix} D_1u & D_2u \\ D_1v & D_2v \end{vmatrix} = D_1uD_2v - D_1vD_2u = (D_1u)^2 + (D_1v)^2 \]
+	Therefore, $J_f(z) = |f'(z)|^2$.
+\end{proof}
+\subsubsection{Functions with non-zero Jacobian determinant}
+\begin{commentary}
+	That is, $f : \mathbb{R}^n \to \mathbb{R}^n$ such that $J_f \ne 0$ in an $n$-ball. In other words, we have an $n$-ball $B(\overline{x})$ such that $J_f(\overline{y}) \ne 0,\ \forall \overline{y} \in B(\overline{x})$.
+\end{commentary}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{commentary}
+\begin{remark}[Properties]
+	Functions with non-zero Jacobian determinant has following properties :
+\begin{enumerate}
+	\item If $J_f \ne 0$ in $n$-ball $B$ about $\overline{a}$ which has different values at its boundaries, then $f(B)$ has an $n$-ball about $f(\overline{a})$.
+	\item If $J_f \ne 0$, $f$ has continuous partial derivatives in $S$, and $f$ is injective in an open set $A$, then $f(A)$ is open.
+	\item Let $S$ be an open set in $\mathbb{R}^n$, $f$ has continuous partial derivatives in $S$, and $J_f(\overline{a}) \ne 0$ for some $\overline{a} \in S$, then $f$ is injective on an $n$-ball $B(\overline{a})$ in $S$.
+	\item Let $A$ be an open set in $\mathbb{R}^n$, $f$ has continuous partial derivatives in $A$, and $J_f \ne 0$ in $A$, then $f$ is an open mapping.
+\end{enumerate}
+\end{remark}
+\end{commentary}
+
+\subsubsection{Inverse function Theorem}
+\begin{theorem}[Inverse function]
+Let $S$ be an open subset of $\mathbb{R}^n$ and $f$ be a continuously differentiable function\footnote{$f \in C'(S)$ : $f$ is continuously differentiable on $S$} $f : S \to \mathbb{R}^n$. If $J_f(\overline{a}) \ne 0$ for some $\overline{a} \in S$, then there are two open sets $X \subset S$, and $Y \subset f(S)$ such that \begin{enumerate*} \item $\overline{a} \in X \text{ and } f(\overline{a}) \in Y$ \item $Y = f(X)$ \item $f$ is injective \item there exists another function $g : Y \to X$ such that $g(f(\overline{x})) = \overline{x},\ \forall \overline{x} \in X$ \item $g$ is continuously differentiable on $Y$ \end{enumerate*}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Implicit function Theorem}
+\begin{theorem}[Implicit function]
+Let $S$ be an open subset of $\mathbb{R}^{n+k}$ and $f$ be a function $f : S \to \mathbb{R}^n$. Suppose $f$ is continuously differentiable on $S$. Let $(\overline{x_0},\overline{t_0}) \in \mathbb{R}^n \times \mathbb{R}^k$ such that $f(\overline{x_0},\overline{t_0}) = \overline{0}$ and $J_f(\overline{x_0}) \ne 0$. Then there exists an open set $T_0$ containing $\overline{t_0}$ in $\mathbb{R}^k$ and a unique function $g : \mathbb{R}^k \to \mathbb{R}^n$ such that \begin{enumerate*} \item $g$ is continuously differentiable on $T_0$ \item $g(\overline{t_0}) = \overline{x_0}$ \item $f(g(\overline{t}),\overline{t}) = \overline{0},\ \forall \overline{t} \in T_0$ \end{enumerate*}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Extrema of function of one variable}
+\begin{theorem}[Extrema of functions of one variable]
+	Let $n \ge 1$ and function $f$ has $n$th partial derivative in open interval $(a,b)$. Suppose for some $c \in (a,b)$,
+	\[ f'(c) = f''(c) = \cdots = f^{(n-1)}(c) = 0 \text{ and } f^{(n)}(c) \ne 0 \]
+If $n$ is even, \begin{enumerate*} \item $f$ has a local minimum at $c$ if $f^{(n)}(c)>0$ \item $f$ has a local maximum at $c$ if $f^{(n)}(c) < 0$ \end{enumerate*} and If $n$ is odd, there is neither a local minimum nor a local maximum at $c$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Extrema of function of several variables}
+\begin{definition}[stationary point]
+	If function $f$ is differentiable at $\overline{a}$ and $\nabla f(\overline{a}) = \overline{0}$, the point $\overline{a}$ is a stationary point of $f$.
+\end{definition}
+
+\begin{definition}[saddle point]
+	A stationary point is a saddle point if every $n$-ball $B(\overline{a})$ contains points $\overline{x}$ such that $f(\overline{x}) > f(\overline{a})$ and other points such that $f(\overline{x}) < f(\overline{a})$.
+\end{definition}
+
+\begin{definition}[quadratic form]
+	A function $Q : \mathbb{R}^n \to \mathbb{R}$ defined $Q(\overline{x}) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}x_ix_j$ where $a_{ij} \in \mathbb{R}$ is a function of the quadratic form or simply a quadratic form.
+	\begin{description}
+		\item[symmetric quadratic form] $a_{ij} = a_{ji},\ \forall i,j$. 
+		\item[positive definite quadratic form] $Q(\overline{x}) > 0, \forall \overline{x} \ne \overline{0}$. 
+		\item[negative definite quadratic form] $Q(\overline{x}) < 0, \forall \overline{x} \ne \overline{0}$. 
+	\end{description}
+\end{definition}
+
+\begin{theorem}[Second derivative test for extrema]
+	Let $f$ be a function $f : \mathbb{R}^n \to \mathbb{R}^m$. Suppose that the second order partial derivatives $D_{i,j}f$ exists in an $n$-ball $B(\overline{a})$ and are continuous at $\overline{a}$ where $\overline{a}$ is a stationary point of $f$.
+	\[ \text{Let } Q(\overline{t}) = \frac{1}{2} f''(\overline{a},\overline{t}) = \frac{1}{2} \sum_{i = 1}^n \sum_{j = 1}^n D_{i,j} f(\overline{a})t_it_j \]
+	\begin{enumerate}
+		\item If $Q(\overline{t}) > 0$ for all $\overline{t} \ne \overline{0}$, $f$ has a relative minimum at $\overline{a}$.
+		\item If $Q(\overline{t}) < 0$ for all $\overline{t} \ne \overline{0}$, $f$ has a relative maximum at $\overline{a}$.
+		\item If $Q(\overline{t})$ takes both positive and negative values, then $f$ has a saddle point at $\overline{a}$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Second derivative test : simplified]
+	Let $f$ be a real-valued function $f : \mathbb{R}^2 \to \mathbb{R}$ with continuous second order partial derivatives at a stationary point $\overline{a} \in \mathbb{R}^2$. Let $A = D_{1,1}f(\overline{a})$, $B = D_{1,2}f(\overline{a}) = D_{2,1}f(\overline{a})$, and $C = D_{2,2}f(\overline{a})$. And let $\Delta = \begin{vmatrix}A & B \\ B & C \end{vmatrix} = AC - B^2$. Then we have,
+		\begin{enumerate}
+			\item If $\Delta > 0$ and $A > 0$, then $f$ has a relative minimum at $\overline{a}$.
+			\item If $\Delta > 0$ and $A < 0$, then $f$ has a relative maximum at $\overline{a}$.
+			\item if $\Delta < 0$, then $f$ has a saddle point at $\overline{a}$.
+		\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 %\chapter{Multiple Riemann Integrals*}
 %\chapter{Multiple Lebesgue Integrals*}
 %\chapter{Cauchy's Theorem and the Residue Calculus*}
