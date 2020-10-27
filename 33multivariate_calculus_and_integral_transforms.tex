@@ -883,16 +883,46 @@ Let $f : \mathbb{R}^n \to \mathbb{R}^m$. Then $D_r f$ and $D_k f$ are two partia
 \end{commentary}
 
 \begin{theorem}
+	Let $B$ be an $n$-ball about $\overline{a}$ in $\mathbb{R}^n$, $\partial B$ be its boundary and $\overline{B} = B \cup \partial B$ be its closure.\footnote{$\overline{B}$ : The line above $B$ has a different meaning compare to $\overline{a}$ (situations like this are an abuse of language).} Let $f : \mathbb{R}^n \to \mathbb{R}^n$ be continuous in $\overline{B}$ and all partial derivatives, $D_jf_i(\overline{x})$ exists for every $\overline{x} \in B$. Let $f(\overline{x}) \ne f(\overline{a})$ for every $\overline{x} \in \partial B$ and $J_f(\overline{x}) \ne 0$ for every $\overline{x} \in B$. Then $f(B)$ contains an $n$-ball about $f(\overline{a})$.
+\begin{commentary}
+	\[ B = \{ \overline{x} : \| \overline{x} - \overline{a} \| < r \} \]
+	\[ \partial B = \{ \overline{x} : \| \overline{x} - \overline{a} \| = r \} \]
+	\[ \overline{B} = \{ \overline{x} : \| \overline{x} - \overline{a} \| \le r \} \]
+\end{commentary}
 \end{theorem}
 \begin{proof}
+	Define $g : \partial B \to \mathbb{R}$ where $g(\overline{x}) = \| f(\overline{x}) - f(\overline{a}) \| $. We have, $f(\overline{x}) \ne f(\overline{a})$ for every $\overline{x} \in \partial B$, thus $g(\overline{x}) > 0$ for every $\overline{x} \in \partial B$. Function $f$ is continuous on $\overline{B}$, thus $g$ is continuous on \begin{commentary}$\overline{B}$ and thus $g$ is continuous on its subset\end{commentary} $\partial B$. Since $\partial B$ is compact, every continuous function on $\partial B$ attains its extrema\footnote{``Every continuous function on a compact set attains its extrema''} and thus $g$ attains its minimum value $m > 0$ somewhere on $\partial B$.\\
+
+	Consider $n$-ball $T$ about $f(\overline{a})$ with radius $\frac{m}{2}$, 
+	\[ T = B\left(f(\overline{a}),\frac{m}{2}\right) = \left\{ \overline{y} \in \mathbb{R}^n : \| f(\overline{a}) - \overline{y}\| < \frac{m}{2} \right\} \]
+	Therefore, it is sufficient to prove that $T \subset f(B)$.\\
+
+	Let $\overline{y} \in T$. Define $h : \overline{B} \to \mathbb{R}$ where $h(\overline{x}) = \| f(\overline{x}) - \overline{y} \|$. Again this continuous function $h$ on compact set $\overline{B}$ attains its extrema somewhere on $\overline{B}$. Since $\overline{y} \in T$, $h(\overline{a}) = \| f(\overline{a}) - \overline{y} \| < \frac{m}{2} $. Thus, the minimum of $h$ on $\overline{B}$ is less than $\frac{m}{2}$, \begin{commentary}since $\overline{a} \in \overline{B}$.\end{commentary}\\
+
+Let $\overline{x} \in \partial B$, then 
+\begin{align*}
+	h(\overline{x}) = & \| f(\overline{x}) - \overline{y} \| \\
+	= &  \| f(\overline{x}) - f(\overline{a}) + f(\overline{a}) - \overline{y} \| \\
+	\ge &  \| f(\overline{x}) - f(\overline{a})\| + \| f(\overline{a}) - \overline{y} \| \\ 
+	= &  g(\overline{x}) - h(\overline{a}) \\
+	> & \frac{m}{2} \text{ since $g(\overline{x}) \ge m$ and $h(\overline{a}) < \frac{m}{2}$}
+\end{align*}
+	Thus $h$ doesn't attain its minimum on $\partial B$, but at an interior point $\overline{c} \in B$. Consider
+	\[ h^2(\overline{x}) = \| f(\overline{x}) - \overline{y}\|^2 = \sum_{r = 1}^n (f_r(\overline{x}) - y_r)^2 \]
+	The function $h^2$ also has minimum at the same point $\overline{c}$. Thus all partial derivatives of $h^2$ at $\overline{c}$ are zero. ie, 
+	\[ D_k h^2(\overline{c}) = \sum_{r = 1}^n (f_r(\overline{c})-y_r)D_kf_r(\overline{c}) = 0 \]
+	This is a system of linear equations with non-zero determinant since $\overline{c} \in B$ and we have $J_f(\overline{c}) \ne 0$. Therefore, $f_r(\overline{c}) = y_r$. That ie, $f(\overline{c}) = y \in f(B)$. Since $y \in T$ is arbitrary, $T \subset f(B)$.
 \end{proof}
 
 \begin{theorem}
+	Let $A$ be an open subset of $\mathbb{R}^n$ and $f : A \to \mathbb{R}^n$ is continuous and has continuous partial derivatives $D_jf_i$ on $A$. If $f$ is one-to-one on $A$ and $J_f(\overline{x}) \ne 0,\ \forall \overline{x} \in A$, then $f(A)$ is open.
 \end{theorem}
 \begin{proof}
+	Let $\overline{b} \in f(A)$. Then $\overline{b} = f(\overline{a})$ for some $\overline{a} \in A$. Since $f$ is continuous, $f$ has continuous partial derivatives on $A$ and $J_f(\overline{x}) \ne 0$ for every $\overline{x} \in A$, there exists an open ball $B \subset A$ containing $\overline{a}$ such that $f(B) \subset f(A)$ contains an $n$-ball about $f(\overline{a})$. Since $\overline{b} \in f(A)$ is arbitary, every point in $f(A)$ has an $n$-ball containing it in $f(A)$. Therefore, $f(A)$ is open.
 \end{proof}
 
 \begin{theorem}
+	Let $S$ be an open subset of $\mathbb{R}^n$ and $f : S \to \mathbb{R}^n$.
 \end{theorem}
 \begin{proof}
 \end{proof}
