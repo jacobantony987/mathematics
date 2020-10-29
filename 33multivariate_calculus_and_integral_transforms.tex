@@ -918,13 +918,20 @@ Let $\overline{x} \in \partial B$, then
 	Let $A$ be an open subset of $\mathbb{R}^n$ and $f : A \to \mathbb{R}^n$ is continuous and has continuous partial derivatives $D_jf_i$ on $A$. If $f$ is one-to-one on $A$ and $J_f(\overline{x}) \ne 0,\ \forall \overline{x} \in A$, then $f(A)$ is open.
 \end{theorem}
 \begin{proof}
-	Let $\overline{b} \in f(A)$. Then $\overline{b} = f(\overline{a})$ for some $\overline{a} \in A$. Since $f$ is continuous, $f$ has continuous partial derivatives on $A$ and $J_f(\overline{x}) \ne 0$ for every $\overline{x} \in A$, there exists an open ball $B \subset A$ containing $\overline{a}$ such that $f(B) \subset f(A)$ contains an $n$-ball about $f(\overline{a})$. Since $\overline{b} \in f(A)$ is arbitary, every point in $f(A)$ has an $n$-ball containing it in $f(A)$. Therefore, $f(A)$ is open.
+Let $\overline{b} \in f(A)$. Then $\overline{b} = f(\overline{a})$ for some $\overline{a} \in A$. Since $f$ is continuous, $f$ has continuous partial derivatives on $A$ and $J_f(\overline{x}) \ne 0$ for every $\overline{x} \in A$, there exists an open ball $B \subset A$ containing $\overline{a}$ such that $f(B) \subset f(A)$ contains an $n$-ball about $f(\overline{a})$. Since $\overline{b} \in f(A)$ is arbitary, every point in $f(A)$ has an $n$-ball containing it in $f(A)$. Therefore, $f(A)$ is open.\\
+
+\begin{commentary} Two assumption in above theorem are trivial. \begin{enumerate*} \item $f$ is continuous in the closed ball, $\overline{B}$. Set $B$ so chosen that $\overline{B} \subset A$ and $f$ is continuous in $A$. Thus, $f$ is continuous in $\overline{B}$. \item $f$ has different value at boundary compared to center. ie, $f(\overline{a}) \ne f(\overline{x}),\ \forall x \in \partial B$. We have, $f$ is injective on $A$, and $\overline{B} \subset A$. Thus $f$ has different values for any two distinct points in it. Thus, $\forall \overline{x},\overline{y} \in \overline{B},\  \overline{x} \ne \overline{y} \implies \overline{x}, \overline{y} \in A$, and $\overline{x} \ne \overline{y} \implies f(\overline{x}) \ne f(\overline{y})$ \end{enumerate*}\end{commentary}
 \end{proof}
 
 \begin{theorem}
-	Let $S$ be an open subset of $\mathbb{R}^n$ and $f : S \to \mathbb{R}^n$.
+	Let $S$ be an open subset of $\mathbb{R}^n$ and $f : S \to \mathbb{R}^n$. Let components of $f$ has continuous partial derivatives on $S$, $D_jf_i$ and $J_f(\overline{a}) \ne 0$ for some point $\overline{a} \in S$. Then there is an $n$-ball $B$ about $\overline{a}$ on which $f$ is injective.
 \end{theorem}
 \begin{proof}
+	Let $\overline{z} = (\overline{z_1},\overline{z_2},\cdots,\overline{z_n})$ where $\overline{z_i} \in \mathbb{R}^n$. ie, $\overline{z} \in \mathbb{R}^{n^2}$. Define function $h : \mathbb{R}^{n^2} \to \mathbb{R}$ by $h(\overline{z}) = \det{[D_jf_i(\overline{z_i})]}$. Since $f$ has continuous partial derivatives on $S$, each component of $f$ has continuous partial derivatives in $S$ and thus $h$ is continuous on $S^n$ \begin{commentary} which is a subset of $\mathbb{R}^{n^2}$ since $S$ is an open subset of $\mathbb{R}^n$.\end{commentary}\\
+
+	Let $\overline{a} \in S$ such that $J_f(\overline{a}) \ne 0$. \begin{commentary} Existence of such a point in $S$ is assumed.\end{commentary} Consider,$\overline{z_i} = \overline{a},\ \forall i$. Then $\overline{z} = (\overline{a},\overline{a},\cdots,\overline{a})$. And $h(\overline{z}) = \det{[D_jf_i(\overline{a})]} = J_f(\overline{a}) \ne 0$.\\
+
+	Since $h$ is continous and $h(\overline{z}) \ne 0$. There exists an $n$-ball $B$ about $\overline{a}$ in $S$ such that $h(\overline{z}) \ne 0$ for $\overline{z_i} \in B$. We claim that $f$ is injective on $B$.
 \end{proof}
 
 \begin{theorem}
