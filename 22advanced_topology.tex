@@ -26,66 +26,251 @@
 %Obviously, forward references will occur.
 
 %\chapter{Separation Axioms}
-\section{Compactness and Separation Axioms}
+\section{Module I}
+\begin{commentary}
+	\textbf{Q : } Why these axioms are called separation axioms ?\\
+	$T_0,T_1,T_2$ axioms separates points from points.\\
+	$T_3,T_{3\frac{1}{2}}$ axioms separates points from closed subsets.\\
+	$T_4$ axiom separates closed subsets from closed subsets.
+\end{commentary}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=0.5]
+%	\clip(-4.3,-5.46) rectangle (12.4,6.3);
+	\draw (2.3,1.62) circle (1.99cm);
+	\draw (2.1,1.36) circle (1.02cm);
+	\begin{scriptsize}
+	\draw (2.58,4.1) node {X};
+	\fill (2.1,1.36) circle (1.5pt);
+	\draw (2.24,1.12) node {x};
+	\draw (2.3,2.62) node {U};
+	\fill (3.64,1.54) circle (1.5pt);
+	\draw (3.78,1.2) node {y};
+	\draw (2.5,-1) node {$T_0$};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+%	\clip(-4.3,-5.46) rectangle (12.4,6.3);
+	\draw (2.3,1.62) circle (1.99cm);
+	\draw (2.1,1.36) circle (1.28cm);
+	\draw (3.64,1.54) circle (0.55cm);
+	\begin{scriptsize}
+	\draw (2.58,4.1) node {X};
+	\fill (2.1,1.36) circle (1.5pt);
+	\draw (2.28,1.06) node {x};
+	\draw (2.16,2.94) node {U};
+	\fill (3.64,1.54) circle (1.5pt);
+	\draw (3.82,1.28) node {y};
+	\draw (3.74,2.32) node {V};
+	\draw (2.5,-1) node {$T_1$};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+%	\clip(-4.3,-5.46) rectangle (12.4,6.3);
+	\draw (2.64,1.46) circle (1.99cm);
+	\draw (2.1,1.36) circle (0.78cm);
+	\draw (3.64,1.54) circle (0.59cm);
+	\begin{scriptsize}
+	\draw (2.92,3.94) node {X};
+	\fill (2.1,1.36) circle (1.5pt);
+	\draw (2.28,1.06) node {x};
+	\draw (2.42,2.52) node {U};
+	\fill (3.64,1.54) circle (1.5pt);
+	\draw (3.82,1.18) node {y};
+	\draw (3.72,2.36) node {V};
+	\draw (3,-1) node {$T_2$};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+%	\clip(-4.3,-5.46) rectangle (12.4,6.3);
+	\draw (2.64,1.46) circle (1.99cm);
+	\draw (2.1,1.36) circle (0.83cm);
+	\draw (3.64,1.54) circle (0.59cm);
+	\draw (2.1,1.36) circle (0.36cm);
+	\begin{scriptsize}
+	\draw (2.92,3.94) node {X};
+	\draw (2.42,2.52) node {U};
+	\fill (3.64,1.54) circle (1.5pt);
+	\draw (3.82,1.28) node {y};
+	\draw (3.72,2.36) node {V};
+	\draw (2.3,1.92) node {C};
+	\draw (2.5,-1) node {Regular};
+\end{scriptsize}
+\end{tikzpicture}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+%	\clip(-4.3,-5.46) rectangle (12.4,6.3);
+	\draw (2.64,1.46) circle (1.95cm);
+	\draw (2.1,1.36) circle (0.80cm);
+	\draw (3.64,1.54) circle (0.66cm);
+	\draw (2.1,1.36) circle (0.34cm);
+	\draw (3.64,1.54) circle (0.20cm);
+	\begin{scriptsize}
+	\draw (2.92,3.94) node {X};
+	\draw (2.42,2.52) node {U};
+	\draw (3.72,2.46) node {V};
+	\draw (2.3,1.88) node {C};
+	\draw (3.90,1.88) node {D};
+	\draw (2.5,-1) node {Normal};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\caption{Separation Axioms}
+\end{figure}
+\subsection{Compactness and Separation Axioms}
+\cite[chapter 7 \S 2.1-10]{joshi}
 \begin{proposition}
-	Let $X$ be a $T_2$ space, $x \in X$ and $F$ is a compact subset of $X$ not containing $x$. Then there exist opensets $U,\ V$ such that $x \in U$, $F \subset V$ \& $U \cap V = \phi$.
+	Let $X$ be a $T_2$ space, $x \in X$ and $F$ is a compact subset of $X$ not containing $x$. Then there exist open subsets $U,\ V$ such that $x \in U$, $F \subset V$,\ $U \cap V = \phi$.
 \end{proposition}
-%\begin{proof}
-%\end{proof}
+\begin{commentary}
+	$T_2$ spaces separates points from compact sets.
+\end{commentary}
+\begin{proof}
+	Let $x$ be a points in $X$ and $F$ be a compact subset not containing $x$.\\
+	$X \text{ is }T_2 \implies \forall y \in F,\ \exists U_y,V_y \in \mathcal{T},\ x \in U_y,\ y \in V_y, U-y \cap V_y = \phi$.($\dag$\footnote{\textbf{Q :} Do we need compactness for this result ? \\ \indent\indent\textbf{A :} Given $x \in X$. For each point $y \in F$, we have two open sets namely $U_y$ and $V_y$ that separates these two points $x$ and $y$ in $X$. But, the intersection ${\displaystyle \cap_{y \in F} \{ U_y \}}$ is not necessarily an open subset of $X$, since $F$ is not necessarily a finite subset of $X$ and an \textbf{arbitary} intersection of open subsets is not necessarily an open subset. Therefore, we have restrict this family into a finite family. We use compactness for this part.})\\
+	$\mathcal{C} = \{ V_y : y \in F \}$ is an open cover of compact subset $F$.\\
+	$\implies$ there exists a finite subcover, $\mathcal{C'} = \{ V_{y_i} : y_i \in F, i = 1,2,\cdots,n \}$.\\
+	Define $U = \cap_{i = 1}^n \{U_{y_i}\}$ and $V = \cup_{i = 1}^n \{V_{y_i}\}$.\\
+	$\implies x \in U,\ F \subset V,\ U \cap V = \phi$.
+\end{proof}
 
 \begin{corollary}
 	A compact subset in a $T_2$ space is closed.
 \end{corollary}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	Let $x \in X-F$.\\
+	By proposition, $x \in U$, $F \subset V$, $U \cap V = \phi$
+	$\implies x \in U \subset X-V \subset X-F$\\
+	$X-F$ is a nbd of each of its points. Thus $X-F$ is open. ($\star$\footnote{Neighbourhood characterisation of open subsets : Let $G \subset X$ be a nbd of each of its points. Then $G$ is an open subset of $X$.})
+\end{proof}
 
 \begin{corollary}
 	Every map from a compact space into a $T_2$ space is closed. And its range is a quotient space of the domain.
 \end{corollary}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	 Suppose $X$ is compact, $Y$ is $T_2$ and $f : X \to Y$ is continuous.\\
+	Let $C$ be a closed subset of $X$.\\
+	$\implies C$ is compact, since compact is weakly hereditary.($\star$\footnote{Compactness is weakly hereditary : Suppose $X$ is compact. Then every closed subset of $X$ is compact.})\\
+	$\implies f(C)$ is compact, since compactness is preserved by conti. functions. ($\star$\footnote{Compactness is preserved by continuous functions : Suppose $G$ be a compact subset of a topological space $X$. And function $f: X \to Y$ be a continuous function. Then $f(G)$ is a compact subset of the topological space $Y$.\cite[6.1.8]{joshi}})\\
+	 By corollary, $f(C)$ is compact, $Y$ is $T_2\implies f(C)$ is a closed subset of $Y$.\\
+	Thus $f : X \to Y$ is closed.($\dag$\footnote{Closed function is a function which maps closed subsets into closed subsets.})\\
+	 $f : X \to Y$ is closed $\implies f : X \to f(X)$ is a quotient map, since every closed, surjective map is a quotient map..
+\end{proof}
 
 \begin{corollary}
-	A continuous bijection from a compact space onto a $T_2$ sspace is a homeomorphism.
+	A continuous bijection from a compact space onto a $T_2$ space is a homeomorphism.
 \end{corollary}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	Let $G$ be an open subset of $X$.\\
+	Then $X-G$ is closed.\\
+	By corollary, $f$ is closed, since $f : \text{compact} \to T_2$.\\
+	$f$ is closed $\implies f(X-G)$ is closed.\\
+	$f(X-G) = f(X)-f(G)$ since $f$ in injective.\\
+	$\implies f(X-G) = Y - f(G)$ since $f$ surjective.\\
+	$\implies f(G)$ is open.\\
+	Thus $f$ is an open map.\\
+	Every continuous bijective, open map is a homeomorphism.
+\end{proof}
 
 \begin{corollary}
 	Every continuous, one-to-one function from a compact space into a $T_2$ space is an embedding.
 \end{corollary}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	Let $f : X \to Y$ be continuous and injective.\\
+	$f : X \to f(X)$ is surjective.\\
+	$\implies f : X \to f(X)$ is continuous, surjective.\\
+	By corollary, $f : X \to f(X)$ is a homeomorphism.\\
+	Thus $f$ is an embedding of $X$ onto $f(X) \subset Y$.
+\end{proof}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+%	\clip(-6.82,-3.4) rectangle (9.88,8.36);
+	\draw (-3,2.5) circle (3cm);
+	\draw (6,2.5) circle (3cm);
+	\draw [shift={(1.25,0.5)}] plot[domain=1:2,variable=\t]({1*3.55*cos(\t r)+0*2.55*sin(\t r)},{0*3.55*cos(\t r)+1*3.55*sin(\t r)});
+	\draw [dotted] (5.94,2.14) circle (1.67cm);
+	\draw [dotted] (-2.24,5.4)-- (6.18,3.79);
+	\draw [dotted] (-2.36,-0.61)-- (6.39,0.53);
+	\begin{scriptsize}
+	\draw (-2.74,5.8) node {$X$(compact)};
+	\draw (5.74,5.8) node {$Y$($T_2$)};
+	\draw (1.5,3.48) node {$f$};
+	\draw (1.5,2.8) node {injective};
+	\draw (1.5,2.2) node {continuous};
+	\draw (6.28,4.08) node {$X^*$};
+	\end{scriptsize}
+	\end{tikzpicture}
+	\caption{Embedding compact space into hausdorff space}
+\end{figure}
 
 \begin{theorem}
 	Every compact $T_2$ space is a $T_3$ space.
 \end{theorem}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	$T_2 \implies T_1$\\
+	It is enough to prove that compact, $T_2$ space is regular.\\
+	Let $x$ be a point in $X$ and $C$ be a closed subset not containing $x$.\\
+	Then $C$ is compact, compactness is weakly hereditary.\\
+	By proposition, $T_2$ space separates points from compact subsets.\\
+	Thus $T_2 + \text{compact} \implies T_3$ ($\dag$\footnote{$T_3 \not\!\!\!\implies$ compact.})
+\end{proof}
 
 \begin{proposition}
-	Let $X$ be a regular space, $C$ a closed subset of $X$ and $F$ a compact subset of $X$, such that $C \cap F = \phi$. Then there exist open sets $U,\ V$ such that $C \subset U$, $F \subset V$ and $U \cap V = \phi$.
+	Let $X$ be a regular space, $C$ a closed subset of $X$ and $F$ a compact subset of $X$, such that $C \cap F = \phi$. Then there exist open subsets $U,\ V$ such that $C \subset U$, $F \subset V$ and $U \cap V = \phi$.
 \end{proposition}
-%\begin{proof}
-%\end{proof}
+\begin{commentary}
+	Regular spaces separates closed subsets from compact subsets.
+\end{commentary}
+\begin{proof}
+\begin{commentary}
+	proof technique is same as $T_2$ separates points from compact subsets.
+\end{commentary}
+	Let $C$ be a closed subset, $F$ be a compact subset of $X$ and $C \cap F = \phi$.\\
+	$X$ is regular $\implies \forall y \in F,\ \exists U_y,V_y \in \mathcal{T},\ C \subset U_y,\ y \in V_y,\ U_y \cap V_y = \phi$\\
+	Define $\mathcal{C} = \{ V_y : y \in F \}$ is cover of compact subset $F$.\\
+	$\implies \exists \mathcal{C}'$ such that $\mathcal{C}' = \{ V_{y_i} : i = 1,2,\cdots,n \}$ is a finite subcover.\\
+	Define $U = \cap_{i = 1}^n \{ U_{y_i} \}$ and $V = \cup_{i = 1}^n \{ V_{y_i} \}$.\\
+	$\implies C \subset U,\ F \subset V,\ U \cap V = \phi$.
+\end{proof}
 
 \begin{theorem}
 	Every regular, Lindeloff space is normal.
 \end{theorem}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	Let $C,D$ be two disjoint, closed subsets of a regular, lindeloff space $X$.\\
+	$X$ is regular $\implies \forall x \in C,\ \exists U_x, V_x \text{ such that } x \in U_x,\ D \subset V_x,\ U_x \cap V_x = \phi$\\
+	$X$ is regular $\implies \forall y \in D,\ \exists U_y, V_y \text{ such that } C \subset U_y,\ y \in U_y,\ U_y \cap U_y = \phi$\\
+	Then $\{ U_x : x \in C \}$ and $\{ V_y : y \in D \}$ are open covers of $C$ and $D$ respectively.($\dag$\footnote{Here, $U_x$, $V_y$ are unrelated.})\\
+	Let $\{ U_n : n = 1,2,\cdots \}$ and $\{ V_n : n = 1,2,\cdots \}$ be their countable subcovers.\\
+	Define $G_n = U_n - \cup_{i = 1}^n \overline{V_i}$ and $H_n = V_n - \cup_{i = 1}^n \overline{U_i}$.\\
+	Define $G = \cup_{i = 1}^\infty G_n$ and $H = \cup_{i = 1}^\infty H_n$.\\
+	\begin{important}
+	Claim : $C \subset G$ (similary $D \subset H$)\\
+	\end{important}
+	$ x \in C \implies x \in U_n \text{ for some } n$, since $\{ U_n : n \in \mathbb{N} \}$ is a cover of $C$\\
+	$\forall m,\ \overline{V_m} \subset X-C \implies \forall m,\ x \not\in \overline{V_m} \implies x \in G$\\
+	\begin{important}
+	Claim : $G \cap H = \phi$\\
+	\end{important}
+	$x \in G \cap H \implies x \in G_m \cap H_n$ for some $m,n$\\
+	With loss of generality, $n \ge m, x \in G_m \implies x \in U_m \implies x \not\in H_n$
+\end{proof}
 
 \begin{corollary}
 	Every regular, second countable space is normal.
 \end{corollary}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	Every second countable space is lindeloff.\\
+	By theorem, every regular, lindeloff space is normal.
+\end{proof}
 
 \begin{corollary}
-	Every compact $T_2$ space is $T_4$.
+	Every compact, $T_2$ space is $T_4$.
 \end{corollary}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	By proposition, every compact, $T_2$ space is regular.\\
+	Every compact space is lindeloff since finite subcovers are countable.\\
+	By theorem, every regular, lindeloff space is normal.
+\end{proof}
 
 %\begin{remark} Exercises 7.2
 %	\begin{enumerate}
@@ -100,23 +285,110 @@
 %\end{remark}
 
 \subsection{The Urysohn Characterisation of Normality}
-\begin{proposition}
-	Let $A\ B$ be subsets of a space $X$ and suppose there exists a continuous function $f:X \to [0,1]$, such that $f(x)=0,\ \forall x \in A$ and $f(x)=1,\ \forall x \in B$. Then there exists disjoint open sets $U,\ V$ such that $A \subset U$ and $B \subset V$.
-\end{proposition}
-%\begin{proof}
-%\end{proof}
+\begin{important}
+	$X$ is normal $\iff$ there exist Urysohn functions\\
+	\textbf{Q :} Significance of Urysohn's Lemma ?
+\end{important}
+%	\textbf{A :}
+	\begin{enumerate}
+		\item There is no analog of Urysohn's Lemma for Regular spaces.
+		\item Constructs a nice real-valued function even on non-metrisable spaces.
+	\end{enumerate}
 
-\begin{corollary}
+\begin{commentary}
+\noindent \textbf{Q :} We know that, the completely regular space separates points from closed subsets using a real-valued function. Which space separates closed subsets from closed subsets using a real-valued function ?\\
+\textbf{A :} Normal space(by Urysohn's Lemma). Not completely normal($\star$\footnote{Completely Normal Space separates any two subsets. \cite[chapter 7 Exer. 1.11]{joshi} That is these subsets need not be closed. Thus every completely normal space is normal, but not the other way. Thus $T_1 + \text{Completely Normal} = T_5 \supset T_4$.})
+\end{commentary}
+
+\begin{proposition}
+	Let $A\ B$ be subsets of a space $X$ and suppose there exists a continuous function $f:X \to [0,1]$, such that $f(x)=0,\ \forall x \in A$ and $f(x)=1,\ \forall x \in B$. Then there exists disjoint open subsets $U,\ V$ such that $A \subset U$ and $B \subset V$.
+\end{proposition}
+\begin{proof}
+	Let $f$ be a continuous function, $f(x) = 0,\ \forall x \in A$ and $f(x) = 1,\ \forall x \in B$.\\
+	Define $G = [0,\frac{1}{2})$, $H = (\frac{1}{2},1]$ and $U = f^{-1}(G)$, $V = f^{-1}(H)$.\\
+	$\implies A \subset U$, $B \subset V$ and $U \cap V = \phi$ since $G \cap H = \phi$.
+\end{proof}
+
+\begin{corollary}[Urysohn's Lemma : Sufficient Condition]
 	If $X$ has the property that for any disjoint closed subsets $A,\ B$ of $X$, there exists a continuous function $f : X \to [0,1]$ such that $f(x)=0,\ \forall x \in A$ and $f(x)=1,\ \forall x \in B$, then $X$ is normal.
 \end{corollary}
-%\begin{proof}
-%\end{proof}
+\begin{commentary}
+	There exists a Urysohn function $f \implies X$ is normal
+\end{commentary}
+\begin{proof}
+	Let $A,B$ be two closed subsets of $X$.\\
+	By proposition, $X$ normal.
+\end{proof}
 
-\begin{theorem}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{qqttff}{rgb}{0,0.2,1}
+\definecolor{ffttff}{rgb}{1,0.2,1}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+%\clip(-6.22,-4.12) rectangle (10.51,7.66);
+\draw(-1.22,1.84) circle (3.56cm);
+	\draw [color=ffqqqq] (-1.56,3.64) circle (0.7cm);
+\draw [color=ffqqqq] (-1.78,0.12) circle (0.6cm);
+	\draw [dotted,shift={(2.61,-8.45)},color=ffqqqq]  plot[domain=1.28:1.91,variable=\t]({1*13.49*cos(\t r)+0*13.49*sin(\t r)},{0*13.49*cos(\t r)+1*13.49*sin(\t r)});
+	\draw [dotted,shift={(4.35,-5.41)},color=ffqqqq]  plot[domain=1.35:2.14,variable=\t]({1*10.11*cos(\t r)+0*10.11*sin(\t r)},{0*10.11*cos(\t r)+1*10.11*sin(\t r)});
+	\draw [dotted,shift={(0.43,-10.54)},color=ffqqqq]  plot[domain=1:1.78,variable=\t]({1*11.49*cos(\t r)+0*11.49*sin(\t r)},{0*11.49*cos(\t r)+1*11.49*sin(\t r)});
+	\draw [dotted,shift={(1.88,-13.48)},color=ffqqqq]  plot[domain=1.21:1.84,variable=\t]({1*13.48*cos(\t r)+0*13.48*sin(\t r)},{0*13.48*cos(\t r)+1*13.48*sin(\t r)});
+\draw [color=ffttff] (-1.78,0.12) circle (1.25cm);
+\draw [color=qqttff] (-1.56,3.64) circle (1.15cm);
+	\draw [dotted,shift={(1.93,-5.96)},color=qqttff]  plot[domain=1.03:1.94,variable=\t]({1*9.08*cos(\t r)+0*9.08*sin(\t r)},{0*9.08*cos(\t r)+1*9.08*sin(\t r)});
+	\draw [dotted,shift={(1.97,-6.3)},color=qqttff]  plot[domain=1.17:1.92,variable=\t]({1*11.69*cos(\t r)+0*11.69*sin(\t r)},{0*11.69*cos(\t r)+1*11.69*sin(\t r)});
+\draw [dotted,shift={(3.07,-12.54)},color=ffttff]  plot[domain=1.33:1.94,variable=\t]({1*14.81*cos(\t r)+0*14.81*sin(\t r)},{0*14.81*cos(\t r)+1*14.81*sin(\t r)});
+\draw [dotted,shift={(2.96,-14.69)},color=ffttff]  plot[domain=1.31:1.88,variable=\t]({1*14.31*cos(\t r)+0*14.31*sin(\t r)},{0*14.31*cos(\t r)+1*14.31*sin(\t r)});
+\draw [color=qqqqff] (6.58,1.84)-- (6.54,4.46);
+\draw [color=ffttff] (6.58,1.84)-- (6.62,-0.86);
+\begin{scriptsize}
+\draw [color=black] (-1.67,5.58) node {$X$};
+\draw [color=ffqqqq] (-1.81,4.54) node {$B$};
+\draw [color=ffqqqq] (-2.21,0.81) node {$A$};
+\fill [color=ffqqqq] (6.62,-0.86) circle (1.5pt);
+\draw [color=ffqqqq] (7.02,-0.85) node {$0$};
+\fill [color=ffqqqq] (6.54,4.46) circle (1.5pt);
+\draw [color=ffqqqq] (6.82,4.38) node {$1$};
+\draw [color=black] (3.14,5.86) node {$f$};
+\draw [color=ffttff] (-2.51,1.45) node {$U$};
+\draw [color=qqttff] (-1.97,5.02) node {$V$};
+\fill [color=qqttff] (6.58,1.84) circle (1.5pt);
+\draw [color=qqttff] (7,1.81) node {$\frac{1}{2}$};
+\fill [color=qqttff] (-2.22,1.28) circle (1.5pt);
+\draw [color=qqttff] (-2.07,1.55) node {};
+\draw [color=qqqqff] (6.94,3.3) node {$H$};
+\draw [color=ffttff] (6.8,0.35) node {$G$};
+\end{scriptsize}
+\end{tikzpicture}
+\caption{Urysohn's Lemma : Sufficient Condition}
+\end{figure}
+
+\begin{theorem}[Urysohn's Lemma]
 	A topological space $X$ is normal iff it has the property that for every mutually disjoint, closed subsets $A,\ B$ of $X$, there exists a continuous function \( f : X \to [0,1] \) such that \( f(x) = 0 \) for all $x \in A$ and \( f(x) = 1 \) for all \( x \in B \)
 \end{theorem}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	\textbf{Urysohn's Lemma : necessary condition}\\
+	$X$ is normal $\implies$ there exist Urysohn functions\\
+
+	Let $A,B$ be two closed subsets in a normal space $X$.\\
+	Enumerate rationals in the unit interval.\\
+	$\mathbb{Q} \cap [0,1] = \{ 0, 1, \cdots \} = \{ q_0, q_1, q_2, \cdots \}$.\\
+	Define $F_1 = F_{q_1} = X-B$. \\
+	$A \subset X-B \implies\exists H \text{ such that } A \subset H \subset \overline{H} \subset X-B$.($\star$\footnote{Equivalent condition for normality : Let $A$ be closed subset and $G$ be an open subset containing $A$. Then there exists open subset $H$ such that $A \subset H \subset \overline{H} \subset G$.\cite[7.1.16(3)]{joshi}})\\
+	Define $F_{q_0} = F_0 = H$.\\
+
+	$\overline{F_{q_0}} \subset F_{q_1} \implies $ true for $n = 1$.\\
+	Suppose : $\overline{F_{q_i}} \subset F_{q_j},\ \forall j > i$ is true for $j = 1,2,\cdots,n-1$.\\
+	Define $q_i = \sup \{ q_k : q_k < q_n, k < n \}$ and $q_j = \inf \{ q_k : q_k > q_n, k < n \}$ ($\dag$\footnote{ Let $\mathbb{Q}\cap[0,1] = \{ 0,1,0.3,0.7,0.8,\textbf{0.5},0.6,\cdots \}$. Consider $n = 5$. Then $q_n = q_5 = 0.5$ and in the respective induction step, $q_i = \sup\{0,0.3\} = 0.3$ and $q_j = \inf\{1,0.7,0.8\} = 0.7$}) \\
+	$\implies q_i < q_n < q_j$ and $\overline{F_{q_i}} \subset F_{q_j}$.\\
+	$\overline{F_{q_i}} \subset F_{q_j} \implies \exists H \text{ such that } \overline{F_{q_i}} \subset H \subset \overline{H} \subset F_{q_j}$. Define $F_{q_n} = H$.\\
+	Therefore, $\overline{F_{q_j}} \subset F_{q_i},\ \forall j > i$.\\
+
+	Now, $\{ F_t : t \in \mathbb{Q}\}$ has the properties required in lemma 2.\\
+	By lemma 2, there exists a function $f$. This is a Urysohn function.($\dag$\footnote{You will have to replace ``Urysohn function'' with ``There exists a continuous real-valued function, $f : X \to [0,1]$ such that $f(x) = 0,\ \forall x \in A,\ f(x) = 1,\ \forall x \in B$''.})
+\end{proof}
 
 \begin{lemma}
 	Let \( f : X \to [0,1] \) be continuous. For each \( t \in \mathbb{R} \) let \( F_t  \{ x \in X : f(x) < t \} \). Then the indexed family \( \{F_t : t \in \mathbb{R} \} \) has the following properties
@@ -128,8 +400,9 @@
 	\end{enumerate}
 	Moreover, for each \( x \in X,\ f(x) = \inf \{t \in \mathbb{Q} : x \in F_t \} \).
 \end{lemma}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	Not needed.
+\end{proof}
 
 \begin{lemma}
 	Let \( X \) be a topological space and suppose \( \{ F_t : t \in \mathbb{Q} \} \) is a family of sets in \( X \) such that 
@@ -141,14 +414,41 @@
 	\end{enumerate}
 	For \( x \in X \), let \( f(x) = \inf \{ t \in \mathbb{Q} : x \in F_t \} \). Then \( f \) is a continuous real-valued function on \( X \) and it takes values in the unit interval \( [0,1] \).
 \end{lemma}
-%\begin{proof}
-%\end{proof}
+\begin{proof}
+	Function $f$ is well-defined and Range($f$) = $[0,1]$.\\
+	Define $H = \{ x \in X : f(x) < s \} = f^{-1}(-\infty,s)$ and\\
+	$K = \{ x \in X : f(x) > s \} = f^{-1}(s,\infty)$.\\
+	$\mathcal{S} = \{ (s,\infty), (-\infty,s) : s \in \mathbb{R} \}$ is a subbase for $\mathbb{R}$ with usual topology.\\
+	\begin{important}
+	Claim : $H = \cup\{F_t : t \in \mathbb{Q}, t < s\}$\\
+	\end{important}
+	$x \in H \implies f(x) < s \implies \inf G_x < s \implies \exists q \in \mathbb{Q}\ (q < s),\ x \in F_q$\\
+	$\implies x \in \cup\{F_t : t \in \mathbb{Q}, t < s \} \implies H \subset \cup\{ F_t : t \in \mathbb{Q},\ t < s \}$.\\
+	$x \in \cup\{F_t : t \in \mathbb{Q},\ t < s \} \implies \exists t \in \mathbb{Q}\ (t < s),\ x \in F_t \implies \inf G_x < s$\\
+	$\implies f(x) < s \implies x \in H \implies \cup\{F_t : t \in \mathbb{Q},\ t < s \} \subset H$.\\
+	\begin{important}
+	Claim : $X-K = \cap\{ \overline{F_t} : t \in \mathbb{Q}, t > s \}$.\\
+	\end{important}
+	$x \in X-K \implies x \not\in K \implies f(x) \le s \implies \inf G_x \le s$\\
+	Let $t \in \mathbb{Q}\ (s < t) \implies \exists q \in G_x\ (s < q < t) \implies x \in \overline{F_q} \subset F_t \subset \overline{F_t}$.\\
+	$\forall t \in \mathbb{Q}\ (t > s),\ x \in \overline{F_t} \implies x \in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s \}$.\\
+	Thus, $ X-K \subset \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s \}$.\\
+	$ x \in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s \}$\\
+	Suppose(1) $x \in K \implies s < f(x) \implies \exists q,t \in \mathbb{Q}\ (s < q < t),\ t < f(x)$\\
+	Suppose(2) $x \in \overline{F_q} \implies x \in \overline{F_q} \subset F_t \implies \inf G_x < t \implies f(x) < t$\\
+	is a contradiction(2). Thus $x \not\in \overline{F_q}$.\\
+	$x \not\in \overline{F_q} \implies x \not\in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s\}$ is a contradition (1). Thus $x \not\in K$\\
+	Thus, $\cap\{\overline{F_t} : t \in \mathbb{Q},\ s > t \} \subset X-K$.\\
+	Inverse images of subbase elements are open. Thus $f$ is continuous.
+\end{proof}
 
 \begin{corollary}
 	All \( T_4 \) spaces are completely regular and hence Tychonoff.
 \end{corollary}
 \begin{proof}
-	Let \( x \in X \) and \( D \) be closed subset not containing \( x \). We have \( X \) is a \( T_4 \) space. Therefore \( X \) is \( T_1 \) as well as normal.  Now the singleton set, \( \{ x \} \) is closed, since \( X \) is a \( T_1 \) space. And by Urysohn's lemma for disjoint, closed subsets \( \{ x \},\ D \) there exists a continuous, real-valued function \( f : X \to [0,1] \) such that \( f(x) = 0 \) and \( f(y) = 1 \) for all \( y \in D \). Therefore the space \( X \) is completely regular and hence Tychonoff.
+	Let \( x \in X \) and \( D \) be closed subset not containing \( x \). We have \( X \) is a \( T_4 \) space. Therefore \( X \) is \( T_1 \) as well as normal.\\
+
+	Now the singleton set, \( \{ x \} \) is closed, since \( X \) is a \( T_1 \) space. And by \textbf{Urysohn's lemma} for disjoint, closed subsets \( \{ x \},\ D \) there exists a Urysohn function which is a continuous, real-valued function \( f : X \to [0,1] \) such that \( f(x) = 0 \) and \( f(y) = 1 \) for all \( y \in D \). Therefore the space \( X \) is completely regular and hence Tychonoff.
 \end{proof}
 
 \begin{remark}[Urysohn function]
@@ -156,23 +456,31 @@
 \end{remark}
 
 \subsection{Tietze Characterisation of Normality}
+\begin{important}
+	\textbf{Tietze Characterisation of normality}\\
+	$X$ is normal $\iff$ there exist continuous extension of real-valued functions on closed subsets. 
+\end{important}
 \begin{proposition}
-	Let \( A \) be a subset of a space \( X \) and let \( f : A \to \mathbb{R} \) be continuous. Then any two extensions of \( f \) to \( X \) agree on \( \overline{A} \). In other words, if at all an extension of \( f \) exists its values on \( \overline{A} \) are uniquely determined by values of \( f \) on \( A \).
+	Let \( A \) be a subset of a space \( X \) and let \( f : A \to \mathbb{R} \) be continuous. Then any two extensions of \( f \) to \( X \) agree on \( \overline{A} \).
+	\begin{commentary}
+		In other words, if at all an extension of \( f \) exists its values on \( \overline{A} \) are uniquely determined by values of \( f \) on \( A \).
+	\end{commentary}
 \end{proposition}
 %\begin{proof}
 %\end{proof}
 
-\begin{proposition}
+\begin{proposition}[Tietze : necessary condition]
 	Suppose a topological space \( X \) has the property that for every closed subset \( A \) of \( X \), every continuous real valued function on \( A \) has a continuous extension to \( X \). Then \( X \) is normal.
 \end{proposition}
 %\begin{proof}
 %\end{proof}
 
 \begin{definition}[Pointwise Convergence]
-	Let \( X \) be a topological space and \( (Y,d) \) a metric space. Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges pointwise to \( f \) if for every \( x \in X \) the sequence \( \{ f_n(x) \} \) converges to \( f(x) \) in \( Y \).\\
-	
-	In other words, given a very small value, \( \epsilon > 0 \), there exists some \( \delta > 0 \) such that for every \( x \in X \) there exists \( N_x \in \mathbb{N} \). This \( N_x \) may be different for different values of \( x \) and for every \( n > N_x \), \( d(f(x),f_n(x)) < \delta \).
+	Let \( X \) be a topological space and \( (Y,d) \) a metric space. Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges pointwise to \( f \) if for every \( x \in X \) the sequence \( \{ f_n(x) \} \) converges to \( f(x) \) in \( Y \).
 \end{definition}
+\begin{commentary}
+	In other words, given a very small value, \( \epsilon > 0 \), there exists some \( \delta > 0 \) such that for every \( x \in X \) there exists \( N_x \in \mathbb{N} \). This \( N_x \) may be different for different values of \( x \) and for every \( n > N_x \), \( d(f(x),f_n(x)) < \delta \).
+\end{commentary}
 
 \begin{definition}[Uniform Convergence]
 	Let \( X \) be a topological space and \( (Y,d) \) a metric space. Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges uniformly to \( f \) if given a small \( \epsilon > 0 \), there exists \( \delta > 0 \) such that there exists \( N \in \mathbb{N} \). This $N$ is independent of the value of \( x \) and for every \( n > N \), \( d(f(x),f_n(x)) < \delta \).
@@ -183,31 +491,43 @@
 \end{proposition}
 
 \begin{definition}[Uniform Convergence of Series]
-	Let \( X \) be a topological space and \( (Y,d) \) be a metric space. Then a series of function \( \sum^\infty_{n = 1} f_n \) converges uniformly to \( f \) if the sequence of partial sums converges uniformly to \( f \).\\
-
-	In other words, let \( g_m = \sum^m_{n = 1} f_n \). Then \( \sum^\infty_{n = 1} f_n \) converges to \( f \) uniformly if the sequence of partial sums \( \{ g_m \} \) converges to \( f \) uniformly.
+	Let \( X \) be a topological space and \( (Y,d) \) be a metric space. Then a series of function \( \sum^\infty_{n = 1} f_n \) converges uniformly to \( f \) if the sequence of partial sums converges uniformly to \( f \).
 \end{definition}
+\begin{commentary}
+	In other words, let \( g_m = \sum^m_{n = 1} f_n \). Then \( \sum^\infty_{n = 1} f_n \) converges to \( f \) uniformly if the sequence of partial sums \( \{ g_m \} \) converges to \( f \) uniformly.
+\end{commentary}
 
 \begin{proposition}
 	Let \( \sum^\infty_{n = 1} M_n \) be a convergent series of non-negative real numbers. Suppose \( \{ f_n \} \) is a sequence of real valued functions on a space \( X \) such that for each \( x \in X \) and \( n \in \mathbb{N},\ |f_n(x)| \le M_n \). Then the series \( \sum^\infty_{n = 1} f_n \) converges uniformly to a real valued function on \( X \).
 \end{proposition}
-\textcolor{red}{---continue page 185---}
 
+\begin{theorem}
+	Let $A$ be a closed subset of a normal space $X$ and suppose function $f : A \to [-1,1]$ is a continuous function. Then there exists a continuous function $F : X \to [-1,1]$ such that $F(x)=f(x)$ for all $x \in A$.
+\end{theorem}
+
+\begin{theorem}
+	Let $A$ be a closed subset of a normal space $X$ and suppose function $f : A \to (-1,1)$ is a continuous function. Then there exists a continuous function $F : X \to (-1,1)$ such that $F(x)=f(x)$ for all $x \in A$.
+\end{theorem}
+
+\begin{corollary}[Tietze : sufficient condition]
+	Any continuous real-valued function on a closed subset of a normal space can be extended continuously to the whole space.
+\end{corollary}
+\pagebreak
 %\chapter{Products and Coproducts}
 \section{Products and Coproducts}
 \subsection{Cartesian Products of Families of Sets}
 \subsection{The Product Topology}
 \subsection{Productive Properties}
 %\section{Countably Productive Properties*}
-
+\pagebreak
 %\chapter{Embedding and Metrisation}
 \section{Embedding and Metrisation}
 \subsection{Evaluation Functions into Products}
 \subsection{Embedding Lemma and Tychonoff Embedding}
 \subsection{The Urysohn Metrisation Theorem}
-
+\pagebreak
 %\chapter{Nets and Filters}
-\section{Nets and Filters}
+\section{Nets and Homotopy}
 \subsection{Definition and Convergence of Nets}
 \begin{definition}[Directed Set]\cite[10.1.1]{joshi}\\
 	A directed set \(D\) is a pair \( (D,\ge) \) where \( D \) is a nonempty set and  \( ge \) is a binary relation on \( D \) such that
@@ -228,7 +548,7 @@
 
 \begin{remark}
 \begin{commentary}
-	The set \( \mathbb{N} \) together with the relation `less than or equal to'( \( \le \) ) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset \( E \) of \( D \) has an element \( p \in E \) such that \( p \) follows each element of \( E \). This is a weaker notion compared to the well ordering principle\footnote{Well-ordering principle : Every subset of \( \mathbb{N} \) has a least element in it.}of the set of all integers. Thus \( \mathbb{N} \) is a directed set and every sequence in \( X \) is also a net in \( X \).
+	The set \( \mathbb{N} \) together with the relation `less than or equal to'( \( \le \) ) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset \( E \) of \( D \) has an element \( p \in E \) such that \( p \) follows each element of \( E \). This is a weaker notion compared to the well ordering principle($\star$\footnote{Well-ordering principle : Every subset of \( \mathbb{N} \) has a least element in it.}) of the set of all integers. Thus \( \mathbb{N} \) is a directed set and every sequence in \( X \) is also a net in \( X \).
 \end{commentary}
 \end{remark}
 
@@ -305,7 +625,7 @@ Examples of Nets
 \end{theorem}
 \begin{proof}
 	Let $X$ be a  Hausdorff space. Suppose $S : D \to X$ is net on $X$ such that $S$ converges to two distinct points $x,y \in X$.
-	Since $X$ is a Hausdorff space and $x \ne y$, there exists open sets $U,V$ such that $x \in U,\ y \in V, U \cap V = \phi$.\\
+	Since $X$ is a Hausdorff space and $x \ne y$, there exists open subsets $U,V$ such that $x \in U,\ y \in V, U \cap V = \phi$.\\
 
 	The net $S$ converges to $x \in X$, therefore $\exists m_x \in D$ such that $n \ge m_x \implies S(n) \in U$
 	And, the net $S$ converges to $y \in X$, therefore $\exists m_y \in D$ such that $n \ge m_y \implies S(n) \in V$.\\
@@ -602,7 +922,7 @@ Examples of Nets
 %\chapter{Compactness}
 \section{Variations of Compactness}
 \subsection{Variations of Compactness}
-	In this chapter, we have two other notions of compactness - countable compactness and sequential compactness.\footnote{For $\mathbb{R}$, Compactness \& Sequentially compactness are equivalent to the completeness axiom.}
+	In this chapter, we have two other notions of compactness - countable compactness and sequential compactness.($\star$\footnote{For $\mathbb{R}$, Compactness \& Sequentially compactness are equivalent to the completeness axiom.})
 
 	\begin{description}
 		\item[Compact] A topological space is compact iff every open cover of it has a finite subcover. (\cite[6.1.1]{joshi}) [Heine-Borel]
@@ -610,7 +930,7 @@ Examples of Nets
 		\item[Sequentially Compact] A topological space is sequentially compact iff every sequence in it has a convergent subsequence. \cite[11.1.8]{joshi} [Bolzano-Weierstrass]
 	\end{description}
 
-	Countable compactness is a weaker notion compared to compactness.\footnote{Every compact space is countably compact.} However, sequentially compact and compact are not necessarily comparable.\footnote{$\mathcal{T}_1, \mathcal{T}_2$ are non-comparable, if $\mathcal{T}_1 \not\subset \mathcal{T}_2$ and $\mathcal{T}_2 \not\subset \mathcal{T}_1$.\cite[4.2.1]{joshi}}.\\
+	Countable compactness is a weaker notion compared to compactness.($\star$\footnote{Every compact space is countably compact.}) However, sequentially compact and compact are not necessarily comparable.($\star$\footnote{$\mathcal{T}_1, \mathcal{T}_2$ are non-comparable, if $\mathcal{T}_1 \not\subset \mathcal{T}_2$ and $\mathcal{T}_2 \not\subset \mathcal{T}_1$.\cite[4.2.1]{joshi}})\\
 
 	We have seen earlier that compactness has the following properties
 \begin{enumerate*}
@@ -624,7 +944,10 @@ Examples of Nets
 
 \subsection{Countable compactness}
 \subsubsection{Weakly hereditary property}
-	A subspace $(A,\mathcal{T}_{/_A})$ being countably compact doesn't imply that $(X,\mathcal{T})$ is countably compact. However, if $(X,\mathcal{T})$ is a countably compact space and \textsf{$A$ is a closed subset of $X$}, then $(A,\mathcal{T}_{/_A})$ is also a countably compact space. In other words, countably compactness is weakly hereditary.
+	A subspace $(A,\mathcal{T}_{/_A})$ being countably compact doesn't imply that $(X,\mathcal{T})$ is countably compact. However, if $(X,\mathcal{T})$ is a countably compact space and \textsf{$A$ is a closed subset of $X$}, then $(A,\mathcal{T}_{/_A})$ is also a countably compact space.
+\begin{commentary}
+	In other words, countably compactness is weakly hereditary.
+\end{commentary}
 
 \begin{theorem}
 	Countable compactness is weakly hereditary.\cite[11.1.3]{joshi}
@@ -633,11 +956,11 @@ Examples of Nets
 	Let $A$ be a closed subset of countably compact space, $X$. If $A$ has a countable open cover $\mathcal{U}$, then we can obtain a respective countable, open cover for $X$ by attaching $X-A$ to the extensions of members of $\mathcal{U}$ to $X$. This cover has a finite subcover. Then restricting them to $A$, we get a finite subcover of $\mathcal{U}$.
 \end{synopsis}
 \begin{proof}
-	Suppose $X$ is a countably compact space. And $A$ is a closed subset of $X$. We need to show that $A$ is countably compact. Without loss of generality,\footnote{Suppose $A$ is not a proper subset of $X$. Then $X = A$ and $A$ is countably compact.} assume that $A$ is a proper subset of $X$. Then $X-A$ is a non-empty, open subset of $X$.\\ 
+	Suppose $X$ is a countably compact space. And $A$ is a closed subset of $X$. We need to show that $A$ is countably compact. Without loss of generality,($\star$\footnote{Suppose $A$ is not a proper subset of $X$. Then $X = A$ and $A$ is countably compact.}) assume that $A$ is a proper subset of $X$. Then $X-A$ is a non-empty, open subset of $X$.\\ 
 
-	Let $\mathcal{U}$ be a countable open cover of $A$. Then $\mathcal{U} = \{ U_1, U_2, \cdots \}$ where each element $U_k \in \mathcal{U}$ is an open subset of $A$. Since $A$ is a subspace of $X$, every open set $U_k$ in $A$ is of the form $G \cap A$ for some open set $G$ in $X$. Therefore, there exists open sets $V(U_k)$ for each $U_k$ such that $A \cap V(U_k) = U_k$.\footnote{Relative topology,$\mathcal{T}_{/_A} = \{ G \cap A : G \in \mathcal{T} \}$}\\
+	Let $\mathcal{U}$ be a countable open cover of $A$. Then $\mathcal{U} = \{ U_1, U_2, \cdots \}$ where each element $U_k \in \mathcal{U}$ is an open subset of $A$. Since $A$ is a subspace of $X$, every open subset $U_k$ in $A$ is of the form $G \cap A$ for some open subset $G$ in $X$. Therefore, there exists open subsets $V(U_k)$ for each $U_k$ such that $A \cap V(U_k) = U_k$.($\star$\footnote{Relative topology,$\mathcal{T}_{/_A} = \{ G \cap A : G \in \mathcal{T} \}$})\\
 
-	Define $\mathcal{V} = \{ X-A, V(U_1), V(U_2), \cdots \}$. Clearly, $\mathcal{V}$ is a countable open cover\footnote{$X-A$ is open in $X$. If $y \not\in A$, then $y \in X-A$. If $y \in A$, then $y \in U_k$ for some $k$.} of $X$. We have $X$ is countably compact, thus $\mathcal{V}$ has a finite subcover, say $\mathcal{V}'$. Without loss of generality assume\footnote{Otherwise, you will have to consider two cases: $X-A \in \mathcal{V}'$ and $X-A \not\in \mathcal{V}'$} that $X-A \in \mathcal{V}'$. Suppose $X-A \not\in \mathcal{V}'$, then we can define another finite subcover $\mathcal{V}' \cup \{X-A\}$. Thus $\mathcal{V}' = \{ X-A,\ V(U_{n_1}),\ V(U_{n_2}),\cdots,\ V(U_{n_k})\}$.\\
+	Define $\mathcal{V} = \{ X-A, V(U_1), V(U_2), \cdots \}$. Clearly, $\mathcal{V}$ is a countable open cover ($\star$\footnote{$X-A$ is open in $X$. If $y \not\in A$, then $y \in X-A$. If $y \in A$, then $y \in U_k$ for some $k$.}) of $X$. We have $X$ is countably compact, thus $\mathcal{V}$ has a finite subcover, say $\mathcal{V}'$. Without loss of generality assume ($\star$\footnote{Otherwise, you will have to consider two cases: $X-A \in \mathcal{V}'$ and $X-A \not\in \mathcal{V}'$}) that $X-A \in \mathcal{V}'$. Suppose $X-A \not\in \mathcal{V}'$, then we can define another finite subcover $\mathcal{V}' \cup \{X-A\}$. Thus $\mathcal{V}' = \{ X-A,\ V(U_{n_1}),\ V(U_{n_2}),\cdots,\ V(U_{n_k})\}$.\\
 
 	Then the corresponding subcover $\mathcal{U}'=\{U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$. Since countable open cover $\mathcal{U}$ and closed subset $A$ are arbitrary, every closed subset of $X$ with relative topology is countably compact. Therefore, countable compactness is weakly hereditary.
 \end{proof}
@@ -645,13 +968,16 @@ Examples of Nets
 \begin{remark}
 	Proof depends on the following,
 	\begin{enumerate}
-		\item There is an extension map, $\psi : P(A) \to P(X)$ that preserve open sets (and closed sets). This $\psi$ is an open map which not a true inverse of the restriction, $r : P(X) \to P(A)$, defined by $r(G) = G \cap A$ for every subset $G$ of $X$.
+		\item There is an extension map, $\psi : P(A) \to P(X)$ that preserve open subsets (and closed subsets). This $\psi$ is an open map which not a true inverse of the restriction, $r : P(X) \to P(A)$, defined by $r(G) = G \cap A$ for every subset $G$ of $X$.
 		\item Also we rely on the subset $A$ being closed. Suppose $X$ have many countable open covers, but $X$ has only uncountable open covers corresponding to a particular countable open cover of $A$. In such a case, $X$ being countably compact is insufficient for $A$ to be countably compact.
 	\end{enumerate}
 \end{remark}
 
 \subsubsection{The behaviour of countinous functions}
-	We will now study the nature of continuous functions defined on countably compact spaces. Suppose $X,Y$ are topological space and function $f : X \to Y$ is continuous. If $X$ is countably compact, then $f(X)$ is also countably compact. Continuous images of countably compact spaces are countably compact. In other words, countable compactness is preserved under continuous functions.\footnote{A topological property is preserved under continuous functions if whenever a space has that property so does every continuous image of it.\cite[6.1.9]{joshi}}
+	We will now study the nature of continuous functions defined on countably compact spaces. Suppose $X,Y$ are topological space and function $f : X \to Y$ is continuous. If $X$ is countably compact, then $f(X)$ is also countably compact. Continuous images of countably compact spaces are countably compact.
+\begin{commentary}
+	In other words, countable compactness is preserved under continuous functions.($\star$\footnote{A topological property is preserved under continuous functions if whenever a space has that property so does every continuous image of it.\cite[6.1.9]{joshi}})
+\end{commentary}
 	
 \begin{theorem}
 	Countable compactness is preserved under continuous functions.\cite[11.1.2]{joshi}
@@ -681,7 +1007,7 @@ Examples of Nets
 
 \begin{remark}
 	\begin{enumerate}
-		\item For a continuous function, $f : X \to Y$ the inverse images of open sets are open in $X$. The relation $f^{-1} \subset f(X) \times X$ is not a function. However, we may consider a function, $\psi : P(Y) \to P(X)$ such that $\psi(U) = f^{-1}(U)$ for any subset $U$ of $Y$. This $\psi$ is an open map which maps open subsets of $Y$ to open subsets of $X$.
+		\item For a continuous function, $f : X \to Y$ the inverse images of open subsets are open in $X$. The relation $f^{-1} \subset f(X) \times X$ is not a function. However, we may consider a function, $\psi : P(Y) \to P(X)$ such that $\psi(U) = f^{-1}(U)$ for any subset $U$ of $Y$. This $\psi$ is an open map which maps open subsets of $Y$ to open subsets of $X$.
 	\end{enumerate}
 \end{remark}
 
@@ -689,7 +1015,7 @@ Examples of Nets
 	Every continuous, real-valued function on a countably compact, metric space is bounded and attains its extrema.\cite[11.1.7]{joshi}
 \end{theorem}
 \begin{synopsis}
-	Let $X$ be a countably compact space and function $f : X \to \mathbb{R}$ be continuous. Then $f(X) \subset \mathbb{R}$ is countably compact. Real line $\mathbb{R}$ is metrisable\footnote{\cite[4.2 Example 4]{joshi}, $\mathbb{R}$ with usual metric $d:R \to R,\ d(x,y) = |x-y|$}. Then $f(X)$ is countably compact, metric space. Therefore $f(X)$ compact.\footnote{\cite[11.1.11]{joshi} On metric spaces, countable compactness $\implies$ compactness.}. The subset $f(X)$ of $\mathbb{R}$ is bounded and closed, since every compact subset of $\mathbb{R}$ is bounded and closed. Thus $f(X)$ contains its supremum and infimum. Therefore, $f$ is bounded and attains its extrema.
+	Let $X$ be a countably compact space and function $f : X \to \mathbb{R}$ be continuous. Then $f(X) \subset \mathbb{R}$ is countably compact. Real line $\mathbb{R}$ is metrisable($\star$\footnote{\cite[4.2 Example 4]{joshi}, $\mathbb{R}$ with usual metric $d:R \to R,\ d(x,y) = |x-y|$}). Then $f(X)$ is countably compact, metric space. Therefore $f(X)$ compact.($\star$\footnote{\cite[11.1.11]{joshi} On metric spaces, countable compactness $\implies$ compactness.}). The subset $f(X)$ of $\mathbb{R}$ is bounded and closed, since every compact subset of $\mathbb{R}$ is bounded and closed. Thus $f(X)$ contains its supremum and infimum. Therefore, $f$ is bounded and attains its extrema.
 \end{synopsis}
 \begin{proof}
 	Let $X$ be a countably compact space and $f : X \to \mathbb{R}$ be continuous, real-valued function on the countably compact space, $X$. We have to show that $f$ is bounded and attains its extrema.\\
@@ -752,7 +1078,7 @@ Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
 
 	Every sequence in $X$ has a convergent subsequence. Thus $\{x_n\}$ has a subsequence $\{x_{n_k}\}$ converging to $x \in X$. The image of this subsequence $\{f(x_{n_k})\}$ is a subsequence of $\{y_k\}$. We claim that, $\{f(x_{n_k})\}$ converges to $f(x) \in f(X)$.\\
 
-	Let $U$ be an open set containing $f(x)$, then $f^{-1}(U)$ is an open set containing $x$. Since $\{x_{n_k}\}$ converges to $x$. There exists an integer $n$ such that for every $k \ge n$, $x_k \in f^{-1}(U)$. Clearly, for each $k \ge n$, $f(x_k) \in U$. Since $U$ is arbitrary, $\{ f(x_{n_k})\}$ converges to $f(x)$. Therefore, the image of any sequentially compact space is sequentially compact. In other words, sequentially compactness is preserved under continuous functions.
+	Let $U$ be an open subset containing $f(x)$, then $f^{-1}(U)$ is an open subset containing $x$. Since $\{x_{n_k}\}$ converges to $x$. There exists an integer $n$ such that for every $k \ge n$, $x_k \in f^{-1}(U)$. Clearly, for each $k \ge n$, $f(x_k) \in U$. Since $U$ is arbitrary, $\{ f(x_{n_k})\}$ converges to $f(x)$. Therefore, the image of any sequentially compact space is sequentially compact. In other words, sequentially compactness is preserved under continuous functions.
 \end{proof}
 
 \begin{remark}
@@ -775,12 +1101,12 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	In this section, we are going to see four different characterisations of countable compactness in $T_1$ spaces.	The first two characterisations doesn't have anything to do with the $T_1$ axiom.
 
 \begin{description}
-	\item[$T_1$ Space] A topological space $X$ satisfy $T_1$ axiom if for any two distinct points $x,y \in X$, there exists an open set $U \subset X$ containing $x$ but not $y$.\cite[7.1.2]{joshi}
+	\item[$T_1$ Space] A topological space $X$ satisfy $T_1$ axiom if for any two distinct points $x,y \in X$, there exists an open subset $U \subset X$ containing $x$ but not $y$.\cite[7.1.2]{joshi}
 	\item[countable compactness] A topological space is countably compact if every countable open cover has a finite subcover.\cite[11.1.1]{joshi}
 	\item[finite intersection property] A family $\mathcal{F}$ of subsets of $X$ has finite intersection property(f.i.p.) if every finite subfamily of $\mathcal{F}$ has a non-empty intersection.\cite[10.2.6]{joshi}
-	\item[accumulation point] A point $x \in X$ is accumulation point of a subset $A \subset X$ if every open set containing $x$ has atleast one point of $A$ other than $x$.\cite[5.2.7]{joshi}
-	\item[limit point] A point $x \in X$ is a limit point of a sequence $< x_k >$ in $X$ if for every open set $U$ containing $x$, there exists an integer $N \in \mathbb{N}$ such that $x_k \in U$ for every $k \ge N$.\cite[4.1.7]{joshi}
-	\item[cluster point] A point $x \in X$ is a cluster point of a sequence $< x_k >$ in $X$ if for any neighbourhood $V$ of $x$, the sequence $< x_k >$ assumes a point in $V$ infinitely many times.\footnote{$x$ is a cluster point of $< x_k >$ if for every integer N, there exists $k > N$ such that $x_k \in V$.In other words, $< x_k >$ is frequently in $V$.\cite[10.1.9]{joshi}}
+	\item[accumulation point] A point $x \in X$ is accumulation point of a subset $A \subset X$ if every open subset containing $x$ has atleast one point of $A$ other than $x$.\cite[5.2.7]{joshi}
+	\item[limit point] A point $x \in X$ is a limit point of a sequence $< x_k >$ in $X$ if for every open subset $U$ containing $x$, there exists an integer $N \in \mathbb{N}$ such that $x_k \in U$ for every $k \ge N$.\cite[4.1.7]{joshi}
+	\item[cluster point] A point $x \in X$ is a cluster point of a sequence $< x_k >$ in $X$ if for any neighbourhood $V$ of $x$, the sequence $< x_k >$ assumes a point in $V$ infinitely many times.($\star$\footnote{$x$ is a cluster point of $< x_k >$ if for every integer N, there exists $k > N$ such that $x_k \in V$. In other words, $< x_k >$ is frequently in $V$.\cite[10.1.9]{joshi}})
 \end{description}
 
 \subsubsection{Countable compactness in $T_1$ spaces}
@@ -789,7 +1115,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \begin{enumerate}
 	\item $X$ is countably compact
 	\item Every countably family of closed subsets of $X$ with finite intersection property have non-empty intersection.
-	\item Every infinite subset $A \subset X$ has an accumulation point.\footnote{Every infinite subset of $\mathbb{R}$ has a limit point is equivalent to the completeness axiom.}
+	\item Every infinite subset $A \subset X$ has an accumulation point.($\star$\footnote{Every infinite subset of $\mathbb{R}$ has a limit point is equivalent to the completeness axiom.})
 	\item Every sequence $< x_k >$ in $X$ has a cluster point.
 	\item Every infinite open cover of $X$ has a proper subcover.[Arens-Dugundji]
 \end{enumerate}
@@ -797,7 +1123,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 \begin{proof}
 	$1 \implies 2$\\
-	Suppose $X$ is countably compact. Let $\mathcal{C} = \{C_1,C_2,\cdots\}$ be a countable family of closed subsets of $X$ with empty intersection. Define $\mathcal{U} = \{X-C_1, X-C_2, \cdots \}$ is a family of open subsets of $X$. By de Morgan's law, \footnote{Complement of Intersection = Union of complements, $X - (C \cap D) = (X-C) \cup (X-D)$, }
+	Suppose $X$ is countably compact. Let $\mathcal{C} = \{C_1,C_2,\cdots\}$ be a countable family of closed subsets of $X$ with empty intersection. Define $\mathcal{U} = \{X-C_1, X-C_2, \cdots \}$ is a family of open subsets of $X$. By de Morgan's law, ($\star$\footnote{Complement of Intersection = Union of complements, $X - (C \cap D) = (X-C) \cup (X-D)$, })
 
 	$$\bigcap_{k = 1}^\infty C_k = \phi, \text{ then } X =  X - \left(\bigcap_{k = 1}^\infty C_k\right) = \bigcup_{k = 1}^\infty (X-C_k)$$
 
@@ -813,9 +1139,9 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 	Let $\mathcal{U}=\{ U_1, U_2, \cdots \}$ be a countable cover of $X$. Then $\mathcal{C} = \{ X-U_1,X-U_2,\cdots \}$ is a countable family of closed subsets of $X$.\\
 
-	Let $\mathcal{U}'= \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ be any finite subfamily of $\mathcal{U}$. Suppose $X$ is not countably compact, then $\mathcal{U}$ doesn't have a finite subcover. Therefore, $\mathcal{U}'$ is not a cover of $X$. And $\mathcal{C}$ is a family of closed sets with finite intersection property.\\
+	Let $\mathcal{U}'= \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ be any finite subfamily of $\mathcal{U}$. Suppose $X$ is not countably compact, then $\mathcal{U}$ doesn't have a finite subcover. Therefore, $\mathcal{U}'$ is not a cover of $X$. And $\mathcal{C}$ is a family of closed subsets with finite intersection property.\\
 
-	Therefore by assumption, the countable family of closed sets $\mathcal{C}$ has a non-empty intersection.
+	Therefore by assumption, the countable family of closed subsets $\mathcal{C}$ has a non-empty intersection.
 
 	$$ \bigcap_{k=1}^\infty C_k \ne \phi, \text{ then } \bigcap_{k=1}^\infty C_k = \bigcap_{k=1}^\infty \left( X - U_k \right) = X - \left( \bigcup_{k=1}^\infty U_k \right) \ne \phi $$
 
@@ -826,7 +1152,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 	Let $B$ be a countably infinite subset of $A$. Then $B$ also doesn't have any accumulation point. Therefore, the derived set $B'$ is empty. Thus $B$ is a closed subset of $X$. Since countable compactness is weakly hereditary, subspace $B$ is again countably compact.\\
 
-	For each point $b \in B$, there is an open set $V_b$ such that $V_b \cap B = \{ b\}$, since $b \in B$ is not an accumulation point. Thus $\mathcal{U} = \{ V_b \cap B : b \in B \}$ is a countable open cover of $B$. Clearly, $\mathcal{U}$ doesn't have any finite subcover.\\
+	For each point $b \in B$, there is an open subset $V_b$ such that $V_b \cap B = \{ b\}$, since $b \in B$ is not an accumulation point. Thus $\mathcal{U} = \{ V_b \cap B : b \in B \}$ is a countable open cover of $B$. Clearly, $\mathcal{U}$ doesn't have any finite subcover.\\
 
 	This is a contradiction to $B$ being countably compact. Therefore, $A$ has an accumulation point.
 \end{proof}
@@ -838,7 +1164,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	\item[Lindeloff] A topological space is Lindeloff iff every open cover has a countable subcover.
 	\item[First countable] A topological space is first countable iff every point in it has a countable local base.
 	\item[Second countable] A topological space is second countable iff it has a countable base.
-	\item[Base] A family of subsets $\mathcal{B}$ of $X$ is a base of a topological space if every open set can be expressed as union of some members of $\mathcal{B}$
+	\item[Base] A family of subsets $\mathcal{B}$ of $X$ is a base of a topological space if every open subset can be expressed as union of some members of $\mathcal{B}$
 	\item[Base Characterisation] A family of subsets $\mathcal{B}$ of $X$ is a base of a topological space iff for every $x \in X$, and for every neighbourhood $U$ of $x$, there is a member $B \in \mathcal{B}$ such that $ x \in B \subset U$.
 	\item[Local Base] A family of subsets $\mathcal{L}$ of $X$ is a local base at point $x \in X$ if for every neighbourhood $U$ of $x$, there is a member $L \in \mathcal{L}$ such that $x \in L \subset U$.
 \end{description}
@@ -861,11 +1187,11 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 	Define $D = \cup_{n = 1}^\infty A_\frac{1}{n}$. We claim that $D$ is a countable, dense subset of $X$.\\
 
-	Let $x \in X$ and $B(x,r)$ be an open ball containing $x$, then there exists integer $n \in \mathbb{N}$ such that $\frac{1}{n} < r$.\footnote{By archimedean property of integers, we have $\forall r \in \mathbb{R},\ r>0,\ \exists n \in \mathbb{N}$ such that $nr > 1$.}\\
+	Let $x \in X$ and $B(x,r)$ be an open ball containing $x$, then there exists integer $n \in \mathbb{N}$ such that $\frac{1}{n} < r$.($\star$\footnote{By archimedean property of integers, we have $\forall r \in \mathbb{R},\ r>0,\ \exists n \in \mathbb{N}$ such that $nr > 1$.})\\
 
-	Then $B(x,r) \cap D \ne \phi$, since $B(x,r) \cap A_\frac{1}{n} \ne \phi$. Suppose $B(x,r) \cap A_\frac{1}{n} = \phi$, then $A_\frac{1}{n}$ is not maximal. Since, $x$ is atleast $r > \frac{1}{n}$ distance apart from each points of $A_\frac{1}{n}$. Therefore, $D$ intersects with every open set and thus dense in $X$.\\
+	Then $B(x,r) \cap D \ne \phi$, since $B(x,r) \cap A_\frac{1}{n} \ne \phi$. Suppose $B(x,r) \cap A_\frac{1}{n} = \phi$, then $A_\frac{1}{n}$ is not maximal. Since, $x$ is atleast $r > \frac{1}{n}$ distance apart from each points of $A_\frac{1}{n}$. Therefore, $D$ intersects with every open subset and thus dense in $X$.\\
 
-	We have have a countable, dense subset $D$ of $X$. Therefore, $X$ is separable. Now define $\mathcal{B} = \{ B(x,r) : r \in \mathbb{Q},\ x \in D \}$. Clearly, $\mathcal{B}$ is a countable base for $X$. By the construction of $\mathcal{B}$, $X$ is second countable.\footnote{Every separable, metric space is second countable.}
+	We have have a countable, dense subset $D$ of $X$. Therefore, $X$ is separable. Now define $\mathcal{B} = \{ B(x,r) : r \in \mathbb{Q},\ x \in D \}$. Clearly, $\mathcal{B}$ is a countable base for $X$. By the construction of $\mathcal{B}$, $X$ is second countable.($\star$\footnote{Every separable, metric space is second countable.})
 \end{proof}
 
 \subsubsection{Countable Compactness, Lindeloff $\iff$ Compactness}
@@ -873,7 +1199,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	A topological space $X$ is compact iff it is countably compact, Lindeloff space.
 \end{theorem}
 \begin{proof}
-	Let $X$ be a compact space. Let $\mathcal{U}$ be a  countable open cover of $X$, then $\mathcal{U}$ has a finite subcover $\mathcal{U}'$. Therefore, every compact space is countably compact.\footnote{Countable compactness is a weaker notion than compactness.}\\
+	Let $X$ be a compact space. Let $\mathcal{U}$ be a  countable open cover of $X$, then $\mathcal{U}$ has a finite subcover $\mathcal{U}'$. Therefore, every compact space is countably compact.($\star$\footnote{Countable compactness is a weaker notion than compactness.})\\
 
 	Conversely, suppose $X$ is a countably compact, Lindeloff space.  Since $X$ is Lindeloff, every open cover $\mathcal{U}$ has a countable subcover $\mathcal{U}'$. Since $X$ countably compact, every countable open cover $\mathcal{U}'$ has a finite subcover $\mathcal{U}''$. Thus every open cover $\mathcal{U}$ has a finite subcover $\mathcal{U}''$. Therefore every countably compact, Lindeloff space is compact.
 \end{proof}
@@ -883,7 +1209,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	Every countably compact, first countable space is Sequentially compact.
 \end{theorem}
 \begin{proof}
-	Let $X$ be a countably compact, first countable space. Let $\{x_n\}$ be a sequence in $X$. By, equivalent conditions\footnote{\cite[11.1]{joshi} Conditions 1,2, and 4 are equivalent. $2 \implies 4$ without $T_1$ axiom is out of scope.} of countably compact spaces, every sequence in countably compact space $X$ has a cluster point, say $x$. We have, $X$ is first countable. Therefore, $X$ has a countable local base $\mathcal{L}$ at $x \in X$. How to construct a subsequence of $\{x_n\}$ converging to $x$ ?$\star$\footnote{\cite[Exercises 10.1.11]{joshi}}
+	Let $X$ be a countably compact, first countable space. Let $\{x_n\}$ be a sequence in $X$. By, equivalent conditions($\star$\footnote{\cite[11.1]{joshi} Conditions 1,2, and 4 are equivalent. $2 \implies 4$ without $T_1$ axiom is out of scope.}) of countably compact spaces, every sequence in countably compact space $X$ has a cluster point, say $x$. We have, $X$ is first countable. Therefore, $X$ has a countable local base $\mathcal{L}$ at $x \in X$. How to construct a subsequence of $\{x_n\}$ converging to $x$ ?($\star$\footnote{\cite[Exercises 10.1.11]{joshi}})
 \end{proof}
 
 \begin{remark}
@@ -894,7 +1220,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	In a second countable space, all the three forms of compactness are equivalent.\cite[11.1.10]{joshi}
 \end{theorem}
 \begin{proof}
-	Every second countable space is both first countable and Lindeloff. Every countably compact, Lindeloff space is countably compact. Therefore every countably compact, second countable space compact. Again, every countably compact, first countable space is sequentially compact. Therefore every countably compact, second countable space is sequentially compact. Conversely, every compact space is countably compact and every sequentially compact space is countably compact.\footnote{Countable compactness is a weaker notion than sequential compactness as well.}
+	Every second countable space is both first countable and Lindeloff. Every countably compact, Lindeloff space is countably compact. Therefore every countably compact, second countable space compact. Again, every countably compact, first countable space is sequentially compact. Therefore every countably compact, second countable space is sequentially compact. Conversely, every compact space is countably compact and every sequentially compact space is countably compact.($\star$\footnote{Countable compactness is a weaker notion than sequential compactness as well.})
 \end{proof}
 
 \begin{theorem}
@@ -1000,7 +1326,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 %\section{A Nowhere-Differentiable Function}
 %\section{Introduction to Dimension Theory}
 
-\chapter{The Fundamental Group}
+%\chapter{The Fundamental Group}
 \section{Homotopy of Paths}
 \begin{definition}
 	Let $X,\ Y$ be topological spaces and $f : X \to Y$, $f':X \to Y$ be continuous functions. Then $f,\ f'$ are homotopic if there exists a continuous function $F : X \times I \to Y$ such that for every $x \in X$, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$. And we write, $f \simeq f'$.
@@ -1085,7 +1411,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \begin{definition}
 	Let $f,\ g$ be two paths in $X$ (ie, $f : I \to X$ and $g: I \to X$) such that $f(0)=x_0$, $f(1)=g(0)=x_1$ and $g(1)=x_2$. Then the prduct $h = f \ast g$ is given by $h : I \to X$ and
 	\[ h(s) = \begin{cases} f(2s) & , s \in [0,\frac{1}{2}] \\ g(2s-1) & , s \in [\frac{1}{2},1] \end{cases} \]
-		This $h$ is well-defined, and continuous by pasting lemma.\footnote{Pasting Lemma : Let $X = A \cup B$, where $A$ and $B$ are closed in $A$. Let $f : A \to Y$ and $g : B \to Y$ be continuous. If $f(x) = g(x)$ for every $x \in A \cup B$, then $f$ and $g$ combine to give a continuous function $h : X \to Y$, defined by setting $h(x) = f(x)$ if $x \in A$ and $h(x) = g(x)$ if $x \in B$.}
+		This $h$ is well-defined, and continuous by pasting lemma.($\star$\footnote{Pasting Lemma : Let $X = A \cup B$, where $A$ and $B$ are closed in $A$. Let $f : A \to Y$ and $g : B \to Y$ be continuous. If $f(x) = g(x)$ for every $x \in A \cup B$, then $f$ and $g$ combine to give a continuous function $h : X \to Y$, defined by setting $h(x) = f(x)$ if $x \in A$ and $h(x) = g(x)$ if $x \in B$.})
 \end{definition}
 
 \begin{definition}
@@ -1182,14 +1508,14 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \begin{proof}
 	Step 1 : Properties $2 \& 3$\\
 
-	Let $e_0 : I \to I$ such that $e_0(t) = 0,\ \forall t \in I$. And $i : I \to I$ such that $i(t)=t,\ \forall t \in I$. Then $e_0 \ast{} i$ is also a path. Since $I$ is convex, there is a path homotopy\footnote{$ G : I \times I \to I,\ G(s,0) = i(s),\ G(s,1) = (e_0 \ast{} i)(s),\ G(0,t) = 0,\ G(1,t) = 1$.} $G$ between $i$ and $e_0 \ast{} i$. Let $f : I \to X$ be continuous path in $X$ from $x_0$ to $x_1$. Then $f \circ G$ is a path homotopy (by Lemma 2) in $X$ between $f \circ i$ and $f \circ e_0 \ast{} i$ where $f \circ i$ and $f \circ e_0$ are paths from $x_0$ to $x_1$ in $X$.
+	Let $e_0 : I \to I$ such that $e_0(t) = 0,\ \forall t \in I$. And $i : I \to I$ such that $i(t)=t,\ \forall t \in I$. Then $e_0 \ast{} i$ is also a path. Since $I$ is convex, there is a path homotopy($\star$\footnote{$ G : I \times I \to I,\ G(s,0) = i(s),\ G(s,1) = (e_0 \ast{} i)(s),\ G(0,t) = 0,\ G(1,t) = 1$.}) $G$ between $i$ and $e_0 \ast{} i$. Let $f : I \to X$ be continuous path in $X$ from $x_0$ to $x_1$. Then $f \circ G$ is a path homotopy (by Lemma 2) in $X$ between $f \circ i$ and $f \circ e_0 \ast{} i$ where $f \circ i$ and $f \circ e_0$ are paths from $x_0$ to $x_1$ in $X$.
 \begin{align*}
 	f \circ (e_0 \ast i) = & (f \circ e_0)  \ast (f \circ i), \text{ by Lemma 1} \\
 	= & e_{x_0} \ast f, \text{ since } \forall s \in I,\ f(e_0(s)) = x_0 = e_{x_0}(s) \text{ and }f \ast{} i \simeq_p f
 \end{align*}
 	Therefore $[e_{x_0}] \ast [f] \simeq_p [f]$, since $e_0 \ast i \simeq_p i$, and $f \circ (e_0 \ast i) \simeq_p f \circ i = f$. \\
 	
-	Similarly, $e_1 : I \to I$ such that $e_1(t) = 1$. Let $H$ be a path homotopy\footnote{$H : I \times I \to I,\ H(s,0)=(i \ast e_1)(s),\ H(s,1) = i(s),\ H(0,t) = 0,\ H(1,t) = 1$} between $i \ast e_1$ and $i$. Thus, $f \circ H$ is a path homotopy in $X$ from $f \circ (i \ast e_1)$ and $f \circ i$.
+	Similarly, $e_1 : I \to I$ such that $e_1(t) = 1$. Let $H$ be a path homotopy($\star$\footnote{$H : I \times I \to I,\ H(s,0)=(i \ast e_1)(s),\ H(s,1) = i(s),\ H(0,t) = 0,\ H(1,t) = 1$}) between $i \ast e_1$ and $i$. Thus, $f \circ H$ is a path homotopy in $X$ from $f \circ (i \ast e_1)$ and $f \circ i$.
 \begin{align*}
 	f \circ (i \ast e_1) = & (f \circ i) \ast (f \circ e_1), \text{ by Lemma 1} \\
 	= & f \ast e_{x_1}, \text{ since } f \ast i \simeq_p f,\ i \ast e_1 \simeq_p e_1,\ \forall s \in I,\ (f(e_1(s)) = x_1 = e_{x_1}(s) 
@@ -1217,7 +1543,7 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 	Clearly, $f \ast (g \ast h)$ and $(f \ast g) \ast h$ are distinct path with common endpoints. ie, $(f \ast (g \ast h))(0) = f(0) = ((f \ast g) \ast h)(0)$. And $(f \ast (g \ast h)(1) = h(1) = ((f \ast g) \ast h)(1)$.\\
 
-	We need to define a path homotopy $G$ between $f \ast (g \ast h)$ and $(f \ast g) \ast h$. Let $[a,b], [c,d] \subset I$. Consider the path $p : I \to I$ defined by the following three unique\footnote{$p_1(t) = \frac{ct}{a},\ p_2(t) = \frac{(d-c)t}{b-a}+\frac{bc-ad}{b-a},\ p_3(t) = \frac{(1-d)t}{1-b}+\frac{d-b}{1-b}$} positive linear maps $p_1 : [0,a] \to [0,c]$, $p_2 : [a,b] \to [c,d]$ and $p_3 : [b,1] \to [d,1]$.
+	We need to define a path homotopy $G$ between $f \ast (g \ast h)$ and $(f \ast g) \ast h$. Let $[a,b], [c,d] \subset I$. Consider the path $p : I \to I$ defined by the following three unique($\star$\footnote{$p_1(t) = \frac{ct}{a},\ p_2(t) = \frac{(d-c)t}{b-a}+\frac{bc-ad}{b-a},\ p_3(t) = \frac{(1-d)t}{1-b}+\frac{d-b}{1-b}$}) positive linear maps $p_1 : [0,a] \to [0,c]$, $p_2 : [a,b] \to [c,d]$ and $p_3 : [b,1] \to [d,1]$.
 	\[ p(t) = \begin{cases} p_1(t) & t \in [0,a] \\ p_2(t) & t \in [a,b] \\ p_3(t) & t \in [b,1] \end{cases} \]
 	We can easily construct, a path homotopy $P$ between identity map $i : I \to I,\ i(s) = s$ and $p$ as follows :
 	\[ P(s,t) = \begin{cases} t + (p_1(t)-t)\frac{s}{a} & s \in [0,a] \\ t + (p_2(t)-t)\frac{(s-a)}{(b-a)} & s \in [a,b] \\ t+(p_3(t)-t)\frac{(s-b)}{(1-b)} & s \in [b,1] \end{cases} \]
@@ -1228,7 +1554,9 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 \begin{theorem}
 	Let $f$ be a path in $X$, and $a_0, a_1, \cdots, a_n$ be numbers such that $0 = a_0 < a_1 < \cdots < a_n = 1$. Let $f_i : I \to X$ be the path that equals the positive linear map of $I$ onto $[a_{i-1},a_i]$ followed by $f$. Then $[f] = [f_1]\ast{}[f_2]\ast{}\cdots[f_n]$.
-	\begin{commentary}In other words, every path is path-homotopic to a piecewise-linear path.\end{commentary}
+	\begin{commentary}
+	In other words, every path is path-homotopic to a piecewise-linear path.
+	\end{commentary}
 \end{theorem}
 \begin{proof}
 	Let $f$ be a piece-wise positive linear map such that

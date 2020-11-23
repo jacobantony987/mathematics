@@ -13,9 +13,11 @@
 \RequirePackage{pythonhighlight}
 \RequirePackage{xcolor}
 \RequirePackage{enumitem}
+\RequirePackage{codesection}
 
 \usetikzlibrary{arrows}
 
+\newcounter{qi}
 \newtheorem{definition}{Definitions}[section]
 
 \newtheorem{algorithm}[definition]{Algorithm}
@@ -35,6 +37,15 @@
 \newcommand{\sequence}[1]{\{#1\}}
 
 \newenvironment{commentary}{\color{purple}}{\color{black}}
+\newenvironment{question}{\addtocounter{qi}{1} \textbf{Question \arabic{qi}.}}{}
 
 \renewcommand{\partname}{Semester}
 \renewcommand{\chaptername}{Subject}
+
+\newenvironment{story}{\BeginCodeSection{Level1}}{\EndCodeSection{Level1}}
+\newenvironment{challenge}{\BeginCodeSection{Level2}}{\EndCodeSection{Level2}}
+\newenvironment{doubt}{\BeginCodeSection{Level3}}{\EndCodeSection{Level3}}
+
+\SetCodeSection{Level1}{true} %change to false to hide story, ...
+\SetCodeSection{Level2}{true} %change to false to hide challenge, ...
+\SetCodeSection{Level3}{true} %change to false to hide doubt, ...
