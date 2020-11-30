@@ -30,8 +30,9 @@
 %Missing - \cite{fraleigh} 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 %	12, 13, 15, 18, 19, 25, 28, 30, 35, 38, 39, 40, 41, 42, 43, 44
 
+
 \section{Introduction to Abstract Algebra}
-%Week 01 Day 01
+%Week 01 Day 01 \S1-10
 \begin{story}
 \paragraph{`Abstract'}
 Consider the collection of of all students in a class. A person can't be repeated in this collection so you might think this collection is always a set. But in this collection, there may be two with name starting with an `S'.\\
@@ -146,7 +147,7 @@ Thus, though the collection of students is a reality, set is an abstract idea wh
 \end{itemize}
 \pagebreak
 
-%Week 01 Day 02
+%Week 01 Day 02 \S11.1-11
 \section{Direct Products and Finitely Generated Abelian Groups}
 \begin{definition}[Cartesian product of sets]
 	Let $S_1,\ S_2, \cdots,\ S_n$ be a sets.
@@ -266,27 +267,27 @@ Thus, though the collection of students is a reality, set is an abstract idea wh
 \end{question}
 \pagebreak
 
-%Week 01 Day 03
+%Week 01 Day 03 \S11.11-17
 \section{Fundamental Theorem}
 \begin{definition}
 	A group $G$ is \textbf{finitely generated} if $G$ has a finite subset that generates $G$.\\
-	For example, $\{ 1,\sigma^2,\mu,\mu\sigma^2 \}$ is a finitely generated subgroup of $D_8$.
+	For example, $\{ 1,\rho^2,\mu,\mu\rho^2 \}$ is a finitely generated subgroup of $D_8$.
 \end{definition}
 
 \begin{figure}[h]
 	\centering
 	\begin{tabular}{c|cccccccc}
-		$\circ$ & $1$ & $\sigma$ & $\sigma^2$ & $\sigma^3$ & $\mu$ & $\mu\sigma$ & $\mu\sigma^2$ & $\mu\sigma^3$ \\ \hline
-		$1$ & $1$ & $\sigma$ & $\sigma^2$ & $\sigma^3$ & $\mu$ & $\mu\sigma$ & $\mu\sigma^2$ & $\mu\sigma^3$ \\ 
-		$\sigma$ & $\sigma$ & $\sigma^2$ & $\sigma^3$ & $1$ & $\mu\sigma^3$ & $\mu$ & $\mu\sigma$ & $\mu\sigma^2$ \\
-		$\sigma^2$ & $\sigma^2$ & $\sigma^3$ & $1$ & $\sigma$ & $\mu\sigma^2$ & $\mu\sigma^3$ & $\mu$ & $\mu\sigma$ \\
-		$\sigma^3$ & $\sigma^3$ & $1$ & $\sigma$ & $\sigma^2$ & $\mu\sigma$ & $\mu\sigma^2$ & $\mu\sigma^3$ & $\mu$ \\
-		$\mu$ & $\mu$ & $\mu\sigma$ & $\mu\sigma^2$ & $\mu\sigma^3$ & $1$ & $\sigma$ & $\sigma^2$ & $\sigma^3$ \\
-		$\mu\sigma$ & $\mu\sigma$ & $\mu\sigma^2$ & $\mu\sigma^3$ & $\mu$ & $\sigma^3$ & $1$ & $\sigma$ & $\sigma^2$ \\
-		$\mu\sigma^2$ & $\mu\sigma^2$ & $\mu\sigma^3$ & $\mu$ & $\mu\sigma$ & $\sigma^2$ & $\sigma^3$ & $1$ & $\sigma$ \\
-		$\mu\sigma^3$ & $\mu\sigma^3$ & $\mu$ & $\mu\sigma$ & $\mu\sigma^2$ & $\sigma$ & $\sigma^2$ & $\sigma^3$ & $1$
+		$\circ$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ \\ \hline
+		$1$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ \\ 
+		$\rho$ & $\rho$ & $\rho^2$ & $\rho^3$ & $1$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ \\
+		$\rho^2$ & $\rho^2$ & $\rho^3$ & $1$ & $\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ \\
+		$\rho^3$ & $\rho^3$ & $1$ & $\rho$ & $\rho^2$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ \\
+		$\mu$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ \\
+		$\mu\rho$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\rho^3$ & $1$ & $\rho$ & $\rho^2$ \\
+		$\mu\rho^2$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\rho^2$ & $\rho^3$ & $1$ & $\rho$ \\
+		$\mu\rho^3$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\rho$ & $\rho^2$ & $\rho^3$ & $1$
 	\end{tabular}
-	\caption{Dihedral Group $D_8$}
+	\caption{Dihedral Group $D_8,\ \mu\rho \ne \rho\mu$}
 \end{figure}
 
 \begin{theorem}[fundamental theorem of finitely generated abelian groups]
@@ -370,7 +371,7 @@ For any finite abelian group, Betti number is $0$.
 \end{proof}
 \pagebreak
 
-%Week 01 Day 04
+%Week 01 Day 04 \S11E
 \section{Exercises \S11}
 \begin{remark}Prove the following results
 	\begin{itemize}
@@ -426,7 +427,7 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 \end{remark}
 \pagebreak
 
-%Week 02 Day 01
+%Week 02 Day 01 \S13
 \section{Cosets and Homomorphism}
 \begin{definition}
 	Kernel of a function $\phi : G \to G'$ is the inverse image of the identity element in $G'$. %\S13.13
@@ -442,8 +443,8 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 \end{definition}
 
 \begin{remark}
-	For example, $\{1,\sigma^2,\mu,\mu\sigma^2\}$ is a normal subgroup of $D_8$.\\
-	$\sigma H = \{ \sigma, \sigma^3, \mu\sigma^3, \mu\sigma \} = H\sigma$. However $\sigma\mu \ne \mu\sigma$
+	For example, $\{1,\rho^2,\mu,\mu\rho^2\}$ is a normal subgroup of $D_8$.\\
+	$\rho H = \{ \rho, \rho^3, \mu\rho^3, \mu\rho \} = H\rho$. However $\rho\mu \ne \mu\rho$
 \end{remark}
 \begin{remark}[Lagrange's Theorem]%\S10.10
 	Let $G$ be a finite group. If $H$ is a subgroup of $G$, then order of $H$ divides order of $G$.
@@ -458,30 +459,18 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 	Group homomorphism $\phi : G \to G'$ preserves identity, inverses and subgroups. And kernel of group homomorphism is a normal subgroup of $G$.%\S13.12
 \end{remark}
 \begin{remark}
-	For example, $\phi : D_8 \to \mathbb{Z}_2$ defined by $\phi(\sigma) = 1$ and $\phi(\mu) = 0$ is a group homomorphism with $\ker(\phi) = \{ 1,\sigma^2,\mu,\mu\sigma^2 \}$.
+	For example, $\phi : D_8 \to \mathbb{Z}_2$ defined by $\phi(\rho) = 1$ and $\phi(\mu) = 0$ is a group homomorphism with $\ker(\phi) = \{ 1,\rho^2,\mu,\mu\rho^2 \}$.
 \end{remark}
 \pagebreak
 
-%Week 02 Day 02
-\section{Factor Groups}%\S14
+%Week 02 Day 02 \S14.1-8
+\section{Factor Groups}
 \begin{remark}[factor group]
 	Let $H$ be a normal subgroup of a group $G$. Then the \textbf{factor group} of $G$ over $H$, $G/H$ is the group of cosets of $H$ in $G$.
 \end{remark}
 
 \begin{remark}
-	For example, $H = \{ 1,\sigma^2,\mu,\mu\sigma^2 \}$ is normal subgroup of $D_8$. And the factor group $D_8/H = \{ 1H,\sigma H \}$.
-\end{remark}
-
-\begin{remark}Notations:
-	\begin{itemize}
-		\item $\ker(\phi)$ is the kernel of a group homomorphism $\phi : G \to G'$.
-			$$\ker(\phi) = \{ g \in G : \phi(g) = e' \}$$
-		\item $G/H$ is the factor group of $G$ over $H$.
-			$$G/H = \{ gH : g \in G,\ H \text{ is a normal subgroup of } G\}$$
-		\item $\phi[G]$ is the range group of $\phi: G \to G'$.
-			$$\phi[G] = \{ \phi(g) : g \in G,\ \phi \text{ is a group homomorphism} \}$$
-		\item $(G:H)$ is the index of $H$ in $G$ ie, the number of left cosets of $H$ in $G$ %\S10.13
-	\end{itemize}
+	For example, $H = \{ 1,\rho^2,\mu,\mu\rho^2 \}$ is normal subgroup of $D_8$. And the factor group $D_8/H = \{ 1H,\rho H \}$.
 \end{remark}
 
 \begin{theorem}
@@ -503,6 +492,7 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 	
 	Similarly, $\phi^{-1}(\phi(a)) = Ha$.\\
 	Thus $aH = Ha$ and $H$ is a normal subgroup of $G$.\\
+	Therefore, we have the factor group $G/H$.\\
 
 	$\mu : G/H \to \phi[G]$ is a one-one correspondence. ie, $aH \xleftrightarrow{\mu} \phi(a)$\\
 	injective : $\mu(aH) = \mu(bH) \implies \phi(a) = \phi(b) \implies b \in aH \implies bH = aH$\\
@@ -510,7 +500,7 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 
 	We have, $\mu(aH) = \phi(a),\ \mu(bH) = \phi(b),\ \mu((ab)H)  = \phi(ab)$.\\
 	$\mu((aH)(bH)) = \mu((ab)H) = \phi(ab) = \phi(a)\phi(b) = \mu(aH)\mu(bH)$\\
-	Thus $\mu$ is a homomorphism.
+	Thus $\mu$ is a homomorphism. Therefore $\mu$ is an isomorphism.
 \end{proof}
 
 \begin{theorem}
@@ -541,6 +531,7 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 	Let $H$ be a normal subgroup of $G$. Then the cosets of $H$ form a group $G/H$ under the binary operation $(aH)(bH) = (ab)H$.
 \end{corollary}
 \begin{proof}
+	Let $H$ be a normal subgroup and $aH,bH,cH$ are cosets of $H$ in $G$.
 	\begin{enumerate}[label=G\arabic*]
 		\item Associativity\\
 			$(aH)[(bH)(cH)] = (aH)[(bc)H] = [a(bc)]H = [(ab)c]H = [(ab)H](cH) = [(aH)(bH)](cH)$
@@ -562,24 +553,30 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 \begin{question}
 	Let $c = 0.31$. Find the coset $x\ +<0.31>$ containing $2$.
 \end{question}
+\pagebreak
 
+%Week 02 Day 03 \S14.9-15
+\section{Fundamental Homomorphism \& Automorphisms}
 \subsection{Fundamental Homomorphism Theorem}
 \begin{theorem}
 	Let $H$ be a normal subgroup of $G$. Then $\gamma : G \to G/H$ is defined by $\gamma(x) = xH$  is a homomorphism with kernel $H$.
 \end{theorem}
 \begin{proof}
-??pending revision	
 	$\gamma(x)\gamma(y) = (xH)(yH)$\\
 	Let $h_1,h_2 \in H$, $(xh_1)(yh_2) = xyh_3h_2 = xyh_4$ for some $h_3,h_4 \in H$.\\
 	Therefore $(xH)(yH) = (xy)H$.\\
 	$\gamma(xy) = (xy)H = \gamma(x)\gamma(y)$.\\
+	$\gamma(x) = xH = H \iff x \in H$. Therefore, $\ker(\gamma) = H$.
 \end{proof}
 
 \begin{theorem}[Fundamental Homomorphism]
 	Let $\phi : G \to G'$ be a group homomorphism with kernel $H$. Then $\phi[G]$ is a group, and $\mu : G/H \to \phi[G]$ given by $\mu(gH) = \phi(g)$ is an isomorphism. If $\gamma : G \to G/H$ is the homomorphism given by $\gamma(g) = gH$, then $\phi(g) = \mu\gamma(g)$ for each $g \in G$.
 \end{theorem}
 \begin{proof}
+	$\mu$ is an isomorphism $G/H \xleftrightarrow{\mu}\phi[G]$\\
+	$\mu(\gamma(g)) = \mu(gH) = \phi(g)$. Thus $\mu\gamma = \phi$
 \end{proof}
+``Every group homomorphism $\phi : G \to G'$ has a unique group homomorphism $\gamma : G \to G/H$ for some normal subgroup $H = \ker(\phi)$''
 
 \subsection{Inner Automorphism}
 \begin{theorem}
@@ -591,6 +588,13 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
+	Let $G$ be a group and $H$ be a subgroup of $G$.\\
+	By right multiplication,  $gHg^{-1} = H \iff gH = Hg$\\
+	Trivially, $\forall h \in H,\ ghg^{-1} \in H \iff gHg^{-1} \subset H$\\
+	Therefore, it is enough to prove that $H \subset gHg^{-1}$\\
+	Let $h \in H$ and $x \in G$, then $xhx^{-1} = h'$ for some $h' \in H$.\\
+	Then $h = x^{-1}h'x = x^{-1}h'(x^{-1})^{-1} \in gHg^{-1}$ where $x^{-1} = g \in G$.\\
+	Thus $h \in gHg^{-1}$ and $H \subset gHg^{-1}$. Therefore $gHg^{-1} = H$.
 \end{proof}
 
 \begin{definition}Automorphisms : 
@@ -604,11 +608,187 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 \end{definition}
 
 \begin{remark}
-	For example, $i_\sigma : D_8 \to D_8$ defined by $i_\sigma(x) = \sigma x \sigma^{-1}$ is an inner automorphism.
+	For example, $i_\rho : D_8 \to D_8$ defined by $i_\rho(x) = \rho x \rho^{-1}$ is an inner automorphism.
 	We have, $H = \{ 1,\mu \}$ is a subgroup of $D_8$.
-	The conjugate subgroup $i_\sigma[H] = \{ 1,\mu\sigma^2 \}$.
+	The conjugate subgroup $i_\rho[H] = \{ 1,\mu\rho^2 \}$.
 \end{remark}
 
 \begin{remark}
 	Normal subgroups are invariant under any inner automorphism.
 \end{remark}
+\pagebreak
+
+%Week 02 Day 04 \S14E
+\section{Exercise \S14}
+\begin{remark} Disprove the following results
+	\begin{itemize}
+		\item If $H$ is a subgroup and $N$ is a normal subgroup, then $H \cap N$ is not normal. %\S14E35
+		\item Every factor group of a non-abelian group is also a non-abelian group.%\S14E23gh
+		\item If $c \in \mathbb{R}*$, then the factor group $\mathbb{R}/n\mathbb{R}$ is cyclic.
+	\end{itemize}
+\end{remark}
+\begin{remark}Prove the following results on normal subgroups
+	\begin{itemize}
+		\item Every subgroup of an abelian group $G$ is a normal subgroup of $G$. %\S14E23b
+		\item Intersection of normal subgroups is normal. %\S14E31
+		\item $SL(n,\mathbb{R})$ is a normal subgroup of $GL(n,\mathbb{R})$%\S14E40
+	\end{itemize}
+\end{remark}
+
+\begin{remark}Prove the following results on factor groups
+	\begin{itemize}
+		\item $A_n$ is a normal subgroup of $S_n$. And $S_n/A_n \cong \mathbb{Z}_2$.%\S14E24
+		\item If $H$ is a normal subgroup of $G$ and $(G:H) = m$, then $a^m \in H$ for all $a \in G$.%\S14E30
+			(hint : $(aH) \in G/H\ \&\ |G/H| = m$)
+		\item If a finite group $G$ has exactly one subgroup $H$ of order $m$, then $H$ is normal. %\S14E34
+		\item If $G$ has a subgroup of order $m$, then the intersection of all subgroups of order $m$ is normal.%\S14E36
+		\item Every factor group of an abelian group is also an abelian group.%\S14E23gh
+		\item Every factor group of a torsion group is also a torsion group.%\S14E22
+		\item Every factor group of a torsion free group is also a torsion free group.%\S14E22
+		\item The factor group of an abelian group $G$ over a torsion subgroup $T$, $G/T$ is torsion free.%\S14E26
+	\end{itemize}
+\end{remark}
+
+\begin{definition}Commutator
+	\begin{itemize}
+		\item A \textbf{commutator} $c$ in group $G$ is an element in the form $c = aba^{-1}b^{-1}$ for some $a,b \in G$.
+		\item The \textbf{commutator subgroup} is the smallest normal subgroup containing all commutators in $G$.
+	\end{itemize}
+\end{definition}
+
+\begin{remark}Prove the following results on commutator subgroups 
+	\begin{itemize}
+		\item For any subset $S$, there exists smallest normal subgroup containing $S$. %\S14E32
+		\item If $C$ is the smallest normal subgroup containing all commutators in $G$, then $G/C$ is abelian.%\S14E33
+	\end{itemize}
+\end{remark}
+
+\begin{remark}Prove the following results on automorphisms 
+	\begin{itemize}
+		\item Inner automorphism of an abelian group is an identity map.%\S14E23c
+		\item Set of all $g \in G$ such that the inner automorpism $i_g$ is an identity map is normal. %\S14E38
+		\item Set of automorphisms $\Gamma$ of a group $G$ is a group. And set of inner automorphisms is a normal subgroup of $\Gamma$.
+		\item Subgroup conjugacy is an equivalance relation on the set of subgroups. %\S14E27
+	\end{itemize}
+\end{remark}
+\pagebreak
+
+%Week 03 Day 01 \S15
+\section{Simple Groups}
+\begin{remark}Factor Group Computations
+	\begin{itemize}
+		\item The converse of Lagrange's theorem is false.\\
+			For example, $A_4$ has order $12$, but doesn't have a subgroup of order $6$.
+		\item Factor group of a cyclic group is cyclic.\\
+			If $a$ is a generator of $G$, then $aH$ is a generator of $G/H$.
+	\end{itemize}
+\end{remark}
+\begin{question}
+	Show that $\mathbb{Z}_4 \times \mathbb{Z}_6 / <(2,3)> \cong \mathbb{Z}_4 \times \mathbb{Z}_3$.
+\end{question}
+
+\begin{definition}
+	A group is simple if it is non-trivial and has no proper, non-trivial normal subgroups.
+\end{definition}
+\begin{remark} Simple groups
+	\begin{itemize}
+		\item Alternating groups $A_n$ are simple for $n \ge 5$. %\S15.15
+		\item Every finite group can be factorised into simple groups. %\S15.15
+		\item Every finite, non-abelian, simple group is of even order. %\S15.15
+		\item Group homomorphism preserves normal subgroups. %\S15.16
+		\item $M$ is maximal normal subgroup of $G$ if and only if $G/M$ is simple. %\S15.18
+		\item Center $Z(G) = \{ z \in G : zg = gz,\ \forall g \in G \}$ is normal. %\S15.19
+		\item Commutator $C(G) = \{ c \in G : c = aba^{-1}b{-1},\ a,b \in G \}$ is normal. %\S15.19
+		\item Center of non-abelian groups of order $pq$ are trivial if $p,q$ are primes. %\S15.19
+		\item If $N$ is normal, then $G/N$ is abelian iff $C$ is a subgroup of $N$. %\S15.20
+	\end{itemize}
+\end{remark}
+
+\pagebreak
+
+%Week 03 Day 02 \S16.1-10
+\section{Group Action on a Set}
+\begin{definition}%\S16.1
+	An action of a group $G$ on a set $X$ is a map\\
+	$\ast : G \times X \to X$ such that
+	\begin{enumerate}
+		\item $ex = x,\ \forall x \in X$
+		\item $(g_1g_2)(x) = g_1(g_2x),\ \forall x \in X,\ \forall g_1,g_2 \in G$
+	\end{enumerate}
+	Then $X$ is a $G$-set.
+\end{definition}
+
+\begin{theorem}
+	Let $X$ be a $G$-set. $\forall g \in G,\ \sigma_g : X \to X$ defined by $\sigma_g(x) = gx$ is a permutation of $X$.
+	Also, the map $\phi : G \to S_X$ defined by $\phi(g) = \sigma_g$ is a homomorphism with the property that $\phi(g)(x) = gx$.
+\end{theorem}
+\begin{proof}
+	We have, $X$ is a $G$-set. Let $g \in G$, and $x_1,x_2 \in X$. \\
+	Suppose $\sigma_g(x_1) = \sigma_g(x_2)$.\\
+	$\implies gx_1 = gx_2 \implies g^{-1}(gx_1) = g^{-1}(gx_2) \implies (g^{-1}g)x_1 = (g^{-1}g)x_2$\\
+	$\implies ex_1 = ex_2 \implies x_1 = x_2$. Thus, $\sigma_g$ is injective.\\
+	Let $x \in X$. Then $\sigma_g(g^{-1}x) = g(g^{-1}x) = (gg^{-1})x = ex = x$.\\
+	Thus, $\sigma_g$ is surjective.\\
+	Therefore, $\sigma_g$ is a permutation of $X$, $\sigma_g \in S_X$.\\
+	Let $g_1,g_2 \in G$. And $\phi(g_1)(x) = \sigma_{g_1}(x) = g_1x$, $\phi(g_2)(x) = \sigma_{g_2}(x) = g_2x$\\
+	$\phi(g_1g_2)(x) = \sigma_{g_1g_2}(x) = (g_1g_2)x = g_1(g_2x) = \sigma_{g_1}(g_2x) = \phi(g_1)(g_2x)$\\
+	\hphantom{$\phi(g_1g_2)(x)$} $= \phi(g_1)(\sigma_{g_2}(x)) = \phi(g_1)(\phi(g_2)(x)) = \phi(g_1)\phi(g_2)(x)$\\
+	Therefore, $\phi(g_1g_2) = \phi(g_1)\phi(g_2)$ and $\phi$ is a homomorphism.
+\end{proof}
+
+\begin{definition}Group Action,
+	\begin{itemize}
+		\item $G$ acts \textbf{faithfully} on $X$, if $e$ is the only element that leaves every $x \in X$ fixed. 
+		\item $G$ is \textbf{transitive} on $X$ if for every $x_1,x_2 \in X,\ \exists g \in G$ such that $gx_1 = x_2$. $G$ is transitive on $X$ iff the subgroup $\phi[G]$ of $S_X$ is transitive.
+	\end{itemize}
+\end{definition}
+\pagebreak
+
+%Week 03 Day 03 \S16.11-17
+\section{Isotropy subgroups \& Orbits}
+\begin{definition}Let $X$ be a $G$-set.
+	\begin{itemize}
+		\item The subset fixed by $g$, $X_g = \{ x \in X : gx = x \}$
+		\item The isotropy subgroup of $x$, $G_x = \{ g \in G : gx = x \}$
+		\item The orbit of $x$ in $X$ under $G$, $Gx = \{ gx \in X : g \in G \}$
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}
+	Let $X$ be a $G$-set. Then $G_x$ is a subgroup of $G$, $\forall x \in X$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $X$ be a $G$-set and $x_1,x_2 \in X$. Then the relation $\sim$ defined by $x_1 \sim x_2$ iff $gx_1 = x_2$ is an equivalence relation.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $X$ be a $G$-set and $x \in X$. Then $|Gx| = (G:G_x)$.\\
+	If $|G|$ is finite, then $|Gx|$ is a divisor of $|G|$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\pagebreak
+
+%Week 03 Day 04 \S16E
+\section{Exercise \S16}
+
+\pagebreak
+
+\section*{Symbols \& Notations}
+\begin{definition}.
+	\begin{itemize}
+		\item $(G:H)$ is the index of $H$ in $G$ ie, the number of left cosets of $H$ in $G$ %\S10.13
+		\item $\ker(\phi)$ is the kernel of a group homomorphism $\phi : G \to G'$.
+			$$\ker(\phi) = \{ g \in G : \phi(g) = e' \}$$
+		\item $G/H$ is the factor group of $G$ over $H$.
+			$$G/H = \{ gH : g \in G,\ H \text{ is a normal subgroup of } G\}$$
+		\item $\phi[G]$ is the range group of $\phi: G \to G'$.
+			$$\phi[G] = \{ \phi(g) : g \in G,\ \phi \text{ is a group homomorphism} \}$$
+	\end{itemize}
+\end{definition}
