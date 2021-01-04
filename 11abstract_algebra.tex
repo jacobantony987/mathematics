@@ -35,6 +35,7 @@
 %Week 01 Day 01 \S1-10
 \begin{story}
 \paragraph{`Abstract'}
+%\footnote{There are many algebras. But, we are interested in the abstract notion 'algebra'.}
 Consider the collection of of all students in a class. A person can't be repeated in this collection so you might think this collection is always a set. But in this collection, there may be two with name starting with an `S'.\\
 
 Thus, though the collection of students is a reality, set is an abstract idea which depends on the details we are interested in. And if a particular collection doesn't qualify to be a `set', we can't use set-theoretic results on it.(which is, everything below)
@@ -49,11 +50,9 @@ Thus, though the collection of students is a reality, set is an abstract idea wh
 \end{definition}
 
 \begin{definition} Functions :
-	\begin{itemize}
-		\item A function $\phi : A \to B$ is a \textbf{homomorphism} if for any two elements $x,y \in A$, $\phi (xy) = \phi(x)\phi(y)$%\S3.7
-		\item A function $\phi : A \to B$ is an \textbf{isomorphism} if $\phi$ is a bijective, homomorphism. If two binary structures  are isomorphic, then they have the same (algebraic) structure.%\S3.7
-		\item A \textbf{binary operation} on a set $A$ is a function $\ast : A \times A \to A$. %\S2.1
-	\end{itemize}
+	A \textbf{binary operation} on a set $A$ is a function $\ast : A \times A \to A$. %\S2.1
+	%bi,tri,\dots are numerical prefixes with Latin origin.
+	%di is a numerical prefix with Greek origin.
 \end{definition}
 
 ``A binary operation on a set $A$ gives an algebra on $A$.'' %\S1.0
@@ -73,7 +72,7 @@ Thus, though the collection of students is a reality, set is an abstract idea wh
 \end{definition}
 
 \begin{definition}[Group]
-	A set $G$ together with a binary relation $\ast$ satisfying the following three axioms -G1, G2, \& G3 is a group.%\S4.1
+	A set $G$, closed under a binary relation $\ast$ satisfying the following three axioms -G1, G2, \& G3 is a group.%\S4.1
 \begin{enumerate}[label=G\arabic*]
 	\item Associativity \\ For any three elements $a,b,c \in G,\ a \ast (b \ast c) = (a \ast b) \ast c$.
 	\item Identity element \\There exists a unique element $e \in G$ such that $a \ast e = a = e \ast a$ for any element $a \in G$.
@@ -108,6 +107,13 @@ Thus, though the collection of students is a reality, set is an abstract idea wh
 	$$\begin{pmatrix} 1 & 2 \end{pmatrix} \begin{pmatrix} 3 & 4 \end{pmatrix} \ast \begin{pmatrix} 1 & 2 & 3\end{pmatrix} \begin{pmatrix} 4 & 5 \end{pmatrix} =  \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 1 & 4 & 3 & 5 \\ 3 & 2 & 5 & 1 & 4 \end{pmatrix}  = \begin{pmatrix} 1 & 3 & 5 & 4 \end{pmatrix} $$
 	Clearly, $S_5$ is a non-abelian group of order 120.
 \end{remark}
+
+\begin{definition} Homomorphism \& Isomorphism
+	\begin{itemize}
+		\item A function $\phi : A \to B$ is a \textbf{homomorphism} if for any two elements $x,y \in A$, $\phi (xy) = \phi(x)\phi(y)$%\S3.7
+		\item A function $\phi : A \to B$ is an \textbf{isomorphism} if $\phi$ is a bijective, homomorphism. If two binary structures  are isomorphic, then they have the same (algebraic) structure.%\S3.7
+	\end{itemize}
+\end{definition}
 
 \begin{definition} Subgroup
 	\begin{itemize}
@@ -150,13 +156,14 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \paragraph{Existence}
 	The existence is usually proved by constructing the required object. Suppose we want to prove that $a\ast b$ has an inverse element. We know that $a,b$ has inverse elements $a^{-1},b^{-1}$. From those elements, we construct an element $b^{-1} \ast a^{-1}$ which is an inverse of $a \ast b$ by construction.\\
 
-	And we may also prove existence without actually giving an object. %Existence of torsion subgroup can be proved by demonstrating the existence of identity, invese elements and also the closure of the operator.
+	And we may also prove existence without actually giving an object.\\ %Existence of torsion subgroup can be proved by demonstrating the existence of identity, invese elements and also the closure of the operator.
 
-\begin{itemize}
-	\item Existence of generator : Cyclic group test
+%	Applications:
+%\begin{itemize}
+%	\item Existence of generator : Cyclic group test
 %	\item Existence of torsion subgroup
 %	\item Existence of a maximal normal subgroup
-\end{itemize}
+%\end{itemize}
 \pagebreak
 
 %Week 01 Day 02 \S11.1-11

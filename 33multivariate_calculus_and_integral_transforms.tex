@@ -152,7 +152,7 @@
 	By Jordan's Theorem\cite[Theorem 10.8]{apostol}, if $g$ is of bounded variation on $[0,\delta]$, then
 	\[ \lim_{\alpha \to +\infty} \frac{2}{\pi} \int_0^\delta g(t) \frac{\sin \alpha t}{t} dt = g(0+) \]
 	By Dini's Theorem\cite[Theorem 10.9]{apostol}, if the limit $g(x+)$ exists and Lebesgue integral \( \int_0^\delta \frac{g(t)+g(0+)}{t} dt \) exists for some \( \delta > 0 \), then
-	\[ \lim_{\alpha to +\infty} \frac{2}{\pi} \int_0^\delta g(t) \frac{\sin \alpha t}{t} dt = g(0+) \]
+	\[ \lim_{\alpha \to +\infty} \frac{2}{\pi} \int_0^\delta g(t) \frac{\sin \alpha t}{t} dt = g(0+) \]
 	The order of Lebesgue integrals can be interchanged\cite[Theorem 10.40]{apostol},\\
 	Suppose \(f \in L(X)\) and \(g \in L(Y)\).
 	Then
@@ -320,6 +320,11 @@
 \begin{remark}
 	Convolution operator is commutative.\\
 	ie, \( h = f \ast g = g \ast f \)
+	\begin{commentary}
+		(hint : take $u = x-t$)
+	\end{commentary}
+	% $u = x-t \implies du = -dt$
+	% sign is reversed as the order of limits are switched. ie, $t = \infty \to u = -\infty$
 \end{remark}
 
 \begin{remark}
@@ -328,7 +333,7 @@
 \end{remark}
 
 \begin{remark}
-	Singularity is a point at which the convolution integral fails to exists.
+	Singularity of convolution is a point at which the convolution integral fails to exists.
 \end{remark}
 
 \begin{theorem}
