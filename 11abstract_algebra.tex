@@ -105,17 +105,6 @@
 	$<\!\mathbb{Z}_5,+_5\!>$ is an abelian group of order 5.
 \end{remark}
 
-\begin{definition}
-	A \textbf{permutation group} $S_n$ is the set of all permutations on the set $\{1,2,\cdots,n\}$.	
-\end{definition}
-
-\begin{remark}
-	Consider, $(1\ 2\ 3)(4\ 5), (1\ 2)(3\ 4) \in S_5$.
-	$$\begin{pmatrix} 1 & 2 & 3 \end{pmatrix} \begin{pmatrix} 4 & 5 \end{pmatrix} \ast \begin{pmatrix} 1 & 2 \end{pmatrix} \begin{pmatrix} 3 & 4 \end{pmatrix} =  \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 3 & 1 & 5 & 4 \\ 1 & 4 & 2 & 5 & 3 \end{pmatrix}  = \begin{pmatrix} 2 & 4 & 5 & 3 \end{pmatrix} $$
-	$$\begin{pmatrix} 1 & 2 \end{pmatrix} \begin{pmatrix} 3 & 4 \end{pmatrix} \ast \begin{pmatrix} 1 & 2 & 3\end{pmatrix} \begin{pmatrix} 4 & 5 \end{pmatrix} =  \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 1 & 4 & 3 & 5 \\ 3 & 2 & 5 & 1 & 4 \end{pmatrix}  = \begin{pmatrix} 1 & 3 & 5 & 4 \end{pmatrix} $$
-	Clearly, $S_5$ is a non-abelian group of order 120.
-\end{remark}
-
 \begin{definition} Homomorphism \& Isomorphism
 	\begin{itemize}
 		\item A function $\phi : A \to B$ is a \textbf{homomorphism} if for any two elements $x,y \in A$, $\phi (xy) = \phi(x)\phi(y)$%\S3.7
@@ -262,7 +251,8 @@ If $x \in A \implies x \in B$, then $A \subset B$
 	The first component gives $0$ for multiples of $m$.
 	And the second component gives $0$ for multiples of $n$.
 	Since $m,n$ are relatively prime, $mn$ is the smallest power of $(1,1)$ that will give $(0,0)$.
-	Thus $\mathbb{Z}_m \times \mathbb{Z}_n = H$ and is cyclic.\\
+	Thus $\mathbb{Z}_m \times \mathbb{Z}_n = H$ and is cyclic.
+	\begin{important} Every cyclic group of order $mn$ is isomorphic to $\mathbb{Z}_{mn}$. Therefore, $\mathbb{Z}_m \times \mathbb{Z}_n \approx \mathbb{Z}_{mn}$.\end{important}\\
 
 	Necessary part :\\
 	Suppose $\gcd(m,n) = d > 1$.
@@ -302,10 +292,10 @@ If $x \in A \implies x \in B$, then $A \subset B$
 
 \begin{remark}
 	Define $\overline{G_i} = \{ (e_1,\ e_2,\ \cdots,\ e_{i-1},\ a_i,\ e_{i+1},\ \cdots,\ e_n) : a_i \in G_i\}$.
-	Then $G_i \cong \overline{G_i}$.
+	Then $G_i \approx \overline{G_i}$.
 	And $\prod\limits_{i=1}^n G_i$ is the internal direct product of $\overline{G_i}$s.\\
 
-	For example, $\mathbb{Z}_2 \times \mathbb{Z}_3 \cong \left( \mathbb{Z}_2 \times \{ 0 \} \right) \otimes \left( \{ 0 \} \times \mathbb{Z}_3 \right)$
+	For example, $\mathbb{Z}_2 \times \mathbb{Z}_3 \approx \left( \mathbb{Z}_2 \times \{ 0 \} \right) \otimes \left( \{ 0 \} \times \mathbb{Z}_3 \right)$
 \end{remark}
 
 \begin{question}
@@ -317,24 +307,24 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \section{Fundamental Theorem}
 \begin{definition}
 	A group $G$ is \textbf{finitely generated} if $G$ has a finite subset that generates $G$.\\
-	For example, $\{ 1,\rho^2,\mu,\mu\rho^2 \}$ is a finitely generated subgroup of $D_8$.
+%	For example, $\{ 1,\rho^2,\mu,\mu\rho^2 \}$ is a finitely generated subgroup of $D_8$.
 \end{definition}
 
-\begin{figure}[h]
-	\centering
-	\begin{tabular}{c|cccccccc}
-		$\circ$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ \\ \hline
-		$1$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ \\ 
-		$\rho$ & $\rho$ & $\rho^2$ & $\rho^3$ & $1$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ \\
-		$\rho^2$ & $\rho^2$ & $\rho^3$ & $1$ & $\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ \\
-		$\rho^3$ & $\rho^3$ & $1$ & $\rho$ & $\rho^2$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ \\
-		$\mu$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ \\
-		$\mu\rho$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\rho^3$ & $1$ & $\rho$ & $\rho^2$ \\
-		$\mu\rho^2$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\rho^2$ & $\rho^3$ & $1$ & $\rho$ \\
-		$\mu\rho^3$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\rho$ & $\rho^2$ & $\rho^3$ & $1$
-	\end{tabular}
-	\caption{Dihedral Group $D_8,\ \mu\rho \ne \rho\mu$}
-\end{figure}
+%\begin{figure}[h]
+%	\centering
+%	\begin{tabular}{c|cccccccc}
+%		$\circ$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ \\ \hline
+	%	$1$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ \\ 
+	%	$\rho$ & $\rho$ & $\rho^2$ & $\rho^3$ & $1$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ \\
+	%	$\rho^2$ & $\rho^2$ & $\rho^3$ & $1$ & $\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ \\
+	%	$\rho^3$ & $\rho^3$ & $1$ & $\rho$ & $\rho^2$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ \\
+	%	$\mu$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $1$ & $\rho$ & $\rho^2$ & $\rho^3$ \\
+	%	$\mu\rho$ & $\mu\rho$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\rho^3$ & $1$ & $\rho$ & $\rho^2$ \\
+	%	$\mu\rho^2$ & $\mu\rho^2$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\rho^2$ & $\rho^3$ & $1$ & $\rho$ \\
+	%	$\mu\rho^3$ & $\mu\rho^3$ & $\mu$ & $\mu\rho$ & $\mu\rho^2$ & $\rho$ & $\rho^2$ & $\rho^3$ & $1$
+	%\end{tabular}
+	%\caption{Dihedral Group $D_8,\ \mu\rho \ne \rho\mu$}
+%\end{figure}
 
 \begin{theorem}[fundamental theorem of finitely generated abelian groups]
 	Every finitely generated abelian group $G$ is isomorphic to a direct product of cyclic groups in the form
@@ -346,7 +336,7 @@ If $x \in A \implies x \in B$, then $A \subset B$
 	---proof is omitted---
 \end{proof}
 
-For example, $ G = \mathbb{Z}_{20} \times \mathbb{Z} \times \mathbb{Z}_{15} \times \mathbb{Z} \cong \mathbb{Z}_{2^2} \times \mathbb{Z}_3 \times \mathbb{Z}_5 \times \mathbb{Z}_5 \times \mathbb{Z} \times \mathbb{Z}$ \\
+For example, $ G = \mathbb{Z}_{20} \times \mathbb{Z} \times \mathbb{Z}_{15} \times \mathbb{Z} \approx \mathbb{Z}_{2^2} \times \mathbb{Z}_3 \times \mathbb{Z}_5 \times \mathbb{Z}_5 \times \mathbb{Z} \times \mathbb{Z}$ \\
 In the above case, Betti number of $G$ is $2$ (number of $\mathbb{Z}$ factors).\\
 For any finite abelian group, Betti number is $0$.
 
@@ -376,11 +366,11 @@ For any finite abelian group, Betti number is $0$.
 	Otherwise $G$ is \textbf{indecomposible}.
 \end{definition}
 
-	For example, $\mathbb{Z}_{2^3} \times \mathbb{Z}_3 \times \mathbb{Z}_3 \times \mathbb{Z}_5 \cong \mathbb{Z}_{24} \times \mathbb{Z}_{15}$ is decomposible.
+	For example, $\mathbb{Z}_{2^3} \times \mathbb{Z}_3 \times \mathbb{Z}_3 \times \mathbb{Z}_5 \approx \mathbb{Z}_{24} \times \mathbb{Z}_{15}$ is decomposible.
 
 \begin{remark}
-	$G = \mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_{3} \times \mathbb{Z}_3 \times \mathbb{Z}_5 \cong \mathbb{Z}_2 \times \mathbb{Z}_{6} \times \mathbb{Z}_{30}$ is also decomposible.
-	Since $G \cong (\mathbb{Z}_2 \times \mathbb{Z}_{6}) \times \mathbb{Z}_{30}$.
+	$G = \mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_{3} \times \mathbb{Z}_3 \times \mathbb{Z}_5 \approx \mathbb{Z}_2 \times \mathbb{Z}_{6} \times \mathbb{Z}_{30}$ is also decomposible.
+	Since $G \approx (\mathbb{Z}_2 \times \mathbb{Z}_{6}) \times \mathbb{Z}_{30}$.
 \end{remark}
 
 \begin{theorem}
@@ -390,9 +380,9 @@ For any finite abelian group, Betti number is $0$.
 	Necessary part: \\
 	Let $G$ be a finite, indecomposible abelian group.
 	By fundamental theorem of finitely generated abelian groups, $G$ is isomorphic to a direct product of cyclic groups of prime power order.
-	$$ G \cong \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}$$
+	$$ G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}$$
 	Thus for $G$ to be indecomposible the direct product should be a cyclic group of prime power order.
-	$G \cong \mathbb{Z}_{{p_1}^{r_1}}$\\
+	$G \approx \mathbb{Z}_{{p_1}^{r_1}}$\\
 
 	Sufficient part : \\
 	Let $p$ be a prime and $r$ a non-negative integer.
@@ -402,8 +392,8 @@ For any finite abelian group, Betti number is $0$.
 
 	A proper, non-trivial subgroup of $\mathbb{Z}_{p^r}$ is of the form $\mathbb{Z}_{p^i}$ where $0 < i < r$.
 	Suppose $\mathbb{Z}_{p^r}$ is decomposible.
-	Then $\exists i,j \in \mathbb{Z}^+$ such that $\mathbb{Z}_{p^r} \cong \mathbb{Z}_{p^i} \times \mathbb{Z}_{p^j}$ and $i+j=r$.
-	Clearly, $p^i$ and $p^j$ are not relatively prime, thus $\mathbb{Z}_{p^r} \not\cong \mathbb{Z}_{p^i} \times \mathbb{Z}_{p^j}$.
+	Then $\exists i,j \in \mathbb{Z}^+$ such that $\mathbb{Z}_{p^r} \approx \mathbb{Z}_{p^i} \times \mathbb{Z}_{p^j}$ and $i+j=r$.
+	Clearly, $p^i$ and $p^j$ are not relatively prime, thus $\mathbb{Z}_{p^r} \not\approx \mathbb{Z}_{p^i} \times \mathbb{Z}_{p^j}$.
 	Therefore, cyclic groups of order prime power are indecomposible.
 \end{proof}
 
@@ -411,7 +401,7 @@ For any finite abelian group, Betti number is $0$.
 	If $m$ divides the order of a finite abelian group $G$, then $G$ has a subgroup of order $m$.
 \end{theorem}
 \begin{proof}
-	Let $G = \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}$.
+	Let $G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}$.
 	Then $|G| = p_1^{r_1} p_2^{r_2} \cdots p_n^{r_n}$.\\
 	Suppose $m$ divides $|G|$, then $m = p_1^{s_1} p_2^{s_2} \cdots p_n^{s_n}$ where $0 \le s_i \le r_i$. \\
 	Define $H = \mathbb{Z}_{{p_1}^{s_1}} \times \mathbb{Z}_{{p_2}^{s_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{s_n}}$.
@@ -424,10 +414,10 @@ For any finite abelian group, Betti number is $0$.
 \begin{proof}
 	Let $m$ be a square-free integer and $G$ be an abelian group of order $m$.
 	By fundamental theorem of finitely generated abelian groups
-	$$ G \cong \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}$$
+	$$ G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}$$
 	We have, $m$ is square-free.
 	Thus $r_i = 1$ and $p_i$ are distinct.\\
-	Therefore, $G \cong \mathbb{Z}_{p_1 p_2 \cdots p_n}$ is a cyclic group of order $m$.
+	Therefore, $G \approx \mathbb{Z}_{p_1 p_2 \cdots p_n}$ is a cyclic group of order $m$.
 \end{proof}
 %\pagebreak
 
@@ -462,7 +452,7 @@ For any finite abelian group, Betti number is $0$.
 \end{definition}
 
 \begin{definition}
-	The integers $m_1,m_2,\cdots,m_n$ are torsion coefficients of $G$ such that $G \cong \mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \cdots \times \mathbb{Z}_{m_n}$ where $m_i$ divides $m_{i+1}$.%\S11Ex44
+	The integers $m_1,m_2,\cdots,m_n$ are torsion coefficients of $G$ such that $G \approx \mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \cdots \times \mathbb{Z}_{m_n}$ where $m_i$ divides $m_{i+1}$.%\S11Ex44
 \end{definition}
 
 For example, $\mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}$ has torsion coefficients $2, 12, 60$
@@ -476,9 +466,9 @@ For example, $\mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}$ has to
 	\end{enumerate}
 \end{remark}
 
-For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}$
+For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}$
 \begin{enumerate}[label=Step \arabic*]
-	\item $\mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20} \cong \mathbb{Z}_2 \times \mathbb{Z}_3 \times \mathbb{Z}_{2^2} \times \mathbb{Z}_3 \times \mathbb{Z}_{2^2} \times \mathbb{Z}_5$
+	\item $\mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20} \approx \mathbb{Z}_2 \times \mathbb{Z}_3 \times \mathbb{Z}_{2^2} \times \mathbb{Z}_3 \times \mathbb{Z}_{2^2} \times \mathbb{Z}_5$
 	\item (2,4,4), (3,3), (5)
 	\item (2,4,4), (1,3,3), (1,1,5)
 	\item (2,12,60)
@@ -496,6 +486,18 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 
 %Week 02 Day 01 \S13
 \section{Cosets and Homomorphism}
+
+\begin{definition}
+	A \textbf{permutation group} $S_n$ is the set of all permutations on the set $\{1,2,\cdots,n\}$.	
+\end{definition}
+
+\begin{remark}
+	Consider, $(1\ 2\ 3)(4\ 5), (1\ 2)(3\ 4) \in S_5$.
+	$$\begin{pmatrix} 1 & 2 & 3 \end{pmatrix} \begin{pmatrix} 4 & 5 \end{pmatrix} \ast \begin{pmatrix} 1 & 2 \end{pmatrix} \begin{pmatrix} 3 & 4 \end{pmatrix} =  \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 3 & 1 & 5 & 4 \\ 1 & 4 & 2 & 5 & 3 \end{pmatrix}  = \begin{pmatrix} 2 & 4 & 5 & 3 \end{pmatrix} $$
+	$$\begin{pmatrix} 1 & 2 \end{pmatrix} \begin{pmatrix} 3 & 4 \end{pmatrix} \ast \begin{pmatrix} 1 & 2 & 3\end{pmatrix} \begin{pmatrix} 4 & 5 \end{pmatrix} =  \begin{pmatrix} 1 & 2 & 3 & 4 & 5 \\ 2 & 1 & 4 & 3 & 5 \\ 3 & 2 & 5 & 1 & 4 \end{pmatrix}  = \begin{pmatrix} 1 & 3 & 5 & 4 \end{pmatrix} $$
+	Clearly, $S_5$ is a non-abelian group of order 120.
+\end{remark}
+
 \begin{definition}
 	Kernel of a function $\phi : G \to G'$ is the inverse image of the identity element in $G'$. %\S13.13
 \end{definition}
@@ -513,6 +515,7 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 	For example, $\{1,\rho^2,\mu,\mu\rho^2\}$ is a normal subgroup of $D_8$.\\
 	$\rho H = \{ \rho, \rho^3, \mu\rho^3, \mu\rho \} = H\rho$. However $\rho\mu \ne \mu\rho$
 \end{remark}
+
 \begin{remark}[Lagrange's Theorem]%\S10.10
 	Let $G$ be a finite group.
 	If $H$ is a subgroup of $G$, then order of $H$ divides order of $G$.
@@ -522,6 +525,10 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 	\item $\forall g \in G,\ g \in gH$.
 	\item $\forall g \in G,\ |gH| = |H|$.
 \end{itemize}
+
+\begin{remark}[Cayley's Theorem]%\S8.16
+	Every group is isomorphic to a group of isomorphisms.
+\end{remark}
 
 \begin{definition}
 	Let $G,G'$ be groups.
@@ -631,13 +638,13 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 
 \begin{remark}
 	$n\mathbb{Z}$ is a normal subgroup of $\mathbb{Z}$.
-	And $\mathbb{Z}/n\mathbb{Z} \cong \mathbb{Z}_n$.\\
+	And $\mathbb{Z}/n\mathbb{Z} \approx \mathbb{Z}_n$.\\
 	$\mathbb{Z}_n$ is a torsion group isomorphic to a factor group of torsion free group $\mathbb{Z}$.
 \end{remark}
 
 \begin{remark}
 	Let $c \in \mathbb{R}^*$.
-	Then the cyclic group generated by $c$ is a normal subgroup of $\mathbb{R}$ and $\mathbb{R}/<c> \cong \mathbb{R}_c$.
+	Then the cyclic group generated by $c$ is a normal subgroup of $\mathbb{R}$ and $\mathbb{R}/<c> \approx \mathbb{R}_c$.
 \end{remark}
 
 \begin{question}
@@ -737,7 +744,7 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 \begin{remark}Prove the following results on factor groups
 	\begin{itemize}
 		\item $A_n$ is a normal subgroup of $S_n$.
-			And $S_n/A_n \cong \mathbb{Z}_2$.%\S14E24
+			And $S_n/A_n \approx \mathbb{Z}_2$.%\S14E24
 		\item If $H$ is a normal subgroup of $G$ and $(G:H) = m$, then $a^m \in H$ for all $a \in G$.%\S14E30
 			(hint : $aH \in G/H\ \&\ |G/H| = m$)
 		\item If a finite group $G$ has exactly one subgroup $H$ of order $m$, then $H$ is normal. %\S14E34
@@ -783,7 +790,7 @@ For example, $G \cong \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}
 \end{remark}
 
 \begin{question}
-	Show that $\mathbb{Z}_4 \times \mathbb{Z}_6 / <(2,3)> \cong \mathbb{Z}_4 \times \mathbb{Z}_3$.
+	Show that $\mathbb{Z}_4 \times \mathbb{Z}_6 / <(2,3)> \approx \mathbb{Z}_4 \times \mathbb{Z}_3$.
 \end{question}
 
 \begin{definition}
