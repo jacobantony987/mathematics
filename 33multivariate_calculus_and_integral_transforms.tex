@@ -862,10 +862,9 @@ In other words,
 	f(\overline{c}+\overline{v}) - f(\overline{c}) = \sum_{k = 1}^n f(\overline{b_k} + \lambda{}y_k\overline{u_k})-f(\overline{b_k})
 	\end{equation}
 	We know that all partial derivatives exists in $B(\overline{c})$.
-	Thus $f$ is continuous in $B(\overline{c})$.
-	Therefore by mean-value theorem we have,
+	%Thus $f$ is continuous in $B(\overline{c})$.
+	Therefore by 1-dimensional mean-value theorem we have,
 	\[ f(\overline{b_k}+\lambda{}y_k\overline{u_k}) - f(\overline{b_k}) = \lambda{}y_kD_kf(\overline{a_k}) \text{ where } \overline{a_k} \in L(\overline{b_k},\overline{b_k}+\lambda{}y_k\overline{u_k}) \]
-
 	\begin{equation}
 		f(\overline{c}+\overline{v}) - f(\overline{c}) = \lambda{} \sum_{k = 1}^n y_kD_kf(\overline{a_k}) \text{ where } \overline{a_k} \in L(\overline{b_k},\overline{b_k}+\lambda{}y_k\overline{u_k})
 	\end{equation}
@@ -950,10 +949,16 @@ And $D_{r,k} f = D_r(D_k f)$ and $D_{k,r} f = D_k (D_r f)$.
 		D_1 f(x_1,0) = & D_1 f(0,0) + x_1 D_{1,1} f(0,0) + |x_1| E_2(h)
 	\end{align*}
 	Therefore $\nabla(h) = h (D_1 f(x_1,h) - D_1 f(x_1,0)) = h^2 D_{2,1} f(0,0) + E(h)$ where $E(h) = h|\sqrt{x_1^2+h^2}| E_1(h) - h|x_1|E_2(h)$ and $E(h) \to 0$ as $h \to 0$.\\
+	Since $0 < x_1 < h$, we have
+	$$ 0 \le E(h) < h^2\left(E_1(h)-E_2(h)\right)$$
+
+	Therefore,
+	$$\lim_{h \to 0} \frac{\nabla(h)}{h^2} < \lim_{h \to 0} \frac{h^2 D_{2,1} f(0,0)}{h^2} + \lim_{h \to 0} \frac{h^2 (E_1(h) - E_2(h))}{h^2} = D_{2,1}f(0,0)$$
 	\begin{equation}
 		\lim_{h \to 0} \frac{\nabla(h)}{h^2} = D_{2,1} f(0,0)
 	\end{equation}
-	Define $H(y) = f(h,y)-f(0,y)$.
+
+	Similarly, define $H(y) = f(h,y)-f(0,y)$.
 	Then we have, $\nabla(h) = H(h)-H(0)$ and $H'(y) = D_2f(h,y) - D_2f(0,y)$.
 	By 1-dimensional mean value theorem,
 	\begin{align*}
@@ -964,18 +969,18 @@ And $D_{r,k} f = D_r(D_k f)$ and $D_{k,r} f = D_k (D_r f)$.
 	Thus there exists a linear, total derivative function $(D_2f)'(0,0)$ where $(D_2f)'(0,0)(x,y) = \nabla D_2 f(0,0) \cdot{} (x,y)$ satisfying first-order Taylor's formula at $(0,0)$.
 	That is,
 	\begin{align*}
-		D_2 f((0,0)+(h,y_1)) = & D_2 f(0,0) + \nabla D_2 f(0,0) \cdots{} (h,y_1) + \|(h,y_1)\| E_3(h) \\
+		D_2 f((0,0)+(h,y_1)) = & D_2 f(0,0) + \nabla D_2 f(0,0) \cdot{} (h,y_1) + \|(h,y_1)\| E_3(h) \\
 		& \text{ where } E_3(h) \to 0 \text{ as } h \to 0 \\
 		D_2 f(h,y_1) = & D_2 f(0,0) + h D_{1,2} f(0,0) + y_1 D_{2,2} f(0,0) + \left|\sqrt{h^2+y_1^2}\right| E_3(h)
 	\end{align*}
 
 	Again,
 	\begin{align*}
-		D_2 f((0,0)+(0,y_1)) = & D_2 f(0,0) + \nabla D_2 f(0,0) \cdots{} (0,y_1) + |y_1| E_4(h) \\
+		D_2 f((0,0)+(0,y_1)) = & D_2 f(0,0) + \nabla D_2 f(0,0) \cdot{} (0,y_1) + |y_1| E_4(h) \\
 		& \text{ where } E_4(h) \to 0 \text{ as } h \to 0 \\
 		D_2 f(0,y_1) = & D_2 f(0,0) + y_1 D_{2,2} f(0,0) + |y_1| E_4(h)
 	\end{align*}
-	Therefore, $\nabla(h) = h( D_2 f(h,y_1) - D_2 f(0,y_1) ) = h^2 D_{1,2} f(0,0) + E'(h)$ where $E'(h) = \left|\sqrt{h^2+y_1^2}\right| E_3(h) - |y_1|E_4(h)$ and $E'(h) \to 0$ as $h \to 0$.
+	Therefore, $\nabla(h) = h( D_2 f(h,y_1) - D_2 f(0,y_1) ) = h^2 D_{1,2} f(0,0) + E'(h)$ where $E'(h) = \left|\sqrt{h^2+y_1^2}\right| E_3(h) - |y_1|E_4(h)$ and $E'(h) \to 0$ as $h \to 0$. And 
 	\begin{equation}
 		\lim_{h \to 0} \frac{\nabla(h)}{h^2}  = D_{1,2} f(0,0)
 	\end{equation}
@@ -1118,8 +1123,18 @@ Let $\overline{x} \in \partial B$, then
 \end{proof}
 
 \begin{theorem}
+	Let $A$ be an open subset of $\mathbb{R}^n$ and assume that $f : A \to \mathbb{R}^n$ has continuous partial derivatives $D_jf_i$ on $A$. If $J_f(\overline{x}) \ne 0$ for all $\overline{x} \in A$, then $f$ is an open mapping.
 \end{theorem}
 \begin{proof}
+	Let $S$ be an open subset of $A$.
+	Let $\overline{x} \in S$.
+	Clearly, $f$ has continuous partial derivatives on $S$ and $J_f(\overline{x}) \ne 0$ for all $\overline{x} \in S$.
+	Thus, there is an $n$-ball $B(\overline{x})$ in which $f$ is injective.
+	Therefore, $f(B(\overline{x})$ is open in $\mathbb{R}^n$.
+	Since $\overline{x} \in S$ is arbitrary, $S = \cup_{\overline{x} \in S} B(\overline{x})$.
+	And $f(S) = \cup_{\overline{x} \in S} f(B(\overline{x}))$.
+	Therefore, $f(S)$ is open.
+	Since open set $S$ is arbitrary, $f$ is an open mapping.
 \end{proof}
 
 \begin{commentary}
