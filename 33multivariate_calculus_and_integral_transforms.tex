@@ -373,50 +373,50 @@ Thus \[ \lim_{\alpha \to \infty} \frac{1}{2\pi} \int_{-\alpha}^\alpha F(v) + iG(
 \section{Multivariate Differential Calculus}
 
 In this chapter, we deal with real functions of several variables.
-Instead of $\mathbf{c}$, we write \( \overline{c} \in \mathbb{R}^n \), then \( \overline{c} = (c_1, c_2, \dotsc, c_n) \) where \( c_j \in \mathbb{R} \) for every \(j = 1,2, \dotsc, n\).
-Again, suppose \(f : \mathbb{R}^n \to \mathbb{R}^m\) and \(f(\overline{x}) = \overline{y}\), then \(\overline{y} = (y_1, y_2, \dotsc, y_m)\) where each $y_k$ is real.
-The unit co-ordinate vector, $\overline{u_k}$ is given by \( {u_k}_j = \delta_{j,k} \)
+Instead of $\mathbf{c}$, we write \( \bar{c} \in \mathbb{R}^n \), then \( \bar{c} = (c_1, c_2, \dotsc, c_n) \) where \( c_j \in \mathbb{R} \) for every \(j = 1,2, \dotsc, n\).
+Again, suppose \(f : \mathbb{R}^n \to \mathbb{R}^m\) and \(f(\bar{x}) = \bar{y}\), then \(\bar{y} = (y_1, y_2, \dotsc, y_m)\) where each $y_k$ is real.
+The unit co-ordinate vector, $\bar{u}_k$ is given by \( {u_k}_j = \delta_{j,k} \)
 
 \subsection{Directional Derivative}
-\textsl{Motivation : The existence of all partial derivatives of a multivariate real function $f$ at a point $\overline{c}$ doesn't imply the continuity of $f$ at $\overline{c}$.
+\textsl{Motivation : The existence of all partial derivatives of a multivariate real function $f$ at a point $\bar{c}$ doesn't imply the continuity of $f$ at $\bar{c}$.
 	Thus, we need a suitable generalisation for the partial derivative which could characterise continuity.
 	And directional derivative is such an attempt.}
 
 \begin{definition}[Directional Derivative]
 	Let \(S \subset \mathbb{R}^n\) and \(f : S \to \mathbb{R}^m\).
-	Let $\overline{c}$ be an interior points of $S$ and \( \overline{u} \in \mathbb{R}^n \), then there exists an open ball $B(\overline{c},r)$ in $S$.
-	Also for some $\delta > 0$ the line segment \( \alpha : [0,\delta] \to S \) given by \( \alpha(t) = \overline{c}+t\overline{u} \) lie in $B(\overline{c},r)$.
+	Let $\bar{c}$ be an interior points of $S$ and \( \bar{u} \in \mathbb{R}^n \), then there exists an open ball $B(\bar{c},r)$ in $S$.
+	Also for some $\delta > 0$ the line segment \( \alpha : [0,\delta] \to S \) given by \( \alpha(t) = \bar{c}+t\bar{u} \) lie in $B(\bar{c},r)$.
 	
-	Then the Directional derivative of $f$ at an interior point $\overline{c}$ in the direction $\overline{u}$ is given by
-	\[ f'(\overline{c},\overline{u}) = \lim_{h \to 0} \frac{f(\overline{c}+h\overline{u}) - f(\overline{c})}{h} \]
+	Then the Directional derivative of $f$ at an interior point $\bar{c}$ in the direction $\bar{u}$ is given by
+	\[ f'(\bar{c},\bar{u}) = \lim_{h \to 0} \frac{f(\bar{c}+h\bar{u}) - f(\bar{c})}{h} \]
 \end{definition}
 
 \begin{remark}
-	The direction derivative of $f$ at an interior point $\overline{c}$ in the direction $\overline{u}$ exists only if the above limit exists.
+	The direction derivative of $f$ at an interior point $\bar{c}$ in the direction $\bar{u}$ exists only if the above limit exists.
 \end{remark}
 
 \begin{remark}Example, \cite[Exercise 12.2a]{apostol}
 
-Suppose \(\overline{x},\overline{a},\overline{c},\overline{u} \in \mathbb{R}^n\).
-Let \(f : \mathbb{R}^n \to \mathbb{R}\) such that \(f(\overline{x}) = \overline{a}\cdot\overline{x}\).
-Then \[ f'(\overline{c},\overline{u}) = \lim_{h \to 0} \frac{\overline{a}\cdot(\overline{c}+h\overline{u}) - \overline{a}\cdot\overline{c}}{h} = \overline{a}\cdot\overline{u}\]
+Suppose \(\bar{x},\bar{a},\bar{c},\bar{u} \in \mathbb{R}^n\).
+Let \(f : \mathbb{R}^n \to \mathbb{R}\) such that \(f(\bar{x}) = \bar{a}\cdot\bar{x}\).
+Then \[ f'(\bar{c},\bar{u}) = \lim_{h \to 0} \frac{\bar{a}\cdot(\bar{c}+h\bar{u}) - \bar{a} \cdot \bar{c}}{h} = \bar{a} \cdot \bar{u}\]
 \end{remark}
 
 \begin{remark}[Properties] Let \(f : S \to \mathbb{R}^m \), where \( S \subset \mathbb{R}^n\)
 \begin{enumerate}
-	\item \( f'(\overline{c},\overline{0}) = \overline{0} \)\\
+	\item \( f'(\bar{c},\bar{0}) = \bar{0} \)\\
 	\textsl{Note : The zero vectors belongs to $\mathbb{R}^n, \mathbb{R}^m$ respectively.}
-	\item \( f'(\overline{c},\overline{u_k}) = \frac{\partial f}{\partial u_k}(\overline{c}) = D_k f(\overline{c}) \), the $k^{th}$ partial derivative of $f$.
-	\item Let \( f = (f_1, f_2, \cdots, f_m), \text{ such that } f(\overline{c}) = \left(f_1(\overline{c}),f_2(\overline{c}),\dotsc,f_m(\overline{c})\right) \).
+	\item \( f'(\bar{c},\bar{u}_k) = \frac{\partial f}{\partial u_k}(\bar{c}) = D_k f(\bar{c}) \), the $k^{th}$ partial derivative of $f$.
+	\item Let \( f = (f_1, f_2, \cdots, f_m), \text{ such that } f(\bar{c}) = \left(f_1(\bar{c}),f_2(\bar{c}),\dotsc,f_m(\bar{c})\right) \).
 	Then, 
-	\[ \exists f'(\overline{c},\overline{u}) \iff \forall k, \exists f_k'(\overline{c},\overline{u}) \text{ and } f'(\overline{c},\overline{u}) = \left(f_1'(\overline{c},\overline{u}),f_2'(\overline{c},\overline{u}),\dotsc,f_m'(\overline{c},\overline{u})\right) \]
+		\[ \exists f'(\bar{c},\bar{u}) \iff \forall k, \exists f_k'(\bar{c},\bar{u}) \text{ and } f'(\bar{c},\bar{u}) = \left(f_1'(\bar{c},\bar{u}),f_2'(\bar{c},\bar{u}),\dotsc,f_m'(\bar{c},\bar{u})\right) \]
 	ie, Directional derivative of $f$ exists iff directional derivative of each component function $f_k$ exists.
 	And the components of the directional derivatives of $f$ are the directional derivaties of the components of $f$.
 
-	Thus \( D_k f(\overline{c}) = \left(D_k f_1(\overline{c}),D_k f_2(\overline{c}),\dotsc,D_k f_m(\overline{c}) \right) \) holds.
-	\item Let \( F(t) = f(\overline{c}+t\overline{u}) \), then \( F'(0) = f'(\overline{c},\overline{u}) \) and \( F'(t) = f'(\overline{c}+t\overline{u},\overline{u}) \)
-	\item Let \( f(\overline{c}) = \overline{c}\cdot\overline{c} = \|\overline{c}\|^2 \), and \(F(t) = f(\overline{c}+t\overline{u}) \), then \( F'(t) = 2\overline{c}\cdot\overline{u}+2t\|\overline{u}\|^2 \) and \( F'(0) = f'(\overline{c},\overline{u}) = 2\overline{c}\cdot\overline{u} \)
-	\item Let \(f\) be linear, then \( f'(\overline{c},\overline{u}) = f(\overline{u}) \)
+	Thus \( D_k f(\bar{c}) = \left(D_k f_1(\bar{c}),D_k f_2(\bar{c}),\dotsc,D_k f_m(\bar{c}) \right) \) holds.
+	\item Let \( F(t) = f(\bar{c}+t\bar{u}) \), then \( F'(0) = f'(\bar{c},\bar{u}) \) and \( F'(t) = f'(\bar{c}+t\bar{u},\bar{u}) \)
+	\item Let \( f(\bar{c}) = \bar{c} \cdot \bar{c} = \|\bar{c}\|^2 \), and \(F(t) = f(\bar{c}+t\bar{u}) \), then \( F'(t) = 2\bar{c} \cdot \bar{u}+2t\|\bar{u}\|^2 \) and \( F'(0) = f'(\bar{c},\bar{u}) = 2\bar{c} \cdot \bar{u} \)
+	\item Let \(f\) be linear, then \( f'(\bar{c},\bar{u}) = f(\bar{u}) \)
 	\item Existence of all partial derivatives doesn't imply existence of all directional derivatives.
 	\[ f(x,y) = \begin{cases} x+y \qquad \text{ if } x = 0 \text{ or } y = 0 \\ 1 \qquad \qquad \text{otherwise} \end{cases} \]
 	For above \(f\), directional derivatives exists only along the co\nobreakdash-ordinates (ie, partial derivatives).
@@ -436,99 +436,99 @@ ie, \( T_c(ah_1+bh_2) = aT_c(h_1)+bT_c(h_2) \).
 Now, we will define a total derivative of multivariate function that has these two properties.
 
 \begin{definition}[Total Derivative]
-The function \( f: \mathbb{R}^n \to \mathbb{R}^m \) is differentiable at $\overline{c}$ if there exists a \textbf{linear} function \( T_{\overline{c}} : \mathbb{R}^n \to \mathbb{R}^m \) such that \( f(\overline{c}+\overline{v}) = f(\overline{c}) + T_{\overline{c}}(\overline{v}) + \|\overline{v}\| E_{\overline{c}}(\overline{v}) \) where \( E_{\overline{c}}(\overline{v}) \to \overline{0} \) as \( \overline{v} \to \overline{0} \).
+	The function \( f: \mathbb{R}^n \to \mathbb{R}^m \) is differentiable at $\bar{c}$ if there exists a \textbf{linear} function \( T_{\bar{c}} : \mathbb{R}^n \to \mathbb{R}^m \) such that \( f(\bar{c}+\bar{v}) = f(\bar{c}) + T_{\bar{c}}(\bar{v}) + \|\bar{v}\| E_{\bar{c}}(\bar{v}) \) where \( E_{\bar{c}}(\bar{v}) \to \bar{0} \) as \( \bar{v} \to \bar{0} \).
 \end{definition}
 
-The linear function $T_{\overline{c}}$ is the total derivative of $f$ at $\overline{c}$, \( T_{\overline{c}}(\overline{0}) = \overline{0} \) and the condition above gives the First Order Taylor's Formula for \( f(\overline{c}+\overline{v})-f(\overline{c}) \).
+The linear function $T_{\bar{c}}$ is the total derivative of $f$ at $\bar{c}$, \( T_{\bar{c}}(\bar{0}) = \bar{0} \) and the condition above gives the First Order Taylor's Formula for \( f(\bar{c}+\bar{v})-f(\bar{c}) \).
 
-\begin{remark}[Properties] Let \( f : \mathbb{R}^n \to \mathbb{R}^m \) and \( f'(\overline{c})(\overline{v}) = T_{\overline{c}}(\overline{v}) \) be the total derivative of $f$ at $\overline{c}$ evaluated at $\overline{v}$.
+\begin{remark}[Properties] Let \( f : \mathbb{R}^n \to \mathbb{R}^m \) and \( f'(\bar{c})(\bar{v}) = T_{\bar{c}}(\bar{v}) \) be the total derivative of $f$ at $\bar{c}$ evaluated at $\bar{v}$.
 Then, 
 \begin{enumerate}
-	\item \( f'(\overline{c})(\overline{v}) = f'(\overline{c},\overline{u}) \)
-	\item If $f$ is differentiable at $\overline{c}$, then $f$ is continuous at $\overline{c}$.
-	\item \( f'(\overline{c})(\overline{v}) = v_1 D_1 f(\overline{c}) + v_2 D_2 f(\overline{c}) + \dots + v_n D_n f(\overline{c}) \)
+	\item \( f'(\bar{c})(\bar{v}) = f'(\bar{c},\bar{u}) \)
+	\item If $f$ is differentiable at $\bar{c}$, then $f$ is continuous at $\bar{c}$.
+	\item \( f'(\bar{c})(\bar{v}) = v_1 D_1 f(\bar{c}) + v_2 D_2 f(\bar{c}) + \dots + v_n D_n f(\bar{c}) \)
 	\end{enumerate}
 \end{remark}
 
 \begin{note}
 The above $f'$ is a function from $\mathbb{R}^n$ to the set of all linear functions \( \mathscr{L} = \{ h : \mathbb{R}^n \to \mathbb{R}^m\} \).
-$f'(\overline{c})$ is a linear function (in fact, total derivative $T_{\overline{c}}$) which maps $\overline{v}$ into the directional derivatives of $f$ at $\overline{c}$ in the direction $\overline{v}$.
+$f'(\bar{c})$ is a linear function (in fact, total derivative $T_{\bar{c}}$) which maps $\bar{v}$ into the directional derivatives of $f$ at $\bar{c}$ in the direction $\bar{v}$.
 This notation generalises $f'$ for univariate $f$ as well.(put $n=m=1$)
 
 In this subject, we use the following notations,
 \begin{description}
-	\item[$D_kf(\overline{c})$] partial derivative
-	\item[$f'(\overline{c},\overline{v})$] directional derivative
-	\item[$f'(\overline{c})(\overline{v})$] total derivative
-	\item[$\nabla{}f(\overline{c})$] gradient vector
+	\item[$D_kf(\bar{c})$] partial derivative
+	\item[$f'(\bar{c},\bar{v})$] directional derivative
+	\item[$f'(\bar{c})(\bar{v})$] total derivative
+	\item[$\nabla{}f(\bar{c})$] gradient vector
 \end{description}
 \end{note}
 
 \begin{theorem}
-If $f$ is differentiable at $\overline{c}$ with total derivative $T_{\overline{c}}$, then for every $\overline{u} \in \mathbb{R}^n$, $T_{\overline{c}}(\overline{u}) = f'(\overline{c},\overline{u})$.
-( ie, \( f'(\overline{c})(\overline{v}) = f'(\overline{c},\overline{v}) \) )
+If $f$ is differentiable at $\bar{c}$ with total derivative $T_{\bar{c}}$, then for every $\bar{u} \in \mathbb{R}^n$, $T_{\bar{c}}(\bar{u}) = f'(\bar{c},\bar{u})$.
+( ie, \( f'(\bar{c})(\bar{v}) = f'(\bar{c},\bar{v}) \) )
 \end{theorem}
 \begin{proof}
-For \( \overline{v} = \overline{0}$, we have $T_{\overline{c}}(\overline{0}) = 0 = f'(\overline{c},\overline{0}) \).
+For \( \bar{v} = \bar{0}$, we have $T_{\bar{c}}(\bar{0}) = 0 = f'(\bar{c},\bar{0}) \).
 
-Suppose \( \overline{v} \ne \overline{0} \), then put \( \overline{v} = h\overline{u} \).
-Since $f$ is differentiable at $\overline{c}$, $f$ has total derivative at $\overline{c}$.
-That is, there exists a linear function $T_{\overline{c}}$ such that \( f(\overline{c}+h\overline{u}) = f(\overline{c}) + T_{\overline{c}}(h\overline{u}) + \|h\overline{u}\|E_{\overline{c}} (h\overline{u}) \) where $E_{\overline{c}}(h\overline{u}) \to \overline{0}$ as $h\overline{u} \to \overline{0}$.
+Suppose \( \bar{v} \ne \bar{0} \), then put \( \bar{v} = h\bar{u} \).
+Since $f$ is differentiable at $\bar{c}$, $f$ has total derivative at $\bar{c}$.
+That is, there exists a linear function $T_{\bar{c}}$ such that \( f(\bar{c}+h\bar{u}) = f(\bar{c}) + T_{\bar{c}}(h\bar{u}) + \|h\bar{u}\|E_{\bar{c}} (h\bar{u}) \) where $E_{\bar{c}}(h\bar{u}) \to \bar{0}$ as $h\bar{u} \to \bar{0}$.
 \begin{align*}
-	\implies  & f(\overline{c}+h\overline{u}) = f(\overline{c}) + hT_{\overline{c}}(\overline{u}) + |h|\|\overline{u}\|E_{\overline{c}} (h\overline{u}),\ E_{\overline{c}}(h\overline{u}) \to \overline{0} \text{ as } h\overline{u} \to \overline{0} \\
-	\implies  & \frac{f(\overline{c}+h\overline{u}) - f(\overline{c})}{h} = T_{\overline{c}}(\overline{u}) + \frac{|h|\|\overline{u}\|E_{\overline{c}}(h\overline{u})}{h},\  E_{\overline{c}}(h\overline{u}) \to \overline{0} \text{ as } h \to 0 \\
-	\implies  & \lim_{h \to 0} \frac{f(\overline{c}+h\overline{u}) - f(\overline{c})}{h} = T_{\overline{c}}(\overline{u}) + \lim_{h \to 0} \frac{|h|\|\overline{u}\|E_{\overline{c}}(h\overline{u})}{h} \\
-	\implies & f'(\overline{c},\overline{u}) = T_{\overline{c}}(\overline{u})
+	\implies  & f(\bar{c}+h\bar{u}) = f(\bar{c}) + hT_{\bar{c}}(\bar{u}) + |h|\|\bar{u}\|E_{\bar{c}} (h\bar{u}),\ E_{\bar{c}}(h\bar{u}) \to \bar{0} \text{ as } h\bar{u} \to \bar{0} \\
+	\implies  & \frac{f(\bar{c}+h\bar{u}) - f(\bar{c})}{h} = T_{\bar{c}}(\bar{u}) + \frac{|h|\|\bar{u}\|E_{\bar{c}}(h\bar{u})}{h},\  E_{\bar{c}}(h\bar{u}) \to \bar{0} \text{ as } h \to 0 \\
+	\implies  & \lim_{h \to 0} \frac{f(\bar{c}+h\bar{u}) - f(\bar{c})}{h} = T_{\bar{c}}(\bar{u}) + \lim_{h \to 0} \frac{|h|\|\bar{u}\|E_{\bar{c}}(h\bar{u})}{h} \\
+	\implies & f'(\bar{c},\bar{u}) = T_{\bar{c}}(\bar{u})
 \end{align*}
 \end{proof}
 
 \begin{note}
-$T_{\overline{c}}$ is linear, however $E_{\overline{c}}$ is not linear.
-Thus $E_{\overline{c}}(h\overline{u}) \ne h E_{\overline{c}} (\overline{u})$.
+$T_{\bar{c}}$ is linear, however $E_{\bar{c}}$ is not linear.
+Thus $E_{\bar{c}}(h\bar{u}) \ne h E_{\bar{c}} (\bar{u})$.
 
-As $h \to 0$, $h\overline{u} \to \overline{0}$ and \( E_{\overline{c}}(h\overline{u}) \to \overline{0}$.
-Since the order of the function \( E_{\overline{c}}(h\overline{u}) \) is much smaller than that of $h$, the limit on the right converges to 0.
+As $h \to 0$, $h\bar{u} \to \bar{0}$ and \( E_{\bar{c}}(h\bar{u}) \to \bar{0}$.
+Since the order of the function \( E_{\bar{c}}(h\bar{u}) \) is much smaller than that of $h$, the limit on the right converges to 0.
 \end{note}
 
 \begin{theorem}
-If $f$ is differentiable at \( \overline{c} \), then $f$ is continuous at \( \overline{c} \).
+If $f$ is differentiable at \( \bar{c} \), then $f$ is continuous at \( \bar{c} \).
 \end{theorem}
 \begin{proof}
-Let $\overline{v} \ne 0$, then
+Let $\bar{v} \ne 0$, then
 \begin{align*}
-	\overline{v} = v_1 \overline{u_1} & + v_2 \overline{u_2} + \dots + v_n \overline{u_n},\\
-	\overline{v} \to \overline{0} \implies & \forall j,\ v_j \to 0 \\
-	T \text{ is linear }\implies & T_{\overline{c}} (\overline{v}) = v_1 T_{\overline{c}}(\overline{u_1}) + v_2 T_{\overline{c}}(\overline{u_2}) + \dots + v_n T_{\overline{c}}(\overline{u_n})\\
-	\text{Thus, } & T_{\overline{c}}(\overline{v}) \to \overline{0} \text{ as } \overline{v} \to 0
+	\bar{v} = v_1 \bar{u}_1 & + v_2 \bar{u}_2 + \dots + v_n \bar{u}_n,\\
+	\bar{v} \to \bar{0} \implies & \forall j,\ v_j \to 0 \\
+	T \text{ is linear }\implies & T_{\bar{c}} (\bar{v}) = v_1 T_{\bar{c}}(\bar{u}_1) + v_2 T_{\bar{c}}(\bar{u}_2) + \dots + v_n T_{\bar{c}}(\bar{u}_n)\\
+	\text{Thus, } & T_{\bar{c}}(\bar{v}) \to \bar{0} \text{ as } \bar{v} \to 0
 \end{align*}
-Since $f$ differentiable at \( \overline{c} \), there exists linear function $T_{\overline{c}}$ such that
+Since $f$ differentiable at \( \bar{c} \), there exists linear function $T_{\bar{c}}$ such that
 \begin{align*}
-	f(\overline{c}+\overline{v}) & =  f(\overline{c}) + T_{\overline{c}}(\overline{v}) + \|v\|E_{\overline{c}}(\overline{v}) \\
-	\implies & \lim_{\overline{v} \to \overline{0}} f(\overline{c}+\overline{v}) = f(\overline{c}) + \lim_{\overline{v} \to \overline{0}} T_{\overline{c}}(\overline{v}) + \lim_{\overline{v} \to \overline{0}} \|v\|E_{\overline{c}}(\overline{v})\\
-	\implies & \lim_{\overline{v} \to \overline{0}} f(\overline{c}+\overline{v}) = f(\overline{c})
+	f(\bar{c}+\bar{v}) & =  f(\bar{c}) + T_{\bar{c}}(\bar{v}) + \|v\|E_{\bar{c}}(\bar{v}) \\
+	\implies & \lim_{\bar{v} \to \bar{0}} f(\bar{c}+\bar{v}) = f(\bar{c}) + \lim_{\bar{v} \to \bar{0}} T_{\bar{c}}(\bar{v}) + \lim_{\bar{v} \to \bar{0}} \|v\|E_{\bar{c}}(\bar{v})\\
+	\implies & \lim_{\bar{v} \to \bar{0}} f(\bar{c}+\bar{v}) = f(\bar{c})
 \end{align*}
 \end{proof}
 
 \begin{theorem}
-Let $S \subset \mathbb{R}^n$ and $f : S \to \mathbb{R}^m$ be differentiable at an interior point $\overline{c}$ of $S$, where $S \subseteq \mathbb{R}^n$.
-If $\overline{v} = v_1\overline{u_1}+v_2\overline{u_2} + \cdots + v_n\overline{u_n}$, then
-\[ f'(\overline{c})(\overline{v}) = \sum_{k=1}^n v_k D_k f(\overline{c}) \]
-In particular, if $f$ is real-valued $(m = 1)$ we have, $f'(\overline{c})(\overline{v}) = \nabla{}f(\overline{c}).\overline{v}$
+Let $S \subset \mathbb{R}^n$ and $f : S \to \mathbb{R}^m$ be differentiable at an interior point $\bar{c}$ of $S$, where $S \subseteq \mathbb{R}^n$.
+If $\bar{v} = v_1\bar{u}_1+v_2\bar{u}_2 + \cdots + v_n\bar{u}_n$, then
+\[ f'(\bar{c})(\bar{v}) = \sum_{k=1}^n v_k D_k f(\bar{c}) \]
+In particular, if $f$ is real-valued $(m = 1)$ we have, $f'(\bar{c})(\bar{v}) = \nabla{}f(\bar{c}).\bar{v}$
 \end{theorem}
 \begin{proof}
-Suppose $f : S \to \mathbb{R}^m$ is differentiable at $\overline{c}$, then there exists a linear function $f'(\overline{c}) : S \to \mathbb{R}^m$ such that $f(\overline{c}+\overline{v}) = f(\overline{c}) + f'(\overline{c})(\overline{v}) + \|\overline{v}\| E_{\overline{c}}(\overline{c})$ where $E_{\overline{c}} \to \overline{0}$ as $\overline{v} \to \overline{0}$.
+Suppose $f : S \to \mathbb{R}^m$ is differentiable at $\bar{c}$, then there exists a linear function $f'(\bar{c}) : S \to \mathbb{R}^m$ such that $f(\bar{c}+\bar{v}) = f(\bar{c}) + f'(\bar{c})(\bar{v}) + \|\bar{v}\| E_{\bar{c}}(\bar{c})$ where $E_{\bar{c}} \to \bar{0}$ as $\bar{v} \to \bar{0}$.
 \begin{align*}
-	f'(\overline{c})(\overline{v}) & = f'(\overline{c})\left(\sum_{k=1}^n v_k \overline{u_k}\right)\\
-	& = \sum_{k=1}^n v_k f'(\overline{c})(\overline{u_k}), \text{ since $f'(\overline{c})$ is linear}\\
-	& = \sum_{k=1}^n v_k D_k f(\overline{c}), \text{ since $f'(\overline{c})(\overline{u_k}) = f'(\overline{c},\overline{u_k}) = D_k f(\overline{c})$}\\
+	f'(\bar{c})(\bar{v}) & = f'(\bar{c})\left(\sum_{k=1}^n v_k \bar{u}_k\right)\\
+	& = \sum_{k=1}^n v_k f'(\bar{c})(\bar{u}_k), \text{ since $f'(\bar{c})$ is linear}\\
+	& = \sum_{k=1}^n v_k D_k f(\bar{c}), \text{ since $f'(\bar{c})(\bar{u}_k) = f'(\bar{c},\bar{u}_k) = D_k f(\bar{c})$}\\
 	\intertext{Let $m = 1$, then $f : S \to \mathbb{R}$ }
-	f'(\overline{c})(\overline{v}) & = \sum_{k=1}^n v_k D_k f(\overline{c}) = \nabla{}f(\overline{c}).\overline{v}\\
-	& \text{ since } \nabla{}f(\overline{c}) = \left( D_1f(\overline{c}),\ D_2f(\overline{c}),\ \cdots ,\ D_nf(\overline{c}) \right)
+	f'(\bar{c})(\bar{v}) & = \sum_{k=1}^n v_k D_k f(\bar{c}) = \nabla{}f(\bar{c}).\bar{v}\\
+	& \text{ since } \nabla{}f(\bar{c}) = \left( D_1f(\bar{c}),\ D_2f(\bar{c}),\ \cdots ,\ D_nf(\bar{c}) \right)
 \end{align*}
 \end{proof}
 
 \begin{remark}
-Let $f : S \to \mathbb{R}$, then $f(\overline{c} +\overline{v}) = f (\overline{c}) + \nabla{}f(\overline{c}).\overline{v} + o(\|\overline{v}\|)$ as $\overline{v} \to \overline{0}$.
+Let $f : S \to \mathbb{R}$, then $f(\bar{c} +\bar{v}) = f (\bar{c}) + \nabla{}f(\bar{c}).\bar{v} + o(\|\bar{v}\|)$ as $\bar{v} \to \bar{0}$.
 \end{remark}
 
 \begin{remark}[Complex-valued Functions]
@@ -536,32 +536,32 @@ Let $f : S \to \mathbb{R}$, then $f(\overline{c} +\overline{v}) = f (\overline{c
 
 \subsection{Matrix of Linear Function}
 Let $T : \mathbb{R}^n \to \mathbb{R}^m$ be a linear function.
-Let $\{\overline{u_1},\ \overline{u_2},\ \cdots,\ \overline{u_n}\}$ be standard basis for $\mathbb{R}^n$ and  $\{\overline{e_1},\ \overline{e_2},\ \cdots,\ \overline{e_m}\}$ be standard basis for $\mathbb{R}^m$.
-Let $\overline{v} \in \mathbb{R}^n$, then $\overline{v} = \sum_{k=1}^n v_k\overline{u_k}$ and $T(\overline{v}) = \sum_{k=1}^n v_k T(\overline{u_k})$ and
+Let $\{\bar{u}_1,\ \bar{u}_2,\ \cdots,\ \bar{u}_n\}$ be standard basis for $\mathbb{R}^n$ and  $\{\bar{e}_1,\ \bar{e}_2,\ \cdots,\ \bar{e}_m\}$ be standard basis for $\mathbb{R}^m$.
+Let $\bar{v} \in \mathbb{R}^n$, then $\bar{v} = \sum_{k=1}^n v_k\bar{u}_k$ and $T(\bar{v}) = \sum_{k=1}^n v_k T(\bar{u}_k)$ and
 \begin{commentary}
 \begin{align*}
-	T(\overline{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} T(\overline{u_1}) \\ T(\overline{u_2}) \\ \cdots \\ T(\overline{u_n}) \end{bmatrix} \\
-	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}\overline{e_1}+t_{21}\overline{e_2}+\cdots+t_{m1}\overline{e_m} \\ t_{12}\overline{e_1}+t_{22}\overline{e_2}+\cdots+t_{m2}\overline{e_m} \\ \cdots \\ t_{1n}\overline{e_1}+t_{2n}\overline{e_2}+\cdots+t_{mn}\overline{e_m} \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} \overline{e_1} \\ \overline{e_2} \\ \cdots \\ \overline{e_m} \end{bmatrix} \\
+	T(\bar{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} T(\bar{u}_1) \\ T(\bar{u}_2) \\ \cdots \\ T(\bar{u}_n) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}\bar{e}_1+t_{21}\bar{e}_2+\cdots+t_{m1}\bar{e}_m \\ t_{12}\bar{e}_1+t_{22}\bar{e}_2+\cdots+t_{m2}\bar{e}_m \\ \cdots \\ t_{1n}\bar{e}_1+t_{2n}\bar{e}_2+\cdots+t_{mn}\bar{e}_m \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} \bar{e}_1 \\ \bar{e}_2 \\ \cdots \\ \bar{e}_m \end{bmatrix} \\
 	\intertext{ We may take the transpose,}
-	T(\overline{v}) & = \begin{bmatrix} \overline{e_1} & \overline{e_2} & \cdots & \overline{e_m} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
+	T(\bar{v}) & = \begin{bmatrix} \bar{e}_1 & \bar{e}_2 & \cdots & \bar{e}_m \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
 \end{align*}
 \end{commentary}
-\[ T(\overline{v}) = T \left( \sum_{k=1}^n v_k \overline{u_k} \right) = \sum_{k=1}^n v_k T(\overline{u_k}) = \sum_{k=1}^n v_n \sum_{j=1}^m t_{kj}\overline{e_j} \]
-Thus matrix of $T$ is given by, $m(T) = (t_{ik})$ where $T(\overline{u_k}) = \sum_{k=1}^n t_{ik}\overline{e_i}$.
+\[ T(\bar{v}) = T \left( \sum_{k=1}^n v_k \bar{u}_k \right) = \sum_{k=1}^n v_k T(\bar{u}_k) = \sum_{k=1}^n v_n \sum_{j=1}^m t_{kj}\bar{e}_j \]
+Thus matrix of $T$ is given by, $m(T) = (t_{ik})$ where $T(\bar{u}_k) = \sum_{k=1}^n t_{ik}\bar{e}_i$.
 \begin{commentary}
 \begin{remark}[Example]
 Let $T : \mathbb{R}^3 \to \mathbb{R}^2$ defined by $T(x,y,z)=(2x+y,y-z)$.
 \begin{align*}
 	T(1,2,3) = & T((1,0,0) + 2(0,1,0) + 3(0,0,1)) \\
-	= & T(\overline{u_1}+2\overline{u_2}+3\overline{u_3}) \\
-	= & T(\overline{u_1}) + 2T(\overline{u_2}) + 3T(\overline{u_3}) \\
-	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} T(\overline{u_1}) \\ T(\overline{u_2}) \\ T(\overline{u_3}) \end{bmatrix} \\
+	= & T(\bar{u}_1+2\bar{u}_2+3\bar{u}_3) \\
+	= & T(\bar{u}_1) + 2T(\bar{u}_2) + 3T(\bar{u}_3) \\
+	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} T(\bar{u}_1) \\ T(\bar{u}_2) \\ T(\bar{u}_3) \end{bmatrix} \\
 	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} (2,0) \\ (1,1) \\ (0,-1) \end{bmatrix} \\
 	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2(1,0) \\ (1,0)+(0,1) \\ -1(0,1) \end{bmatrix} \\
-	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2\overline{e_1} \\ \overline{e_1}+\overline{e_2} \\ -\overline{e_2} \end{bmatrix} \\
-	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ 1 & 1 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} \overline{e_1} \\ \overline{e_2} \end{bmatrix} \\
-	= & 4\overline{e_1}-\overline{e_2} = 4(1,0) - 1(0,1) = (4,-1)
+	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2\bar{e}_1 \\ \bar{e}_1+\bar{e}_2 \\ -\bar{e}_2 \end{bmatrix} \\
+	= & \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 2 & 0 \\ 1 & 1 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} \bar{e}_1 \\ \bar{e}_2 \end{bmatrix} \\
+	= & 4\bar{e}_1-\bar{e}_2 = 4(1,0) - 1(0,1) = (4,-1)
 \end{align*}
 \[ \text{ In the above case, }m(T) = \begin{bmatrix} 2 & 0 \\ 1 & 1\\ 0 & -1 \end{bmatrix}\]
 Using the matrix of linear function $m(T)$, we can compute the image of any point in $R^3$ by matrix multiplication.
@@ -571,24 +571,24 @@ Using the matrix of linear function $m(T)$, we can compute the image of any poin
 \subsubsection{Matrix of the composition of two linear functions}
 Let $T : \mathbb{R}^n \to \mathbb{R}^m$ and $S : \mathbb{R}^m \to \mathbb{R}^p$ be two linear functions with domain of $S$ containing the range of $T$ (so that $S \circ T$ is well defined).
 Then $S \circ T : \mathbb{R}^n \to \mathbb{R}^p$ is defined by
-\[ S \circ T(\overline{x}) = S(T(\overline{x})),\ \forall \overline{x} \in \mathbb{R}^n\]
+\[ S \circ T(\bar{x}) = S(T(\bar{x})),\ \forall \bar{x} \in \mathbb{R}^n\]
 Since $S,T$ are linear, $S \circ T$ is also linear.
 \begin{align*}
-	S \circ T(a \overline{x} + b \overline{y}) = & S(T(a \overline{x} + b\overline{y})) = S(a T(\overline{x}) + b T(\overline{y})) = a S(T(\overline{x}))) + b S(T(\overline{y})) \\
-	= & a S \circ T(\overline{x}) + b S \circ T(\overline{y}),\ \forall a,b \in \mathbb{R},\ \forall \overline{x},\overline{y} \in \mathbb{R}^n
+	S \circ T(a \bar{x} + b \bar{y}) = & S(T(a \bar{x} + b\bar{y})) = S(a T(\bar{x}) + b T(\bar{y})) = a S(T(\bar{x}))) + b S(T(\bar{y})) \\
+	= & a S \circ T(\bar{x}) + b S \circ T(\bar{y}),\ \forall a,b \in \mathbb{R},\ \forall \bar{x},\bar{y} \in \mathbb{R}^n
 \end{align*}
-Let $\{\overline{u_1},\overline{u_2},\cdots,\overline{u_n}\}$ be the standards basis for $\mathbb{R}^n$, $\{\overline{e_1},\overline{e_2},\cdots,\overline{e_m}\}$ be the standards basis for $\mathbb{R}^m$ and $\{\overline{w_1},\overline{w_2},\cdots,\overline{w_p}\}$ be the standards basis for $\mathbb{R}^p$.
-Let $\overline{v} \in \mathbb{R}^n$, then $\overline(v) = \sum_{i=1}^n v_i\overline{u_i}$, and $S \circ T(\overline{v})=\sum_{i=1}^n v_n S \circ T(\overline{u_i})$
+Let $\{\bar{u}_1,\bar{u}_2,\cdots,\bar{u}_n\}$ be the standards basis for $\mathbb{R}^n$, $\{\bar{e}_1,\bar{e}_2,\cdots,\bar{e}_m\}$ be the standards basis for $\mathbb{R}^m$ and $\{\bar{w}_1,\bar{w}_2,\cdots,\bar{w}_p\}$ be the standards basis for $\mathbb{R}^p$.
+Let $\bar{v} \in \mathbb{R}^n$, then $\bar(v) = \sum_{i=1}^n v_i\bar{u}_i$, and $S \circ T(\bar{v})=\sum_{i=1}^n v_n S \circ T(\bar{u}_i)$
 \begin{commentary}
 \begin{align*}
-	S \circ T(\overline{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} S \circ T(\overline{u_1}) \\ S \circ T(\overline{u_2}) \\ \cdots \\ S \circ T(\overline{u_n}) \end{bmatrix} \\
-	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} S(t_{11}\overline{e_1} + \cdots + t_{m1}\overline{e_m}) \\ S(t_{12}\overline{e_1} + \cdots + t_{m2}\overline{e_m}) \\ \cdots \\ S(t_{1n}\overline{e_1} + \cdots + t_{mn}\overline{e_m}) \end{bmatrix} \\
-	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}S(\overline{e_1}) + \cdots + t_{m1}S(\overline{e_m}) \\ t_{12}S(\overline{e_1}) + \cdots + t_{m2}S(\overline{e_m}) \\ \cdots \\ t_{n1}S(\overline{e_1}) + \cdots + t_{mn}S(\overline{e_m}) \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} S(\overline{e_1}) \\ S(\overline{e_2}) \\ \cdots \\ S(\overline{e_m}) \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11}\overline{w_1}+s_{12}\overline{w_2}+\cdots+s_{1p}\overline{w_p} \\ s_{12}\overline{w_1}+s_{22}\overline{w_2}+\cdots+s_{p2}\overline{w_p} \\ \cdots \\ s_{1m}\overline{w_1}+ s_{2m}\overline{w_2}+\cdots+s_{pm}\overline{w_p} \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11} & s_{21} & \cdots & s_{p1} \\ s_{12} & s_{22} & \cdots & s_{p2} \\ \vdots & \vdots & \ddots & \vdots \\ s_{1m} & s_{2m} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} \overline{w_1} \\ \overline{w_2} \\ \vdots \\ \overline{w_p} \end{bmatrix}\\
+	S \circ T(\bar{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} S \circ T(\bar{u}_1) \\ S \circ T(\bar{u}_2) \\ \cdots \\ S \circ T(\bar{u}_n) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} S(t_{11}\bar{e}_1 + \cdots + t_{m1}\bar{e}_m) \\ S(t_{12}\bar{e}_1 + \cdots + t_{m2}\bar{e}_m) \\ \cdots \\ S(t_{1n}\bar{e}_1 + \cdots + t_{mn}\bar{e}_m) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}S(\bar{e}_1) + \cdots + t_{m1}S(\bar{e}_m) \\ t_{12}S(\bar{e}_1) + \cdots + t_{m2}S(\bar{e}_m) \\ \cdots \\ t_{n1}S(\bar{e}_1) + \cdots + t_{mn}S(\bar{e}_m) \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} S(\bar{e}_1) \\ S(\bar{e}_2) \\ \cdots \\ S(\bar{e}_m) \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11}\bar{w}_1+s_{12}\bar{w}_2+\cdots+s_{1p}\bar{w}_p \\ s_{12}\bar{w}_1+s_{22}\bar{w}_2+\cdots+s_{p2}\bar{w}_p \\ \cdots \\ s_{1m}\bar{w}_1+ s_{2m}\bar{w}_2+\cdots+s_{pm}\bar{w}_p \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11} & s_{21} & \cdots & s_{p1} \\ s_{12} & s_{22} & \cdots & s_{p2} \\ \vdots & \vdots & \ddots & \vdots \\ s_{1m} & s_{2m} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} \bar{w}_1 \\ \bar{w}_2 \\ \vdots \\ \bar{w}_p \end{bmatrix}\\
 	\intertext{We may take transpose,}
-	S \circ T(\overline{v}) & = \begin{bmatrix} \overline{w_1} & \overline{w_2} & \vdots & \overline{w_p} \end{bmatrix} \begin{bmatrix} s_{11} & s_{12} & \cdots & s_{1m} \\ s_{21} & s_{22} & \cdots & s_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ s_{p1} & s_{p2} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
+	S \circ T(\bar{v}) & = \begin{bmatrix} \bar{w}_1 & \bar{w}_2 & \vdots & \bar{w}_p \end{bmatrix} \begin{bmatrix} s_{11} & s_{12} & \cdots & s_{1m} \\ s_{21} & s_{22} & \cdots & s_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ s_{p1} & s_{p2} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
 \end{align*}
 Remember : Given $T : \mathbb{R}^n \to \mathbb{R}^m$, then we may take $m(T)$ either as $m \times n$ matrix or $n \times m$ matrix.
 Since, we chose $m \times n$, $m(S \circ T) = m(S)m(T)$.
@@ -598,32 +598,32 @@ This may change for different authors.
 
 Suppose $m(S) = (s_{ij})$ and $m(T) = (t_{ij})$ respectively.
 Then
-\[ S(e_k) = \sum_{i=1}^p s_{ik} \overline{w_i},\ k=1,2,\cdots,m \text{ and }\]
-\[ T(u_j) = \sum_{k=1}^m t_{kj} \overline{e_k},\ j=1,2,\cdots,n \]
+\[ S(e_k) = \sum_{i=1}^p s_{ik} \bar{w}_i,\ k=1,2,\cdots,m \text{ and }\]
+\[ T(u_j) = \sum_{k=1}^m t_{kj} \bar{e}_k,\ j=1,2,\cdots,n \]
 \begin{align*}
-	(S \circ T)(\overline{u_j}) = & S(T(\overline{u_j})) = S\left(\sum_{k=1}^m t_{kj}\overline{e_k}\right) = \sum_{k=1}^m t_{kj}S(\overline{e_k}) \\ 
-	= & \sum_{k=1}^m t_{kj}\left( \sum_{i=1}^p s_{ik} \overline{w_i}\right) = \sum_{i=1}^p \left(\sum_{k=1}^m s_{ik}t_{kj}\right)\overline{w_i}
+	(S \circ T)(\bar{u}_j) = & S(T(\bar{u}_j)) = S\left(\sum_{k=1}^m t_{kj}\bar{e}_k\right) = \sum_{k=1}^m t_{kj}S(\bar{e}_k) \\ 
+	= & \sum_{k=1}^m t_{kj}\left( \sum_{i=1}^p s_{ik} \bar{w}_i\right) = \sum_{i=1}^p \left(\sum_{k=1}^m s_{ik}t_{kj}\right)\bar{w}_i
 \end{align*}
 Therefore, $m(S \circ T) = \sum_{k=1}^m s_{ik}t_{kj} = (s_{ik})(t_{kj}) =  m(S)m(T)$.
 
 \subsection{The Jacobian Matrix}
-Let $\overline{u_1}, \overline{u_2}, \cdots, \overline{u_n}$ be the unit co-ordinate vectors in $\mathbb{R}^n$ and $\overline{e_1}, \overline{e_2}, \cdots, \overline{e_m}$ be the unit co-ordinate vectors in $\mathbb{R}^m$.
-Let function $f : \mathbb{R}^n \to \mathbb{R}^m$ be differentiable at $\overline{c} \in \mathbb{R}^n$.
-Then there exists a linear function $T = f'(\overline{c}) : \mathbb{R}^n \to \mathbb{R}^m$ such that $f(\overline{c}+\overline{v}) = f(\overline{c})+f'(\overline{c})(\overline{v}) + \|\overline{v}\|+E_{\overline{c}}(\overline{v})$.
-We have, $T(\overline{u_k}) = f'(\overline{c})(\overline{u_k}) = f'(\overline{c},\overline{u_k}) = D_kf(\overline{c}) = D_k \sum_{i=1}^m f_i(\overline{c})\overline{e_i}$.
+Let $\bar{u}_1, \bar{u}_2, \cdots, \bar{u}_n$ be the unit co-ordinate vectors in $\mathbb{R}^n$ and $\bar{e}_1, \bar{e}_2, \cdots, \bar{e}_m$ be the unit co-ordinate vectors in $\mathbb{R}^m$.
+Let function $f : \mathbb{R}^n \to \mathbb{R}^m$ be differentiable at $\bar{c} \in \mathbb{R}^n$.
+Then there exists a linear function $T = f'(\bar{c}) : \mathbb{R}^n \to \mathbb{R}^m$ such that $f(\bar{c}+\bar{v}) = f(\bar{c})+f'(\bar{c})(\bar{v}) + \|\bar{v}\|+E_{\bar{c}}(\bar{v})$.
+We have, $T(\bar{u}_k) = f'(\bar{c})(\bar{u}_k) = f'(\bar{c},\bar{u}_k) = D_kf(\bar{c}) = D_k \sum_{i=1}^m f_i(\bar{c})\bar{e}_i$.
 
-Clearly, the matrix of total derivative $T$, $m(T) = (t_{ik}) = (D_k f_i(\overline{c}))$.
-This matrix is called Jacobian matrix of $f$ at $\overline{c}$ and is denoted by $Df(\overline{c})$.
-\[ Df(\overline{c}) = \begin{bmatrix} D_1 f_1(\overline{c}) & D_2 f_1(\overline{c}) & \cdots & D_n f_1(\overline{c}) \\ D_1 f_2(\overline{c}) & D_2 f_2(\overline{c}) & \cdots & D_n f_2(\overline{c}) \\ \vdots & \vdots & \ddots & \vdots \\ D_1 f_m(\overline{c}) & D_2 f_m(\overline{c}) & \cdots & D_n f_m(\overline{c}) \end{bmatrix} \]
+Clearly, the matrix of total derivative $T$, $m(T) = (t_{ik}) = (D_k f_i(\bar{c}))$.
+This matrix is called Jacobian matrix of $f$ at $\bar{c}$ and is denoted by $Df(\bar{c})$.
+\[ Df(\bar{c}) = \begin{bmatrix} D_1 f_1(\bar{c}) & D_2 f_1(\bar{c}) & \cdots & D_n f_1(\bar{c}) \\ D_1 f_2(\bar{c}) & D_2 f_2(\bar{c}) & \cdots & D_n f_2(\bar{c}) \\ \vdots & \vdots & \ddots & \vdots \\ D_1 f_m(\bar{c}) & D_2 f_m(\bar{c}) & \cdots & D_n f_m(\bar{c}) \end{bmatrix} \]
 
 \subsubsection{Properties of Jacobian matrix}
 \begin{enumerate}
-	\item $k$th row of $Df(\overline{c})$ is gradient vector of $f_k$
-		\[\nabla f_k(\overline{c}) = (D_1f_k(\overline{c}),D_2f_k(\overline{c}),\cdots,D_nf_k(\overline{c}))\]
-	\item When $m = 1$, $Df(\overline{c}) = \nabla f(\overline{c})$.
-	\item $f'(\overline{c})(\overline{v}) = \sum_{k=1}^m \left(\nabla f_k(\overline{c}) \cdot \overline{v}\right) \overline{e_k}$
-	\item $\|f'(\overline{c})(\overline{v})\| \le M\|v\|$ where $M = \sum_{k=1}^m \|\nabla f_k(\overline{c})\| $, by property (3)
-	\item $f'(\overline{c})(\overline{v}) \to \overline{0}$ as $\overline{v} \to \overline{0}$, by property (4)
+	\item $k$th row of $Df(\bar{c})$ is gradient vector of $f_k$
+		\[\nabla f_k(\bar{c}) = (D_1f_k(\bar{c}),D_2f_k(\bar{c}),\cdots,D_nf_k(\bar{c}))\]
+	\item When $m = 1$, $Df(\bar{c}) = \nabla f(\bar{c})$.
+	\item $f'(\bar{c})(\bar{v}) = \sum_{k=1}^m \left(\nabla f_k(\bar{c}) \cdot \bar{v}\right) \bar{e}_k$
+	\item $\|f'(\bar{c})(\bar{v})\| \le M\|v\|$ where $M = \sum_{k=1}^m \|\nabla f_k(\bar{c})\| $, by property (3)
+	\item $f'(\bar{c})(\bar{v}) \to \bar{0}$ as $\bar{v} \to \bar{0}$, by property (4)
 \end{enumerate}
 
 \subsubsection{Chain Rule}
@@ -633,60 +633,60 @@ Chain Rule for real function : $\frac{d F \circ G}{dx}(x) = \frac{d}{dy}F(y) \fr
 For example : $\frac{d}{dx} (ax+3)^3 = \frac{d}{dy}y^3 \frac{d}{dx} \left(ax+3\right) = 3ay^2 = 3a(ax+3)^2$
 \end{commentary}
 \begin{theorem}
-Let $g$ be differentiable at $\overline{a}$, with total derivative $g'(\overline{a})$ and $\overline{b} = g(\overline{a})$.
-Let $f$ is differentiable at $\overline{b}$, with total derivative $f'(\overline{b})$.
-Then $h = f \circ g$ is differentiable at $\overline{a}$ with total derivative $h'(\overline{a}) = f'(\overline{b}) \circ g'(\overline{a})$.
+Let $g$ be differentiable at $\bar{a}$, with total derivative $g'(\bar{a})$ and $\bar{b} = g(\bar{a})$.
+Let $f$ is differentiable at $\bar{b}$, with total derivative $f'(\bar{b})$.
+Then $h = f \circ g$ is differentiable at $\bar{a}$ with total derivative $h'(\bar{a}) = f'(\bar{b}) \circ g'(\bar{a})$.
 \begin{commentary}
-Try to read $h'(\overline{a}) = H$, $f'(\overline{b}) = F$, $g'(\overline{a}) = G$, then $H = F \circ G \implies H(x) = F(G(x))$
-In other words, $h'(\overline{a})(\overline{v}) = f'(\overline{b}) \circ g'(\overline{a})\ (\overline{v}) = f'(\overline{b})(g'(\overline{a})(\overline{v}))$.
+Try to read $h'(\bar{a}) = H$, $f'(\bar{b}) = F$, $g'(\bar{a}) = G$, then $H = F \circ G \implies H(x) = F(G(x))$
+In other words, $h'(\bar{a})(\bar{v}) = f'(\bar{b}) \circ g'(\bar{a})\ (\bar{v}) = f'(\bar{b})(g'(\bar{a})(\bar{v}))$.
 \end{commentary}
 \end{theorem}
 \begin{proof}
 Given $\epsilon > 0$, let $y \in \mathbb{R}^p$ such that $\|y\| < \epsilon$.
 Let $f : \mathbb{R}^n \to \mathbb{R}^m$ and $g : \mathbb{R}^p \to \mathbb{R}^n$, then $h = f \circ g : \mathbb{R}^p \to \mathbb{R}^m$.
 
-We have, $h(\overline{a}+\overline{y})-h(\overline{a}) = f(g(\overline{a}+\overline{y})) - f(g(\overline{a})) = f(\overline{b}+\overline{v}) - f(\overline{b})$ where $\overline{b} = g(\overline{a})$, and  $\overline{v} = g(\overline{a}+\overline{y})-g(\overline{a})$.
+We have, $h(\bar{a}+\bar{y})-h(\bar{a}) = f(g(\bar{a}+\bar{y})) - f(g(\bar{a})) = f(\bar{b}+\bar{v}) - f(\bar{b})$ where $\bar{b} = g(\bar{a})$, and  $\bar{v} = g(\bar{a}+\bar{y})-g(\bar{a})$.
 
-Since $g$ is differentiable at $\overline{a}$, $g$ satisfies first-order Taylor's formula.
+Since $g$ is differentiable at $\bar{a}$, $g$ satisfies first-order Taylor's formula.
 \begin{align*}
-	g(\overline{a}+\overline{y}) & =  g(\overline{a}) + g'(\overline{a})(\overline{y}) + \|\overline{y}\| E_{\overline{a}}(\overline{y}) \text{ where } E_{\overline{a}} \to \overline{0} \text{ as } \overline{y} \to \overline{0} \\
-	\implies & \overline{v} = g(\overline{a}+\overline{y})-g(\overline{a}) = g'(\overline{a})(\overline{y}) + \|\overline{y}\| E_{\overline{a}}(\overline{y})
+	g(\bar{a}+\bar{y}) & =  g(\bar{a}) + g'(\bar{a})(\bar{y}) + \|\bar{y}\| E_{\bar{a}}(\bar{y}) \text{ where } E_{\bar{a}} \to \bar{0} \text{ as } \bar{y} \to \bar{0} \\
+	\implies & \bar{v} = g(\bar{a}+\bar{y})-g(\bar{a}) = g'(\bar{a})(\bar{y}) + \|\bar{y}\| E_{\bar{a}}(\bar{y})
 \end{align*}
-Clearly, as $\overline{y} \to \overline{0} \implies \overline{v} \to g'(\overline{a})(\overline{0}) = \overline{0}$.
-Again,  we have $f$ is differentiable at $\overline{b}$, thus $f$ satisfies first-order Taylor's formula.
-\[ f(\overline{b}+\overline{v}) = f(\overline{b}) + f'(\overline{b})(\overline{v}) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \text{ where } E_{\overline{b}} \to \overline{0} \text{ as } \overline{v} \to \overline{0} \]
+Clearly, as $\bar{y} \to \bar{0} \implies \bar{v} \to g'(\bar{a})(\bar{0}) = \bar{0}$.
+Again,  we have $f$ is differentiable at $\bar{b}$, thus $f$ satisfies first-order Taylor's formula.
+\[ f(\bar{b}+\bar{v}) = f(\bar{b}) + f'(\bar{b})(\bar{v}) + \|\bar{v}\| E_{\bar{b}}(\bar{v}) \text{ where } E_{\bar{b}} \to \bar{0} \text{ as } \bar{v} \to \bar{0} \]
 \begin{align*}
-	\implies f(\overline{b}+\overline{v}) - f(\overline{b}) & = f'(\overline{b})(\overline{v}) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \\
-	& = f'(\overline{b})\left( g'(\overline{a})(\overline{y}) + \|\overline{y}\|E_{\overline{a}}(\overline{y}) \right) + \|\overline{v}\| E_{\overline{b}}(\overline{v}) \\
-	& = f'(\overline{b})(g'(\overline{a})(\overline{y})) + \|\overline{y}\| E(\overline{y}) \\
-	& \text{ where } E(\overline{y}) = f'(\overline{b})(E_{\overline{a}}(\overline{y})) + \frac{\|\overline{v}\|}{\|\overline{y}\|} E_{\overline{b}}(\overline{v}),\ \overline{y} \ne \overline{0}
+	\implies f(\bar{b}+\bar{v}) - f(\bar{b}) & = f'(\bar{b})(\bar{v}) + \|\bar{v}\| E_{\bar{b}}(\bar{v}) \\
+	& = f'(\bar{b})\left( g'(\bar{a})(\bar{y}) + \|\bar{y}\|E_{\bar{a}}(\bar{y}) \right) + \|\bar{v}\| E_{\bar{b}}(\bar{v}) \\
+	& = f'(\bar{b})(g'(\bar{a})(\bar{y})) + \|\bar{y}\| E(\bar{y}) \\
+	& \text{ where } E(\bar{y}) = f'(\bar{b})(E_{\bar{a}}(\bar{y})) + \frac{\|\bar{v}\|}{\|\bar{y}\|} E_{\bar{b}}(\bar{v}),\ \bar{y} \ne \bar{0}
 \end{align*}
-\[ \implies h(\overline{a}+\overline{y})-h(\overline{a}) = f(\overline{b}+\overline{v}) - f(\overline{b}) = f'(\overline{b})(g'(\overline{a})(\overline{y})) + \|\overline{y}\|E(\overline{y}) \]
+\[ \implies h(\bar{a}+\bar{y})-h(\bar{a}) = f(\bar{b}+\bar{v}) - f(\bar{b}) = f'(\bar{b})(g'(\bar{a})(\bar{y})) + \|\bar{y}\|E(\bar{y}) \]
 
-Since $f'(\overline{b})$ and $g'(\overline{a})$ are linear, their composition is also linear.
-Therefore, $h$ is differentiable at $\overline{a}$ with a linear, total derivative $h'(\overline{a}) = f'(\overline{b}) \circ g'(\overline{a})$ as it satisfies first-order Taylor's formula if $E_{\overline{y}} \to \overline{0}$ as $\overline{y} \to \overline{0}$.
+Since $f'(\bar{b})$ and $g'(\bar{a})$ are linear, their composition is also linear.
+Therefore, $h$ is differentiable at $\bar{a}$ with a linear, total derivative $h'(\bar{a}) = f'(\bar{b}) \circ g'(\bar{a})$ as it satisfies first-order Taylor's formula if $E_{\bar{y}} \to \bar{0}$ as $\bar{y} \to \bar{0}$.
 
-We have, $\|\overline{v}\| \le \|g'(\overline{a})(\overline{y})\| + \|\overline{y}\|\ \|E_{\overline{a}}(\overline{y})\| \le M\|y\| + \|E_{\overline{a}}(\overline{y})\|\ \|\overline{y}\|$.
-\[ \implies \frac{\|\overline{v}\|}{\|\overline{y}\|} \le M + \|E_{\overline{a}}(\overline{y})\| \]
+We have, $\|\bar{v}\| \le \|g'(\bar{a})(\bar{y})\| + \|\bar{y}\|\ \|E_{\bar{a}}(\bar{y})\| \le M\|y\| + \|E_{\bar{a}}(\bar{y})\|\ \|\bar{y}\|$.
+\[ \implies \frac{\|\bar{v}\|}{\|\bar{y}\|} \le M + \|E_{\bar{a}}(\bar{y})\| \]
 
-Thus, $\overline{v} \to \overline{0}$ as $\overline{y} \to \overline{0}$.
-Then $f'(\overline{b})(\overline{v}) \to f'(\overline{b})(\overline{0}) = \overline{0}$.
-And $E_{\overline{a}}(\overline{y}) \to \overline{0}$.
-Therefore, $E(\overline{y}) \to \overline{0} + M\overline{0} = \overline{0}$ as $\overline{y} \to \overline{0}$.
+Thus, $\bar{v} \to \bar{0}$ as $\bar{y} \to \bar{0}$.
+Then $f'(\bar{b})(\bar{v}) \to f'(\bar{b})(\bar{0}) = \bar{0}$.
+And $E_{\bar{a}}(\bar{y}) \to \bar{0}$.
+Therefore, $E(\bar{y}) \to \bar{0} + M\bar{0} = \bar{0}$ as $\bar{y} \to \bar{0}$.
 \end{proof}
 
 \subsubsection{Matrix form of the chain rule}
 Let $f : \mathbb{R}^n \to \mathbb{R}^m$, $g : \mathbb{R}^p \to \mathbb{R}^n$.
 And $h = f \circ g : \mathbb{R}^p \to \mathbb{R}^m$.
-Suppose $g$ is differentiable at $\overline{a} \in \mathbb{R}^p$ and $f$ is differentiable at $g(\overline{a}) = \overline{b} \in \mathbb{R}^n$.
-Then $h$ is differentiable at $\overline{a}$ and the Jacobian matrix of $h$ is given by the chain rule,
-\[ Dh(\overline{a}) = Df(\overline{b})Dg(\overline{a}) \text{ where } h = f \circ g,\ \overline{b} = g(\overline{a})\]
+Suppose $g$ is differentiable at $\bar{a} \in \mathbb{R}^p$ and $f$ is differentiable at $g(\bar{a}) = \bar{b} \in \mathbb{R}^n$.
+Then $h$ is differentiable at $\bar{a}$ and the Jacobian matrix of $h$ is given by the chain rule,
+\[ Dh(\bar{a}) = Df(\bar{b})Dg(\bar{a}) \text{ where } h = f \circ g,\ \bar{b} = g(\bar{a})\]
 In other words,
-\[ D_jh_i(\overline{a}) = \sum_{k=1}^n D_k f_i(\overline{b}) D_j g_k(\overline{a}),\ i=1,2,\cdots,m,\ j=1,2,\cdots,p \]
+\[ D_jh_i(\bar{a}) = \sum_{k=1}^n D_k f_i(\bar{b}) D_j g_k(\bar{a}),\ i=1,2,\cdots,m,\ j=1,2,\cdots,p \]
 
-For $m=1$, $D_j h(\overline{a}) = \sum_{k=1}^n D_kf(\overline{b}) D_jg_k(\overline{a})$
+For $m=1$, $D_j h(\bar{a}) = \sum_{k=1}^n D_kf(\bar{b}) D_jg_k(\bar{a})$
 
-For $m=1$ and $p=1$, $h'(\overline{a}) = \sum_{k=1}^n Df(\overline{b}) g_k'(\overline{a}) = \nabla f(\overline{b}) \cdot Dg(\overline{a})$
+For $m=1$ and $p=1$, $h'(\bar{a}) = \sum_{k=1}^n Df(\bar{b}) g_k'(\bar{a}) = \nabla f(\bar{b}) \cdot Dg(\bar{a})$
 
 \begin{theorem}
 Let $f$ and $D_2f$ be continuous functions on a rectangle $[a,b] \times [c,d]$.
@@ -754,138 +754,138 @@ By 1-dimensional chain rule, we have
 \begin{theorem}[Mean-Value]
 Let $S$ be an open subset of $\mathbb{R}^n$.
 Assume $f : S \to \mathbb{R}^m$ is differentiable at each point of $S$.
-Let $\overline{x}$, $\overline{y}$ be two points in $S$ such that $L(\overline{x},\overline{y}) = \{ t\overline{x}+(1-t)\overline{y} : t \in [0,1] \}$ is subset of $S$.
-Then for every $\overline{a} \in \mathbb{R}^m$, there exists a point $\overline{z} \in L(\overline{x},\overline{y})$ such that
-\[ \overline{a}.\left( f(\overline{y})-f(\overline{x}) \right) = \overline{a}.f'(\overline{z})(\overline{y}-\overline{x}) \]
+Let $\bar{x}$, $\bar{y}$ be two points in $S$ such that $L(\bar{x},\bar{y}) = \{ t\bar{x}+(1-t)\bar{y} : t \in [0,1] \}$ is subset of $S$.
+Then for every $\bar{a} \in \mathbb{R}^m$, there exists a point $\bar{z} \in L(\bar{x},\bar{y})$ such that
+\[ \bar{a}.\left( f(\bar{y})-f(\bar{x}) \right) = \bar{a}.f'(\bar{z})(\bar{y}-\bar{x}) \]
 \end{theorem}
 \begin{proof}
-Let $\overline{u} = \overline{y}-\overline{x}$.
-We have $S$ is open subset and $L(\overline{x},\overline{y}) \subset S$, thus there exists $\delta > 0$ such that $\overline{x}+t\overline{u} \in S, \forall t \in (-\delta,1+\delta)$.
-\begin{commentary} In other words, the `Line segment $L(\overline{x},\overline{y})$' is properly contained in $S$, in such a way that extending the Line from $\overline{x}$ to $\overline{y}$ a little bit extra one either sides is still contained in $S$.\end{commentary}
+Let $\bar{u} = \bar{y}-\bar{x}$.
+We have $S$ is open subset and $L(\bar{x},\bar{y}) \subset S$, thus there exists $\delta > 0$ such that $\bar{x}+t\bar{u} \in S, \forall t \in (-\delta,1+\delta)$.
+\begin{commentary} In other words, the `Line segment $L(\bar{x},\bar{y})$' is properly contained in $S$, in such a way that extending the Line from $\bar{x}$ to $\bar{y}$ a little bit extra one either sides is still contained in $S$.\end{commentary}
 
-Let $\overline{a} \in \mathbb{R}^m$ and $F : (-\delta,1+\delta) \to \mathbb{R}$ defined by $F(t) = \overline{a}.f(\overline{x}+t\overline{u})$.
-Then $F$ is differentiable at each $t \in (-\delta,1+\delta)$ and the derivative $F'(t) = \overline{a}.f'(\overline{x}+t\overline{u},\overline{u})$, the directional derivative of $f(\overline{x}+t\overline{u})$ with respect to $\overline{u}$.
+Let $\bar{a} \in \mathbb{R}^m$ and $F : (-\delta,1+\delta) \to \mathbb{R}$ defined by $F(t) = \bar{a}.f(\bar{x}+t\bar{u})$.
+Then $F$ is differentiable at each $t \in (-\delta,1+\delta)$ and the derivative $F'(t) = \bar{a}.f'(\bar{x}+t\bar{u},\bar{u})$, the directional derivative of $f(\bar{x}+t\bar{u})$ with respect to $\bar{u}$.
 
-\[ f'(\overline{x}+t\overline{u},\overline{u}) = f'(\overline{x}+t\overline{u})(\overline{u}) \implies F'(t) = \overline{a}.f'(\overline{x}+t\overline{u})(\overline{u}) \]
+\[ f'(\bar{x}+t\bar{u},\bar{u}) = f'(\bar{x}+t\bar{u})(\bar{u}) \implies F'(t) = \bar{a}.f'(\bar{x}+t\bar{u})(\bar{u}) \]
 By 1-dimensional mean-value theorem, we have
 \[ \exists \theta \in (0,1) \text{ such that } F(1) - F(0) = F'(\theta) \]
-By definition of $F$, $F(1) = \overline{a}.f(\overline{x}+\overline{u}) = \overline{a}.f(\overline{y})$.
-And $F(0) =\overline{a}.f(\overline{x})$.
+By definition of $F$, $F(1) = \bar{a}.f(\bar{x}+\bar{u}) = \bar{a}.f(\bar{y})$.
+And $F(0) =\bar{a}.f(\bar{x})$.
 Therefore,
-\[ F'(\theta) = F(1) - F(0) = \overline{a}.f(\overline{y}) - \overline{a}.f(\overline{x}) = \overline{a}.(f(\overline{y})-f(\overline{x})) \]
+\[ F'(\theta) = F(1) - F(0) = \bar{a}.f(\bar{y}) - \bar{a}.f(\bar{x}) = \bar{a}.(f(\bar{y})-f(\bar{x})) \]
 We also have,
-\[ F'(\theta) = \overline{a}.f'(\overline{x}+\theta \overline{u})(\overline{u}) = \overline{a}.f'(\overline{z})(\overline{y}-\overline{x}), \text{ where } \overline{z} = \overline{x}+\theta \overline{u} \in L(\overline{x},\overline{y}) \]
+\[ F'(\theta) = \bar{a}.f'(\bar{x}+\theta \bar{u})(\bar{u}) = \bar{a}.f'(\bar{z})(\bar{y}-\bar{x}), \text{ where } \bar{z} = \bar{x}+\theta \bar{u} \in L(\bar{x},\bar{y}) \]
 \end{proof}
 
 \begin{remark}
 Suppose $S$ is convex in $\mathbb{R}^m$.
-Then for every pair of points $\overline{x},\overline{y} \in S$, $L(\overline{x},\overline{y}) \subset S$.
-Thus Mean-value theorem holds for all $\overline{x},\overline{y} \in S$.
+Then for every pair of points $\bar{x},\bar{y} \in S$, $L(\bar{x},\bar{y}) \subset S$.
+Thus Mean-value theorem holds for all $\bar{x},\bar{y} \in S$.
 \end{remark}
 
 \section{Multivariate Calculus}
 \subsection{A sufficient condition for differentiability}
 \begin{theorem}
-Suppose one of the partial derivatives $D_1f,D_2f,\cdots,D_nf$ exists at $\overline{c}$.
-And the remaining $n-1$ partial derivatives exists in some $n$-ball $B(\overline{c})$ and are continuous at $\overline{c}$.
-Then $f$ is differentiable at $\overline{c}$.
+Suppose one of the partial derivatives $D_1f,D_2f,\cdots,D_nf$ exists at $\bar{c}$.
+And the remaining $n-1$ partial derivatives exists in some $n$-ball $B(\bar{c})$ and are continuous at $\bar{c}$.
+Then $f$ is differentiable at $\bar{c}$.
 \end{theorem}
 \begin{proof}
 Step 1 : Real-valued function
 
-We claim that the function $f : \mathbb{R}^n \to \mathbb{R}^m$ is differentiable at $\overline{c}$ iff each component $f_k$ is differentiable at $\overline{c}$.
+We claim that the function $f : \mathbb{R}^n \to \mathbb{R}^m$ is differentiable at $\bar{c}$ iff each component $f_k$ is differentiable at $\bar{c}$.
 
-Suppose $f$ is differentiable at $\overline{c}$, then there exists a linear, total derivative function $f'(\overline{c})$ satisfying first-order Taylor's formula at $\overline{c}$.
+Suppose $f$ is differentiable at $\bar{c}$, then there exists a linear, total derivative function $f'(\bar{c})$ satisfying first-order Taylor's formula at $\bar{c}$.
 
-ie, $f(\overline{c}+\overline{v}) = f(\overline{c}) + f'(\overline{c})(\overline{v}) + \|\overline{v}\| E_{\overline{c}}(\overline{v})$ where $E_{\overline{c}}(\overline{v}) \to \overline{0}$ as $\overline{v} \to \overline{0}$.
+ie, $f(\bar{c}+\bar{v}) = f(\bar{c}) + f'(\bar{c})(\bar{v}) + \|\bar{v}\| E_{\bar{c}}(\bar{v})$ where $E_{\bar{c}}(\bar{v}) \to \bar{0}$ as $\bar{v} \to \bar{0}$.
 \begin{align*}
-	f(\overline{c}+\overline{v}) & = \left( f_1(\overline{c}+\overline{v}), f_2(\overline{c}+\overline{v}), \cdots, f_m(\overline{c}+\overline{v}) \right)\\
-	f(\overline{c}) & = \left( f_1(\overline{c}), f_2(\overline{c}), \cdots, f_m(\overline{c}) \right) \\
-	f'(\overline{c})(\overline{v}) & = \left( f'_1(\overline{v}), f'_2(\overline{v}), \cdots, f'_m(\overline{v}) \right) \\
-	E_{\overline{c}}(\overline{v}) & = \left( E_1(\overline{v}), E_2(\overline{v}), \cdots, E_m(\overline{v}) \right)
+	f(\bar{c}+\bar{v}) & = \left( f_1(\bar{c}+\bar{v}), f_2(\bar{c}+\bar{v}), \cdots, f_m(\bar{c}+\bar{v}) \right)\\
+	f(\bar{c}) & = \left( f_1(\bar{c}), f_2(\bar{c}), \cdots, f_m(\bar{c}) \right) \\
+	f'(\bar{c})(\bar{v}) & = \left( f'_1(\bar{v}), f'_2(\bar{v}), \cdots, f'_m(\bar{v}) \right) \\
+	E_{\bar{c}}(\bar{v}) & = \left( E_1(\bar{v}), E_2(\bar{v}), \cdots, E_m(\bar{v}) \right)
 \end{align*}
-where each component of the error function $E_k(\overline{v}) \to 0$ as $\overline{v} \to \overline{0}$.
-Also since $f'(\overline{c})$ is linear, each of its components $f'_k : \mathbb{R}^n \to \mathbb{R}$ are linear.
+where each component of the error function $E_k(\bar{v}) \to 0$ as $\bar{v} \to \bar{0}$.
+Also since $f'(\bar{c})$ is linear, each of its components $f'_k : \mathbb{R}^n \to \mathbb{R}$ are linear.
 \begin{align*}
-	f(\overline{c}+\overline{v}) = & \left( f_1(\overline{c}+\overline{v}), f_2(\overline{c}+\overline{v}), \cdots, f_m(\overline{c}+\overline{v}) \right) \\
-	= & \left( f_1(\overline{c}), f_2(\overline{c}), \cdots, f_m(\overline{c}) \right) + \left( f'_1(\overline{v}), f'_2(\overline{v}), \cdots, f'_m(\overline{v}) \right) \\
-	& + \|\overline{v}\|\left(E_1(\overline{v}), E_2(\overline{v}), \cdots, E_m(\overline{v}) \right) \text{ where } E_k(\overline{v}) \to 0 \text{ as } \overline{v} \to \overline{0}\\
-	= & \left( f_1(\overline{c}), f_2(\overline{c}), \cdots, f_m(\overline{c}) \right) + \left( f'_1(\overline{v}), f'_2(\overline{v}), \cdots, f'_m(\overline{v}) \right) \\
-	& + \left(\|\overline{v}\|E_1(\overline{v}), \|\overline{v}\|E_2(\overline{v}), \cdots, \|\overline{v}\|E_m(\overline{v}) \right) \text{ where } E_k(\overline{v}) \to 0 \text{ as } \overline{v} \to \overline{0}\\
-	= & \left( f_1(\overline{c}) + f'_1(\overline{v}) + \|\overline{v}\|E_1(\overline{v}), \cdots, f_m(\overline{c}) + f'_m(\overline{v}) + \|\overline{v}\|E_m(\overline{v}) \right) 
+	f(\bar{c}+\bar{v}) = & \left( f_1(\bar{c}+\bar{v}), f_2(\bar{c}+\bar{v}), \cdots, f_m(\bar{c}+\bar{v}) \right) \\
+	= & \left( f_1(\bar{c}), f_2(\bar{c}), \cdots, f_m(\bar{c}) \right) + \left( f'_1(\bar{v}), f'_2(\bar{v}), \cdots, f'_m(\bar{v}) \right) \\
+	& + \|\bar{v}\|\left(E_1(\bar{v}), E_2(\bar{v}), \cdots, E_m(\bar{v}) \right) \text{ where } E_k(\bar{v}) \to 0 \text{ as } \bar{v} \to \bar{0}\\
+	= & \left( f_1(\bar{c}), f_2(\bar{c}), \cdots, f_m(\bar{c}) \right) + \left( f'_1(\bar{v}), f'_2(\bar{v}), \cdots, f'_m(\bar{v}) \right) \\
+	& + \left(\|\bar{v}\|E_1(\bar{v}), \|\bar{v}\|E_2(\bar{v}), \cdots, \|\bar{v}\|E_m(\bar{v}) \right) \text{ where } E_k(\bar{v}) \to 0 \text{ as } \bar{v} \to \bar{0}\\
+	= & \left( f_1(\bar{c}) + f'_1(\bar{v}) + \|\bar{v}\|E_1(\bar{v}), \cdots, f_m(\bar{c}) + f'_m(\bar{v}) + \|\bar{v}\|E_m(\bar{v}) \right) 
 \end{align*}
 
-Thus first-order Taylor's forumula for $f$ at $\overline{c}$ gives first-order Taylor's forumula for each of its components $f_k$.
-ie, $f_k(\overline{c}+\overline{v}) = f_k(\overline{c}) + f'_k(\overline{v} + \|\overline{v}\|E_k(\overline{v})$ where $E_k(\overline{v}) \to 0$ as $\overline{v} \to \overline{0}$.
-Therefore, $f_k$ are differentiable at $\overline{c}$ for $k = 1,2,\cdots, m$.
+Thus first-order Taylor's forumula for $f$ at $\bar{c}$ gives first-order Taylor's forumula for each of its components $f_k$.
+ie, $f_k(\bar{c}+\bar{v}) = f_k(\bar{c}) + f'_k(\bar{v} + \|\bar{v}\|E_k(\bar{v})$ where $E_k(\bar{v}) \to 0$ as $\bar{v} \to \bar{0}$.
+Therefore, $f_k$ are differentiable at $\bar{c}$ for $k = 1,2,\cdots, m$.
 
-Suppose each component $f_k$ of $f$ are differentiable at $\overline{c}$.
-Then there exists linear, total derivative functions $f'_k$ satisfying first-order Taylor's formula at $\overline{c}$.
-ie, $f_k(\overline{c}+\overline{v}) = f_k(\overline{v}) + f'_k(\overline{v}) + \|\overline{v}\|E_k(\overline{v})$ where $E_k(\overline{v}) \to 0$ as $\overline{v} \to \overline{0}$.
+Suppose each component $f_k$ of $f$ are differentiable at $\bar{c}$.
+Then there exists linear, total derivative functions $f'_k$ satisfying first-order Taylor's formula at $\bar{c}$.
+ie, $f_k(\bar{c}+\bar{v}) = f_k(\bar{v}) + f'_k(\bar{v}) + \|\bar{v}\|E_k(\bar{v})$ where $E_k(\bar{v}) \to 0$ as $\bar{v} \to \bar{0}$.
 
-Define $E_{\overline{c}}(\overline{v}) = \left( E_1(\overline{v}), E_2(\overline{v}), \cdots, E_k(\overline{v}) \right)$.
-Then $E_{\overline{c}}(\overline{v}) \to \overline{0}$ as $\overline{v} \to \overline{0}$.
-Therefore, there exists a linear, total derivative function $f'(\overline{c}) = \left( f'_1, f'_2, \cdots, f'_m \right)$ satisfying first-order Taylor's formula at $\overline{c}$.
+Define $E_{\bar{c}}(\bar{v}) = \left( E_1(\bar{v}), E_2(\bar{v}), \cdots, E_k(\bar{v}) \right)$.
+Then $E_{\bar{c}}(\bar{v}) \to \bar{0}$ as $\bar{v} \to \bar{0}$.
+Therefore, there exists a linear, total derivative function $f'(\bar{c}) = \left( f'_1, f'_2, \cdots, f'_m \right)$ satisfying first-order Taylor's formula at $\bar{c}$.
 
 Thus, if each (real-valued) component function $f_k$ are differentiable, then $f$ is also differentiable.
 Therefore, it is sufficient to prove the theorem for a real-valued function.
 
 Step 2: Telescopic Sum
 
-Assume (without loss of generality) that $D_1f$ exists at $\overline{c}$ and $D_2f,D_3f,\cdots,D_nf$ exist and continuous in some $n$-ball $B(\overline{c})$.
-\begin{commentary} Suppose $D_rf$ exists at $\overline{c}$ and all partial derivatives execept $D_rf$ are continuous.
-Then $v_0 = \overline{0}$, $v_1 = y_r\overline{u_r}$, $v_2 = y_r\overline{u_r} + y_1\overline{u_1}$, \dots.
+Assume (without loss of generality) that $D_1f$ exists at $\bar{c}$ and $D_2f,D_3f,\cdots,D_nf$ exist and continuous in some $n$-ball $B(\bar{c})$.
+\begin{commentary} Suppose $D_rf$ exists at $\bar{c}$ and all partial derivatives execept $D_rf$ are continuous.
+	Then $v_0 = \bar{0}$, $v_1 = y_r\bar{u}_r$, $v_2 = y_r\bar{u}_r + y_1\bar{u}_1$, \dots.
 Then the following proof can be applied without any loss of generality.
 \end{commentary}
 
-Let $\overline{v} = \lambda\overline{y}$ where $\overline{y} = \frac{\overline{v}}{\|\overline{v}\|}$.
-Clearly, $\|\overline{y}\| = 1$ and $\lambda = \| \overline{v} \|$.
-Choose $\lambda > 0$ such that $\overline{c}+\overline{v} \in B(\overline{c})$ and all the partial derivatives $D_2f, D_3f, \cdots, D_nf$ exists and are continuous in $B(\overline{c})$.
+Let $\bar{v} = \lambda\bar{y}$ where $\bar{y} = \frac{\bar{v}}{\|\bar{v}\|}$.
+Clearly, $\|\bar{y}\| = 1$ and $\lambda = \| \bar{v} \|$.
+Choose $\lambda > 0$ such that $\bar{c}+\bar{v} \in B(\bar{c})$ and all the partial derivatives $D_2f, D_3f, \cdots, D_nf$ exists and are continuous in $B(\bar{c})$.
 
-We have, $\overline{y} = (y_1, y_2, \cdots, y_n) = y_1 \overline{u_1} + y_2 \overline{u_2} + \cdots + y_n \overline{u_n}$.
+	We have, $\bar{y} = (y_1, y_2, \cdots, y_n) = y_1 \bar{u}_1 + y_2 \bar{u}_2 + \cdots + y_n \bar{u}_n$.
 
-Define $\overline{v_0} = \overline{0},\ \overline{v_1} = y_1\overline{u_1}, \cdots, \ \overline{v_n} = y_1 \overline{u_1} + y_2 \overline{u_2} + \cdots + y_n \overline{u_n}$.
+	Define $\bar{v}_0 = \bar{0},\ \bar{v}_1 = y_1\bar{u}_1, \cdots, \ \bar{v}_n = y_1 \bar{u}_1 + y_2 \bar{u}_2 + \cdots + y_n \bar{u}_n$.
 \begin{align*}
-	f(\overline{c}+\overline{v}) - f(\overline{c}) = & ( f(\overline{c}+\lambda{} \overline{v_n}) - f(\overline{c}+\lambda{} \overline{v_{n-1}}) ) \\
-	& + ( f(\overline{c}+\lambda{} \overline{v_{n-1}}) - f(\overline{c}+\lambda{} \overline{v_{n-2}}) ) \\
-	& + \cdots + ( f(\overline{c}+\lambda{} \overline{v_1}) - f(\overline{c}+\lambda{} \overline{v_0}) ) \\
-	& = \sum_{k = 1}^n f(\overline{c} + \lambda{} \overline{v_k}) - f(\overline{c} + \lambda{} \overline{v_{k-1}}) \\
-	& = \sum_{k = 1}^n f(\overline{c} + \lambda{} \overline{v_{k-1}} + \lambda{} y_k \overline{u_k}) - f(\overline{c} + \lambda{} \overline{v_{k-1}})
+	f(\bar{c}+\bar{v}) - f(\bar{c}) = & ( f(\bar{c}+\lambda{} \bar{v}_n) - f(\bar{c}+\lambda{} \bar{v}_{n-1}) ) \\
+	& + ( f(\bar{c}+\lambda{} \bar{v}_{n-1}) - f(\bar{c}+\lambda{} \bar{v}_{n-2}) ) \\
+	& + \cdots + ( f(\bar{c}+\lambda{} \bar{v}_1) - f(\bar{c}+\lambda{} \bar{v}_0) ) \\
+	& = \sum_{k = 1}^n f(\bar{c} + \lambda{} \bar{v}_k) - f(\bar{c} + \lambda{} \bar{v}_{k-1}) \\
+	& = \sum_{k = 1}^n f(\bar{c} + \lambda{} \bar{v}_{k-1} + \lambda{} y_k \bar{u}_k) - f(\bar{c} + \lambda{} \bar{v}_{k-1})
 \end{align*}
 Step 3 : Mean-value theorem
 
-Define $\overline{b_k} = \overline{c}+\lambda{}\overline{v_{k-1}}$.
+Define $\bar{b}_k = \bar{c}+\lambda{}\bar{v}_{k-1}$.
 Then we have
 \begin{equation}
-f(\overline{c}+\overline{v}) - f(\overline{c}) = \sum_{k = 1}^n f(\overline{b_k} + \lambda{}y_k\overline{u_k})-f(\overline{b_k})
+	f(\bar{c}+\bar{v}) - f(\bar{c}) = \sum_{k = 1}^n f(\bar{b}_k + \lambda{}y_k\bar{u}_k)-f(\bar{b}_k)
 \end{equation}
-We know that all partial derivatives exists in $B(\overline{c})$.
-%Thus $f$ is continuous in $B(\overline{c})$.
+We know that all partial derivatives exists in $B(\bar{c})$.
+%Thus $f$ is continuous in $B(\bar{c})$.
 Therefore by 1-dimensional mean-value theorem we have,
-\[ f(\overline{b_k}+\lambda{}y_k\overline{u_k}) - f(\overline{b_k}) = \lambda{}y_kD_kf(\overline{a_k}) \text{ where } \overline{a_k} \in L(\overline{b_k},\overline{b_k}+\lambda{}y_k\overline{u_k}) \]
+\[ f(\bar{b}_k+\lambda{}y_k\bar{u}_k) - f(\bar{b}_k) = \lambda{}y_kD_kf(\bar{a}_k) \text{ where } \bar{a}_k \in L(\bar{b}_k,\bar{b}_k+\lambda{}y_k\bar{u}_k) \]
 \begin{equation}
-	f(\overline{c}+\overline{v}) - f(\overline{c}) = \lambda{} \sum_{k = 1}^n y_kD_kf(\overline{a_k}) \text{ where } \overline{a_k} \in L(\overline{b_k},\overline{b_k}+\lambda{}y_k\overline{u_k})
+	f(\bar{c}+\bar{v}) - f(\bar{c}) = \lambda{} \sum_{k = 1}^n y_kD_kf(\bar{a}_k) \text{ where } \bar{a}_k \in L(\bar{b}_k,\bar{b}_k+\lambda{}y_k\bar{u}_k)
 \end{equation}
 
-Step 4 : Continuity of partial derivatives in $B(\overline{c})$
+Step 4 : Continuity of partial derivatives in $B(\bar{c})$
 
-As $\lambda{} \to 0,\ \overline{v} \to \overline{0}$.
-And both $\overline{b_k},\ \overline{b_k}+\lambda{}y_k\overline{u_k} \to \overline{c}$.
-Clearly, $\overline{a_k}$ in the line between $\overline{b_k}$ and $\overline{b_k}+\lambda{} y_k \overline{u_k}$ also converges to $\overline{c}$.
+As $\lambda{} \to 0,\ \bar{v} \to \bar{0}$.
+And both $\bar{b}_k,\ \bar{b}_k+\lambda{}y_k\bar{u}_k \to \bar{c}$.
+Clearly, $\bar{a}_k$ in the line between $\bar{b}_k$ and $\bar{b}_k+\lambda{} y_k \bar{u}_k$ also converges to $\bar{c}$.
 
-For $k \ge 2$, $D_kf$ are continuous in the $n$-ball $B(\overline{c})$.
-Thus $D_kf(\overline{a_k}) \to D_kf(\overline{c})$.
-We may write, $D_kf(\overline{a_k}) = D_kf(\overline{c}) + E_k(\lambda)$ where $E_k(\lambda) \to \overline{0}$ as $\lambda{} \to 0$.
-Also, since $D_1 f$ exists, $D_1f(\overline{c}+\lambda{} y_1\overline{u_1}) \to D_1f(\overline{c})$ as $\lambda{} \to 0$.
+For $k \ge 2$, $D_kf$ are continuous in the $n$-ball $B(\bar{c})$.
+Thus $D_kf(\bar{a}_k) \to D_kf(\bar{c})$.
+We may write, $D_kf(\bar{a}_k) = D_kf(\bar{c}) + E_k(\lambda)$ where $E_k(\lambda) \to \bar{0}$ as $\lambda{} \to 0$.
+Also, since $D_1 f$ exists, $D_1f(\bar{c}+\lambda{} y_1\bar{u}_1) \to D_1f(\bar{c})$ as $\lambda{} \to 0$.
 \begin{commentary}
-\[ \text{ Remember : } D_1 f(\overline{c}) = \lim_{h \to 0} \frac{f(\overline{c}+h\overline{u_1}) - f(\overline{c})}{h} \]
+\[ \text{ Remember : } D_1 f(\bar{c}) = \lim_{h \to 0} \frac{f(\bar{c}+h\bar{u}_1) - f(\bar{c})}{h} \]
 \end{commentary}
 \begin{align*}
-	f(\overline{c}+\overline{v}) - f(\overline{c}) = & \lambda{} \sum_{k = 1}^n y_kD_kf(\overline{c}) + \lambda{} \sum_{k = 1}^n y_kE_kf(\lambda{})\\
-	= & \nabla f(\overline{c}) \cdot \overline{v} + \|\overline{v}\|E(\lambda) \\
-	& \text{ where } E(\lambda{}) = \sum_{k = 1}^n y_k E_k(\lambda{}) \to \overline{0} \text{ as } \overline{v} \to \overline{0}
+	f(\bar{c}+\bar{v}) - f(\bar{c}) = & \lambda{} \sum_{k = 1}^n y_kD_kf(\bar{c}) + \lambda{} \sum_{k = 1}^n y_kE_kf(\lambda{})\\
+	= & \nabla f(\bar{c}) \cdot \bar{v} + \|\bar{v}\|E(\lambda) \\
+	& \text{ where } E(\lambda{}) = \sum_{k = 1}^n y_k E_k(\lambda{}) \to \bar{0} \text{ as } \bar{v} \to \bar{0}
 \end{align*}
-That is, we have a linear function which satisfies first-order Taylor's formula at $\overline{c}$.
+That is, we have a linear function which satisfies first-order Taylor's formula at $\bar{c}$.
 Therefore, $f$ is differentiable.
 \end{proof}
 
@@ -900,23 +900,23 @@ And $D_{r,k} f = D_r(D_k f)$ and $D_{k,r} f = D_k (D_r f)$.
 	\item differentiability of $D_k f$ or
 	\item continuity of $D_{r,k} f$ and $D_{k,r}$
 \end{enumerate*}
-at $\overline{c}$ where the mixed partial derivatives are to be equal.
+at $\bar{c}$ where the mixed partial derivatives are to be equal.
 \end{commentary}
 
 \subsubsection{Differentiability}
 \begin{theorem}
-Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\overline{c}$ and are both differentiable at $\overline{c}$.
+Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\bar{c}$ and are both differentiable at $\bar{c}$.
 Then $D_{r,k} f = D_{k,r} f$.
 \end{theorem}
 \begin{proof}
 Step 1 : Real-valued function
 
 It is sufficient to prove the theorem for real-valued functions.
-Let $f : \mathbb{R}^n \to \mathbb{R}^m$, then $f(\overline{c}) = \left( f_1(\overline{c}),f_2(\overline{c}),\cdots,f_m(\overline{c}) \right)$.
-And $$D_k f(\overline{c}) = \left( D_k f_1(\overline{c}), D_k f_2(\overline{c}), \cdots, D_k f_m(\overline{c}) \right)$$
-Thus it is sufficient to prove that $D_{r,k}f_j(\overline{c}) = D_{k,r}f_j(\overline{c}),\ j = 1,2,\cdots,m$.
+Let $f : \mathbb{R}^n \to \mathbb{R}^m$, then $f(\bar{c}) = \left( f_1(\bar{c}),f_2(\bar{c}),\cdots,f_m(\bar{c}) \right)$.
+And $$D_k f(\bar{c}) = \left( D_k f_1(\bar{c}), D_k f_2(\bar{c}), \cdots, D_k f_m(\bar{c}) \right)$$
+Thus it is sufficient to prove that $D_{r,k}f_j(\bar{c}) = D_{k,r}f_j(\bar{c}),\ j = 1,2,\cdots,m$.
 That is, it is sufficient to prove equality of mixed partial derivatives of a real-valued function $f_j : \mathbb{R}^n \to \mathbb{R}$.
-Also, we will prove it for $n = 2$ and $\overline{c} = (0,0)$.
+Also, we will prove it for $n = 2$ and $\bar{c} = (0,0)$.
 \begin{commentary}
 From Step 2 onwards, we will write $f$ instead of $f_j$ for ease of notation.
 \end{commentary}
@@ -928,7 +928,7 @@ Suppose that the partial derivatives $D_k f$, $D_r f$ exist in the $n$-ball $B(n
 And let $h > 0$ such that the rectangle with vertices $(0,0), (0,h), (h,0), (h,h)$ lies in $B(n)$.
 \begin{commentary} Suppose $n=3$, $c = (x,y,z)$, and we want to prove equality of $D_{2,3} f$ and $D_{3,2} f$.
 Then we will consider the rectangle with vertices $(x,y,z), (x,y,z+h), (x,y+h,z), (x,y+h,z+h)$.
-Again, we are taking $n=2$ and $\overline{c} = (0,0)$, only for the ease of notation as the same proof is applicable for any finite natural number, $n$ and any vector $\overline{c} \in \mathbb{R}^n$.\end{commentary}
+Again, we are taking $n=2$ and $\bar{c} = (0,0)$, only for the ease of notation as the same proof is applicable for any finite natural number, $n$ and any vector $\bar{c} \in \mathbb{R}^n$.\end{commentary}
 
 Define $\nabla(h) = f(h,h)-f(h,0)-f(0,h)+f(0,0)$.
 
@@ -944,7 +944,7 @@ By 1-dimensional mean value theorem,
 We have $D_1 f$ is differentiable at $(0,0)$.
 There exists linear, total derivative function $(D_1f)'(0,0)$ where $(D_1f)'(0,0)(x,y) = \nabla D_1 f(0,0) \cdot{} (x,y)$ satisfiying first-order Taylor's formula at $(0,0)$. 
 \begin{commentary}
-\[ \text{ Remember :} f'(\overline{c})(\overline{v}) = \sum_{k = 1}^n v_k D_k f(\overline{c}) = \nabla f(\overline{c}) \cdot{} \overline{v} \]
+\[ \text{ Remember :} f'(\bar{c})(\bar{v}) = \sum_{k = 1}^n v_k D_k f(\bar{c}) = \nabla f(\bar{c}) \cdot{} \bar{v} \]
 \end{commentary}
 \begin{align*}
 	D_1 f((0,0) + (x_1,h)) = & D_1 f(0,0) + \nabla D_1 f(0,0) \cdot{} (x_1,h) + \|(x_1,h)\| E_1(h) \\
@@ -1000,14 +1000,14 @@ Therefore, $D_{1,2} f(0,0) = D_{2,1} f(0,0)$.
 
 \subsubsection{Continuity}
 \begin{theorem}
-Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\overline{c}$.
-And $D_{r,k} f$ and $D_{k,r} f$ are continuous at $\overline{c}$.
+Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\bar{c}$.
+And $D_{r,k} f$ and $D_{k,r} f$ are continuous at $\bar{c}$.
 Then $D_{r,k} f = D_{k,r} f$.
 \end{theorem}
 \begin{proof}
 We have $D_r f = (D_r f_1 , D_r f_2, \cdots, D_r f_m)$.
 Therefore, it is sufficient to prove the theorem for real-valued functions.
-Suppose $n = 2$, $\overline{c} = (0,0)$ and the partial derivatives $D_1 f$ and $D_2 f$ exist and are continuous in some $2$-ball about $(0,0)$.
+Suppose $n = 2$, $\bar{c} = (0,0)$ and the partial derivatives $D_1 f$ and $D_2 f$ exist and are continuous in some $2$-ball about $(0,0)$.
 Suppose $(h,h)$ lies in that $2$-ball, then $D_1 f(h,h) \to D_1 f(0,0)$ as $h \to 0$.
 \end{proof}
 
@@ -1037,15 +1037,14 @@ Why don't we substitute $y = 0$ before $D_2 f$ is something you should know alre
 %\chapter{Implicit Functions and Extremum Problems}
 \subsection{Implicit Functions and Extremum Problems}
 \begin{definition}[Implicit function]
-Let $f$ be a function.
-Consider the equation, $f(\overline{x},\overline{y}) = 0$.
-If there exists a function $g$ such that $\overline{x} = g(\overline{y})$, then $g$ is an implicit form of $f$ or $g$ is defined implicitly by $f$.
-
-For example, a linear system of equations $Ax-b = 0$ implicitly defines $x = A^{-1}b$ provided $ A$ has non-zero determinant.
+	Let $f$ be a function.
+	Consider the equation, $f(\bar{x},\bar{y}) = 0$.
+	If there exists a function $g$ such that $\bar{x} = g(\bar{y})$, then $g$ is an implicit form of $f$ or $g$ is defined implicitly by $f$.
+	For example, a linear system of equations $Ax-b = 0$ implicitly defines $x = A^{-1}b$ provided $ A$ has non-zero determinant.
 \end{definition}
 
 \begin{definition}[Jacobian Determinant]
-Let $f : \mathbb{R}^n \to \mathbb{R}^n$, then determinant of the Jacobian matrix $Df(\overline{x})$ is the Jacobian determinant of $f$, $J_f(\overline{x})$.
+Let $f : \mathbb{R}^n \to \mathbb{R}^n$, then determinant of the Jacobian matrix $Df(\bar{x})$ is the Jacobian determinant of $f$, $J_f(\bar{x})$.
 \end{definition}
 
 \begin{theorem}
@@ -1076,55 +1075,55 @@ Therefore, $J_f(z) = |f'(z)|^2$.
 
 \subsubsection{Functions with non-zero Jacobian determinant}
 \begin{commentary}
-That is, $f : \mathbb{R}^n \to \mathbb{R}^n$ such that $J_f \ne 0$ in an $n$-ball. In other words, we have an $n$-ball $B(\overline{x})$ such that $J_f(\overline{y}) \ne 0,\ \forall \overline{y} \in B(\overline{x})$.
+That is, $f : \mathbb{R}^n \to \mathbb{R}^n$ such that $J_f \ne 0$ in an $n$-ball. In other words, we have an $n$-ball $B(\bar{x})$ such that $J_f(\bar{y}) \ne 0,\ \forall \bar{y} \in B(\bar{x})$.
 \end{commentary}
 
 \begin{theorem}
-Let $B$ be an $n$-ball about $\overline{a}$ in $\mathbb{R}^n$, $\partial B$ be its boundary and $\bar{B} = B \cup \partial B$ be its closure.\footnote{$\bar{B}$ : The line above $B$ has a different meaning compare to $\overline{a}$ (situations like this are an abuse of language).}
-Let $f : \mathbb{R}^n \to \mathbb{R}^n$ be continuous in $\bar{B}$ and all partial derivatives, $D_jf_i(\overline{x})$ exists for every $\overline{x} \in B$.
-Let $f(\overline{x}) \ne f(\overline{a})$ for every $\overline{x} \in \partial B$ and $J_f(\overline{x}) \ne 0$ for every $\overline{x} \in B$.
-Then $f(B)$ contains an $n$-ball about $f(\overline{a})$.
+Let $B$ be an $n$-ball about $\bar{a}$ in $\mathbb{R}^n$, $\partial B$ be its boundary and $\bar{B} = B \cup \partial B$ be its closure.\footnote{$\bar{B}$ : The line above $B$ has a different meaning compare to $\bar{a}$ (situations like this are an abuse of language).}
+Let $f : \mathbb{R}^n \to \mathbb{R}^n$ be continuous in $\bar{B}$ and all partial derivatives, $D_jf_i(\bar{x})$ exists for every $\bar{x} \in B$.
+Let $f(\bar{x}) \ne f(\bar{a})$ for every $\bar{x} \in \partial B$ and $J_f(\bar{x}) \ne 0$ for every $\bar{x} \in B$.
+Then $f(B)$ contains an $n$-ball about $f(\bar{a})$.
 \begin{commentary}
-\[ B = \{ \overline{x} : \| \overline{x} - \overline{a} \| < r \} \]
-\[ \partial B = \{ \overline{x} : \| \overline{x} - \overline{a} \| = r \} \]
-\[ \bar{B} = \{ \overline{x} : \| \overline{x} - \overline{a} \| \le r \} \]
+\[ B = \{ \bar{x} : \| \bar{x} - \bar{a} \| < r \} \]
+\[ \partial B = \{ \bar{x} : \| \bar{x} - \bar{a} \| = r \} \]
+\[ \bar{B} = \{ \bar{x} : \| \bar{x} - \bar{a} \| \le r \} \]
 \end{commentary}
 \end{theorem}
 \begin{proof}
-Define $g : \partial B \to \mathbb{R}$ where $g(\overline{x}) = \| f(\overline{x}) - f(\overline{a}) \| $.
-We have, $f(\overline{x}) \ne f(\overline{a})$ for every $\overline{x} \in \partial B$, thus $g(\overline{x}) > 0$ for every $\overline{x} \in \partial B$.
+Define $g : \partial B \to \mathbb{R}$ where $g(\bar{x}) = \| f(\bar{x}) - f(\bar{a}) \| $.
+We have, $f(\bar{x}) \ne f(\bar{a})$ for every $\bar{x} \in \partial B$, thus $g(\bar{x}) > 0$ for every $\bar{x} \in \partial B$.
 Function $f$ is continuous on $\bar{B}$, thus $g$ is continuous on \begin{commentary}$\bar{B}$ and thus $g$ is continuous on its subset\end{commentary} $\partial B$.
 Since $\partial B$ is compact, every continuous function on $\partial B$ attains its extrema\footnote{``Every continuous function on a compact set attains its extrema''} and thus $g$ attains its minimum value $m > 0$ somewhere on $\partial B$.
 
-Consider $n$-ball $T$ about $f(\overline{a})$ with radius $\frac{m}{2}$, 
-\[ T = B\left(f(\overline{a}),\frac{m}{2}\right) = \left\{ \overline{y} \in \mathbb{R}^n : \| f(\overline{a}) - \overline{y}\| < \frac{m}{2} \right\} \]
+Consider $n$-ball $T$ about $f(\bar{a})$ with radius $\frac{m}{2}$, 
+\[ T = B\left(f(\bar{a}),\frac{m}{2}\right) = \left\{ \bar{y} \in \mathbb{R}^n : \| f(\bar{a}) - \bar{y}\| < \frac{m}{2} \right\} \]
 Therefore, it is sufficient to prove that $T \subset f(B)$.
 
-Let $\overline{y} \in T$. Define $h : \bar{B} \to \mathbb{R}$ where $h(\overline{x}) = \| f(\overline{x}) - \overline{y} \|$. Again this continuous function $h$ on compact set $\bar{B}$ attains its extrema somewhere on $\bar{B}$. Since $\overline{y} \in T$, $h(\overline{a}) = \| f(\overline{a}) - \overline{y} \| < \frac{m}{2} $. Thus, the minimum of $h$ on $\bar{B}$ is less than $\frac{m}{2}$, \begin{commentary}since $\overline{a} \in \bar{B}$.\end{commentary}
+Let $\bar{y} \in T$. Define $h : \bar{B} \to \mathbb{R}$ where $h(\bar{x}) = \| f(\bar{x}) - \bar{y} \|$. Again this continuous function $h$ on compact set $\bar{B}$ attains its extrema somewhere on $\bar{B}$. Since $\bar{y} \in T$, $h(\bar{a}) = \| f(\bar{a}) - \bar{y} \| < \frac{m}{2} $. Thus, the minimum of $h$ on $\bar{B}$ is less than $\frac{m}{2}$, \begin{commentary}since $\bar{a} \in \bar{B}$.\end{commentary}
 
-Let $\overline{x} \in \partial B$, then 
+Let $\bar{x} \in \partial B$, then 
 \begin{align*}
-	h(\overline{x}) = & \| f(\overline{x}) - \overline{y} \| \\
-	= &  \| f(\overline{x}) - f(\overline{a}) + f(\overline{a}) - \overline{y} \| \\
-	\ge &  \| f(\overline{x}) - f(\overline{a})\| + \| f(\overline{a}) - \overline{y} \| \\ 
-	= &  g(\overline{x}) - h(\overline{a}) \\
-	> & \frac{m}{2} \text{ since $g(\overline{x}) \ge m$ and $h(\overline{a}) < \frac{m}{2}$}
+	h(\bar{x}) = & \| f(\bar{x}) - \bar{y} \| \\
+	= &  \| f(\bar{x}) - f(\bar{a}) + f(\bar{a}) - \bar{y} \| \\
+	\ge &  \| f(\bar{x}) - f(\bar{a})\| + \| f(\bar{a}) - \bar{y} \| \\ 
+	= &  g(\bar{x}) - h(\bar{a}) \\
+	> & \frac{m}{2} \text{ since $g(\bar{x}) \ge m$ and $h(\bar{a}) < \frac{m}{2}$}
 \end{align*}
-	Thus $h$ doesn't attain its minimum on $\partial B$, but at an interior point $\overline{c} \in B$. Consider
-	\[ h^2(\overline{x}) = \| f(\overline{x}) - \overline{y}\|^2 = \sum_{r = 1}^n (f_r(\overline{x}) - y_r)^2 \]
-	The function $h^2$ also has minimum at the same point $\overline{c}$. Thus all partial derivatives of $h^2$ at $\overline{c}$ are zero. ie, 
-	\[ D_k h^2(\overline{c}) = \sum_{r = 1}^n (f_r(\overline{c})-y_r)D_kf_r(\overline{c}) = 0 \]
-	This is a system of linear equations with non-zero determinant since $\overline{c} \in B$ and we have $J_f(\overline{c}) \ne 0$. Therefore, $f_r(\overline{c}) = y_r$. That is, $f(\overline{c}) = \overline{y} \in f(B)$. Since $\overline{y} \in T$ is arbitrary, $T \subset f(B)$.
+	Thus $h$ doesn't attain its minimum on $\partial B$, but at an interior point $\bar{c} \in B$. Consider
+	\[ h^2(\bar{x}) = \| f(\bar{x}) - \bar{y}\|^2 = \sum_{r = 1}^n (f_r(\bar{x}) - y_r)^2 \]
+	The function $h^2$ also has minimum at the same point $\bar{c}$. Thus all partial derivatives of $h^2$ at $\bar{c}$ are zero. ie, 
+	\[ D_k h^2(\bar{c}) = \sum_{r = 1}^n (f_r(\bar{c})-y_r)D_kf_r(\bar{c}) = 0 \]
+	This is a system of linear equations with non-zero determinant since $\bar{c} \in B$ and we have $J_f(\bar{c}) \ne 0$. Therefore, $f_r(\bar{c}) = y_r$. That is, $f(\bar{c}) = \bar{y} \in f(B)$. Since $\bar{y} \in T$ is arbitrary, $T \subset f(B)$.
 \end{proof}
 
 \begin{theorem}
-	Let $A$ be an open subset of $\mathbb{R}^n$ and $f : A \to \mathbb{R}^n$ is continuous and has continuous partial derivatives $D_jf_i$ on $A$. If $f$ is one-to-one on $A$ and $J_f(\overline{x}) \ne 0,\ \forall \overline{x} \in A$, then $f(A)$ is open.
+	Let $A$ be an open subset of $\mathbb{R}^n$ and $f : A \to \mathbb{R}^n$ is continuous and has continuous partial derivatives $D_jf_i$ on $A$. If $f$ is one-to-one on $A$ and $J_f(\bar{x}) \ne 0,\ \forall \bar{x} \in A$, then $f(A)$ is open.
 \end{theorem}
 \begin{proof}
-	Let $\overline{b} \in f(A)$. Then $\overline{b} = f(\overline{a})$ for some $\overline{a} \in A$.
-	We have, $f$ is continuous, $f$ has continuous partial derivatives on $A$ and $J_f(\overline{x}) \ne 0$ for every $\overline{x} \in A$.
-	Therefore, there exists an open ball $B \subset A$ containing $\overline{a}$ such that $f(B) \subset f(A)$ contains an $n$-ball about $f(\overline{a})$.
-	Since $\overline{b} \in f(A)$ is arbitary, every point in $f(A)$ has an $n$-ball containing it in $f(A)$.
+	Let $\bar{b} \in f(A)$. Then $\bar{b} = f(\bar{a})$ for some $\bar{a} \in A$.
+	We have, $f$ is continuous, $f$ has continuous partial derivatives on $A$ and $J_f(\bar{x}) \ne 0$ for every $\bar{x} \in A$.
+	Therefore, there exists an open ball $B \subset A$ containing $\bar{a}$ such that $f(B) \subset f(A)$ contains an $n$-ball about $f(\bar{a})$.
+	Since $\bar{b} \in f(A)$ is arbitary, every point in $f(A)$ has an $n$-ball containing it in $f(A)$.
 	Therefore, $f(A)$ is open.
 
 \begin{commentary} Two assumption in above theorem are trivial.
@@ -1133,64 +1132,64 @@ Let $\overline{x} \in \partial B$, then
 Set $B$ so chosen that $\bar{B} \subset A$ and $f$ is continuous in $A$.
 Thus, $f$ is continuous in $\bar{B}$.
 	\item $f$ has different value at boundary compared to center.
-ie, $f(\overline{a}) \ne f(\overline{x}),\ \forall x \in \partial B$.
+ie, $f(\bar{a}) \ne f(\bar{x}),\ \forall x \in \partial B$.
 	We have, $f$ is injective on $A$, and $\bar{B} \subset A$.
 	Thus $f$ has different values for any two distinct points in it.
-Thus, $\forall \overline{x},\overline{y} \in \bar{B},\  \overline{x} \ne \overline{y} \implies \overline{x}, \overline{y} \in A$, and $\overline{x} \ne \overline{y} \implies f(\overline{x}) \ne f(\overline{y})$ \end{enumerate*}
+Thus, $\forall \bar{x},\bar{y} \in \bar{B},\  \bar{x} \ne \bar{y} \implies \bar{x}, \bar{y} \in A$, and $\bar{x} \ne \bar{y} \implies f(\bar{x}) \ne f(\bar{y})$ \end{enumerate*}
 \end{commentary}
 \end{proof}
 
 \begin{theorem}
 Let $S$ be an open subset of $\mathbb{R}^n$ and $f : S \to \mathbb{R}^n$.
-Let components of $f$ has continuous partial derivatives on $S$, $D_jf_i$ and $J_f(\overline{a}) \ne 0$ for some point $\overline{a} \in S$.
-Then there is an $n$-ball $B$ about $\overline{a}$ on which $f$ is injective.
+Let components of $f$ has continuous partial derivatives on $S$, $D_jf_i$ and $J_f(\bar{a}) \ne 0$ for some point $\bar{a} \in S$.
+Then there is an $n$-ball $B$ about $\bar{a}$ on which $f$ is injective.
 \end{theorem}
 \begin{proof}
-Let $\overline{z} = (\overline{z_1},\overline{z_2},\cdots,\overline{z_n})$ where $\overline{z_i} \in \mathbb{R}^n$.
-ie, $\overline{z} \in \mathbb{R}^{n^2}$.
-Define function $h : \mathbb{R}^{n^2} \to \mathbb{R}$ by $h(\overline{z}) = \det{[D_jf_i(\overline{z_i})]}$.
+Let $\bar{z} = (\bar{z}_1,\bar{z}_2,\cdots,\bar{z}_n)$ where $\bar{z}_i \in \mathbb{R}^n$.
+ie, $\bar{z} \in \mathbb{R}^{n^2}$.
+Define function $h : \mathbb{R}^{n^2} \to \mathbb{R}$ by $h(\bar{z}) = \det{[D_jf_i(\bar{z}_i)]}$.
 Since $f$ has continuous partial derivatives on $S$, each component of $f$ has continuous partial derivatives in $S$ and thus $h$ is continuous on $S^n$ \begin{commentary} which is a subset of $\mathbb{R}^{n^2}$ since $S$ is an open subset of $\mathbb{R}^n$.
 \end{commentary}
 
-Let $\overline{a} \in S$ such that $J_f(\overline{a}) \ne 0$.
+Let $\bar{a} \in S$ such that $J_f(\bar{a}) \ne 0$.
 \begin{commentary}
 Existence of such a point in $S$ is assumed.
 \end{commentary}
-Consider,$\overline{z_i} = \overline{a},\ \forall i$.
-Then $\overline{z} = (\overline{a},\overline{a},\cdots,\overline{a})$.
-And $h(\overline{z}) = \det{[D_jf_i(\overline{a})]} = J_f(\overline{a}) \ne 0$.
+Consider,$\bar{z}_i = \bar{a},\ \forall i$.
+Then $\bar{z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
+And $h(\bar{z}) = \det{[D_jf_i(\bar{a})]} = J_f(\bar{a}) \ne 0$.
 
-Since $h$ is continous and $h(\overline{z}) \ne 0$.
-There exists an $n$-ball $B$ about $\overline{a}$ in $S$ such that $h(\overline{z}) \ne 0$ for $\overline{z_i} \in B$.
+Since $h$ is continous and $h(\bar{z}) \ne 0$.
+There exists an $n$-ball $B$ about $\bar{a}$ in $S$ such that $h(\bar{z}) \ne 0$ for $\bar{z}_i \in B$.
 We claim that $f$ is injective on $B$.
 
 Suppose $f$ is not injective.
-ie, There exists $\overline{x},\overline{y} \in B(\overline{a})$ such that $\overline{x} \ne \overline{y}$ and $f(\overline{x}) = f(\overline{y)}$.
-Open ball $B(\overline{a})$ is a convex set.
-And the line segment $L(\overline{x},\overline{y}) \subset B(\overline{a})$.
+ie, There exists $\bar{x},\bar{y} \in B(\bar{a})$ such that $\bar{x} \ne \bar{y}$ and $f(\bar{x}) = f(\bar{y)}$.
+Open ball $B(\bar{a})$ is a convex set.
+And the line segment $L(\bar{x},\bar{y}) \subset B(\bar{a})$.
 The function $f$ is differentiable on $S$.
 On applying mean-value theorem to each component of $f$, we get
-$$0 = f_i(\overline{y})-f_i(\overline{x}) = \nabla f_i(\overline{Z}_i)\cdot(\overline{y}-\overline{x}),\ i=1,2,\cdots$$
-where $\overline{Z}_i \in L(\overline{x},\overline{y}) \subset B(\overline{a})$.
+$$0 = f_i(\bar{y})-f_i(\bar{x}) = \nabla f_i(\bar{Z}_i)\cdot(\bar{y}-\bar{x}),\ i=1,2,\cdots$$
+where $\bar{Z}_i \in L(\bar{x},\bar{y}) \subset B(\bar{a})$.
 Therefore, We have
-$$ \sum_{k=1}^n D_kf_i(\overline{Z}_i)(y_k-x_k) = 0$$
-The determinant of this system of linear equations is nonzero, as the function $f$ has nonzero jacobian determinant at $\overline{Z}_i \in B(\overline{a})$ for $i = 1,2,\cdots$.
-Thus, $y_i = x_i$ for $i = 1,2,\cdots$. This contradicts $\overline{x} \ne \overline{y}$.
+$$ \sum_{k=1}^n D_kf_i(\bar{Z}_i)(y_k-x_k) = 0$$
+The determinant of this system of linear equations is nonzero, as the function $f$ has nonzero jacobian determinant at $\bar{Z}_i \in B(\bar{a})$ for $i = 1,2,\cdots$.
+Thus, $y_i = x_i$ for $i = 1,2,\cdots$. This contradicts $\bar{x} \ne \bar{y}$.
 Hence, the function $f$ is injective.
 \end{proof}
 
 \begin{theorem}
 Let $A$ be an open subset of $\mathbb{R}^n$ and assume that $f : A \to \mathbb{R}^n$ has continuous partial derivatives $D_jf_i$ on $A$.
-If $J_f(\overline{x}) \ne 0$ for all $\overline{x} \in A$, then $f$ is an open mapping.
+If $J_f(\bar{x}) \ne 0$ for all $\bar{x} \in A$, then $f$ is an open mapping.
 \end{theorem}
 \begin{proof}
 Let $S$ be an open subset of $A$.
-Let $\overline{x} \in S$.
-Clearly, $f$ has continuous partial derivatives on $S$ and $J_f(\overline{x}) \ne 0$ for all $\overline{x} \in S$.
-Thus, there is an $n$-ball $B(\overline{x})$ in which $f$ is injective.
-Therefore, $f(B(\overline{x})$ is open in $\mathbb{R}^n$.
-Since $\overline{x} \in S$ is arbitrary, $S = \cup_{\overline{x} \in S} B(\overline{x})$.
-And $f(S) = \cup_{\overline{x} \in S} f(B(\overline{x}))$.
+Let $\bar{x} \in S$.
+Clearly, $f$ has continuous partial derivatives on $S$ and $J_f(\bar{x}) \ne 0$ for all $\bar{x} \in S$.
+Thus, there is an $n$-ball $B(\bar{x})$ in which $f$ is injective.
+Therefore, $f(B(\bar{x})$ is open in $\mathbb{R}^n$.
+Since $\bar{x} \in S$ is arbitrary, $S = \cup_{\bar{x} \in S} B(\bar{x})$.
+And $f(S) = \cup_{\bar{x} \in S} f(B(\bar{x}))$.
 Therefore, $f(S)$ is open.
 Since open set $S$ is arbitrary, $f$ is an open mapping.
 \end{proof}
@@ -1199,9 +1198,9 @@ Since open set $S$ is arbitrary, $f$ is an open mapping.
 \begin{remark}[Properties]
 Functions with non-zero Jacobian determinant has following properties :
 \begin{enumerate}
-	\item If $J_f \ne 0$ in $n$-ball $B$ about $\overline{a}$ which has different values at its boundaries, then $f(B)$ has an $n$-ball about $f(\overline{a})$.
+	\item If $J_f \ne 0$ in $n$-ball $B$ about $\bar{a}$ which has different values at its boundaries, then $f(B)$ has an $n$-ball about $f(\bar{a})$.
 	\item If $J_f \ne 0$, $f$ has continuous partial derivatives in $S$, and $f$ is injective in an open set $A$, then $f(A)$ is open.
-	\item Let $S$ be an open set in $\mathbb{R}^n$, $f$ has continuous partial derivatives in $S$, and $J_f(\overline{a}) \ne 0$ for some $\overline{a} \in S$, then $f$ is injective on an $n$-ball $B(\overline{a})$ in $S$.
+	\item Let $S$ be an open set in $\mathbb{R}^n$, $f$ has continuous partial derivatives in $S$, and $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then $f$ is injective on an $n$-ball $B(\bar{a})$ in $S$.
 	\item Let $A$ be an open set in $\mathbb{R}^n$, $f$ has continuous partial derivatives in $A$, and $J_f \ne 0$ in $A$, then $f$ is an open mapping.
 \end{enumerate}
 \end{remark}
@@ -1210,29 +1209,29 @@ Functions with non-zero Jacobian determinant has following properties :
 \subsubsection{Inverse function Theorem}
 \begin{theorem}[Inverse function]
 Let $S$ be an open subset of $\mathbb{R}^n$ and $f$ be a continuously differentiable function\footnote{$f \in C'(S)$ : $f$ is continuously differentiable on $S$} $f : S \to \mathbb{R}^n$.
-If $J_f(\overline{a}) \ne 0$ for some $\overline{a} \in S$, then there are two open sets $X \subset S$, and $Y \subset f(S)$ such that
+If $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then there are two open sets $X \subset S$, and $Y \subset f(S)$ such that
 \begin{enumerate}
-	\item $\overline{a} \in X \text{ and } f(\overline{a}) \in Y$
+	\item $\bar{a} \in X \text{ and } f(\bar{a}) \in Y$
 	\item $Y = f(X)$
 	\item $f$ is injective
-	\item there exists another function $g : Y \to X$ such that $g(f(\overline{x})) = \overline{x},\ \forall \overline{x} \in X$
+	\item there exists another function $g : Y \to X$ such that $g(f(\bar{x})) = \bar{x},\ \forall \bar{x} \in X$
 	\item $g$ is continuously differentiable on $Y$
 \end{enumerate}
 \begin{commentary}
-	In other words, if $f \in C'$ and there exists $\overline{a} \in S$ such that $J_f(\overline{a}) \ne 0$, then $f$ has an inverse $f^{-1}$ in a neighbourhood of $f(\overline{a})$ and $f^{-1} \in C'$.
+	In other words, if $f \in C'$ and there exists $\bar{a} \in S$ such that $J_f(\bar{a}) \ne 0$, then $f$ has an inverse $f^{-1}$ in a neighbourhood of $f(\bar{a})$ and $f^{-1} \in C'$.
 \end{commentary}
 \end{theorem}
 \begin{proof}
 	Step 1 : Construction of open sets $X$ and $Y$.\\
-	Given that, $J_f(\overline{a}) \ne 0$ and $f \in C'$.
+	Given that, $J_f(\bar{a}) \ne 0$ and $f \in C'$.
 	Thus all partial derivatives of $f$ are continuous on $S$.
 	Then $J_f$ is continuous on $S$, 
-	By the continuity of $J_f$ at $\overline{a}$, there exists a neighbourhood of $\overline{a}$, say $B_1(\overline{a})$ in which $J_f \ne 0$.
-	That is, $\forall \overline{x} \in B_1(\overline{a}),\ J_f(\overline{x}) \ne 0$.
-	Therefore,(by theorem) there exists an $n$-ball $B(\overline{a})$ on which $f$ is injective.
-	Let $B$ be an $n$-ball with center $\overline{a}$ contained in $B(\overline{a})$.
+	By the continuity of $J_f$ at $\bar{a}$, there exists a neighbourhood of $\bar{a}$, say $B_1(\bar{a})$ in which $J_f \ne 0$.
+	That is, $\forall \bar{x} \in B_1(\bar{a}),\ J_f(\bar{x}) \ne 0$.
+	Therefore,(by theorem) there exists an $n$-ball $B(\bar{a})$ on which $f$ is injective.
+	Let $B$ be an $n$-ball with center $\bar{a}$ contained in $B(\bar{a})$.
 	Then $f$ is injective on $B$.
-	Therefore,(by theorem) $f(B)$ contains an $n$-ball with center $f(\overline{a})$.
+	Therefore,(by theorem) $f(B)$ contains an $n$-ball with center $f(\bar{a})$.
 	Let $Y$ be the $n$-ball contained in $f(B)$.
 	And  $X=f^{-1}(Y) \cap B$.
 	That is, the inverse image of $Y$ on $B$.
@@ -1241,120 +1240,123 @@ If $J_f(\overline{a}) \ne 0$ for some $\overline{a} \in S$, then there are two o
 	And therefore, $X$ is open.
 
 	Step 2 : The inverse of $f$, say $g$.\\
-	Clearly $\overline{a} \in X$ and $f(\overline{a}) \in Y$.
+	Clearly $\bar{a} \in X$ and $f(\bar{a}) \in Y$.
 	Also $Y = f(X)$ and $f$ is injective on $X$( since, $X \subset B$).
 	
 	The closure of $B$, $\bar{B}$ is compact and $f$ is injective and continuous on $\bar{B}$.
 	Then\footnote{Existence of inverse of a continuous function on a compact set in metric spaces.} there exists a continuous function $g$ defined on $f(\bar{B})$ such that $g \circ f$ is the identity function on $\bar{B}$.
-	That is, $\forall x \in \bar{B},\ g(f(\overline{x})) = x$.
+	That is, $\forall x \in \bar{B},\ g(f(\bar{x})) = x$.
 	Thus, $g(X) = Y$ and $g$ is unique.
 
 	Step 3 : $g$ has continuous partial derivatives.\\
-	Define a real-valued function $h : S^n \to \mathbb{R}$ by $h(\overline{Z}) = \det[D_jf_i(\overline{Z}_i)]$ where $\overline{Z}_1,\overline{Z}_2,\cdots,\overline{Z}_n \in S$ and $\overline{Z} = (\overline{Z}_1,\overline{Z}_2,\cdots,\overline{Z}_n)$.
-	Now, let $\overline{Z} = (\overline{a},\overline{a},\cdots,\overline{a})$.
-	Then $h(\overline{Z}) \ne 0$ and $h$ is continuous on $S^n$.
-	Therefore, $\overline{Z}$ has a neighbourhood on which $h$ does not vanish (that is, nonzero).
-	Let $B_2(\overline{a})$ be the corresponding $n$-ball with center $\overline{a}$ such that $\overline{Z}_i \in B_2(\overline{a}) \implies h(\overline{Z}) \ne 0$.
+	Define a real-valued function $h : S^n \to \mathbb{R}$ by $h(\bar{Z}) = \det[D_jf_i(\bar{Z}_i)]$ where $\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n \in S$ and $\bar{Z} = (\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n)$.
+	Now, let $\bar{Z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
+	Then $h(\bar{Z}) \ne 0$ and $h$ is continuous on $S^n$.
+	Therefore, $\bar{Z}$ has a neighbourhood on which $h$ does not vanish (that is, nonzero).
+	Let $B_2(\bar{a})$ be the corresponding $n$-ball with center $\bar{a}$ such that $\bar{Z}_i \in B_2(\bar{a}) \implies h(\bar{Z}) \ne 0$.
 
-	Let $B$ be an $n$-ball with center $\overline{a}$ contained in $B_2(\overline{a})$.
-	Now $\bar{B} \subset B_2(\overline{a})$.
-	And $h(\overline{Z}) \ne 0,\ \forall \overline{Z}_i \in \bar{B}$.
+	Let $B$ be an $n$-ball with center $\bar{a}$ contained in $B_2(\bar{a})$.
+	Now $\bar{B} \subset B_2(\bar{a})$.
+	And $h(\bar{Z}) \ne 0,\ \forall \bar{Z}_i \in \bar{B}$.
 
 	We have, $g = (g_1, g_2, \cdots,g_n)$.
 	It is enough to prove that $g_k \in C'$ for $k=1,2,\cdots,n$.
 	Again, it is enough to prove that $D_rg_k$ exists and is continuous for $1 \le r \le n$.
 	(Fix some $r$ and prove that $D_rg_k$ is continuous.)
 
-	Let $\overline{y} \in Y$.
-	Define $\overline{x} = g(\overline{y})$ and $\overline{x}' = g(\overline{y}+t\overline{u}_r)$ where $t$ is sufficiently small such that $\overline{y}+t\overline{u}_r \in Y$.
-	Then $\overline{x},\overline{x}' \in X$.
-	And $f(\overline{x}')-f(\overline{x}) = t\overline{u}_r$.
-	Therefore $f_i(\overline{x})-f_i(\overline{x}') = 0$ when $i \ne r$.
-	And $f_i(\overline{x}')-f_i(\overline{x}) = t$ when $i = r$.
+	Let $\bar{y} \in Y$.
+	Define $\bar{x} = g(\bar{y})$ and $\bar{x}' = g(\bar{y}+t\bar{u}_r)$ where $t$ is sufficiently small such that $\bar{y}+t\bar{u}_r \in Y$.
+	Then $\bar{x},\bar{x}' \in X$.
+	And $f(\bar{x}')-f(\bar{x}) = t\bar{u}_r$.
+	Therefore $f_i(\bar{x})-f_i(\bar{x}') = 0$ when $i \ne r$.
+	And $f_i(\bar{x}')-f_i(\bar{x}) = t$ when $i = r$.
 	By mean-value theorem,
-	$$\frac{f_i(\overline{x}') - f(\overline{x})}{t} = \nabla f_i(\overline{Z}_i) \cdot \frac{\overline{x}'-\overline{x}}{t}$$
-	where $\overline{Z}_i \in L(\overline{x},\overline{x}')$, the line segment joining $\overline{x}$ and $\overline{x}'$.
-	Since $\det[D_jf_i(\overline{Z}_i)] = h(\overline{Z} \ne 0$, this system of linear equations in $n$ unknowns, $\frac{x_j'-x_j}{t}$ has a unique solution.
-	As $t \to 0$, $\overline{x}' \to \overline{x}$.
-	And $\overline{Z}_i \to \overline{x}$.
-	Since $J_f(\overline{x}) \ne 0$, the limit
-	$$ \lim_{t \to 0} \frac{g_k(\overline{y}+t\overline{u}_r)-g_k(\overline{y})}{t}$$
+	$$\frac{f_i(\bar{x}') - f(\bar{x})}{t} = \nabla f_i(\bar{Z}_i) \cdot \frac{\bar{x}'-\bar{x}}{t}$$
+	where $\bar{Z}_i \in L(\bar{x},\bar{x}')$, the line segment joining $\bar{x}$ and $\bar{x}'$.
+	Since $\det[D_jf_i(\bar{Z}_i)] = h(\bar{Z}) \ne 0$, this system of linear equations in $n$ unknowns, $\frac{x_j'-x_j}{t}$ has a unique solution.
+	As $t \to 0$, $\bar{x}' \to \bar{x}$.
+	And $\bar{Z}_i \to \bar{x}$.
+	Since $J_f(\bar{x}) \ne 0$, the limit
+	$$ \lim_{t \to 0} \frac{g_k(\bar{y}+t\bar{u}_r)-g_k(\bar{y})}{t}$$
 	exists.
-	Thus, $D_rg_k(\overline{y})$ exists $\forall y \in Y$ and every $r$.	
-	This limit is a quotient of two determinants of partial derivatives of $f$, which are all continuous since $f \in C'$.
+	Thus, $D_rg_k(\bar{y})$ exists $\forall y \in Y$ and every $r$.	
+	By Cramer's rule, this limit is a quotient of two determinants of partial derivatives of $f$, which are all continuous since $f \in C'$.
 	Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 \end{proof}
 
 \subsubsection{Implicit function Theorem}
-\begin{theorem}[Implicit function]
-Let $S$ be an open subset of $\mathbb{R}^{n+k}$ and $f$ be a function $f : S \to \mathbb{R}^n$.
-Suppose $f$ is continuously differentiable on $S$.
-Let $(\overline{x_0},\overline{t_0}) \in \mathbb{R}^n \times \mathbb{R}^k$ such that $f(\overline{x_0},\overline{t_0}) = \overline{0}$ and $J_f(\overline{x_0}) \ne 0$.
-Then there exists an open set $T_0$ containing $\overline{t_0}$ in $\mathbb{R}^k$ and a unique function $g : \mathbb{R}^k \to \mathbb{R}^n$ such that
+\begin{theorem}
+	Let $S$ be an open set in $\mathbb{R}^{n+k}$ and
+	$f$ be a function $f : S \to \mathbb{R}^n$.
+	Suppose $f$ is continuously differentiable on $S$.
+	Let $(\bar{x}_0,\bar{t}_0) \in S$
+	such that $\bar{x}_0 \in \mathbb{R}^n$, $\bar{t}_0 \in \mathbb{R}^k$, $f(\bar{x}_0,\bar{t}_0) = \bar{0}$ and $J_f(\bar{x}_0,\bar{t}_0) \ne 0$.
+	Then there exists an open set $T_0$ containing $\bar{t}_0$ in $\mathbb{R}^k$ and
+	a unique function $g : T_0 \to \mathbb{R}^n$ such that
 \begin{enumerate}
 	\item $g$ is continuously differentiable on $T_0$
-	\item $g(\overline{t_0}) = \overline{x_0}$
-	\item $f(g(\overline{t}),\overline{t}) = \overline{0},\ \forall \overline{t} \in T_0$
+	\item $g(\bar{t}_0) = \bar{x}_0$
+	\item $f(g(\bar{t}),\bar{t}) = \bar{0},\ \forall \bar{t} \in T_0$
 \end{enumerate}
 \end{theorem}
 \begin{proof}
 \end{proof}
 
 \subsubsection{Extrema of function of one variable}
-\begin{theorem}[Extrema of functions of one variable]
-Let $n \ge 1$ and function $f$ has $n$th partial derivative in open interval $(a,b)$.
-Suppose for some $c \in (a,b)$,
-\[ f'(c) = f''(c) = \cdots = f^{(n-1)}(c) = 0 \text{ and } f^{(n)}(c) \ne 0 \]
-If $n$ is even,
+\begin{theorem}
+	Let $n \ge 1$ and function $f$ has $n$th partial derivative in open interval $(a,b)$.
+	Suppose for some $c \in (a,b)$,
+	\[ f'(c) = f''(c) = \cdots = f^{(n-1)}(c) = 0 \text{ and } f^{(n)}(c) \ne 0 \]
+	If $n$ is even,
 \begin{enumerate}
 	\item $f$ has a local minimum at $c$ if $f^{(n)}(c)>0$
 	\item $f$ has a local maximum at $c$ if $f^{(n)}(c) < 0$
 \end{enumerate}
-and If $n$ is odd, there is neither a local minimum nor a local maximum at $c$.
+	and If $n$ is odd, there is neither a local minimum nor a local maximum at $c$.
 \end{theorem}
 \begin{proof}
 \end{proof}
 
 \subsubsection{Extrema of function of several variables}
-\begin{definition}[stationary point]
-If function $f$ is differentiable at $\overline{a}$ and $\nabla f(\overline{a}) = \overline{0}$, the point $\overline{a}$ is a stationary point of $f$.
+\begin{definition}
+	If function $f$ is differentiable at $\bar{a}$ and $\nabla f(\bar{a}) = \bar{0}$, the point $\bar{a}$ is a stationary point of $f$.
 \end{definition}
 
-\begin{definition}[saddle point]
-A stationary point is a saddle point if every $n$-ball $B(\overline{a})$ contains points $\overline{x}$ such that $f(\overline{x}) > f(\overline{a})$ and other points such that $f(\overline{x}) < f(\overline{a})$.
+\begin{definition}
+	A stationary point is a saddle point if every $n$-ball $B(\bar{a})$ contains points $\bar{x}$ such that $f(\bar{x}) > f(\bar{a})$ and other points such that $f(\bar{x}) < f(\bar{a})$.
 \end{definition}
 
-\begin{definition}[quadratic form]
-A function $Q : \mathbb{R}^n \to \mathbb{R}$ defined $Q(\overline{x}) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}x_ix_j$ where $a_{ij} \in \mathbb{R}$ is a function of the quadratic form or simply a quadratic form.
+\begin{definition}
+	A function $Q : \mathbb{R}^n \to \mathbb{R}$ defined $Q(\bar{x}) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}x_ix_j$ where $a_{ij} \in \mathbb{R}$ is a function of the quadratic form or simply a quadratic form.
 \begin{description}
 	\item[symmetric quadratic form] $a_{ij} = a_{ji},\ \forall i,j$. 
-	\item[positive definite quadratic form] $Q(\overline{x}) > 0, \forall \overline{x} \ne \overline{0}$. 
-	\item[negative definite quadratic form] $Q(\overline{x}) < 0, \forall \overline{x} \ne \overline{0}$. 
+	\item[positive definite quadratic form] $Q(\bar{x}) > 0, \forall \bar{x} \ne \bar{0}$. 
+	\item[negative definite quadratic form] $Q(\bar{x}) < 0, \forall \bar{x} \ne \bar{0}$. 
 \end{description}
 \end{definition}
 
-\begin{theorem}[Second derivative test for extrema]
-Let $f$ be a function $f : \mathbb{R}^n \to \mathbb{R}^m$.
-Suppose that the second order partial derivatives $D_{i,j}f$ exists in an $n$-ball $B(\overline{a})$ and are continuous at $\overline{a}$ where $\overline{a}$ is a stationary point of $f$.
-\[ \text{Let } Q(\overline{t}) = \frac{1}{2} f''(\overline{a},\overline{t}) = \frac{1}{2} \sum_{i = 1}^n \sum_{j = 1}^n D_{i,j} f(\overline{a})t_it_j \]
+\begin{theorem}
+	Let $f$ be a function $f : \mathbb{R}^n \to \mathbb{R}^m$.
+	Suppose that the second order partial derivatives $D_{i,j}f$ exists in an $n$-ball $B(\bar{a})$ and are continuous at $\bar{a}$ where $\bar{a}$ is a stationary point of $f$.
+	\[ \text{Let } Q(\bar{t}) = \frac{1}{2} f''(\bar{a},\bar{t}) = \frac{1}{2} \sum_{i = 1}^n \sum_{j = 1}^n D_{i,j} f(\bar{a})t_it_j \]
 \begin{enumerate}
-	\item If $Q(\overline{t}) > 0$ for all $\overline{t} \ne \overline{0}$, $f$ has a relative minimum at $\overline{a}$.
-	\item If $Q(\overline{t}) < 0$ for all $\overline{t} \ne \overline{0}$, $f$ has a relative maximum at $\overline{a}$.
-	\item If $Q(\overline{t})$ takes both positive and negative values, then $f$ has a saddle point at $\overline{a}$.
+	\item If $Q(\bar{t}) > 0$ for all $\bar{t} \ne \bar{0}$, $f$ has a relative minimum at $\bar{a}$.
+	\item If $Q(\bar{t}) < 0$ for all $\bar{t} \ne \bar{0}$, $f$ has a relative maximum at $\bar{a}$.
+	\item If $Q(\bar{t})$ takes both positive and negative values, then $f$ has a saddle point at $\bar{a}$.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
 \end{proof}
 
-\begin{theorem}[Second derivative test : simplified]
-Let $f$ be a real-valued function $f : \mathbb{R}^2 \to \mathbb{R}$ with continuous second order partial derivatives at a stationary point $\overline{a} \in \mathbb{R}^2$.
-Let $A = D_{1,1}f(\overline{a})$, $B = D_{1,2}f(\overline{a}) = D_{2,1}f(\overline{a})$, and $C = D_{2,2}f(\overline{a})$.
+\begin{theorem}
+Let $f$ be a real-valued function $f : \mathbb{R}^2 \to \mathbb{R}$ with continuous second order partial derivatives at a stationary point $\bar{a} \in \mathbb{R}^2$.
+Let $A = D_{1,1}f(\bar{a})$, $B = D_{1,2}f(\bar{a}) = D_{2,1}f(\bar{a})$, and $C = D_{2,2}f(\bar{a})$.
 And let $\Delta = \begin{vmatrix}A & B \\ B & C \end{vmatrix} = AC - B^2$.
 Then we have,
 \begin{enumerate}
-	\item If $\Delta > 0$ and $A > 0$, then $f$ has a relative minimum at $\overline{a}$.
-	\item If $\Delta > 0$ and $A < 0$, then $f$ has a relative maximum at $\overline{a}$.
-	\item if $\Delta < 0$, then $f$ has a saddle point at $\overline{a}$.
+	\item If $\Delta > 0$ and $A > 0$, then $f$ has a relative minimum at $\bar{a}$.
+	\item If $\Delta > 0$ and $A < 0$, then $f$ has a relative maximum at $\bar{a}$.
+	\item if $\Delta < 0$, then $f$ has a saddle point at $\bar{a}$.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -1378,15 +1380,15 @@ Then we have,
 \section{Integration on Differential Forms}
 \begin{definition}
 	A $k$-cell in $R^k$ is given by, 
-	$$I^k = \{ \overline{x} \in \mathbb{R}^k : a_i \le x_i \le b_i,\ \forall i \}$$
-	where $\overline{a},\overline{b} \in \mathbb{R}^k$.
+	$$I^k = \{ \bar{x} \in \mathbb{R}^k : a_i \le x_i \le b_i,\ \forall i \}$$
+	where $\bar{a},\bar{b} \in \mathbb{R}^k$.
 	Let $f$ be a continuous, real-valued function on $I^k$.
 	Then, the integral of $f$ over $I^k$ is given by,
-	$$\int_{I^k}f(\overline{x}) d\overline{x} = f_0 \text{ where } f_k = f \text{ and }$$
+	$$\int_{I^k}f(\bar{x}) d\bar{x} = f_0 \text{ where } f_k = f \text{ and }$$
 	$$f_{r-1} = \int_{a_r}^{b_r} f_r(x_0,x_1,\cdots,x_r) dx_r,\ r = 1,2,\cdots,k$$
 \begin{commentary}
 	In other words,
-	$$\int_{I^k} f(\overline{x})\ d\overline{x} = \idotsint_{a_k}^{b_k} \left[f(x_0,x_1,\cdots,x_k)\ dx_k\right]\ dx_{k-1}\cdots dx_1$$
+	$$\int_{I^k} f(\bar{x})\ d\bar{x} = \idotsint_{a_k}^{b_k} \left[f(x_0,x_1,\cdots,x_k)\ dx_k\right]\ dx_{k-1}\cdots dx_1$$
 \end{commentary}
 \end{definition}
 
@@ -1398,20 +1400,20 @@ Then we have,
 \end{commentary}
 \end{theorem}
 \begin{proof}
-	Step 1 : ``Separable'' Functions ie, $h(\overline{x}) = \prod h_i(x_i)$.\\
+	Step 1 : ``Separable'' Functions ie, $h(\bar{x}) = \prod h_i(x_i)$.\\
 	\begin{commentary}
 		(``separable'' is not standard.
 		It is only for the purpose of understanding.)
 	\end{commentary}
 
-	Let $h(\overline{x}) = h_1(x_1)h_2(x_2)\cdots h_k(x_k)$ where $h_j \in [a_j,b_j]$.
-	$$ L(h) = \int_{I^k} \left(\prod_{i = 1}^k h_i(x_i)\right) d\overline{x} = \prod_{i = 1}^k \int_{a_k}^{b_k} h_i(x_i)\ dx_i = L'(h)$$
+	Let $h(\bar{x}) = h_1(x_1)h_2(x_2)\cdots h_k(x_k)$ where $h_j \in [a_j,b_j]$.
+	$$ L(h) = \int_{I^k} \left(\prod_{i = 1}^k h_i(x_i)\right) d\bar{x} = \prod_{i = 1}^k \int_{a_k}^{b_k} h_i(x_i)\ dx_i = L'(h)$$
 	Step 2 : Algebra of ``separable'' functions, $\mathscr{A}$.\\
 	Let $\mathscr{A}$ be all finite sums of functions such as $h$.
 	Let $g \in \mathscr{A}$.
 	\begin{align*}
-		L(g) = & \int_{I^k} \left(\sum_j \prod_i h_{i,j}(x_i) \right) d\overline{x} \\
-		& = \sum_j \int_{I^k} \prod_i h_{(j)}(\overline{x})\ d\overline{x}\\
+		L(g) = & \int_{I^k} \left(\sum_j \prod_i h_{i,j}(x_i) \right) d\bar{x} \\
+		& = \sum_j \int_{I^k} \prod_i h_{(j)}(\bar{x})\ d\bar{x}\\
 		& = \sum_j \prod_i \int_{a_k}^{b_k} h_{i,j}(x_i)\ d(x_i)\\
 		& = L'(g)
 	\end{align*}
@@ -1423,7 +1425,7 @@ Then we have,
 	for any $\epsilon > 0$,	there exists a function $g \in \mathscr{A}$
 	such that $\|f-g\| < \frac{\epsilon}{V}$
 	where the norm of a function $f$ is defined by
-	$\|f\| = \max\{f(\overline{x}) : \overline{x} \in I^k\}$.
+	$\|f\| = \max\{f(\bar{x}) : \bar{x} \in I^k\}$.
 
 	Therefore, it is sufficient to prove that $\|L(f)-L'(f)\| < \epsilon$.
 	Since $\|f-g\| < \frac{\epsilon}{V}$, $|L(f-g)| < \epsilon$ and $|L'(f-g)| < \epsilon$. Thus,
@@ -1437,11 +1439,11 @@ Then we have,
 
 \begin{definition}
 	Let $f : \mathbb{R}^k \to \mathbb{C}$.
-	The support of $f$ is the closure of the set of all points $\overline{x} \in \mathbb{R}^k$ such that $f(\overline{x}) \ne 0$.
+	The support of $f$ is the closure of the set of all points $\bar{x} \in \mathbb{R}^k$ such that $f(\bar{x}) \ne 0$.
 
 	Let $f$ be a continuous function with compact support.
 	And $I^k$ be any $k$-cell containing the support of $f$.
-	Then, $\int_{\mathbb{R}^k} f\ d\overline{x} = \int_{I^k} f\ d\overline{x}$.
+	Then, $\int_{\mathbb{R}^k} f\ d\bar{x} = \int_{I^k} f\ d\bar{x}$.
 \end{definition}
 
 \begin{commentary}
@@ -1455,8 +1457,101 @@ Then we have,
 \begin{definition}
 	Let $E$ be an open subset in $\mathbb{R}^n$.
 	Then function $G : E \to \mathbb{R}^n$ is primive if it satisfies
-	$$G(\overline{x}) = \sum_{i \ne m} x_i \overline{e}_i + g(\overline{x})\overline{e}_m$$
-	for some integer $m$ and some function $g : E \to \mathbb{R}$ (where $\overline{e}_i$ are the unit co-ordinate vectors).
+	\begin{equation}
+		G(\bar{x}) = \sum_{i \ne m} x_i \bar{e}_i + g(\bar{x})\bar{e}_m
+	\end{equation}
+	for some integer $m$ and some function $g : E \to \mathbb{R}$ (where $\bar{e}_i$ are the unit co-ordinate vectors).
+	\begin{equation}
+		G(\bar{x}) = \bar{x} + [g(\bar{x})-x_m]\bar{e}_m
+	\end{equation}
+	If $g$ is differentiable at $\bar{a}$, then $G$ is also differentiable at $\bar{a}$.
+	The matrix $[\alpha_{i,j}]$ of $G'(\bar{a})$ is given by 
+	$$\alpha_{i,j} = \begin{cases} 
+		D_jg(\bar{a}) & i = m\\
+		1 & i \ne m, j = i \\
+		0 & i \ne m, j \ne i
+	\end{cases} $$
+	The Jacobian of $G$ at $\bar{a}$ is given by,
+	$J_G(\bar{a}) = \det[G'(\bar{a})] = D_mg(\bar{a})$.
+
+	Total derivative $G'(\bar{a})$ is invertible if and only if $D_mg(\bar{a}) \ne 0$.
+\end{definition}
+
+\begin{definition}
+	A linear operator $B$ on $\mathbb{R}^n$ that interchanges some pair of members of the standard basis and leaves the others fixed is a flip.
+\end{definition}
+
+\begin{theorem}
+	Suppose $F$ is a $\mathscr{C}$-mapping of an open set $E \subset \mathbb{R}^n$ into $\mathbb{R}^n$, $\bar{0} \in E$, $F(\bar{0}) = \bar{0}$, and $F'(\bar{0})$ is invertible.
+	Then there is a neighbourhood of $\bar{0}$ in $\mathbb{R}^n$ in which the representation $F(\bar{x}) = B_1B_2\cdots B_{n-1}G_n\circ G_{n-1}\circ \cdots G_1(\bar{x})$ is valid where $G_i$ are primitive $\mathscr{C}$-mapping in some neighbourhood of $\bar{0}$, $G_i(\bar{0}) = \bar{0}$, $G'(\bar{0})$ is invertible and each $B_i$ is either a flip or identity operator.
+
+\begin{commentary}
+	In other words, locally $F$ is a composition of primitive mappings and flips.
+\end{commentary}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Suppose $K$ is a compact subset of $\mathbb{R}^n$, and $\{V_\alpha\}$ is an open cover of $K$.
+	Then there exists functions $\psi_1,\psi_2,\cdots,\psi_s \in \mathscr{C}(\mathbb{R}^n)$ such that
+	\begin{enumerate}
+		\item $0 \le \psi_i \le 1$ for $1 \le i \le s$
+		\item each $\psi_i$ has its support in some $V_\alpha$ and
+		\item $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+	If $f \in \mathscr{C}(\mathbb{R}^n)$ and the support of $f$ lies in $K$,
+	then\\ $f = \sum\limits_{i=1}^s \psi_i f$. Each $\psi_i$ has its support in some $V_\alpha$.
+\end{corollary}
+
+\begin{theorem}
+	Suppose $T$ is a one-to-one $\mathscr{C}$-mapping of an open set $E \subset \mathbb{R}^k$ into $\mathbb{R}^k$ such that $J_T(\bar{x}) \ne 0$ for all $\bar{x} \in E$.
+	If $f$ is a continuous function on $\mathbb{R}^k$ whose support is compact and lies in $T(E)$, then
+	\begin{equation}
+		\int_{\mathbb{R}^k} f(\bar{y})\ d\bar{y} = \int_{\mathbb{R}^k} f(T(\bar{x}))|J_T(\bar{x})|\ d\bar{x}
+	\end{equation}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+	Suppose $E$ is an open set in $\mathbb{R}^n$.
+	A $k$-surface in $E$ is a $\mathscr{C}'$-mapping $\Phi$ from a compact set $D \subset \mathbb{R}^k$ into $E$.
+	$D$ is the parameter domain of $\Phi$.
+\end{definition}
+
+\begin{definition}
+	Suppose $E$ is an open set in $\mathbb{R}^n$.
+	A differential form of order $k \ge 1$ in $E$, a $k$-form in $E$ is a function $\omega$, symbolically represented by the sum $\omega = \sum a_{i1\cdots ik}(\bar{x})\ dx_{i1}\wedge dx_{i2} \wedge \cdots dx_{ik}$ which assigns to each $k$-surface $\Phi$ in $E$ a number $\omega(\Phi) = \int_{\Phi} \omega $, according to the rule
+	\begin{equation}
+		\int_{\Phi} \omega = \int_D \sum a_{i1\cdots ik}(\Phi(\bar{u})) \frac{\partial(x_{i1},x_{i2},\cdots,x_{ik})}{\partial(u_1,u_2,\cdots,u_k)}d\bar{u}
+	\end{equation}
+	where $D$ is the paramter domain of $\Phi$.
+
+	A $k$-form $\omega$ is of class $\mathscr{C}'$ or $\mathscr{C}''$ if the functions $a_{i1\cdots ik}$ are all of class $\mathscr{C}'$ or $\mathscr{C}''$.
+	A $0$-form in $E$ is defined to be a continuous function in $E$.
+\end{definition}
+
+\begin{remark}[Elementary properties of $k$-forms].
+	\begin{enumerate}
+		\item $\omega_1 = \omega_2 \iff \omega_1(\Phi) = \omega_2(\Phi)$
+		\item 
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}
+	Let $\bar{I} = (i_1,i_2,\cdots,i_k)$ be an increasing $k$-index.
+	That is, $1 \le i_1 \le i_2 \le \cdots i_k \le n$.
+	Then $dx_{\bar{I}}$ of the form $dx_{\bar{I}} = dx_{i1} \wedge dx_{i2} \cdots dx_{ik}$ is basic $k$-form in $\mathbb{R}^n$.
+
+	There are $(^n_k)$ basic $k$-forms in $\mathbb{R}^n$.
+
+	Every $k$-form can be represented in terms of basic $k$-forms.
+	For every $k$-tuple $(j_1,j_2,\cdots,j_k)$, $dx_{j1} \wedge \cdots dx_{jk} = \epsilon(j_1,j_2,\cdots,j_k)dx_{\bar{J}}$ where $\bar{J}$ is the increasing $k$-index obtained by interchanging pairs.
 \end{definition}
 
 %\chapter{The Lebesgue Theory}
