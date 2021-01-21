@@ -1300,6 +1300,62 @@ If $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then there are two open sets $
 \end{enumerate}
 \end{theorem}
 \begin{proof}
+	Given $f : S \to \mathbb{R}^n$ where $S \subset \mathbb{R}^{n+k}$.
+	We have $f = (f_1,f_2,\cdots,f_m)$.
+	Also given that $f \in C'(S)$, $f(\bar{x}_0;\bar{t}_0) = 0$, and $J_f(\bar{x}_0;\bar{t}_0) \ne 0$.
+	Define a function $F : S \to \mathbb{R}^{n+k}$ defined by $F = (F_1,F_2,\cdots,F_{n+k})$.
+	$$ F_m(\bar{x};\bar{t}) = \begin{cases}
+		f_m(\bar{x};\bar{t}) & 1 \le m \le n\\
+		t_{m-n} & n < m \le n+k
+	\end{cases} $$
+	\begin{commentary}
+		For example, let $n = 3$, $k = 2$.
+		Let $\bar{x} = (1,2,3)$ and $\bar{t} = (4,5)$.
+		Suppose $f_k(1,2,3,4,5) = a_k$.
+		Then $F(\bar{x};\bar{t}) = (a_1,a_2,a_3,4,5)$.
+	\end{commentary}
+
+	Then the Jacobian determinant of $F'(\bar{x};\bar{t})$ is given by
+	$$ J_F(\bar{x};\bar{t}) = \begin{vmatrix}
+		\begin{matrix}
+			D_1f_1 & D_2f_1 & \cdots & D_mf_1 \\
+			D_1f_2 & D_2f_2 & \cdots & D_mf_2 \\
+			\vdots & \vdots & \ddots & \vdots \\
+			D_1f_m & D_2f_m & \cdots & D_mf_m
+		\end{matrix}
+		& 0 & \cdots & 0 \\
+		0 & 1 & \cdots & 0 \\
+		\vdots & \vdots & \ddots & \vdots \\
+		0 & 0 & \cdots & 1 
+	\end{vmatrix} $$
+	Thus $J_F(\bar{x}_0;\bar{t}_0) = J_f(\bar{x}_0;\bar{t}_0) \ne 0$.
+	Also, $F(\bar{x}_0;\bar{t}_0) = (\bar{0};\bar{t}_0)$.
+	Therefore, by inverse function theorem, there exists open sets $X,Y$ containing $(\bar{x}_0;\bar{t}_0)$ and $(\bar{0};\bar{t}_0)$ such that $F$ is injective on $X$, $X = F^{-1}(Y)$ and there exists a unique local inverse function $G$ such that $G(F(\bar{x};\bar{t})) = (\bar{x};\bar{t})$ and $G \in C'(Y)$.
+
+	Let $G = (v;w)$.
+	That is, $v_i = G_i$ for $1 \le i \le n$.
+	And $w_j = G_{n+j}$ for $1 \le j \le k$.
+	We have, $G(F(\bar{x};\bar{t})) = (\bar{x};\bar{t})$.
+	Therefore, $v(F(\bar{x};\bar{t})) = \bar{x}$ and $w(F(\bar{x};\bar{t})) = \bar{t}$.
+	Since $X \subset F^{-1}(Y)$ and $F$ is one-to-one on $X$, for every $(\bar{x};\bar{t}) \in Y$, there exists $(\bar{x}';\bar{t}') \in X$ such that $F(\bar{x}';\bar{t}') = (\bar{x};\bar{t})$.
+	By the definition of $F$, $\bar{t}' = \bar{t}$.
+	Therefore, $v(\bar{x};\bar{t}) = v(F(\bar{x}';\bar{t}) = \bar{x}'$ and $w(\bar{x};\bar{t}) = w(F(\bar{x}';\bar{t}) = \bar{t}$.
+	Now, we have $G : Y \to X$ defined by $G(\bar{x};\bar{t}) = (\bar{x}';\bar{t})$.
+
+	Let $T_0$ be a subset of $\mathbb{R}^k$ defined by $T_0 = \{ \bar{t} \in \mathbb{R}^k : (\bar{0};\bar{t}) \in Y \}$.
+	For each $\bar{t} \in T_0$ let $g : T_0 \to \mathbb{R}^n$ is defined by $g(\bar{t}) = v(\bar{0};\bar{t})$.
+	The set $T_0$ is open.
+	And $g \in C'(T_0)$ since $g$ is constructed from the components of $G$ which has continuous partial derivatives on $Y$.
+	(ie, $G \in C'(Y)$.)
+
+	Clearly, $g(\bar{t}_0) = v(\bar{0};\bar{t}_0) = \bar{x}_0$.
+	And $(\bar{0};\bar{t}) = F(\bar{x}_0;\bar{t}_0)$.
+	Therefore, we have $f(v(\bar{x};\bar{t});\bar{t}) = \bar{x}$.
+	Let $\bar{x} = \bar{0}$, then $f(g(\bar{t});\bar{t}) = \bar{0}$.
+	It is enough to prove that the function $g$ is unique.
+	Suppose $f(g(\bar{t});\bar{t}) = f(h(\bar{t});\bar{t})$.
+	Since $f$ is one-to-one on $X$, $(g(\bar{t});\bar{t}) = (h(\bar{t});\bar{t})$ for every $\bar{t} \in T_0$.
+	And $g(\bar{t}) = h(\bar{t}),\ \forall \bar{t} \in T_0$.
 \end{proof}
 
 \subsubsection{Extrema of function of one variable}
