@@ -172,7 +172,9 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \begin{definition}[Cartesian product of sets]
 	Let $S_1,\ S_2, \cdots,\ S_n$ be a sets.
 	Their cartesian product,
-	$$ S_1 \times S_2 \times \cdots \times S_n = \prod_{i = 1}^n S_n = \{ (a_1,a_2,\cdots,a_n) :  a_i \in S_i \} $$
+	\begin{equation}
+		S_1 \times S_2 \times \cdots \times S_n = \prod_{i = 1}^n S_n = \{ (a_1,a_2,\cdots,a_n) :  a_i \in S_i \} 
+	\end{equation}
 	For example, $ \{A,B,C\} \times \{ 1,2 \} = \{ (A,1),(A,2),(B,1),(B,2),(C,1),(C,2) \}$.
 \end{definition}
 
@@ -183,7 +185,9 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \begin{theorem}[Direct product of Groups]
 	Let $G_1,\ G_2,\ \cdots,\ G_n$ be groups.
 	Then their cartesian product is a group with the binary operation $\ast$,
-	$$ (a_1,\ a_2,\ \cdots,\ a_n) \ast (b_1,\ b_2,\ \cdots,\ b_n) = (a_1 \ast b_1,\ a_2 \ast b_2,\ \cdots,\ a_n \ast b_n) $$
+	\begin{equation}
+		(a_1,\ a_2,\ \cdots,\ a_n) \ast (b_1,\ b_2,\ \cdots,\ b_n) = (a_1 \ast b_1,\ a_2 \ast b_2,\ \cdots,\ a_n \ast b_n)
+	\end{equation}
 	where the binary operation in  $a_i \ast b_i$ is the binary operation of the group $G_i$.
 \end{theorem}
 \begin{proof}
@@ -310,7 +314,9 @@ If $x \in A \implies x \in B$, then $A \subset B$
 
 \begin{theorem}[fundamental theorem of finitely generated abelian groups]
 	Every finitely generated abelian group $G$ is isomorphic to a direct product of cyclic groups in the form
-	$$\mathbb{Z}_{{p_1}^{r_1}} \times\mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}} \times \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}$$
+	\begin{equation}
+		\mathbb{Z}_{{p_1}^{r_1}} \times\mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}} \times \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}
+	\end{equation}
 	where $p_i$ are primes, not necessarily distict and $r_i$ are positive integers.
 	The direct product is unique, except for the possible rearrangement of the factors.
 \end{theorem}
@@ -850,8 +856,7 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Therefore, $\sigma_g$ is a permutation of $X$, $\sigma_g \in S_X$.
 	Let $g_1,g_2 \in G$.
 	And $\phi(g_1)(x) = \sigma_{g_1}(x) = g_1x$, $\phi(g_2)(x) = \sigma_{g_2}(x) = g_2x$.
-	$\phi(g_1g_2)(x) = \sigma_{g_1g_2}(x) = (g_1g_2)x = g_1(g_2x) = \sigma_{g_1}(g_2x) = \phi(g_1)(g_2x)$.
-	\hphantom{$\phi(g_1g_2)(x)$} $= \phi(g_1)(\sigma_{g_2}(x)) = \phi(g_1)(\phi(g_2)(x)) = \phi(g_1)\phi(g_2)(x)$.
+	$\phi(g_1g_2)(x) = \sigma_{g_1g_2}(x) = (g_1g_2)x = g_1(g_2x) = \sigma_{g_1}(g_2x) = \phi(g_1)(g_2x) = \phi(g_1)(\sigma_{g_2}(x)) = \phi(g_1)(\phi(g_2)(x)) = \phi(g_1)\phi(g_2)(x)$.
 	Therefore, $\phi(g_1g_2) = \phi(g_1)\phi(g_2)$ and $\phi$ is a homomorphism.
 \end{proof}
 
@@ -879,6 +884,17 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Then $G_x$ is a subgroup of $G$, $\forall x \in X$.
 \end{theorem}
 \begin{proof}
+	Let $x \in X$.
+	And $g_1, g_2 \in G_x$.
+	Then $g_1x = x$ and $g_2x = x$.
+
+	Clearly, $(g_1g_2)x = g_1(g_2x) = g_1x = x$.
+	Therefore, $g_1g_x \in G_x$.
+	Also $ex = x \implies e \in G_x$.
+	Let $g \in G_x$.
+	Then $gx = x \implies g^{-1}(gx) = g^{-1}x \implies (g^{-1}g)x = g^{-1}x \implies x = g^{-1}x$.
+	Thus, for any $g \in G_x$, $g^{-1} \in G_x$.
+	Therefore, $G_x$ is a subgroup of $G$ for any $x \in X$.
 \end{proof}
 
 \begin{theorem}
@@ -886,6 +902,16 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Then the relation $\sim$ defined by $x_1 \sim x_2$ iff $gx_1 = x_2$ is an equivalence relation.
 \end{theorem}
 \begin{proof}
+	Let $x \in X$.
+	Then $ex = x \implies x \sim x$.
+	Let $x_1, x_2 \in X$ and $x_1 \sim x_2$.
+	Then there exists some $g \in G$ such that $gx_1 = x_2$.
+	We have, $g^{-1}x_2 = g^{-1}(gx_1) = (g^{-1}g)x_1 = ex_1 = x_1$.
+	Therefore, $x_2 \sim x_1$.
+	Let $x_1,x_2,x_3 \in X$ and $x_1 \sim x_2$ and $x_2 \sim x_3$.
+	Then there are $g_1,g_2 \in G$ such that $g_1x_1 = x_2$ and $g_2x_2 = x_3$.
+	Clearly, $g_2g_1 \in G$ and $(g_2g_1)x_1 = g_2(g_1x_1) = g_2x_2 = x_3$.
+	Therefore, $x_1 \sim x_3$.
 \end{proof}
 
 \begin{theorem}
@@ -894,6 +920,31 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	If $|G|$ is finite, then $|Gx|$ is a divisor of $|G|$.
 \end{theorem}
 \begin{proof}
+	We have $Gx$ is the orbit of $x$ in $X$ under $G$ and ${L_G}_x$ is the left cosets of $G_x$ in $G$.
+	Let $x_1 \in Gx$.
+	Then there exists $g_1 \in G$ such that $x_1 = g_1x$.
+	Define $\psi : Gx \to {L_G}_x$ by $\psi(x_1) = g_1G_x$.\\
+	Step 1 : $\psi$ is well-defined.
+
+	Let $x_1 \in Gx$. Suppose there exists $g_1,g_1' \in G$ such that $g_1x = x_1$ and $g_1'x = x_1$.
+	Then we have, $g_1x = g_1'x \implies x = g_1^{-1}(g_1'x) = (g_1^{-1}g_1')x$.
+	Thus, $g_1^{-1}g_1' \in G_x$.
+	Therefore, $g_1(g_1^{-1}g_1') \in g_1G_x$.
+	Clearly, $g_1(g_1^{-1}g_1') = (g_1g_1^{-1})g_1' = g_1' \in g_1G_x$.
+	Therefore, $g_1G_x = g_1'G_x$.
+	And $\psi(x_1) = g_1G_x$ is well-defined.\\
+	Step 2 : $\psi$ is one-to-one.
+
+	Suppose $\psi(x_1) = \psi(x_2)$.
+	Let $x_1, x_2 \in Gx$ such that $x_1 = g_1x$ and $x_2 = g_2x$.
+	Then we have $\psi(x_1) = \psi(x_2) \implies g_1G_x = g_2G_x$.
+	Thus, $g_2 = g_1g$ for some $g \in G_x$.
+	Clearly, $x_2 = g_2x = (g_1g)x = g_1(gx) = g_1x = x_1$.	\\
+	Step 3 : $\psi$ is onto.
+
+	Let $g_1G_x$ be a left coset of $G_x$ in $G$.
+	Then we have, $g_1 \in G$ and $g_1x \in Gx$, say $x_1$.
+	Therefore, there exists $x_1 \in Gx$ such that $\psi(x_1) = g_1G_x$.
 \end{proof}
 
 %\pagebreak
@@ -903,15 +954,21 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 
 %\pagebreak
 
-\section*{Symbols \& Notations}
-\begin{definition}.
-	\begin{itemize}
-		\item $(G:H)$ is the index of $H$ in $G$ ie, the number of left cosets of $H$ in $G$ %\S10.13
-		\item $\ker(\phi)$ is the kernel of a group homomorphism $\phi : G \to G'$.
-			$$\ker(\phi) = \{ g \in G : \phi(g) = e' \}$$
-		\item $G/H$ is the factor group of $G$ over $H$.
-			$$G/H = \{ gH : g \in G,\ H \text{ is a normal subgroup of } G\}$$
-		\item $\phi[G]$ is the range group of $\phi: G \to G'$.
-			$$\phi[G] = \{ \phi(g) : g \in G,\ \phi \text{ is a group homomorphism} \}$$
-	\end{itemize}
-\end{definition}
+%Week 04 Day 01 \S17.1-7
+\section{Application of $G$-Sets to Counting}
+\begin{theorem}[Burnside]
+	Let $G$ be a finite group and $X$ a finite $G$-set.
+	If $r$ is the number of orbits in $X$ under $G$, then
+	\begin{equation}
+		r\cdot |G| = \sum_{g \in G}|X_g|
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	If $G$ is a finite group and $X$ is a finite $G$-set, then
+	\begin{equation}
+		\text{number of orbits in X under G } = \frac{1}{|G|} \sum_{g \in G} |X_g|
+	\end{equation}
+\end{corollary}
