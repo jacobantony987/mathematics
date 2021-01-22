@@ -1359,7 +1359,13 @@ If $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then there are two open sets $
 \end{proof}
 
 \subsubsection{Extrema of function of one variable}
-\begin{theorem}
+\begin{commentary}
+	The function $f : \mathbb{R} \to \mathbb{R}$ defined by $f(x) = x^3$ has derivative $f'(x) = 3x^2$.
+	Thus $f'(0) = 0$.
+	However, $0$ is not a local extrema for the function $f$.
+	Thus, derivative of the function vanishing at point is not sufficient for a local extrema at that point.
+\end{commentary}
+\begin{theorem}[sufficient condition for local extrema]
 	Let $n \ge 1$ and function $f$ has $n$th partial derivative in open interval $(a,b)$.
 	Suppose for some $c \in (a,b)$,
 	\[ f'(c) = f''(c) = \cdots = f^{(n-1)}(c) = 0 \text{ and } f^{(n)}(c) \ne 0 \]
@@ -1371,6 +1377,29 @@ If $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then there are two open sets $
 	and If $n$ is odd, there is neither a local minimum nor a local maximum at $c$.
 \end{theorem}
 \begin{proof}
+	We have $f^{(n)}(c) \ne 0$.
+	Thus, there exists an open interval $B(c)$ such that for each $x \in B(c)$, $f^{(n)}(x)$ has the same sign as $f^{(n)}(c)$.
+	By Taylor's theorem, we have
+	\begin{equation}
+		f(x) = f(c) + \sum_{k = 1}^{n-1} \frac{f^{(k)}(c)}{k!}(x-c)^k + \frac{f^{(n)}(x_1)}{n!} (x-c)^n
+	\end{equation}
+	where $x_1 \in L(x,c)$, the line connecting $x$ and $c$.
+	We have, $f^{(k)}(c) = 0$ for $k = 1,2,\cdots,n-1$.
+	Thus, $$f(x)-f(c) = \frac{f^{(n)}(x_1)}{n!} (x-c)^n$$
+	Case 1 : $n$ is even.
+
+	If $n$ is even, then $(x-c)^n > 0$.
+	Therefore, 
+	$f(x)-f(c)$ has the same sign as $f^{(n)}(x_1)$.
+	If $f^{(n)}(c) > 0$, then $f^{(n)}(x_1)$ has a positive value and $f(x)-f(c) > 0$ for every $x \in B(c)$.
+	Therefore, $f$ has a local minimum at $c$.
+	Similarly, if $f^{(n)}(c) < 0$, then $f(x)-f(c) < 0$ for every $x \in B(c)$.
+	Therefore, $f$ has a local maximum at $c$.\\
+	Case 2 : $n$ is odd.
+
+	If $n$ is odd, then $(x-c)^n$ takes both positive and negative values.
+	Therefore, $f(x) - f(c)$ has both positive and negative values in $B(c)$.
+	Thus $f$ has neither local minimum nor local maximum at $c$.
 \end{proof}
 
 \subsubsection{Extrema of function of several variables}
