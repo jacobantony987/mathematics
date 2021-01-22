@@ -737,18 +737,9 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 
 %Week 02 Day 04 \S14E
 \section{Exercise \S14}
-%\begin{remark} Disprove the following results
-%	\begin{itemize}
-%		\item[$\star\bullet$] If $H$ is a subgroup and $N$ is a normal subgroup, then $H \cap N$ is normal. %\S14E35
-%		\item Every factor group of a non-abelian group is also a non-abelian group.%\S14E23gh
-%		\item If $c \in \mathbb{R}^*$, then the factor group $\mathbb{R}/n\mathbb{R}$ is cyclic.
-%		\item Every factor group of a torsion free group is also a torsion free group.%\S14E22
-%	\end{itemize}
-%\end{remark}
-
 \begin{remark}Prove the following results on normal subgroups
 	\begin{itemize}
-		\item Every subgroup of an abelian group $G$ is a normal subgroup of $G$. %\S14E23b
+		\item The notion of normality is stronger than abelian. %\S14E23b
 		\item Intersection of normal subgroups is normal. %\S14E31
 		\item $SL(n,\mathbb{R})$ is a normal subgroup of $GL(n,\mathbb{R})$%\S14E40
 	\end{itemize}
@@ -762,23 +753,26 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 			(hint : $aH \in G/H\ \&\ |G/H| = m$)
 		\item If a finite group $G$ has exactly one subgroup $H$ of order $m$, then $H$ is normal. %\S14E34
 		\item If $G$ has a subgroup of order $m$, then the intersection of all subgroups of order $m$ is normal.%\S14E36
-		\item Every factor group of an abelian group is also an abelian group.%\S14E23gh
-		\item Every factor group of a torsion group is also a torsion group.%\S14E22
-		\item The factor group of an abelian group $G$ over a torsion subgroup $T$, $G/T$ is torsion free.%\S14E26
+		\item Every factor group of an abelian group is also abelian.%\S14E23gh
+		\item The factor group of $G$ over a torsion subgroup $T$, $G/T$ is torsion free.%\S14E26
 	\end{itemize}
 \end{remark}
 
 \begin{definition}
 	A \textbf{commutator} $c$ in group $G$ is an element in the form $c = aba^{-1}b^{-1}$ for some $a,b \in G$.
 	The \textbf{commutator subgroup} is the smallest normal subgroup containing all commutators in $G$.
+	And $G/C(G)$ is the abelianised version of $G$.
 \end{definition}
 
 \begin{remark}Prove the following results on commutator subgroups 
 	\begin{itemize}
 		\item For any subset $S$, there exists smallest normal subgroup containing $S$. %\S14E32
-		\item If $C$ is the smallest normal subgroup containing all commutators in $G$, then $G/C$ is abelian.%\S14E33
+		\item If $C$ is the set all commutators in $G$, then $G/C$ is abelian.%\S14E33
 	\end{itemize}
 \end{remark}
+\begin{question}
+	Find the commutator subgroup $C(D_4)$ ?
+\end{question}
 
 \begin{remark}Prove the following results on automorphisms 
 	\begin{itemize}
@@ -789,6 +783,9 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 		\item Subgroup conjugacy is an equivalance relation on the set of subgroups. %\S14E27
 	\end{itemize}
 \end{remark}
+\begin{question}
+	Find the automorphism group $\Gamma(\mathbb{Z}_2 \times \mathbb{Z}_4)$ ?
+\end{question}
 %\pagebreak
 
 %Week 03 Day 01 \S15
@@ -798,7 +795,7 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 		\item The converse of Lagrange's theorem is false.\\
 			For example, $A_4$ has order $12$, but doesn't have a subgroup of order $6$.
 		\item Factor group of a cyclic group is cyclic.\\
-			If $a$ is a generator of $G$, then $aH$ is a generator of $G/H$.
+			(hint : if $g$ is a generator of $G$, then $gH$ is a generator of $G/H$.)
 	\end{itemize}
 \end{remark}
 
@@ -818,11 +815,15 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 		\item Group homomorphism preserves normal subgroups. %\S15.16
 		\item $M$ is maximal normal subgroup of $G$ if and only if $G/M$ is simple. %\S15.18
 		\item Center $Z(G) = \{ z \in G : zg = gz,\ \forall g \in G \}$ is normal. %\S15.19
-		\item Commutator $C(G) = \{ c \in G : c = aba^{-1}b{-1},\ a,b \in G \}$ is normal. %\S15.19
 		\item Center of non-abelian groups of order $pq$ are trivial if $p,q$ are primes. %\S15.19
-		\item If $N$ is normal, then $G/N$ is abelian iff $C$ is a subgroup of $N$. %\S15.20
+		\item Commutator $C(G) = \{ c \in G : c = aba^{-1}b{-1},\ a,b \in G \}$ is normal. %\S15.19
+		\item If $N$ is normal, then $G/N$ is abelian iff $C$ is properly contained in $N$. %\S15.20
 	\end{itemize}
 \end{remark}
+
+\begin{question}
+	$G$ is simple and $H$ is subgroup of $G$, then $H$ is simple ?
+\end{question}
 
 %\pagebreak
 
@@ -951,7 +952,21 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 
 %Week 03 Day 04 \S16E
 \section{Exercise \S16}
+\begin{definition}
+	Let $X$ be a $G$-set.
+	And $S \subset X$.
+	Then $S$ is a sub $G$-set if the orbit $Gs$ of each $s \in S$ is contained in $S$.
+	\begin{equation}
+		S = \bigcup_{s \in S} Gs
+	\end{equation}
+\end{definition}
 
+\begin{remark}
+	\begin{itemize}
+		\item Every $G$-set is a union of its orbits.
+		\item Every $G$-set is isomorphic to the disjoint union of left coset $G$-sets.
+	\end{itemize}
+\end{remark}
 %\pagebreak
 
 %Week 04 Day 01 \S17.1-7
@@ -972,3 +987,5 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 		\text{number of orbits in X under G } = \frac{1}{|G|} \sum_{g \in G} |X_g|
 	\end{equation}
 \end{corollary}
+\begin{proof}
+\end{proof}
