@@ -1431,6 +1431,45 @@ If $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then there are two open sets $
 \end{enumerate}
 \end{theorem}
 \begin{proof}
+	Define $Q : \mathbb{R}^n \to \mathbb{R}$ by $Q(\bar{t}) = \frac{1}{2}f''(\bar{a};\bar{t})$.
+	Then $Q$ is continuous for every $\bar{t} \in \mathbb{R}^n$.
+	Let $S$ be the boundary of the $n$-ball $B(\bar{0},1)$.
+	That is, $S = \{ \bar{t} \in \mathbb{R}^n : \|t\|=1\}$.\\
+	Case 1 : Suppose that $Q(\bar{t}) > 0,\ \forall \bar{t} \ne \bar{0}$.
+
+	We have, $Q$ is a continuous real-valued function on a compact interval, $S$.
+	Therefore, $Q$ attains its extrema.
+	Thus $Q$ has a minimum value at point in $S$, say $m$.
+	Clearly $Q(\bar{t}) > 0 \implies m > 0$.
+	\begin{align*}
+		\text{By Taylor's formula, }& f(\bar{a}+\bar{t}) - f(\bar{a}) = \nabla f(\bar{a}) \cdot \bar{t} + \frac{1}{2} f''(\bar{z};\bar{t}) \text{ where } \bar{z} \in L(\bar{a}+\bar{t},\bar{a})
+		\intertext{For every $\bar{a} \in S,\ \nabla f(\bar{a}) = \bar{0}$. And $f(\bar{a}+\bar{t}) - f(\bar{a}) \to \frac{1}{2}f''(\bar{a};\bar{t})$ as $\bar{t} \to \bar{0}$.}
+		\text{Thus, }f(\bar{a}+\bar{t}) - f(\bar{a}) & = \frac{1}{2}f''(\bar{a};\bar{t}) + \|t\|^2 E(\bar{t})\\
+		& = Q(\bar{t}) + \|t\|^2 E(\bar{t}) \text{ where } E(\bar{t}) \to \bar{0} \text{ as } \bar{t} \to \bar{0}
+	\end{align*}
+	Let $c = \frac{1}{\|\bar{t}\|}$.
+	Then $c\bar{t} \in S$ and $Q(c\bar{t}) = c^2 Q(\bar{t}) \ge m$.
+	Thus, $Q(\bar{t}) \ge m\|\bar{t}\|^2$.\\
+	Therefore, $f(\bar{a}+\bar{t}) - f(\bar{a}) \ge m\|\bar{t}\|^2 + \|\bar{t}\|^2 E(\bar{t})$\\
+
+	Choose $n$-ball $B(\bar{0},r)$ such that $|E(\bar{t})| < \frac{m}{2}$ for every $\bar{t} \in B(\bar{0},r)$.
+	Thus, $$-\frac{m}{2}\|\bar{t}\|^2 \le -\|\bar{t}\|^2 |E(\bar{t})| \le 0$$
+	Therefore, $f(\bar{a}+\bar{t}) - f(\bar{a}) \ge m\|\bar{t}\|^2 - \frac{m}{2}\|\bar{t}\|^2 = \frac{m}{2}\|t\|^2$ for every $\bar{t} \in B(\bar{0},r)$.
+	Clearly, $f$ has a local minimum at $\bar{a}$.\\
+	Case 2 : Suppose $Q(\bar{t} < 0,\ \forall \bar{t} \ne \bar{0}$, then consider $-f$.
+
+	Clearly, function $-f$ has a local minimum at $\bar{t}$.
+	Thus $f$ has a local maximum at $\bar{t}$.\\
+	Case 3 : Suppose $Q(\bar{t})$ takes both positive and negative values.
+	\begin{align*}
+		\text{We have, } f(\bar{a}+\lambda \bar{t}) - f(\bar{a}) & = Q(\lambda \bar{t}) + \lambda^2 \|t\|^2 E(\lambda \bar{t}).\\
+		& = \lambda^2 [ Q(\bar{t}) + \|\bar{t}\|^2 E(\lambda\bar{t})]
+	\end{align*}
+	Choose $n$-ball $B(\bar{0},r)$ such that $\|\bar{t}\|^2 E(\lambda\bar{t}) < \frac{1}{2} |Q(\bar{t})|,\ \forall \bar{t} \in B(\bar{0},r)$.
+	We have $\bar{t} \in B(\bar{0},r) \implies \lambda < r$.
+	Then, error function $E(\bar{t})$ on the RHS is small enough, not to affect the sign of the RHS.
+	Thus $f(\bar{a}+\lambda\bar{t}) - f(\bar{a})$ has the same sign as $Q(\bar{t})$.
+	Therefore, $\bar{a}$ is a saddle point.
 \end{proof}
 
 \begin{theorem}
@@ -1445,6 +1484,25 @@ Then we have,
 \end{enumerate}
 \end{theorem}
 \begin{proof}
+	We have, function $f : \mathbb{R}^2 \to \mathbb{R}$ with $\nabla f(\bar{a}) = (0,0)$.
+	Consider the quadratic form $Q(x,y) = \frac{1}{2}[Ax^2+Bxy+Cy^2]$ where $A = D_{1,1}f(\bar{a})$, $B = D_{1,2}f(\bar{a})$, and $C = D_{2,2}f(\bar{a})$.
+	Therefore, $Q(x,y) = \frac{1}{2}f''(\bar{a};\bar{t})$.\\
+	Case 1 : Suppose $A \ne 0$.
+	\begin{align*}
+		Q(x,y) & = \frac{1}{2A}[A^2x^2+ABxy+ACy^2] \\
+		& = \frac{1}{2A}[(Ax+By)^2 - B^2y^2 + ACy^2] \\
+		& = \frac{1}{2A}[(Ax+By)^2 + \Delta y^2]
+	\end{align*}
+	If $\Delta > 0$, then $Q(x,y)$ has the same sign as $A$.
+	Therefore, $f$ has a local minimum/maximum at $\bar{a}$ depending on the sign of $A$.\\
+	Case 2 : Suppose $A = 0$.
+	Then $Q(x,y)  = \frac{1}{2}[Bxy+Cy^2] = \frac{1}{2}(Bx+Cy)y$.
+
+	Now we have two lines in $\mathbb{R}^2$, $y = 0$ and $Bx+Cy = 0$.
+	These two lines divides $\mathbb{R}^2$ into four regions.
+	The value of $Q(x,y)$ is positive in two of those regions and negative in the other two regions.
+	Therefore, $f(\bar{a}+\bar{t})-f(\bar{a})$ assumes both positive and negative values in any neighbourhood $B(\bar{a},r)$.
+	Therefore, $\bar{a}$ is a saddle point.
 \end{proof}
 
 
