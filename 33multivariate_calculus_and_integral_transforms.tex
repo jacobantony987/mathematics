@@ -1420,6 +1420,13 @@ If $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then there are two open sets $
 \end{description}
 \end{definition}
 
+\begin{commentary}
+	Suppose $f : \mathbb{R}^n \to \mathbb{R}^m$.
+	And second derivative of $f$ exists if the derivative of $f$, $f'$ is differentiable.
+	Thus, $f'(\bar{a}+h\bar{t}) = f'(\bar{a}) + h f''(\bar{a})(\bar{t}) + |h| \|t\| E_{\bar{a}}(h\bar{t})$ where $E_{\bar{a}} \to \bar{0}$ as $h \to 0$.
+	Writing the Taylor's first order formula using matrices, we can see that $f''(\bar{a})(\bar{t})$ is of the quadratic form.
+\end{commentary}
+
 \begin{theorem}
 	Let $f$ be a function $f : \mathbb{R}^n \to \mathbb{R}^m$.
 	Suppose that the second order partial derivatives $D_{i,j}f$ exists in an $n$-ball $B(\bar{a})$ and are continuous at $\bar{a}$ where $\bar{a}$ is a stationary point of $f$.
