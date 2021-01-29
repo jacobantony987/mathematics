@@ -1084,9 +1084,11 @@ Let $f : \mathbb{R}^n \to \mathbb{R}^n$ be continuous in $\bar{B}$ and all parti
 Let $f(\bar{x}) \ne f(\bar{a})$ for every $\bar{x} \in \partial B$ and $J_f(\bar{x}) \ne 0$ for every $\bar{x} \in B$.
 Then $f(B)$ contains an $n$-ball about $f(\bar{a})$.
 \begin{commentary}
-\[ B = \{ \bar{x} : \| \bar{x} - \bar{a} \| < r \} \]
-\[ \partial B = \{ \bar{x} : \| \bar{x} - \bar{a} \| = r \} \]
-\[ \bar{B} = \{ \bar{x} : \| \bar{x} - \bar{a} \| \le r \} \]
+	\begin{align*}
+		B & = \{ \bar{x} : \| \bar{x} - \bar{a} \| < r \} \\
+		\partial B & = \{ \bar{x} : \| \bar{x} - \bar{a} \| = r \} \\
+		\bar{B} & = \{ \bar{x} : \| \bar{x} - \bar{a} \| \le r \} 
+	\end{align*}
 \end{commentary}
 \end{theorem}
 \begin{proof}
@@ -1599,9 +1601,8 @@ Then we have,
 \begin{commentary}
 	$L(f) = L'(f)$ where $f$ is the limit function of a sequence of functions with compact support.
 	\cite[\S10.4 Example]{apostol}
-
-	``The definition of support permits closure of non-vanishing points.
-	And this might be of some use(I don't know yet) when analysing limit functions which belong to the closure of continuous functions on $I^k$.''
+%	``The definition of support permits closure of non-vanishing points.
+%	And this might be of some use(I don't know yet) when analysing limit functions which belong to the closure of continuous functions on $I^k$.''
 \end{commentary}
 
 \begin{definition}
@@ -1642,7 +1643,7 @@ Then we have,
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[partitions of unity]
 	Suppose $K$ is a compact subset of $\mathbb{R}^n$, and $\{V_\alpha\}$ is an open cover of $K$.
 	Then there exists functions $\psi_1,\psi_2,\cdots,\psi_s \in \mathscr{C}(\mathbb{R}^n)$ such that
 	\begin{enumerate}
@@ -1651,13 +1652,17 @@ Then we have,
 		\item $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
 	\end{enumerate}
 \end{theorem}
+\begin{proof}
+\end{proof}
 
 \begin{corollary}
 	If $f \in \mathscr{C}(\mathbb{R}^n)$ and the support of $f$ lies in $K$,
 	then\\ $f = \sum\limits_{i=1}^s \psi_i f$. Each $\psi_i$ has its support in some $V_\alpha$.
 \end{corollary}
+\begin{proof}
+\end{proof}
 
-\begin{theorem}
+\begin{theorem}[effect of change of variable on multiple integral]
 	Suppose $T$ is a one-to-one $\mathscr{C}$-mapping of an open set $E \subset \mathbb{R}^k$ into $\mathbb{R}^k$ such that $J_T(\bar{x}) \ne 0$ for all $\bar{x} \in E$.
 	If $f$ is a continuous function on $\mathbb{R}^k$ whose support is compact and lies in $T(E)$, then
 	\begin{equation}
@@ -1668,6 +1673,7 @@ Then we have,
 
 \end{proof}
 
+\subsection{Differential Forms}
 \begin{definition}
 	Suppose $E$ is an open set in $\mathbb{R}^n$.
 	A $k$-surface in $E$ is a $\mathscr{C}'$-mapping $\Phi$ from a compact set $D \subset \mathbb{R}^k$ into $E$.
@@ -1684,12 +1690,28 @@ Then we have,
 
 	A $k$-form $\omega$ is of class $\mathscr{C}'$ or $\mathscr{C}''$ if the functions $a_{i1\cdots ik}$ are all of class $\mathscr{C}'$ or $\mathscr{C}''$.
 	A $0$-form in $E$ is defined to be a continuous function in $E$.
+	And $0$ is the only $k$-form in any open set $E \subset \mathbb{R}^n$.
+
+	
+	Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \cdots \wedge {dx_i}_k$.
+	Then $\bar{\omega}$ is the $k$-form obtained by interchanging a pair subscripts of $\omega$.
+	ie, $\bar{\omega} = a(\bar{x})\ {dx_i}_2 \wedge {dx_i}_1 \wedge \cdots \wedge {dx_i}_k$. 
 \end{definition}
 
-\begin{remark}[Elementary properties of $k$-forms].
+\begin{remark}[Elementary properties of $k$-forms]
+	Let $E$ be an open set in $\mathbb{R}^n$.
+	And let $\omega_1,\omega_2$ be $k$-forms in $E$\footnote{If $\omega$ is a $k$-form in $E$, what is $E$ to $\omega$ ? domain ?}, then
 	\begin{enumerate}
-		\item $\omega_1 = \omega_2 \iff \omega_1(\Phi) = \omega_2(\Phi)$
-		\item 
+		\item $\omega_1 = \omega_2 \iff \omega_1(\Phi) = \omega_2(\Phi) \iff \int_\Phi \omega_1 = \int_\Phi \omega_2,\ \forall \Phi \in E$
+		\item $\omega = 0 \iff \omega(\Phi) = 0 \iff \int_\Phi \omega = 0,\ \forall \Phi \in E$
+		\item $k$-form Addition, $\omega_1+\omega_2$ \\
+			$\omega = \omega_1 + \omega_2 \iff \omega(\Phi) = \omega_1(\Phi) + \omega_2(\Phi) \iff \int_\Phi \omega = \int_\Phi \omega_1 + \int_\Phi \omega_2$.
+		\item Scalar multiplication, $c\omega$ \\
+			$c\omega(\Phi) = c(\omega(\Phi)) \iff \int_\Phi c\omega = c\int_\Phi \omega$.
+		\item Inverse $k$-form, $-\omega$ \\
+			$-\omega(\Phi) = -(\omega(\Phi)) \iff \int_\Phi -\omega = -\int_\Phi \omega$
+		\item $\bar{\omega} = -\omega$.
+		\item Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \cdots \wedge {dx_i}_k$. If $\bar{\omega} = \omega$, then $\omega = 0$. Since $\wedge$ is anticommutative.
 	\end{enumerate}
 \end{remark}
 
@@ -1702,6 +1724,12 @@ Then we have,
 
 	Every $k$-form can be represented in terms of basic $k$-forms.
 	For every $k$-tuple $(j_1,j_2,\cdots,j_k)$, $dx_{j1} \wedge \cdots dx_{jk} = \epsilon(j_1,j_2,\cdots,j_k)dx_{\bar{J}}$ where $\bar{J}$ is the increasing $k$-index obtained by interchanging pairs.
+
+	Standard representation of a $k$-form
+	\begin{equation}
+		\omega = \sum_I b_I(\bar{x})dx_I
+	\end{equation}
+	For example : $x_1\ dx_2 \wedge dx_1 - x_2\ dx_3 \wedge dx_2 + x_3\ dx_2 \wedge dx_3 + dx_1 \wedge dx_2 = (1-x)\ dx_1 \wedge dx_2 + (x_2+x_3)\ dx_2 \wedge dx_3$ is a 2-form in $\mathbb{R}^3$.
 \end{definition}
 
 %\chapter{The Lebesgue Theory}

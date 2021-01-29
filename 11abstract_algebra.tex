@@ -6,7 +6,7 @@
 %(Part II – Sections 11, 14, 16 & 17) (25 hours)
 %Module 2
 %Isomorphism theorems, Sylow theorems , Applications of the Sylow theory.
-%(Part VII Sections34, 36 & 37) (25 hours)
+%(Part VII Sections 34, 36 & 37) (25 hours)
 %Module 3
 %Fermat’s and Euler Theorems, The field of quotients of an integral domain,
 %Rings of polynomials, Factorisation of polynomials over a field.
@@ -16,7 +16,7 @@
 %Maximal Ideals
 %(Part V – Sections 24, 26 & 27) (20 hours)
 
-%Module 1 - \cite{fraleigh} 11, 14, 16, 17
+%Module 1 - \cite{fraleigh} 11, (13), 14, (15), 16, 17
 %Module 2 - \cite{fraleigh} 34, 36, 37
 %Module 3 - \cite{fraleigh} 20, 21, 22, 23
 %Module 4 - \cite{fraleigh} 24, 26, 27
@@ -28,7 +28,7 @@
 %Module 4 - \cite{fraleigh} 51, 53, 54, 55
 
 %Missing - \cite{fraleigh} 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-%	12, 13, 15, 18, 19, 25, 28, 30, 35, 38, 39, 40, 41, 42, 43, 44
+%	12*, 13, 15, 18, 19, 25, 28, 30, 35, 38, 39, 40, 41, 42, 43, 44
 
 
 \section{Introduction to Abstract Algebra}
@@ -975,10 +975,31 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Let $G$ be a finite group and $X$ a finite $G$-set.
 	If $r$ is the number of orbits in $X$ under $G$, then
 	\begin{equation}
-		r\cdot |G| = \sum_{g \in G}|X_g|
+		r|G| = \sum_{g \in G}|X_g|
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	Let $N = \{ (g,x) \in G \times X : gx = x \}$.\\
+	Step 1 : $|N| = \sum\limits_{g \in G}|X_g|$.
+
+	Let $g \in G$.
+	We have, $X_g$ is the set of all $(g,x) \in N$ with $g$ as first member.
+	Enumerating elements of $N$ for each $g \in G$, we get $\sum\limits_{g \in G}|X_g| = N$. \\
+	Step 2 : $|N| = r|G|$.
+
+	Let $x \in X$.
+	We have, $G_x$ is the set of all $g \in G$ such that $gx = x$.
+	In other words, $G_x$ is the set of all $g \in G$ such that $(g,x) \in N$ with $x$ as second member.
+	However, $|Gx| = (G:G_x)$.
+	$$\implies |Gx| = \frac{|G|}{|G_x|} \implies |G_x| = \frac{|G|}{|Gx|}$$
+	Enumerating element of $N$ for each $x \in X$, we get
+	$$|N| = \sum\limits_{x \in X} |G_x| = \sum\limits_{x \in X} \frac{|G|}{|Gx|} = |G| \sum\limits_{x \in X} \frac{1}{|Gx|}$$
+	Let $Gx = \mathscr{O}$ be an orbit containing $x$ with length $k$.
+	$$\implies \sum\limits_{x \in \mathscr{O}} \frac{1}{|Gx|} = \sum\limits_{i \in 1}^k \frac{1}{k} = 1$$
+	Let $r$ be the number of orbits in $X$ under the group action of $G$.
+	Clearly, the orbits of $X$ are disjoint. Thus,
+	$$|N| = |G|\sum\limits_{i = 1}^r \sum\limits_{x \in \mathscr{O}_i} \frac{1}{|Gx|} = |G|\sum\limits_{1 = 1}^r 1 = r|G|$$
+	Therefore, $\sum\limits_{g \in G} |X_g| = |N| = r|G|$.
 \end{proof}
 
 \begin{corollary}
@@ -988,4 +1009,40 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	\end{equation}
 \end{corollary}
 \begin{proof}
+	From Burnside forumla, we have
+	$$\sum\limits_{g \in G}|X_g| = r|G| \implies r = \frac{1}{|G|} \sum\limits_{g \in G} |X_g|$$
 \end{proof}
+
+%Week 5 Day 1 \S34.1-5
+\section{Isomorphism Theorems}
+\subsection{First Isomorphism Theorem}
+\begin{theorem}[first isomorphism]
+	Let $\phi : G \to G'$ be a homomorphism with kernel $K$, and let $\gamma_K : G \to G/K$ be the canonical homomorphism.
+	There is a unique isomorphism $\mu : G/K \to \phi[G]$ such that $\phi(x) = \mu(\gamma_K(x))$ for each $x \in G$.
+\end{theorem}
+\subsection{Second Isomorphism Theorem}
+\begin{definition}
+
+	Join $H \vee N$ is the smallest subgroup of $G$ containing $HN$ where $HN = \{ hn : h \in H, n \in N\}$.
+\end{definition}
+
+\begin{lemma}
+	Let $N$ be a normal subgroup of $G$ and let $\gamma : G \to G/N$ be the canonical homomorphism.
+	Then the map $\phi$ from the set of normal subgroups of $G$ containing $N$ to the set of normal subgroup of $G/N$ given by $\phi(L) = \gamma[L]$ is one-to-one and onto.
+\end{lemma}
+
+\begin{lemma}
+	If $N$ is a normal subgroup of $G$, then $H \cap N = HN = NH$.
+	Furthermore, if $H$ is also normal in $G$, then $HN$ is normal in $G$.
+\end{lemma}
+
+\begin{theorem}[second isomorphism]
+	Let $H$ be a subgroup of $G$ and let $N$ be a normal subgroup of $G$.
+	Then $(HN)/N \simeq H/(H\cap N)$.
+\end{theorem}
+\subsection{Third Isomorphism Theorem}
+\begin{theorem}[third isomorphism]
+	Let $H$ and $K$ be normal subgroup of $G$ with $K \le H$.
+	Then $G/H \simeq (G/K)/(H/K)$.
+\end{theorem}
+
