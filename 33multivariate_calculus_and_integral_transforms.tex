@@ -791,7 +791,7 @@ And the remaining $n-1$ partial derivatives exists in some $n$-ball $B(\bar{c})$
 Then $f$ is differentiable at $\bar{c}$.
 \end{theorem}
 \begin{proof}
-Step 1 : Real-valued function
+\begin{commentary}Step 1 : Real-valued function\end{commentary}
 
 We claim that the function $f : \mathbb{R}^n \to \mathbb{R}^m$ is differentiable at $\bar{c}$ iff each component $f_k$ is differentiable at $\bar{c}$.
 
@@ -828,9 +828,8 @@ Then $E_{\bar{c}}(\bar{v}) \to \bar{0}$ as $\bar{v} \to \bar{0}$.
 Therefore, there exists a linear, total derivative function $f'(\bar{c}) = \left( f'_1, f'_2, \cdots, f'_m \right)$ satisfying first-order Taylor's formula at $\bar{c}$.
 
 Thus, if each (real-valued) component function $f_k$ are differentiable, then $f$ is also differentiable.
-Therefore, it is sufficient to prove the theorem for a real-valued function.
-
-Step 2: Telescopic Sum
+Therefore, it is sufficient to prove the theorem for a real-valued function.\\
+\begin{commentary}Step 2: Telescopic Sum\end{commentary}
 
 Assume (without loss of generality) that $D_1f$ exists at $\bar{c}$ and $D_2f,D_3f,\cdots,D_nf$ exist and continuous in some $n$-ball $B(\bar{c})$.
 \begin{commentary} Suppose $D_rf$ exists at $\bar{c}$ and all partial derivatives execept $D_rf$ are continuous.
@@ -852,7 +851,7 @@ Choose $\lambda > 0$ such that $\bar{c}+\bar{v} \in B(\bar{c})$ and all the part
 	& = \sum_{k = 1}^n f(\bar{c} + \lambda{} \bar{v}_k) - f(\bar{c} + \lambda{} \bar{v}_{k-1}) \\
 	& = \sum_{k = 1}^n f(\bar{c} + \lambda{} \bar{v}_{k-1} + \lambda{} y_k \bar{u}_k) - f(\bar{c} + \lambda{} \bar{v}_{k-1})
 \end{align*}
-Step 3 : Mean-value theorem
+\begin{commentary}Step 3 : Mean-value theorem\end{commentary}
 
 Define $\bar{b}_k = \bar{c}+\lambda{}\bar{v}_{k-1}$.
 Then we have
@@ -866,8 +865,7 @@ Therefore by 1-dimensional mean-value theorem we have,
 \begin{equation}
 	f(\bar{c}+\bar{v}) - f(\bar{c}) = \lambda{} \sum_{k = 1}^n y_kD_kf(\bar{a}_k) \text{ where } \bar{a}_k \in L(\bar{b}_k,\bar{b}_k+\lambda{}y_k\bar{u}_k)
 \end{equation}
-
-Step 4 : Continuity of partial derivatives in $B(\bar{c})$
+\begin{commentary}Step 4 : Continuity of partial derivatives in $B(\bar{c})$\end{commentary}
 
 As $\lambda{} \to 0,\ \bar{v} \to \bar{0}$.
 And both $\bar{b}_k,\ \bar{b}_k+\lambda{}y_k\bar{u}_k \to \bar{c}$.
@@ -909,7 +907,7 @@ Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\bar{c}$ and are both d
 Then $D_{r,k} f = D_{k,r} f$.
 \end{theorem}
 \begin{proof}
-Step 1 : Real-valued function
+\begin{commentary}Step 1 : Real-valued function\end{commentary}
 
 It is sufficient to prove the theorem for real-valued functions.
 Let $f : \mathbb{R}^n \to \mathbb{R}^m$, then $f(\bar{c}) = \left( f_1(\bar{c}),f_2(\bar{c}),\cdots,f_m(\bar{c}) \right)$.
@@ -920,8 +918,7 @@ Also, we will prove it for $n = 2$ and $\bar{c} = (0,0)$.
 \begin{commentary}
 From Step 2 onwards, we will write $f$ instead of $f_j$ for ease of notation.
 \end{commentary}
-
-Step 2 : $\nabla(h)$
+\begin{commentary}Step 2 : $\nabla(h)$\end{commentary}
 
 Let $f : \mathbb{R}^n \to \mathbb{R}$.
 Suppose that the partial derivatives $D_k f$, $D_r f$ exist in the $n$-ball $B(n)$.
@@ -930,9 +927,8 @@ And let $h > 0$ such that the rectangle with vertices $(0,0), (0,h), (h,0), (h,h
 Then we will consider the rectangle with vertices $(x,y,z), (x,y,z+h), (x,y+h,z), (x,y+h,z+h)$.
 Again, we are taking $n=2$ and $\bar{c} = (0,0)$, only for the ease of notation as the same proof is applicable for any finite natural number, $n$ and any vector $\bar{c} \in \mathbb{R}^n$.\end{commentary}
 
-Define $\nabla(h) = f(h,h)-f(h,0)-f(0,h)+f(0,0)$.
-
-Step 3 : $D_{1,2} f = \frac{\nabla(h)}{h^2} = D_{2,1} f$
+Define $\nabla(h) = f(h,h)-f(h,0)-f(0,h)+f(0,0)$.\\
+\begin{commentary}Step 3 : $D_{1,2} f = \frac{\nabla(h)}{h^2} = D_{2,1} f$\end{commentary}
 
 Define $G(x) = f(x,h)-f(x,0)$.
 Then  we have, $\nabla(h) = G(h)-G(0)$ and $G'(x) = D_1f(x,h) - D_1f(x,0)$.
@@ -1038,7 +1034,7 @@ Why don't we substitute $y = 0$ before $D_2 f$ is something you should know alre
 \subsection{Implicit Functions and Extremum Problems}
 \begin{definition}[Implicit function]
 	Let $f$ be a function.
-	Consider the equation, $f(\bar{x},\bar{y}) = 0$.
+	Consider the equation, $f(\bar{x},\bar{y}) = \bar{0}$.
 	If there exists a function $g$ such that $\bar{x} = g(\bar{y})$, then $g$ is an implicit form of $f$ or $g$ is defined implicitly by $f$.
 	For example, a linear system of equations $Ax-b = 0$ implicitly defines $x = A^{-1}b$ provided $ A$ has non-zero determinant.
 \end{definition}
@@ -1046,6 +1042,32 @@ Why don't we substitute $y = 0$ before $D_2 f$ is something you should know alre
 \begin{definition}[Jacobian Determinant]
 Let $f : \mathbb{R}^n \to \mathbb{R}^n$, then determinant of the Jacobian matrix $Df(\bar{x})$ is the Jacobian determinant of $f$, $J_f(\bar{x})$.
 \end{definition}
+
+\begin{commentary}
+	\subsubsection*{What is an implicit function ?}
+	Consider the equation $\sin(x+y) = \cos(u+v)$.
+	We can rewrite this equation as $\sin(x+y)-\cos(u+v) = 0$.
+	Now, the equation is of the form $f(x,y,u,v) = 0$.
+	Therefore, we have the function $f : \mathbb{R}^4 \to \mathbb{R}$ defined by $f(x,y,u,v) = \sin(x+y)-\cos(u+v)$.
+
+	Let us play around,
+	\begin{align*}
+		\sin(x+y) = \cos(u+v) & \implies x+y = \sin^{-1}\cos(u+v) \\
+		& \implies (x,y) = (\sin^{-1}\cos(u+v)-k,k) \\
+		& \implies (x,y) = g(u,v)
+		\intertext{ where  $g_1(u,v) = \sin^{-1}\cos(u+v)-k$, and $g_2(u,v) = k$ }
+	\end{align*}
+	Now we have defined a new function $g : \mathbb{R}^2 \to \mathbb{R}^2$ from the function $f$.
+	Therefore, we could say that $f$ defines $g$ implicitly.
+	Now we have a few questions to ask about the nature of such implicit functions (or implicitly defined functions),
+	\begin{enumerate}
+		\item Does there always exists a function for any such combination ?\\
+			That is, does there exists a function $h$ such that $(x,u) = h(y,v)$ ?
+		\item Suppose $f(x,y,u,v) = 0$. And function $h : \mathbb{R}^2 \to \mathbb{R}^2$ is implicitly defined by $f$. Does there always exists a neighbourhood of $(u,v)$ in which $h$ has continuous partial derivatives ?
+		\item What are the properties of $f$ for these implicit functions to have nice properties ?
+	\end{enumerate}
+	It turns out that non-zero Jacobian determinant is nice property $f$ can have.
+\end{commentary}
 
 \begin{theorem}
 Let $f : \mathbb{C} \to \mathbb{C}$.
@@ -1224,66 +1246,67 @@ If $J_f(\bar{a}) \ne 0$ for some $\bar{a} \in S$, then there are two open sets $
 \end{commentary}
 \end{theorem}
 \begin{proof}
-	Step 1 : Construction of open sets $X$ and $Y$.\\
-	Given that, $J_f(\bar{a}) \ne 0$ and $f \in C'$.
-	Thus all partial derivatives of $f$ are continuous on $S$.
-	Then $J_f$ is continuous on $S$, 
-	By the continuity of $J_f$ at $\bar{a}$, there exists a neighbourhood of $\bar{a}$, say $B_1(\bar{a})$ in which $J_f \ne 0$.
-	That is, $\forall \bar{x} \in B_1(\bar{a}),\ J_f(\bar{x}) \ne 0$.
-	Therefore,(by theorem) there exists an $n$-ball $B(\bar{a})$ on which $f$ is injective.
-	Let $B$ be an $n$-ball with center $\bar{a}$ contained in $B(\bar{a})$.
-	Then $f$ is injective on $B$.
-	Therefore,(by theorem) $f(B)$ contains an $n$-ball with center $f(\bar{a})$.
-	Let $Y$ be the $n$-ball contained in $f(B)$.
-	And  $X=f^{-1}(Y) \cap B$.
-	That is, the inverse image of $Y$ on $B$.
-	Since $f$ is continuous, $f^{-1}(Y)$ is open.
-	Thus, $X$ is an intersection of open sets.
-	And therefore, $X$ is open.
+\begin{commentary}Step 1 : Construction of open sets $X$ and $Y$.\end{commentary}
 
-	Step 2 : The inverse of $f$, say $g$.\\
-	Clearly $\bar{a} \in X$ and $f(\bar{a}) \in Y$.
-	Also $Y = f(X)$ and $f$ is injective on $X$( since, $X \subset B$).
-	
-	The closure of $B$, $\bar{B}$ is compact and $f$ is injective and continuous on $\bar{B}$.
-	Then\footnote{Existence of inverse of a continuous function on a compact set in metric spaces.} there exists a continuous function $g$ defined on $f(\bar{B})$ such that $g \circ f$ is the identity function on $\bar{B}$.
-	That is, $\forall x \in \bar{B},\ g(f(\bar{x})) = x$.
-	Thus, $g(X) = Y$ and $g$ is unique.
+Given that, $J_f(\bar{a}) \ne 0$ and $f \in C'$.
+Thus all partial derivatives of $f$ are continuous on $S$.
+Then $J_f$ is continuous on $S$, 
+By the continuity of $J_f$ at $\bar{a}$, there exists a neighbourhood of $\bar{a}$, say $B_1(\bar{a})$ in which $J_f \ne 0$.
+That is, $\forall \bar{x} \in B_1(\bar{a}),\ J_f(\bar{x}) \ne 0$.
+Therefore,(by theorem) there exists an $n$-ball $B(\bar{a})$ on which $f$ is injective.
+Let $B$ be an $n$-ball with center $\bar{a}$ contained in $B(\bar{a})$.
+Then $f$ is injective on $B$.
+Therefore,(by theorem) $f(B)$ contains an $n$-ball with center $f(\bar{a})$.
+Let $Y$ be the $n$-ball contained in $f(B)$.
+And  $X=f^{-1}(Y) \cap B$.
+That is, the inverse image of $Y$ on $B$.
+Since $f$ is continuous, $f^{-1}(Y)$ is open.
+Thus, $X$ is an intersection of open sets.
+And therefore, $X$ is open.\\
+\begin{commentary}Step 2 : The inverse of $f$, say $g$.\end{commentary}
 
-	Step 3 : $g$ has continuous partial derivatives.\\
-	Define a real-valued function $h : S^n \to \mathbb{R}$ by $h(\bar{Z}) = \det[D_jf_i(\bar{Z}_i)]$ where $\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n \in S$ and $\bar{Z} = (\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n)$.
-	Now, let $\bar{Z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
-	Then $h(\bar{Z}) \ne 0$ and $h$ is continuous on $S^n$.
-	Therefore, $\bar{Z}$ has a neighbourhood on which $h$ does not vanish (that is, nonzero).
-	Let $B_2(\bar{a})$ be the corresponding $n$-ball with center $\bar{a}$ such that $\bar{Z}_i \in B_2(\bar{a}) \implies h(\bar{Z}) \ne 0$.
+Clearly $\bar{a} \in X$ and $f(\bar{a}) \in Y$.
+Also $Y = f(X)$ and $f$ is injective on $X$( since, $X \subset B$).
 
-	Let $B$ be an $n$-ball with center $\bar{a}$ contained in $B_2(\bar{a})$.
-	Now $\bar{B} \subset B_2(\bar{a})$.
-	And $h(\bar{Z}) \ne 0,\ \forall \bar{Z}_i \in \bar{B}$.
+The closure of $B$, $\bar{B}$ is compact and $f$ is injective and continuous on $\bar{B}$.
+Then\footnote{Existence of inverse of a continuous function on a compact set in metric spaces.} there exists a continuous function $g$ defined on $f(\bar{B})$ such that $g \circ f$ is the identity function on $\bar{B}$.
+That is, $\forall x \in \bar{B},\ g(f(\bar{x})) = x$.
+Thus, $g(X) = Y$ and $g$ is unique.\\
+\begin{commentary}Step 3 : $g$ has continuous partial derivatives.\end{commentary}
 
-	We have, $g = (g_1, g_2, \cdots,g_n)$.
-	It is enough to prove that $g_k \in C'$ for $k=1,2,\cdots,n$.
-	Again, it is enough to prove that $D_rg_k$ exists and is continuous for $1 \le r \le n$.
-	(Fix some $r$ and prove that $D_rg_k$ is continuous.)
+Define a real-valued function $h : S^n \to \mathbb{R}$ by $h(\bar{Z}) = \det[D_jf_i(\bar{Z}_i)]$ where $\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n \in S$ and $\bar{Z} = (\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n)$.
+Now, let $\bar{Z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
+Then $h(\bar{Z}) \ne 0$ and $h$ is continuous on $S^n$.
+Therefore, $\bar{Z}$ has a neighbourhood on which $h$ does not vanish (that is, nonzero).
+Let $B_2(\bar{a})$ be the corresponding $n$-ball with center $\bar{a}$ such that $\bar{Z}_i \in B_2(\bar{a}) \implies h(\bar{Z}) \ne 0$.
 
-	Let $\bar{y} \in Y$.
-	Define $\bar{x} = g(\bar{y})$ and $\bar{x}' = g(\bar{y}+t\bar{u}_r)$ where $t$ is sufficiently small such that $\bar{y}+t\bar{u}_r \in Y$.
-	Then $\bar{x},\bar{x}' \in X$.
-	And $f(\bar{x}')-f(\bar{x}) = t\bar{u}_r$.
-	Therefore $f_i(\bar{x})-f_i(\bar{x}') = 0$ when $i \ne r$.
-	And $f_i(\bar{x}')-f_i(\bar{x}) = t$ when $i = r$.
-	By mean-value theorem,
-	$$\frac{f_i(\bar{x}') - f(\bar{x})}{t} = \nabla f_i(\bar{Z}_i) \cdot \frac{\bar{x}'-\bar{x}}{t}$$
-	where $\bar{Z}_i \in L(\bar{x},\bar{x}')$, the line segment joining $\bar{x}$ and $\bar{x}'$.
-	Since $\det[D_jf_i(\bar{Z}_i)] = h(\bar{Z}) \ne 0$, this system of linear equations in $n$ unknowns, $\frac{x_j'-x_j}{t}$ has a unique solution.
-	As $t \to 0$, $\bar{x}' \to \bar{x}$.
-	And $\bar{Z}_i \to \bar{x}$.
-	Since $J_f(\bar{x}) \ne 0$, the limit
-	$$ \lim_{t \to 0} \frac{g_k(\bar{y}+t\bar{u}_r)-g_k(\bar{y})}{t}$$
-	exists.
-	Thus, $D_rg_k(\bar{y})$ exists $\forall y \in Y$ and every $r$.	
-	By Cramer's rule, this limit is a quotient of two determinants of partial derivatives of $f$, which are all continuous since $f \in C'$.
-	Therefore, $D_rg_k$ are all continuous and $g \in C'$.
+Let $B$ be an $n$-ball with center $\bar{a}$ contained in $B_2(\bar{a})$.
+Now $\bar{B} \subset B_2(\bar{a})$.
+And $h(\bar{Z}) \ne 0,\ \forall \bar{Z}_i \in \bar{B}$.
+
+We have, $g = (g_1, g_2, \cdots,g_n)$.
+It is enough to prove that $g_k \in C'$ for $k=1,2,\cdots,n$.
+Again, it is enough to prove that $D_rg_k$ exists and is continuous for $1 \le r \le n$.
+(Fix some $r$ and prove that $D_rg_k$ is continuous.)
+
+Let $\bar{y} \in Y$.
+Define $\bar{x} = g(\bar{y})$ and $\bar{x}' = g(\bar{y}+t\bar{u}_r)$ where $t$ is sufficiently small such that $\bar{y}+t\bar{u}_r \in Y$.
+Then $\bar{x},\bar{x}' \in X$.
+And $f(\bar{x}')-f(\bar{x}) = t\bar{u}_r$.
+Therefore $f_i(\bar{x})-f_i(\bar{x}') = 0$ when $i \ne r$.
+And $f_i(\bar{x}')-f_i(\bar{x}) = t$ when $i = r$.
+By mean-value theorem,
+$$\frac{f_i(\bar{x}') - f(\bar{x})}{t} = \nabla f_i(\bar{Z}_i) \cdot \frac{\bar{x}'-\bar{x}}{t}$$
+where $\bar{Z}_i \in L(\bar{x},\bar{x}')$, the line segment joining $\bar{x}$ and $\bar{x}'$.
+Since $\det[D_jf_i(\bar{Z}_i)] = h(\bar{Z}) \ne 0$, this system of linear equations in $n$ unknowns, $\frac{x_j'-x_j}{t}$ has a unique solution.
+As $t \to 0$, $\bar{x}' \to \bar{x}$.
+And $\bar{Z}_i \to \bar{x}$.
+Since $J_f(\bar{x}) \ne 0$, the limit
+$$ \lim_{t \to 0} \frac{g_k(\bar{y}+t\bar{u}_r)-g_k(\bar{y})}{t}$$
+exists.
+Thus, $D_rg_k(\bar{y})$ exists $\forall y \in Y$ and every $r$.	
+By Cramer's rule, this limit is a quotient of two determinants of partial derivatives of $f$, which are all continuous since $f \in C'$.
+Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 \end{proof}
 
 \subsubsection{Implicit function Theorem}
@@ -1552,41 +1575,44 @@ Then we have,
 \end{commentary}
 \end{theorem}
 \begin{proof}
-	Step 1 : ``Separable'' Functions ie, $h(\bar{x}) = \prod h_i(x_i)$.\\
-	\begin{commentary}
-		(``separable'' is not standard.
-		It is only for the purpose of understanding.)
-	\end{commentary}
+\begin{commentary}Step 1 : ``Separable'' Functions ie, $h(\bar{x}) = \prod h_i(x_i)$.\end{commentary}
 
-	Let $h(\bar{x}) = h_1(x_1)h_2(x_2)\cdots h_k(x_k)$ where $h_j \in [a_j,b_j]$.
-	$$ L(h) = \int_{I^k} \left(\prod_{i = 1}^k h_i(x_i)\right) d\bar{x} = \prod_{i = 1}^k \int_{a_k}^{b_k} h_i(x_i)\ dx_i = L'(h)$$
-	Step 2 : Algebra of ``separable'' functions, $\mathscr{A}$.\\
-	Let $\mathscr{A}$ be all finite sums of functions such as $h$.
-	Let $g \in \mathscr{A}$.
-	\begin{align*}
-		L(g) = & \int_{I^k} \left(\sum_j \prod_i h_{i,j}(x_i) \right) d\bar{x} \\
-		& = \sum_j \int_{I^k} \prod_i h_{(j)}(\bar{x})\ d\bar{x}\\
-		& = \sum_j \prod_i \int_{a_k}^{b_k} h_{i,j}(x_i)\ d(x_i)\\
-		& = L'(g)
-	\end{align*}
-	Step 3 : All functions continuous on $I^k$.\\
-	Let $V = \prod_{j = 1}^k (b_j - a_j)$.
-	Also let $f \in \mathscr{C}(I^k)$.
-	ie, a function which is continuous in $I^k$.
-	Then by Stone-Weierstrass theorem,
-	for any $\epsilon > 0$,	there exists a function $g \in \mathscr{A}$
-	such that $\|f-g\| < \frac{\epsilon}{V}$
-	where the norm of a function $f$ is defined by
-	$\|f\| = \max\{f(\bar{x}) : \bar{x} \in I^k\}$.
+\begin{commentary}
+	(``separable'' is not standard.
+	It is only for the purpose of understanding.)
+\end{commentary}
 
-	Therefore, it is sufficient to prove that $\|L(f)-L'(f)\| < \epsilon$.
-	Since $\|f-g\| < \frac{\epsilon}{V}$, $|L(f-g)| < \epsilon$ and $|L'(f-g)| < \epsilon$. Thus,
-	\begin{align*}
-		L(f)-L'(f) & = L(f) - L(g) + L'(g) - L'(f) \\
-		& = L(f-g) + L'(g-f)\\
-		|L(f)-L'(f)| & < 2\epsilon
-	\end{align*}
-	Therefore, $L(f) = L'(f)$.
+Let $h(\bar{x}) = h_1(x_1)h_2(x_2)\cdots h_k(x_k)$ where $h_j \in [a_j,b_j]$.
+$$ L(h) = \int_{I^k} \left(\prod_{i = 1}^k h_i(x_i)\right) d\bar{x} = \prod_{i = 1}^k \int_{a_k}^{b_k} h_i(x_i)\ dx_i = L'(h)$$
+\begin{commentary}Step 2 : Algebra of ``separable'' functions, $\mathscr{A}$.\end{commentary}
+
+Let $\mathscr{A}$ be all finite sums of functions such as $h$.
+Let $g \in \mathscr{A}$.
+\begin{align*}
+	L(g) = & \int_{I^k} \left(\sum_j \prod_i h_{i,j}(x_i) \right) d\bar{x} \\
+	& = \sum_j \int_{I^k} \prod_i h_{(j)}(\bar{x})\ d\bar{x}\\
+	& = \sum_j \prod_i \int_{a_k}^{b_k} h_{i,j}(x_i)\ d(x_i)\\
+	& = L'(g)
+\end{align*}
+\begin{commentary}Step 3 : All functions continuous on $I^k$.\end{commentary}
+
+Let $V = \prod_{j = 1}^k (b_j - a_j)$.
+Also let $f \in \mathscr{C}(I^k)$.
+ie, a function which is continuous in $I^k$.
+Then by Stone-Weierstrass theorem,
+for any $\epsilon > 0$,	there exists a function $g \in \mathscr{A}$
+such that $\|f-g\| < \frac{\epsilon}{V}$
+where the norm of a function $f$ is defined by
+$\|f\| = \max\{f(\bar{x}) : \bar{x} \in I^k\}$.
+
+Therefore, it is sufficient to prove that $\|L(f)-L'(f)\| < \epsilon$.
+Since $\|f-g\| < \frac{\epsilon}{V}$, $|L(f-g)| < \epsilon$ and $|L'(f-g)| < \epsilon$. Thus,
+\begin{align*}
+	L(f)-L'(f) & = L(f) - L(g) + L'(g) - L'(f) \\
+	& = L(f-g) + L'(g-f)\\
+	|L(f)-L'(f)| & < 2\epsilon
+\end{align*}
+Therefore, $L(f) = L'(f)$.
 \end{proof}
 
 \begin{definition}
@@ -1633,14 +1659,93 @@ Then we have,
 \end{definition}
 
 \begin{theorem}
-	Suppose $F$ is a $\mathscr{C}$-mapping of an open set $E \subset \mathbb{R}^n$ into $\mathbb{R}^n$, $\bar{0} \in E$, $F(\bar{0}) = \bar{0}$, and $F'(\bar{0})$ is invertible.
-	Then there is a neighbourhood of $\bar{0}$ in $\mathbb{R}^n$ in which the representation $F(\bar{x}) = B_1B_2\cdots B_{n-1}G_n\circ G_{n-1}\circ \cdots G_1(\bar{x})$ is valid where $G_i$ are primitive $\mathscr{C}$-mapping in some neighbourhood of $\bar{0}$, $G_i(\bar{0}) = \bar{0}$, $G'(\bar{0})$ is invertible and each $B_i$ is either a flip or identity operator.
+	Suppose $F$ is a $\mathscr{C}'$-mapping of an open set $E \subset \mathbb{R}^n$ into $\mathbb{R}^n$, $\bar{0} \in E$, $F(\bar{0}) = \bar{0}$, and $F'(\bar{0})$ is invertible.
+	Then there is a neighbourhood of $\bar{0}$ in $\mathbb{R}^n$ in which the representation $F(\bar{x}) = B_1B_2\cdots B_{n-1}G_n\circ G_{n-1}\circ \cdots G_1(\bar{x})$ is valid where $G_i$ are primitive $\mathscr{C}'$-mapping in some neighbourhood of $\bar{0}$, $G_i(\bar{0}) = \bar{0}$, $G'(\bar{0})$ is invertible and each $B_i$ is either a flip or identity operator.
 
 \begin{commentary}
 	In other words, locally $F$ is a composition of primitive mappings and flips.
 \end{commentary}
 \end{theorem}
 \begin{proof}
+Proof by mathematical induction on $m$.
+\begin{commentary}
+\begin{align}
+	\text{There exists } & \text{a neighbourhood of } \bar{0},\ V_m  \text{ such that } F_m \in \mathscr{C}'(V_m)\\
+	F_m(\bar{0}) & = \bar{0}\\
+	F_m'(\bar{0}) & \text{ is invertible and }\\
+	P_{m-1}F_m(\bar{x}) & = P_{m-1}\bar{x},\ \bar{x} \in V_m
+\end{align}
+	where the $k$th projection $P_k : \mathbb{R}^n \to \mathbb{R}^n$ is defined by $P_k(\bar{x}) = x_1\bar{e}_1 + x_2\bar{e}_2 + \cdots + x_k\bar{e}_k + 0\bar{e}_{k+1} + \cdots + 0\bar{e}_n$.
+Clearly, $P_0(\bar{x}) = \bar{0}$.
+
+	The essence of this proof lies in the fourth statement which is designed to construct a seqeunce of functions $F_1,F_2,\cdots,F_n$ such that the other three statements remains true for every function in this sequence.\\
+\end{commentary}
+
+\begin{commentary}Step 1 : Initial Case, prove that all the four statements are true for $m = 1$.\end{commentary}
+
+Define $F_1 = F$ and $V_1 = E$.
+Thus, $F \in \mathscr{C}'(E) \implies F_1 \in \mathscr{C}'(V_1)$.
+Also we have, $F_1(\bar{0}) = F(\bar{0}) = 0$, and $F_1'(\bar{0}) = F'(\bar{0})$ is invertible.
+Obviously the trivial projection, $P_0(F_1(\bar{x})) = P_0(F(\bar{x})) = \bar{0} = P_0(\bar{x})$ for every $\bar{x} \in V_1$.\\
+\begin{commentary}Step 2 : Induction Hypothesis, suppose all the four statements are true for $m = 1,2,\cdots,n-1$.\end{commentary}
+
+Suppose that for each $m = 1,2,\cdots,n-1$, there exists a neighbourhood of $\bar{0}$, say $V_m$ such that $F_m \in \mathscr{C}'(V_m),\ F_m(\bar{0}) = \bar{0},\ F_m'(\bar{0})$ is invertible and $P_{m-1}F_m(\bar{x}) = P_{m-1}(\bar{x})$ for every $\bar{x} \in V_m$.\\
+\begin{commentary}Step 3 : Induction Step, prove that all the four statements are true for $m = n$.\end{commentary}
+\begin{align*}
+	P_{m-1}F_m(\bar{x}) & = P_{m-1}\bar{x},\ \bar{x} \in V_m \\
+	& = x_1\bar{e}_1 + x_2\bar{e}_2 + \cdots + x_{m-1}\bar{e}_{m-1} 
+	\intertext{We may write remaining components of $F_m(\bar{x})$ using real-valued functions. That is, $k$th component of the function $F_m$, say $F_{m_k} = \alpha_k$.}
+	F_m(\bar{x}) & = P_{m-1}(\bar{x}) + \sum_{i = m}^n \alpha_i(\bar{x})\bar{e}_i
+\end{align*}
+Since $F_m \in \mathscr{C}'(V_m)$, the functions $\alpha_i \in \mathscr{C}'(V_m)$.
+Taking $m$th partial derivative on either sides, we get
+$$D_mF_m(\bar{0}) = F_m'(\bar{0})\bar{e}_m  = \sum_{i = m}^n D_m \alpha_i (\bar{0})\bar{e}_i$$
+We have, $F_m'(\bar{0})$ is invertible.
+Thus $F_m'(\bar{0})\bar{e}_m \ne 0$.
+Thus there exists some integer $k$ such that $m \le k \le n$ and $D_m\alpha_k(\bar{0})\bar{e}_k \ne 0$.
+Let $B_m$ be the flip that interchanges $m$ and $k$.
+If $m = k$, then $B_m$ is identity map.
+\begin{equation}
+	\text{Define } G_m(\bar{x}) = \bar{x} + [\alpha_k(\bar{x}) - x_m]\bar{e}_m
+\end{equation}
+Then $G_m \in \mathscr{C}'(V_m)$, $G_m$ is a primitive mapping, and $G_m'(\bar{0})$ is invertible since $D_m\alpha_k(\bar{0}) \ne 0$.
+
+By inverse function theorem, there exists an open set $U_m$, $0 \in U_m$ and $U_m \subset V_m$ such that $G_m$ is a bijection from $U_m$ onto a neighbourhood of $\bar{0}$, say $V_{m+1}$ in which $G_m^{-1}$ is continuously differentiable.
+\begin{equation}
+	\text{Define } F_{m+1}(\bar{y}) = B_mF_m \circ G_m^{-1}(\bar{y}),\ \bar{y} \in V_{m+1}
+\end{equation}
+Then $F_m \in \mathscr{C}'(V_{m+1})$, $F_{m+1}(\bar{0}) = 0$ and $F_{m+1}'(\bar{0})$ is invertible by the chain rule.
+Also, for $\bar{x} \in U_m$, we have
+\begin{align*}
+	P_mF_{m+1}(G_m(\bar{x})) & = P_m B_m F_m (\bar{x}) \\
+	& = P_m (P_{m-1}\bar{x} + \alpha_k(\bar{x}\bar{e}_m + \cdots) \\
+	& = P_{m-1}\bar{x} + \alpha_k(\bar{x})\bar{e}_m \\
+	& = P_m G_m(\bar{x})\\
+	\implies P_mF_{m+1}(\bar{y}) & = P_m(\bar{y})
+\end{align*}
+Thus, by mathematical induction, we have characterised a finite sequence of function $F_1,F_2,\cdots,F_n$ such that all the four statements are true.
+
+\begin{commentary}Step 4 : Using the finite sequence of functions $F_1, F_2, \cdots, F_n$ constructed in the proof, we can represent $F$ in terms of flips and primitive mappings.\end{commentary}
+Let $\bar{x} \in U_m$ and $\bar{y} = G_m(\bar{x})$. We have,
+\begin{align*}
+	B_mF_m \circ G_m^{-1}(\bar{y}) & = F_{m+1}(\bar{y}) \\
+	B_m B_m F_m(\bar{x}) & = B_m F_{m+1}(G_m(\bar{x})) \\
+	IF_m(\bar{x}) & = B_m F_{m+1}(G_m(\bar{x})) \\
+	F_m(\bar{x}) & = B_m(F_{m+1}(G_m(\bar{x}))\\
+\end{align*}
+\begin{equation}
+	\text{Thus, } F_m = B_m F_{m+1} \circ G_m,\ m = 1,2,\cdots, n
+\end{equation}
+Therefore, we have
+\begin{align*}
+	F & = F_1 \\
+	& = B_1F_2\circ G_1 \\
+	& = B_1 (B_2F_3 \circ G_2) \circ G_1 = B_1B_2F_3 \circ G_2 \circ G_1 \\
+	& \vdots \\
+	F & = B_1 B_2 \cdots B_n F_n \circ G_{n-1} \circ G_{n-2} \circ \cdots \circ G_1
+	\intertext{Since $P_n F_n(\bar{x}) = P_{n-1}(\bar{x})$, $F_n$ is a primitive mapping, say $G_n$.}
+	F & = B_1 B_2 \cdots B_n G_n \circ G_{n-1} \circ G_{n-2} \circ \cdots \circ G_1
+\end{align*}
 \end{proof}
 
 \begin{theorem}[partitions of unity]
@@ -1663,7 +1768,7 @@ Then we have,
 \end{proof}
 
 \begin{theorem}[effect of change of variable on multiple integral]
-	Suppose $T$ is a one-to-one $\mathscr{C}$-mapping of an open set $E \subset \mathbb{R}^k$ into $\mathbb{R}^k$ such that $J_T(\bar{x}) \ne 0$ for all $\bar{x} \in E$.
+	Suppose $T$ is a one-to-one $\mathscr{C}'$-mapping of an open set $E \subset \mathbb{R}^k$ into $\mathbb{R}^k$ such that $J_T(\bar{x}) \ne 0$ for all $\bar{x} \in E$.
 	If $f$ is a continuous function on $\mathbb{R}^k$ whose support is compact and lies in $T(E)$, then
 	\begin{equation}
 		\int_{\mathbb{R}^k} f(\bar{y})\ d\bar{y} = \int_{\mathbb{R}^k} f(T(\bar{x}))|J_T(\bar{x})|\ d\bar{x}
