@@ -238,7 +238,7 @@ Thus \[ \lim_{\alpha \to \infty} \frac{1}{2\pi} \int_{-\alpha}^\alpha F(v) + iG(
 
 \subsection{Integral Transforms}
 \begin{definition}
-	Integral transform $g(y)$ of $f(x)$ is a Lebesgue integral or Improper Riemann integral of the form
+	\textbf{Integral transform} $g(y)$ of $f(x)$ is a Lebesgue integral or Improper Riemann integral of the form
 	\[ g(y) = \int_{-\infty}^\infty K(x,y) f(x)\ dx \], where $K$ is the kernal of the transform.
 	We write \( g = \mathscr{K}(f) \).
 \end{definition}
@@ -303,7 +303,7 @@ Thus \[ \lim_{\alpha \to \infty} \frac{1}{2\pi} \int_{-\alpha}^\alpha F(v) + iG(
 	Let $S$ be the set of all points $x$ for which the Lebesgue integral
 	\[ h(x) = \int_{-\infty}^\infty f(t) g(x-t) dt \]
 	exists.
-	Then the function \( h : S \to \mathbb{R} \) is a convolution of $f$ and $g$.
+	Then the function \( h : S \to \mathbb{R} \) is a \textbf{convolution} of $f$ and $g$.
 	And \( h = f \ast g \).
 \end{definition}
 
@@ -386,8 +386,7 @@ The unit co-ordinate vector, $\bar{u}_k$ is given by \( {u_k}_j = \delta_{j,k} \
 	Let \(S \subset \mathbb{R}^n\) and \(f : S \to \mathbb{R}^m\).
 	Let $\bar{c}$ be an interior points of $S$ and \( \bar{u} \in \mathbb{R}^n \), then there exists an open ball $B(\bar{c},r)$ in $S$.
 	Also for some $\delta > 0$ the line segment \( \alpha : [0,\delta] \to S \) given by \( \alpha(t) = \bar{c}+t\bar{u} \) lie in $B(\bar{c},r)$.
-	
-	Then the Directional derivative of $f$ at an interior point $\bar{c}$ in the direction $\bar{u}$ is given by
+	Then the \textbf{directional derivative} of $f$ at an interior point $\bar{c}$ in the direction $\bar{u}$ is given by
 	\[ f'(\bar{c},\bar{u}) = \lim_{h \to 0} \frac{f(\bar{c}+h\bar{u}) - f(\bar{c})}{h} \]
 \end{definition}
 
@@ -436,10 +435,15 @@ ie, \( T_c(ah_1+bh_2) = aT_c(h_1)+bT_c(h_2) \).
 Now, we will define a total derivative of multivariate function that has these two properties.
 
 \begin{definition}[Total Derivative]
-	The function \( f: \mathbb{R}^n \to \mathbb{R}^m \) is differentiable at $\bar{c}$ if there exists a \textbf{linear} function \( T_{\bar{c}} : \mathbb{R}^n \to \mathbb{R}^m \) such that \( f(\bar{c}+\bar{v}) = f(\bar{c}) + T_{\bar{c}}(\bar{v}) + \|\bar{v}\| E_{\bar{c}}(\bar{v}) \) where \( E_{\bar{c}}(\bar{v}) \to \bar{0} \) as \( \bar{v} \to \bar{0} \).
+	The function \( f: \mathbb{R}^n \to \mathbb{R}^m \) is \textbf{differentiable} at $\bar{c}$
+	if there exists a \texttt{linear} function \( T_{\bar{c}} : \mathbb{R}^n \to \mathbb{R}^m \)
+	such that \( f(\bar{c}+\bar{v}) = f(\bar{c}) + T_{\bar{c}}(\bar{v}) + \|\bar{v}\| E_{\bar{c}}(\bar{v}) \)
+	where \( E_{\bar{c}}(\bar{v}) \to \bar{0} \) as \(\bar{v} \to \bar{0}\).
 \end{definition}
 
-The linear function $T_{\bar{c}}$ is the total derivative of $f$ at $\bar{c}$, \( T_{\bar{c}}(\bar{0}) = \bar{0} \) and the condition above gives the First Order Taylor's Formula for \( f(\bar{c}+\bar{v})-f(\bar{c}) \).
+\begin{remark}
+	The linear function $T_{\bar{c}}$ is the total derivative of $f$ at $\bar{c}$, \( T_{\bar{c}}(\bar{0}) = \bar{0} \) and the condition above gives the First Order Taylor's Formula for \( f(\bar{c}+\bar{v})-f(\bar{c}) \).
+\end{remark}
 
 \begin{remark}[Properties] Let \( f : \mathbb{R}^n \to \mathbb{R}^m \) and \( f'(\bar{c})(\bar{v}) = T_{\bar{c}}(\bar{v}) \) be the total derivative of $f$ at $\bar{c}$ evaluated at $\bar{v}$.
 Then, 
@@ -621,8 +625,8 @@ This matrix is called Jacobian matrix of $f$ at $\bar{c}$ and is denoted by $Df(
 	\item $k$th row of $Df(\bar{c})$ is gradient vector of $f_k$
 		\[\nabla f_k(\bar{c}) = (D_1f_k(\bar{c}),D_2f_k(\bar{c}),\cdots,D_nf_k(\bar{c}))\]
 	\item When $m = 1$, $Df(\bar{c}) = \nabla f(\bar{c})$.
-	\item $f'(\bar{c})(\bar{v}) = \sum_{k=1}^m \left(\nabla f_k(\bar{c}) \cdot \bar{v}\right) \bar{e}_k$
-	\item $\|f'(\bar{c})(\bar{v})\| \le M\|v\|$ where $M = \sum_{k=1}^m \|\nabla f_k(\bar{c})\| $, by property (3)
+	\item $f'(\bar{c})(\bar{v}) = \sum\limits_{k=1}^m \left(\nabla f_k(\bar{c}) \cdot \bar{v}\right) \bar{e}_k$
+	\item $\|f'(\bar{c})(\bar{v})\| \le M\|v\|$ where $M = \sum\limits_{k=1}^m \|\nabla f_k(\bar{c})\| $, by property (3)
 	\item $f'(\bar{c})(\bar{v}) \to \bar{0}$ as $\bar{v} \to \bar{0}$, by property (4)
 \end{enumerate}
 
@@ -684,9 +688,9 @@ Then $h$ is differentiable at $\bar{a}$ and the Jacobian matrix of $h$ is given 
 In other words,
 \[ D_jh_i(\bar{a}) = \sum_{k=1}^n D_k f_i(\bar{b}) D_j g_k(\bar{a}),\ i=1,2,\cdots,m,\ j=1,2,\cdots,p \]
 
-For $m=1$, $D_j h(\bar{a}) = \sum_{k=1}^n D_kf(\bar{b}) D_jg_k(\bar{a})$
+For $m=1$, $D_j h(\bar{a}) = \sum\limits_{k=1}^n D_kf(\bar{b}) D_jg_k(\bar{a})$
 
-For $m=1$ and $p=1$, $h'(\bar{a}) = \sum_{k=1}^n Df(\bar{b}) g_k'(\bar{a}) = \nabla f(\bar{b}) \cdot Dg(\bar{a})$
+For $m=1$ and $p=1$, $h'(\bar{a}) = \sum\limits_{k=1}^n Df(\bar{b}) g_k'(\bar{a}) = \nabla f(\bar{b}) \cdot Dg(\bar{a})$
 
 \begin{theorem}
 Let $f$ and $D_2f$ be continuous functions on a rectangle $[a,b] \times [c,d]$.
@@ -720,34 +724,51 @@ If the partial derivative $D_2f$ is continuous on $Q$, the derivative $F'(y)$ ex
 \begin{proof}
 Let $G(x_1,x_2,x_3) = \int_{x_1}^{x_2} f(t,x_3)\ dt$.
 Then we may write $F(y)$ in terms of $G$.
-That is, $F(y) = G(p(y),q(y),y)$.
+That is, $F(y) = G(p(y),q(y),y)$.\\
+\begin{commentary}Step 1 : 1-D Chain Rule \end{commentary}
 
 By 1-dimensional chain rule, we have 
 \begin{align*}
 	F'(y) & = \frac{dF}{dy} = \frac{\partial G}{\partial p} \frac{dp}{dy} + \frac{\partial G}{\partial q} \frac{dq}{dy} + \frac{\partial G}{\partial y} \\
 	& = D_1 G\ p'(y) + D_2 G\ q'(y) + D_3 G
 \end{align*}
+\begin{commentary}Step 2 : $D_1 G$ \end{commentary}
 
-\begin{itemize}
-	\item $D_1 G$\\ 
 	Since the variable of differentition is present in the limit of the integral, we use theorem \ref{thm:paralimit} to compute the derivative of the integral.
-	We may write, $G(p(y),q(y),y)  = -\int_{q(y)}^{p(y)} f(t,y)\ dt$.
+	We may write,
+	\begin{equation}
+		G(p(y),q(y),y)  = -\int_{q(y)}^{p(y)} f(t,y)\ dt
+	\end{equation}
 	We are differentiating (partially) with respect to $p(y)$.
 	Thus $q(y)$, $y$ are constants for this differentiation.
-	Suppose $G(x,a,y) = -H(x) = -\int_a^x f(t,y)\ dt \implies D_1 G = -H'(x)= -f(x,y)$.
-	Thus, $D_1 G = -f(p(y),y)$.
-	\item $D_2 G$\\
-	Again, variable of differentiation is persent in the limit of the integral.
-	Thus, we write, $G(p(y),q(y),y) = \int_{p(y)}^{q(y)} f(t,y)\ dt$.
+	\begin{align*}
+		G(x,a,y) & = -H(x) = -\int_a^x f(t,y)\ dt\\
+		\implies D_1 G & = -H'(x)= -f(x,y). \\
+		\text{Thus, } D_1 G & = -f(p(y),y)
+	\end{align*}
+\begin{commentary}Step 3 : $D_2 G$ \end{commentary}
+
+	Again, variable of differentiation is present in the limit of the integral.
+	Thus, we write,
+	\begin{equation}
+		G(p(y),q(y),y) = \int_{p(y)}^{q(y)} f(t,y)\ dt
+	\end{equation}
 	Now we are differentiating (partially) with respect to the the second component of $G$ which is $q(y)$.
 	Clearly, $p(y)$ and $y$ are treated as constants.
-	$G(a,x,y) = H(x) = \int_a^x f(t,y)\ dt \implies D_2 G = H'(x) = f(q(y),y)$.
-	\item $D_3 G$\\
+	\begin{align*}
+		G(a,x,y) & = H(x) = \int_a^x f(t,y)\ dt \\
+		\implies D_2 G & = H'(x) = f(q(y),y)
+	\end{align*}
+\begin{commentary}Step 4 : $D_3 G$ \end{commentary}
+
 	Now the variable of integration is not affecting the limits of the integral.
 	Also it is given that $D_2 f$ is continuous on $[a,b] \times [c,d]$.
-	We write $G(a,b,x) = H(x) = \int_a^b f(t,x)\ dt \implies D_3 G = H'(x) = \int_a^b D_2 f(t,x)\ dt$.
-	Thus $D_3 G = \int_{p(y)}^{q(y)} f(t,y)\ dt$.
-\end{itemize}
+	We write
+	\begin{align*}
+		G(a,b,x) & = H(x) = \int_a^b f(t,x)\ dt \\
+		\implies D_3 G & = H'(x) = \int_a^b D_2 f(t,x)\ dt \\
+		\text{Thus, } D_3 G & = \int_{p(y)}^{q(y)} f(t,y)\ dt
+	\end{align*}
 \end{proof}
 
 \subsubsection{The mean-value theorem for differentiable functions}
@@ -916,21 +937,25 @@ Thus it is sufficient to prove that $D_{r,k}f_j(\bar{c}) = D_{k,r}f_j(\bar{c}),\
 That is, it is sufficient to prove equality of mixed partial derivatives of a real-valued function $f_j : \mathbb{R}^n \to \mathbb{R}$.
 Also, we will prove it for $n = 2$ and $\bar{c} = (0,0)$.
 \begin{commentary}
-From Step 2 onwards, we will write $f$ instead of $f_j$ for ease of notation.
+	Now, we will prove the theorem of a real-valued function $f : \mathbb{R}^n : \mathbb{R}$.\\
 \end{commentary}
 \begin{commentary}Step 2 : $\nabla(h)$\end{commentary}
 
 Let $f : \mathbb{R}^n \to \mathbb{R}$.
 Suppose that the partial derivatives $D_k f$, $D_r f$ exist in the $n$-ball $B(n)$.
 And let $h > 0$ such that the rectangle with vertices $(0,0), (0,h), (h,0), (h,h)$ lies in $B(n)$.
+
 \begin{commentary} Suppose $n=3$, $c = (x,y,z)$, and we want to prove equality of $D_{2,3} f$ and $D_{3,2} f$.
 Then we will consider the rectangle with vertices $(x,y,z), (x,y,z+h), (x,y+h,z), (x,y+h,z+h)$.
 Again, we are taking $n=2$ and $\bar{c} = (0,0)$, only for the ease of notation as the same proof is applicable for any finite natural number, $n$ and any vector $\bar{c} \in \mathbb{R}^n$.\end{commentary}
 
-Define $\nabla(h) = f(h,h)-f(h,0)-f(0,h)+f(0,0)$.\\
+	\begin{equation}
+		\text{Define }\nabla(h) = f(h,h)-f(h,0)-f(0,h)+f(0,0)
+	\end{equation}
 \begin{commentary}Step 3 : $D_{1,2} f = \frac{\nabla(h)}{h^2} = D_{2,1} f$\end{commentary}
-
-Define $G(x) = f(x,h)-f(x,0)$.
+\begin{equation}
+	\text{Define }G(x) = f(x,h)-f(x,0)
+\end{equation}
 Then  we have, $\nabla(h) = G(h)-G(0)$ and $G'(x) = D_1f(x,h) - D_1f(x,0)$.
 By 1-dimensional mean value theorem,
 \begin{align*}
@@ -964,6 +989,11 @@ Therefore,
 \begin{equation}
 \lim_{h \to 0} \frac{\nabla(h)}{h^2} = D_{2,1} f(0,0)
 \end{equation}
+
+\begin{commentary}
+	You may skip the following part.
+	And conclude with the last two lines.
+\end{commentary}
 
 Similarly, define $H(y) = f(h,y)-f(0,y)$.
 Then we have, $\nabla(h) = H(h)-H(0)$ and $H'(y) = D_2f(h,y) - D_2f(0,y)$.
@@ -1035,12 +1065,12 @@ Why don't we substitute $y = 0$ before $D_2 f$ is something you should know alre
 \begin{definition}[Implicit function]
 	Let $f$ be a function.
 	Consider the equation, $f(\bar{x},\bar{y}) = \bar{0}$.
-	If there exists a function $g$ such that $\bar{x} = g(\bar{y})$, then $g$ is an implicit form of $f$ or $g$ is defined implicitly by $f$.
+	If there exists a function $g$ such that $\bar{x} = g(\bar{y})$, then $g$ is an \textbf{implicit form} of $f$ or $g$ is defined implicitly by $f$.
 	For example, a linear system of equations $Ax-b = 0$ implicitly defines $x = A^{-1}b$ provided $ A$ has non-zero determinant.
 \end{definition}
 
 \begin{definition}[Jacobian Determinant]
-Let $f : \mathbb{R}^n \to \mathbb{R}^n$, then determinant of the Jacobian matrix $Df(\bar{x})$ is the Jacobian determinant of $f$, $J_f(\bar{x})$.
+	Let $f : \mathbb{R}^n \to \mathbb{R}^n$, then determinant of the Jacobian matrix $Df(\bar{x})$ is the \textbf{Jacobian determinant} of $f$, $J_f(\bar{x})$.
 \end{definition}
 
 \begin{commentary}
@@ -1429,15 +1459,16 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 
 \subsubsection{Extrema of function of several variables}
 \begin{definition}
-	If function $f$ is differentiable at $\bar{a}$ and $\nabla f(\bar{a}) = \bar{0}$, the point $\bar{a}$ is a stationary point of $f$.
+	If function $f$ is differentiable at $\bar{a}$ and $\nabla f(\bar{a}) = \bar{0}$, the point $\bar{a}$ is a \textbf{stationary point} of $f$.
 \end{definition}
 
 \begin{definition}
-	A stationary point is a saddle point if every $n$-ball $B(\bar{a})$ contains points $\bar{x}$ such that $f(\bar{x}) > f(\bar{a})$ and other points such that $f(\bar{x}) < f(\bar{a})$.
+	A stationary point is a \textbf{saddle point} if every $n$-ball $B(\bar{a})$ contains points $\bar{x}$ such that $f(\bar{x}) > f(\bar{a})$ and other points such that $f(\bar{x}) < f(\bar{a})$.
 \end{definition}
 
 \begin{definition}
-	A function $Q : \mathbb{R}^n \to \mathbb{R}$ defined $Q(\bar{x}) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}x_ix_j$ where $a_{ij} \in \mathbb{R}$ is a function of the quadratic form or simply a quadratic form.
+	A function $Q : \mathbb{R}^n \to \mathbb{R}$ defined by $Q(\bar{x}) = \sum\limits_{i=1}^n \sum\limits_{j=1}^n a_{ij}x_ix_j$
+	where $a_{ij} \in \mathbb{R}$ is a function of the \textbf{quadratic form} or simply a quadratic form.
 \begin{description}
 	\item[symmetric quadratic form] $a_{ij} = a_{ji},\ \forall i,j$. 
 	\item[positive definite quadratic form] $Q(\bar{x}) > 0, \forall \bar{x} \ne \bar{0}$. 
@@ -1488,7 +1519,7 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 	Thus, $$-\frac{m}{2}\|\bar{t}\|^2 \le -\|\bar{t}\|^2 |E(\bar{t})| \le 0$$
 	Therefore, $f(\bar{a}+\bar{t}) - f(\bar{a}) \ge m\|\bar{t}\|^2 - \frac{m}{2}\|\bar{t}\|^2 = \frac{m}{2}\|t\|^2$ for every $\bar{t} \in B(\bar{0},r)$.
 	Clearly, $f$ has a local minimum at $\bar{a}$.\\
-	Case 2 : Suppose $Q(\bar{t} < 0,\ \forall \bar{t} \ne \bar{0}$, then consider $-f$.
+	Case 2 : Suppose $Q(\bar{t}) < 0,\ \forall \bar{t} \ne \bar{0}$, then consider $-f$.
 
 	Clearly, function $-f$ has a local minimum at $\bar{t}$.
 	Thus $f$ has a local maximum at $\bar{t}$.\\
@@ -1554,11 +1585,11 @@ Then we have,
 %\chapter{Integration on Differential Forms}
 \section{Integration on Differential Forms}
 \begin{definition}
-	A $k$-cell in $R^k$ is given by, 
+	A \textbf{$k$-cell} in $R^k$ is given by, 
 	$$I^k = \{ \bar{x} \in \mathbb{R}^k : a_i \le x_i \le b_i,\ \forall i \}$$
 	where $\bar{a},\bar{b} \in \mathbb{R}^k$.
 	Let $f$ be a continuous, real-valued function on $I^k$.
-	Then, the integral of $f$ over $I^k$ is given by,
+	Then, the \textbf{integral} of $f$ over $I^k$ is given by,
 	$$\int_{I^k}f(\bar{x}) d\bar{x} = f_0 \text{ where } f_k = f \text{ and }$$
 	$$f_{r-1} = \int_{a_r}^{b_r} f_r(x_0,x_1,\cdots,x_r) dx_r,\ r = 1,2,\cdots,k$$
 \begin{commentary}
@@ -1596,9 +1627,21 @@ Let $g \in \mathscr{A}$.
 \end{align*}
 \begin{commentary}Step 3 : All functions continuous on $I^k$.\end{commentary}
 
-Let $V = \prod_{j = 1}^k (b_j - a_j)$.
-Also let $f \in \mathscr{C}(I^k)$.
+Let $f \in \mathscr{C}(I^k)$.
 ie, a function which is continuous in $I^k$.
+
+\begin{commentary}
+	\textbf{Stone-Weierstrass theorem} - Let $\mathscr{A}$ be an algebra of real, continuous functions on a compact set $K$.
+	If $\mathscr{A}$ separates points on $K$ and if $\mathscr{A}$ vanishes at no point of $K$, then the uniform closure $\mathscr{B}$ of $\mathscr{A}$ consists of all real, continuous functions on $K$.
+
+	Clearly, the algebra of functions $\mathscr{A}$ separates points on $I^k$ and vanishes nowhere on $I^k$.
+	Suppose $\bar{x} \ne \bar{y}$, then there exists $m$ such that $x_m \ne y_m$.
+	Thus $h(\bar{x}) = x_m$ separates $\bar{x}$ and $\bar{y}$.
+	Again $h(\bar{x}) = 1$ vanishes nowhere on $I^k$.
+	Thus every function which is continuous on $I^k$ is the limit of some uniformly convergent sequence of functions in $\mathscr{A}$.
+\end{commentary}
+	
+Let $V = \prod_{j = 1}^k (b_j - a_j)$.
 Then by Stone-Weierstrass theorem,
 for any $\epsilon > 0$,	there exists a function $g \in \mathscr{A}$
 such that $\|f-g\| < \frac{\epsilon}{V}$
@@ -1617,12 +1660,14 @@ Therefore, $L(f) = L'(f)$.
 
 \begin{definition}
 	Let $f : \mathbb{R}^k \to \mathbb{C}$.
-	The support of $f$ is the closure of the set of all points $\bar{x} \in \mathbb{R}^k$ such that $f(\bar{x}) \ne 0$.
+	The \textbf{support} of $f$ is the closure of the set of all points $\bar{x} \in \mathbb{R}^k$ such that $f(\bar{x}) \ne 0$.
+\end{definition}
 
+\begin{remark}
 	Let $f$ be a continuous function with compact support.
 	And $I^k$ be any $k$-cell containing the support of $f$.
 	Then, $\int_{\mathbb{R}^k} f\ d\bar{x} = \int_{I^k} f\ d\bar{x}$.
-\end{definition}
+\end{remark}
 
 \begin{commentary}
 	$L(f) = L'(f)$ where $f$ is the limit function of a sequence of functions with compact support.
@@ -1633,11 +1678,14 @@ Therefore, $L(f) = L'(f)$.
 
 \begin{definition}
 	Let $E$ be an open subset in $\mathbb{R}^n$.
-	Then function $G : E \to \mathbb{R}^n$ is primive if it satisfies
+	Then function $G : E \to \mathbb{R}^n$ is \textbf{primive}
+	if it satisfies
 	\begin{equation}
 		G(\bar{x}) = \sum_{i \ne m} x_i \bar{e}_i + g(\bar{x})\bar{e}_m
 	\end{equation}
-	for some integer $m$ and some function $g : E \to \mathbb{R}$ (where $\bar{e}_i$ are the unit co-ordinate vectors).
+	for some integer $m$ and
+	some function $g : E \to \mathbb{R}$
+	(where $\bar{e}_i$ are the unit co-ordinate vectors).
 	\begin{equation}
 		G(\bar{x}) = \bar{x} + [g(\bar{x})-x_m]\bar{e}_m
 	\end{equation}
@@ -1655,7 +1703,7 @@ Therefore, $L(f) = L'(f)$.
 \end{definition}
 
 \begin{definition}
-	A linear operator $B$ on $\mathbb{R}^n$ that interchanges some pair of members of the standard basis and leaves the others fixed is a flip.
+	A linear operator $B$ on $\mathbb{R}^n$ that interchanges some pair of members of the standard basis and leaves the others fixed is a \textbf{flip}.
 \end{definition}
 
 \begin{theorem}
@@ -1723,9 +1771,9 @@ Also, for $\bar{x} \in U_m$, we have
 	& = P_m G_m(\bar{x})\\
 	\implies P_mF_{m+1}(\bar{y}) & = P_m(\bar{y})
 \end{align*}
-Thus, by mathematical induction, we have characterised a finite sequence of function $F_1,F_2,\cdots,F_n$ such that all the four statements are true.
-
+Thus, by mathematical induction, we have characterised a finite sequence of function $F_1,F_2,\cdots,F_n$ such that all the four statements are true.\\
 \begin{commentary}Step 4 : Using the finite sequence of functions $F_1, F_2, \cdots, F_n$ constructed in the proof, we can represent $F$ in terms of flips and primitive mappings.\end{commentary}
+
 Let $\bar{x} \in U_m$ and $\bar{y} = G_m(\bar{x})$. We have,
 \begin{align*}
 	B_mF_m \circ G_m^{-1}(\bar{y}) & = F_{m+1}(\bar{y}) \\
@@ -1748,6 +1796,14 @@ Therefore, we have
 \end{align*}
 \end{proof}
 
+\begin{remark}
+	Let $K$ be a compact subset of $\mathbb{R}^n$.
+	Then a family of function $\psi_1,\psi_2,\cdots,\psi_s$ where $\psi_j : K \to \mathbb{R}$ is a partition of unity if it satisfies
+	\begin{enumerate}
+		\item $0 \le \psi_j(\bar{x}) \le 1$ for every $\bar{x} \in K,\ j = 1,2,\cdots, s$.
+		\item $\sum\limits_{j=1}^s \psi_j(\bar{x}) = 1$ for every $\bar{x} \in K$.
+	\end{enumerate}
+\end{remark}
 \begin{theorem}[partitions of unity]
 	Suppose $K$ is a compact subset of $\mathbb{R}^n$, and $\{V_\alpha\}$ is an open cover of $K$.
 	Then there exists functions $\psi_1,\psi_2,\cdots,\psi_s \in \mathscr{C}(\mathbb{R}^n)$ such that
@@ -1756,15 +1812,97 @@ Therefore, we have
 		\item each $\psi_i$ has its support in some $V_\alpha$ and
 		\item $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
 	\end{enumerate}
+	\begin{commentary}
+		In other words, every open cover of a compact subset of $\mathbb{R}^n$ has a partition of unity with compact support in a finite subcover.
+	\end{commentary}
 \end{theorem}
 \begin{proof}
+	\begin{commentary}
+		Step 1 : Construction of $\phi_j$.
+	\end{commentary}
+
+	We have, $\{ V_\alpha \}$ is a cover of $K$.
+	Therefore, every $\bar{x} \in K$ belongs to some $V_{\alpha(\bar{x})}$.
+	And there exists open balls $B(\bar{x})$ and $W(\bar{x})$ such that
+	\begin{equation}
+		\bar{x} \in B(\bar{x}) \subset \bar{B}(\bar{x}) \subset W(\bar{x}) \subset \bar{W}(\bar{x}) \subset V_{\alpha(\bar{x})}
+	\end{equation}
+	The family $\{ B(\bar{x}) \}$ is an open cover of $K$.
+	Since $K$ is compact, the open cover $\{ B(\bar{x}) \}$ has a finite subcover, say $\{ B(\bar{x}_1),B(\bar{x}_2),\cdots,B(\bar{x}_s) \}$.
+	That is, there are points $\bar{x}_1,\bar{x}_2,\cdots,\bar{x}_s$ in $K$ such that
+	\begin{equation}
+		K = B(\bar{x}_1) \cup B(\bar{x}_2) \cup \cdots \cup B(\bar{x}_s)
+	\end{equation}
+	Since $\mathbb{R}^n$ is a metric space,\footnote{metric spaces have a simpler version of Urysohn's lemma or apply Urysohn's lemma}
+	there exists continuous functions $\phi_j : \mathbb{R}^n \to [0,1]$
+	such that $\phi_j(B(\bar{x}_j)) = \{1\}$,
+	$\phi_j(\mathbb{R}^n-W(\bar{x}_j)) = \{0\}$ and
+	$0 \le \phi_j(\bar{x}) \le 1$ for every $\bar{x} \in \mathbb{R}^n$.\\
+	\begin{commentary}
+		Step 2 : Construction of $\psi_j$.
+	\end{commentary}
+	\begin{align*}
+		\text{Define, } \psi_1 & = \phi_1 \\
+		\psi_2 & = (1-\phi_1)\phi_2\\
+		& \vdots\\
+		\psi_s & = (1-\phi_1)(1-\phi_2)\cdots(1-\phi_{s-1})\phi_s
+	\end{align*}
+	Clearly, $0 \le \psi_j \le 1$ for $j = 1,2,\cdots,s$.
+	And $\psi_j$ has a compact support in $W(\bar{x}_j) \subset V_{\alpha(\bar{x}_j)}$.\\
+	\begin{commentary}
+		Step 3 : $\{\psi_j\}$ is a partition of unity.
+	\end{commentary}
+
+	We claim that,
+	\begin{equation}
+		\psi_1+\psi_2 + \cdots+\psi_j = 1 - (1-\phi_1)(1-\phi_2)\cdots(1-\phi_j),\ j = 1,2,\cdots,s
+	\end{equation}
+	It is proved using mathematical induction on $j$.
+	Clearly, it is true for $j = 1$.
+	$\psi_1 = \phi_1 = 1 - 1 + \phi = 1 - (1-\phi)$.
+	Suppose the claim is true for $j = k$ for some $1 \le k < s$.
+	Then we have, $\psi_1 + \psi_2 + \cdots + \psi_k = 1-(1-\phi_1)(1-\phi_2)\cdots(1-\phi_k)$.
+	\begin{align*}
+		\text{Thus, }\psi_1 + \psi_2 + \cdots + \psi_k + \psi_{k+1} = & 1-(1-\phi_1)(1-\phi_2)\cdots(1-\phi_k) \\
+		& + (1-\phi_1)(1-\phi_2)\cdots(1-\phi_k)\phi_{k+1}\\
+		= & 1-(1-\phi_1)(1-\phi_2)\cdots(1-\phi_{k+1})
+	\end{align*}
+	Thus, the claim is true for $j = 1,2,\cdots,s$.
+	Let $\bar{x} \in K$.
+	Then $\bar{x} \in B(\bar{x}_j)$ for some $j$.
+	By definition of $\phi_j$, $\phi_j(\bar{x}) = 1$.
+	That is, $(1-\phi_j(\bar{x})) = 0$.
+	\begin{align*}
+		\implies (1-\phi_1(\bar{x}))(1-\phi_2(\bar{x}))\cdots(1-\phi_s(\bar{x})) & = 0 \\
+		\implies \psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) & = 1
+	\end{align*}
+	Therefore, $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
 \end{proof}
+
+\begin{definition}
+	By theorem, every open cover $\{V_\alpha\}$ of a compact subset $K$ has a partition of unity $\{ \psi_j \}$ with compact support in a finite subcover $\{V_{\alpha_j}\}$.
+	Then $\{ \psi_j \}$ is \textbf{subordinate} to the cover $\{V_\alpha\}$.
+\end{definition}
 
 \begin{corollary}
 	If $f \in \mathscr{C}(\mathbb{R}^n)$ and the support of $f$ lies in $K$,
 	then\\ $f = \sum\limits_{i=1}^s \psi_i f$. Each $\psi_i$ has its support in some $V_\alpha$.
+
+	\begin{commentary}
+		Any continuous function with support in a compact set can be represented as sum of continuous functions $\psi_j f$ with small supports.
+	\end{commentary}
 \end{corollary}
 \begin{proof}
+	Let $K$ be compact subset of $\mathbb{R}^n$.
+	And support of a function $f$ lies in $K$.
+	Then,
+	\begin{align*}
+		f(\bar{x}) & = I(\bar{x}) f(\bar{x}) = \left( \sum_{j = 1}^s \psi_j(\bar{x}) \right) f(\bar{x}) \\
+		& = \sum_{j = 1}^s \psi_j(\bar{x}) f(\bar{x}) = \sum_{j = 1}^s (\psi_j f)(\bar{x})
+	\end{align*}
+	Let $\{ \psi_j \}$ be a partition of unity.
+	Let $K'$ be the support of $f$ and $V_{\alpha_j}$ be support of each $\psi_j$.
+	Then $K' \cap V_{\alpha_j}$ is the support of each $\psi_j f$.
 \end{proof}
 
 \begin{theorem}[effect of change of variable on multiple integral]
@@ -1775,37 +1913,207 @@ Therefore, we have
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	\begin{commentary}
+		Step 1 : `separable' functions
+	\end{commentary}
 
+	Let $E$ be an open subset of $\mathbb{R}^k$.
+	We claim that\footnote{This proof is my own work. There may exist simpler proofs.}
+	the theorem is true for functions $h : E \to \mathbb{R}$ of the form $h(\bar{y}) = h_1(y_1)h_2(y_2)\cdots h_k(y_k)$.
+	We know that, every continuous function $T$ is locally a composition of primitives and flips.
+	Therefore it is enough to prove that the theorem is true for functions $h$ with transformations $T$ primitives, flips and their compositions.\\
+	\begin{commentary}
+		Step 2 : Trasformation $T$ is a primitive
+	\end{commentary}
+
+	Let $G$ be a primitive with change in $m$th coordinate.
+	Then
+	\begin{equation}
+		G(\bar{x}) = x_1\bar{e}_1 + x_2\bar{e}_2 + \cdots + g(\bar{x})\bar{e}_m + \cdots + x_k\bar{e}_k
+	\end{equation}
+	We have,
+	\begin{equation}
+		J_G(\bar{x}) = \begin{vmatrix}
+			1 & 0 & \cdots & 0 & \cdots & 0 & 0 \\
+			0 & 1 & \cdots & 0 & \cdots & 0 & 0 \\
+			\vdots & \vdots & \ddots & \vdots & \iddots & \vdots & 0 \\ 
+			D_1g(\bar{x}) & D_2g(\bar{x}) & \cdots & D_mg(\bar{x}) & \cdots & D_{k-1}g(\bar{x}) & D_kg(\bar{x}) \\
+			\vdots & \vdots & \iddots & 0 & \ddots & \vdots & \vdots \\
+			0 & 0 & \cdots & 0 & \cdots & 1 & 0 \\
+			0 & 0 & \cdots & 0 & \cdots & 0 & 1 
+		\end{vmatrix}
+	\end{equation}
+	Therefore, $J_G(\bar{x}) = D_mg(\bar{x})$.
+	\begin{align*}
+		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \prod_{j = 1}^k \int h_j(y_j)\ dy_j\\
+		& = \left( \prod_{j \ne m} \int h_j(y_j)\ dy_j \right) \int h_m(y_m)\ dy_m \\
+		G(\bar{x}) = \bar{y} \implies & (x_1,x_2,\cdots,g(\bar{x}),\cdots,x_k) = (y_1,y_2,\cdots,y_m,\cdots,y_k)\\
+		\implies & x_j = y_j \text{ for } j \ne m \text{ and } g(\bar{x}) = y_m\\
+		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \left( \prod_{j \ne m} \int h_j(x_j)\ 1\ dx_j \right) \int h_m(g(\bar{x}))\ D_mg(\bar{x})\ dx_m \\
+		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \int_{\mathbb{R}^k} h(G(\bar{x}))\ |J_G(\bar{x})|\ d\bar{x}\\
+	\end{align*}
+	\begin{commentary}
+		Step 3 : Transformation $T$ is a flip.
+	\end{commentary}
+
+	Let $B$ be a flip that interchanges $m$ and $n$ coordinates.
+	When $m = n$, $B$ is an identity map and the theorem is trivially true.
+	\begin{equation}
+		B(\bar{x}) = x_1\bar{e}_1 + \cdots + x_n\bar{e}_m + \cdots +  x_m\bar{e}_n + \cdots + x_k\bar{e}_k
+	\end{equation}
+	The Jacobian matrix is an identity matrix with $m$th and $n$th rows interchanged.
+	For example,
+	\begin{equation}
+		J_B(\bar{x}) = \begin{vmatrix}
+			0 & 1 & \cdots & 0 \\
+			1 & 0 & \vdots & 0 \\
+			\vdots & \vdots & \ddots & \vdots \\
+			0 & 0 & \cdots &  1
+		\end{vmatrix}
+	\end{equation}
+	Therefore, $J_B(\bar{x}) = \pm 1$.
+	\begin{align*}
+		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \prod_{j = 1}^k \int h_j(y_j)\ dy_j\\
+		& = \left( \prod_{j \ne m,n} \int h_j(y_j)\ dy_j \right) \int h_n(y_n)\ dy_n \int h_m(y_m)\ dy_m \\
+		B(\bar{x}) = \bar{y} \implies & (x_1,\cdots,x_n,\cdots,x_m,\cdots,x_k) = (y_1,\cdots,y_m,\cdots,y_n,\cdots,y_k)\\
+		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \left( \prod_{j \ne m,n} \int h_j(x_j)\ dx_j \right) \int h_n(x_m)\ dx_n \int h_m(x_n)\ dx_m \\
+		& = \int_{\mathbb{R}^k} h(B(\bar{x}))\ 1\ d\bar{x} = \int_{\mathbb{R}^k} h(B(\bar{x}))\ |J_B(\bar{x}|\ d\bar{x}
+	\end{align*}
+
+	\begin{commentary}
+		Notice that, substituting $y_n = x_m$ gives $\int h_n(x_m)\ dx_n$.
+		This is due to the fact that $\bar{y} = B(\bar{x})$ have $x_m\bar{e}_n$ in place of $y_n\bar{e}_n$.
+		Therefore, parameter of $h_n$ is on the same axis $\bar{e}_n$.
+
+		Step 4 : If the theorem is true for two transformations, then it is true for their composition.
+	\end{commentary}
+
+	Suppose the theorem is true for transformations $P$ and $Q$.
+	And $S = P \circ Q$.
+	Let $\bar{z} = P(\bar{y})$ and $\bar{y} = Q(\bar{x})$.
+	Then $\bar{z} = S(\bar{x})$.
+	Since $m(P)m(Q) = m(S)$, we have $J_P(\bar{y}) J_Q(\bar{x}) = J_S(\bar{x})$.
+	\begin{align*}
+		\int_{\mathbb{R}^k} f(\bar{z})\ d\bar{z} & = \int_{\mathbb{R}^k} f(P(\bar{y}))\ |J_P(\bar{y})|\ d\bar{y} \\
+		& = \int_{\mathbb{R}^k} f(P(Q(\bar{x})))\ |J_P(Q(\bar{x}))|\ |J_Q(\bar{x})|\ d\bar{x} \\
+		& = \int_{\mathbb{R}^k} f(S(\bar{x}))\ |J_S(\bar{x})|\ d\bar{x}
+	\end{align*}
+	Therefore, the theorem is true for their composition.
+
+	Now for any function of the form $h(\bar{x}) = \prod\limits_{j = 1}^k h_j(x_j)$, the theorem is true for any continuous transformation $T$.
+	Then it is true for the algebra of functions $\mathscr{A}$.
+	And by Stone-Weierstrass theorem,\footnote{I haven't checked whether the application of Stone-Weierstrass theorem causes any problem. It is the same proof technique as we have seen in $L(f) = L'(f)$.}
+	the theorem is true for every continuous function $f$.
 \end{proof}
 
 \subsection{Differential Forms}
 \begin{definition}
 	Suppose $E$ is an open set in $\mathbb{R}^n$.
-	A $k$-surface in $E$ is a $\mathscr{C}'$-mapping $\Phi$ from a compact set $D \subset \mathbb{R}^k$ into $E$.
-	$D$ is the parameter domain of $\Phi$.
+	A \textbf{$k$-surface} in $E$ is a $\mathscr{C}'$-mapping $\Phi$ from a compact set $D \subset \mathbb{R}^k$ into $E$.
+	$D$ is the \textbf{parameter domain} of $\Phi$.
 \end{definition}
 
 \begin{definition}
 	Suppose $E$ is an open set in $\mathbb{R}^n$.
-	A differential form of order $k \ge 1$ in $E$, a $k$-form in $E$ is a function $\omega$, symbolically represented by the sum $\omega = \sum a_{i1\cdots ik}(\bar{x})\ dx_{i1}\wedge dx_{i2} \wedge \cdots dx_{ik}$ which assigns to each $k$-surface $\Phi$ in $E$ a number $\omega(\Phi) = \int_{\Phi} \omega $, according to the rule
+	A \textbf{differential form} of order $k \ge 1$ in $E$, a $k$-form in $E$ is a function $\omega$,
+	symbolically represented by the sum
+	\begin{equation} \omega = \sum a_{i1\cdots ik}(\bar{x})\ dx_{i1}\wedge dx_{i2} \wedge \cdots dx_{ik}
+	\end{equation}
+	which assigns to each $k$-surface $\Phi$ in $E$ a number $\omega(\Phi) = \int_{\Phi} \omega $,
+	according to the rule
 	\begin{equation}
 		\int_{\Phi} \omega = \int_D \sum a_{i1\cdots ik}(\Phi(\bar{u})) \frac{\partial(x_{i1},x_{i2},\cdots,x_{ik})}{\partial(u_1,u_2,\cdots,u_k)}d\bar{u}
 	\end{equation}
-	where $D$ is the paramter domain of $\Phi$.
+	where $D$ is the paramter domain of $\Phi$ and
+	\begin{equation}
+	\frac{\partial(x_{i1},x_{i2},\cdots,x_{ik})}{\partial(u_1,u_2,\cdots,u_k)} = \begin{vmatrix}
+		\frac{\partial x_{i1}}{\partial u_1} & \frac{\partial x_{i1}}{\partial u_2} & \cdots & \frac{\partial x_{i1}}{\partial u_k} \\
+		\frac{\partial x_{i2}}{\partial u_1} & \frac{\partial x_{i2}}{\partial u_2} & \cdots & \frac{\partial x_{i2}}{\partial u_k} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		\frac{\partial x_{ik}}{\partial u_1} & \frac{\partial x_{ik}}{\partial u_2} & \cdots & \frac{\partial x_{ik}}{\partial u_k} \\
+	\end{vmatrix}
+	\end{equation}
+\end{definition}
+\begin{commentary}
+	Let $\omega = 4\ dx_1 \wedge dx_3 + 3x_2^2\ dx_2 \wedge dx_1$.
+	Then $\omega$ is a $2$-form with $a_{1,3}(x,y,z) = 4$, $a_{2,1}(x,y,z) = 3y^2$ and all other $a_{i_1 i_2}(x,y,z) = 0$.
 
+	Consider the upper hemi-sphere of unit radius, $S^2_{y \ge 0}$ in $\mathbb{R}^3$ and the closure of the unit disc $\bar{S}^1 = D \subset \mathbb{R}^2$.
+	Then $D$ is compact.
+	Let $\Phi : D \to S^2_{y \ge 0}$ defined by $\Phi(x,y) = (x,+\sqrt{1-x^2-y^2},y)$.
+	Clearly, $\Phi \in \mathscr{C}'(D)$.
+	Thus, $\Phi$ is a $2$-surface with parameter domain $D$.
+
+	Clearly, $\Phi_1(x,y) = x$, $\Phi_2(x,y) = \sqrt{1-x^2-y^2}$ and $\Phi_3(x,y) = y$.
+	We have, $\omega(\Phi) = \int_\Phi \omega$.
+	\begin{equation}
+		\omega(\Phi) = \int_\Phi \omega =  \iint_D \omega_\Phi(x,y) \frac{\partial ( \Phi_{i_1}, \Phi_{i_2})}{\partial ( x, y) } dx\ dy
+	\end{equation}
+	where $\omega_{\Phi}(x,y)$ is obtained by evaluating each function $a_{i_1i_2\cdots i_k}(\Phi(x,y))$.
+
+	\begin{align*}
+		\omega(\Phi) & = \iint_D a_{1,3}(\Phi(x,y)) \begin{vmatrix} \frac{\partial \Phi_1}{\partial x} & \frac{\partial \Phi_1}{\partial y} \\
+		\frac{\partial \Phi_3}{\partial x} & \frac{\partial \Phi_3}{\partial y} \end{vmatrix} dx dy + \iint_D a_{2,1}(\Phi(x,y)) \begin{vmatrix} \frac{\partial \Phi_2}{\partial x} & \frac{\partial \Phi_2}{\partial y} \\
+		\frac{\partial \Phi_1}{\partial x} & \frac{\partial \Phi_1}{\partial y} \end{vmatrix} dx dy \\
+		& = \int_0^1 \int_0^{\sqrt{1-y^2}} 4 \begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix} dx dy \\
+		& + \int_0^1 \int_0^{\sqrt{1-y^2}} 3(1-x^2-y^2) \begin{vmatrix} \frac{1}{2}\frac{-2x}{\sqrt{1-x^2-y^2}} & \frac{1}{2} \frac{-2y}{\sqrt{1-x^2-y^2}} \\ 1 & 0 \end{vmatrix} dx dy \\
+		& = \int_0^1 \int_0^{\sqrt{1-y^2}} 4 dx dy + \int_0^1 \int_0^{\sqrt{1-y^2}} \frac{3}{\sqrt{1-x^2-y^2}} dx\ dy
+	\end{align*}
+\end{commentary}
+
+\begin{remark}[example 1]
+	Integrals of $1$-forms are line integrals.
+	And $\omega(\gamma) = 0$ for every closed curve $\gamma$.\cite[10.12a]{rudin}
+\end{remark}
+
+\begin{remark}[example 2]
+	Let $\gamma : [ 0,2\pi ] \to \mathbb{R}^2$ defined by $\gamma(t) = (a\cos t , b\sin t)$.
+	Then $\gamma$ is a $1$-surface with parameter domain $[0,2\pi]$.\cite[10.12b]{rudin}
+	Let $\omega$ be a $1$-form defined by $\omega = x dy$.
+	Then 
+	\begin{equation*}
+		\omega(\gamma) = \int_\gamma \omega = \int_\gamma x\ dy = \int_0^{2\pi} ab\cos^2 t\ dt = \pi ab
+	\end{equation*}
+	Similarly, $\omega = ydx$ gives
+	\begin{equation*}
+		\omega(\gamma) = \int_\gamma \omega = \int_\gamma y\ dx = \int_0^{2\pi} -ab\sin^2 t\ dt = -\pi ab
+	\end{equation*}
+\end{remark}
+
+\begin{remark}[example 3]
+	Let $0 \le r \le 1$, $0 \le \theta \le \pi$ and $0 \le \phi \le 2\pi$.
+	Then $D \subset \mathbb{R}^n$ defined by $\{(r,\theta,\phi)\}$ is compact.
+	Define $\Phi : D \to \mathbb{R}^3$ by $\Phi(r,\theta,\phi) = (r\sin \theta \cos \phi, r\sin \theta \sin \phi, r \cos \theta)$.
+	Then $\Phi$ is a $3$-surface in $\mathbb{R}^3$.
+	We have
+	\begin{equation*}
+		J_\Phi(r,\theta,\phi) = \begin{vmatrix}
+			\sin \theta \cos \phi & r\cos \theta \cos \phi & -r\sin \theta \sin \phi \\
+			\sin \theta \sin \phi & r\cos \theta \sin \phi & r \sin \theta \cos \phi \\
+			\cos \theta & -r\sin \theta & 0 
+		\end{vmatrix} = r^2\sin \theta
+	\end{equation*}
+	Let $\omega = dx_1 \wedge dx_2 \wedge dx_3$.
+	Then $\omega(\Phi) = \int_\Phi \omega = \int_D J_\Phi = \frac{4\pi}{3}$ is the volume of the unit ball $\Phi(D)$.
+\end{remark}
+
+\begin{remark}
 	A $k$-form $\omega$ is of class $\mathscr{C}'$ or $\mathscr{C}''$ if the functions $a_{i1\cdots ik}$ are all of class $\mathscr{C}'$ or $\mathscr{C}''$.
 	A $0$-form in $E$ is defined to be a continuous function in $E$.
 	And $0$ is the only $k$-form in any open set $E \subset \mathbb{R}^n$.
+\end{remark}
 
-	
+\begin{definition}
 	Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \cdots \wedge {dx_i}_k$.
-	Then $\bar{\omega}$ is the $k$-form obtained by interchanging a pair subscripts of $\omega$.
+	Then \textbf{$\bar{\omega}$} is the $k$-form obtained by interchanging a pair subscripts of $\omega$.
 	ie, $\bar{\omega} = a(\bar{x})\ {dx_i}_2 \wedge {dx_i}_1 \wedge \cdots \wedge {dx_i}_k$. 
 \end{definition}
 
-\begin{remark}[Elementary properties of $k$-forms]
+\subsubsection{Elementary properties of $k$-forms}
+\begin{definition}
 	Let $E$ be an open set in $\mathbb{R}^n$.
-	And let $\omega_1,\omega_2$ be $k$-forms in $E$\footnote{If $\omega$ is a $k$-form in $E$, what is $E$ to $\omega$ ? domain ?}, then
+	And $\Phi$ be a $k$-surface in $E$.
+	And let $\omega_1,\omega_2$ be $k$-forms in $E$, then
 	\begin{enumerate}
 		\item $\omega_1 = \omega_2 \iff \omega_1(\Phi) = \omega_2(\Phi) \iff \int_\Phi \omega_1 = \int_\Phi \omega_2,\ \forall \Phi \in E$
 		\item $\omega = 0 \iff \omega(\Phi) = 0 \iff \int_\Phi \omega = 0,\ \forall \Phi \in E$
@@ -1816,26 +2124,51 @@ Therefore, we have
 		\item Inverse $k$-form, $-\omega$ \\
 			$-\omega(\Phi) = -(\omega(\Phi)) \iff \int_\Phi -\omega = -\int_\Phi \omega$
 		\item $\bar{\omega} = -\omega$.
-		\item Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \cdots \wedge {dx_i}_k$. If $\bar{\omega} = \omega$, then $\omega = 0$. Since $\wedge$ is anticommutative.
 	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \cdots \wedge {dx_i}_k$. If $\bar{\omega} = \omega$, then $\omega = 0$. Since $\wedge$ is anticommutative.
+
+	Thus, differential $k$-forms with repeated subscripts are $0$.
+	For example, $\omega = dx_i \wedge dx_j \wedge dx_i = 0$.
 \end{remark}
 
 \begin{definition}
-	Let $\bar{I} = (i_1,i_2,\cdots,i_k)$ be an increasing $k$-index.
+	Let $\bar{I} = (i_1,i_2,\cdots,i_k)$ be an \textbf{increasing $k$-index}.
 	That is, $1 \le i_1 \le i_2 \le \cdots i_k \le n$.
-	Then $dx_{\bar{I}}$ of the form $dx_{\bar{I}} = dx_{i1} \wedge dx_{i2} \cdots dx_{ik}$ is basic $k$-form in $\mathbb{R}^n$.
+	Then $dx_{\bar{I}}$ of the form $dx_{\bar{I}} = dx_{i1} \wedge dx_{i2} \cdots dx_{ik}$ is \textbf{basic $k$-form} in $\mathbb{R}^n$.
+\end{definition}
 
+\begin{remark} List of all basic $k$-forms
+	\begin{description}
+		\item[$0$-form] $0$
+		\item[$1$-forms] $dx_1$, $dx_2$, $\cdots$, $dx_n$
+		\item[$2$-forms] $dx_i \wedge dx_j$ for every $1 \le i,j \le n$.
+		\item[$3$-forms] $dx_i \wedge dx_j \wedge dx_k$ for every $1 \le i,j,k \le n$.
+	\end{description}
+\end{remark}
+	
+\begin{remark}
 	There are $(^n_k)$ basic $k$-forms in $\mathbb{R}^n$.
 
 	Every $k$-form can be represented in terms of basic $k$-forms.
-	For every $k$-tuple $(j_1,j_2,\cdots,j_k)$, $dx_{j1} \wedge \cdots dx_{jk} = \epsilon(j_1,j_2,\cdots,j_k)dx_{\bar{J}}$ where $\bar{J}$ is the increasing $k$-index obtained by interchanging pairs.
+	For every $k$-tuple $(j_1,j_2,\cdots,j_k)$, $dx_{j1} \wedge \cdots dx_{jk} = \sigma(j_1,j_2,\cdots,j_k)dx_{\bar{J}}$ where $\bar{J}$ is the increasing $k$-index obtained by interchanging pairs.
+	And $\sigma$ maps odd permutations to $-1$ and even permutations to $1$.
 
 	Standard representation of a $k$-form
 	\begin{equation}
 		\omega = \sum_I b_I(\bar{x})dx_I
 	\end{equation}
 	For example : $x_1\ dx_2 \wedge dx_1 - x_2\ dx_3 \wedge dx_2 + x_3\ dx_2 \wedge dx_3 + dx_1 \wedge dx_2 = (1-x)\ dx_1 \wedge dx_2 + (x_2+x_3)\ dx_2 \wedge dx_3$ is a 2-form in $\mathbb{R}^3$.
-\end{definition}
+\end{remark}
 
+\begin{commentary}
+	$dx_1 \wedge dx_2 \wedge dx_3 = dx_2 \wedge dx_3 \wedge dx_1$,
+	since $(1\ 2\ 3) \in A_3 \implies \sigma(1\ 2\ 3) = 1$.
+	And, $dx_1 \wedge dx_2 \wedge dx_3 = -dx_1 \wedge dx_3 \wedge dx_2$,
+	$(2\ 3) \notin A_3 \implies \sigma(2\ 3) = -1$.
+	Here, $A_3$ is an alternating group of all even permutation on $\{1,2,3\}$.
+\end{commentary}
 %\chapter{The Lebesgue Theory}
 
