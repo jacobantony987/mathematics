@@ -8,6 +8,8 @@
 \RequirePackage{mathdots}
 \RequirePackage{pgf}
 \RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{tikz-3dplot}
 %\RequirePackage{graphicx}
 \RequirePackage[inline,shortlabels]{enumitem}
 %\RequirePackage{pythontex}
@@ -35,7 +37,6 @@
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
 
-\newcommand{\sequence}[1]{\{#1\}}
 
 \newenvironment{commentary}{\color{purple}}{\color{black}}
 \newenvironment{important}{\color{blue}}{\color{black}}
@@ -52,3 +53,5 @@
 \SetCodeSection{Level1}{true} %change to false to hide story, ...
 \SetCodeSection{Level2}{true} %change to false to hide challenge, ...
 \SetCodeSection{Level3}{true} %change to false to hide doubt, ...
+
+\newcommand{\sequence}[1]{\{#1\}}
