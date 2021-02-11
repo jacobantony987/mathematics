@@ -628,9 +628,9 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	and let $x \in aH$ and $y \in bH$.
 	$x \in aH \implies x = ah_1$ for some $h_1 \in H$
 	$y \in bH \implies y = bh_2$ for some $h_2 \in H$.
-	Therefore $xy = (ah_1)(bh_2) = (ah_1)(h_2b) = a(h_1(h_2b)) = a((h_1h_2)b)$
-	Since $H$ is a group, $h_1h_2 = h_3 \in H$
-	Thus, $xy = a(h_3b) = a(bh_3) = (ab)h_3 \in (ab)H$ for all $x \in aH$ and $y \in bH$
+	Therefore $xy = (ah_1)(bh_2) = (a(h_1(bh_2)) = a((h_1b)h_2) = a((bh_3)h_2) = a(b(h_3h_2)) = a(bh_4)$.
+	Since $H$ is a group, $h_3h_2 = h_4 \in H$
+	Thus, $xy = a(bh_4) = (ab)h_4 \in (ab)H$ for all $x \in aH$ and $y \in bH$
 	Thus $(aH)(bH) = (ab)H$.
 \end{proof}
 

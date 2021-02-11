@@ -22,12 +22,11 @@
 \section{Graphs and Level Set}
 \begin{definition}
 	Let function $f : U \to \mathbb{R}$ where $U \subset \mathbb{R}^{n+1}$.
-	Then \textbf{Level set} of $f$, $f^{-1}(c)$ is the set
+	Let $c$ be a real number.
+	Then the \textbf{Level set} of $f$ at height $c$,
 	\begin{equation}
 		f^{-1}(c) = \{ (x_1,x_2,\cdots,x_{n+1}) \in U : f(x_1,x_2,\cdots,x_{n+1}) = c \}
 	\end{equation} 
-	The real number $c$ is the \textbf{height} of the level set.
-	And $f^{-1}(c)$ is the level set at height $c$.
 \end{definition}
 
 \begin{definition}
@@ -36,6 +35,101 @@
 \begin{equation}
 	graph(f) = \{ (x_1,x_2,\cdots,x_{n+2}) \in \mathbb{R}^{n+2} : f(x_1,x_2,\cdots,x_{n+1}) = x_{n+2} \}
 \end{equation}
+\end{definition}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
+  		\draw[->] (0, 0) -- (0, 3) node[above] {$y$};
+  		\draw[scale=0.5, domain=-2.5:2.5, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
+		\draw[dotted,thick,red] (-2,2) -- (2,2);
+		\draw (-0.5,2.25) node{$c = 2$};
+		\draw (2.5,3)node{$y = f(x)$};
+\end{tikzpicture}
+	\caption{Level set of the function $f$ at $c = 2$}
+\end{figure}
+
+\begin{remark}
+	For $n = 0$, $f : \mathbb{R} \to \mathbb{R}$ defined by $y = f(x)$ has the level set $f^{-1}(0) = \ker(f)$ at height $0$ and $graph(f) = \{ (x,y) \in \mathbb{R}^2 : f(x) = y \}$.
+
+	For $n = 1$, $f : \mathbb{R}^2 \to \mathbb{R}$ defined by $z = f(x,y)$ has the level set $c = 0$, $f^{-1}(0) = \ker(f)$ at height $0$ and $graph(f) = \{ (x,y,z) \in \mathbb{R}^3 : f(x,y) = z \}$.
+\end{remark}
+
+\section{Vector Fields}
+\begin{definition}
+	A vector $\mathbf{v}$ at a point $p \in \mathbb{R}^{n+1}$ is a pair $\mathbf{v} = (p,v)$ where $v \in \mathbb{R}^{n+1}$.
+\end{definition}
+\begin{description}
+	\item[vector addition] $\mathbf{v} + \mathbf{w} = (p,v) + (p,w) = (p,v+w)$.
+	\item[scalar multiplication] Let $c \in \mathbb{R}$, then $c \mathbf{v} =  c(p,v) = (p,cv)$.
+	\item[dot product] $\mathbf{v}\cdot \mathbf{w} = (p,v)\cdot(p,w) = v \cdot w$
+	\item[cross product] $\mathbf{v}\times \mathbf{w} = (p,v)\times(p,w) = (p,v \times w)$
+\end{description}
+\begin{remark}
+	Angle $\theta$ between $\mathbf{v}$ and $\mathbf{w}$ is given by,
+	\begin{equation}
+		\cos \theta = \mathbf{v}\cdot\mathbf{w} = (p,v)\cdot(p,w) = v.w
+	\end{equation}
+	And the length of a vector $\mathbf{v}$ is given by,
+	\begin{equation}
+		\|\mathbf{v}\| = \mathbf{v}\cdot\mathbf{v} = (p,v)\cdot(p,v) = v\cdot v = \| v \|
+	\end{equation}
+\end{remark}
+
+\begin{remark}
+	Let set of all vectors at a point $p \in \mathbb{R}^{n+1}$ forms a vector space over the field $\mathbb{R}$.
+	This vector space is denoted by $\mathbb{R}_p^{n+1}$.
+
+	For example : Let $\mathbf{v} \in \mathbb{R}_p^{n+1}$, then $\mathbf{v} = (p,v)$ for some $v \in \mathbb{R}^{n+1}$.
+\end{remark}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\draw[-latex] (0,0) -- (0,3);
+		\draw[-latex] (0,0) -- (3,0);
+		\draw[-latex] (2,1) -- (3,2);
+		\draw[-latex] (2,1) -- (1,0.8);
+		\draw[-latex] (2,1) -- (3,0.5);
+		\draw[-latex] (2,1) -- (1,2.5);
+		\draw (2,0.5) node{$(2,1)$};
+	\end{tikzpicture}
+	\caption{The vector space of all vectors at $(2,1)$, $\mathbb{R}_{(2,1)}^2$}
+\end{figure}
+\begin{definition}
+	The vector field $\mathbf{X}$ on $\mathbb{R}^{n+1}$ is a function which assigns to each point of $\mathbb{R}^{n+1}$ a vector at that point.
+	That is, $\mathbf{X}(p) = (p,X(p))$.
+\end{definition}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=0.5]
+		\draw[-latex] (0,0) -- (0,3);
+		\draw[-latex] (0,0) -- (3,0);
+		\draw[-latex] (0,0) -- (0,-2);
+		\draw[-latex] (0,0) -- (-3,0);
+
+		\draw[-latex] (1,1) -- (2,3);
+		\draw[-latex] (0,1) -- (1,3);
+		\draw[-latex] (-1,1) -- (0,3);
+
+		\draw[-latex] (1.25,0.75) -- (2.25,2.75);
+		\draw[-latex] (0.25,0.75) -- (1.25,2.75);
+		\draw[-latex] (-0.75,0.75) -- (0.25,2.75);
+
+		\draw[-latex] (1.5,-1) -- (2.5,1);
+		\draw[-latex] (0.5,-1) -- (1.5,1);
+		\draw[-latex] (-0.5,-1) -- (0.5,1);
+	\end{tikzpicture}
+	\caption{Vector field with $X(p) = (1,2)$}
+\end{figure}
+
+\begin{definition}[smooth]
+	A function $f : \mathbb{R} \to \mathbb{R}$ is smooth if its partial derivatives of all orders exists and are continuous.
+
+	A function $f : \mathbb{R}^{n+1} \to \mathbb{R}$ is smooth if its component functions $f = (f_1, f_2, \cdots, f_{n+1})$ are smooth.
+	
+	A vector field $\mathbf{X}$ is smooth if the associated function $X(p)$ is smooth.
 \end{definition}
 
 %\chapter{Vector Fields}
