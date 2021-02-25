@@ -1024,7 +1024,7 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 \end{proof}
 
 %Week 5 Day 1 \S34.1-5
-\section{Isomorphism Theorems}
+\section{Isomorphism Theorems 1-2}
 \subsection{First Isomorphism Theorem}
 \begin{theorem}[first isomorphism]
 	Let $\phi : G \to G'$ be a homomorphism with kernel $K$, and let $\gamma_K : G \to G/K$ be the canonical homomorphism.
@@ -1153,7 +1153,8 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Then $HN/N \isomorphism H/(H \cap N)$, since the composition of two isomorphisms, $\mu_2^{-1}\circ \mu_1 : HN/N \to H/(H \cap N)$ is an isomorphism% where $\mu_2^{-1}\circ \mu_1 (hnN) = \mu_2^{-1} (\gamma(h)) = \mu_2^{-1} (hN) = h(H \cap N)$.
 \end{proof}
 
-\subsection{Third Isomorphism Theorem}
+%Week 5 Day 2 \S34.6-10
+\section{Third Isomorphism Theorem}
 \begin{theorem}[third isomorphism]
 	Let $H$ and $K$ be normal subgroup of $G$ with $K \le H$.
 	Then $G/H \isomorphism (G/K)/(H/K)$.
@@ -1187,7 +1188,8 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	By first isomorphism theorem, there exists a unique isomorphism $\mu : G/H \to (G/K)/(H/K)$. Thus, $G/H \isomorphism (G/K)/(H/K)$.
 \end{proof}
 
-\section{Finite non-abelian Groups}
+%Week 6 Day 1 \S36.1-4
+\section{Finite, non-abelian Groups}
 \begin{theorem}
 	Let $p$ be a prime. Let $G$ be a group of order $p^n$.
 	Let $X$ be a finite $G$-set.
@@ -1255,5 +1257,81 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Let $G$ be a finite group. Then $G$ is a $p$-group if and only if $|G|$ is a power of $p$.
 \end{corollary}
 \begin{proof}
+	Let $G$ be a finite group.
+	Suppose $G$ is a $p$-group.
+	Suppose there exists another prime $q$, $q \ne p$ such that $q$ divides $|G|$.
+	Then by Cauchy's theorem, $G$ has an element of order $q$.
+	This contradicts the assumption that $G$ is a $p$-group.
+	Thus, the only prime that divides $|G|$ is $p$.
+	Therefore, the order of $G$ is a power of prime $p$.
+
+	Let $|G|=p^n$.
+	Then the factors of $p^n$ are powers of $p$.
+	By Lagrange's theorem, order of subgroups of $G$ must divide $|G|$.
+	Thus, every subgroup of $G$ has order a power of $p$.
+	Thus, every element of $G$ has order a power of $p$.
+	Therefore, $G$ is a $p$-group.
 \end{proof}
+
+%Week 6 Day 1 \S36.5-9
 \section{Sylow Theorems}
+\begin{definition}
+	Let $G$ be a group and $H$ be a subgroup of $G$.
+	Consider the inner automorphisms $i_g : G \to G$ such that $i_g(x) = gxg^{-1}$.
+	Then $i_g(H) = gHg^{-1}$ is the conjugate of the subgroup $H$.
+	The set of all elements in $G$ which has $H$ itself as the conjugate of $H$ is the normaliser of $H$ in $G$.
+	\begin{equation}
+		N[H] = \{ g \in G : gHg^{-1} = H\}
+	\end{equation}
+\end{definition}
+
+\begin{remark}
+	The normaliser of $H$ in $G$ is a subgroup of $G$.
+	And $N[H]$ is the largest subgroup of $G$ with $H$ as its normal subgroup.
+\end{remark}
+\begin{lemma}
+	Let $H$ be a $p$-subgroup of a finite group $G$. Then
+	\begin{equation}
+		(N[H] : H) \cong (G:H) \pmod{p}
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Let $G$ be a finite group.
+	Let $H$ be a $p$-subgroup of $G$.
+	Let $\mathscr{L}$ be the set of all left cosets of $H$ in $G$.
+	Then, $|\mathscr{L}| = (G:H)$.
+
+	Claim : $\mathscr{L}$ is an $H$-set with group action $h(xH) = (hx)H$.
+	We have, $e(xH) = (ex)H = xH$ and $(g_1g_2)(xH) = (g_1g_2xH) = g_1(g_2xH) = g_1(g_2(xH))$.
+
+	Let $\mathscr{L}_H$ be the set of all left cosets that are fixed under action by all element of $H$.
+	\begin{align*}
+		\mathscr{L}_H & = \{ xH \in \mathscr{L} : h(xH) = xH,\ \forall h \in H\} \\
+		& = \{ xH \in \mathscr{L} : x^{-1}h (xH) = H,\ \forall h \in H \} \\
+		& = \{ xH \in \mathscr{L} : (x^{-1}hx)H = H,\ \forall h \in H \} \\
+		& = \{ xH \in \mathscr{L} : (x^{-1}hx) \in H,\ \forall h \in H \} \\
+		& = \{ xH \in \mathscr{L} : x^{-1} \in N[H] \}
+	\end{align*}
+	Clearly, left cosets of $\mathscr{L}_H$ has all its elements contained in $N[H]$. Thus,
+	\begin{equation}
+		|\mathscr{L}_H| = (N[H]:H)
+	\end{equation}
+	We have, $\mathscr{L}$ is an $H$-set.
+	And $H$ is a $p$-subgroup.
+	Thus, $H$ has order a power of prime $p$.
+	Therefore, 
+	\begin{equation}
+		|\mathscr{L}| \cong |\mathscr{L}_H| \pmod{p}
+	\end{equation}
+\end{proof}
+
+\begin{corollary}
+	Let $H$ be a $p$-subgroup of finite group $G$.
+	If $p$ divides $(G:H)$, then $N[H] \ne H$.
+\end{corollary}
+\begin{proof}
+	We have, $(G:H) \cong (N[H]:H) \pmod {p}$.
+	And $p$ divides $(G:H)$.
+	Thus, $p$ divides $(N[H]:H)$.
+	Therefore, $H \ne N[H]$.
+\end{proof}
