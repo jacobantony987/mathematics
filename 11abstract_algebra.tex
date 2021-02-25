@@ -1188,7 +1188,7 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	By first isomorphism theorem, there exists a unique isomorphism $\mu : G/H \to (G/K)/(H/K)$. Thus, $G/H \isomorphism (G/K)/(H/K)$.
 \end{proof}
 
-%Week 6 Day 1 \S36.1-4
+%Week 6 Day 1 \S36.1-7
 \section{Finite, non-abelian Groups}
 \begin{theorem}
 	Let $p$ be a prime. Let $G$ be a group of order $p^n$.
@@ -1273,12 +1273,10 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Therefore, $G$ is a $p$-group.
 \end{proof}
 
-%Week 6 Day 1 \S36.5-9
-\section{Sylow Theorems}
 \begin{definition}
 	Let $G$ be a group and $H$ be a subgroup of $G$.
 	Consider the inner automorphisms $i_g : G \to G$ such that $i_g(x) = gxg^{-1}$.
-	Then $i_g(H) = gHg^{-1}$ is the conjugate of the subgroup $H$.
+	We have, $i_g(H) = gHg^{-1}$ is the conjugate of the subgroup $H$.
 	The set of all elements in $G$ which has $H$ itself as the conjugate of $H$ is the normaliser of $H$ in $G$.
 	\begin{equation}
 		N[H] = \{ g \in G : gHg^{-1} = H\}
@@ -1335,3 +1333,119 @@ For example, $G \approx \mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{2
 	Thus, $p$ divides $(N[H]:H)$.
 	Therefore, $H \ne N[H]$.
 \end{proof}
+
+%Week 6 Day 1 \S36.8-13
+\section{Sylow Theorems}
+\begin{theorem}[First Sylow Theorem]
+	Let $G$ be a finite group of order $p^n m$ where $n \ge 1$ and $p$ does not divide $m$. Then
+	\begin{enumerate}
+		\item $G$ contains a subgroup of order $p^i$ where $1 \le i \le n$.
+		\item Every subgroup $H$ of $G$ of order $p^i$ is normal subgroup of the subgroup of order $p^{i+1}$, for $1 \le i \le n$.
+	\end{enumerate}
+%	For each prime factor $p$ of $|G|$, there exists a subnormal series\footnote{Fraleigh, uses series instead of sequence in \S35.1!} of $G$.
+%	That is, $H_0 \le H_1 \le \cdots \le H_n = G$.
+\end{theorem}
+\begin{proof}
+	We have, $G$ is finite group and $p$ divides $|G|$.
+	By Cauchy's theorem, $G$ has a subgroup of order $p$.
+
+	Suppose $G$ has a subgroup $H$ of order $p^i$, where $(i < n)$.
+	Then, $H$ is a $p$-subgroup.
+	Thus, $(G:H) \cong (N[H]:H) \pmod{p}$ where $N[H]$ is the normaliser of $H$ in $G$.
+	Clearly, $p$ divides $(G:H)$.
+	Thus, $p$ divides $(N[H]:H)$.
+
+	And $H$ is a normal subgroup of $N[H]$.
+	Thus, we have factor group $N[H]/H$ and $p$ divides the order of $N[H]/H$.
+	By Cauchy's theorem, $N[H]/H$ has a subgroup $K$ of order $p$.
+	Consider the canonical homomorphism $\gamma : N[H] \to N[H]/H$ defined by $\gamma(x) = xH$.
+	Then $\gamma^{-1}(K)$ is a subgroup of $N[H]$ of order $p^{i+1}$ and contains $H$.
+	Thus, $H$ is a normal subgroup of $\gamma^{-1}(K)$.
+	By mathematical induction, $G$ has subgroups of order $p^i$ for $i = 2,3,\cdots,n$.
+\end{proof}
+
+\begin{definition}
+	A sylow $p$-subgroup of $G$ is a maximal $p$-subgroup of $G$.
+\end{definition}
+
+\begin{theorem}[Second Sylow Theorem]
+	Let $P_1$ and $P_2$ be two Sylow $p$-subgroups of $G$.
+	Then $P_1$ and $P_2$ are conjugate subgroups of $G$.
+\end{theorem}
+\begin{proof}
+	Let $P_1$ and $P_2$ be two Sylow $p$-subgroups of $G$.
+	Let $\mathscr{L}$ be the set of all left cosets of $P_1$.
+	Then, group $P_2$ act on $\mathscr{L}$ by $y(xP_1) = (yx)P_1$.
+	Thus, $\mathscr{L}$ is a $P_2$-set.
+	Therefore, $|\mathscr{L}| \cong |\mathscr{L}_{P_2}| \pmod{p}$.
+
+	Clearly $|\mathscr{L}| = (G:P_1)$.
+	And $p$ doesn't divide $|\mathscr{L}|$.
+	Thus, $p$ does not divide $|\mathscr{L}_{P_2}|$.
+	Therefore, $|\mathscr{L}_{P_2}| > 0$.
+
+	Thus, $\mathscr{L}$ has at least an element $xP_1$ which is fixed in the action of every element in $P_2$.
+	That is, $yxP_1 = xP_1$ for every $y \in P_2$.
+	Therefore, $x^{-1}yxP_1 = P_1$ for every $y \in P_2$.
+
+	In other words, $x^{-1}yx \in P_1$ for every $y \in P_2$.
+	Therefore, $x^{-1}P_2x \subgroup P_1$.
+	But, $|P_1| = |P_2|$.
+	Thus, $x^{-1}P_2x = P_1$.
+	Therefore, $P_1$ and $P_2$ are conjugate subgroups of $G$.
+\end{proof}
+
+
+\begin{theorem}[Third Sylow Theorem]
+	If $G$ is a finite group and $p$ divides $|G|$, then the number of Sylow $p$-subgroups is congruent to $1 \pmod{p}$ and divides $|G|$.
+\end{theorem}
+\begin{proof}
+	Let $\mathscr{S}$ be the set of all Sylow $p$-subgroups of $G$.
+	Let $P$ be a Sylow $p$-subgroup of $G$.
+	The elements of $P$ act on $\mathscr{S}$ by conjugation.
+	Let $x \in P$ and $T \in \mathscr{S}$, then $x$ carries $T$ into $xTx^{-1}$.
+	Clearly, $\mathscr{S}$ is a $P$-set.
+
+	We have, $|\mathscr{S}| \cong |\mathscr{S}_P| \pmod{p}$.
+	Suppose $T \in \mathscr{S}_P$.
+	Then, $xTx^{-1} = T$ for every $x \in P$.
+	Thus, $T$ is a normal subgroup of $P$.
+	But, $T$ and $P$ are of the same order, since both are Sylow $p$-subgroups of $G$.	
+	Therefore, $T = P$.
+	Thus, $\mathscr{S}_P = \{ P \}$.
+	And $|\mathscr{S}_P| = 1$.
+	Thus, $|\mathscr{S}| \cong 1 \pmod{p}$.
+
+	Let $G$ act of $\mathscr{S}$ by conjugation.
+	Let $x \in G$ and $P \in \mathscr{S}$, then $x$ carries $P$ into $xPx^{-1}$.
+	Clearly, $\mathscr{S}$ is a $G$-set.
+	However, every Sylow $p$-subgroup of $G$ are conjugates.
+	Thus, thus every Sylow $p$-subgroup of $G$ belong to the same orbit under conjugation action.
+	We have, $|Gx| = (G:G_x)$ and thus length of orbits divides the order of $G$.
+	Since the number of Sylow $p$-subgroups is same as the length of the orbit of $P$, the number of Sylow $p$-subgroup of $G$ divides the order of $G$.
+\end{proof}
+
+\begin{remark}
+	Let $G$ be a group of order $15$.
+	Let $p = 3$.
+	By Third Sylow Theorem, the number of Sylow $3$-subgroup of $G$ is congruent to $1 \pmod{3}$ and divides $15$.
+	We have, congruence class $\hat{1} = \{ 1,4,7,10,13 \}$.
+	Only $1$ divides $15$.
+	Thus, there is only one Sylow $3$-subgroup of $G$.
+
+	Let $p = 5$.
+	By Third Sylow Theorem, the number of Sylow $5$-subgroup of $G$ is congruent to $1 \pmod{5}$ and divides $15$.
+	We have, congruence class $\hat{1} = \{ 1,6,11 \}$.
+	Only $1$ divides $15$.
+	Thus, there is only one Sylow $3$-subgroup of $G$.
+\end{remark}
+
+\begin{remark}
+	Let $G$ be a group of order $12$.
+	Let $p = 2$.
+	By Third Sylow Theorem, the number of Sylow $2$-subgroup of $G$ is congruent to $1 \pmod{2}$ and divides $6$.
+	We have, congruence class $\hat{1} = \{ 1,3,5,7,9,11 \}$.
+	Both $1$ and $3$ divides $12$.
+	Thus, either there is one or three Sylow $2$-subgroups of $G$.
+\end{remark}
+
