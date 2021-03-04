@@ -21,6 +21,7 @@
 \usetikzlibrary{arrows}
 
 \newcounter{qi}
+\newcounter{chi}
 \newtheorem{definition}{Definitions}[section]
 
 \newtheorem{algorithm}[definition]{Algorithm}
@@ -42,12 +43,12 @@
 \newenvironment{important}{\color{blue}}{\color{black}}
 \newenvironment{vimportant}{\color{red}}{\color{black}}
 \newenvironment{question}{\addtocounter{qi}{1} \textbf{Question \arabic{qi}.}}{}
+\newenvironment{challenge}{\addtocounter{chi}{1} \textbf{Challenge \arabic{chi}.}}{}
 
 \renewcommand{\partname}{Semester}
 \renewcommand{\chaptername}{Subject}
 
 \newenvironment{story}{\BeginCodeSection{Level1}}{\EndCodeSection{Level1}}
-\newenvironment{challenge}{\BeginCodeSection{Level2}}{\EndCodeSection{Level2}}
 \newenvironment{doubt}{\BeginCodeSection{Level3}}{\EndCodeSection{Level3}}
 
 \SetCodeSection{Level1}{true} %change to false to hide story, ...
