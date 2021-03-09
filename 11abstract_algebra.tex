@@ -800,12 +800,12 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \end{question}
 
 \begin{remark}
-	Let $G$ be a group. And $H,K$ be two normal subgroups of $G$. Then $H \cap K$ is a normal subgroup of $G$.%\S14E31
+	Let $G$ be a group. Then intersection of normal subgroups of $G$ is a normal subgroup of $G$.%\S14E31
 \end{remark}
 \begin{proof}
-	Suppose $x,y \in H \cap K$. Then $xy \in H$, since $H$ is a subgroup of $G$. Similarly, $xy \in K$. Therefore, the group operation is closed. Also we have, $H \cap K \subset G$. Therefore, associativity in $H \cap K$ is trivial. Let $e \in G$ be the identity element of $G$. Then $e \in H$ and $e \in K$, since $H,K$ are subgroups of $G$. Suppose $x \in H \cap K$. Then $x \in H$ and since $H$ is a group, $x^{-1} \in H$. Similary $x^{-1} \in K$. Clearly, the intersection of two subgroups of $G$ is always a subgroup of $G$.
-	
-	Suppose $x \in H \cap K$. Let $g \in G$. Let $y \in G$ such that $gx = yg$, then $y = gxg^{-1}$ is unique in $G$. We have, $H$ is a normal subgroup of $G$. Thus, there exists some $h \in H$ such that $gx = hg$. Clearly, $h = gxg^{-1}$ and $y = h \in H$. Similarly, $K$ is a normal subgroup of $G$ and $gx = kg$ implies the existence of $y = k \in K$. Therefore, for every $g \in G$ and $x \in H \cap K$, there exists $y \in H \cap K$ such that $gx = yg$. Thus, $H \cap K$ is a normal subgroup of $G$. Therefore, intersection of any two normal subgroups of $G$ is a also normal subgroup of $G$.
+	Let $\mathcal{N}$ be a nonempty subfamily of normal subgroups of $G$. Let $N$ be the intersection of subgroups in $\mathcal{N}$. Clearly, intersection of subgroups of $G$ is also subgroup of $G$. 
+
+	Suppose $x \in N$. Then $x \in H$ for every $H \in \mathcal{N}$. Suppose $x \in N$. Then $gxg^{-1} \in H$, for every normal subgroup $H \in \mathcal{N}$. Thus $gxg^{-1} \in N$. Therefore, $N$ is a normal subgroup of $G$.
 \end{proof}
 
 \begin{challenge}
@@ -813,6 +813,28 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 	\textit{(hint : Construct $\psi$ such that $\phi(g)\psi(g) = e$ for some $g \notin H$)}
 \end{challenge}
 
+\begin{remark}
+	Let $S \subset G$, then $G$ has a smallest, normal subgroup containing $S$.%\S14E32
+	\end{remark}
+\begin{proof}
+	Let $N$ be the intersection of all normal subgroups of $G$ containing $S$. Then $S \subset N$ and $N$ is a normal subgroup of $G$. Let $H$ be the smallest, normal subgroup of $G$ containing $S$. Then $N \subset H$. Therefore, $H = N$.
+\end{proof}
+
+\begin{remark}
+	If a finite group $G$ has exactly one subgroup $H$ of order $m$, then $H$ is normal.%\S14E34
+\end{remark}
+\begin{proof}
+	Let $G$ be a finite group. Suppose $G$ has only one subgroup of order $m$, say $H$. We know that, conjugate of a subgroup is a subgroup of same order. Thus, conjugates of $H$ are $H$ itself. Thus, $xHx^{-1} = H$ for every $x \in G$. Therefore, $xH = Hx$ for every $x \in G$ and $H$ is a normal subgroup of $G$.
+\end{proof}
+
+\begin{remark}
+	If $G$ has a subgroup of order $s$, then the intersection of all subgroups of order $s$ is a normal subgroup of $G$.%\S14E36
+\end{remark}
+\begin{proof}
+	Let $G$ be a group. Let $H$ be a subgroup of $G$ of order $s$. Let $N$ be the intersection of all subgroups of $G$ of order $s$. ??
+\end{proof}
+
+\subsection{Linear Groups}
 \begin{definition}
 	The set of all $n \times n$, non-singular matrices with real entries is a group under matrix multiplication. This group is the \textbf{General Linear Group} and is denoted by $GL(n,\mathbb{R})$.
 \end{definition}
@@ -831,18 +853,36 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \end{proof}
 
 \subsection{Factor Group}
-\begin{remark}Prove the following results on factor groups
-\begin{itemize}
-	\item $A_n$ is a normal subgroup of $S_n$.
-	And $S_n/A_n \approx \mathbb{Z}_2$.%\S14E24
-	\item If $H$ is a normal subgroup of $G$ and $(G:H) = m$, then $a^m \in H$ for all $a \in G$.%\S14E30
-	(hint : $aH \in G/H\ \&\ |G/H| = m$)
-	\item If a finite group $G$ has exactly one subgroup $H$ of order $m$, then $H$ is normal.%\S14E34
-	\item If $G$ has a subgroup of order $m$, then the intersection of all subgroups of order $m$ is normal.%\S14E36
-	\item Every factor group of an abelian group is also abelian.%\S14E23gh
-	\item The factor group of $G$ over a torsion subgroup $T$, $G/T$ is torsion free.%\S14E26
-\end{itemize}
+\begin{remark}
+	$A_n$ is a normal subgroup of $S_n$.
+	And $S_n/A_n \isomorphism \mathbb{Z}_2$.%\S14E24
 \end{remark}
+\begin{proof}
+	Let function $\phi : S_n \to \mathbb{Z}_2$ be defined by $\phi(\sigma) = 0$ if $\sigma$ is an even permutation and $\phi(\sigma) = 1$ if $\sigma$ is an odd permutation. Then $\phi$ is a homomorphism with kernel $A_n$, the set of all even permutations in $S_n$. We know that, the kernel of a homomorphism is a normal subgroup of the domain. Therefore, $A_n$ is a normal subgroup of $S_n$.
+\end{proof}
+
+\begin{remark}
+	If $H$ is normal subgroup of $G$ and $(G:H) = m$, then $a^m \in H$ for all $a \in G$.%\S14E30
+\end{remark}
+\begin{proof}
+	Let $H$ be a normal subgroup of $G$ such that $(G:H) = m$. Then $|G/H| = m$. Let $a \in G$, then $aH \in G/H$. Then by Lagrange's theorem, order of $aH$ divides $m$. Therefore, $(aH)^m = eH$. We have, $(aH)^m = a^mH$. Therefore, $a^m \in H$.
+\end{proof}
+
+\begin{remark}
+	Every factor group of an abelian group is also abelian.%\S14E23gh
+\end{remark}
+\begin{proof}
+	Let $G$ be an abelian group and $H$ be a normal subgroup of $G$. Then $G/H$ is a factor group of $G$. Let $aH, bH \in G/H$. Then, $(aH)(bH) = (ab)H = (ba)H = (bH)(aH)$. Clearly, factor group of an abelian group is abelian.
+\end{proof}
+
+\begin{remark}
+	Let $G$ be a group and  $T$ be the torsion subgroup of $G$, then the factor group, $G/T$ is torsion free.%\S14E26
+\end{remark}
+\begin{proof}
+	Let $G$ be a group $T$ its torsion subgroup. Let $g \in G$. If the order of $g$ is finite, then $g \in T$. Suppose $G/T$ has a element of finite order $m > 1$, say $xT$ where $x \notin T$. Then $x$ is an element of infinite order.
+
+	We have, order of $xT$ is $m$. That is, $(xT)^m = eT$. Thus, $(xT)^m = (x^m)T = eT$. Therefore, $x^m  = y \in T$. Since $y \in T$, $y$ is an element of finite order, say $r$. Then $(x^m)^r = x^{mr} = e$. This is a contradiction as $x$ is an element of infinite order. Therefore, every element of $G/T$ except $eT$ are of infintie order. Clearly, $G/T$ is torsion free.
+\end{proof}
 
 \subsection{Commutator subgroup}
 \begin{definition}
@@ -851,29 +891,61 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \end{definition}
 
 \begin{remark}
-	The factor group $G/C(G)$ is the abelianised version of $G$.
+	Let $C$ be the commutator subgroup of $G$, then $G/C$ is abelian.%\S14E33
+\end{remark}
+\begin{proof}
+	Let $C$ be the commutator subgroup of $G$. Let $x,y \in G$. Then $x^{-1}yxy^{-1} \in C$. Therefore, $x(x^{-1}yxy^{-1}) \in xC$ and $y(x^{-1}yxy^{-1}) \in yC$. But, $x(x^{-1}yxy^{-1})y(x^{-1}yxy^{-1}) = yx(x^{-1}yxy^{-1}) \in (yx)C$. Therefore, $(xC)(yC) = (yx)C = (yC)(xC)$. Clearly, $G/C$ is abelian.
+\end{proof}
+
+\begin{remark}
+	The factor group $G/C$ is the abelianised version of $G$.
 \end{remark}
 
-\begin{remark}Prove the following results on commutator subgroups 
-\begin{itemize}
-	\item For any subset $S$, there exists smallest normal subgroup containing $S$.%\S14E32
-	\item If $C$ is the set all commutators in $G$, then $G/C$ is abelian.%\S14E33
-\end{itemize}
+\begin{remark}
+	Let $G$ be a group and $C$ be the commutator group of $G$. Let $H$ be a normal subgroup of $G$. If $G/H$ is abelian, then $C$ is a subgroup of $H$.
 \end{remark}
+
 \begin{question}
-	Find the commutator subgroup, $C(D_4)$ ?
+	Find commutator subgroup of the dihedral group $D_4$ ?
 \end{question}
 
 \subsection{Automorphism}
-\begin{remark}Prove the following results on automorphisms 
-\begin{itemize}
-	\item Every inner automorphism is an identity map for an abelian group. %\S14E23c
-	\item Set of all $g \in G$ such that the inner automorpism $i_g$ is an identity map is normal.%\S14E38
-	\item Set of automorphisms $\Gamma$ of a group $G$ is a group.
-	And set of inner automorphisms is a normal subgroup of $\Gamma$.
-	\item Subgroup conjugacy is an equivalance relation on the set of subgroups.%\S14E27
-\end{itemize}
+\begin{remark}
+	Every inner automorphism is an identity map for an abelian group. %\S14E23c
 \end{remark}
+\begin{proof}
+	Let $G$ be an abelian group and $g \in G$. Then $i_g : G \to G$ is defined by $i_g(x) = gxg^{-1} = gg^{-1}x = x$. Clearly, $i_g$ is an identity map.
+\end{proof}
+
+\begin{remark}
+	Set of all $g \in G$ such that the inner automorpism $i_g$ is an identity map is normal.%\S14E38
+\end{remark}
+\begin{proof}
+	Let $H$ be the set of all $g \in G$ such that $i_g$ is an identity map.
+	\begin{align*}
+		H & = \{ g \in G : i_g(x) = x,\ \forall x \in G\} \\
+		& = \{ g \in G : gxg^{-1} = x,\ \forall x \in G\}\\
+		& = \{ g \in G : gx = xg,\ \forall x \in G \}
+	\end{align*}
+	Therefore, $H$ is a normal subgroup of $G$.
+\end{proof}
+\begin{remark}
+	Set of automorphisms $\Gamma$ of a group $G$ is a group under composition. And the set of inner automorphisms is a normal subgroup of $\Gamma$.
+\end{remark}
+\begin{proof}
+	Let $G$ be a group. We know that, the composition of two automorphisms is also an automorphism. Also, the composition of functions is associative. Let $i$ be the identity map and $\mu$ be any automorphism. Then $i\mu = \mu = \mu i$. Since automorphisms are bijective, there exists a unique inverse $\mu^{-1}$ for each automorphism $\mu$ such that $\mu\mu^{-1} = i$. Clearly, the set of all automorphisms of a group $G$ is also a group.
+\end{proof}
+
+\begin{remark}
+	Subgroup conjugacy is an equivalance relation on the set of subgroups.%\S14E27
+\end{remark}
+\begin{proof}
+	Let $H$ be a subgroup of a group $G$. Conjugation is reflexive, since $eHe^{-1} = H$ and $H \sim H$. 
+	
+	Let $K$ be a conjugate subgroup of $H$. That is, $H \sim K$. Then $K = gHg^{-1}$. Clearly, $H = g^{-1}K(g^{-1})^{-1}$. Thus, $H$ is a conjugate of $K$. ie, $K \sim H$.
+
+	Let $H \sim K$ and $K \sim L$. Then we have $x,y \in G$ such that $K = xHx^{-1}$ and $L = yKy^{-1}$. Now, $L = y(xHx^{-1})y^{-1} = (yx)H(yx)^{-1}$. Thus, $H \sim L$. 
+\end{proof}
 
 \begin{question}
 	Find the automorphism group $\Gamma(\mathbb{Z}_2 \times \mathbb{Z}_4)$ ?
@@ -923,8 +995,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 	\item $M$ is maximal normal subgroup of $G$ if and only if $G/M$ is simple.%\S15.18
 	\item Center $Z(G) = \{ z \in G : zg = gz,\ \forall g \in G \}$ is normal.%\S15.19
 	\item Center of non-abelian groups of order $pq$ are trivial if $p,q$ are primes.%\S15.19
-	\item Commutator $C(G) = \{ c \in G : c = aba^{-1}b{-1},\ a,b \in G \}$ is normal.%\S15.19
-	\item If $N$ is normal, then $G/N$ is abelian iff $C$ is properly contained in $N$.%\S15.20
+	\item Factor group, $G/N$ is abelian if and only if $C$ is a subgroup of $N$.%\S15.20
 \end{itemize}
 \end{remark}
 
@@ -952,16 +1023,13 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 	Also, the map $\phi : G \to S_X$ defined by $\phi(g) = \sigma_g$ is a homomorphism with the property that $\phi(g)(x) = gx$.
 \end{theorem}
 \begin{proof}
-	We have, $X$ is a $G$-set.
+	Suppose $X$ is a $G$-set.
 	Let $g \in G$, and $x_1,x_2 \in X$.
-	Suppose $\sigma_g(x_1) = \sigma_g(x_2)$.
-	$\implies gx_1 = gx_2 \implies g^{-1}(gx_1) = g^{-1}(gx_2) \implies (g^{-1}g)x_1 = (g^{-1}g)x_2$.
-	$\implies ex_1 = ex_2 \implies x_1 = x_2$.
-	Thus, $\sigma_g$ is injective.
-	Let $x \in X$.
-	Then $\sigma_g(g^{-1}x) = g(g^{-1}x) = (gg^{-1})x = ex = x$.
-	Thus, $\sigma_g$ is surjective.
-	Therefore, $\sigma_g$ is a permutation of $X$, $\sigma_g \in S_X$.
+
+	Suppose $\sigma_g(x_1) = \sigma_g(x_2)$. $\implies gx_1 = gx_2 \implies g^{-1}(gx_1) = g^{-1}(gx_2) \implies (g^{-1}g)x_1 = (g^{-1}g)x_2$. $\implies ex_1 = ex_2 \implies x_1 = x_2$. Thus, $\sigma_g$ is injective.
+
+	Let $x \in X$. Then $\sigma_g(g^{-1}x) = g(g^{-1}x) = (gg^{-1})x = ex = x$. Thus, $\sigma_g$ is surjective. Therefore, $\sigma_g$ is a permutation of $X$, $\sigma_g \in S_X$.
+
 	Let $g_1,g_2 \in G$.
 	And $\phi(g_1)(x) = \sigma_{g_1}(x) = g_1x$, $\phi(g_2)(x) = \sigma_{g_2}(x) = g_2x$.
 	$\phi(g_1g_2)(x) = \sigma_{g_1g_2}(x) = (g_1g_2)x = g_1(g_2x) = \sigma_{g_1}(g_2x) = \phi(g_1)(g_2x) = \phi(g_1)(\sigma_{g_2}(x)) = \phi(g_1)(\phi(g_2)(x)) = \phi(g_1)\phi(g_2)(x)$.
@@ -982,7 +1050,8 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \begin{definition}Let $X$ be a $G$-set.
 \begin{itemize}
 	\item The subset fixed by $g$, $X_g = \{ x \in X : gx = x \}$
-	\item The isotropy subgroup of $x$, $G_x = \{ g \in G : gx = x \}$
+	\item The isotropy subgroup of $x$, $G_x = \{ g \in G : gx = x \}$\\
+		Let $Y \subset X$, then $G_Y = \{ g \in G : gy = y, \forall y \in Y \}$ is a subgroup of $G$. %\S16E12
 	\item The orbit of $x$ in $X$ under $G$, $Gx = \{ gx \in X : g \in G \}$
 \end{itemize}
 \end{definition}
@@ -1060,9 +1129,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 %Week 03 Day 04 \S16E
 \section{Exercise \S16}
 \begin{definition}
-	Let $X$ be a $G$-set.
-	And $S \subset X$.
-	Then $S$ is a sub $G$-set if the orbit $Gs$ of each $s \in S$ is contained in $S$.
+	Let $X$ be a $G$-set. And $S \subset X$. Then $S$ is a \textbf{sub-$G$-set} if the orbit $Gs$ of each $s \in S$ is contained in $S$.
 	\begin{equation}
 		S = \bigcup_{s \in S} Gs
 	\end{equation}
@@ -1074,6 +1141,15 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 	\item Every $G$-set is isomorphic to the disjoint union of left coset $G$-sets.
 \end{itemize}
 \end{remark}
+
+\begin{definition}
+	Let $G$ be a group. Let $X,Y$ be two $G$-sets. Then function $\phi : X \to Y$ is a $G$-set isomorphism if 
+	\begin{enumerate}
+		\item $\phi$ is a bijection and
+		\item $\phi$ is a $G$-set homomorphism\\
+		ie, $g\phi(x) = \phi(gx)$, for every $x \in X$ and every $g \in G$.
+	\end{enumerate}
+\end{definition}
 %\pagebreak
 
 %Week 04 Day 01 \S17.1-7
