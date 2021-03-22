@@ -10,7 +10,7 @@
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \RequirePackage{tikz-3dplot}
-%\RequirePackage{graphicx}
+\RequirePackage{graphicx}
 \RequirePackage[inline,shortlabels]{enumitem}
 %\RequirePackage{pythontex}
 \RequirePackage{pythonhighlight}
@@ -22,8 +22,11 @@
 
 \newcounter{qi}
 \newcounter{chi}
+
+\theoremstyle{definition}
 \newtheorem{definition}{Definitions}[section]
 
+\theoremstyle{plain}
 \newtheorem{algorithm}[definition]{Algorithm}
 \newtheorem{program}[definition]{Program}
 
@@ -34,6 +37,7 @@
 
 \newtheorem{corollary}{Corollary}[definition]
 
+\theoremstyle{remark}
 \newtheorem*{synopsis}{Synopsis}
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
