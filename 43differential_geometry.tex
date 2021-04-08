@@ -40,21 +40,15 @@
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}
-		\draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
+		\draw[<->] (-3, 0) -- (3, 0) node[right] {$x$};
   		\draw[->] (0, 0) -- (0, 3) node[above] {$y$};
   		\draw[scale=0.5, domain=-2.5:2.5, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
 		\draw[dotted,thick,red] (-2,2) -- (2,2);
 		\draw (-0.5,2.25) node{$c = 2$};
-		\draw (2.5,3)node{$y = f(x)$};
+		\draw (2.5,3) node{$y = f(x)$};
 \end{tikzpicture}
 	\caption{Level set of the function $f$ at $c = 2$}
 \end{figure}
-
-\begin{remark}
-	For $n = 0$, $f : \mathbb{R} \to \mathbb{R}$ defined by $y = f(x)$ has the level set $f^{-1}(0) = \ker(f)$ at height $0$ and $graph(f) = \{ (x,y) \in \mathbb{R}^2 : f(x) = y \}$.
-
-	For $n = 1$, $f : \mathbb{R}^2 \to \mathbb{R}$ defined by $z = f(x,y)$ has the level set $c = 0$, $f^{-1}(0) = \ker(f)$ at height $0$ and $graph(f) = \{ (x,y,z) \in \mathbb{R}^3 : f(x,y) = z \}$.
-\end{remark}
 
 %\chapter{Vector Fields}
 \section{Vector Fields}
@@ -89,11 +83,14 @@
 	\centering
 	\begin{tikzpicture}
 		\draw[-latex] (0,0) -- (0,3);
-		\draw[-latex] (0,0) -- (3,0);
-		\draw[-latex] (2,1) -- (3,2);
+		\draw[-latex] (0,0) -- (4,0);
+
 		\draw[-latex] (2,1) -- (1,0.8);
-		\draw[-latex] (2,1) -- (3,0.5);
 		\draw[-latex] (2,1) -- (1,2.5);
+		\draw[-latex] (2,1) -- (2.2,1.5);
+		\draw[-latex] (2,1) -- (3,0.5);
+		\draw[-latex] (2,1) -- (3,2);
+
 		\draw (2,0.5) node{$(2,1)$};
 	\end{tikzpicture}
 	\caption{The vector space of all vectors at $(2,1)$, $\mathbb{R}_{(2,1)}^2$}
@@ -106,28 +103,27 @@
 
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}[scale=0.5]
-		\draw[-latex] (0,0) -- (0,3);
-		\draw[-latex] (0,0) -- (3,0);
-		\draw[-latex] (0,0) -- (0,-2);
+	\begin{tikzpicture}[scale=0.8]
+		\draw[-latex] (0,0) -- (0,4);
+		\draw[-latex] (0,0) -- (4,0);
+		\draw[-latex] (0,0) -- (0,-3);
 		\draw[-latex] (0,0) -- (-3,0);
 
 		\draw[-latex] (1,1) -- (2,3);
 		\draw[-latex] (0,1) -- (1,3);
 		\draw[-latex] (-1,1) -- (0,3);
-
-%		\foreach \ii in {0,...,9}{
-%			\foreach \jj \in {0,...,9}{
-%				\draw[-latex] ({0.\ii},{0.\jj}) -- ({1.\ii},{2.\jj});
-%			}}
+		\draw[-latex] (-2,1) -- (-1,3);
 
 		\draw[-latex] (1.25,0.05) -- (2.25,2.05);
 		\draw[-latex] (0.25,0.05) -- (1.25,2.05);
 		\draw[-latex] (-0.75,0.05) -- (0.25,2.05);
+		\draw[-latex] (-1.75,0.05) -- (-0.75,2.05);
 
 		\draw[-latex] (1.5,-1) -- (2.5,1);
 		\draw[-latex] (0.5,-1) -- (1.5,1);
 		\draw[-latex] (-0.5,-1) -- (0.5,1);
+		\draw[-latex] (-1.5,-1) -- (-0.5,1);
+
 	\end{tikzpicture}
 	\caption{Vector field with $X(p) = (1,2)$}
 \end{figure}
@@ -141,19 +137,49 @@
 \end{definition}
 
 \begin{definition}
-	Let $f : \mathbb{R}^{n+1} \to \mathbb{R}$. Then the gradient of $f$ at $p$,
+	Let $f : \mathbb{R}^{n+1} \to \mathbb{R}$. Then the gradient of $f$ at $p$ is,
 	\begin{equation}
 		\nabla f(p) = \left(p,\frac{\partial f}{\partial x_1}(p),\frac{\partial f}{\partial x_2}(p),\cdots,\frac{\partial f}{\partial x_{n+1}}(p)\right)
 	\end{equation}
 \end{definition}
 
+\begin{remark}
+	If $f$ is a smooth function, then the gradient of $f$ at $p$ is a smooth vector field.
+\end{remark}
+	For example, $f : \mathbb{R}^2 \to \mathbb{R}$ defined by $f(x_1,x_2) = 2x_1x_2$ is a smooth function. And gradient of $f$ at $(1,3)$ is $(1,3,6,2)$. That is, $(6,2)$ at $(1,3)$.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=0.5]
+		\draw[<->] (0,-3) -- (0,3);
+		\draw[<->] (-4,0) -- (4,0);
+
+		\draw[-latex] (1,1) -- (3,3);
+		\draw[-latex] (-1,1) -- (-3,3);
+		\draw[-latex] (1,-1) -- (3,-3);
+		\draw[-latex] (-1,-1) -- (-3,-3);
+
+		\draw[-latex] (1,0.5) -- (3,1.5);
+		\draw[-latex] (0.5,1) -- (1.5,3);
+		\draw[-latex] (-1,0.5) -- (-3,1.5);
+		\draw[-latex] (0.5,-1) -- (1.5,-3);
+		\draw[-latex] (1,-0.5) -- (3,-1.5);
+		\draw[-latex] (-0.5,1) -- (-1.5,3);
+		\draw[-latex] (-1,-0.5) -- (-3,-1.5);
+		\draw[-latex] (-0.5,-1) -- (-1.5,-3);
+	\end{tikzpicture}
+	\caption{The gradient of $f(x_1,x_2) = 2x_1x_2$}
+\end{figure}
+
 \begin{definition}
 	A parameterised curve is a function, $\alpha : I \to \mathbb{R}^{n+1}$ where $I$ is some open interval in $\mathbb{R}$.
-	The velocity vector of a parameterised curve $\alpha : I \to \mathbb{R}^{n+1}$ at a point $\alpha(t)$ is,
+	The velocity vector of a parameterised curve $\alpha : I \to \mathbb{R}^{n+1}$ at a point $\alpha(t)$ is the tangent to the curve at that point.
 	\begin{equation}
-		\dot{\alpha}(t) = \left(\alpha(t),\frac{d \alpha}{dt} (t)\right)
+		\dot{\mathbf{\alpha}}(t) = \left(\alpha(t),\frac{d \alpha}{dt} (t)\right)
 	\end{equation}
 \end{definition}
+
+For example, $\alpha : I \to \mathbb{R}^2$ defined by $\alpha(t) = (2t,t^2)$ is a parameterised curve. The velocity vector at $t = 3$ is $(6,9,2,6)$.
 
 \begin{definition}
 	Let $\mathbf{X}$ be a vector field and let $U$ be an open subet of $\mathbb{R}^{n+1}$.
@@ -194,7 +220,7 @@
 		\frac{dx_{n+1}}{dt}(t) & = X_{n+1}(\alpha(t))
 	\end{align*}
 \end{proof}
-	By the theorem for solution of system of first order ordinary differential equations, there exists and interval $I$ containing $0$ and a solution, a family of functions $\{ x_1(t), x_2(t), \cdots,x_{n+1}(t)\}$ satisfying the above system of equations and the initial condition $\alpha(0) = p$.
+	By the theorem on solution of systems of first order ordinary differential equations, there exists an interval $I$ containing $0$ and a solution --- a family of functions $\{ x_1(t), x_2(t), \cdots,x_{n+1}(t)\}$ satisfying the above system of equations satisfying the initial condition $\alpha(0) = p$.
 
 	Define $\alpha : I \to U$ using the component functions of $\alpha$ as $x_j$s in the above solution. Then, we have a integral curve of the vector field $\mathbf{X}$ satifying the initial condition $\alpha(0) = p$.
 
@@ -203,7 +229,13 @@
 	Let $\{\beta_1,\beta_2,\cdots\}$ be the family of integral curves with $\beta_j : I_j \to U$ satisfying $\beta_j(0) = p$. Consider $I = \bigcup\limits_{j \in \mathbb{N}} I_j$.
 
 	Define $\alpha : I \to U$ by $\alpha(t) = \beta_j(t)$ where $t \in I_j$ for some $j \in \mathbb{N}$. Then $\alpha$ is well-defined and is a maximal integral curve in $\mathbf{X}$ such that $\alpha(0) = p$.
+
+\begin{definition}
+	A smooth vector field $\mathbf{X}$ on an open set $U \subset \mathbb{R}^{n+1}$ is complete if the domain of the maximal integral curve through each point $\mathbf{p} \in U$ is $\mathbb{R}$.
+\end{definition}
+
 %\chapter{The Tangent Space}
+\section{Tangent Space}
 
 %\chapter{Surfaces}
 %\chapter{Vector Fields on Surfaces; Orientation}

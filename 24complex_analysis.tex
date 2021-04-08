@@ -21,3 +21,139 @@
 %Module 2 - \cite{ahlfors} 4
 %Module 3 - \cite{ahlfors} 4
 %Module 4 - \cite{ahlfors} 4
+
+% Ms. Lis Sebastian Notes
+\section{Module 2}
+\subsection{Arcs \& Closed Curves}
+	An arc $\gamma$ in a complex plane is defined as the set of points given by $\gamma = \{ z : z = z(t), a \le t \le b \}$ and $z(t)$ is a continuous function of the real variable $t$. Thus, every arc in the complex plane is the continuous image of closed interval and $z \in \gamma$ means $z = z(t) = x(t) + iy(t)$. That is, points on $\gamma$ are images of a complex function of a real variable.
+
+%\begin{wraptable}{r}{3cm}
+%\begin{tabular}{|c|c|} \hline
+%$t$ & $z(t)$ \\ \hline
+%$0$ & $1$ \\  \hline
+%$\frac{\pi}{2}$ & $i$ \\ \hline
+%$\pi$ & $-1$ \\ \hline
+%$\frac{3\pi}{2}$ & $-i$ \\ \hline
+%$2\pi$ & $1$ \\ \hline
+%\end{tabular}
+%\end{wraptable}
+
+%	For example, consider $z = z(t) = e^{it},\ 0 \le t \le 2\pi$. Then as $t$ varies from $0$ to $2\pi$, $z = e^{it}$ varies from $(1,0)$ to $(1,0)$ through $i = (0,1),\ (-1,0),\ (0,-1)$ along the path $|z| = 1$. 
+
+%\[ \forall t,\ |z| = |e^{it}| = |\cos t+i\sin t| = \sqrt{\cos^2 t + \sin^2 t} = \sqrt{1} = 1 \]
+
+%Also if $z = e^{it}$. Then $x(t)+iy(t) = \cos t+ i\sin t$. Equating real and imaginary parts, $x(t) = \cos t$ and $y(t) = \sin t$. That is, $x(t)$ and $y(t)$ are real valued functions of real variable $t$. \\
+
+%	For example, $z= 2e^{it},\ t \in [0,\frac{\pi}{2}]$. \\
+
+%	For example, $x^2 = y$, then $z = t + it^2$. \\
+
+	This representation of an arc $z = z(t)$ is called a parameteric representation and $t$ is called the parameter and $[a,b]$ is called the parametric interval. The point $z = z(a)$ is called origin or initial point of $\gamma$ and $z = z(b)$ is called the terminus or terminal point of $\gamma$. If $z(a) = z(b)$, then $\gamma$ is called a closed curve, otherwise it is open.
+
+	If in $\gamma$, $z(t_1) = z(t_2) = z$ for $t_1 \ne t_2$, then $z$ is called a multiple point on $\gamma$. Geometrically, a multiple point $z$ in $\gamma$ is a point where $\gamma$ crosses itself.
+
+	An arc having no multiple points is called a simple arc or Jordan arc.
+
+%	Consider the mapping, $w = f(z)$, then the arc $\gamma$ in the $z$-plane corresponds to an arc $\Gamma$ in the $w$-plane where --tikz--  That is, $\gamma$ in the $z$-plane and $\Gamma$ in the $w$-plane are different parameteric representations of the same parametric interval $[a,b]$.
+
+\subsection{Differentiable Arc}
+%	Let $\gamma$ be defined by $z = e^{it}$ where $0 \le t \le \frac{\pi}{2}$. Then, --tikz--  Now, consider the mapping $w = f(z) = z^4$ and $\gamma$ be mapped onto $\Gamma$. $z \in \gamma$ iff $w \in \Gamma$. That is, $z = e^{it} \implies w = (e^{it})^4 = e^{i4t}$ and $t : 0 \to 2\pi$.
+
+%	Again if we consider points on $\gamma$. That is, $z = z(t) = x(t) + iy(t)$. $z'(t) = x'(t) + iy'(t)$ If this exist and is not equal to zero, then $\gamma$ has a tangent and its direction is given by the $\arg z'(t)$. If $z'(t) = 0$, then tangent does not exist at that point because $\arg 0$ is not defined.
+\begin{description}
+	\item[differentiable] $z'(t)$ exist and is continuous at all points.
+	\item[regular] differentiable and $z'(t) \ne 0$ at points on $\gamma$.
+	\item[piecewise differentiable] differentiable except for finitely many points
+	\item[piecewise regular] regular except for finitely many points.
+	\item[opposite arc] set of points $z = z(-t),\ -b \le t \le -a$.
+\end{description}
+
+%	Circle with center at the origin and radius $r$ is represented by the equation $|z| = r$ and points on the circle are written by $z = re^{i\theta},\ 0 \le \theta \le 2\pi$. Also circle with center at $a$ and radius $r$ is given by the equation $|z - a| = r$ and points on the circle are written by $a + re^{i\theta},\ 0 \le \theta \le 2\pi$.
+
+\subsection{Complex Integration}
+%	Integrals are of two types indefinite integral and definite integral.
+
+%\paragraph{Indefinite Integral}
+%	Consider $f(z)$ a complex function of a complex variable. Indefinite integral denoted by $\int f(z)\ dz$ is another function $F(z)$ such that $F'(z) = f(z)$. That is, $F(z) = \int f(z)\ dz \iff F'(z) = f(z)$. $F(z)$ is also called antiderivative.
+
+%	For example, $\int e^z\ dz = e^z + c$, $\int dz = z = c$ and $\int z^2\ dz = \frac{z^3}{3} + c$.
+
+%\paragraph{Definite Integrals}
+%	are of the form $\int_\gamma f(z)\ dz$ where $\gamma$ is an arc in the cmplex plane and $f(z)$ in defined and continuous on $\gamma$. Its value is a complex number and it may or may not depend on $\gamma$.
+\begin{enumerate}
+	\item If $f(z)$ has an antiderivative $F(z)$, then $\int_\gamma f(z)\ dz$ depends only on the end points and is independent of the path $\gamma$.
+	\item If $f(z)$ has an antiderivative, then $\int_\gamma f(z)\ dz = 0$ for all closed curves $\gamma$.
+	\item If $f(z)$ has no antiderivatives, $\int_\gamma f(z)\ dz$ depends on the path $\gamma$.
+\end{enumerate}
+
+	For different choices of $\gamma$, the integral may have different values even though the end points are the same.
+
+\subsection{Exercise}
+Evaluate $\int_c f(z)\ dz$ where $f(z) = y-x-i3x^2$ and contour is
+\begin{itemize*}
+	\item[$c_1$:]the line segment $0$ and $i+1$
+	\item[$c_2$:] the polygon joining $(0,0),\ (0,1),\ (1,1)$ 
+\end{itemize*}
+In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $c_1$ and $c_2$ have the same end points.
+
+\subsection{Evaluating Line Integral : Method 1}
+	Integrals of the form $\int_a^b f(t)\ dt$ where $f(t)$ is a complex valued function of a real variable $t$. Then, we can write $f(t) = u(t)+iv(t)$.
+
+\[ \int_a^b f(t)\ dt = \int_a^b u(t) + iv(t)\ dt = \int_a^b u(t)\ dt + i\int_a^b v(t)\ dt \]
+
+	That is, $\Re\int f(t)\ dt = \int \Re f(t)\ dt$ and $\Im\int f(t)\ dt = \int \Im f(t)\ dt$.
+
+	For example, $f(t) = e^{it},\ 0 \le t \le \frac{\pi}{2}$. Then 
+
+\[ \int_0^{\frac{\pi}{2}} f(t)\ dt = \int_0^{\frac{\pi}{2}} \cos t\ dt + i \int_0^{\frac{\pi}{2}} \sin t\ dt = 1 + i \]
+
+\subsection{Evaluating Line Integral : Method 2}
+	Let $\gamma$ be a piecewise differentiable arc in the complex plane defined by the equation $z = z(t),\ a \le t \le b$ and $f(z)$ be defined and continuous in $\gamma$. Then the line integral $\int_\gamma f(z)\ dz$ is defined by
+
+\[ \int_\gamma f(z)\ dz = \int_a^b f(z(t))\ z'(t)\ dt \]
+
+	For example, let $f(z) = u+iv$. Then $f(z)\ dz = (u+iv)(dx+idy)$
+
+\[ \int_\gamma f(z)\ dz = \int_\gamma udx - vdy + i \int_\gamma vdx + udy \]
+
+	That is, real and imaginary part of $\int_\gamma f(z)\ dz$ can be written in the form $\int_\gamma pdx + qdy$ where $p,q$ are real valued functions of $x$ and $y$.
+\begin{commentary}
+	That is, real valued functions of two real variables $x$ and $y$.
+\end{commentary}
+	Therefore, the study of line integral $\int_\gamma f(z)\ dz$ can be restricted to the study of line integrals of the form $\int_\gamma pdx+qdy$ and line integrals can be defined as $\int_\gamma pdx+qdy$ where $\gamma$ is a piecewise differentiable arc.
+\subsubsection{Properties}
+\begin{enumerate}
+	\item Scalar multiplication,
+		\[ \int_\gamma cf(z)\ dz = c\int_\gamma f(z)\ dz \]
+	\item Modulus Inequality,
+		\[ \left| \int_a^b f(t)\ dt \right| \le \int_a^b |f(t)\ dt| \] -more--
+	\item Change of variable,
+		\[ \int_\gamma f(z)\ dz = \int_a^b f(z(t))\ z'(t)\ dt \]
+	\item Inverse arc,
+		\[ \int_{-\gamma} f(z)\ dz = -\int_\gamma f(z)\ dz \]
+	\item Integration by parts,
+		\[ \int_\gamma f(z)\ dz = \int_{\gamma_1} f(z)\ dz + \int_{\gamma_2} f(z)\ dz+ \cdots + \int_{\gamma_n} f(z)\ dz \]
+\end{enumerate}
+
+\subsection{Line Integral : Type 3}
+	Line integrals with respect to $\bar{z}$ are denoted by
+\[ \int_\gamma f(z)\ d\bar{z} = \overline{ \int_\gamma \bar{f}\ dz} \]
+
+\begin{proof}
+We have,
+$x = \frac{z+\bar{z}}{2}$ and $y = \frac{z-\bar{z}}{2i}$. 
+\[ dx = \frac{dz+d\bar{z}}{2} \qquad dy = \frac{dz-d\bar{z}}{2i} \]
+\[ \int_\gamma f(z)\ dx = \int_\gamma f(z) \frac{dz + d\bar{z}}{2} \qquad \int_\gamma f(z)\ dy = \int_\gamma f(z) \frac{dz-d\bar{z}}{2i} \]
+\[ \int_\gamma f(z)\ dx-idy = \int_\gamma f(z)\ d\bar{z} \] --more--
+\end{proof}
+
+\subsection{Line Integral : Type 4}
+ Line integrals with respect to arc length, $s$ is denoted by 
+ \[ \int_\gamma f(z)\ ds  = \int_\gamma f(z)\ |dz| \text{ where } ds = \sqrt{1+\left(\frac{dy}{dx}\right)^2}\ dx \]
+ 
+ 	When $f = 1$, it gives the length of the arc.
+
+\subsection{Rectifiable Arc}
+	Length of an arc $\gamma$ is defined as $L(\gamma) = \int |dz|$. If $L(\gamma) < \infty$, then $\gamma$ is a rectifiable arc and the process of determining the length of an arc is called rectification.
+
+
