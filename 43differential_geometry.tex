@@ -1,4 +1,4 @@
-%Text Books: \cite{thorpe}
+
 %Module 1:
 %Graphs and level sets, vector fields, the tangent space, surfaces, vector fields on surfaces, orientation.
 %(Chapters 1 to 5 of \cite{thorpe}) (20 hours)
@@ -23,7 +23,7 @@
 \begin{definition}
 	Let function $f : U \to \mathbb{R}$ where $U \subset \mathbb{R}^{n+1}$.
 	Let $c$ be a real number.
-	Then the \textbf{Level set} of $f$ at height $c$,
+	Then the \textbf{Level set} of $f$ at height $c$ is the set of all points in $U$ with image $c$.
 	\begin{equation}
 		f^{-1}(c) = \{ (x_1,x_2,\cdots,x_{n+1}) \in U : f(x_1,x_2,\cdots,x_{n+1}) = c \}
 	\end{equation} 
@@ -31,7 +31,7 @@
 
 \begin{definition}
 	Let function $f : U \to \mathbb{R}$ where $U \subset \mathbb{R}^{n+1}$.
-	Then \textbf{graph} of $f$ is the subset of $\mathbb{R}^{n+2}$ defined by
+	Then,
 \begin{equation}
 	graph(f) = \{ (x_1,x_2,\cdots,x_{n+2}) \in \mathbb{R}^{n+2} : f(x_1,x_2,\cdots,x_{n+1}) = x_{n+2} \}
 \end{equation}
@@ -39,15 +39,17 @@
 
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}
-		\draw[<->] (-3, 0) -- (3, 0) node[right] {$x$};
-  		\draw[->] (0, 0) -- (0, 3) node[above] {$y$};
+	\begin{tikzpicture}[scale=0.8]
+		\draw[<->] (-3, 0) -- (3, 0) node[right] {$x_1$};
+  		\draw[->] (0, 0) -- (0, 3) node[above] {$x_2$};
   		\draw[scale=0.5, domain=-2.5:2.5, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
-		\draw[dotted,thick,red] (-2,2) -- (2,2);
-		\draw (-0.5,2.25) node{$c = 2$};
-		\draw (2.5,3) node{$y = f(x)$};
+		\draw[dotted,thin,black] (-2,2) -- (2,2);
+		\draw (-2,2.25) node{$f^{-1}(c)$};
+		\draw (2.5,3) node{$x_2 = f(x_1)$};
+		\node[circle,fill=blue,inner sep=0pt, minimum size=2pt] at (1,2){};
+		\node[circle,fill=blue,inner sep=0pt, minimum size=2pt] at (-1,2){};
 \end{tikzpicture}
-	\caption{Level set of the function $f$ at $c = 2$}
+	\caption{Graph of $f(x_1)=x_1^2$ and Level set $f^{-1}(c)$}
 \end{figure}
 
 %\chapter{Vector Fields}
@@ -73,10 +75,7 @@
 \end{remark}
 
 \begin{remark}
-	Let set of all vectors at a point $p \in \mathbb{R}^{n+1}$ forms a vector space over the field $\mathbb{R}$.
-	This vector space is denoted by $\mathbb{R}_p^{n+1}$.
-
-	For example : Let $\mathbf{v} \in \mathbb{R}_p^{n+1}$, then $\mathbf{v} = (p,v)$ for some $v \in \mathbb{R}^{n+1}$.
+	Let $c \in \mathbb{R}$ and $p \in \mathbb{R}^{n+1}$. Let $\mathbf{v}, \mathbf{w}$ be two vectors at $p$. That is, $\mathbf{v} = (p,v)$ and $\mathbf{w} = (p,w)$ for some $v,w \in \mathbb{R}^{n+1}$. Then the set of all vectors at $p$ is a vector space with vector addition $\mathbf{v}+\mathbf{w} = (p,v+w)$ and scalar multiplication $c\mathbf{v} = (p,cv)$. This vector space is denoted by $\mathbb{R}_p^{n+1}$.
 \end{remark}
 
 \begin{figure}[h]
@@ -86,12 +85,20 @@
 		\draw[-latex] (0,0) -- (4,0);
 
 		\draw[-latex] (2,1) -- (1,0.8);
-		\draw[-latex] (2,1) -- (1,2.5);
 		\draw[-latex] (2,1) -- (2.2,1.5);
-		\draw[-latex] (2,1) -- (3,0.5);
-		\draw[-latex] (2,1) -- (3,2);
+		%\draw[-latex] (2,1) -- (3,1.25);
+		\draw[-latex] (2,1) -- (1.3,2.5); %w
+		\draw[-latex] (2,1) -- (3,0.5); %v
+		\draw[-latex] (2,1) -- (2.7,2); %v+w
+		\draw[-latex] (2,1) -- (0.5,2); %1.5v
+		\draw[dotted,thin] (3,0.5) -- (2.7,2);
+		\draw[dotted,thin] (2.7,2)-- (1.3,2.5);
 
 		\draw (2,0.5) node{$(2,1)$};
+		\draw (3,0.7) node{$\mathbf{v}$};
+		\draw (1.3,2.7) node{$\mathbf{w}$};
+		\draw (2.7,2.3) node{$\mathbf{v+w}$};
+		\draw (0.5,2.3) node{$-1.5\mathbf{v}$};
 	\end{tikzpicture}
 	\caption{The vector space of all vectors at $(2,1)$, $\mathbb{R}_{(2,1)}^2$}
 \end{figure}
@@ -101,13 +108,13 @@
 	That is, $\mathbf{X}(p) = (p,X(p))$.
 \end{definition}
 
+For example, $\mathbf{X}(p) = (p,X(p))$ where the associated function of the vector field, $X : \mathbb{R}^2 \to \mathbb{R}^2$ defined by $X(p) = (1,2)$ assigns a constant vector $(1,2)$ at every vector in $\mathbb{R}^2$.
+
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}[scale=0.8]
-		\draw[-latex] (0,0) -- (0,4);
-		\draw[-latex] (0,0) -- (4,0);
-		\draw[-latex] (0,0) -- (0,-3);
-		\draw[-latex] (0,0) -- (-3,0);
+	\begin{tikzpicture}[scale=0.4]
+		\draw[<->] (-3,0) -- (3,0);
+		\draw[<->] (0,-3) -- (0,3);
 
 		\draw[-latex] (1,1) -- (2,3);
 		\draw[-latex] (0,1) -- (1,3);
@@ -125,14 +132,12 @@
 		\draw[-latex] (-1.5,-1) -- (-0.5,1);
 
 	\end{tikzpicture}
-	\caption{Vector field with $X(p) = (1,2)$}
+	\caption{Vector field with associated function $X(p) = (1,2)$}
 \end{figure}
 
 \begin{definition}[smooth]
 	A function $f : \mathbb{R} \to \mathbb{R}$ is smooth if its partial derivatives of all orders exists and are continuous.
-
 	A function $f : \mathbb{R}^{n+1} \to \mathbb{R}$ is smooth if its component functions $f = (f_1, f_2, \cdots, f_{n+1})$ are smooth.
-	
 	A vector field $\mathbf{X}$ is smooth if the associated function $X(p)$ is smooth.
 \end{definition}
 
@@ -146,27 +151,48 @@
 \begin{remark}
 	If $f$ is a smooth function, then the gradient of $f$ at $p$ is a smooth vector field.
 \end{remark}
-	For example, $f : \mathbb{R}^2 \to \mathbb{R}$ defined by $f(x_1,x_2) = 2x_1x_2$ is a smooth function. And gradient of $f$ at $(1,3)$ is $(1,3,6,2)$. That is, $(6,2)$ at $(1,3)$.
+	For example, $f : \mathbb{R}^2 \to \mathbb{R}$ defined by $f(x_1,x_2) = 2x_1x_2$ is a smooth function. We have, $\frac{\partial f}{\partial x_1} = 2x_2$ and $\frac{\partial f}{\partial x_2} = 2x_1$. And gradient of $f$ at $(x_1,x_2)$ is $(x_1,x_2,2x_2,2x_1)$. That is, $(2x_2,2x_1)$ at $(x_1,x_2)$.
+
+Calculations : \\
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+	$p$    & $(x_1,x_2)$   & $(0,0)$ & $(1,0)$ & $(0,1)$ & $(-1,0)$ & $(0,-1)$ \\ \hline
+	$X(p)$ & $(2x_2,2x_1)$ & $(0,0)$ & $(0,2)$ & $(2,0)$ & $(0,-2)$ & $(-2,0)$ \\ \hline
+\end{tabular}
 
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[scale=0.5]
-		\draw[<->] (0,-3) -- (0,3);
-		\draw[<->] (-4,0) -- (4,0);
+		\draw[<->,dotted] (0,-4) -- (0,4);
+		\draw[<->,dotted] (-4,0) -- (4,0);
+		\draw[dotted] (-4,-4) -- (4,4);
 
-		\draw[-latex] (1,1) -- (3,3);
-		\draw[-latex] (-1,1) -- (-3,3);
-		\draw[-latex] (1,-1) -- (3,-3);
-		\draw[-latex] (-1,-1) -- (-3,-3);
+		\draw[-latex,color=red] (1,1) -- (3,3);
+		\draw[-latex,color=red] (-1,1) -- (1,-1);
+		\draw[-latex,color=red] (1,-1) -- (-1,1);
+		\draw[-latex,color=red] (-1,-1) -- (-3,-3);
+		\draw[-latex,color=red] (0,1) -- (2,1);
+		\draw[-latex,color=red] (0,-1) -- (-2,-1);
+		\draw[-latex,color=red] (1,0) -- (1,2);
+		\draw[-latex,color=red] (-1,0) -- (-1,-2);
 
-		\draw[-latex] (1,0.5) -- (3,1.5);
-		\draw[-latex] (0.5,1) -- (1.5,3);
-		\draw[-latex] (-1,0.5) -- (-3,1.5);
-		\draw[-latex] (0.5,-1) -- (1.5,-3);
-		\draw[-latex] (1,-0.5) -- (3,-1.5);
-		\draw[-latex] (-0.5,1) -- (-1.5,3);
-		\draw[-latex] (-1,-0.5) -- (-3,-1.5);
-		\draw[-latex] (-0.5,-1) -- (-1.5,-3);
+		%\draw[-latex] (-1,2) -- (3,0);
+		%\draw[-latex] (2,-1) -- (0,3);
+		%\draw[-latex] (1,-2) -- (-3,0);
+		%\draw[-latex] (-2,1) -- (0,-3);
+
+		\draw[-latex,color=blue] (0,2) -- (4,2);
+		\draw[-latex,color=blue] (2,0) -- (2,4);
+		\draw[-latex,color=blue] (-2,0) -- (-2,-4);
+		\draw[-latex,color=blue] (0,-2) -- (-4,-2);
+
+		%\draw[-latex] (1,0.5) -- (2,2.5);
+		%\draw[-latex] (0.5,1) -- (2.5,2);
+		%\draw[-latex] (-1,0.5) -- (0,-1.5);
+		%\draw[-latex] (0.5,-1) -- (-1.5,0);
+		%\draw[-latex] (1,-0.5) -- (0,1.5);
+		%\draw[-latex] (-0.5,1) -- (1.5,0);
+		%\draw[-latex] (-1,-0.5) -- (-2,-2.5);
+		%\draw[-latex] (-0.5,-1) -- (-2.5,-2);
 	\end{tikzpicture}
 	\caption{The gradient of $f(x_1,x_2) = 2x_1x_2$}
 \end{figure}
@@ -179,7 +205,7 @@
 	\end{equation}
 \end{definition}
 
-For example, $\alpha : I \to \mathbb{R}^2$ defined by $\alpha(t) = (2t,t^2)$ is a parameterised curve. The velocity vector at $t = 3$ is $(6,9,2,6)$.
+For example, $\alpha : I \to \mathbb{R}^2$ defined by $\alpha(t) = (2t,t^2)$ is a parameterised curve. We have, $\frac{d\alpha}{dt} = (\frac{dx_1}{dt}(t),\frac{dx_2}{dt}(t)) = (2,2t)$ where $\alpha(t) = (x_1(t),x_2(t))$. The velocity vector at $t = 3$ is $\dot{\alpha}(3) = (\alpha(t),\frac{d\alpha}{dt}) = (6,9,2,6)$.
 
 \begin{definition}
 	Let $\mathbf{X}$ be a vector field and let $U$ be an open subet of $\mathbb{R}^{n+1}$.
@@ -187,11 +213,66 @@ For example, $\alpha : I \to \mathbb{R}^2$ defined by $\alpha(t) = (2t,t^2)$ is 
 	\begin{equation}
 		\left(\alpha(t),\frac{d \alpha}{dt}(t)\right) = \left(\alpha(t),X(\alpha(t))\right)
 	\end{equation}
-	Let $X(p) = \left(X_1(p),X_2(p),\cdots,X_{n+1}(p)\right)$ and $\alpha(t) = \left(x_1(t),x_2(t),\cdots,x_{n+1}(t)\right)$. Then, comparing components of the vector at $\alpha(t)$ we get
+	Let $X(p) = \left(X_1(p),X_2(p),\cdots,X_{n+1}(p)\right)$ and $\alpha(t) = \left(x_1(t),x_2(t),\cdots,x_{n+1}(t)\right)$. Then, comparing components of the vector at $\alpha(t)$ we get the following system of equations,
 	\begin{equation}
 		\frac{d x_j}{dt}(t) = X_j(\alpha(t)),\ j = 1,2,\cdots,(n+1)
 	\end{equation}
 \end{definition}
+
+For example, Consider $\alpha : (2,3) \to \mathbb{R}^2$ defined by $\alpha(t) = (t,t^2)$. Then $\alpha$ is a parameterised curve in vector field, $\mathbf{X}$ which has the associated function $X(x_1,x_2) = (1,2x_1)$. Then, $\mathbf{X}(x_1,x_2) = (x_1,x_2,1,2x_1)$. And
+\[ \dot{\alpha}(t) = \left( \alpha(t),\frac{d\alpha}{dt}(t) \right) = \left( x_1(t),x_2(t),\frac{dx_1}{dt}(t), \frac{dx_2}{dt}(t) \right) = (t,t^2,1,2t) \]
+Clearly, $\alpha$ is an integral curve of $\mathbf{X}$ as $\dot{\alpha}(t) = X(\alpha(t))$ for every $t \in (2,3)$.
+
+Calculations:\\
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|} \hline
+	$p$    & $(0,0)$ & $(1,0)$ & $(0,1)$ & $(1,1)$ & $(-1,0)$ & $(0,-1)$ & $(-1,1)$ & $(1,-1)$ & $(-1,-1)$ \\ \hline
+	$X(p)$ & $(1,0)$ & $(2,2)$ & $(1,1)$ & $(2,3)$ & $(0,-2)$ & $(1, 1)$ & $(0,-1)$ & $(2, 1)$ & $( 0,-3)$ \\ \hline
+\end{tabular}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[scale=0.4]
+		\draw[<->,dotted] (-5, 0) -- (5, 0) node[right] {$x_1$};
+  		\draw[<->,dotted] (0,-5) -- (0, 5) node[above] {$x_2$};
+  		\draw[domain=-2.1:2.1, smooth, variable=\x, blue] plot ({\x}, {\x*\x});
+
+		\draw[-latex,color=red] (0,0) -- (1,0);
+
+		\draw[-latex] (0,1) -- (1,1);
+		\draw[-latex] (1,0) -- (2,2);
+		\draw[-latex] (-1,3) -- (0,1);
+
+		\draw[-latex,color=red] (-2,4) -- (-1,0);
+		\draw[-latex,color=red] (1,1) -- (2,3);
+
+		\draw[-latex] (0,-1) -- (1,-1);
+		\draw[-latex,color=red] (-1,1) -- (0,-1);
+
+		\draw[-latex] (-1,0) -- (0,-2);
+		\draw[-latex] (0,-2) -- (1,-2);
+		\draw[-latex] (1,-2) -- (2,0);
+		\draw[-latex] (2,0) -- (3,4);
+
+		\draw[-latex] (0,-1) -- (1,-1);
+		\draw[-latex] (-1,0) -- (0,-2);
+
+		\draw[-latex] (-2,3) -- (-1,-1);
+		\draw[-latex] (-1,-1) -- (0,-3);
+		\draw[-latex] (0,-3) -- (1,-3);
+		\draw[-latex] (1,-3) -- (2,-1);
+		\draw[-latex] (2,-1) -- (3,3);
+
+		\draw[-latex] (0,-1) -- (1,-1);
+		\draw[-latex] (1,-1) -- (2,1);
+		\draw[-latex] (2,1) -- (3,3);
+
+		\node[circle,fill=blue,inner sep=0pt, minimum size=2pt] at (1,1){};
+		\node[circle,fill=blue,inner sep=0pt, minimum size=2pt] at (0,0){};
+		\node[circle,fill=blue,inner sep=0pt, minimum size=2pt] at (-1,1){};
+		\node[circle,fill=blue,inner sep=0pt, minimum size=2pt] at (-2,4){};
+\end{tikzpicture}
+	\caption{Integral Curve $\alpha(t) = (t,t^2)$ in $\mathbf{X}$ with $X(x_1,x_2) = (1,2x_1)$}
+\end{figure}
 
 \begin{theorem}
 	Let $\mathbf{X}$ be a smooth vector field on an open set $U \subset \mathbb{R}^{n+1}$ and let $p \in U$.
@@ -231,8 +312,16 @@ For example, $\alpha : I \to \mathbb{R}^2$ defined by $\alpha(t) = (2t,t^2)$ is 
 	Define $\alpha : I \to U$ by $\alpha(t) = \beta_j(t)$ where $t \in I_j$ for some $j \in \mathbb{N}$. Then $\alpha$ is well-defined and is a maximal integral curve in $\mathbf{X}$ such that $\alpha(0) = p$.
 
 \begin{definition}
-	A smooth vector field $\mathbf{X}$ on an open set $U \subset \mathbb{R}^{n+1}$ is complete if the domain of the maximal integral curve through each point $\mathbf{p} \in U$ is $\mathbb{R}$.
+	A smooth vector field $\mathbf{X}$ on $U \subset \mathbb{R}^{n+1}$ is \textbf{complete} if for every $p \in U$, the maximal integral curve through $p$ has domain equal to $\mathbb{R}$.
 \end{definition}
+
+\begin{definition}
+	The \textbf{divergence} of a smooth vector field $\mathbf{X}$ on $U \subset \mathbb{R}^{n+1}$ is the function $div\ \mathbf{X} : U \to \mathbb{R}$ defined by
+	\[ div\ X(x_1,x_2,\cdots,x_{n+1}) = \sum_{i=1}^{n+1} \frac{\partial X_i}{\partial x_i} \]
+	where $X_i$ are the component function of the associated function $X$ of the vector field $\mathbf{X}$.
+\end{definition}
+
+For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \to \mathbb{R}^2$ defined by $X(x_1,x_2) = (2x_1,x_1x_2)$. Then $div\ \mathbf{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\partial X_2}{\partial x_2} = 2 + x_1$.
 
 %\chapter{The Tangent Space}
 \section{Tangent Space}
