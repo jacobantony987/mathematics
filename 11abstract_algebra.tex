@@ -1543,7 +1543,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \end{proof}
 
 \begin{definition}
-	A sylow $p$-subgroup of $G$ is a maximal $p$-subgroup of $G$.
+	A Sylow $p$-subgroup of $G$ is a maximal $p$-subgroup of $G$.
 \end{definition}
 
 \begin{theorem}[Second Sylow Theorem]
@@ -1677,3 +1677,57 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \end{theorem}
 \begin{proof}
 \end{proof}
+
+
+%Week 7 Day 2 \S37.7-15
+\section{Sylow Theorem : Further Applications}
+\begin{theorem}
+	If $H,K$ are subgroups of a group $G$. Then,
+	\begin{equation}
+		|HK| = \frac{(|H|)(|K|)}{|H\cap K|}
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Analysis of Finite Groups} %need to improve
+	The following are a few sample tests for finite groups. For different numbers, you may have to use a combination of these tests.
+
+\begin{remark}
+Finite, non-abelian, simple groups are of order 60, 168, 360, \dots. 
+\end{remark}
+
+\subsubsection*{Type 1 : $p^r$}
+	Groups of order $p^r$ for $r>1$, are not simple as they have normal subgroup of order $p^{r-1}$ by first Sylow theorem.
+	
+	For example, any group $G$ of order $16$ is not simple as by first Sylow theorem $G$ has a normal subgroup of order $8$.
+
+\subsubsection*{Type 2 : $pq$}
+	Suppose $G$ is a group with order $pq$ where $p,q$ are primes and $q > p$. Clearly, $p \not\cong 1 \pmod{q}$. Thus, by third Sylow theorem, the Sylow $p$-subgroup of $G$ is unique, say $H$.
+	
+	Now, by second Sylow theorem, Sylow $p$-subgroups are conjugate subgroups. Thus, this Sylow $p$-subgroup $H$ is its only conjugate. That is, $gHg^{-1} = H$ for every $g \in G$. Thus, it is a normal subgroup of $G$. Thus $G$ is not simple.
+
+	Further, if $q \not\cong 1 \pmod{p}$ for $q > p$, then group $G$ is cyclic.
+	
+	For example, $5 \not\cong 1 \pmod{3}$. Thus any group $G$ of order $15$ is cyclic. Clearly, $G$ is abelian and is not simple.
+	
+	However, $7 \cong 1 \pmod{3}$. Thus, groups of order $21$ are not simple, but are not necessarily cyclic.
+
+\subsubsection*{Type 3 : Only one Sylow $p$-subgroup}
+	In this case, we don't have a strict form. However, the nature of prime factor of the order suggests that $G$ has only one Sylow $p$-subgroup for some prime factor $p$ of its order.
+
+	For example, group $G$ of order $20$ has only one Sylow $5$-subgroup say, $H$ (by third Sylow theorem). Thus, this subgroup $H$ is a normal subgroup of $G$ (by second Sylow theorem). Therefore, groups of order $20$ are not simple.
+
+\subsubsection*{Type 4 : Enumerating elements of Sylow $p$-subgroups}
+	Groups of order $30$ are not simple. --- The distinct Sylow $p$-subgroups suggests $p-1$ elements are unique to each. By counting, we can show that not all $p$-subgroups have a conjugate.
+
+\subsubsection*{Type 5 : Applying the relation for $|HK|$}
+	Groups of order $48$ are not simple. --- $|HK| = $
+
+\subsubsection*{Type 6 : Normaliser of $H \cap K$}
+	Groups of order $36$ are not simple. --- Let $H,K$ be distinct Sylow $3$-subgroups of $G$. Then, the normaliser of $H \cap K$ suggests a normal subgroup which is either $H\cap K$ or its normliser.
+
+\subsubsection*{Type 7 : Commutator of $G$}
+	Groups of order $255$ are not simple. --- Its commutator subgroup has order $1$. Thus, the group is cyclic. Clearly, cyclic groups are abelian and not simple.
+
+\section{Rings, Fields \& Integral Domains}
