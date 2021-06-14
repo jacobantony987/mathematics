@@ -20,3 +20,61 @@
 %Module 3 - \cite{royden} 17, 18
 %Module 4 - \cite{royden} 18, 20
 %Missing - \cite{royden} 1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 21?
+
+\section{Lebesgue Measure}
+\subsection{Introduction}
+	Lebesgue(\texttt{Lay-Bay-Gu}) Measure allows us to perform an integration, \textbf{Lebesgue integration} which is different from the usual (Riemann) integration. The family of functions that are Lebesgue integrable is quite large compared to those which are Riemann integrable. And Lebesgue integration has nicer properties compared to Riemann integration.
+
+\begin{definition}[$\sigma$ algebra]
+	Let $X$ be a set. A family $\mathcal{A}$ of subset of $X$ is a $\sigma$-algebra (\texttt{sigma algebra}) if
+	\begin{enumerate}
+		\item $\mathcal{A}$ contains the empty set, $\phi \in \mathcal{A}$
+		\item $\mathcal{A}$ contains the complement of each subset in it.
+			$$E \in \mathcal{A} \iff X-E \in \mathcal{A}$$
+		\item $\mathcal{A}$ is closed under countable unions
+			$$\bigcup_{k = 1}^\infty E_k \in \mathcal{A},\text{ where } E_k \in \mathcal{A},\text{ for } k=1,2,\cdots$$
+	\end{enumerate}
+\end{definition}
+\textbf{Note} : By de Morgan's Laws, every $\sigma$-algebra $\mathcal{A}$ is closed under countable intersections as well.
+$$X-\bigcup_{k = 1}^\infty (X-E_k) = \bigcap_{k=1}^\infty X-(X-E_k) = \bigcap_{k=1}^\infty E_k \in \mathcal{A}$$
+
+\subsection{Measure of a Set}
+\begin{definition}[Length of an interval]
+	Length is a real-valued set function. Let $I$ be a bounded interval say $[a,b)$. Then its length $l(I)=b-a$ is the difference between endpoints.
+	If an interval $I$ is unbounded say $(a,\infty)$. Then its length, $l(I) = \infty$.
+\end{definition}
+\begin{definition}[Lebesgue Measure]
+	The real-valued set function Lebesgue Measure $m$ is an extension of the length function $l$ and it has the following properties,
+	\begin{enumerate}
+		\item Measure of an interval is its length ($m$ is an extension of $l$)
+		\item Measure is translation invariant 
+	$$m(x+E) = m(E),\ \forall E \subset X,\ \forall x \in \mathbb{R}$$
+		\item Measure is additive over countable disjoint unions 
+	 $$m\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty m(E_k), \text{ where } E_k \text{ are disjoint}$$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Lebesgue Measurable Sets]
+	The collection of all sets that are Lebesgue measurable.
+\end{definition}
+
+\textbf{Remark} : Lebesgue Measure has monotonicity. That is, $A \subseteq B \implies m(A) \le m(B)$
+
+\textbf{Remark} In order to construct Lebesgue Measure, we start with another measure - (Lebesgue) Outer Measure by relaxing the third axiom. Then we restrict the family of set to Lebesgue Measurable Sets so that the third axiom of Lebesgue Measure is true.
+
+\begin{definition}[Lebesgue Outer Measure]
+	Lebesgue Outer measure $m^\ast$ is a set function with the following properties
+	\begin{enumerate}
+		\item Outer Measure of an interval is its length ($m^\ast$ is an extension of $l$)
+		\item Outer Measure is translation invariant
+	$$m^\ast(x+E) = m^\ast(E),\ \forall E \subset X,\ \forall x \in \mathbb{R}$$
+		\item Outer Measure is countably subadditive
+	 $$m^\ast \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m^\ast (E_k) $$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Counting Measure]
+	The set function which maps sets to their cardinality.
+\end{definition}
+
+\subsection{$\sigma$-algebra of Lebesgue Measurable Sets}
