@@ -323,20 +323,133 @@ Calculations:\\
 
 For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \to \mathbb{R}^2$ defined by $X(x_1,x_2) = (2x_1,x_1x_2)$. Then $div\ \mathbf{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\partial X_2}{\partial x_2} = 2 + x_1$.
 
-\pagebreak
 %\chapter{The Tangent Space}
+\section{The Tangent Space}
+
 %\chapter{Surfaces}
+\section{Surfaces}
+
 %\chapter{Vector Fields on Surfaces; Orientation}
+\section{Vector Fields on Surfaces; Orientation}
 
 %\chapter{The Gauss Map}
+\section{The Gauss Map}
+	Suppose $S$ is an $n$ surface. From the definition of an $n$ surface, there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$ such that $S = f^{-1}(c)$ for some real value $c \in \mathbb{R}$ and every point on $S$ is a regular point of $f$. That is $\nabla f(p) \ne \mathbf{0}$ for every point $p$ on the surface $S$.\\
+
+	We have proved that every $n$-surface has exactly two orientations $\mathbf{N}_1$ and $\mathbf{N}_2$. These orientations are $\frac{\nabla f}{\| \nabla f\|}$ and $\frac{-\nabla f}{\| \nabla f\|}$. Given an orientation $\mathbf{N}$ (either $\mathbf{N}_1$ or $\mathbf{N}_2$), the surface together with that orientation is collectively referred as an oriented $n$ surface.\\
+
+	\textbf{Since orientation $\mathbf{N}$ is a smooth, unit normal vector field. The vector field $\mathbf{N}$ has an associated function $N : U \to \mathbb{R}^{n+1}$. That is $\mathbf{N}(p) = (p,N(p))$ where $N : U \to \mathbb{R}^{n+1}$. And we already have, $\mathbf{N}(p) = (p,N(p)) = (p, \frac{\pm \nabla f}{\| \nabla f\|})$. This associated function restricted to the $n$ surface $S$ is the \textbf{Gauss Map}. That is, $N : S \to \mathbb{R}^{n+1}$.}\\
+
+	From the definition of orientation, we know that this function is actually assigning direction to each point on that surface $S$. If you don't remember, the directions are vector in $\mathbb{R}^{n+1}$ of unit length. That is $\|v\| = 1$. Thus, the range of Gauss Map is a subset of the set of all directions. And unit sphere $S^n$ is $\mathbb{R}^{n+1}$ is the set of all directions in $\mathbb{R}^{n+1}$.\\
+
+	Thus, we may write Gauss Map, $N : S \to S^n$
+\subsection{Spherical Image}
+	We already saw that, the Gauss Map $N : S \to S^n$ is a function which maps directions/unit vectors to each point on that oriented surface $S$.\\
+
+	Do we need an oriented surface ? Yes. The Gauss Map is defined by this orientation. If we are provided with an oriented $n$ Surface $S$, then we have a unit vector/orientation assigned to each point $p$ on that surface. And Gauss Map assigns this unit vector to the point $p$ on surface $S$.\\
+
+	We already saw that the range of the Gauss Map is a subset of the unit $n$ Sphere $S^n$. In other words, the Gauss Map assigns each point on the oriented $n$ surface $S$ into a subset of the unit $n$ sphere $S^n$. Thus, \textbf{range of the Gauss Map is referred as the spherical image of the oriented $n$ surface $S$}.
+	\begin{equation}
+	N(S) = \{ q \in S^n : q = N(p),\ p \in S \}
+	\end{equation}
+
+\subsection{Compact, connected, oriented $n$ Surface}
+	Suppose we have a compact, connected, oriented $n$ surface $S$. The compact subsets in Euclidean spaces are closed and bounded subsets. And connected subsets in Euclidean Spaces are path connected.\\
+
+\begin{theorem}[Spherical Image of Compact, Connected, Oriented Surface]
+	The Gauss map of a compact, connected, oriented $n$ surface is surjective.
+\end{theorem}
+\begin{proof}
+	Let $v \in S^n$ be a direction in $\mathbb{R}^{n+1}$. Let $S$ be a compact, connected, oriented $n$ surface with orientation $N$ such that $S = f^{-1}(c)$ and every point $p \in S$ are regulr points of the smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$. Thus, we have the Gauss Map $N: S \to S^n$ defined by the orientation on $S$.\\
+	
+	Since $v$ is arbitary, it is enough to prove that $v \in N(S)$. Suppose there exists $v \in S^n$ such that $v \notin N(S)$, then the Gauss Map is not surjective. In other words, $N$ is surjective if for every $v \in S^n,\ v \in N(S)$ OR for every $v \in S^n$, there exists $p \in S$ such that $v = N(p)$\\
+
+	Let $g : \mathbb{R}^{n+1} \to \mathbb{R}$ defined by $g(p) = p \cdot v$. Then $g$ is a smooth function since first order partial derivatives are constant functions and all other partial derivatives of higher orders vanishes.\\
+
+	Since $S$ is compact, $g$ restricted to $S$ is a continuous function defined on a compact interval. And thus it attains maximum and minimum values, say $p$ and $q$. The maximum and minimum values of the dot product $p \cdot v$ are $\pm v$.\\
+	
+	By Lagrange's multiplier theorem, $\nabla g(p) = \lambda \nabla f(p)$ and $\nabla g(q) = \lambda \nabla f(q)$. From the definition of the Gauss Map, we have $\nabla g(p) = \lambda \nabla f(p) = \lambda \| \nabla f(p) \| \mathbf{N}(p) = \lambda \| \nabla f(p) \| (p,v)$. Thus, $v$ and $N(p)$ are multiples of one another. Similarly, $\nabla g(q) = \lambda \| \nabla f(q) \| \mathbf{N}(q)$. Therefore $N(p) = \pm v$ and $N(q) = \pm v$.\\
+	
+	It remains to show that $N(p) \ne N(q)$. Suppose $N(p) = N(q)$. If there exists continuous function $\alpha$ such that $\alpha : [0,1] \to \mathbb{R}^{n+1}$, $\alpha(0) = p$, $\alpha(1) = q$, $\dot{\alpha}(0) = (p,v)$ and $\dot{\alpha}(1) = (q,v)$. And $\alpha$ maps the interior, the open interval $(0,1)$ outside the surface $S$. Then by intermediate value theorem, we arrive at a contradiction. And thus $N(p) \ne N(q)$.\\
+
+	Let $\alpha_1 : [0,x] \to \mathbb{R}^{n+1}$ defined by $\alpha_1(t) = p+tv$. Let $\alpha_2 : [y,1] \to \mathbb{R}^{n+1}$ defined by $\alpha_2(t) = q+(t-1)v$. Let $\alpha_3 : [x,y] \to S_1$ where $S_1$ is an $n$ sphere properly containing $S$. Such an $n$ sphere exists, since $S$ is compact (bounded). And there exists such a function $\alpha_3$, the image of which is a compact subset of $S_1$.\\
+	
+	Now consider $\alpha : [0,1] \to \mathbb{R}^{n+1}$ defined by
+	\begin{equation}
+		\alpha(t) = \begin{cases} \alpha_1(t) & t \in [0,x) \\ \alpha_3(t) & t \in [x,y] \\ \alpha_2(t) & t \in (y,1] \end{cases}
+	\end{equation}
+
+\begin{figure}[hbt]
+	\centering
+	\begin{tikzpicture}[scale=0.6]
+
+	\draw (2,2.5) node{$p$};
+	\draw (-0.5,-1.55) node{$q$};
+	\draw plot [smooth cycle, tension=1] coordinates {(1,1) (2,3) (4,0) (2,-0.5) (0,-2) (-2,-1)};
+
+	\draw (0,0.7) node{$S$};
+	\draw (0,5.5) node{$S_1$};
+	\draw[thick,blue] (1.8,3.05) -- (1.8,4.85);
+	\draw (2.5,3.8) node{$\alpha_1$};
+
+	\draw[thick,brown] (-0.5,-2.05) -- (-0.5,-3.9);
+	\draw (0,-2.7) node{$\alpha_2$};
+
+	\draw (-4,2.5) node{$\alpha_3$};
+	\begin{scope}
+		\clip (1.8,0) rectangle (-6,6);
+		\draw[thick,color=red] (0.5,0.5) circle (4.5cm);
+	\end{scope}
+	\begin{scope}
+		\clip (-0.5,-5) rectangle (-6,0);
+		\draw[thick,color=red] (0.5,0.5) circle (4.5cm);
+	\end{scope}
+\end{tikzpicture}
+	\caption{Construction of $\alpha$}
+\end{figure}
+
+	Clearly, $\alpha$ is a smooth function with $\alpha(t) \notin S,\ t \in (0,1)$ and 
+	\begin{align*}
+		\alpha(0) & = \alpha_1(0) = p+0v = p \\
+		\alpha(1) & = \alpha_2(1) = q + (1-1)v = q\\
+		\dot{\alpha}(0) & = \dfrac{d\alpha_1}{dt}(0) = \dfrac{d (p+tv)}{dt}(0) = v\\
+		\dot{\alpha}(1) & = \dfrac{d\alpha_2}{dt}(1) = \dfrac{d (q+(t-1)v}{dt} = v
+	\end{align*}
+
+	We have, $f(\alpha(0)) = f(0) = c$ since $p \in S = f^{-1}(c)$. Similarly, $f(\alpha(1)) = c$. And $(f \circ \alpha)'(0) = \nabla f \circ \alpha(0) \dot \dot{\alpha}(0) = \nabla f(p) \cdot \dot{\alpha}(0) = \| \nabla f(p) \| N(p) \cdot v$. Similarly, $(f \circ \alpha)'(1) = \| \nabla f(q) \| N(q) \cdot v$. We have assumed that $N(p) = N(q)$. Then, $f \circ \alpha$ is either increasing at both $0$ and $1$ OR decreasing at both $0$ and $1$.\\
+
+	Without Loss of Generality, Suppose that $f \circ \alpha$ is increasing at either points. Then, there exists a sufficiently small $\epsilon > 0$ such that $f(\alpha(\epsilon)) > c$ and $f(\alpha(1-\epsilon)) < c$. Since, $f \circ \alpha$ must have a value greater than $c$ immediately after $0$ and should have a value less than $c$ just before reaching $1$ as the function is increasing at either points (and in some small neighbourhood of those points).\\
+
+	By Intermediate Value theorem, the exists $t \in (0,1)$ such that $f \circ \alpha(t) = c$ since the composition of smooth functions $f$ and $\alpha$ is also smooth. But, it is clear from the construction that $\alpha(t)$ doesn't belong to the surface $S$. And therefore, $\alpha(t) \ne c \implies f(\alpha(t)) \ne c$ for any $t \in (0,1)$. Thus by contradiction, $N(p) \ne N(q)$. And if $N$ achieves $v$ at $p$. Then it achieves $-v$ at $q$. And since $v \in S^n$ is arbitrary, $N(S) = S^n$ and the spherical image is the entire $n$ sphere OR the Gauss map is surjective.
+\end{proof}
+
+	\textbf{Given a compact, connected oriented, $n$ surface $S$, the Gauss Map on $S$ is surjective. In other words, the spherical image of such a surface is the unit $n$ sphere $S^n$ itself.}\\
+
+	Connectedness is not that critical(in my opinion). For a compact, orientated $n$ surface with multiple components, the above observation is valid for each connected component. And thus for any compact, oriented surface. Again, $n$ surfaces are always closed. Thus, the restriction practically reduces to boundedness of the $n$ surface.
+
 %\chapter{Geodesics}
+\section{Geodesics}
+
 %\chapter{Parallel Transport}
+\section{Parallel Transport}
+
 %\chapter{The Weingarten Map}
+\section{The Weingarten Map}
+
 %\chapter{The Curvature of Plane Curves}
+\section{The Curvature of Plane Curves}
+
 %\chapter{Arc Length and Line Integrals}
+\section{Arc Length and Line Integrals}
+
 %\chapter{Curvature of Surfaces}
+\section{Curvature of Surfaces}
+
 %\chapter{Convex Surfaces}
+\setcounter{section}{13}
 %\chapter{Parameterized Surfaces}
+\section{Parameterized Surfaces}
+
 %\chapter{Local Equivalence of Surfaces and Parameterized Surfaces}
 %\chapter{Focal Points}
 %\chapter{Surface Area and Volume}
