@@ -334,11 +334,11 @@ For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \t
 
 %\chapter{The Gauss Map}
 \section{The Gauss Map}
-	Suppose $S$ is an $n$ surface. From the definition of an $n$ surface, there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$ such that $S = f^{-1}(c)$ for some real value $c \in \mathbb{R}$ and every point on $S$ is a regular point of $f$. That is $\nabla f(p) \ne \mathbf{0}$ for every point $p$ on the surface $S$.\\
+	Suppose $S$ is an $n$-surface. From the definition of an $n$-surface, there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$ such that $S = f^{-1}(c)$ for some real value $c \in \mathbb{R}$ and every point on $S$ is a regular point of $f$. That is $\nabla f(p) \ne \mathbf{0}$ for every point $p$ on the surface $S$.\\
 
-	We have proved that every $n$-surface has exactly two orientations $\mathbf{N}_1$ and $\mathbf{N}_2$. These orientations are $\frac{\nabla f}{\| \nabla f\|}$ and $\frac{-\nabla f}{\| \nabla f\|}$. Given an orientation $\mathbf{N}$ (either $\mathbf{N}_1$ or $\mathbf{N}_2$), the surface together with that orientation is collectively referred as an oriented $n$ surface.\\
+	We have proved that every $n$-surface has exactly two orientations $\mathbf{N}_1$ and $\mathbf{N}_2$. These orientations are $\frac{\nabla f}{\| \nabla f\|}$ and $\frac{-\nabla f}{\| \nabla f\|}$. Given an orientation $\mathbf{N}$ (either $\mathbf{N}_1$ or $\mathbf{N}_2$), the surface together with that orientation is collectively referred as an oriented $n$-surface.\\
 
-	\textbf{Since orientation $\mathbf{N}$ is a smooth, unit normal vector field. The vector field $\mathbf{N}$ has an associated function $N : U \to \mathbb{R}^{n+1}$. That is $\mathbf{N}(p) = (p,N(p))$ where $N : U \to \mathbb{R}^{n+1}$. And we already have, $\mathbf{N}(p) = (p,N(p)) = (p, \frac{\pm \nabla f}{\| \nabla f\|})$. This associated function restricted to the $n$ surface $S$ is the \textbf{Gauss Map}. That is, $N : S \to \mathbb{R}^{n+1}$.}\\
+	\textbf{Since orientation $\mathbf{N}$ is a smooth, unit normal vector field. The vector field $\mathbf{N}$ has an associated function $N : U \to \mathbb{R}^{n+1}$. That is $\mathbf{N}(p) = (p,N(p))$ where $N : U \to \mathbb{R}^{n+1}$. And we already have, $\mathbf{N}(p) = (p,N(p)) = (p, \frac{\pm \nabla f}{\| \nabla f\|})$. This associated function restricted to the $n$-surface $S$ is the \textbf{Gauss Map}. That is, $N : S \to \mathbb{R}^{n+1}$.}\\
 
 	From the definition of orientation, we know that this function is actually assigning direction to each point on that surface $S$. If you don't remember, the directions are vector in $\mathbb{R}^{n+1}$ of unit length. That is $\|v\| = 1$. Thus, the range of Gauss Map is a subset of the set of all directions. And unit sphere $S^n$ is $\mathbb{R}^{n+1}$ is the set of all directions in $\mathbb{R}^{n+1}$.\\
 
@@ -348,19 +348,19 @@ For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \t
 
 	Do we need an oriented surface ? Yes. The Gauss Map is defined by this orientation. If we are provided with an oriented $n$ Surface $S$, then we have a unit vector/orientation assigned to each point $p$ on that surface. And Gauss Map assigns this unit vector to the point $p$ on surface $S$.\\
 
-	We already saw that the range of the Gauss Map is a subset of the unit $n$ Sphere $S^n$. In other words, the Gauss Map assigns each point on the oriented $n$ surface $S$ into a subset of the unit $n$ sphere $S^n$. Thus, \textbf{range of the Gauss Map is referred as the spherical image of the oriented $n$ surface $S$}.
+	We already saw that the range of the Gauss Map is a subset of the unit $n$ Sphere $S^n$. In other words, the Gauss Map assigns each point on the oriented $n$-surface $S$ into a subset of the unit $n$ sphere $S^n$. Thus, \textbf{range of the Gauss Map is referred as the spherical image of the oriented $n$-surface $S$}.
 	\begin{equation}
 	N(S) = \{ q \in S^n : q = N(p),\ p \in S \}
 	\end{equation}
 
 \subsection{Compact, connected, oriented $n$ Surface}
-	Suppose we have a compact, connected, oriented $n$ surface $S$. The compact subsets in Euclidean spaces are closed and bounded subsets. And connected subsets in Euclidean Spaces are path connected.\\
+	Suppose we have a compact, connected, oriented $n$-surface $S$. The compact subsets in Euclidean spaces are closed and bounded subsets. And connected subsets in Euclidean Spaces are path connected.\\
 
 \begin{theorem}[Spherical Image of Compact, Connected, Oriented Surface]
-	The Gauss map of a compact, connected, oriented $n$ surface is surjective.
+	The Gauss map of a compact, connected, oriented $n$-surface is surjective.
 \end{theorem}
 \begin{proof}
-	Let $v \in S^n$ be a direction in $\mathbb{R}^{n+1}$. Let $S$ be a compact, connected, oriented $n$ surface with orientation $N$ such that $S = f^{-1}(c)$ and every point $p \in S$ are regulr points of the smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$. Thus, we have the Gauss Map $N: S \to S^n$ defined by the orientation on $S$.\\
+	Let $v \in S^n$ be a direction in $\mathbb{R}^{n+1}$. Let $S$ be a compact, connected, oriented $n$-surface with orientation $N$ such that $S = f^{-1}(c)$ and every point $p \in S$ are regulr points of the smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$. Thus, we have the Gauss Map $N: S \to S^n$ defined by the orientation on $S$.\\
 	
 	Since $v$ is arbitary, it is enough to prove that $v \in N(S)$. Suppose there exists $v \in S^n$ such that $v \notin N(S)$, then the Gauss Map is not surjective. In other words, $N$ is surjective if for every $v \in S^n,\ v \in N(S)$ OR for every $v \in S^n$, there exists $p \in S$ such that $v = N(p)$\\
 
@@ -423,12 +423,61 @@ For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \t
 	By Intermediate Value theorem, the exists $t \in (0,1)$ such that $f \circ \alpha(t) = c$ since the composition of smooth functions $f$ and $\alpha$ is also smooth. But, it is clear from the construction that $\alpha(t)$ doesn't belong to the surface $S$. And therefore, $\alpha(t) \ne c \implies f(\alpha(t)) \ne c$ for any $t \in (0,1)$. Thus by contradiction, $N(p) \ne N(q)$. And if $N$ achieves $v$ at $p$. Then it achieves $-v$ at $q$. And since $v \in S^n$ is arbitrary, $N(S) = S^n$ and the spherical image is the entire $n$ sphere OR the Gauss map is surjective.
 \end{proof}
 
-	\textbf{Given a compact, connected oriented, $n$ surface $S$, the Gauss Map on $S$ is surjective. In other words, the spherical image of such a surface is the unit $n$ sphere $S^n$ itself.}\\
+	\textbf{Given a compact, connected oriented, $n$-surface $S$, the Gauss Map on $S$ is surjective. In other words, the spherical image of such a surface is the unit $n$ sphere $S^n$ itself.}\\
 
-	Connectedness is not that critical(in my opinion). For a compact, orientated $n$ surface with multiple components, the above observation is valid for each connected component. And thus for any compact, oriented surface. Again, $n$ surfaces are always closed. Thus, the restriction practically reduces to boundedness of the $n$ surface.
+	Connectedness is not that critical(in my opinion). For a compact, orientated $n$-surface with multiple components, the above observation is valid for each connected component. And thus for any compact, oriented surface. Again, $n$-surfaces are always closed. Thus, the restriction practically reduces to boundedness of the $n$-surface.
 
 %\chapter{Geodesics}
 \section{Geodesics}
+	We already know that our earth is not flat. Still, we feel like we move in straight lines. And our `straight lines' are curved for an observer who is not on earth. Geodesics are straightlines on an $n$-surface $S$.
+
+\begin{description}
+	\item[vector field along $\alpha$] is function which assigns $X(t)$ at $\alpha(t)$ for each $t \in I$.
+		The defintion of vector field doesn't allow you to assign multiple vectors at a point. But, vector field along $\alpha$ allows you to assign vectors to points on a parametrised curve depending on the value of parameter $t$.
+	\item[function along $\alpha$] is function with the same domain $I$ as $\alpha$.
+	\item[derivative of vector field $\mathbf{X}$ along $\alpha$] is a vector field along $\alpha$ given by $\dot{\mathbf{X}}(t) = \left( \alpha(t), \dfrac{dX}{dt}(t) \right)$ where $\mathbf{X}(t) = \left( \alpha(t), X(t) \right)$.
+	\item[velocity of $\alpha$] is a vector field along $\alpha$ defined by $\dot{\boldsymbol{\alpha}}(t)= \left( \alpha(t), \dfrac{d\alpha}{dt}(t) \right)$.\\
+		Suppose $\alpha : I \to \mathbb{R}^2$ is defined by $\alpha(t) = (3t,t^2)$.\\
+		Then velocity of $\alpha$ is $\dot{\boldsymbol{\alpha}}(t) = \left( \alpha(t),\dfrac{d\alpha}{dt}(t) \right) = (3t,t^2,3,2t)$.
+	\item[speed of $\alpha$] is $\| \dot{\boldsymbol{\alpha}}(t) \|$.\\
+		Speed of $\alpha$ is $\| \dot{\boldsymbol{\alpha}}(t) \| = \sqrt{9+4t^2}$.
+	\item[acceleration $\alpha$] is a vector field along $\alpha$ defined by $\ddot{\boldsymbol{\alpha}}(t) = \left( \alpha(t), \dfrac{d^2\alpha}{dt^2}(t) \right)$.\\
+		Acceleration of $\alpha$ is $\ddot{\boldsymbol{\alpha}}(t) = (3t,t^2,0,2)$
+\end{description}
+
+\subsection{Properties of differentiation}
+Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields along parametrised curve $\alpha : I \to \mathbb{R}^{n+1}$.
+\begin{itemize}
+	\item $\dot{(\mathbf{X}+\mathbf{Y})} = \dot{\mathbf{X}} + \dot{\mathbf{Y}}$
+	\begin{align*}
+		(\mathbf{X}+\mathbf{Y})(t) = & (\alpha(t), X(t)) + (\alpha(t), Y(t)) = \left( \alpha(t), X(t)+Y(t) \right) \\
+		\dot{(\mathbf{X}+\mathbf{Y})}(t) = & \left( \alpha(t), \dfrac{d}{dt} X(t)+Y(t) \right) \\
+		= & \left( \alpha(t), \dfrac{d}{dt}X(t)\right) + \left( \alpha(t), \dfrac{d}{dt}Y(t) \right) \\
+		= & \dot{\mathbf{X}}(t) + \dot{\mathbf{Y}}(t)
+	\end{align*}
+	\item $\dot{(f\mathbf{X})} = f'\mathbf{X} + f\dot{\mathbf{X}}$
+	\begin{align*}
+		f\mathbf{X}(t) = & f(t)(\alpha(t), X(t)) = (\alpha(t), f(t)X(t)) \\
+		\dot{(f\mathbf{X})}(t) = & \left( \alpha(t),\dfrac{d}{dt}f(t)X(t) \right) \\
+		= & \left( \alpha(t), f'(t)X(t) + f(t)\dfrac{dX}{dt}(t) \right) \\
+		= & \left( \alpha(t), f'(t)X(t) \right) + \left( \alpha(t), f(t)\dfrac{d}{dt} \mathbf{X}(t) \right)\\
+		= & f'(t) \left( \alpha(t),X(t) \right) + f(t) \left( \alpha(t),\dfrac{d}{dt} X(t) \right)\\
+		= & f'\mathbf{X}(t) + f\dot{\mathbf{X}}(t)
+	\end{align*}
+	\item $(\mathbf{X} \cdot \mathbf{Y})' = \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}$
+	\begin{align*}
+		(\mathbf{X} \cdot \mathbf{Y}) = & (\alpha(t), X(t)) \cdot (\alpha(t),Y(t)) = \sum_{k = 1}^{n+1} X_k(t)Y_k(t) \\
+		(\mathbf{X} \cdot \mathbf{Y})' = & \dfrac{d}{dt} \sum_{k = 1}^{n+1} X_k(t)Y_k(t) \\
+		= & \sum_{k = 1}^{n+1} \dfrac{d}{dt}X_k(t)Y_k(t)\\
+		= & \sum_{k = 1}^{n+1} X_k'(t)Y_k(t) + X_k(t)Y_k'(t)
+	\end{align*}
+	$$\dot{\mathbf{X}}(t) \cdot \mathbf{Y}(t) =  \left( \alpha(t), \dfrac{d}{dt}X(t) \right) \cdot \left( \alpha(t), Y(t) \right) =  \sum_{k=1}^{n+1} X_k'(t)Y_k(t)$$
+		$$\mathbf{X}(t) \cdot \dot{\mathbf{Y}}(t) =  \left( \alpha(t), X(t) \right) \cdot \left( \alpha(t), \dfrac{d}{dt}Y(t) \right) =  \sum_{k=1}^{n+1} X_k(t)Y_k'(t)$$
+\end{itemize}
+
+\begin{definition}[geodesic]
+	Let $S$ be an $n$-surface. A Geodesic on $S$ is a parametrised curve $\alpha : I \to S$ whose acceleration is orthogonal to $S$ everywhere.
+\end{definition}
 
 %\chapter{Parallel Transport}
 \section{Parallel Transport}
