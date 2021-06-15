@@ -82,6 +82,43 @@
 	An element $\alpha \in E$ is transcendental if and only if $f(\alpha) \ne 0$ for any nonzero $f(x) \in F[x]$ where $f(\alpha) = \phi_\alpha(f)$. Thus, kernel of $\phi_\alpha$ is trivial. That is, $\ker(\phi_\alpha) = \{ 0 \}$. Therefore, $\phi_\alpha$ is one-to-one.
 \end{proof}
 
+\begin{theorem}
+	Let $E$ be an extension field of $F$ and $\alpha \in E$ be algebraic over $F$. Then there exists a unique irreducible polynomial $p(x)$ with minimum degree in $F[x]$ and $p(\alpha) = 0$. If there exists a nonzero polynomial $f(x) \in F[x]$ with $f(\alpha) = 0$, then $p(x)$ divides $f(x)$.
+\end{theorem}
+\begin{proof}
+	Consider evaluation homomorphism $\phi_\alpha : F[x] \to E$ defined by $\phi_\alpha(f) = f(\alpha)$. Then $\ker(\phi)$ is an ideal in $F[x]$. Since every ideal in $F[x]$ is principal, there exists $p(x) \in F[x]$ such that $\langle p(x) \rangle = \ker(\phi)$. And $f(\alpha) = 0 \implies f \in \ker(\phi) = \langle p(x) \rangle$. Thus, $p(x)$ divides $f(x)$.\\
+
+	Suppose $p(x) = r(x)s(x)$. Then $p(\alpha) = r(\alpha)s(\alpha) = 0$. However, $E$ is a field and has no zero divisors. Thus, there exists a polynomial of lesser degree in $\langle p(x) \rangle$ which is a contradiction.
+\end{proof}
+
+\begin{description}
+	\item[monic polynomial] A polynomial which has $1$ as the coefficient of highest power of $x$. For example : $x^3 - 3x \in \mathbb{Q}[x]$
+	\item[$irr(\alpha,F)$] The unique monic, irreducible polynomial $p(x) \in F[x]$ such that $p(\alpha) = 0$. For example, $irr(\sqrt{3},\mathbb{Q}) = x^2-3$
+	\item[$deg(\alpha,F)$] The degree of the unique monic, irreducible polynomial $p(x) \in F[x]$ such that $p(\alpha) = 0$. For example, $deg(\sqrt{3},\mathbb{Q}) = 2$.
+	\item[simple extension] An extension field $E$ of field $F$ is a simple extension if $E = F(\alpha)$ for some $\alpha \in E$.
+\end{description}
+
+\begin{theorem}
+	Let $E$ be a simple extension $F(\alpha)$ of field $F$ where $\alpha \in E$ is algebraic over $F$. Let $deg(\alpha,F) = n \ge 1$. Then any element $\beta \in E$ can be uniquely expressed in the form $\beta = b_0 + b_1\alpha + \cdots + b_{n-1}\alpha^{n-1}$ where $b_k \in F$.
+\end{theorem}
+\begin{proof}
+	Consider the evaluation homomorphism $\phi_\alpha : F[x] \to E$ defined by $\phi_\alpha(f) = f(\alpha)$. Then $\phi_\alpha[F[x]] = F(\alpha)$.\\
+	
+	Let $irr(\alpha,F) = p(x) = x^n + a_{n-1}x^{n-1} + \cdots +a_1x+a_0$. Then, $p(\alpha) = 0$. Thus, 
+\begin{equation}
+	\alpha^n = -a_{n-1} \alpha^{n-1}-a_{n-2} \alpha^{n-2} - \cdots - a_1\alpha - a_0
+\end{equation}
+	Clearly, any higher power of $\alpha$ can be eliminated from $f(\alpha)$ as shown below,
+	\begin{align*}
+		\alpha^{n+1} = & \alpha \alpha^n = -a_{n-1} \alpha^n -a_{n-2} \alpha^{n-1} - \cdots - a_1\alpha^2 - a_0 \alpha \\ 
+		 = & a_{n-1} \left( a_{n-1}\alpha^{n-1}+a_{n-2}\alpha^{n-2}+\cdots+a_1\alpha + a_0 \right)\\
+		& - a_{n-2}\alpha^{n-1} - a_{n-3}\alpha^{n-2} - a_1\alpha^2 - a_0 \alpha
+	\end{align*}
+
+	Thus, in the representation of the element in $F(\alpha)$, the maximum degree of $\alpha$ is $deg(\alpha,F)-1$. Therefore, $\beta \in F(\alpha) \implies \beta = b_0 + b_1\alpha + b_2\alpha^2 + \cdots + b_{n-1}\alpha^{n-1}$.\\
+
+	We can also show that this representation is unique for any $\beta \in F(\alpha)$. Suppose $\beta = b_0'+b_1'\alpha+b_2'\alpha^2+\cdots+b_{n-1}'\alpha^{n-1}$. Then $0 = (b_0 - b_0') + (b_1 - b_1')\alpha + \cdots + (b_{n-1} - b_{n-1}')\alpha^{n-1} = \phi_\alpha(g)$ where $g(x) = (b_0 - b_0') + (b_1 - b_1')x + \cdots + (b_{n-1} - b_{n-1}')x^{n-1}$. Clearly, degree of $g(x)$ is $deg(\alpha,F)-1$ which is less than the minimum degree for a non-zero irreducible polynomial for $\alpha$ over $F$. Thus $g(x) = 0$. In other words, $b_j = b_j',\ \forall j$ and representation for $\beta \in F(\alpha)$ is unique.
+\end{proof}
 %Section 31
 \section{Algebraic Extensions}
 
