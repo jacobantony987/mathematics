@@ -22,59 +22,93 @@
 %Missing - \cite{royden} 1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 21?
 
 \section{Lebesgue Measure}
-\subsection{Introduction}
-	Lebesgue(\texttt{Lay-Bay-Gu}) Measure allows us to perform an integration, \textbf{Lebesgue integration} which is different from the usual (Riemann) integration. The family of functions that are Lebesgue integrable is quite large compared to those which are Riemann integrable. And Lebesgue integration has nicer properties compared to Riemann integration.
-
-\begin{definition}[$\sigma$ algebra]
-	Let $X$ be a set. A family $\mathcal{A}$ of subset of $X$ is a $\sigma$-algebra (\texttt{sigma algebra}) if
+\begin{description}
+	\item[set function] A function which maps sets into (extended) real numbers.
+	\item[$\sigma$-algebra] A family $\mathcal{A}$ of subsets of a nonempty set $X$ such that
 	\begin{enumerate}
-		\item $\mathcal{A}$ contains the empty set, $\phi \in \mathcal{A}$
-		\item $\mathcal{A}$ contains the complement of each subset in it.
-			$$E \in \mathcal{A} \iff X-E \in \mathcal{A}$$
-		\item $\mathcal{A}$ is closed under countable unions
-			$$\bigcup_{k = 1}^\infty E_k \in \mathcal{A},\text{ where } E_k \in \mathcal{A},\text{ for } k=1,2,\cdots$$
+		\item $\mathcal{A}$ contains the empty set, 
+		\item $\mathcal{A}$ contains complement of each of its members and
+		\item $\mathcal{A}$ is closed under countable unions.
 	\end{enumerate}
-\end{definition}
-\textbf{Note} : By de Morgan's Laws, every $\sigma$-algebra $\mathcal{A}$ is closed under countable intersections as well.
-$$X-\bigcup_{k = 1}^\infty (X-E_k) = \bigcap_{k=1}^\infty X-(X-E_k) = \bigcap_{k=1}^\infty E_k \in \mathcal{A}$$
+	
+	From these 3 axioms, we can deduce the following,
+	\begin{enumerate}
+		\setcounter{enumi}{3}
+		\item $\mathcal{A}$ is closed under countable intersections (by de Morgan's laws).
+			$$\left( \bigcup_{k = 1}^\infty E_k^c \right)^c = \bigcap_{k=1}^\infty E_k \in \mathcal{A}$$
+		\item $E,F \in \mathcal{A} \implies E-F \in \mathcal{A}$ since $E-F = E \cap F^c$
+	\end{enumerate}
+\end{description}
 
-\subsection{Measure of a Set}
 \begin{definition}[Length of an interval]
-	Length is a real-valued set function. Let $I$ be a bounded interval say $[a,b)$. Then its length $l(I)=b-a$ is the difference between endpoints.
-	If an interval $I$ is unbounded say $(a,\infty)$. Then its length, $l(I) = \infty$.
-\end{definition}
-\begin{definition}[Lebesgue Measure]
-	The real-valued set function Lebesgue Measure $m$ is an extension of the length function $l$ and it has the following properties,
-	\begin{enumerate}
-		\item Measure of an interval is its length ($m$ is an extension of $l$)
-		\item Measure is translation invariant 
-	$$m(x+E) = m(E),\ \forall E \subset X,\ \forall x \in \mathbb{R}$$
-		\item Measure is additive over countable disjoint unions 
-	 $$m\left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty m(E_k), \text{ where } E_k \text{ are disjoint}$$
-	\end{enumerate}
+	Length is a real valued set function. Let $I$ be a bounded interval say $[a,b)$. Then its length $l(I)=b-a$ is the difference between endpoints.
+	If an interval $I$ is unbounded say $(a,\infty)$, then its length, $l(I) = \infty$.
 \end{definition}
 
-\begin{definition}[Lebesgue Measurable Sets]
-	The collection of all sets that are Lebesgue measurable.
-\end{definition}
 
-\textbf{Remark} : Lebesgue Measure has monotonicity. That is, $A \subseteq B \implies m(A) \le m(B)$
+\subsection{Exercise}
+\subsubsection{Techniques in Measure Theory}
+	Let $\mathcal{A}$ be a $\sigma$-algebra. Let Lebesgue Measure $m : \mathcal{A} \to [0,\infty]$ be countably additive over disjoint collection of sets in $\mathcal{A}$.
+\begin{itemize}
+	\item Lebesgue Measure $m$ has monotonicity.\\
+		$A \subseteq B \implies B = A \cup (B-A)$ is a disjoint union \\
+		$\implies m(B) = m(A) + m(B-A) \ge m(A)$
+	\item If exists $E \in \mathcal{A}$ such that $m(E) < \infty$, then $m(\phi) = 0$\\
+		Suppose $m(\phi) = c$ and $m(E) = k$ where $k < \infty$. If $c \ne 0$, then $m(E \cup \phi) = m(E) + m(\phi) = c+k > k = m(E)$ is a contradiction.
+	\item $m\left(\cup_{k=1}^\infty E_k\right) \le \sum_{k=1}^\infty m(E_k)$\\
+		Define $\{ F_k : k \in \mathbb{N} \}$ by $F_k = E_k - \cup_{j = 1}^{k-1} E_j$\\
+		Then $F_1 = E_1$, $F_2 = E_2 - E_1$, $F_3 = E_3 - (E_1 \cup E_2)$, \dots\\
+		Also $F_k \in \mathcal{A}$ and $F_k \subseteq E_k,\ \forall k \in \mathbb{N}$. Thus $m(F_k) \le m(E_k),\ \forall k$
+		However, $\cup_{k=1}^\infty E_k = \cup_{k=1}^\infty F_k$\\
+		$\implies m\left( \cup_{k=1}^\infty E_k \right) = m \left( \cup_{k=1}^\infty F_k \right) = \sum_{k=1}^\infty m(F_k) \le \sum_{k=1}^\infty m(E_k)$
+\end{itemize}
 
-\textbf{Remark} In order to construct Lebesgue Measure, we start with another measure - (Lebesgue) Outer Measure by relaxing the third axiom. Then we restrict the family of set to Lebesgue Measurable Sets so that the third axiom of Lebesgue Measure is true.
+\subsubsection{Counting Measure}
+	The counting measure $c : \mathcal{A} \to [0,\infty]$ is a set function which maps sets to their cardinality. For example, if $E = \{2,3,4\}$, then $c(E) = 3$.
+\begin{itemize}
+	\item The counting measure is \textbf{translation invariant} since translation never increases the cardinality of the set.\\
+		For example, $5+E = \{7,8,9\}$. And $m(5+E) = 3 = m(E)$.
+	\item The counting measure is \textbf{countably additive} over disjoint collections since the cardinality of disjoint union of two sets is the sum of their cardinalities.
+	\item However, counting measure of (non-degenerate) intervals are $\infty$ which is \textbf{not the same as their length} for bounded intervals.
+\end{itemize}
 
+\subsection{Lebesgue Outer Measure}
+\begin{description}
+	\item[$G_\delta$] A set which is countable intersection of open subsets.
+	\item[$F_\sigma$] A set which is countable union of closed subsets.
+\end{description}
+
+\subsubsection{Set-theoretic Construction of Lebesgue Measure}
+\begin{enumerate}
+	\item Construct Lebesgue Outer Measure $m^\ast$ (with Axiom 3 relaxed) \\
+		ie, Obtain the underlying relation of the set function
+	\item Restrict $m^\ast$ to the $\sigma$-algebra of our interest \\
+		ie, Choose a domain so that set function is well defined.
+\end{enumerate}
 \begin{definition}[Lebesgue Outer Measure]
-	Lebesgue Outer measure $m^\ast$ is a set function with the following properties
-	\begin{enumerate}
-		\item Outer Measure of an interval is its length ($m^\ast$ is an extension of $l$)
-		\item Outer Measure is translation invariant
-	$$m^\ast(x+E) = m^\ast(E),\ \forall E \subset X,\ \forall x \in \mathbb{R}$$
-		\item Outer Measure is countably subadditive
-	 $$m^\ast \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m^\ast (E_k) $$
-	\end{enumerate}
+	Let $A \subset \mathbb{R}$. Let $\mathcal{C} = \{ I_k : k \in \mathbb{N}\}$ be an open cover of $A$ such that $I_k$ are non-empty, bounded, open intervals. Consider the sum of length of intervals for such covers of $A$. (Lebesgue) Outer Measure $m^\ast(A)$ is the infimum of all such sums.
+	$$ m^\ast(A) = \inf \left\{ \sum_{k=1}^\infty l(I_k) : A \subset \bigcup_{k=1}^\infty I_k \right\} $$
 \end{definition}
+\subsection{Properties of Lebesgue Outer Measure}
+\begin{enumerate}
+	\item Outer Measure of the empty set is zero\\
+		Let $\epsilon > 0$. Then $\mathcal{C}_\epsilon = \{ (0,\frac{\epsilon}{2^n}) : n \in \mathbb{N} \}$ is an open cover of $\phi$ containing nonempty, bounded, open intervals. Clearly, sum of length of intervals in $C_\epsilon = \epsilon$. Suppose $m^\ast(\phi) = \delta$ and $\delta > 0$. There exists $\epsilon$ such that $0 < \epsilon < \delta$. The sum of intervals of $\mathcal{C}_\epsilon$ is less than $\delta$, which is a contradiction by the definition of Outer Measure.
+	\item Outer Measure is monotone\\
+		Suppose $A \subset B$. Then every cover of $B$ is also an  cover of $A$. Let $\mathcal{U}$ be the set of all open covers of $A$ with nonempty, bounded intervals and $\mathcal{V}$ be the set of all such open covers of $A$. Clearly, $\mathcal{V} \subset \mathcal{U}$. We know that, if $A \subset B$, then $\inf{B} \le \inf{A}$. Therefore, $m^\ast(A) \le m^\ast(B)$.
+	\item Outer Measure of Countable Sets is zero
+	\item Outer Measure of an Interval is its length
+	\item Outer Measure is translation invariant
+	\item Outer Measure is countably subadditive
+\end{enumerate}
 
-\begin{definition}[Counting Measure]
-	The set function which maps sets to their cardinality.
-\end{definition}
+\subsubsection{Outer Measure of Countable Sets}
+\subsubsection{Outer Measure of Intervals}
+\subsubsection{Outer Measure is translation invariant}
+\subsubsection{Outer Measure is countably subadditive}
+
+\subsection{Exercise}
+
 
 \subsection{$\sigma$-algebra of Lebesgue Measurable Sets}
+
+
