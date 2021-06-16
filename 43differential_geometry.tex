@@ -459,8 +459,8 @@ Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields along parametrised curve $\a
 	\begin{align*}
 		f\mathbf{X}(t) = & f(t)(\alpha(t), X(t)) = (\alpha(t), f(t)X(t)) \\
 		\dot{(f\mathbf{X})}(t) = & \left( \alpha(t),\dfrac{d}{dt}f(t)X(t) \right) \\
-		= & \left( \alpha(t), f'(t)X(t) + f(t)\dfrac{dX}{dt}(t) \right) \\
-		= & \left( \alpha(t), f'(t)X(t) \right) + \left( \alpha(t), f(t)\dfrac{d}{dt} \mathbf{X}(t) \right)\\
+		= & \left( \alpha(t), f'(t)X(t) + f(t)\dfrac{d}{dt}X(t) \right) \\
+		= & \left( \alpha(t), f'(t)X(t) \right) + \left( \alpha(t), f(t)\dfrac{d}{dt}X(t) \right)\\
 		= & f'(t) \left( \alpha(t),X(t) \right) + f(t) \left( \alpha(t),\dfrac{d}{dt} X(t) \right)\\
 		= & f'\mathbf{X}(t) + f\dot{\mathbf{X}}(t)
 	\end{align*}
@@ -477,8 +477,40 @@ Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields along parametrised curve $\a
 
 \begin{definition}[geodesic]
 	Let $S$ be an $n$-surface. A Geodesic on $S$ is a parametrised curve $\alpha : I \to S$ whose acceleration is orthogonal to $S$ everywhere.
+\begin{equation}
+	\ddot{\alpha}(t) \in S_{\alpha(t)}^\perp
+\end{equation}
 \end{definition}
 
+\subsection{An illustrative example}
+We know that $S^1$ given by $x_1^2+x_2^2 = 1$ is a $1$-surface in $\mathbb{R}^2$. Consider the cylinder $C$ over $S^1$, $x_1^2 + x_2^2 = 1$. Clearly, $C$ is a $2$ surface in $\mathbb{R}^3$. Also, $f : \mathbb{R}^3 \to \mathbb{R}$ defined by  $f(x_1,x_2,x_3) = x_1^2+x_2^2$ is a smooth function such that $C = f^{-1}(1)$ and $\nabla f(x_1,x_2,x_3) = (x_1,x_2,x_3,2x_1,2x_2,0) \ne \mathbf{0}$.\\
+
+Clearly, every vector orthogonal to the surface in a scalar multiple of $\nabla f$ at that point. Therefore, vectors orthogonal to the surface $C$ at $\alpha(t)$ is of the form $(x_1,x_2,x_3,kx_1,kx_2,0)$ where $k \in \mathbb{R}$.\\
+
+If there exists a geodesic $\alpha$ in $C$, then $\ddot{\alpha}(t) \in  S_{\alpha(t)}^\perp$. That is, $\ddot{\alpha}(t) = (x_1,x_2,x_3,kx_1,kx_2,0)$. Thus, we need component functions $x_1(t),x_2(t),x_3(t)$ satisfying
+\begin{align}
+	\dfrac{d^2}{dt^2}x_1(t) = & kx_1(t) \\
+	\dfrac{d^2}{dt^2}x_2(t) = & kx_2(t) \\
+	\dfrac{d^2}{dt^2}x_3(t) = & 0
+\end{align}
+
+We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \sin t$. Thus, the parametrised curve $\alpha : I \to \mathbb{R}^3$ defined by $\alpha(t) = (\cos t, \sin t, t)$ is a geodesic in $C$ since $\ddot{\alpha}(t) = (\cos t,\sin t, t, -\cos t,-\sin t,0)$.
+
+\subsection{Maximal Geodesic}
+	The conditions $\alpha(0) = p$, $\dot{\alpha}(0) = \mathbf{v}$ says that parametric curves are unique except for linear transformations on the parameter. That is, Suppose there exists another parametrised curve $\beta$ in $S$ through $p$ with initial velocity $\mathbf{v}$ with $\beta(t_0) = p$ and $\dot{\beta}(t_0) = \mathbf{v}$. Then, there exists a real number $\kappa$ such that $\alpha(t) = \beta(\kappa t+t_0)$.\\
+	
+	In other words, both $\alpha$ and $\beta$ passes through the same points and the vectors assigned at each point is the same. And the difference between such two parametrised curves doesn't have any impact on the properties we are interested in.\\
+
+	The condition, {\color{blue}if $\beta : \tilde{I} \to S$ is any other geodesic in $S$ with $\beta(0) = p$ and $\dot{\beta}(0) = \mathbf{v}$, then $\tilde{I} \subset I$ and $\beta(t) = \alpha(t),\ \forall t \in \tilde{I}$.} is another way of saying that $\alpha$ is maximal and uniquely defined.\\
+
+	In essence, the following theorem says that if you are standing anywhere on an $n$-surface $S$, say $p$. You can move on that surface with any initial velocity, say $\mathbf{v}$. Keep in mind that the velocity allows you to choose both direction and speed.
+
+\begin{theorem}[maximal geodesic]
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p \in S$ and $\mathbf{v} \in S_p$. Then there exists a unique, maximal geodesic $\alpha : I \to S$ in $S$ through $p$ with initial velocity $\mathbf{v}$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
 %\chapter{Parallel Transport}
 \section{Parallel Transport}
 
