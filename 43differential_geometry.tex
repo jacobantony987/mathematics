@@ -503,17 +503,109 @@ We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \
 
 	The condition, {\color{blue}if $\beta : \tilde{I} \to S$ is any other geodesic in $S$ with $\beta(0) = p$ and $\dot{\beta}(0) = \mathbf{v}$, then $\tilde{I} \subset I$ and $\beta(t) = \alpha(t),\ \forall t \in \tilde{I}$.} is another way of saying that $\alpha$ is maximal and uniquely defined.\\
 
-	In essence, the following theorem says that if you are standing anywhere on an $n$-surface $S$, say $p$. You can move on that surface with any initial velocity, say $\mathbf{v}$. Keep in mind that the velocity allows you to choose both direction and speed.
+	In essence, the following theorem says that if you are standing on an $n$-surface $S$ at a point, say $p$. You can move on that surface in straightline from $p$, with any initial velocity, $\mathbf{v}$. Note that the velocity allows you to choose both direction and speed.
 
 \begin{theorem}[maximal geodesic]
 	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p \in S$ and $\mathbf{v} \in S_p$. Then there exists a unique, maximal geodesic $\alpha : I \to S$ in $S$ through $p$ with initial velocity $\mathbf{v}$.
 \end{theorem}
 \begin{proof}
+	Let $S$ be an $n$-surface, then there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$. And every points on that surface is regular with respect to $f$. That is, $\nabla f(p) \ne 0,\ \forall p \in S$. WLOG assume that every points in $U$ is regular.\\
+	
+	Define $N = \frac{\nabla f}{\|\nabla f\|}$. A parametrised curve $\alpha$ in $S$ is a geodesic if it satisfies $\ddot{\alpha}(t) \in S_{\alpha(t)}^\perp$. Therefore,
+	\begin{equation}
+		\ddot{\alpha}(t) = g(t)\mathbf{N}(\alpha(t))
+		\label{eq:acceleration}
+	\end{equation}
 
+	Why don't we write $\ddot{\boldsymbol{\alpha}}(t) = \kappa \mathbf{N}(\alpha(t))$ ? The vectors $\kappa \mathbf{N}(\alpha(t))$ are orthogonal to $S$. However, the coverse is not true. For a geodesic it is not necessary that $\ddot{\boldsymbol{\alpha}}(t) =  \kappa \mathbf{N}(\alpha(t))$. The acceleration could be any vector in $S_{\alpha(t)}^\perp$. Since $S_{\alpha(t)}^\perp$ is spanned by $\mathbf{N}(\alpha(t))$, at each point on $\alpha(t)$ the scalars may be different. We overcome this with the help of a real valued function $g : I \to \mathbb{R}$ along $\alpha$.\\
+
+	We have $\ddot{\boldsymbol{\alpha}} = g(\mathbf{N}\circ \alpha)$. Thus $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N}\circ\alpha) = g \| \mathbf{N}\circ \alpha \|^2 = g$ since orientation $\mathbf{N}$ assigns directions (vectors of unit length) to each point of that surface.\\
+
+	$\left[\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha)\right]' = \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) + \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)}$	since $(\mathbf{X} \cdot \mathbf{Y})' = \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}$.
+
+	Thus, $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = \left[ \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right]' - \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)} = -\dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)}$ since $\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = 0$ as $\dot{\boldsymbol{\alpha}} \in S_{\alpha(t)}$, $\mathbf{N} \circ \alpha \in S_{\alpha(t)}^\perp$ and $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$. That is, velocity vectors always belongs to the tangent space and $(\mathbf{N} \circ \alpha)$ is an orientation which is orthogonal to all the tangent vectors.\\
+
+	Substituting the value of $g$ in equation(\ref{eq:acceleration}). We get 
+	\begin{equation}
+		\ddot{\boldsymbol{\alpha}} + \left[ \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)}\right] (\mathbf{N} \circ \alpha) = \mathbf{0}
+		\label{eq:substitute}
+	\end{equation}
+
+	We have,
+	\begin{equation}
+		\dfrac{dN_1}{dt} = \dfrac{\partial N_1}{\partial x_1} \dfrac{dx_1}{dt} +  \dfrac{\partial N_1}{\partial x_2} \dfrac{dx_2}{dt} + \cdots + \dfrac{\partial N_1}{\partial x_{n+1}} \dfrac{dx_{n+1}}{dt} = \sum_{k=1}^{n+1} \dfrac{\partial N_1}{\partial x_k} \dfrac{dx_k}{dt}
+	\end{equation}
+
+	Thus,
+	\begin{equation}
+		\dot{(\mathbf{N} \circ \alpha)} = \left( \alpha(t), \sum_{k=1}^{n+1} \dfrac{\partial N_1}{\partial x_k} \dfrac{dx_k}{dt}, \sum_{k=1}^{n+1} \dfrac{\partial N_2}{\partial x_k} \dfrac{dx_k}{dt}, \cdots, \sum_{k=1}^{n+1} \dfrac{\partial N_{n+1}}{\partial x_k} \dfrac{dx_k}{dt} \right)
+	\end{equation}
+
+	Equating the components on either sides of the equation(\ref{eq:substitute}), we get a system of $n+1$ second order differential equations,
+	\begin{equation}
+		\dfrac{d^2}{dt^2}x_k(t) + \left[ \sum_{j,k=1}^{n+1} \dfrac{\partial N_j}{\partial x_k} \dfrac{dx_k}{dt}\dfrac{dx_j}{dt}\right] N_1 \circ \alpha = 0
+	\end{equation}
+
+	By the existence theorem for solution of such system of second order differential equations, there exists an open interval $I$ containing $0$ and $(n+1)$ functions $x_k : I \to \mathbb{R}$ satisfying the above system. Then $\beta : I \to S$ defined by $\beta(t) = \left( x_1(t),x_2(t),\cdots,x_{n+1}(t) \right)$\\
+
+	By the uniqueness theorem for solution of such system of second order differential equations, if there exists another open interval $\tilde{I}$ containing $0$ and $\beta_1 : I_1 \to U$. Then $\beta(t) = \beta(t)$ for every $t \in I \cap I_1$.\\
+
+	Let $\beta_1,\beta_2,\cdots$ be geodesics through $p$ with inintial velocity $\mathbf{v}$ with parameter domain $I_1,I_2,\cdots$. Let $I = \cup_k I_k$ and $\alpha : I \to U$ defined by $\alpha(t) = \beta_k(t),\ t \in I_k$. Clearly, $\alpha$ is unique and maximal.\\
+
+	Now it is enough to prove that $\alpha$ is parametrised curve in $S$. We have $(f \circ \alpha)'(t) = \nabla f(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = \| \nabla f(\alpha(t)) \| \mathbf{N}(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = 0$ since $\dot{\boldsymbol{\alpha}} \perp \mathbf{N} \circ \alpha$. Therefore, $f \circ \alpha : I \to \mathbf{R}$ is constant. Also, $f(\alpha(0)) = f(p) = c$ since $p \in S$ and $S = f^{-1}(c)$. Thus, $f \circ \alpha = c \implies \alpha \subset f^{-1}(c)$. Thus, $\alpha$ is a parametrised curve in $n$-surface $S$.
 \end{proof}
+
+\subsection{Properites of Geodesics}
+\begin{enumerate}
+	\item $\dot{\boldsymbol{\alpha}} \perp \ddot{\boldsymbol{\alpha}}$ since $\dot{\boldsymbol{\alpha}} \in S_{\alpha(t)}$ and $\ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$\\
+		In other words, the acceleration is orthogonal to the velocity vector.
+	\item Constant Speed, $\| \mathbf{v} \|$\\
+		We have, $(\dot{\boldsymbol{\alpha}} \cdot \dot{\boldsymbol{\alpha}})' =  \ddot{\boldsymbol{\alpha}} \cdot \dot{\boldsymbol{\alpha}} + \dot{\boldsymbol{\alpha}} \cdot \ddot{\boldsymbol{\alpha}} = 2\dot{\boldsymbol{\alpha}} \cdot \ddot{\boldsymbol{\alpha}} = 0$\\
+		Clearly, $\dfrac{d}{dt} \|\dot{\boldsymbol{\alpha}} \|^2 =  \left( \dot{\boldsymbol{\alpha}} \cdot \dot{\boldsymbol{\alpha}} \right)' = 0$. Therefore, $\alpha$ has constant speed. \\
+
+\end{enumerate} 
+
+Remark :  Geodesics in cylinder over $S^1$ are horizontal circles, vertical lines, helix or a constant. 
+%If $\alpha(t) = (\cos (at+b), ct+d )$, then $\ddot{\boldsymbol{\alpha}}(t) = (\cos (at+b), ct+d, -a^2\cos (at+b),0)$ is horizontal circle. If $\alpha(t) = (at+b, \cos (ct+d))$, then $\ddot{\boldsymbol{\alpha}} = (at+b,\cos (ct+d),0,-c^2\cos (ct+d))$ is a vertical line. 
+
 %\chapter{Parallel Transport}
 \section{Parallel Transport}
+\begin{description}
+	\item[covariant derivative] Covariant derivative of $\mathbf{X}$ is the vector field $\mathbf{X}'$ tangent to $S$ along $\alpha$ given by $\mathbf{X}'(t) = \dot{\mathbf{X}}(t) - [\dot{\mathbf{X}}(t) \cdot \mathbf{N}(\alpha(t))]\mathbf{N}(\alpha(t))$. And it is independent of the choie of the orientation.
+	\item[covariant acceleration] Let $\alpha : I \to S$ be a parametrised curve in $S$. Then covariant acceleration of $\alpha$ is $(\dot{\boldsymbol{\alpha}})' = \ddot{\boldsymbol{\alpha}} - \left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha)$ along $\alpha$.
+\end{description}
+\subsection{Properties of Covariant Derivative}
+Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha$. Then, $\mathbf{X} \cdot \mathbf{N} \circ \alpha = \mathbf{0}$.
+\begin{enumerate}
+	\item $(\mathbf{X}+\mathbf{Y})' = \mathbf{X}'+\mathbf{Y}'$\\
+	\begin{align*}
+		(\mathbf{X} + \mathbf{Y})' = & \dot{(\mathbf{X}+\mathbf{Y})} - [\dot{(\mathbf{X}+\mathbf{Y})} \cdot (\mathbf{N} \circ \alpha)] \mathbf{N} \circ \alpha \\
+		= & (\dot{\mathbf{X}} + \dot{\mathbf{Y}}) - [(\dot{\mathbf{X}} + \dot{\mathbf{Y}}) \cdot (\mathbf{N} \circ \alpha)] \mathbf{N} \circ \alpha \\
+		= & \left( \dot{\mathbf{X}} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right) + \left( \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right)\\
+		= & \mathbf{X}' + \mathbf{Y}'
+	\end{align*}
+	\item $(f\mathbf{X})' = f'\mathbf{X} + f\mathbf{X}'$\\
+	\begin{align*}
+		(f\mathbf{X})' = & \dot{(f\mathbf{X})} - \left[ \dot{(f\mathbf{X})} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
+		= & \left( f'\mathbf{X} + f\dot{\mathbf{X}} \right) - \left[ (f'\mathbf{X} + f\dot{\mathbf{X}}) \cdot (\mathbf{N}\circ\alpha) \right] \mathbf{N} \circ \alpha \\
+		= & f'\left( \mathbf{X}-\left[ \mathbf{X} \cdot \mathbf{N} \circ \alpha \right] \mathbf{N} \circ \alpha \right) + f\left( \dot{\mathbf{X}} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] \mathbf{N} \circ \alpha \right) \\
+		= & f'\mathbf{X} + f \dot{\mathbf{X}} \text{ since } \mathbf{X} \cdot \mathbf{N} \circ \alpha = \mathbf{0}
+	\end{align*}
+	\item $(\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}'$\\
+	\begin{align*}
+		(\mathbf{X} \cdot \mathbf{Y})' = & \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}\\
+		= & \dot{\mathbf{X}} \cdot \mathbf{Y} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right]\mathbf{0} + \mathbf{X} \cdot \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right]\mathbf{0} \\
+		\intertext{Substituting $\mathbf{X} \cdot (\mathbf{N} \circ \alpha ) = \mathbf{0}$ and $\mathbf{Y} \cdot (\mathbf{N} \circ \alpha) = \mathbf{0}$, we get}
+		= & \dot{\mathbf{X}} \cdot \mathbf{Y} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] \left[ (\mathbf{N} \circ \alpha) \cdot \mathbf{Y} \right] + \mathbf{X} \cdot \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right] \left[ \mathbf{X} \cdot (\mathbf{N} \circ \alpha) \right] \\
+		= & \left( \dot{\mathbf{X}} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right) \cdot \mathbf{Y} + \mathbf{X} \cdot \left( \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right](\mathbf{N} \circ \alpha) \right) \\
+		= & \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}'
+	\end{align*}
+\end{enumerate}
 
+\subsection{Covariant Derivative and Geodesics}
+\begin{itemize}
+	\item Parametrised curve $\alpha$ is geodesic in $S$ if and only if covariant acceleration $(\dot{\boldsymbol{\alpha}})'$ is zero along $\alpha$ since $\ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$ and  $\left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \ddot{\boldsymbol{\alpha}}$.
+\end{itemize}
 %\chapter{The Weingarten Map}
 \section{The Weingarten Map}
 
