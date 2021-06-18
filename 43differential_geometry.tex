@@ -602,10 +602,75 @@ Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha
 	\end{align*}
 \end{enumerate}
 
-\subsection{Covariant Derivative and Geodesics}
-\begin{itemize}
-	\item Parametrised curve $\alpha$ is geodesic in $S$ if and only if covariant acceleration $(\dot{\boldsymbol{\alpha}})'$ is zero along $\alpha$ since $\ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$ and  $\left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \ddot{\boldsymbol{\alpha}}$.
-\end{itemize}
+
+\subsection{Parallelism}
+	We have seen earlier that, lines that look straight on a surface (geodesics) is not necessarily straight from outside. The same way, two vectors that look \textit{parallel on a surface} (Levi-Civita parallel) is not necessarily parallel.
+\begin{description}
+	\item[Euclidean parallel] $(p,v)$ and $(q,w)$ are Euclidean parallel if $v = w$.\\
+		Let $\alpha : I \to \mathbb{R}^{n+1}$ be a parametrised curve. A vector field $\mathbf{X}$ is Euclidean parallel along $\alpha$ if the associated function $X$ is constant say, $v$.
+		Then, $\dot{\mathbf{X}} = \left( \alpha(t),\dfrac{d}{dt}X(t) \right) = \left( \alpha(t), \dfrac{dv}{dt} \right) = \left( \alpha(t), 0 \right) = \mathbf{0}$
+	\item[Levi-Civita parallel] A vector field $\mathbf{X}$ tangent to the surface $S$ along $\alpha$ is (Levi-Civita) parallel if $\mathbf{X}$ is a constant vector field along $\alpha$ with respect to the surface $S$. That is, $\mathbf{X}' = \mathbf{0}$.
+\end{description}
+
+\subsubsection{Properties of Levi-Civita parallel}
+Applying the properties of covariant derivative, we get
+\begin{enumerate}
+	\item If $\mathbf{X}$ is parallel along $\alpha$, then $\mathbf{X}$ has constant length. That is, $\|\mathbf{X}\|' = 0$.
+		$$\dfrac{d}{dt} \|\mathbf{X}\|^2 = \dfrac{d}{dt} \mathbf{X} \cdot \mathbf{X} = 2 \mathbf{X}' \cdot \mathbf{X} = 2(\mathbf{0} \cdot \mathbf{X}) = 0 $$ 
+	\item If $\mathbf{X},\mathbf{Y}$ are parallel along $\alpha$, then $\mathbf{X} \cdot \mathbf{Y}$  is constant along $\alpha$.
+		$$ (\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}' = \mathbf{0} \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{0} = 0$$
+	\item If $\mathbf{X},\mathbf{Y}$ are parallel along $\alpha$, then angle between them is constant along $\alpha$.
+		$$\theta = \cos^{-1} \frac{\mathbf{X} \cdot \mathbf{Y}}{\|\mathbf{X}\|\ \|\mathbf{Y}\|} = \cos^{-1} \kappa, \text{ since } \|\mathbf{X} \|, \| \mathbf{Y}\|, \mathbf{X} \cdot \mathbf{Y} \text{ are constant} $$
+	\item If $\mathbf{X}, \mathbf{Y}$ are parallel along $\alpha$, then $\mathbf{X}+\mathbf{Y}, c\mathbf{X}$ are parallel along $\alpha$.
+		$$(\mathbf{X}+\mathbf{Y})' = \mathbf{X}' + \mathbf{Y}' = \mathbf{0} + \mathbf{0} = \mathbf{0}$$
+		$$(c\mathbf{X})' = c\mathbf{X}' = c\mathbf{0} = \mathbf{0} $$
+	\item The velocity vector field along a parametrised curve $\alpha$ in $S$ is parallel if and only if $\alpha$ is a geodesic.
+		$$(\dot{\boldsymbol{\alpha}})' = \ddot{\boldsymbol{\alpha}} - \left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \mathbf{0} \iff \ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$$
+
+		Parametrised curve $\alpha$ is geodesic in $S$ if and only if covariant acceleration $(\dot{\boldsymbol{\alpha}})'$ is zero along $\alpha$ since $\ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$ and  $\left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \ddot{\boldsymbol{\alpha}}$.
+\end{enumerate}
+
+	We have, the notation $f'$ and $\mathbf{X}'$. You should keep a note of the fundamental differences. $f'$ refers to the derivative of a function along $\alpha$ with respect to the parameter $t$. And $\mathbf{X}'$ refers to the covariant derivative of a vector field tangent to $S$ along $\alpha$. You should always check whether it is real value OR vector at a point to understand what they really mean.\\
+	
+	For example, $\|\mathbf{X}\|'$ is a derivative of a real valued function (derivative of the length of the vectors assigned at different points of a parametrised curve). And it has nothing to do with the covariant derivative $\mathbf{X}'$.
+
+\begin{theorem}
+	Let $S$ be an $n$-surface and $\alpha : I \to S$ be a parametrised curve in $S$. Let $t_0 \in I$ and $\mathbf{v} \in S_{\alpha(t_0)}$. Then there exists a unique vector field $\mathbf{V}$ tangent to $S$ along $\alpha$ which is parallel and has $\mathbf{V}(t_0) = \mathbf{v}$.
+\end{theorem}
+\begin{proof}
+	to be updated
+\end{proof}
+
+\begin{corollary}
+	Let $S$ be a $2$-surface in $\mathbb{R}^3$ and let $\alpha : I \to S$ be a parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}} \ne \mathbf{0}$. Then the vector field $\mathbf{X}$ tangent to $S$ along $\alpha$ is parallel along $\alpha$ if and only if both $\|\mathbf{X}\|$ and the angle between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ are constant along $\alpha$.
+\end{corollary}
+\begin{proof}
+	to be updated
+\end{proof}
+
+\subsection{Transporting tangent vectors using parallelism}
+	Suppose you are standing on an $n$-surface with you hand stretched out as in a pledge. Then you can move on that surface along any smooth road (without sharp turns, bumps or potholes) from one point to another keeping your hand in the same position. This is what a parallel transport does to tangent vectors. And we can calculate the direction you will be pointing, at each point of your journey.
+
+\begin{definition}[Parallel transport]
+	Let $S$ be an $n$-surface. Let $p,q \in S$, and let $\alpha : [a,b] \to S$ be a (smooth) parametrised curve in $S$ from $p$ to $q$. \textbf{Parallel transport} is the function $P_\alpha : S_p \to S_q$ defined by $P_\alpha(\mathbf{v}) = \mathbf{V}(b)$ where $\mathbf{v} \in S_p$ and $\mathbf{V}$ is the unique vector field tangent to $S$ along $\alpha$ which is parallel and $\mathbf{V}(a) = \mathbf{v}$.
+\end{definition}
+
+The following theorem says that, \textit{Parallel transports along piecewise smooth parametrised curves are vector space isomorphisms preserving dot products.}
+
+\begin{theorem}
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p,q \in S$ and let $\alpha$ be a piecewise smooth parametrised curve from $p$ to $q$. Then parallel transport $P_\alpha : S_p \to S_q$ along $\alpha$ is a vector space isomorphism which preserves dot products.
+\end{theorem}
+\begin{proof}
+	to be updated\\
+	To prove that $P_\alpha$ is a vector space isomorphism preserving dot products, we need to prove that following
+\begin{enumerate}
+	\item $P_\alpha$ is linear, since vector space isomorphism preserves linearity\\
+		$P_\alpha(\mathbf{v}+\mathbf{w}) = P_\alpha(\mathbf{v}) + P_\alpha(\mathbf{w})$ and $P_\alpha(c\mathbf{v}) = cP_\alpha(\mathbf{v})$
+	\item $P_\alpha$ is bijective, since isomorphism are bijective
+	\item $P_\alpha$ preserves dot products.\\
+		$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{v} \cdot \mathbf{w},\ \forall \mathbf{v},\mathbf{w} \in S_p$
+\end{enumerate}
+\end{proof}
 %\chapter{The Weingarten Map}
 \section{The Weingarten Map}
 
