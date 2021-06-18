@@ -543,7 +543,7 @@ We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \
 
 	Equating the components on either sides of the equation(\ref{eq:substitute}), we get a system of $n+1$ second order differential equations,
 	\begin{equation}
-		\dfrac{d^2}{dt^2}x_k(t) + \left[ \sum_{j,k=1}^{n+1} \dfrac{\partial N_j}{\partial x_k} \dfrac{dx_k}{dt}\dfrac{dx_j}{dt}\right] N_1 \circ \alpha = 0
+		\dfrac{d^2}{dt^2}x_{\color{red}i}(t) + \left[ \sum_{j,k=1}^{n+1} \dfrac{\partial N_j}{\partial x_k} \dfrac{dx_k}{dt}\dfrac{dx_j}{dt}\right] N_i \circ \alpha = 0
 	\end{equation}
 
 	By the existence theorem for solution of such system of second order differential equations, there exists an open interval $I$ containing $0$ and $(n+1)$ functions $x_k : I \to \mathbb{R}$ satisfying the above system. Then $\beta : I \to S$ defined by $\beta(t) = \left( x_1(t),x_2(t),\cdots,x_{n+1}(t) \right)$\\
@@ -638,14 +638,51 @@ Applying the properties of covariant derivative, we get
 	Let $S$ be an $n$-surface and $\alpha : I \to S$ be a parametrised curve in $S$. Let $t_0 \in I$ and $\mathbf{v} \in S_{\alpha(t_0)}$. Then there exists a unique vector field $\mathbf{V}$ tangent to $S$ along $\alpha$ which is parallel and has $\mathbf{V}(t_0) = \mathbf{v}$.
 \end{theorem}
 \begin{proof}
-	to be updated
+	Let $S$ be an $n$-surface with orientation $\mathbf{N}$. Suppose $\mathbf{V}$ is a vector field tangent to $S$ along $\alpha$ and is parallel. That is,$\mathbf{V}(t) \in S_{\alpha(t)}$ and $\mathbf{V}' = \mathbf{0}$.
+\begin{align*}
+	\mathbf{V}' = & \dot{\mathbf{V}} - \left[ \dot{\mathbf{V}} \cdot (\mathbf{N} \circ \alpha \right] (\mathbf{N} \circ \alpha) \\
+	= & \dot{\mathbf{V}} - \left[ \left(\mathbf{V} \cdot (\mathbf{N} \circ \alpha) \right)' - \mathbf{V} \cdot \dot{(\mathbf{N} \circ \alpha)} \right] (\mathbf{N} \circ \alpha) \\
+	= & \dot{\mathbf{V}} + \left[ \mathbf{V} \cdot \dot{(\mathbf{N} \circ \alpha)} \right] (\mathbf{N} \circ \alpha) \text{ since } \mathbf{V} \perp \mathbf{N}
+\end{align*}
+
+\begin{equation}
+	\dot{\mathbf{V}} + \left[ \mathbf{V} \cdot \dot{(\mathbf{N} \circ \alpha)} \right] (\mathbf{N} \circ \alpha) = \mathbf{0}
+	\label{eq:parallelVectorField}
+\end{equation}
+
+	Equating the components on either sides of the equation(\ref{eq:parallelVectorField}), we get the following system of $n+1$ first order differential equations,
+\begin{equation}
+	\dfrac{dV_i}{dt} + \sum_{j = 1}^{n+1} \left[ V_j(\mathbf{N}_j \circ \alpha)' \right](\mathbf{N}_i \circ \alpha) = 0,\ \forall i
+\end{equation}
+	
+	By the existence and uniqueness theorem for first order differential equations, there exists $V_1(t), V_2(t), \cdots, V_{n+1}(t)$ satisfying the sytem of equations with initial condition $\mathbf{V}(t_0) = \left( \alpha(t_0), V_1(t_0), V_2(t_0),\cdots,V_{n+1}(t_0) \right) = \mathbf{v}$.\\
+
+	It remains to prove that $\mathbf{V}$ is tangent to $S$ along $\alpha$. By taking dot product with $\mathbf{N} \circ \alpha$ on either sides of equation(\ref{eq:parallelVectorField}), we get
+\begin{equation}
+	(\mathbf{V} \cdot \mathbf{N} \circ \alpha)'= \dot{\mathbf{V}} \cdot \mathbf{N} \circ \alpha + \mathbf{V} \cdot \dot{(\mathbf{N} \circ \alpha)} = \mathbf{0}
+\end{equation}
+
+	Thus, $\mathbf{V} \cdot \mathbf{N} \circ \alpha = \kappa$ is constant along $\alpha$. However, $\mathbf{V}(t_0) \cdot \mathbf{N} \circ \alpha(t_0) = \mathbf{v} \cdot N(\alpha(t_0)) = 0$ since $\mathbf{v} \in S_{\alpha(t)}$ is a tangent vector and $\mathbf{v} \perp \mathbf{N}$. Therefore, $\mathbf{V} \cdot \mathbf{N} \circ \alpha = 0$. And since $\mathbf{V}$ satisfies equation(\ref{eq:parallelVectorField}), this vector field is tangent to $S$ along $\alpha$ and is parallel.
 \end{proof}
+
+%	We claim that this \textbf{vector field $\mathbf{V}$ is well-defined on $I$.} \\
+%	Suppose the maximal interval on which $\mathbf{V}$ is defined in $\tilde{I} \subset I$, then the end points of $\tilde{I}$ are in $I$. Let $\{t_k\}$ be a sequence converging to an end point of $\tilde{I}$ say $b$. Then the sequence $\{V(t_k)\}$ is a bounded sequence and has a convergent subsequence as $I$ is compact. \dots to be updated
 
 \begin{corollary}
 	Let $S$ be a $2$-surface in $\mathbb{R}^3$ and let $\alpha : I \to S$ be a parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}} \ne \mathbf{0}$. Then the vector field $\mathbf{X}$ tangent to $S$ along $\alpha$ is parallel along $\alpha$ if and only if both $\|\mathbf{X}\|$ and the angle between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ are constant along $\alpha$.
 \end{corollary}
 \begin{proof}
-	to be updated
+	\textbf{Sufficient Part : } Let $\mathbf{X}$ be a tangent vector field tangent to $S$ along $\alpha$. And $\alpha$ is a geodesic in $S$. Then $\mathbf{X}$ is parallel along $\alpha$. Also, we have $\dot{\boldsymbol{\alpha}}$ is also parallel along $\alpha$ since $(\dot{\boldsymbol{\alpha}})' = \mathbf{0}$. Thus $\|\mathbf{X}\|$ is constant and the angle between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ is constant by properties Levi-Civita parallelism.\\
+
+	\textbf{Necessary Part : } Let $\mathbf{X}$ be a vector field tangent to $S$ along $\alpha$ and $\alpha$ is a geodesic in $S$. Then $\|\dot{\boldsymbol{\alpha}}\|$ is constant. Suppose $\|\mathbf{X}\|$ and the angle $\theta$ between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ are constant. Since $S$ is a $2$-surface, the tangent space $S_{\alpha(t)}$ is spanned by two tangent vectors $\mathbf{v}$ and $\dot{\boldsymbol{\alpha}}(t)$ such that $\mathbf{v} \perp \dot{\boldsymbol{\alpha}}(t)$ and $\|\mathbf{v}\| = 1$.\\
+	
+	Let $\mathbf{V}$ be the unique vector field tangent to $S$ along $\alpha$ which is parallel, $\mathbf{V} \cdot \dot{\boldsymbol{\alpha}} = 0$ and $\|V\| = 1$. Then, any vector field $\mathbf{X}$ tangent to $S$ along $\alpha$ can be written as linear combination of $\mathbf{V}$ and $\dot{\boldsymbol{\alpha}}$. That is, $\mathbf{X} = f\dot{\boldsymbol{\alpha}} + g\mathbf{V}$
+
+	$$ \cos \theta = \frac{\mathbf{X} \cdot \dot{\boldsymbol{\alpha}}}{\| \mathbf{X}\|\ \|\dot{\boldsymbol{\alpha}}\|} = \frac{(f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) \cdot \dot{\boldsymbol{\alpha}}}{\|\mathbf{X}\|\ \|\dot{\boldsymbol{\alpha}}\|} = \frac{f \|\dot{\boldsymbol{\alpha}}\|}{\|\mathbf{X}\|} \implies f \text{ is constant}$$ 
+
+	$$\|\mathbf{X}\|^2 = (f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) \cdot (f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) = f^2\|\dot{\boldsymbol{\alpha}} \| + g^2 \implies g \text{ is constant } $$
+
+	Since $\mathbf{V}$ and $\dot{\boldsymbol{\alpha}}$ are parallel along $\alpha$, their linear combination $\mathbf{X}$ is also parallel along $\alpha$ by linearity property (\#4) of Levi-Civita parallelism.
 \end{proof}
 
 \subsection{Transporting tangent vectors using parallelism}
@@ -661,14 +698,22 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p,q \in S$ and let $\alpha$ be a piecewise smooth parametrised curve from $p$ to $q$. Then parallel transport $P_\alpha : S_p \to S_q$ along $\alpha$ is a vector space isomorphism which preserves dot products.
 \end{theorem}
 \begin{proof}
-	to be updated\\
-	To prove that $P_\alpha$ is a vector space isomorphism preserving dot products, we need to prove that following
+	Let $S$ be an $n$-surface and $p,q \in S$. Let $\alpha : [a,b] \to S$ be a piecewise smooth parametrised curve from $p$ to $q$. Let $P_\alpha : S_p \to S_q$ be a parallel transport and $\mathbf{v},\mathbf{w} \in S_p$. Clearly, $\mathbf{v}+\mathbf{w}, c\mathbf{v} \in S_p$\\
+
+	To prove that $P_\alpha$ is a vector space isomorphism preserving dot products, we need to prove the following
 \begin{enumerate}
-	\item $P_\alpha$ is linear, since vector space isomorphism preserves linearity\\
+	\item $P_\alpha$ is linear, 
 		$P_\alpha(\mathbf{v}+\mathbf{w}) = P_\alpha(\mathbf{v}) + P_\alpha(\mathbf{w})$ and $P_\alpha(c\mathbf{v}) = cP_\alpha(\mathbf{v})$
-	\item $P_\alpha$ is bijective, since isomorphism are bijective
-	\item $P_\alpha$ preserves dot products.\\
-		$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{v} \cdot \mathbf{w},\ \forall \mathbf{v},\mathbf{w} \in S_p$
+		$$P_\alpha(\mathbf{v}+\mathbf{w}) = \left( \mathbf{V}+\mathbf{W} \right)(b) = \mathbf{V}(b) + \mathbf{W}(b) = P_\alpha(\mathbf{v}) + P_\alpha(\mathbf{w})$$
+		$$P_\alpha(c\mathbf{v}) = \left( c\mathbf{V} \right)(b) = c\mathbf{V}(b) = cP_\alpha(\mathbf{v})$$
+	\item $P_\alpha$ is bijective
+		$$\| P_\alpha(\mathbf{v}) \|= \|\mathbf{V}(b)\| = 0 \implies \| \mathbf{v} \| = 0 \implies \ker(P_\alpha) = \{ \mathbf{0} \}$$
+	Thus $P_\alpha$ is a linear map from $n$-dimensional vector space $S_p$ into another $n$-dimensional vector space $S_q$. Thus, $P_\alpha$ is onto.	
+	\item $P_\alpha$ preserves dot products, 
+		$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{v} \cdot \mathbf{w},\ \forall \mathbf{v},\mathbf{w} \in S_p$\\
+		We have, $\mathbf{V}$ and $\mathbf{W}$ are parallel along $\alpha$. Then $\mathbf{V} \cdot \mathbf{W}$ is constant.\\
+		That is, $\mathbf{V}(t) \cdot \mathbf{W}(t) = \kappa$ for every $t \in [a,b]$.
+		$$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{V}(b) \cdot \mathbf{W}(b) = \kappa =  \mathbf{V}(a) \cdot \mathbf{W}(a) = \mathbf{v} \cdot \mathbf{w} $$
 \end{enumerate}
 \end{proof}
 %\chapter{The Weingarten Map}
