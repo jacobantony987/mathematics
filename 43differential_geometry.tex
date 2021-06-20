@@ -594,7 +594,7 @@ Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha
 	\item $(\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}'$\\
 	\begin{align*}
 		(\mathbf{X} \cdot \mathbf{Y})' = & \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}\\
-		= & \dot{\mathbf{X}} \cdot \mathbf{Y} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right]\mathbf{0} + \mathbf{X} \cdot \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right]\mathbf{0} \\
+		= & \dot{\mathbf{X}} \cdot \mathbf{Y} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right]\mathbf{0} + \mathbf{X} \cdot \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right]\mathbf{0}
 		\intertext{Substituting $\mathbf{X} \cdot (\mathbf{N} \circ \alpha ) = \mathbf{0}$ and $\mathbf{Y} \cdot (\mathbf{N} \circ \alpha) = \mathbf{0}$, we get}
 		= & \dot{\mathbf{X}} \cdot \mathbf{Y} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] \left[ (\mathbf{N} \circ \alpha) \cdot \mathbf{Y} \right] + \mathbf{X} \cdot \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right] \left[ \mathbf{X} \cdot (\mathbf{N} \circ \alpha) \right] \\
 		= & \left( \dot{\mathbf{X}} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right) \cdot \mathbf{Y} + \mathbf{X} \cdot \left( \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right](\mathbf{N} \circ \alpha) \right) \\
@@ -716,8 +716,141 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 		$$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{V}(b) \cdot \mathbf{W}(b) = \kappa =  \mathbf{V}(a) \cdot \mathbf{W}(a) = \mathbf{v} \cdot \mathbf{w} $$
 \end{enumerate}
 \end{proof}
+
 %\chapter{The Weingarten Map}
 \section{The Weingarten Map}
+	The Weingarten map $L_p$ gives information about the shape of a surface $S$ at a point $p \in S$.
+\begin{description}
+	\item[$\nabla_v f$] is the derivative of a function $f : U \to \mathbb{R}$ with respect to a vector tangent to $S$, say $\mathbf{v} = (p,v)$ where $U$ is an open subset of $\mathbb{R}^{n+1}$, $p \in U$ and $\alpha : I \to S$ is any parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}}(t_0) = \mathbf{v}$ and $\alpha(t_0) = p$. And $\nabla_v f$ is given by,
+	$$ \nabla_v f = (f \circ \alpha)'(t_0) = \nabla f(\alpha(t_0)) \cdot \dot{\boldsymbol{\alpha}}(t_0) = \nabla f(p) \cdot \mathbf{v}$$
+	For example : if $f(x_1,x_2) = x_1^2 - x_2^2$ and $\mathbf{v} = (1,1,\cos \theta, \sin \theta)$ Then, $p = (1,1)$, $v = (\cos \theta, \sin \theta)$ and $\nabla f = (x_1,x_2,2x_1,-2x_2)$. Therefore, $\nabla_v f = \nabla f(p) \cdot \mathbf{v} = (1,1,2,-2) \cdot (1,1,\cos \theta, \sin \theta) = 2\cos \theta -2 \sin \theta $.\\
+
+	Note : $\nabla_v f$ is independent of the choice of $\alpha$.
+
+\item[$\nabla_v \mathbf{X}$] is the derivative of a smooth vector field $\mathbf{X}$ on open subset $U$ of $\mathbb{R}^{n+1}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$. And $\nabla_v \mathbf{X}$ is given by
+	$$\nabla_v \mathbf{X} = \left(\alpha(t),\nabla_v X_1, \nabla_v X_2,\cdots, \nabla_v X_{n+1} \right) $$
+	For example, if $\mathbf{X}(x_1,x_2) = (x_1,x_2,x_1x_2,x_2^2)$ and $\mathbf{v} = (1,0,0,1)$. Then $p = (1,0)$ and the component functions of the associated function $X$ are $X_1(x_1,x_2) = x_1x_2$ and $X_2(x_1,x_2) = x_2^2$.\\
+		
+	We have, $\nabla X_1(x_1,x_2) = (x_1,x_2,x_2,x_1)$, $\nabla X_2(x_1,x_2) = (x_1,x_2,0,2x_2)$. Thus, $\nabla_v X_1 = \nabla X_1(1,0) \cdot \mathbf{v} = (1,0,0,1) \cdot (1,0,0,1) = 1$ and\\ $\nabla_v X_2 = \nabla X_2(1,0) \cdot \mathbf{v} = (1,0,0,0) \cdot (1,0,0,1) = 0$. Therefore,\\ $\nabla_v \mathbf{X} = \left( 1,0,\nabla_v X_1,\nabla_v X_2 \right) = \left( 1,0,1,0 \right)$
+
+\item[$D_v \mathbf{X}$] is the covariant derivative of the smooth vector field $\mathbf{X}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$, where $\mathbf{X}$ is tangent to $S$ along $\alpha$. And $D_v \mathbf{X}$ is given by,
+	$$D_v \mathbf{X} = \nabla_v \mathbf{X} - \left[ \nabla_v \mathbf{X} \cdot (\mathbf{N} \circ \alpha)\right] (\mathbf{N} \circ \alpha)$$
+	It is the component of the derivative $\nabla_v \mathbf{X}$ in the tangent space $S_p$.
+\end{description}
+
+\subsection{Properties of differentiation, $\nabla_v f$}
+We have, $\nabla_v f : \mathbb{R}^{n+1} \to \mathbb{R}$ is a linear map.
+\begin{enumerate}
+	\item $\nabla_{v+w} f = \nabla_v f + \nabla_w f$
+		$$ \nabla_{v+w} f = \nabla f(p) \cdot (\mathbf{v} + \mathbf{w}) = \nabla f(p) \cdot \mathbf{v} + \nabla f(p) \cdot \mathbf{w}$$
+	\item $\nabla_{cv} f = c\nabla_v f$
+		$$ \nabla_{cv} f = \nabla f(p) \cdot c\mathbf{v} = c\left( \nabla f(p) \cdot \mathbf{v} \right) = c\nabla_v f$$
+\end{enumerate}
+Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c\nabla_v f$.
+
+\subsection{Properties of differentiation, $\nabla_v \mathbf{X}$}
+\begin{enumerate}
+	\item $\nabla_v (\mathbf{X} + \mathbf{Y}) = \nabla_v \mathbf{X} + \nabla_v \mathbf{Y}$
+	\begin{align*}
+		\nabla_v (\mathbf{X}+\mathbf{Y}) = & \left( \alpha(t),\nabla_v(X_1+Y_1),\nabla_v (X_2+Y_2),\cdots,\nabla_v(X_{n+1}+Y_{n+1}) \right) \\
+		= & \left( \alpha(t), \nabla_v X_1 + \nabla_v Y_1, \nabla_v X_1 + \nabla_v Y_2, \cdots, \nabla_v X_{n+1} + \nabla_v Y_{n+1} \right) \\
+		= & \left( \alpha(t), \nabla_v X_1, \nabla_v X_2, \cdots, \nabla_v X_{n+1} \right) + \left( \alpha(t), \nabla_v Y_1, \nabla_v Y_2, \cdots, \nabla_v Y_{n+1} \right)\\
+		= & \nabla_v \mathbf{X} + \nabla_v \mathbf{Y}
+	\end{align*}
+	\item $\nabla_v (f\mathbf{X}) = (\nabla_v f)\mathbf{X}(p) + f(p) \nabla_v \mathbf{X}$ 
+	\begin{align*}
+		\nabla_v (f\mathbf{X}) = & \left( \alpha(t), \nabla_v fX_1, \nabla_v fX_2, \cdots, \nabla_v fX_{n+1} \right) \\
+		= & \left( \alpha(t), (\nabla_v f) X_1  + f\nabla_v X_1, (\nabla_v f)X_2 + f\nabla_v X_2,\cdots,(\nabla_v f)X_{n+1} + f\nabla_v X_{n+1} \right) \\
+		= & \left( \alpha(t), (\nabla_v f)X_1,(\nabla_v f)X_2,\cdots,(\nabla_v f)X_{n+1} \right)\\
+		& + \left( \alpha(t), f\nabla_v X_1, f\nabla_v X_2,\cdots, f\nabla_v X_{n+1} \right)\\
+		= & \nabla_v f (\alpha(t),X_1,X_2,\cdots,X_{n+1}) + f(\alpha(t),\nabla_v X_1,\nabla_v X_2,\cdots,\nabla_v X_{n+1})\\
+		=& (\nabla_v f)\mathbf{X} + f\nabla_v \mathbf{X}
+	\end{align*}
+	\item $\nabla_v (\mathbf{X} \cdot \mathbf{Y}) = \nabla_v \mathbf{X} \cdot \mathbf{Y}(p) + \mathbf{X}(p) \cdot \nabla_v \mathbf{Y} $
+	\begin{align*}
+		\nabla_v(\mathbf{X} \cdot \mathbf{Y}) = & \nabla_v (X_1Y_1 + X_2Y_2 + \cdots + X_{n+1}Y_{n+1}) \\
+		= & (\nabla_v X_1)Y_1 + X_1\nabla_v Y_1 + (\nabla_v X_2) Y_2 + X_2\nabla_v Y_2\\
+		& + \cdots + (\nabla_v X_{n+1})Y_{n+1} + X_{n+1}\nabla_v Y_{n+1}\\
+		= & (\nabla_v X_1)Y_1 + (\nabla_v X_2)Y_2 + \cdots + (\nabla_v X_{n+1})Y_{n+1} \\
+		& + X_1\nabla_v Y_1 +X_2\nabla_v Y_2 + \cdots + X_{n+1} \nabla_v Y_{n+1}\\
+		= & (\alpha(t),\nabla_v X_1,\nabla_v X_2,\cdots,\nabla_v X_{n+1}) \cdot (\alpha(t),Y_1,Y_2,\cdots,Y_{n+1})\\
+		& + (\alpha(t),X_1,X_2,\cdots,X_{n+1}) \cdot (\alpha(t),\nabla_v Y_1,\nabla_v Y_2,\cdots,\nabla_v Y_{n+1}) \\
+		= & \nabla_v \mathbf{X} \cdot \mathbf{Y} + \mathbf{X} \cdot \nabla_v \mathbf{Y}
+	\end{align*}
+\end{enumerate}
+
+\subsection{Properties of covariant differentiation, $D_v \mathbf{X}$}
+% In the text, the author states that $D_v$ have the same properties as $\nabla_v$. And we may change $\nabla$ to $D$. However, there is no reason for $\nabla_v f$ to have a covariante variant $D_v f$ as the $\nabla_v f$ is a real value which does't have components. Or you may write $\nabla_v f = D_v f$ since $\nabla_v f$ is a scalar/real value. I would prefer against $D_v f$ as it doesn't have a meaning. --- Check Exercise 9.5
+\begin{enumerate}
+	\item $D_v (\mathbf{X} + \mathbf{Y}) = D_v \mathbf{X} + D_v \mathbf{Y}$
+	\begin{align*}
+		D_v (\mathbf{X} + \mathbf{Y}) = & \nabla_v (\mathbf{X} + \mathbf{Y}) - \left[ \nabla_v (\mathbf{X}+\mathbf{Y}) \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
+		= & \nabla_v \mathbf{X} + \nabla_v \mathbf{Y} - \left[ (\nabla_v \mathbf{X} + \nabla_v \mathbf{Y}) \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
+		= & \nabla_v \mathbf{X} - \left[ \nabla_v \mathbf{X} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) +  \nabla_v \mathbf{Y} - \left[ \nabla_v \mathbf{Y} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha)  \\
+		= & D_v \mathbf{X} + D_v \mathbf{Y}
+	\end{align*}
+	\item $D_v (f\mathbf{X}) = (\nabla_v f)\mathbf{X}(p) + f(p) D_v \mathbf{X}$ 
+	\begin{align*}
+		D_v(f\mathbf{X}) = & \nabla_v (f\mathbf{X}) - \left[ \nabla_v (f\mathbf{X}) \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N}\circ \alpha) \\
+		= & (\nabla_v f) \mathbf{X} + f\nabla_v \mathbf{X} - \left[ ((\nabla_v f) \mathbf{X} + f\nabla_v \mathbf{X}) \cdot \mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
+		= & (\nabla_v f) \mathbf{X} - \left[ (\nabla_v f)\mathbf{X} \cdot \mathbf{N} \circ \alpha \right] \mathbf{N} \circ \alpha + f\nabla_v \mathbf{X} - \left[ f\nabla_v\mathbf{X} \cdot \mathbf{N} \circ \alpha \right] \mathbf{N} \circ \alpha \\
+		= & \nabla_v f \mathbf{X} + f D_v \mathbf{X}
+	\end{align*}
+	\item $\nabla_v (\mathbf{X} \cdot \mathbf{Y}) = D_v \mathbf{X} \cdot \mathbf{Y}(p) + \mathbf{X}(p) \cdot D_v \mathbf{Y} $
+	\begin{align*}
+		\nabla_v(\mathbf{X} \cdot \mathbf{Y}) = & \nabla_v (X_1Y_1) + \nabla_v (X_2Y_2) + \cdots + \nabla_v (X_{n+1}Y_{n+1}) \\
+		= & (\nabla_v X_1)Y_1 + X_1\nabla_v Y_1 + (\nabla_v X_2)Y_2 + X_2\nabla_v Y_2 \\ 
+		& + \cdots + (\nabla_v X_{n+1})Y_{n+1} + X_{n+1}\nabla_v Y_{n+1} \\
+		= & (\nabla_v X_1)Y_1 + (\nabla_v X_2)Y_2+ \cdots + (\nabla_v X_{n+1})Y_{n+1} \\
+		& + X_1\nabla_v Y_1 + X_2 \nabla_v Y_2 + \cdots + X_{n+1} \nabla_v Y_{n+1} \\
+		= &  (\nabla_v \mathbf{X}) \cdot \mathbf{Y} + \mathbf{X} \cdot \nabla_v \mathbf{Y} \\
+		= & D_v \mathbf{X} \cdot \mathbf{Y} + \mathbf{X} \cdot D_v \mathbf{Y} \text{ since } \mathbf{X},\mathbf{Y} \perp \mathbf{N}
+	\end{align*}
+\end{enumerate}
+
+\subsection{Weingarten Map, $L_p$}
+	In the case of covariant derivatives along $\alpha$, we came across a linear map -- the parallel transport $P_\alpha$. Here in the case of covariant derivative with respect to a vector, we have another linear map -- the  Weingarten map $L_p$ given by
+
+\begin{equation}
+	L_p(\mathbf{v}) = -\nabla_v \mathbf{N}
+\end{equation}
+	
+	Weingarten map tells us how much the tangent space turns/tilts as we move through $p$ along $\alpha$ on an $n$-surface $S$. It gives the information about the shape of $S$. And is the \textbf{shape operator} of $S$ at $p$.
+
+\subsection{Properties of Weingarten Map, $L_p$}
+\begin{enumerate}
+	\item The normal component of acceleration is same for all parametrised curves in $S$ passing through $p$ with velocity $\mathbf{v}$, 
+	$\ddot{\boldsymbol{\alpha}}(t_0) \cdot \mathbf{N}(p) = L_p(\mathbf{v}) \cdot \mathbf{v} $
+
+	\begin{align*}
+		0 = & \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \text{ since } \dot{\boldsymbol{\alpha}} \perp \mathbf{N} \\
+		0 = & \left[\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha)\right]' \\
+		= & \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) + \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)} 
+		\intertext{Rearranging the terms and evaluating at $t = t_0$, we get}
+		\ddot{\boldsymbol{\alpha}}(t_0) \cdot (\mathbf{N} \circ \alpha(t_0)) = & -\dot{\boldsymbol{\alpha}}(t_0) \cdot \dot{(\mathbf{N} \circ \alpha)}(t_0)\\
+		\ddot{\alpha}(t_0) \cdot \mathbf{N}(p) = & \mathbf{v} \cdot L_p(\mathbf{v}) \text{ since } \dot{(\mathbf{N} \circ \alpha)}(t_0) = \nabla_v \mathbf{N} = -L_p(\mathbf{v})
+	\end{align*}
+	\item Weingarten map is self adjoint, $L_p(\mathbf{v}) \cdot \mathbf{w} = \mathbf{v} \cdot L_p(\mathbf{w})$\\
+	Clearly, we have $\mathbf{v},\mathbf{w} \in S_{\alpha(t)}$ and $\nabla f \in S_{\alpha(t)}^\perp$. Also note that 
+	\begin{align*}
+		\nabla f(p) = & \left( p,\dfrac{\partial f}{\partial x_1}(p),\dfrac{\partial f}{\partial x_2}(p),\cdots,\dfrac{\partial f}{\partial x_{n+1}}(p) \right) \\
+		\nabla_v (\nabla f(p)) = & \left( p, \nabla_v \dfrac{\partial f}{\partial x_1}(p),\nabla_v \dfrac{\partial f}{\partial x_2}(p),\cdots, \nabla_v \dfrac{\partial f}{\partial x_{n+1}}(p) \right) \\
+		= & \left( p, \nabla\left(\dfrac{\partial f}{\partial x_1}\right)(p) \cdot \mathbf{v}, \nabla\left(\dfrac{\partial f}{\partial x_2}\right)(p) \cdot \mathbf{v}, \cdots, \nabla\left(\dfrac{\partial f}{\partial x_{n+1}}\right)(p) \cdot \mathbf{v} \right)\\
+		= & \left(p, \sum_{j=1}^{n+1} \dfrac{\partial^2 f}{\partial x_j \partial x_1}(p)v_j,\sum_{j=1}^{n+1} \dfrac{\partial^2 f}{\partial x_j \partial x_2}(p)v_j, \cdots, \sum_{j=1}^{n+1} \dfrac{\partial^2 f}{\partial x_j \partial x_{n+1}}(p)v_j \right)
+	\end{align*}
+	\begin{align*}
+		L_p(\mathbf{v}) \cdot \mathbf{w} = & -\nabla_v \mathbf{N} \cdot \mathbf{w} \\
+		= & -\nabla_v \left(\frac{\nabla f}{\|\nabla f\|}\right) \cdot \mathbf{w} \\
+		= & \left[ \left(-\nabla_v \frac{1}{\|\nabla f\|}\right) \nabla f - \frac{1}{\| \nabla f \|} \nabla_v (\nabla f) \right] \cdot \mathbf{w} \\
+		= & \left[ - \frac{1}{\| \nabla f \|} \nabla_v (\nabla f) \right] \cdot \mathbf{w}  \text{ since } \nabla f \perp \mathbf{w}\\
+		= & - \frac{1}{\| \nabla f \|} \left[ \sum_{k=1}^{n+1} \left( \sum_{j=1}^{n+1} \dfrac{\partial^2 f}{\partial x_j \partial x_k}(p)v_j \right) w_k \right] \\
+		= & - \frac{1}{\| \nabla f \|} \sum_{j,k=1}^{n+1} \dfrac{\partial^2 f}{\partial x_j \partial x_k}(p)v_j w_k 
+		\intertext{Similarly,}
+		L_p(\mathbf{w}) \cdot \mathbf{v} = & - \frac{1}{\| \nabla f \|} \sum_{j,k=1}^{n+1} \dfrac{\partial^2 f}{\partial x_j \partial x_k}(p)w_j v_k \\
+		\intertext{ Since $\dfrac{\partial^2 f}{\partial x_j \partial x_k}(p) = \dfrac {\partial^2 f}{\partial x_k \partial x_j}(p)$, both the sums are equal }
+		L_p(\mathbf{v}) \cdot \mathbf{w} = & \mathbf{v} \cdot L_p(\mathbf{w})
+	\end{align*}
+\end{enumerate}
 
 %\chapter{The Curvature of Plane Curves}
 \section{The Curvature of Plane Curves}
