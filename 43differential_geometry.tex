@@ -854,6 +854,32 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 
 %\chapter{The Curvature of Plane Curves}
 \section{The Curvature of Plane Curves}
+\begin{description}
+	\item[curvature] Let $C$ be plane curve in $\mathbb{R}^2$. The curvature of $C$ is the function $\kappa : \mathbb{R}^2 \to \mathbb{R}$ defined by $\kappa(p) = L_p(\mathbf{v}) \cdot \mathbf{v} /\|\mathbf{v}\|^2$\\
+
+	For a parametrised curve $\alpha$ in $C$ with $\dot{\boldsymbol{\alpha}} \ne \mathbf{0}$,
+		$$\kappa(\alpha(t)) = \frac{\ddot{\boldsymbol{\alpha}}(t) \cdot (\mathbf{N} \circ \alpha(t))}{\| \dot{\boldsymbol{\alpha}}(t)\|^2}$$
+		For unit speed parametrised curve passing through $p$, curvature at $p$ is the normal component of acceleration at that point.
+	\item[local parametrisation of plane curve] Let $C$ be a plane curve in $\mathbb{R}^2$. Then $C$ is an oriented $1$-surface. Parametrisation of a segment of $C$ containing $p$ is a function $\alpha : I \to C$ such that
+	\begin{enumerate}
+		\item $\alpha$ is regular. That is, $\dot{\boldsymbol{\alpha}}(t) \ne \mathbf{0},\ \forall t \in I$
+		\item $\alpha$ is consistently oriented with $C$. That is, the orientation at $\alpha(t)$ should be the same as that of $C$ at that point.
+		\item $p \in \alpha(I)$
+	\end{enumerate}
+	\item[radius of curvature] The radius of the circle that hugs the plance curve $C$ closest among all circles containing $p$.
+	\item[center of curvature] The center of the circle that hugs the plance curve $C$ closest among all circles containing $p$.
+\end{description}
+
+\paragraph{Meaning of Sign of Curvature}
+	If curvature at $p$ is positive, then the curve at $p$ is turning towards $\mathbf{N}(p)$. If curvature at $p$ is negative, then the curve at $p$ is turning away from $\mathbf{N}(p)$
+
+\paragraph{Construction of a local parametrisation}
+	We have, $C = f^{-1}(c)$ where $\nabla f(q) \ne \mathbf{0}$. Consider $\mathbf{X}(q) =\left( q,\dfrac{\partial f}{\partial x_2}(q),-\dfrac{\partial f}{\partial x_1}(q) \right)$. The maximal integral curve $\alpha$ through $p$ in $\mathbf{X}$ is a local parametrisation of a segment of $C$ containing $p$.
+
+\paragraph{Unit speed local parametrisation of $C$ is unique.}
+Local parametrisations of plane curves are unique upto reparametrisation.\\
+
+	Let $\alpha$ be the local parametrisation which is maximal integral curve. Let $\beta : \tilde{I} \to C$ be any parametrisation of a segment of $C$ containing $p$. Then it is enough to prove that there exists a smooth function $h : \tilde{I} \to \mathbb{R}$ such that $h'(t) > 0$ and $\beta(t) = \alpha(h(t))$ for every $t \in \tilde{I}$.
 
 %\chapter{Arc Length and Line Integrals}
 \section{Arc Length and Line Integrals}
