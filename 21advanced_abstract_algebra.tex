@@ -179,6 +179,75 @@
 	If $E$ is an extension field of $F$ and $\alpha \in E$ is algebraic over $F$ and $\beta \in F(\alpha)$, then $deg(\beta,F)$ divides $deg(\alpha,F)$.
 \end{corollary}
 \begin{proof}
+	We have, $\deg(\alpha,F) = [F(\alpha) : F]$ and $\deg(\beta,F) = [F(\beta):F]$. Also given that $\beta \in F(\alpha) \implies F(\beta) \le F(\alpha)$. Clearly, $F \le F(\beta) \le F(\alpha)$. Therefore, $[F(\alpha) : F] = [F(\alpha):F(\beta)][F(\beta):F]$. And $[F(\alpha):F(\beta)] = [F(\alpha):F]/[F(\beta):F]$. Clearly, $[F(\beta):F]$ divides $[F(\alpha):F]$.
+\end{proof}
+
+\begin{theorem}[algebraic closure]
+	Let $E$ be an extension field of $F$. Then $\bar{F}_E = \{ \alpha \in E : \alpha \text{ is algebraic over } E \}$ is a subfield of $E$.
+\end{theorem}
+\begin{proof}
+	Let $\alpha,\beta \in \bar{F}_E$. Then $\alpha,\beta \in E$ are algebraic over $F$. And $F(\alpha,\beta)$ is a finite extension field of $F$. Thus every element in $F(\alpha,\beta)$ are algebraic over $F$. Thus, $\alpha+\beta, \alpha\beta,\alpha-\beta,\alpha/\beta \in \bar{F}_E$. Therefore, $\bar{F}_E$ is a subfield of $E$.
+\end{proof}
+
+\begin{corollary}
+	The set of all algebraic numbers forms a field.
+\end{corollary}
+\begin{proof}
+	Let $\alpha$ be an algebraic number. Then $\alpha \in \mathbb{C}$ and $\alpha$ is algebraic over $\mathbb{Q}$. Clearly, the set of all algebraic numbers, $\bar{\mathbb{Q}}_\mathbb{C}$ is a subfield of $\mathbb{C}$.
+\end{proof}
+
+\begin{description}
+	\item[algebraic closure] Let $F$ be a field and $E$ be an extension field of $F$. Then the (smallest) field containing all elements of $E$ which are algebraic over $F$ is the algebraic closure $\bar{F}_E$ of $F$ in $E$.
+	\item[algebraically closed] Let $F$ be a field. $F$ is algebraically closed if every non-constant polynomial in $F[x]$ has a zero in $F[x]$.
+		
+\end{description}
+
+\textbf{Note : } Let $F$ be algebraically closed. Then every irreducible polynomial in $F[x]$ are linear since every non-constant polynomial has a linear factor.
+
+\begin{theorem}
+	A field $F$ is algebraically closed if and only if every non-constant polynomial $f(x)$ can be factorised in $F[x]$ into linear factors.
+\end{theorem}
+\begin{proof}
+	Let $F$ be algebraically closed and $f(x)$ be a non-constant polynomial in $F[x]$. Then $f(x)$ has a zero $\alpha \in F$. Then $x-\alpha$ is a factor of $f(x)$. That is, $f(x) = (x-\alpha)g(x)$. If $g(x) \in F[x]$ is non-constant, then it has a zero in $F$. Continuing like this, $f(x)$ can be factorised in $F[x]$ into linear factors.\\
+
+	Suppose every non-constant polynomial in $F[x]$ can be factorised into linear factors. Let $f(x)$ be a non-constant polynomial in $F[x]$. Then $f(x)$ has a linear factor $(ax+b) \in F[x]$. Clearly, $-b/a$ is a zero of $f(x)$.
+\end{proof}
+
+\begin{theorem}
+	Algebrically closed field has no proper algebraic extensions.
+\end{theorem}
+\begin{proof}
+	Let $E$ be an algebraic extension field of $F$. Then if $\alpha \in E$, we have $irr(\alpha,F) = (x-\alpha)$ since $F$ is algebraically closed, every irreduciblepolynomial in $F[x]$ are linear. Thus $\alpha \in F$. Since $\alpha \in E$ is arbitrary, $F = E$.
+\end{proof}
+
+\begin{theorem}[Fundamental Theorem of Algebra]
+	$\mathbb{C}$ is algebraically closed.
+\end{theorem}
+\begin{proof}
+	Let $f(z) \in \mathbb{C}[z]$. Suppose $f(z)$ has no zeroes in $\mathbb{C}$. Then $1/f(z)$ is an entire function and as $|z| \to \infty$, $|f(z)| \to \infty$. Thus, $\lim_{|z|\to\infty} \frac{1}{|f(z)|} = 0$. And $1/f(z)$ is bounded.\\
+	
+	By Liouville's theorem, every bounded entire function is constant. Therefore, $1/f(z)$ is constant and $f(z)$ is also constant. Thus, every non-constant polynomial function in $\mathbb{C}[z]$ has a zero in $\mathbb{C}$.
+\end{proof}
+
+\begin{description}
+	\item[POSET] Partial Ordered Set - A set together with partial order (reflexive, antisymmetric, transitive relation).\\
+		
+	For example $(\mathbb{R},<)$, the set of all real numbers together with less than relation is a poset. However, in a poset it is not necessary that two arbitrary elements are comparable. $(\mathbb{C},R)$ defined by $aRb$ if $\Re(a) = \Re(b)$ and $Im(a) < Im(b)$ is a poset in which $2+3i$ and $3+3i$ are not comparable.
+	\item[chain] A subset of a poset in which any two elements are comparable. That is, $x,y \in T \implies x < y \text{ OR } y < x$.\\
+
+	For example, For above defined poset $(\mathbb{C},R)$, $T = \{ 2+ib \in \mathbb{C} : b \in \mathbb{R} \}$ is a chain in $\mathbb{C}$.
+\end{description}
+\begin{lemma}[Zorn]
+	If every chain in a poset $S$ has an upper bound. Then $S$ has at least one maximal element in it.
+\end{lemma}
+\begin{proof}
+	Not required ( I think, there is no proof. We just take it as an axiom - always true !. If it is not true for a collection then it is not a set !! )
+\end{proof}
+\begin{theorem}[Existence of Algebraic Closure]
+	Every field $F$ has an algebraic closure $\bar{F}$.
+\end{theorem}
+\begin{proof}
+	Not required (as per syllabus)
 \end{proof}
 %Section 32
 \section{Geometric Constructions}
