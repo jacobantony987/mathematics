@@ -521,13 +521,13 @@ We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \
 
 	We have $\ddot{\boldsymbol{\alpha}} = g(\mathbf{N}\circ \alpha)$. Thus $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N}\circ\alpha) = g \| \mathbf{N}\circ \alpha \|^2 = g$ since orientation $\mathbf{N}$ assigns directions (vectors of unit length) to each point of that surface.\\
 
-	$\left[\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha)\right]' = \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) + \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)}$	since $(\mathbf{X} \cdot \mathbf{Y})' = \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}$.
+	$\left[\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha)\right]' = \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) + \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha)$	since $(\mathbf{X} \cdot \mathbf{Y})' = \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}$.
 
-	Thus, $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = \left[ \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right]' - \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)} = -\dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)}$ since $\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = 0$ as $\dot{\boldsymbol{\alpha}} \in S_{\alpha(t)}$, $\mathbf{N} \circ \alpha \in S_{\alpha(t)}^\perp$ and $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$. That is, velocity vectors always belongs to the tangent space and $(\mathbf{N} \circ \alpha)$ is an orientation which is orthogonal to all the tangent vectors.\\
+	Thus, $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = \left[ \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right]' - \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha) = -\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha)$ since $\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = 0$ as $\dot{\boldsymbol{\alpha}} \in S_{\alpha(t)}$, $\mathbf{N} \circ \alpha \in S_{\alpha(t)}^\perp$ and $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$. That is, velocity vectors always belongs to the tangent space and $(\mathbf{N} \circ \alpha)$ is an orientation which is orthogonal to all the tangent vectors.\\
 
 	Substituting the value of $g$ in equation(\ref{eq:acceleration}). We get 
 	\begin{equation}
-		\ddot{\boldsymbol{\alpha}} + \left[ \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)}\right] (\mathbf{N} \circ \alpha) = \mathbf{0}
+		\ddot{\boldsymbol{\alpha}} + \left[ \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha) \right] (\mathbf{N} \circ \alpha) = \mathbf{0}
 		\label{eq:substitute}
 	\end{equation}
 
@@ -538,7 +538,7 @@ We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \
 
 	Thus,
 	\begin{equation}
-		\dot{(\mathbf{N} \circ \alpha)} = \left( \alpha(t), \sum_{k=1}^{n+1} \dfrac{\partial N_1}{\partial x_k} \dfrac{dx_k}{dt}, \sum_{k=1}^{n+1} \dfrac{\partial N_2}{\partial x_k} \dfrac{dx_k}{dt}, \cdots, \sum_{k=1}^{n+1} \dfrac{\partial N_{n+1}}{\partial x_k} \dfrac{dx_k}{dt} \right)
+		(\mathbf{N} \dot{\circ} \alpha) = \left( \alpha(t), \sum_{k=1}^{n+1} \dfrac{\partial N_1}{\partial x_k} \dfrac{dx_k}{dt}, \sum_{k=1}^{n+1} \dfrac{\partial N_2}{\partial x_k} \dfrac{dx_k}{dt}, \cdots, \sum_{k=1}^{n+1} \dfrac{\partial N_{n+1}}{\partial x_k} \dfrac{dx_k}{dt} \right)
 	\end{equation}
 
 	Equating the components on either sides of the equation(\ref{eq:substitute}), we get a system of $n+1$ second order differential equations,
@@ -552,7 +552,7 @@ We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \
 
 	Let $\beta_1,\beta_2,\cdots$ be geodesics through $p$ with inintial velocity $\mathbf{v}$ with parameter domain $I_1,I_2,\cdots$. Let $I = \cup_k I_k$ and $\alpha : I \to U$ defined by $\alpha(t) = \beta_k(t),\ t \in I_k$. Clearly, $\alpha$ is unique and maximal.\\
 
-	Now it is enough to prove that $\alpha$ is parametrised curve in $S$. We have $(f \circ \alpha)'(t) = \nabla f(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = \| \nabla f(\alpha(t)) \| \mathbf{N}(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = 0$ since $\dot{\boldsymbol{\alpha}} \perp \mathbf{N} \circ \alpha$. Therefore, $f \circ \alpha : I \to \mathbf{R}$ is constant. Also, $f(\alpha(0)) = f(p) = c$ since $p \in S$ and $S = f^{-1}(c)$. Thus, $f \circ \alpha = c \implies \alpha \subset f^{-1}(c)$. Thus, $\alpha$ is a parametrised curve in $n$-surface $S$.
+	Now it is enough to prove that $\alpha$ is parametrised curve in $S$. We have $(f \circ \alpha)'(t) = \nabla f(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = \| \nabla f(\alpha(t)) \| \mathbf{N}(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = 0$ since $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$. Therefore, $f \circ \alpha : I \to \mathbf{R}$ is constant. Also, $f(\alpha(0)) = f(p) = c$ since $p \in S$ and $S = f^{-1}(c)$. Thus, $f \circ \alpha = c \implies \alpha \subset f^{-1}(c)$. Thus, $\alpha$ is a parametrised curve in $n$-surface $S$.
 \end{proof}
 
 \subsection{Properites of Geodesics}
@@ -575,21 +575,21 @@ Remark :  Geodesics in cylinder over $S^1$ are horizontal circles, vertical line
 	\item[covariant acceleration] Let $\alpha : I \to S$ be a parametrised curve in $S$. Then covariant acceleration of $\alpha$ is $(\dot{\boldsymbol{\alpha}})' = \ddot{\boldsymbol{\alpha}} - \left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha)$ along $\alpha$.
 \end{description}
 \subsection{Properties of Covariant Derivative}
-Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha$. Then, $\mathbf{X} \cdot \mathbf{N} \circ \alpha = \mathbf{0}$.
+Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha$. Then, $\mathbf{X} \cdot (\mathbf{N} \circ \alpha) = \mathbf{0}$.
 \begin{enumerate}
 	\item $(\mathbf{X}+\mathbf{Y})' = \mathbf{X}'+\mathbf{Y}'$\\
 	\begin{align*}
-		(\mathbf{X} + \mathbf{Y})' = & \dot{(\mathbf{X}+\mathbf{Y})} - [\dot{(\mathbf{X}+\mathbf{Y})} \cdot (\mathbf{N} \circ \alpha)] \mathbf{N} \circ \alpha \\
-		= & (\dot{\mathbf{X}} + \dot{\mathbf{Y}}) - [(\dot{\mathbf{X}} + \dot{\mathbf{Y}}) \cdot (\mathbf{N} \circ \alpha)] \mathbf{N} \circ \alpha \\
+		(\mathbf{X} + \mathbf{Y})' = & \dot{(\mathbf{X}+\mathbf{Y})} - [\dot{(\mathbf{X}+\mathbf{Y})} \cdot (\mathbf{N} \circ \alpha)] (\mathbf{N} \circ \alpha) \\
+		= & (\dot{\mathbf{X}} + \dot{\mathbf{Y}}) - [(\dot{\mathbf{X}} + \dot{\mathbf{Y}}) \cdot (\mathbf{N} \circ \alpha)] (\mathbf{N} \circ \alpha) \\
 		= & \left( \dot{\mathbf{X}} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right) + \left( \dot{\mathbf{Y}} - \left[ \dot{\mathbf{Y}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right)\\
 		= & \mathbf{X}' + \mathbf{Y}'
 	\end{align*}
 	\item $(f\mathbf{X})' = f'\mathbf{X} + f\mathbf{X}'$\\
 	\begin{align*}
 		(f\mathbf{X})' = & \dot{(f\mathbf{X})} - \left[ \dot{(f\mathbf{X})} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
-		= & \left( f'\mathbf{X} + f\dot{\mathbf{X}} \right) - \left[ (f'\mathbf{X} + f\dot{\mathbf{X}}) \cdot (\mathbf{N}\circ\alpha) \right] \mathbf{N} \circ \alpha \\
-		= & f'\left( \mathbf{X}-\left[ \mathbf{X} \cdot \mathbf{N} \circ \alpha \right] \mathbf{N} \circ \alpha \right) + f\left( \dot{\mathbf{X}} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] \mathbf{N} \circ \alpha \right) \\
-		= & f'\mathbf{X} + f \dot{\mathbf{X}} \text{ since } \mathbf{X} \cdot \mathbf{N} \circ \alpha = \mathbf{0}
+		= & \left( f'\mathbf{X} + f\dot{\mathbf{X}} \right) - \left[ (f'\mathbf{X} + f\dot{\mathbf{X}}) \cdot (\mathbf{N}\circ\alpha) \right] (\mathbf{N} \circ \alpha) \\
+		= & f'\left( \mathbf{X}-\left[ \mathbf{X} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right) + f\left( \dot{\mathbf{X}} - \left[ \dot{\mathbf{X}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \right) \\
+		= & f'\mathbf{X} + f \dot{\mathbf{X}} \text{ since } \mathbf{X} \cdot (\mathbf{N} \circ \alpha) = \mathbf{0}
 	\end{align*}
 	\item $(\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}'$\\
 	\begin{align*}
@@ -646,7 +646,7 @@ Applying the properties of covariant derivative, we get
 \end{align*}
 
 \begin{equation}
-	\dot{\mathbf{V}} + \left[ \mathbf{V} \cdot \dot{(\mathbf{N} \circ \alpha)} \right] (\mathbf{N} \circ \alpha) = \mathbf{0}
+	\dot{\mathbf{V}} + \left[ \mathbf{V} \cdot (\mathbf{N} \dot{\circ} \alpha) \right] (\mathbf{N} \circ \alpha) = \mathbf{0}
 	\label{eq:parallelVectorField}
 \end{equation}
 
@@ -659,10 +659,10 @@ Applying the properties of covariant derivative, we get
 
 	It remains to prove that $\mathbf{V}$ is tangent to $S$ along $\alpha$. By taking dot product with $\mathbf{N} \circ \alpha$ on either sides of equation(\ref{eq:parallelVectorField}), we get
 \begin{equation}
-	(\mathbf{V} \cdot \mathbf{N} \circ \alpha)'= \dot{\mathbf{V}} \cdot \mathbf{N} \circ \alpha + \mathbf{V} \cdot \dot{(\mathbf{N} \circ \alpha)} = \mathbf{0}
+	(\mathbf{V} \cdot \mathbf{N} \circ \alpha)'= \dot{\mathbf{V}} \cdot (\mathbf{N} \circ \alpha) + \mathbf{V} \cdot (\mathbf{N} \dot{\circ} \alpha) = \mathbf{0}
 \end{equation}
 
-	Thus, $\mathbf{V} \cdot \mathbf{N} \circ \alpha = \kappa$ is constant along $\alpha$. However, $\mathbf{V}(t_0) \cdot \mathbf{N} \circ \alpha(t_0) = \mathbf{v} \cdot N(\alpha(t_0)) = 0$ since $\mathbf{v} \in S_{\alpha(t)}$ is a tangent vector and $\mathbf{v} \perp \mathbf{N}$. Therefore, $\mathbf{V} \cdot \mathbf{N} \circ \alpha = 0$. And since $\mathbf{V}$ satisfies equation(\ref{eq:parallelVectorField}), this vector field is tangent to $S$ along $\alpha$ and is parallel.
+	Thus, $\mathbf{V} \cdot (\mathbf{N} \circ \alpha) = \kappa$ is constant along $\alpha$. However, $\mathbf{V}(t_0) \cdot (\mathbf{N} \circ \alpha)(t_0) = \mathbf{v} \cdot N(\alpha(t_0)) = 0$ since $\mathbf{v} \in S_{\alpha(t)}$ is a tangent vector and $\mathbf{v} \perp \mathbf{N}$. Therefore, $\mathbf{V} \cdot (\mathbf{N} \circ \alpha) = 0$. And since $\mathbf{V}$ satisfies equation(\ref{eq:parallelVectorField}), this vector field is tangent to $S$ along $\alpha$ and is parallel.
 \end{proof}
 
 %	We claim that this \textbf{vector field $\mathbf{V}$ is well-defined on $I$.} \\
@@ -791,9 +791,9 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 	\end{align*}
 	\item $D_v (f\mathbf{X}) = (\nabla_v f)\mathbf{X}(p) + f(p) D_v \mathbf{X}$ 
 	\begin{align*}
-		D_v(f\mathbf{X}) = & \nabla_v (f\mathbf{X}) - \left[ \nabla_v (f\mathbf{X}) \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N}\circ \alpha) \\
+		D_v(f\mathbf{X}) = & \nabla_v (f\mathbf{X}) - \left[ \nabla_v (f\mathbf{X}) \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
 		= & (\nabla_v f) \mathbf{X} + f\nabla_v \mathbf{X} - \left[ ((\nabla_v f) \mathbf{X} + f\nabla_v \mathbf{X}) \cdot \mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
-		= & (\nabla_v f) \mathbf{X} - \left[ (\nabla_v f)\mathbf{X} \cdot \mathbf{N} \circ \alpha \right] \mathbf{N} \circ \alpha + f\nabla_v \mathbf{X} - \left[ f\nabla_v\mathbf{X} \cdot \mathbf{N} \circ \alpha \right] \mathbf{N} \circ \alpha \\
+		= & (\nabla_v f) \mathbf{X} - \left[ (\nabla_v f)\mathbf{X} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) + f \nabla_v \mathbf{X} - \left[ f\nabla_v\mathbf{X} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) \\
 		= & \nabla_v f \mathbf{X} + f D_v \mathbf{X}
 	\end{align*}
 	\item $\nabla_v (\mathbf{X} \cdot \mathbf{Y}) = D_v \mathbf{X} \cdot \mathbf{Y}(p) + \mathbf{X}(p) \cdot D_v \mathbf{Y} $
@@ -825,10 +825,10 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 	\begin{align*}
 		0 = & \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \text{ since } \dot{\boldsymbol{\alpha}} \perp \mathbf{N} \\
 		0 = & \left[\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha)\right]' \\
-		= & \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) + \dot{\boldsymbol{\alpha}} \cdot \dot{(\mathbf{N} \circ \alpha)} 
+		= & \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) + \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha)
 		\intertext{Rearranging the terms and evaluating at $t = t_0$, we get}
-		\ddot{\boldsymbol{\alpha}}(t_0) \cdot (\mathbf{N} \circ \alpha(t_0)) = & -\dot{\boldsymbol{\alpha}}(t_0) \cdot \dot{(\mathbf{N} \circ \alpha)}(t_0)\\
-		\ddot{\alpha}(t_0) \cdot \mathbf{N}(p) = & \mathbf{v} \cdot L_p(\mathbf{v}) \text{ since } \dot{(\mathbf{N} \circ \alpha)}(t_0) = \nabla_v \mathbf{N} = -L_p(\mathbf{v})
+		\ddot{\boldsymbol{\alpha}}(t_0) \cdot (\mathbf{N} \circ \alpha(t_0)) = & -\dot{\boldsymbol{\alpha}}(t_0) \cdot (\mathbf{N} \dot{\circ} \alpha)(t_0)\\
+		\ddot{\alpha}(t_0) \cdot \mathbf{N}(p) = & \mathbf{v} \cdot L_p(\mathbf{v}) \text{ since } (\mathbf{N} \dot{\circ} \alpha)(t_0) = \nabla_v \mathbf{N} = -L_p(\mathbf{v})
 	\end{align*}
 	\item Weingarten map is self adjoint, $L_p(\mathbf{v}) \cdot \mathbf{w} = \mathbf{v} \cdot L_p(\mathbf{w})$\\
 	Clearly, we have $\mathbf{v},\mathbf{w} \in S_{\alpha(t)}$ and $\nabla f \in S_{\alpha(t)}^\perp$. Also note that 
@@ -866,20 +866,49 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 		\item $\alpha$ is consistently oriented with $C$. That is, the orientation at $\alpha(t)$ should be the same as that of $C$ at that point.
 		\item $p \in \alpha(I)$
 	\end{enumerate}
-	\item[radius of curvature] The radius of the circle that hugs the plance curve $C$ closest among all circles containing $p$.
-	\item[center of curvature] The center of the circle that hugs the plance curve $C$ closest among all circles containing $p$.
+\item[circle of curvature] Let $C$ be a plane curve in $\mathbb{R}^2$ with orientation $\mathbf{N}$. The circle of curvature of $C$ at a point $p$ is the unique oriented circle $O$ with orientation $\mathbf{N}_1$ such that
+	\begin{enumerate}
+		\item $O$ is tangent to $C$ at $p$, $C_p = O_p$.
+		\item $O$ is oriented consistently with $C$, $\mathbf{N}(p) = \mathbf{N}_1(p)$ and
+		\item Its normal turns at the same rate at $p$ as the normal of the plane curve $C$, $\nabla_v \mathbf{N} = \nabla_v \mathbf{N}_1$
+	\end{enumerate}
+		This circle, $O$ is the circle which huges the curve $C$ closest among all circles containing $p$.
+		\item $\alpha$ is regular. That is, $\dot{\boldsymbol{\alpha}}(t) \ne \mathbf{0},\ \forall t \in I$
+		\item[radius of curvature] The radius of the circle of curvature of $C$ at point $p$. And radius of curvature, $r = 1/|\kappa(p)|$.
+	\item[center of curvature] The center of the circle of curvature of $C$ at point $p$.
 \end{description}
 
 \paragraph{Meaning of Sign of Curvature}
-	If curvature at $p$ is positive, then the curve at $p$ is turning towards $\mathbf{N}(p)$. If curvature at $p$ is negative, then the curve at $p$ is turning away from $\mathbf{N}(p)$
+	If curvature at $p$ is positive, $\kappa(p) > 0$ then the curve at $p$ is turning towards $\mathbf{N}(p)$. If curvature at $p$ is negative, $\kappa(p) < 0$ then the curve at $p$ is turning away from $\mathbf{N}(p)$.
 
 \paragraph{Construction of a local parametrisation}
-	We have, $C = f^{-1}(c)$ where $\nabla f(q) \ne \mathbf{0}$. Consider $\mathbf{X}(q) =\left( q,\dfrac{\partial f}{\partial x_2}(q),-\dfrac{\partial f}{\partial x_1}(q) \right)$. The maximal integral curve $\alpha$ through $p$ in $\mathbf{X}$ is a local parametrisation of a segment of $C$ containing $p$.
+	We have, $C = f^{-1}(c)$ where $\nabla f(q) \ne \mathbf{0}$. Consider $\mathbf{X}(q) =\left( q,\dfrac{\partial f}{\partial x_2}(q),-\dfrac{\partial f}{\partial x_1}(q) \right)$. The maximal integral curve $\alpha$ through $p$ in $\mathbf{X}$ is a local parametrisation of a segment of $C$ containing $p$.\\
 
-\paragraph{Unit speed local parametrisation of $C$ is unique.}
-Local parametrisations of plane curves are unique upto reparametrisation.\\
+	For example, (refer : Exercise 10.3c) $f(x_1,x_2) = x_2-ax_1^2$. Then $C = f^{-1}(c) = \{ (x_1,x_2) \in \mathbb{R}^2 : x_2-ax_1^2 = c,\ a \ne 0\}$. The global parametrisation of $C$ with orientation $\nabla f/\|\nabla f\|$ can be obtained by constructing the maximal integral curve for each segment of a piecewise smooth plane curve. Since the given curve is smooth, it is sufficient to construct one integral curve through any point on that curve.\\
 
-	Let $\alpha$ be the local parametrisation which is maximal integral curve. Let $\beta : \tilde{I} \to C$ be any parametrisation of a segment of $C$ containing $p$. Then it is enough to prove that there exists a smooth function $h : \tilde{I} \to \mathbb{R}$ such that $h'(t) > 0$ and $\beta(t) = \alpha(h(t))$ for every $t \in \tilde{I}$.
+	We have, $\dfrac{dx_1}{dt}(t) = -2ax_1(t)$ and $\dfrac{dx_2}{dt} = 1$. Thus, $x_1(t) = \cos 2at+c_1$ and $x_2(t) = t+c_2$. We have $(0,c) \in C$ since $c - a0^2 = c$. Therefore, $x_1(0) = 0 = c_1$ and $x_2(0) = c = c_2$. Thus, we have $\alpha : I \to \mathbb{R}^2$ given by $\alpha(t) = (\cos 2at, t+c)$ as a global parametrisation of $C$.
+
+\subsection{Unit speed local parametrisation of $C$ is unique.}
+\begin{theorem}
+Local parametrisations of plane curves are unique upto reparametrisation.
+\end{theorem}
+\begin{proof}
+	Let $\alpha$ be the unit speed local parametrisation which is the maximal integral curve through $p$. Let $\beta : \tilde{I} \to C$ be any parametrisation of a segment of $C$ containing $p$. Then it is enough to prove that there exists a smooth function $h : \tilde{I} \to \mathbb{R}$ such that $h'(t) > 0$ and $\beta(t) = \alpha(h(t))$ for every $t \in \tilde{I}$.\\
+
+	Define $h : \tilde{I} \to \mathbb{R}$ defined by $$h(t) = \int_{t_0}^t \| \dot{\boldsymbol{\beta}}(u) \| du$$
+	
+	Clearly, $h$ is monotone, $h(t_0) = 0$ and $h'(t) = \| \dot{\boldsymbol{\beta}}(t) \|$. Since $h$ is monotone and strictly increasing, $h(h^{-1}(t)) = t$. Thus, $(h \circ h^{-1})'(t) = h'(h^{-1}(t)) (h^{-1})'(t)$. Therefore,  $(h^{-1})'(t) = 1/h'(h^{-1}(t))$.\\ 
+	
+	Now, $\beta \circ h^{-1}$ is a reparametrised curve with velocity, $(\boldsymbol{\beta} \dot{\circ} h^{-1})(t)$ given by,
+	\begin{align*}
+		(\boldsymbol{\beta} \dot{\circ} h^{-1}) (t)= & \dot{\boldsymbol{\beta}}(h^{-1}(t))\ (h^{-1})'(t) \text{ by chain rule} \\
+		= & \dot{\boldsymbol{\beta}}(h^{-1}(t))/h'(h^{-1}(t)) \\
+		= & \dot{\boldsymbol{\beta}}(h^{-1}(t))/\| \dot{\boldsymbol{\beta}}(h^{-1}(t)) \| \text{ since } h'(t) = \|\dot{\boldsymbol{\beta}}(t)\|
+		\intertext{We know that, $\mathbf{X}(\beta(h^{-1}(t)))$ spans the tangent space $S_{\beta(h^{-1}(t))}$.}
+		= & \mathbf{X}(\beta(h^{-1}(t)) \text{ since } \beta \dot{\circ} h^{-1}(t)/\| \beta \dot{\circ} h^{-1} (t)\| = \mathbf{X}(\beta(h^{-1}(t)))
+	\end{align*}
+	Thus, $\beta \circ h^{-1}$ is an integral curve through $p$ in $\mathbf{X}$. By uniqueness of integral curves, $\beta \circ h^{-1}(t) = \alpha(t)$ for all $t \in \tilde{I}$.
+\end{proof}
 
 %\chapter{Arc Length and Line Integrals}
 \section{Arc Length and Line Integrals}
