@@ -912,6 +912,35 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 
 %\chapter{Arc Length and Line Integrals}
 \section{Arc Length and Line Integrals}
+\begin{description}
+	\item[length of arc] The length of parametrised arc $\alpha$ is the integral of its speed. Let $\alpha : [a,b] \to \mathbb{R}^{n+1}$. Length of $\alpha$ is
+	\begin{equation}
+		l(\alpha) = \int_a^b \| \dot{\boldsymbol{\alpha}}(t) \| dt
+	\end{equation}
+	\textbf{Note} : Length of arc is the total distance travelled. For example : $\alpha_1 : [0,2\pi] \to \mathbb{R}^2$ defined by $\alpha_1(t) = (\cos t,\sin t)$ has its length $2\pi$, the perimeter of unit circle. But, for $\alpha_2 : [0,4\pi] \to \mathbb{R}^2$ defined by $\alpha_2(t) = (\cos t,\sin t)$ has its length $4\pi$. And $\alpha : \mathbb{R} \to \mathbb{R}^2$ defined by $\alpha(t) = (\cos t,\sin t)$ has its length $+\infty$.
+\end{description}
+
+\subsection{Properties of Arc Length}
+\begin{enumerate}
+	\item Arc length is preserved under reparametrisation.\\
+		Let $\alpha : [a,b] \to \mathbb{R}^{n+1}$ be a parametrised curve. And let $\beta : [c,d] \to \mathbb{R}^{n+1}$ be a reparametrisation of $\alpha$ defined by $\beta(t) = \alpha(h(t))$ where $h : [a,b] \to [c,d]$. Then length of $\beta$ is given by,
+	\begin{align*}
+		l(\beta) = & \int_c^d \| \dot{\beta}(t)\|\ dt \\
+		= & \int_c^d \|\dot{\alpha}(h(t))\|h'(t)\ dt\\
+		= & \int_a^b \|\alpha(u)\|\ du = l(\alpha)
+	\end{align*}
+	\item Unit speed arcs are parametrised by arc length.\\
+		Let $\alpha$ be a unit speed parametrised curve. That is, $\|\dot{\alpha}\| = 1$. Therefore $l(\alpha) = \int_a^b dt = b-a$. Clearly, length of the arc is the length of the parameter interval.
+\end{enumerate}
+
+\begin{theorem}[Existence of Global Parametrisation]
+	Let $C$ be an oriented plane curve. Then there exists a global parametrisation of $C$ if and only if $C$ is connected.
+\end{theorem}
+\begin{proof}
+	\textbf{Sufficient Part : } Suppose plane curve $C$ has a global parametrisation, $\alpha : I \to \mathbb{R}^{n+1}$. Let $p,q \in C$, then $p = \alpha(t_1)$ and $q = \alpha(t_2)$ for some $t_1,t_2 \in I$. WLOG $t_1 < t_2$ and clearly, there exists a path from $p$ to $q$ obtained restricting $\alpha$ to $[t_1,t_2]$. Therefore, the plane curve $C$ is path-connected and thus connected. \\
+
+	{Necessary Part : } Suppose the plane curve $C$ is connected. Let $p \in C$ and $\alpha$ be the local parametrisation of $C$ at $p$, which is nothing but the maximal integral curve through $p$ in the tangent space obtained by rotating $\nabla f$ by an angle of $-\pi/2$.
+\end{proof}
 
 %\chapter{Curvature of Surfaces}
 \section{Curvature of Surfaces}
