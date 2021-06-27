@@ -939,9 +939,101 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 \begin{proof}
 	\textbf{Sufficient Part : } Suppose plane curve $C$ has a global parametrisation, $\alpha : I \to \mathbb{R}^{n+1}$. Let $p,q \in C$, then $p = \alpha(t_1)$ and $q = \alpha(t_2)$ for some $t_1,t_2 \in I$. WLOG $t_1 < t_2$ and clearly, there exists a path from $p$ to $q$ obtained restricting $\alpha$ to $[t_1,t_2]$. Therefore, the plane curve $C$ is path-connected and thus connected. \\
 
-	{Necessary Part : } Suppose the plane curve $C$ is connected. Let $p \in C$ and $\alpha$ be the local parametrisation of $C$ at $p$, which is nothing but the maximal integral curve through $p$ in the tangent space obtained by rotating $\nabla f$ by an angle of $-\pi/2$.
+	{Necessary Part : } Suppose the plane curve $C$ is connected. Let $p \in C$ and $\alpha$ be the local parametrisation of $C$ at $p$, which is nothing but the maximal integral curve through $p$ in the tangent space obtained by rotating $\nabla f$ by an angle of $-\pi/2$ where $C = f^{-1}(c)$ and orientation $\mathbf{N} = \nabla f / \| \nabla f \|$. --- yet to complete ---
+
 \end{proof}
 
+\begin{theorem}
+	Let $C$ be a connected oriented plane curve and let $\beta : I \to C$ be a unit speed global parametrisation of $C$. Then $\beta$ is either one to one or periodic. Moreover, $\beta$ is periodic if and only if $C$ is compact.
+\end{theorem}
+\begin{proof}--- yet to complete ---
+\end{proof}
+\begin{description}
+	\item[Fundamental Domain] Let $\beta$ be a periodic parametrised plane curve with period $\tau$. Then any subset $[t_0,t_0+\tau]$ of its domain is a fundamental domain of $\beta$.
+	\item[1-form] A function $\omega : U \times R^{n+1} \to \mathbb{R}$  where $U \subset \mathbb{R}^{n+1}$ and $p \in U \implies \mathbb{R}_p^{n+1} \subset U \times \mathbb{R}^{n+1}$. Examples, $\omega_\mathbf{X}$, $df$ and $dx_i$. (below)\\
+
+		\textbf{Note : } $1$-form $\omega$ is smooth if $\omega$ is a smooth function.
+	\item[1-form dual] Let $\mathbf{X} $ be a vector field on $U$. Then 1-form dual of $\mathbf{X}$ is $\omega_\mathbf{X}$ given by  $\omega_\mathbf{X}(p,v) = \mathbf{X}(p) \cdot (p,v)$
+	\item[differential of $f$] Let $f : U \to \mathbb{R}$ be a smooth function. Then differential of $f$ is $df$ given by $df(\mathbf{v}) = \nabla f(p) \cdot \mathbf{v}$ where $\mathbf{v} = (p,v)$.
+	\item[Cartesian Coordinate Function] Let $U \subset \mathbb{R}^{n+1}$. Then $i$th cartesian coordinate function $x_i$ is given by $x_i : U \to \mathbb{R},\ x_i(a_1,a_2,\cdots,a_{n+1}) = a_i$.
+	\item[$dx_i$] The differential of the cartesian coordinate function $x_i$ is given by $dx_i$ where $dx_i : U \times R^{n+1} \to \mathbb{R}$
+		$$dx_i = \nabla x_i(p) \cdot \mathbf{v} = (p,0,0,\cdots,1,\cdots,0) \cdot (p,v_1,v_2,\cdots,v_{n+1}) = v_i$$
+\end{description}
+\subsection{$1$-form}
+\begin{description}
+	\item[Sum of two $1$-forms] $\omega_1+\omega_2$
+	\begin{align*}
+		(\omega_1+\omega_2)(\mathbf{v}) & = \nabla(\omega_1+\omega_2) \cdot \mathbf{v}\\
+		& =  \nabla \omega_1 \cdot \mathbf{v} + \nabla \omega_2 \cdot \mathbf{v} \\
+		& =  \omega_1(\mathbf{v}) + \omega_2(\mathbf{v})
+	\end{align*}
+\item[Product of function and $1$-form] $f\omega$
+	\begin{align*}
+		f\omega(\mathbf{v}) & = \nabla (f\omega) \cdot \mathbf{v} \\
+		&  = f\nabla \omega \cdot \mathbf{v} \\
+		& = f(p)\omega(\mathbf{v})
+	\end{align*}
+\end{description}
+
+	\textbf{Note : } Let $\omega(\mathbf{x}) : U \to \mathbb{R},\ (\omega(\mathbf{X}))(p) = \omega(\mathbf{X}(p))$.\\
+	If $\omega$ and $\mathbf{X}$ are smooth, then function $\omega(\mathbf{X})$ is also smooth.
+
+\begin{proposition}[$1$-form representation]
+	For every $1$-form $\omega$ on $U$, there exists unique functions $f_i : U \to \mathbb{R}$ such that
+\begin{equation}
+	\omega = \sum_{i = 1}^{n+1} f_idx_i
+\end{equation}
+	And $\omega$ is smooth if and only if each $f_i$ is smooth.
+\end{proposition}
+\begin{proof}
+	Let $\mathbf{X}_j$ be a smooth vector field on $U$ where $X_j(p) = (p,0,0,\cdots,1,\cdots,0)$. Then, $dx_i(X_j) =\delta_{ij}$. Suppose $\omega = \sum f_i dx_i$. Then 
+	$$\omega(\mathbf{X}_j) = \sum_{i=1}^{n+1} (f_idx_i)\mathbf{X}_j = \sum_{i=1}^{n+1} f_i(p) dx_i(\mathbf{X}_j) = \sum_{i=1}^{n+1} f_i(p)\delta_{ij} = f_j(p)$$
+
+	Thus $f_j$ is unique for each $j$ if they exist. And for each $1$-form $\omega$ there exist functions $f_i$ such that $\omega = \sum f_i dx_i$ exists where $f_i = \omega(X_i)$. And thus, $\omega$ is smooth if and only if each $f_i$ is smooth.
+\end{proof}
+
+\begin{corollary}
+	Let $f : U \to \mathbb{R}$. Then
+	\begin{equation}
+	df = \sum_{i = 1}^{n+1} \frac{\partial f}{\partial x_i} dx_i
+	\end{equation}
+\end{corollary}
+\begin{proof}
+	$$ df(\mathbf{X}_j) = \nabla f \cdot \mathbf{X}_j = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i}\delta_{ij} = \frac{\partial f}{\partial x_j} = f_j \implies df = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i} dx_i $$
+\end{proof}
+
+\begin{definition}[Line Integral]
+	Let $\omega$ be a $1$-form and $\alpha : [a,b] \to U$ be a parametrised curve on $U$. Then the line integral of $\omega$ over $\alpha$ is given by,
+	\begin{equation}
+		\int_\alpha \omega = \int_a^b \omega(\dot{\alpha}(t))
+	\end{equation}
+\end{definition}
+
+\textbf{Note : } The line integral of $1$-form $\omega$ over a parametrised curve is invariant of reparametrisation.\\
+
+Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $\beta(t) = \alpha(h(t))$ and function $h : [c,d] \to [a,b]$. Then , 
+\begin{align*}
+	\int_\beta \omega & = \int_c^d \omega(\dot{\beta}(t)) \\
+	& = \int_c^d \omega(\dot{\alpha}(h(t))h'(t)) \\
+	& = \int_c^d \omega(\dot{\alpha}(h(t))) h'(t) \\
+	& = \int_a^b \omega(\dot{\alpha}(u)) = \int_\alpha \omega
+\end{align*}
+
+\begin{theorem}
+	Let $\eta$ be a $1$-form on $\mathbb{R}^2-\{0\}$ defined by
+	$$ \eta = \frac{-x_2}{x_1^2+x_2^2}dx_1 + \frac{x_1}{x_1^2+x_2^2}dx_2 $$
+	Then for any closed, piecewise smooth,  parametrised smooth curve $\alpha : [a,b] \to \mathbb{R}-\{0\}$, the line integral of $\eta$ over $\alpha$
+	$$\int_\alpha \eta = 2\pi k $$
+\end{theorem}
+\begin{proof}
+	--- yet to complete ---
+\end{proof}
+
+\begin{description}
+	\item[Winding Number] The winding number of $\alpha$ is $k(\alpha) = \frac{1}{2\pi} \int_\alpha \eta$ 
+
+	\textbf{Note : } Winding number is the number of times $\alpha$ winds around origin.
+\end{description}
 %\chapter{Curvature of Surfaces}
 \section{Curvature of Surfaces}
 
