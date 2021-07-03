@@ -94,9 +94,124 @@
 	\item Outer Measure of the empty set is zero\\
 		Let $\epsilon > 0$. Then $\mathcal{C}_\epsilon = \{ (0,\frac{\epsilon}{2^n}) : n \in \mathbb{N} \}$ is an open cover of $\phi$ containing nonempty, bounded, open intervals. Clearly, sum of length of intervals in $C_\epsilon = \epsilon$. Suppose $m^\ast(\phi) = \delta$ and $\delta > 0$. There exists $\epsilon$ such that $0 < \epsilon < \delta$. The sum of intervals of $\mathcal{C}_\epsilon$ is less than $\delta$, which is a contradiction by the definition of Outer Measure.
 	\item Outer Measure is monotone\\
-		Suppose $A \subset B$. Then every cover of $B$ is also an  cover of $A$. Let $\mathcal{U}$ be the set of all open covers of $A$ with nonempty, bounded intervals and $\mathcal{V}$ be the set of all such open covers of $A$. Clearly, $\mathcal{V} \subset \mathcal{U}$. We know that, if $A \subset B$, then $\inf{B} \le \inf{A}$. Therefore, $m^\ast(A) \le m^\ast(B)$.
+		Suppose $A \subset B$. Then every cover of $B$ is also an  cover of $A$. Let $\mathcal{U}$ be the set of all open covers of $A$ with nonempty, bounded intervals and $\mathcal{V}$ be the set of all such open covers of $A$. Clearly, $\mathcal{V} \subset \mathcal{U}$. We know that, if $A \subset B$, then $\inf{B} \le \inf{A}$. Therefore,
+	\begin{equation}
+		A \subset B \implies m^\ast(A) \le m^\ast(B)
+	\end{equation}
 	\item Outer Measure of Countable Sets is zero
 	\item Outer Measure of an Interval is its length
+	\begin{proof}
+		\textbf{Case 1 : Closed, Bounded Interval}
+		Let $[a,b]$ be a closed, bounded interval. Then for any $\epsilon > 0$, $(a-\epsilon,b+\epsilon)$ is a cover of $[a,b]$. Thus, by the definition of outer measure $m^\ast([a,b]) \le b-a+2\epsilon$ since $[a,b] \subset (a-\epsilon,b+\epsilon)$ and $m^\ast$ is monotonic. Therefore,
+	\begin{equation}
+		m^\ast([a,b]) \le b-a
+	\end{equation}
+
+		Since $[a,b]$ is closed and bounded, $[a,b]$ is compact. And by Heine-Borel theorem, every open cover of $[a,b]$ has a finite subcover. Thus, it is sufficient to prove the theorem for finite covers of $[a,b]$.\\
+
+		Let $\mathcal{C}$ be a finite cover of $[a,b]$ with $n$ open intervals. Let $(a_1,b_1)$ be an open interval containing $a$ in $\mathcal{C}$. Then $a_1 < a < b_1$. If $b_1 > b$ then $l(a_1,b_1) > l(a,b)$. And $\sum_{i=1}^k l(I_k) \ge l(a_1,b_1) \ge b-a$.
+
+\begin{center}
+\begin{tikzpicture}
+	\draw (-3,0) -- (3,0);
+	\draw[blue] (-1.5,0.1) -- (1.5,0.1);
+	\draw (-1,0) circle (0.05cm);
+	\draw (-1,-0.5) node{$a$};
+	\draw (1,0) circle (0.05cm);
+	\draw (1,-0.5) node{$b$};
+
+	\draw (-1.5,0) circle (0.05cm);
+	\draw (-1.5,-0.5) node{$a_1$};
+	\draw (1.5,0) circle (0.05cm);
+	\draw (1.5,-0.5) node{$b_1$};
+\end{tikzpicture}
+\end{center}
+
+		Suppose $b_1 < b$. Clearly, $a < b_1$. And the cover $\mathcal{C}$ must have an open interval containing $b_1$. Otherwise $\mathcal{C}$ is not a cover of $[a,b]$. That is, there exists $(a_2,b_2)$ containing $b_1 \in (a,b)$ such that $a_2 < b_1 < b_2$. If $b_2 > b$, then $\sum_{i=1}^k l(I_k) \ge l(a_1,b_1) + l(a_2,b_2) \ge l(a_1,b_2) \ge b-a$.
+
+\begin{center}
+\begin{tikzpicture}
+	\draw (-3,0) -- (3,0);
+	\draw (-1,0) circle (0.05cm);
+	\draw (-1,-0.5) node{$a$};
+	\draw (1,0) circle (0.05cm);
+	\draw (1,-0.5) node{$b$};
+
+	\draw (-1.5,0) circle (0.05cm);
+	\draw (-1.5,-0.5) node{$a_1$};
+	\draw (0.5,0) circle (0.05cm);
+	\draw (0.5,-0.5) node{$b_1$};
+	\draw[blue] (-1.5,0.1) -- (0.5,0.1);
+
+	\draw (0,0) circle (0.05cm);
+	\draw (0,-0.5) node{$a_2$};
+	\draw (1.5,0) circle (0.05cm);
+	\draw (1.5,-0.5) node{$b_2$};
+	\draw[red] (0,0.2) -- (1.5,0.2);
+\end{tikzpicture}
+\end{center}
+
+		Suppose $b_2 < b$. Continuing like this we get, $N$ open intervals in $\mathcal{C}$, $\{ (a_k,b_k) : k = 1,2,\cdots,N \} $ such that $a_1 < a < b_1$ and $a_N < b < b_N$ and $a_k < b_{k-1} < b_k$ for all $k$. The process should terminate in fintie steps as $\mathcal{C}$ is a finite cover of $[a,b]$. Then $\sum_{k=1}^N l(I_k) \ge \sum_{k=1}^N l(a_k,b_k) \ge l(a_1,b_N) \ge b-a$.
+
+\begin{center}
+\begin{tikzpicture}
+	\draw (-5,0) -- (-1,0);
+	\draw[dashed] (-1,0) -- (1,0);
+	\draw (1,0) -- (6.5,0);
+
+	\draw (-4,0) circle (0.05cm);
+	\draw (-4,-0.5) node{$a$};
+	\draw (5.5,0) circle (0.05cm);
+	\draw (5.5,-0.5) node{$b$};
+
+	\draw (-4.5,0) circle (0.05cm);
+	\draw (-4.5,-0.5) node{$a_1$};
+	\draw (-3,0) circle (0.05cm);
+	\draw (-3,-0.5) node{$b_1$};
+	\draw[blue] (-4.5,0.1) -- (-3,0.1);
+
+	\draw (-3.5,0) circle (0.05cm);
+	\draw (-3.5,-0.5) node{$a_2$};
+	\draw (-2,0) circle (0.05cm);
+	\draw (-2,-0.5) node{$b_2$};
+	\draw[red] (-3.5,0.2) -- (-2,0.2);
+
+	\draw (-2.5,0) circle (0.05cm);
+	\draw (-2.5,-0.5) node{$a_3$};
+	\draw (-1,0) circle (0.05cm);
+	\draw (-1,-0.5) node{$b_3$};
+	\draw[blue] (-2.5,0.1) -- (-1,0.1);
+	
+	\draw (-1.5,0) circle (0.05cm);
+	\draw (-1.5,-0.5) node{$a_4$};
+	\draw[red,dashed] (-1.5,0.2) -- (0.5,0.2);
+
+	\draw (2.5,0) circle (0.05cm);
+	\draw (2.5,-0.5) node{$b_{N-2}$};
+	\draw[blue,dashed] (0.5,0.1) -- (2.5,0.1);
+
+	\draw (1.5,0) circle (0.05cm);
+	\draw (1.5,-0.5) node{$a_{N-1}$};
+	\draw (4.5,0) circle (0.05cm);
+	\draw (4.5,-0.5) node{$b_{N-1}$};
+	\draw[red] (1.5,0.2) -- (4.5,0.2);
+
+	\draw (3.5,0) circle (0.05cm);
+	\draw (3.5,-0.5) node{$a_N$};
+	\draw (6,0) circle (0.05cm);
+	\draw (6,-0.5) node{$b_N$};
+	\draw[blue] (3.5,0.1) -- (6,0.1);
+\end{tikzpicture}
+\end{center}
+
+	Clearly, every open cover of $[a,b]$ contains a finite subcover $\mathcal{C}$, which contains a finite subcover of the form $\{ (a_k,b_k) : k=1,2,\cdots,N \}$ such that $\sum_{k=1}^N l(I_k) \ge b-a$. Thus, for any open cover $\sum_{k=1}^\infty l(I_k) \ge b-a$. And thus,
+	\begin{equation}
+		m^\ast([a,b]) \ge b-a
+	\end{equation}
+
+	\textbf{Case 2 : Unbounded Interval}
+	
+	\end{proof}
 	\item Outer Measure is translation invariant
 	\item Outer Measure is countably subadditive
 \end{enumerate}

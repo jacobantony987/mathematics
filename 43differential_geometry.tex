@@ -917,7 +917,11 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	\begin{equation}
 		l(\alpha) = \int_a^b \| \dot{\boldsymbol{\alpha}}(t) \| dt
 	\end{equation}
-	\textbf{Note} : Length of arc is the total distance travelled. For example : $\alpha_1 : [0,2\pi] \to \mathbb{R}^2$ defined by $\alpha_1(t) = (\cos t,\sin t)$ has its length $2\pi$, the perimeter of unit circle. But, for $\alpha_2 : [0,4\pi] \to \mathbb{R}^2$ defined by $\alpha_2(t) = (\cos t,\sin t)$ has its length $4\pi$. And $\alpha : \mathbb{R} \to \mathbb{R}^2$ defined by $\alpha(t) = (\cos t,\sin t)$ has its length $+\infty$.
+
+	For Example (refer : Exercise 11.4) : Given $\alpha: [0,2\pi] \to \mathbb{R}^4$, $\alpha(t) = (\cos t,\sin t, \cos t,\sin t)$. Then, $\dot{\boldsymbol{\alpha}}(t) = (\alpha(t),-\sin t,\cos t,-\sin t,\cos t)$. We have, $\| \dot{\boldsymbol{\alpha}}(t) \| = \sqrt{\sin^2 t+\cos^2 t+\sin^2 t+ \cos^2 t} = \sqrt{2}$. Therefore, $l(\alpha) = \int_0^{2\pi} \sqrt{2}dt = 2\sqrt{2}\pi$.\\
+
+	\textbf{Note} : Length of arc is the total distance travelled.\\
+	For example : $\alpha_1 : [0,2\pi] \to \mathbb{R}^2$ defined by $\alpha_1(t) = (\cos t,\sin t)$ has its length $2\pi$, the perimeter of unit circle. But, for $\alpha_2 : [0,4\pi] \to \mathbb{R}^2$ defined by $\alpha_2(t) = (\cos t,\sin t)$ has its length $4\pi$. And $\alpha : \mathbb{R} \to \mathbb{R}^2$ defined by $\alpha(t) = (\cos t,\sin t)$ has its length $+\infty$.
 \end{description}
 
 \subsection{Properties of Arc Length}
@@ -933,26 +937,83 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 		Let $\alpha$ be a unit speed parametrised curve. That is, $\|\dot{\alpha}\| = 1$. Therefore $l(\alpha) = \int_a^b dt = b-a$. Clearly, length of the arc is the length of the parameter interval.
 \end{enumerate}
 
+%Theorem 11.1
 \begin{theorem}[Existence of Global Parametrisation]
 	Let $C$ be an oriented plane curve. Then there exists a global parametrisation of $C$ if and only if $C$ is connected.
 \end{theorem}
 \begin{proof}
 	\textbf{Sufficient Part : } Suppose plane curve $C$ has a global parametrisation, $\alpha : I \to \mathbb{R}^{n+1}$. Let $p,q \in C$, then $p = \alpha(t_1)$ and $q = \alpha(t_2)$ for some $t_1,t_2 \in I$. WLOG $t_1 < t_2$ and clearly, there exists a path from $p$ to $q$ obtained restricting $\alpha$ to $[t_1,t_2]$. Therefore, the plane curve $C$ is path-connected and thus connected. \\
 
-	{Necessary Part : } Suppose the plane curve $C$ is connected. Let $p \in C$ and $\alpha$ be the local parametrisation of $C$ at $p$, which is nothing but the maximal integral curve through $p$ in the tangent space obtained by rotating $\nabla f$ by an angle of $-\pi/2$ where $C = f^{-1}(c)$ and orientation $\mathbf{N} = \nabla f / \| \nabla f \|$. --- yet to complete ---
+	\textbf{Necessary Part : Step 1 Construction of $\alpha$}\\
+	Let $\mathbf{X}$ be the unit tangent vector field on $C$ (obtained by rotating $\nabla f$ by an angle of $-\pi/2$ and orientation $\mathbf{N} = \nabla f / \| \nabla f \|$). Suppose the plane curve $C = f^{-1}(c)$ is connected. Let $p \in C$ and $\alpha$ be the local parametrisation of $C$ at $p$, which is nothing but the maximal integral curve of $\mathbf{X}$ through $p$.
+	Let $p_1 \in C$. Parametrisation $\alpha$ is global if $p_1 \in Image\ \alpha$.\\
+	
+	\textbf{Step 2 : Construction of $\beta$}\\
+	The plane curve $C$ is connected. Thus there exists a continuous path $\beta$ from $p$ to $p_1$ where $\beta : [a,b] \to C$ with $\beta(a) = p$ and $\beta(b) = p_1$. \textit{We have, $\beta(a) \in Image\ \alpha$. But, $\beta(b) \notin Image\ \alpha$.} Let $t_0 = \sup \{ t \in [a,b] : \beta(t) \in Image\ \alpha \}$, the least upper bound of the points which are in $Image\ \alpha$. \textit{ That is, if $t > t_0$, then $\beta(t) \notin Image\ \alpha$. And if $t<t_0$, then there exists an $\epsilon > 0$ such that $\beta(t+\epsilon) \in Image\ \alpha$. Otherwise, $t_0$ is not the supremum.}\\
 
+	\textbf{Step 3 : Construction of $\gamma$}\\
+	Let $\gamma$ be the maximal integral curve of $\mathbf{X}$ through $\beta(t_0) = p_0$. {\color{blue}Suppose there exists an open rectangle $B$ about $\beta(t_0) = p_0$ such that $C \cap B \subset Image\ \gamma$.} Then by the continuity of $\beta$, there exists $\delta > 0$ such that $\beta(t) \in Image\ \gamma$ for all $t \in (t_0-\delta,t_0+\delta)$. Thus, there exists $\epsilon > 0$ such that $\epsilon < \delta$ and $\beta(t_0-\epsilon) \in Image\ \gamma$. Since $t_0$ is the least upper bound, $\beta(t_0-\epsilon) \in Image\ \alpha$ as well. Thus, $\alpha$ and $\gamma$ are maximal integral curves through a common point (in the neighbourhood of $p_0$). And thus, $Image\ \alpha = Image\ \gamma$. Clearly, $p_1 \in Image\ \alpha$. Therefore, the parametrisation $\alpha$ is global. Therefore it is sufficient to prove that there exists an open box $B$ such that $C \cap B \subset Image\ \gamma$.\\
+
+	\textbf{Step 4 : Construction of $A$}\\
+	Let $u = (\frac{\partial f}{\partial x_2}(p_0),\frac{-\partial f}{\partial x_1}(p_0))$ and $v  = (\frac{\partial f}{\partial x_1}(p_0),\frac{\partial f}{\partial x_2}(p_0))$. Clearly, $\mathbf{u} = (p_0,u) \in C_{p_0}$ and $\mathbf{v} = (p_0,v) \perp C_{p_0}$. Consider the open rectangle $A$ given by,
+	$$A = \{p_0+ru+sv : |r| < \epsilon_1,\ |s| < \epsilon_2 \}$$
+	where $\epsilon_1, \epsilon_2$ are so chosen that $A$ is contained in the domain of $f$ and $\nabla f(q) \cdot (q,v) > 0$ for every $q \in A$. Since $\nabla f(p_0) \cdot \mathbf{v} \ne 0$, by continuity of $\nabla f(q) \cdot (q,v)$ there exists a neighbourhood of $p_0$ in which this function is positive.\\
+
+	\textbf{Step 5 : Construction of $\{ g_r \}$}\\
+	Consider the family of functions $\{ g_r \}$ defined by $g_r(s) = f(p_0+ru+sv)$. Since $\nabla f(q) \cdot (q,v) > 0$ for every $q \in A$, for $|r| < \epsilon_1$, $g_r(s)$ is strictly increasing in $(-\epsilon_2,\epsilon_2)$ as $g_r'(s) > 0$. %why ?
+	That is, there exists at most one $s \in (-\epsilon_2,\epsilon_2)$ such that $f(p_0+ru+sv) =c$.
+
+	\textbf{Step 6 : Construction of $B$}\\
+	Since the vectors $\mathbf{u},\mathbf{v}$ spans $C_{p_0}$, we have $\gamma(t) = p_0+h_1(t)u + h_2(t)v$ where $h_1,h_2$ are real-valued functions.
+	Clearly, 
+	\begin{align*}
+		(\gamma(t)-p_0) \cdot \mathbf{u} = & h_1(t) \mathbf{u} \cdot \mathbf{u} + h_2(t) \mathbf{u} \cdot \mathbf{v} \\
+		= & h_1(t) \|u\|^2 \text{ since } \mathbf{u} \perp \mathbf{v}
+	\end{align*}
+	\begin{align*}
+		(\gamma(t)-p_0) \cdot \mathbf{v} = & h_1(t) \mathbf{u} \cdot \mathbf{v} + h_2(t) \mathbf{v} \cdot \mathbf{v} \\
+		= & h_2(t) \| v \|^2
+	\end{align*}
+	Thus,
+	\begin{equation}
+		h_1(t) = \frac{(\gamma(t)-p_0) \cdot \mathbf{u}}{\| u\|^2}
+	\end{equation}
+	\begin{equation}
+		h_2(t) = \frac{(\gamma(t)-p_0) \cdot \mathbf{v}}{\| v\|^2}
+	\end{equation}
+
+	Now, $h_1'(0) = \dot{\gamma}(0) \cdot (p_0,u/\|u\|^2) = \mathbf{X}(p_0) \cdot \mathbf{X}(p_0)/\|\mathbf{X}(p_0)\|^2 = 1$. And $h_1(0) = 0$ and $h_2(0) = 0$. Thus, there exists $(t_1,t_2)$ containing $0$ such that $\gamma(t) \in A$ and $h_1'(t) > 0$ for every $t \in (t_1,t_2)$. Set $r_1 = h_1(t_1)$ and $r_2 = h_1(t_2)$. Since $h_1$ is continuous and strictly increasing, for every $r \in (r_1,r_2)$ there exists $t \in (t_1,t_2)$ such that $r=h_1(t)$ and $s = h_2(t)$.
+
+	\begin{equation}
+		\text{Define } B = \{ p_0 + ru + sv : r \in (r_1,r_2), |s| < \epsilon_2 \}
+	\end{equation}
+	Then $p_0 + ru + su \in B \cap C$ if and only if there exists $t \in (t_1,t_2)$ such that $r = h_1(t)$, and $s=h_2(t)$. That is, $p_0 + ru + sv \in Image\ \gamma$. Therefore, $C \cap B \subset Image\ \gamma$ as required in Step 3.
 \end{proof}
 
 \begin{theorem}
 	Let $C$ be a connected oriented plane curve and let $\beta : I \to C$ be a unit speed global parametrisation of $C$. Then $\beta$ is either one to one or periodic. Moreover, $\beta$ is periodic if and only if $C$ is compact.
 \end{theorem}
-\begin{proof}--- yet to complete ---
+\begin{proof}
+	Suppose $\beta(t_1) = \beta(t_2)$ for some $t_1,t_2 \in I$ ($t_1 \ne t_2$). Let $\mathbf{X}$ be the unit tangent vector field on $C$. And let $\alpha$ be the maximal integral curve of $\mathbf{X}$ through $\beta(t_1)$. That is, $\alpha(0) = \beta(t_1) = \beta(t_2)$. Since $\beta$ is a unit speed global parametrisation of $C$, $\beta$ is also a maximal integral curve of $\mathbf{X}$. Thus, $\beta$ is a reparametrisation of $\beta$. Thus, $\beta(t) = \alpha(t-t_1)$ and $\beta(t) = \alpha(t-t_2)$. Let $\tau = t_2-t_1$. Then $\beta(t) = \alpha(t-t_1) = \alpha(t-t_2) = \alpha(t-t_2+t_2-t_1) = \alpha(t+\tau-t_1) = \beta(t+\tau)$. Therefore, $\beta$ is periodic. \\
+
+	Suppose $\beta$ is periodic, then its continuous image, $C = \beta[t,t+\tau]$ is compact. Suppose $\beta$ is not periodic, then $\beta$ is one to one. Then, $C$ is not compact as $\beta^{-1}$ doesn't attain its extrema. Thus, it is enough to prove that $\beta^{-1}$ is continuous.\\
+
+	Given $t_0 \in I$ and $\epsilon > 0$, define $\gamma(t) = \beta(t+t_0)$ such that $|t| < \epsilon$ and $t+t_0 \in I$. Chose an open rectangle $B$ about $p_0 = \beta(t_0)$ such that $C \cap B \subset Image\ \gamma$. Then, $|\beta^{-1}(p) - t_0 | = | \gamma^{-1}(p) | < \epsilon$ for every $p \in C \cap B$.\\
+
+	Therefore it is enough to prove that such an open rectangle $B$ exists. The construction of which is given in previous proof.
 \end{proof}
+
 \begin{description}
 	\item[Fundamental Domain] Let $\beta$ be a periodic parametrised plane curve with period $\tau$. Then any subset $[t_0,t_0+\tau]$ of its domain is a fundamental domain of $\beta$.
-	\item[1-form] A function $\omega : U \times R^{n+1} \to \mathbb{R}$  where $U \subset \mathbb{R}^{n+1}$ and $p \in U \implies \mathbb{R}_p^{n+1} \subset U \times \mathbb{R}^{n+1}$. Examples, $\omega_\mathbf{X}$, $df$ and $dx_i$. (below)\\
+\end{description}
 
-		\textbf{Note : } $1$-form $\omega$ is smooth if $\omega$ is a smooth function.
+\subsection{$1$-Form}
+\begin{definition}[1-form]
+		The $1$-form is a function $\omega : U \times R^{n+1} \to \mathbb{R}$  where $U \subset \mathbb{R}^{n+1}$ such that for every $p \in U$, $\mathbb{R}_p^{n+1} \subset U \times \mathbb{R}^{n+1}$.
+\end{definition}
+	\textbf{Note : } $1$-form $\omega$ is smooth if $\omega$ is a smooth function. A few examples of $1$-form are given below: $\omega_\mathbf{X}$, $df$ and $dx_i$.
+
+\begin{description}
 	\item[1-form dual] Let $\mathbf{X} $ be a vector field on $U$. Then 1-form dual of $\mathbf{X}$ is $\omega_\mathbf{X}$ given by  $\omega_\mathbf{X}(p,v) = \mathbf{X}(p) \cdot (p,v)$
 	\item[differential of $f$] Let $f : U \to \mathbb{R}$ be a smooth function. Then differential of $f$ is $df$ given by $df(\mathbf{v}) = \nabla f(p) \cdot \mathbf{v}$ where $\mathbf{v} = (p,v)$.
 	\item[Cartesian Coordinate Function] Let $U \subset \mathbb{R}^{n+1}$. Then $i$th cartesian coordinate function $x_i$ is given by $x_i : U \to \mathbb{R},\ x_i(a_1,a_2,\cdots,a_{n+1}) = a_i$.
@@ -975,7 +1036,7 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	\end{align*}
 \end{description}
 
-	\textbf{Note : } Let $\omega(\mathbf{x}) : U \to \mathbb{R},\ (\omega(\mathbf{X}))(p) = \omega(\mathbf{X}(p))$.\\
+	\textbf{Note : } Let $\omega(\mathbf{X}) : U \to \mathbb{R},\ (\omega(\mathbf{X}))(p) = \omega(\mathbf{X}(p))$.\\
 	If $\omega$ and $\mathbf{X}$ are smooth, then function $\omega(\mathbf{X})$ is also smooth.
 
 \begin{proposition}[$1$-form representation]
@@ -1002,6 +1063,7 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	$$ df(\mathbf{X}_j) = \nabla f \cdot \mathbf{X}_j = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i}\delta_{ij} = \frac{\partial f}{\partial x_j} = f_j \implies df = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i} dx_i $$
 \end{proof}
 
+\subsection{Line Integral}
 \begin{definition}[Line Integral]
 	Let $\omega$ be a $1$-form and $\alpha : [a,b] \to U$ be a parametrised curve on $U$. Then the line integral of $\omega$ over $\alpha$ is given by,
 	\begin{equation}
@@ -1026,7 +1088,24 @@ Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $
 	$$\int_\alpha \eta = 2\pi k $$
 \end{theorem}
 \begin{proof}
-	--- yet to complete ---
+	Consider $\varphi : [a,b] \to \mathbb{R}$ defined by $\varphi(t) = \varphi(a) + \int_{\alpha_t}\eta$ where $\alpha_t$ is the restriction of $\alpha$ to $[a,t]$ and $\varphi(a)$ is so chosen that $\alpha(a)/\|\alpha(a)\| = (\cos \varphi(a),\sin \varphi(a))$. We claim that 
+	\begin{equation}
+		\frac{\alpha(t)}{\|\alpha(t)\|} = \left(\cos \varphi(t),\sin \varphi(t)\right),\ \forall t \in [a,b]
+	\end{equation}
+
+	Let $t_0 = \sup \{ t \in [a,b] : \alpha(t)/\|\alpha(t)\| = (\cos \varphi(t),\sin \varphi(t)) \}$. By continuity the claim should be true for $t_0$ as well. Therefore it is enough to prove that $t_0 = b$.\\
+
+	Define $v = -\alpha(t_0)/\| \alpha(t_0) \|$ and $V = \mathbb{R}^2 - \{ rv : r \ge 0 \}$. And $\theta_V :  V \to \mathbb{R}$ is defined in such a way that $v = (\cos \theta_v,\sin \theta_v)$ and $\theta_v \in [0,2\pi)$. In other words, $\theta_V$ a real-valued function which give the angle of the ray from origin through the points.\\
+
+	Then $(\cos \theta_V(\alpha(t_0)),\sin \theta_V(\alpha(t_0))) = \alpha(t_0)/\| \alpha(t_0)\| = (\cos \varphi(t_0),\sin \varphi(t_0))$. Clearly, $\varphi(t_0) - \theta_V(\alpha(t_0)) = 2\pi m$ for some integer $m$.\\
+
+	Consider a $\delta$ neighbourhood of $t_0$ such that $\alpha(t) \in V$ for every point $t$ in it. Then, $\alpha$ is smooth in that neighbourhood.
+	$$\dfrac{d}{dt}\left(\varphi(t)-\theta_V(\alpha(t))\right) = \eta(\dot{\alpha}(t)) = d\theta_V(\dot{\alpha}(t)) = 0$$
+
+	Thus, $\varphi(t) - \theta_V(\alpha(t)) = 2\pi m$ for every $t \in (t_0-\delta,t_0+\delta)$. Therefore, the claim is true. Suppose $t_0 < b$, then the claim is true for $t_0+\epsilon \in (t_0-\delta,t_0+\delta)$ which is a contradiction to the choice of $t_0$ as least upper bound of all such values.\\
+
+	Thus, $(\cos \varphi(a),\sin \varphi(a)) = (\cos \varphi(b),\sin \varphi(b))$. Therefore, $\varphi(b)-\varphi(a) = 2\pi k$ for some integer $k$. And $\int_\alpha \eta = \int_a^b \eta(\dot{\alpha}(t)) dt = \varphi(b) -\varphi(a) = 2\pi k$.
+
 \end{proof}
 
 \begin{description}
@@ -1036,11 +1115,193 @@ Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $
 \end{description}
 %\chapter{Curvature of Surfaces}
 \section{Curvature of Surfaces}
+\begin{description}
+	\item[Normal Curvature] The number $\kappa(\mathbf{v}) = L_p(\mathbf{v}) \cdot \mathbf{v}$ is the normal curvature of the $n$-surface $S$ at point $p$ in the direction $\mathbf{v}$.
+	\item[Normal Section] The normal section of an $n$-surface $S$ with orientation $N$ is $\mathcal{N}(\mathbf{v}) \subset \mathbf{R}^{n+1}$ given by 
+	\begin{equation}
+		\mathcal{N}(\mathbf{v}) = \{ q \in \mathbf{R}^{n+1} : q = p+xv + yN(p),\ (x,y) \in \mathbb{R}^2 \}
+	\end{equation}
 
+	You take an apple and place a knife at any point on that apple in any direction tangent to its surface and cut it. The apple cuts into two parts. The $2$-dimensional space of that cut, is a \textbf{Nomal Section} of that apple. For any $n \ge 2$, the normal section of an $n$-surface is always $2$ dimensional.
+	\item[$S \cap \mathcal{N}(\mathbf{v})$] is the intersection of both the surface and its normal section.\\
+
+	In our example, $S \cap \mathcal{N}(\mathbf{v})$ is the skin of cross-section of that apple.
+\end{description}
+
+\begin{theorem}[Components of $S\cap\mathcal{N}(\mathbf{v})$]
+	Let $S$ be an oriented $n$-surface and $\mathbf{v}$ is a tangent direction at $p$, $\mathbf{v} \in S_p$. Then there exists an open $V$ containing $p$ such that $S \cap \mathcal{N}(\mathbf{v}) \cap V$ is a plane curve. Moreover, the curvature at $p$ of this curve is the normal curvature $\kappa(\mathbf{v})$ of $S$ at $p$ in the direction $\mathbf{v}$.
+\end{theorem}
+\begin{proof}
+	Let $f : U \to \mathbb{R}$ such that $S = f^{-1}(c)$ and $\nabla f(q) \ne \mathbf{0},\ \forall q \in S$. Let $\nabla f(q) = \left(q,\widetilde{\nabla f}(q)\right)$. Let $p \in S$ and $\mathbf{v} \in S_p$. Let $i : \mathbb{R}^2 \to \mathbb{R}^{n+1}$ defined by $i(x,y)=p+xv+yN(p)$. Clearly, the image of the function $i$ is the normal section, $\mathcal{N}(\mathbf{v}) = i(\mathbb{R}^2)$.\\
+
+	Let $V$ be the space spanned by $v$ and $N(p)$. That is,
+	\begin{equation}
+		V = \left\{ q \in U : \widetilde{\nabla f}(q) \cdot v \ne 0 \text{ OR } \widetilde{\nabla f}(q) \cdot N(p) \ne 0 \right\}
+	\end{equation}
+	Then $\nabla (f \circ i)(x,y) = \left(x,y,\widetilde{\nabla f}(i(x,y)) \cdot v, \widetilde{\nabla f}(i(x,y)) \cdot N(p) \right) \ne \mathbf{0}$ for every $(x,y) \in i^{-1}(V)$. Therefore, $C = i^{-1}(S \cap \mathcal{N}(\mathbf{v})) = (f \circ i)^{-1}(c)\ \cap\ i^{-1}(V)$ is a plane curve. In other words, $S \cap \mathcal{N}(\mathbf{v}) \cap V$ is a plane curve.
+\end{proof}
+\begin{lemma}[Extrema of Curvature are Eigenvalue of Weingarten Map]
+	Let $V$ be a finite dimensional vector space with dot product and let $L : V \to V$ be a self-adjoint linear transformation on $V$. Let $S = \{ v \in V : v\cdot v = 1\}$ and define $f : S \to \mathbb{R}$ by $f(v) = L(v) \cdot v$. Suppose $f$ is stationary at $v_0 \in S$. Then $L(v_0) = f(v_0)v_0$.
+\end{lemma}
+\begin{description}
+	\item[self-adjoint] That is, $L(v)\cdot w = v \cdot L(w)$.
+	\item[$S = \{ v \in V : v \cdot v = 1\}$] That is, $S$ is the set of all unit vectors in $V$
+	\item[$f$ is stationary at $v_0$] That is, for every parametrised curve $\alpha : I \to S$ with $\alpha(t_0) = v_0$,  $(f \circ \alpha)'(t) = 0$
+	\item[$L(v_0) = f(v_0)v_0$] That is, $v_0$ is the eigen vector of $L$ with eigen value $f(v_0)$.
+\end{description}
+\begin{proof}
+	Since $f$ is stationary at $v_0$, $f \circ \alpha)'(0) = 0$ for every parametrised curves in $S$ with $\alpha(0) = v_0$. Let $v \perp v_0$. Then $\alpha(t) = (\cos t)v_0 + (\sin t)v$. Then,
+	\begin{align*}
+		0 = & (f \circ \alpha)'(0)\\
+		= & \dfrac{d}{dt} \left( L(\alpha(t)) \cdot \alpha(t)  \right)(0)\\
+		= & \dfrac{d}{dt} \left( \cos^2 t\ L(v_0) \cdot v_0 + 2\sin t \cos t\ L(v_0) \cdot v + \sin^2 t\ L(v) \cdot v \right)(0)\\
+		= & \left(-\sin 2t\ L(v_0) \cdot v_0 + 2\cos 2t\ L(v_0) \cdot v + \sin 2t\ L(v) \cdot v\right)_{|t = 0} \\
+		= & 2L(v_0) \cdot v
+	\end{align*}
+	Clearly, $L(v_0) \perp v$ for every $v \in v_0^\perp$. In other words, $L(v_0) \perp v_0^\perp$. Thus, $v_0$ can span the space $L(v_0)$. That is, $L(v_0) = \lambda v_0$ for some $\lambda \in \mathbb{R}$. Thus $v_0$ is an eigen vector of $L(v_0)$. And the corresponding eigen vector $\lambda$ can be obtained, $ \lambda = \lambda v_0 \cdot v_0 = L(v_0) \cdot v_0 = f(v_0)$.
+\end{proof}
+\begin{theorem}
+	Let $V$ be a finite dimensional vector space with dot product and let $L : V \to V$ be a self-adjoint linear transformation on $V$. Then there exists an orthonormal basis for $V$ consisting of eigen vectors of $L$.
+\end{theorem}
+\begin{proof}--- yet to complete --- 4
+\end{proof}
+
+\begin{theorem}
+	Let $S$ be an oriented $n$-surface in $\mathbb{R}^{n+1}$. Let $p in S$ and $\{ \kappa_1(p),\kappa_2(p),\cdots,\kappa_n(p) \}$ be the principal curvatures of $S$ at $p$ with corresponding orthogonal principal curvature directions $\{ \mathbf{v}_1,\mathbf{v}_2, \cdots, \mathbf{v}_n \}$. Then the normal curvature $\kappa(\mathbf{v})$ in the direction $\mathbf{v} \in S_p$ is given by
+	\begin{equation}
+		\kappa(v) = \sum_{i=1}^n \kappa_i(p)(\mathbf{v} \cdot \mathbf{v}_i)^2 = \sum_{i=1}^n \kappa_i(p)\cos^2 \theta_i
+	\end{equation}
+	where $\theta_i$ is the angle between $\mathbf{v}$ and $\mathbf{v}_i$.
+\end{theorem}
+\begin{proof}--- yet to complete --- 5
+\end{proof}
+
+\begin{theorem}
+	On each compact, oriented $n$-surface $S$ in $\mathbb{R}^{n+1}$ there exists a point $p$ such that the second fundamental form at $p$ is definite.
+\end{theorem}
+\begin{proof}--- yet to complete --- 6
+\end{proof}
+
+\begin{theorem}
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p \in S$. Let $\mathbf{Z}$ be any  non-zero normal vector field on $S$ such that $\mathbf{N} = \mathbf{Z}/\|\mathbf{Z}\|$ and let $\{\mathbf{v}_1,\mathbf{v}_2,\cdots,\mathbf{v}_n\}$ be any basis for $S_p$. Then
+	\begin{equation}
+		K(p) = \frac{(-1)^n \det \begin{pmatrix} \nabla_{v_1} \mathbf{Z} \\ \nabla_{v_2} \mathbf{Z} \\ \vdots \\ \nabla_{v_n} \mathbf{Z} \\ \mathbf{Z}(p) \end{pmatrix} }{ \|\mathbf{Z}(p)\|^n \det \begin{pmatrix} \mathbf{v}_1 \\ \mathbf{v}_2 \\ \vdots \\ \mathbf{v}_n \\ \mathbf{Z}(p) \end{pmatrix}}
+	\end{equation}
+\end{theorem}
+\begin{proof}--- yet to complete --- 7
+\end{proof}
+
+\begin{theorem}
+	Let $S$ be a compact, connected, oriented $n$-surface in $\mathbb{R}^{n+1}$. Then $\forall p \in S,\ K(p) \ne 0 \iff \forall p \in S,\ \mathscr{S}_p$ is definte.
+\end{theorem}
+\begin{proof}--- yet to complete --- 8
+\end{proof}
 %\chapter{Convex Surfaces}
 \setcounter{section}{13}
 %\chapter{Parameterized Surfaces}
 \section{Parameterized Surfaces}
+\begin{description}
+	\item[tangent bundle] is the set $T(U) = U \times \mathbb{R}^{n+1}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$ such that $\forall p \in U,\ \mathbb{R}_p^{n+1} \subset U \times \mathbb{R}^{n+1}$.
+\end{description}
+
+\begin{definition}[Differential of parametrisations]
+	Let $\varphi : U \to \mathbb{R}^{n+1}$ be parametrisation of a surface. Then its differential $d\varphi : T(U) \to T(\mathbb{R}^{n+1})$ is given by
+	\begin{equation}
+		d\varphi(\mathbf{v}) = (\varphi \dot{\circ} \alpha)(t_0)
+	\end{equation}
+\end{definition}
+
+	\textbf{ Note : } $d\varphi$ is independent of the choice of $\alpha$.
+
+\begin{definition}[Differential of surface parametrisation]
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Then $d\varphi_p$ is the restriction of $d\varphi$ to $S_p$.
+\end{definition}
+
+	There are two different meanings for $d\varphi$ depending on its domain.
+	\begin{enumerate}
+		\item ${\color{red}d\varphi} : I \to \mathbb{R}$
+		\item ${\color{blue}d\varphi} : I \times \mathbb{R} \to \mathbb{R}^2$
+	\end{enumerate}
+	\begin{equation}
+		{\color{blue}d\varphi(t,u)} = (\varphi(t),{\color{red}d\varphi(t,u)})
+	\end{equation}
+
+	Author could have used dark font for this second version, $\boldsymbol{d\varphi}$. But he chose not to.
+
+\subsection{Parametrized Surfaces}
+\begin{description}
+	\item[parametrised $n$-surface] is a smooth map $\varphi : U \to \mathbb{R}^n$ where $U$ is a connected and open subset of $\mathbb{R}^n$.
+	\item[regular surface] A parametrised $n$-surface is regular if $d\varphi$ is non-singular.
+	\item[parametrised $2$-sphere] $\varphi : U \to \mathbb{R}^3$ defined by $\varphi(\theta,\phi) = (r\cos \theta \sin \phi,r \sin \theta \sin \phi,r\cos \phi)$
+	\item[parametrised $n$-plane] Let $L : \mathbb{R}^n \to \mathbb{R}^{n+k}$ be non-singular linear map. Then $\varphi : U \to \mathbb{R}^{n+k}$ defined by $\varphi(p) = L(p) + w$ is a parametrised $n$-plane through $w$ in $\mathbb{R}^{n+k}$.
+	\item[cylinder over $n$-surface $\varphi$] Let $\varphi : U \to \mathbb{R}^{n+k}$ be a parametrised $n$-surface in $\mathbb{R}^{n+k}$ where $U$ is an open subset of $\mathbb{R}^n$. The cylinder over $\varphi$ is an $(n+1)$-surface. $\tilde{\varphi} : U \times \mathbb{R} \to \mathbb{R}^{n+k+1}$ defined by 
+	\begin{equation}
+		\tilde{\varphi}(u_1,u_2,\cdots,u_{n+1}) = (\varphi(u_1,u_2,\cdots,u_n),u_{n+1})
+	\end{equation}
+\item[Surface of revolution] Let $\alpha : I \to \mathbb{R}^2$ be a parametrised curve in $\mathbb{R}^2$ whose image lies above $x_1$ axis. The surface obtained by revolving $\alpha(t)=(x_1(t),x_2(t))$ around $x_1$ axis is an $2$-surface in $\mathbb{R}^3$.
+	\begin{equation}
+		\varphi : I \times \mathbb{R} \to \mathbb{R}^3 \text{ defined by } \varphi(t,\theta) = \left( x_1(t),x_2(t)\cos \theta, x_2(t)\sin \theta \right)
+	\end{equation}
+\item[Torus in $\mathbb{R}^3$] Consider the circle $\alpha(\phi) = (a+b\cos \phi,b\sin \phi)$ with center at $(a,0)$ with radius $b$ ($b>a$). Then the surface of revolution of $\alpha$ about $x_2$ axis, 
+	\begin{equation}
+		\varphi(\phi,\theta) = (a+b\cos \phi \cos \theta,a+b\cos \phi \sin \theta,b\sin \phi)
+	\end{equation}
+	\item[Torus in $\mathbb{R}^4$] is a parametrised $2$-surface $\varphi : \mathbb{R}^2 \to \mathbb{R}^4$ defined by
+	\begin{equation}
+		\varphi(\theta,\phi) = \{ (\cos \theta,\sin \theta,\cos \phi,\sin \phi) : \theta,\phi \in \mathbb{R} \}
+	\end{equation}
+\item[M\"obius Band] is a parametrised $2$-surface $\varphi : I \times \mathbb{R} \to \mathbb{R}^3$ defined by
+	\begin{equation}
+		\varphi(t,\theta) = \left( \left(1+t \cos \frac{\theta}{2}\right)\cos \theta, \left( 1+t \cos \frac{\theta}{2}\right) \sin \theta, t \sin\frac{\theta}{2} \right)
+	\end{equation}
+\end{description}
+
+\subsection{Vector Field along $\varphi$}
+\begin{definition}
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be a smooth function. A vector field along $\varphi$ is a map $\mathbf{X}$ which assigns a vector $\mathbf{X}(p) \in \mathbb{R}_{\varphi(p)}^{n+k}$ to each point $p \in U$.
+\end{definition}
+
+\begin{definition}
+	A vector field along $\varphi$ is a tangent vector field along $\varphi$ if there exists a vector field $\mathbf{Y}$ on $U$ such that $\mathbf{X}(p) = d\varphi_p(\mathbf{Y}(p))$.
+\end{definition}
+
+\begin{definition}
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be a smooth map where $U$ is an open subset of $\mathbb{R}^n$. The coordinate vector fields along $\varphi$ are the tangent fields $\mathbf{E}_i$ defined by
+	\begin{equation}
+		\mathbf{E}_i(p) = d\varphi_p(p,0,0,\cdots,1,\cdots,0)
+	\end{equation}
+\end{definition}
+
+\begin{theorem}[Basis for Tangent Space Image $d\varphi_p$]
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be smooth. Then the set of all coordinate vector fields $\{ \mathbf{E}_i(p) : i = 1,2,\cdots,n \}$ form a basis for the tangent space image $d\varphi_p$.
+\end{theorem}
+
+\begin{definition}
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be smooth. And $\mathbf{X}$ be a smooth vector field along $\varphi$.Let $p \in U$ and $\mathbf{v} \in \mathbf{R}_p^n$. The derivative $\nabla_\mathbf{v} \mathbf{X} \in \mathbb{R}_{\varphi(p)}^{n+k}$ defined by
+\begin{equation}
+	\nabla_\mathbf{v} \mathbf{X} = \left( \varphi(p), \left( \frac{d}{dt} X \circ \alpha \right) (t_0) \right)
+\end{equation}
+\end{definition}
+
+\begin{definition}[orientation vector field]
+	Let $\varphi : U \to \mathbb{R}^{n+1}$ be smooth parametrised $n$-surface in $\mathbb{R}^{n+1}$. Let $p \in U$. An orientation vector field along $\varphi$ is the unique vector field $\mathbf{N}$ along $\varphi$ such that $\mathbf{N}(p)$ are unit vectors and $\mathbf{N}(p) \perp d\varphi_p(\mathbf{v})$. And $\mathbf{N}$ is consistently oriented if the following determinant is positive.
+	\begin{equation}
+		det\begin{pmatrix} \mathbf{E}_1(p) \\ \mathbf{E}_2(p) \\ \vdots \\ \mathbf{E}_n(p) \\ \mathbf{N}(p) \end{pmatrix} > 0
+	\end{equation}
+\end{definition}
+
+\subsection{Weingarten Map}
+\begin{definition}[Weingarten map]
+	The Weingarten map is the linear function $L_p : \text{Image } d\varphi_p \to \text{Image }d\varphi_p$ defined by $L_p(d\varphi(\mathbf{v})) = -\nabla_\mathbf{v} \mathbf{N}$.
+\end{definition}
+
+\begin{description}
+	\item[$L_p$ is self-adjoint] $L_p(\mathbf{v}) \cdot \mathbf{w} = \mathbf{v} \cdot L_p(\mathbf{w})$
+	\item[principal curvatures] are the eigen values of $L_p$
+	\item[principal curvature directions] are the unit eigen vectors of $L_p$
+	\item[Gauss-Kronecker Curvature] is the determinant.
+	\item[Mean Curvature] is $1/n$ times its trace.
+\end{description}
 
 %\chapter{Local Equivalence of Surfaces and Parameterized Surfaces}
 %\chapter{Focal Points}
