@@ -52,7 +52,7 @@
 	Let $F$ be field. And $f(x)$ be a non-constant polynomial in $F[x]$. Then there exists an extension field $E$ of $F$ and an $\alpha \in E$ such that $f(\alpha) = 0$.
 \end{theorem}
 \begin{proof}
-	Let $f(x) \in F[x]$. Then $f(x)$ has a unique factorisation into irreducible polynomials in $F[x]$ (except for order and unit). Let $p(x)$ be an irreducible factor of $f(x)$. If $f(x)$ is irreducible over $F$, then $f(x) = cp(x)$. It is enough to construct an extension field $E$ containing both $F$ and $\alpha$ such that $f(\alpha) = 0$.\\
+	Let $f(x) \in F[x]$. Then $f(x)$ has a unique factorisation into irreducible polynomials in $F[x]$ (except for order and unit). Let $p(x)$ be an irreducible factor of $f(x)$. If $f(x)$ is irreducible over $F$, then $f(x) = cp(x)$. It is enough to construct an extension field $E$ containing both $F$ and $\alpha$ such that ${\color{red}p}(\alpha) = 0$.\\
 
 	If $p(x)$ is irreducible over $F$, then $\langle p(x) \rangle$ is maximal ideal in $F[x]$. Therefore, $F[x]/\langle p(x) \rangle$ is a field, say $E$.\\
 
@@ -69,7 +69,7 @@
 	\item[algebraic over $F$] Let $F \le E$. An element $\alpha \in E$ is algebraic over a field $F$, if there exists $f(x) \in F[x]$ such that $f(\alpha) = 0$.
 	\item[transcendental over $F$] Let $F \le E$. An element $\alpha \in E$ is transcendental over the field $F$, if it is not algebraic over $F$.
 	\item[algebraic number] We have, $\mathbb{Q} \le \mathbb{C}$. A complex number $\alpha \in \mathbb{C}$ is algebraic if  it is algebraic over $\mathbb{Q}$. Example : $2,\sqrt{2},i$
-	\item[transcendental number] A complex number $\alpha \in \mathbb{C}$ is transcendental if it is not an algebraic number. Example : $\pi,e$
+	\item[transcendental number] A complex number $\alpha \in \mathbb{C}$ is transcendental if it is not an algebraic number. Example : $\pi,e$ (proof excluded)
 \end{description}
 
 \textbf{Note 1} : A polynomial $f(x) \in F[x]$ is reducible/irreducible depending upon the choice of the field $F$. For example : $x^2-2$ is irreducible over $\mathbb{Q}$, but is reducible over $\mathbb{R}$.
@@ -259,12 +259,75 @@
 	Let $\alpha,\beta$ be constructible real numbers. Then $\alpha + \beta$, $\alpha-\beta$, $\alpha\beta$, $\alpha/\beta$ ($\beta \ne 0$) are also constructible.
 \end{theorem}
 \begin{proof}
-	\begin{description}
-		\item[$\alpha+\beta$] Draw a line $OA$ of length $|\alpha|$ and extend that line using straight edge $OE$. And draw the line $AB$ of length $|\beta|$ on that extended line, at an point $A$ of the former line extending it. Then $OB$ is a line of length $|\alpha| + |\beta|$.
-		\item[$\alpha-\beta$] Draw a line $OA$ of length $|\alpha|$ and extend that line using straight edge $OE$. And draw the line $AB$ of length $|\beta|$ on that extended line, at an end point $A$ of former line, but in the opposite direction of extension( towards $O$). Then the line $OB$ is of length $|\alpha|-|\beta|$.
-		\item[$\alpha\beta$] Draw two lines of length $|\alpha|$ and $|\beta|$ with a common end point. Complete the triangle, by connecting the other endpoints using straight edge. Now draw the line of unit length on the side with $|\beta|$ length. Draw the line parallel to the 
-		\item[$\alpha/\beta$]
-	\end{description}
+\begin{description}
+	\item[$\alpha+\beta$] Draw a line $OA$ of length $|\alpha|$ and extend that line using straight edge $OE$. And draw the line $AB$ of length $|\beta|$ on that extended line, at an point $A$ of the former line extending it. Then $OB$ is a line of length $|\alpha| + |\beta|$.
+\begin{center}
+\begin{tikzpicture}
+	\draw[red] (0,0) -- (5,0);
+	\draw (0,0) -- (3,0);
+	\draw (0,-0.3) node{$O$};
+	\draw (3,-0.3) node{$A$};
+	\draw (5,-0.3) node{$B$};
+\end{tikzpicture}
+\end{center}
+	\item[$\alpha-\beta$] Draw a line $OA$ of length $|\alpha|$ and extend that line using straight edge $OE$. And draw the line $AB$ of length $|\beta|$ on that extended line, at an end point $A$ of former line, but in the opposite direction of extension( towards $O$). Then the line $OB$ is of length $|\alpha|-|\beta|$.
+\begin{center}
+\begin{tikzpicture}
+	\draw[blue] (0,0) -- (3,0);
+	\draw[red] (0,0) -- (1,0);
+	\draw (0,-0.3) node{$O$};
+	\draw (3,-0.3) node{$A$};
+	\draw (1,-0.3) node{$B$};
+\end{tikzpicture}
+\end{center}
+	\item[$\alpha\beta$] Draw two lines $OA$ and $OB$ of length $|\alpha|$ and $|\beta|$ respectively (with a common end point $O$). Now draw the line of unit length $OP$ along the line $OB$. Construct triangle $OAP$. Draw the line $BQ$ parallel to the line $PA$ through $B$ such that $OQ$ and $OA$ are colinear. Now we have two similar triangles $OPA$ and $OBQ$. Then, the line $OQ$ of length $\| \alpha \beta \|$.
+\begin{center}
+\begin{tikzpicture}
+	\draw[red] (0,0) -- (6,0);
+	\draw (0,0) -- (3,0);
+	\draw[blue] (0,0) -- (2.5,2);
+	\draw (0,0) -- (1.25,1);
+	\draw (2.5,2) -- (6,0);
+	\draw (1.25,1) -- (3,0);
+	\draw (0,-0.3) node{$O$};
+	\draw (3,-0.3) node{$A$};
+	\draw (1.25,1.3) node{$P$};
+	\draw (2.5,2.3) node{$B$};
+	\draw (6,-0.3) node{$Q$};
+\end{tikzpicture}
+\end{center}
+	\item[$\alpha/\beta$] Draw two lines $OA$ and $OB$ of length $\| \alpha \|$ and $\| \beta \|$, with a common end point $O$. Draw a line of unit length $OP$ along the line $OB$. Now construct triangle $OBA$. Draw line $PQ$ parallel to $BA$ so that $OQ$ and $OA$ are colinear. Now the triangles $OAB$ and $OQP$ are similar. And the line $OQ$ has length $\| \alpha/\beta \|$.
+\begin{center}
+\begin{tikzpicture}
+	\draw[red] (0,0) -- (6,0);
+	\draw (0,0) -- (3,0);
+	\draw[blue] (0,0) -- (1.5,2);
+	\draw (0,0) -- (0.75,1);
+	\draw (1.5,2) -- (6,0);
+	\draw (0.75,1) -- (3,0);
+	\draw (0,-0.3) node{$O$};
+	\draw (3,-0.3) node{$Q$};
+	\draw (0.60,1.06) node{$P$};
+	\draw (1.5,2.3) node{$B$};
+	\draw (6,-0.3) node{$A$};
+\end{tikzpicture}
+\end{center}
+\end{description}
+\end{proof}
+
+\begin{corollary}
+	The set of all constructible real numbers forms a subfield of the field of real numbers.
+\end{corollary}
+\begin{proof}
+	The set of all constructible real numbers say $H$, contains both $0$ and $1$. since the line of length zero is trivial and line of unit length is provided. And we have, $\forall \alpha,\beta \in H,\ \alpha+\beta,\alpha-\beta,\alpha\beta,\alpha/\beta \in H$. Since $\alpha - \beta \in H$, $0-\beta = -\beta$ which is the additive inverse of $\beta$. And $1/\beta = \beta^{-1}$ is the multiplicative inverse of $\beta$. Thus, the set of all constructible numbers is a subfield of $\mathbb{R}$.
+\end{proof}
+\textbf{Note : }Since $\mathbb{Q}$ is the prime field of $\mathbb{R}$. Thus, the subfield $H$ of constructible numbers contains $\mathbb{Q}$. That is, all the rational numbers are constructible. And using rational numbers, we can construct all algebraic numbers with help of lines(straight edge) and circles(compass).
+
+\begin{theorem}
+ The field of $F$ of constructible numbers consists precisely of all real numbers that we can obtain from $\mathbb{Q}$ by taking square root of positive numbers a finite number of times and applying a finite number of field operations.
+\end{theorem}
+\begin{proof}
+
 \end{proof}
 
 %Section 33
