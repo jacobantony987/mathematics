@@ -87,7 +87,10 @@
 \end{enumerate}
 \begin{definition}[Lebesgue Outer Measure]
 	Let $A \subset \mathbb{R}$. Let $\mathcal{C} = \{ I_k : k \in \mathbb{N}\}$ be an open cover of $A$ such that $I_k$ are non-empty, bounded, open intervals. Consider the sum of length of intervals for such covers of $A$. (Lebesgue) Outer Measure $m^\ast(A)$ is the infimum of all such sums.
-	$$ m^\ast(A) = \inf \left\{ \sum_{k=1}^\infty l(I_k) : A \subset \bigcup_{k=1}^\infty I_k \right\} $$
+\begin{equation}
+	 m^\ast(A) = \inf \left\{ \sum_{k=1}^\infty l(I_k) : A \subset \bigcup_{k=1}^\infty I_k \right\} 
+	 \label{eq:outermeasure}
+\end{equation}
 \end{definition}
 \subsection{Properties of Lebesgue Outer Measure}
 \begin{enumerate}
@@ -98,7 +101,9 @@
 	\begin{equation}
 		A \subset B \implies m^\ast(A) \le m^\ast(B)
 	\end{equation}
-	\item Outer Measure of Countable Sets is zero
+	\item Outer Measure of Countable Sets is zero\\
+		Let $C$ be a countable set. That is, $C = \{ c_k \}_{k=1}^\infty$.\\
+		Then $\{ (c_k-\frac{\epsilon}{2^k}, c_k + \frac{\epsilon}{2^k}) \}_{k=1}^\infty$ is cover of $C$ with sum of length of intervals $\epsilon$. Thus, for any $\epsilon > 0$, we have $m^\ast(C) \le \epsilon$. Thus, $m^\ast(C) = 0$.
 	\item Outer Measure of an Interval is its length
 	\begin{proof}
 		\textbf{Case 1 : Closed, Bounded Interval}
@@ -209,21 +214,144 @@
 		m^\ast([a,b]) \ge b-a
 	\end{equation}
 
-	\textbf{Case 2 : Unbounded Interval}
-	
+	\textbf{Case 2 : Bounded Interval}
+	Let $I$ be a bounded interval. Then there exists bounded closed intervals $J_1$ and $J_2$ such that $J_1 \subsetneq I \subsetneq J_2$ such that $l(I) - \epsilon < l(J_1)$ and $l(J_2) < l(I)+\epsilon$. Suppose $I = (a,b]$, then $J_1 = [a+\frac{\epsilon}{2}, b-\frac{\epsilon}{2}]$ and $J_2 = [a-\frac{\epsilon}{2},b+\frac{\epsilon}{2}]$.\\
+
+	By monotonicity of outer measure, we have $m^\ast(J_1) \le m^\ast(I) \le m^\ast(J_2)$. However $m^\ast(J_1) = l(I)-\epsilon$ and $m^\ast(J_2) = l(I)+\epsilon$. Thus, $l(I)-\epsilon \le m^\ast(I) \le l(I)+\epsilon$.Therefore, $m^\ast(I) = l(I)$.
+
+	\textbf{Case 3 : Unbounded Interval}
+	Let $I$ be an unbounded interval. Then for any natural number $n$, there exists a closed bounded interval $J$ such that $J \subset I$ and $l(J) = n$. And $n = m^\ast(J) \le m^\ast(I),\ \forall n \in \mathbb{N}$. Therefore, $m^\ast(I) = \infty = l(I)$. 
 	\end{proof}
 	\item Outer Measure is translation invariant
+	\begin{proof}
+		Let $A$ be any set and $y \in \mathbb{R}$. Let $\{ I_k : k = 1,2,\dots \}$ be a cover of $A$. Then $\{ I_k+y : k = 1,2,\dots \}$ is a cover of $A+y$. And $l(I_k) = l(I_k+y)$ for every natural number $k$ and real number $y$. Thus, $\sum_{k=1}^\infty l(I_k) = \sum_{k=1}^\infty l(I_k+y)$. Clearly, for each cover $\{I_k\}_{k=1}^\infty$ of $A$, there exists a cover $\{ I_k+y \}_{k=1}^\infty$ of $A+y$ containing intevals of same length. Therefore, $m^\ast(A) = m^\ast(A+y)$.
+	\end{proof}
 	\item Outer Measure is countably subadditive
+	\begin{proof}
+		Let $\{E_k\}_{k=1}^\infty$ be a countable collection of sets. It is enough to prove that
+		\begin{equation}
+			m^\ast \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m^\ast(E_k)
+		\end{equation}
+		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\sum_{i=1}^\infty I_{k,i} < m^\ast(E_k) + \frac{\epsilon}{2^k}$. Suppose that, for some $\epsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\epsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
+
+	Clearly,
+	\begin{align*}
+		m^\ast \left( \bigcup_{i,k = 0}^\infty I_{k,i} \right) \le & \sum_{k=1}^\infty \sum_{i=1}^\infty I_{k,i} \\
+		= & \sum_{k=1}^\infty \left( m^\ast(E_k) + \frac{\epsilon}{2^k} \right) \\
+		= & \sum_{k=1}^\infty  m^\ast(E_k) + \epsilon
+	\end{align*}
+	\end{proof}
+	\textbf{Note : } Finite subadditivity is a weaker notion than countable subadditivity. Since every finite collection is a countable collection.
 \end{enumerate}
 
-\subsubsection{Outer Measure of Countable Sets}
-\subsubsection{Outer Measure of Intervals}
-\subsubsection{Outer Measure is translation invariant}
-\subsubsection{Outer Measure is countably subadditive}
-
 \subsection{Exercise}
-
+\begin{enumerate}
+	\setcounter{enumi}{4}
+\item Closed Interval $[0,1]$ is uncountable.\\
+	Suppose $[0,1]$ is countable, then outer measure of any countable set is zero, $m^\ast([0,1]) = 0$. But, $[0,1]$ is an interval and outer measure of an interval is its length, $m^\ast([0,1]) = l([0,1]) = 1$ which is a contradiction.
+\item $m^\ast([0,1] - \mathbb{Q}) = 1$
+	$$[0,1] = \left( [0,1] \cap \mathbb{Q} \right)\ \cup\ \left( [0,1]\cap \mathbb{Q}^c \right)$$
+	Clearly, $m^\ast([0,1]) = 1$. And $[0,1] \cap \mathbb{Q}$ is a countable set since $\mathbb{Q}$ is countable. And thus has measure zero. Thus by countable subadditivity, we have
+	$$1 = m^\ast([0,1]) \le m^\ast([0,1] \cap \mathbb{Q}^c) + 0$$
+		Thus, $m^\ast([0,1] \cap \mathbb{Q}^c) \ge 1$. And $[0,1] \cap \mathbb{Q}^c\ \subset [0,1]$. By monotonicity, $m^\ast([0,1] \cap \mathbb{Q}^c) \le m^\ast([0,1]) = 1$. Therefore, $m^\ast([0,1] \cap \mathbb{Q}^c) = 1$.
+	\item Construction of a $G_\delta$ set containing $E$ % hint : $G_\delta = \cup_{k=1}^\infty F_k$ where
+	\item hint : if sum of interval is less than 1. Then it is not a cover of $[0,1]$.
+	\item hint : $A \cup B = A \cup (B-A) = A \cup (B \cap A^c)$
+	\item hint : $A$ and $B$ are separated by distance $\alpha$, thus are disjont.
+\end{enumerate}
 
 \subsection{$\sigma$-algebra of Lebesgue Measurable Sets}
+	Lebesgue Outer Measure is defined for any subset of real numbers and measure of an interval is its length. However, it isn't countable additive.\\
 
+	There exists disjoint sets $A,B$ such that $m^\ast(A\cup B) < m^\ast(A)+m^\ast(B)$.\\
+	
+	Since countable additivity is a favourable property over countable subadditivity. We restrict the family of subsets of real numbers to those subsets that allow countable additivity.
+	
+\subsubsection{Lebesgue Measurable Set}
+\begin{definition}[Measurable Set]
+	Let $E$ be a subset of $\mathbb{R}$. Then $E$ is Lebesgue measurable if
+\begin{equation}
+	m^\ast(A) = m^\ast(A \cap E) + m^\ast(A \cap E^c)
+	\label{eq:measurable1}
+\end{equation}
+	for any subset $A$ of $\mathbb{R}$.
+\end{definition}
+
+	In other words, $E$ is Lebesgue measurable if $E$ doesn't affect countable additivity of Lebesgue Outer Measure.\\
+
+	We will consider only those subset of real numbers, which won't affect countable additivity. These subsets are \textbf{Lebesgue Measurable}. And we could show that the collection of all Lebesgue Measurable sets forms a $\sigma$-algebra. Clearly, intervals allow countable additivity, thus the Borel Algebra is contained in this $\sigma$-algebra of measurable sets.
+
+\subsubsection{Simplified Condition for Lebesgue Measurability}
+
+We know that Lebesgue Outer Measure has countable subadditivity.
+\begin{equation*}
+	m^\ast(A) \le m^\ast(A \cap E) + m^\ast(A \cap E^c)
+\end{equation*}
+Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the following condition,
+\begin{equation}
+	m^\ast(A) \ge m^\ast(A \cap E) + m^\ast(A \cap E^c)
+	\label{eq:measurable2}
+\end{equation}
+
+\subsubsection{Properties of Lebesgue Measure}
+\begin{enumerate}
+	\item Any set of Lebesgue outer measure zero is Lebesgue measurable.
+	\begin{proof}
+		Let $E$ be a subset of real numbers with outer measure zero. Let $A$ be any subset of real numbers. Then $A = (A \cap E) \cup (A \cap E^c)$. By countable additivity, $m^\ast(A) \le m^\ast(A \cap E) + m^\ast(A \cap E^c)$. Since $A\cap E \subset E$, we have by monotonicity $m^\ast(A \cap E) \le m^\ast(E) = 0$.\\
+
+		Again, $A \cap E^c \subset A$ and by monotonicity, $m^\ast(A) \ge m^\ast(A \cap E^c) = 0+m^\ast(A \cap E^c) = m^\ast(A\cap E) + m^\ast(A \cap E^c)$. Thus, $E$ is Lebesgue measurable by the simplified condition for measurability.
+	\end{proof}
+
+	\item Countable sets are Lebesgue measurable.
+	\begin{proof}
+		Countable sets are of outer measure zero. And sets of outer measure zero are Lebesgue measurable. Thus, they are Lebesgue measurable.
+	\end{proof}
+	\item Finite union of Lebesgue measurable sets is Lebesgue measurable.
+	\begin{proof}
+		It is enough to prove that if $E_1$ and $E_2$ are Lebesgue measurable, then their union is also Lebesgue measurable. Then, by finite mathematical induction, we can prove that the result if true for any finite collection of Lebesgue measurable sets.\\
+
+	Suppose $E_1, E_2$ are measurable sets. Since $E_1$ is measurable,
+	\begin{equation}
+		m^\ast(A) = m^\ast(A \cap E_1) + m^\ast(A \cap E_1^c)
+	\end{equation}
+		And consider $A \cap E_1^c$ instead of $A$. Since $E_2$ is measurable, we get
+	\begin{equation}
+		m^\ast(A \cap E_1^c) = m^\ast(A \cap E_1^c\cap  E_2) + m^\ast(A \cap E_1^c \cap E_2^c)
+	\end{equation}
+
+		We have $(A \cap E_1^c) \cap E_2^c = A \cap (E_1^c \cap E_2^c) = A \cap (E_1 \cup E_2)^c$. And $(A \cap E_1) \cup (A \cap E_1^c \cap E_2) = (A \cap E_1) \cup [A \cap (E_2 \cap E_1^c)] = A \cap (E_1 \cup E_2)$.
+	\begin{align*}
+		m^\ast(A) = & m^\ast(A \cap E_1) + m^\ast(A \cap E_1^c) \\
+		= & {\color{blue}m^\ast(A \cap E_1) + m^\ast(A \cap E_1^c \cap E_2)} + m^\ast(A \cap E_1^c \cap E_2^c) \\
+		\ge & {\color{blue}m^\ast[A \cap (E_1 \cup E_2)]} + m^\ast[A \cap (E_1 \cup E_2)^c] 
+	\end{align*}
+		Therefore $E_1 \cup E_2$ is Lebesgue measurable. And by finite induction, finite union of measurable sets is also measurable.
+	\end{proof}
+
+	\item Lebesgue Measure is finitely additive.
+	\begin{proof}
+	\end{proof}
+	\item Lebesgue Measure is countably additive.
+	\begin{proof}
+	\end{proof}
+	\item Every interval is Lebesgue measurable.
+	\begin{proof}
+	\end{proof}
+	\item $\sigma$-algebra of Lebesgue measurable sets $\mathcal{M}$ contains Borel Sets $\mathcal{B}$.
+	\begin{proof}
+	\end{proof}
+	\item Lebesgue Measure is translational invariant
+	\begin{proof}
+	\end{proof}
+\end{enumerate}
+
+\subsection{Exercise}
+\begin{enumerate}
+	\setcounter{enumi}{10}
+	\item			
+	\item			
+	\item			
+	\item			
+	\item			
+\end{enumerate}
 
