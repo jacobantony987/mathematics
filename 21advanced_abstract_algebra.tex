@@ -252,6 +252,16 @@
 
 %Section 32
 \section{Geometric Constructions}
+\subsection{Basic Constructions}
+\subsubsection{Finding Midpoint of a line}
+	Let $OA$ be a line. The line passing through the intersection of circles with center $O$ and $A$ with diameter greater than the length of the line gives a perpendicular line through its mid point (say, perpendicular bisection).
+
+\subsubsection{Drawing Perpendicular line through a point}
+	Let $OA$ be a line and $B$ be a point on that line. Find points $P,Q$ on $OA$ which are equidistant from $B$. Then the perpendicular bisection of $PQ$ is a line perpendicular to $OA$ through $B$.
+\subsubsection{Drawing Parallel Line} 
+	Let $OA$ be a line. Then the perpendicular line segment of any perpendicular line segment is a line segment parallel to $OA$.
+
+\subsection{Constructible Numbers}
 \begin{description}
 	\item[Constructible Number] A real number $\alpha$ is constructible if you can draw a line of length $|\alpha|$, given a line of unit length, in finite steps using straightedge and compass.
 \end{description}
@@ -321,13 +331,70 @@
 \begin{proof}
 	The set of all constructible real numbers say $H$, contains both $0$ and $1$. since the line of length zero is trivial and line of unit length is provided. And we have, $\forall \alpha,\beta \in H,\ \alpha+\beta,\alpha-\beta,\alpha\beta,\alpha/\beta \in H$. Since $\alpha - \beta \in H$, $0-\beta = -\beta$ which is the additive inverse of $\beta$. And $1/\beta = \beta^{-1}$ is the multiplicative inverse of $\beta$. Thus, the set of all constructible numbers is a subfield of $\mathbb{R}$.
 \end{proof}
-\textbf{Note : }Since $\mathbb{Q}$ is the prime field of $\mathbb{R}$. Thus, the subfield $H$ of constructible numbers contains $\mathbb{Q}$. That is, all the rational numbers are constructible. And using rational numbers, we can construct all algebraic numbers with help of lines(straight edge) and circles(compass).
 
 \begin{theorem}
- The field of $F$ of constructible numbers consists precisely of all real numbers that we can obtain from $\mathbb{Q}$ by taking square root of positive numbers a finite number of times and applying a finite number of field operations.
+	The field of $F$ of constructible numbers consists {\color{blue}precisely} of all real numbers that we can obtain from $\mathbb{Q}$ by taking square root of positive numbers a finite number of times and applying a finite number of field operations.
 \end{theorem}
 \begin{proof}
+	The constructible numbers are closed under field operations and forms a subfield $H$ of real numbers.  We have, $\mathbb{Q}$ is the prime field of $\mathbb{R}$. That is, every subfield of $\mathbb{R}$ contains $\mathbb{Q}$. Thus, the subfield $H$ of constructible numbers contains $\mathbb{Q}$. That is, all the rational numbers are constructible. Therefore, it remains to prove that if $\alpha > 0$ is constructible then $\sqrt{\alpha}$ is also constructible.
+\begin{center}
+\begin{tikzpicture}
+	\draw[blue] (0,0) -- (4,0);
+	\draw (0,0) -- (-1,0);
+	\draw[red] (0,0) -- (0,2);
+	\draw (0,-0.3) node{$O$};
+	\draw (4.2,0) node{$A$};
+	\draw (-1.3,0) node{$P$};
+	\draw (0,2.3) node{$Q$};
+	\draw[dotted] (1.5,0) -- (1.5,2.5);
+	\begin{scope}
+		\clip (-1,0) rectangle (4,2.5);
+		\draw (1.5,0) circle (2.5cm);
+	\end{scope}
+	\draw (4,0) -- (0,2);
+	\draw (-1,0) -- (0,2);
+\end{tikzpicture}
+\end{center}
 
+	Let $OA$ and $OP$ be colinear lines such that $OA$ be a line of length $\| \alpha \|$ and $OP$ be a line of unit length. Find the mid point of $PA$ and draw a circle of diameter $PA$. Then the length of the perpendicular $OQ$ from $PA$ to the circle is of length $\| \sqrt{\alpha} \|$ since $\Delta OAQ$ and $\Delta OQP$ are similar triangles.\\
+
+	Therefore, real numbers obtained from rational numbers through finite number of additions/subtractions, multplications/divisions, and square root are constructible.
+\end{proof}
+
+\textbf{Note : } For example $\sqrt[4]{5\sqrt[8]{3}-2}$ is constructible, but $\sqrt[6]{2}$ and $\pi$ are not constructible. We skip the proof that a real number which can't be obtained from rationals by a finite number of these operations is not constructible. And assume that these three operations define the entire field of constructible numbers.
+
+\begin{corollary}
+	Let $\gamma$ be constructible number which is not rational. Then there exists a sequence of real numbers $\alpha_1,\alpha_2,\dots,\alpha_n = \gamma$ such that for every $i = 2,\dots,n$, the extension field $\mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_i)$ is an extension of $\mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_{i-1})$ of degree two.\\
+
+	In other words, for any constructible number $\gamma$, $[\mathbb{Q}(\gamma) : \mathbb{Q}] = 2^n$ for some positive integer $n$.
+\end{corollary}
+\begin{proof}
+	Let $\gamma$ be a constructible number which can be obtained from rationals by $n$ square root operations and a finite number of field operations. Then, we have a sequence of constructible numbers $\alpha_1, \alpha_2,\dots, \alpha_n$ such that $[\mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_i) : \mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_{i-1})] = 2$. Therefore, $[\mathbb{Q}(\gamma) : \mathbb{Q}] = 2^n$.
+\end{proof}
+
+	For example, $\gamma = \sqrt[4]{5\sqrt[8]{3}-2}$. Then $\alpha_1 = \sqrt{3}$, $\alpha_2 = \sqrt[4]{3}$, $\alpha_3= \sqrt[8]{3}$, $\alpha_4 = \sqrt{5\sqrt[8]{3}-2}$ and $\alpha_5 = \gamma$. Clearly, the geometric construction of $\gamma$ contains five instances of square root operation.
+
+\subsection{Impossible Problems from Ancient Times}
+\subsubsection{Doubling the cube}
+\begin{theorem}
+	There exists a cube such that it is impossible to construct the side of the cube with double the volume.
+\end{theorem}
+\begin{proof}
+	Suppose the cube is of unit side. Then the side of the cube with double the volume is $\gamma = \sqrt[3]{2}$. And $irr(\gamma,\mathbb{Q}) = x^3-2$ and $[\mathbb{Q}(\sqrt[3]{2}:\mathbb{Q}] = 3 \ne 2^n$. Therefore, $\gamma$ is not constructible.
+\end{proof}
+\subsubsection{Squaring the circle}
+\begin{theorem}
+	There exists a circle such that it is impossible to construct the side of the square with the same area.
+\end{theorem}
+\begin{proof}
+	Suppose the circle of is of unit radius. Then area of the circle is $2\pi$. And the side of the square with same area is $\sqrt{2\pi}$. Since $\pi$ is transcendental, $\pi$,$\sqrt{\pi}$ and $\sqrt{2\pi}$ are not constructible.
+\end{proof}
+\subsubsection{Trisecting an angle}
+\begin{theorem}
+	There exists an angle which can be trisected.
+\end{theorem}
+\begin{proof}
+	We have $\cos 3\theta = 4\cos^3 \theta - 3\cos \theta$. Consider $\theta = 20^\circ$. Then $\gamma = \cos \theta$ is a root of the irreducible polynomial $4x^3-3x-0.5$. That is, $\gamma$ is a root of the monic irreducible polynomial $x^3-\frac{3}{4}x-\frac{1}{8}$ of degree $3$. Thus, $\gamma$ is not constructible, since $[\mathbb{Q}(\gamma) : \mathbb{Q}] = 3 \ne 2^n$.
 \end{proof}
 
 %Section 33
