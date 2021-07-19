@@ -29,7 +29,7 @@
 
 %Section 29
 \section{Extension Fields \S29}
-\subsection*{Previous Results}
+\subsubsection*{Previous Results}
 \begin{itemize}
 	\item Let $R$ be a commutative ring with unity. If $M$ is a maximal ideal in $R$, then $R/M$ is a field. \cite[\S27.9]{fraleigh}
 	\item Let $F$ be a field. Every polynomial in $F[x]$ has a unique factorisation into irreducible polynomials except for order and unit.\cite[\S27.27]{fraleigh}
@@ -94,7 +94,7 @@
 
 \begin{description}
 	\item[monic polynomial] A polynomial which has $1$ as the coefficient of highest power of $x$. For example : $x^3 - 3x \in \mathbb{Q}[x]$
-	\item[$irr(\alpha,F)$] The unique monic, irreducible polynomial $p(x) \in F[x]$ such that $p(\alpha) = 0$. For example, $irr(\sqrt{3},\mathbb{Q}) = x^2-3$
+	\item[$irr(\alpha,F)$] The unique monic, irreducible polynomial $p(x) \in F[x]$ such that $p(\alpha) = 0$. For example, $irr(\sqrt{3},\mathbb{Q}) = x^2-3$. And $\sqrt{3}$ is the \textbf{minimial} polynomial for $\sqrt{3}$ over $\mathbb{Q}$
 	\item[$deg(\alpha,F)$] The degree of the unique monic, irreducible polynomial $p(x) \in F[x]$ such that $p(\alpha) = 0$. For example, $deg(\sqrt{3},\mathbb{Q}) = 2$.
 	\item[simple extension] An extension field $E$ of field $F$ is a simple extension if $E = F(\alpha)$ for some $\alpha \in E$.
 \end{description}
@@ -121,6 +121,56 @@
 	We can also show that this representation is unique for any $\beta \in F(\alpha)$. Suppose $\beta = b_0'+b_1'\alpha+b_2'\alpha^2+\cdots+b_{n-1}'\alpha^{n-1}$. Then $0 = (b_0 - b_0') + (b_1 - b_1')\alpha + \cdots + (b_{n-1} - b_{n-1}')\alpha^{n-1} = \phi_\alpha(g)$ where $g(x) = (b_0 - b_0') + (b_1 - b_1')x + \cdots + (b_{n-1} - b_{n-1}')x^{n-1}$. Clearly, degree of $g(x)$ is $deg(\alpha,F)-1$ which is less than the minimum degree for a non-zero irreducible polynomial for $\alpha$ over $F$. Thus $g(x) = 0$. In other words, $b_j = b_j',\ \forall j$ and representation for $\beta \in F(\alpha)$ is unique.
 \end{proof}
 \subsection{Exercises \S29}
+\subsubsection{Irreducibility Conditions for Polynomials}
+\begin{enumerate}
+	\item Irreducibility over a finite field\\
+		$x^2+1$ is irreducible in $\mathbb{Z}_3$ since for every $x \in \{ 0,1,2 \},\ x^2+1 \ne 0$.
+\item Irreducibility in rational field : Eisentein's Criteria (\S23.15) \\
+	Consider $f(x) = x^3+60x^2+30x+12$ since for $p=3$, $f(x)$ satisfies Eisentein's Criteria. And thus is $f(x)$ irreducible over $\mathbb{Q}$.\\
+	Note that for $p = 2,5,7,\dots$ the Eisentein's Criteria is not satisified.
+\end{enumerate}
+\subsubsection{Algebraic over a Field}
+\begin{enumerate}
+	\item $\sqrt{2}+\sqrt{3}$ is algebraic over $\mathbb{Q}$ \cite[Exercise 29.2]{fraleigh}
+	\begin{align*}
+		\alpha = & \sqrt{2} + \sqrt{3} \\
+		\implies \alpha^2 = & 2 + 2\sqrt{6} + 3 =  5 + 2\sqrt{6}  \\
+		\implies \alpha^2 - 5 =  & 2\sqrt{6} \\
+		\implies  (\alpha^2-5)^2 = & 24 \\
+		\implies \alpha^4 - 10\alpha^2 + 1 = & 0 \\
+		\implies \phi_{\alpha}(x^4 - 10x^2 + 1) = & 0 
+	\end{align*}
+		We have, $irr(\sqrt{2}+\sqrt{3},\mathbb{Q}) = x^{\textcolor{blue}{4}}-10x^2+1$ and $deg(\sqrt{2}+\sqrt{3},\mathbb{Q}) = \textcolor{blue}{4}$.
+	\item $\pi,e$ are transcendental numbers. (proof excluded)\\
+		However, $\pi$ is algebraic over $\mathbb{Q}(\pi)$ since $x-\pi \in \mathbb{Q}(\pi)[x]$.
+		
+	\item Consider $\alpha = \pi^2$ and $F = \mathbb{Q}(\pi^3)$. \cite[Exercise 29.16]{fraleigh}
+	\begin{align*}
+		\alpha^3 = & \pi^6 = (\pi^3)^2 \\
+		\alpha^3-(\pi^3)^2 = & 0 \\
+		\implies \phi_\alpha(x^3-(\pi^3)^2) = & 0 
+	\end{align*}
+	Thus, $irr(\pi^2,\mathbb{Q}(\pi^3)) = x^{\textcolor{blue}{3}}-(\pi^3)^2$ and $deg(\pi^2,\mathbb{Q}(\pi^3)) = \textcolor{blue}{3}$.\\ 
+		Note that $x^3-(\pi^3)^2 \in \textcolor{blue}{\mathbb{Q}(\pi^3)[x]}$ since $\pi^3 \in \mathbb{Q}(\pi^3) \implies -(\pi^3)^2 \in \mathbb{Q}(\pi^3)$. However, $x^3-(\pi^3)^2 \notin \textcolor{blue}{\mathbb{Q}[x]}$.
+\end{enumerate}
+\subsubsection{Factorisation over Extended Field}
+\begin{enumerate}
+	\item Factorisation over Finite Extension of Finite Field \cite[Exercise 29.25]{fraleigh}\\
+		Let $\alpha$ be a zero of $f(x) = x^3+x^2+1 \in \mathbb{Z}_2[x]$. Clearly, $f(x)$ is irreducible over $\mathbb{Z}_2$. And $x-\alpha$ is a factor of $f(x)$ in $\mathbb{Z}_2(\alpha)$. We have, $f(x) = (x-a)g(x)$.
+		$$\text{By long division, } g(x) = \frac{x^3+x^2+1}{x-\alpha} = x^2+(1+\alpha)x+(\alpha+\alpha^2)$$
+		Therefore, $x^3+x^2+1 = (x-\alpha)[x^2+(1+\alpha)x+\alpha(1+\alpha)]$.\\
+
+		The elements of $\mathbb{Z}_2(\alpha)$ are of the form $a_0+a_1\alpha+a_2\alpha^2$ where $a_0,a_1,a_2 \in \{0,1\}$. Also we have, $\alpha$ is a zero of $x^3+x^2+1$. Thus, $\alpha^3 = \alpha^2+1$.\\
+
+		In order to find a zero of $g(x)$ it is sufficient to evaluate $g(x)$ for all the eight elements $ 0, 1, \alpha, (1+\alpha), \alpha^2, (1+\alpha^2),(\alpha+\alpha^2), (1+\alpha+\alpha^2) \in \mathbb{Z}_2(\alpha)$.
+		
+		Clearly, $g(1) = \alpha^2+2\alpha+2 = \alpha^2$. And $g(\alpha) = \alpha^2 + 2\alpha(1+\alpha) = \alpha^2$. However, $g(\alpha^2) = \alpha^4+\alpha^3+2\alpha^2+\alpha = \alpha(\alpha^2+1)+(\alpha^2+1) + 0\alpha^2 + \alpha = \alpha^3 + \alpha^2 + 2\alpha + 1 = \alpha^3+\alpha^2+1 = 0$. Thus, $\alpha^2$ is a zero of $g(x)$ and $g(x) = (x-\alpha^2)h(x)$.
+	$$\text{By long division, } h(x) = \frac{x^2+(1+\alpha)x+(\alpha+\alpha^2)}{x-\alpha^2} = x+(1+\alpha+\alpha^2)$$
+		Therefore, we have the following linear factoriation for $f(x)$,\\ $f(x) = (x-\alpha)(x-\alpha^2)(x-1-\alpha-\alpha^2) = (x+\alpha)(x+\alpha^2)(x+1+\alpha+\alpha^2)$ since $-\alpha = 0-\alpha = 2\alpha-\alpha = \alpha$ in $\mathbb{Z}_2$.\\
+
+	Note : Students should be able to perform long division of polynomials over extended fields.
+\end{enumerate}
+
 %Section 31
 \section{Algebraic Extensions \S31}
 \begin{description}
@@ -249,9 +299,13 @@
 \begin{proof}
 	Not required (as per syllabus)
 \end{proof}
+\subsection{Exercise \S31}
+\begin{enumerate}
+	\item
+\end{enumerate}
 
 %Section 32
-\section{Geometric Constructions}
+\section{Geometric Constructions \S32}
 \subsection{Basic Constructions}
 \subsubsection{Finding Midpoint of a line}
 	Let $OA$ be a line. The line passing through the intersection of circles with center $O$ and $A$ with diameter greater than the length of the line gives a perpendicular line through its mid point (say, perpendicular bisection).
@@ -396,7 +450,155 @@
 \begin{proof}
 	We have $\cos 3\theta = 4\cos^3 \theta - 3\cos \theta$. Consider $\theta = 20^\circ$. Then $\gamma = \cos \theta$ is a root of the irreducible polynomial $4x^3-3x-0.5$. That is, $\gamma$ is a root of the monic irreducible polynomial $x^3-\frac{3}{4}x-\frac{1}{8}$ of degree $3$. Thus, $\gamma$ is not constructible, since $[\mathbb{Q}(\gamma) : \mathbb{Q}] = 3 \ne 2^n$.
 \end{proof}
+\subsection{Exercise \S32}
+\begin{enumerate}
+	\item
+\end{enumerate}
 
 %Section 33
-\section{Finite Fields}
+\section{Finite Fields \S33}
+\subsection{Structure of a Finite Field}
+\begin{theorem}
+	Let $E$ be a finite extension of degree $n$ over a finite field $F$. If $F$ has $q$ elements, then $E$ has $q^n$ elements.
+\end{theorem}
+\begin{proof}
+	We have, extension field $E$ is an $n$-dimensional vector space over the field $F$. Let $\{ \alpha_1, \alpha_2,\dots, \alpha_n \}$ be a basis of the vector space $E$ over $F$. Then every elements of $E$ can be uniquely written as linear combination of basis vectors.
+\begin{equation*}
+ 	\forall \beta \in E,\ \beta = b_1 \alpha_1 + b_2 \alpha_2 + \dots + b_n \alpha_n
+\end{equation*}
+	Suppose $\beta \in E$ has two distinct linear combinations. Then, the vectors $\{ \alpha_1, \alpha_2,\dots,\alpha_n\}$ are not linearly independent, which is a contatraditciton.\\
+	
+	Since the reprensentation is unique and $F$ has $q$ elements, there are $q^n$ distinct linear combinations possible. Therefore, $E$ has $q^n$ elements.
+\end{proof}
+
+\begin{corollary}
+	If $E$ is a finite field of characteristic $p$. Then $F$ contains exactly $p^n$ elements for some integer $n$.
+\end{corollary}
+\begin{proof}
+	We have, $E$ is a finite field of characteristic $p$. Thus, $\mathbb{Z}_p$ is the prime subfield of $E$. And $E$ is a finite extension of $\mathbb{Z}_p$. Thus, $E$ is a finite dimensional vector space over $\mathbb{Z}_p$. Let $n$ be the dimension of $E$ over $\mathbb{Z}_p$. And $\mathbb{Z}_p$ has $p$ elements. Therefore, $E$ has $p^n$ elements.
+\end{proof}
+
+\begin{theorem}
+	Let $E$ be a field of $p^n$ elements contained in the algebraic closure $\overline{\mathbb{Z}_p}$ of $\mathbb{Z}_p$. Then the elements of $E$ are precisely the zeroes of the polynomial $x^{p^n}-x \in \mathbb{Z}_p[x]$.
+\end{theorem}
+\begin{proof}
+	We have $E^\ast$ is a multiplicative group of non-zero elements in $E$. And $E^\ast$ has $p^n-1$ elements. Thus, order of any element $\alpha \in E^\ast$ should divide $p^n-1$. In other words, if $\alpha \in E^\ast$, then $\alpha^{p^n-1} = 1$. Clearly, $\alpha^{p^n} - \alpha = 0$, $\forall \alpha \in E$. However, $x^{p^n}$ can have atmost $p^n$ zeroes in $\overline{\mathbb{Z}_p}$. Thus, $E$ is precisely the set of all zeroes of $x^{p^n}-x \in \overline{\mathbb{Z}_p}$.
+\end{proof}
+
+%\begin{enumerate}[label=Note \arabic*]
+%	\item The algebraic closure of $\mathbb{Z}_p$ contains zeroes of every polynomial of the form $x^{p^n}-x$ where $p$ is a prime and $n$ is an integer. Thus, algebraic closures are infinite fields. Remember : $\mathfrak{R}1$
+%	\item $\overline{\mathbb{Z}_2}$ has two distinct square roots of unity. And the complex field contains only one of them !
+%	\item The field containing $\mathbb{Z}_2$ and $\mathbb{Q}$ has two prime subfields.
+%\end{enumerate}
+
+\begin{description}
+	\item[$n$th Root of Unity] $\alpha$ is an $n$th root of unity if $\alpha^n = 1$. ie, $\alpha = \sqrt[n]{1}$
+	\item[Primitive $n$th Root of Unity] $\alpha$ is a primitive $n$th root of unity if $n$ is the smallest positive integer such that $\alpha^n = 1$.\\
+		That is, $\alpha^n = 1$ and $\forall m \in \mathbb{N},\ m < n \implies \alpha^m \ne 1$
+\end{description}
+
+\begin{theorem}
+	The multiplicative group of non-zero elements of a finite field $F$ is cyclic.
+\end{theorem}
+\begin{proof}
+	Refer : \cite[Theorem 23.6]{fraleigh}
+\end{proof}
+\begin{corollary}
+	Finite extension of finite fields are simple extensions.
+\end{corollary}
+\begin{proof}
+	Let $E$ be a finite extension field of the finite field $F$. Then the multiplicative group of non-zero elements $E^\ast$ is cyclic. Let $\alpha$ be a generator of the cyclic group $E^\ast$. Then, $E = F(\alpha)$.
+\end{proof}
+
+\subsection{Galois Field $GF(p^n)$}
+\begin{lemma}
+	If $F$ is a field of prime characteristic $p$ with algebraic closure $\overline{F}$, then $x^{p^n}-x$ has $p^n$ distinct zeroes in $\overline{F}$.
+\end{lemma}
+\begin{proof}
+	We have, $\overline{F}$ is algebraically closed. And $x^{p^n}-x \in \overline{F}[x]$. Thus, $x^{p^n}-x$ can be factorised into $p^n$ linear components. It remains to prove that these factors are distinct.\\
+
+	Clearly, $0$ is a zero of multiplicity $1$, since $x^{p^n}-x = x (x^{p^n-1}-1)$. Let $\alpha \ne 0$ be a zero of $x^{p^n}-x$. Then $\alpha$ is a zero of $x^{p^n-1}-1$. ie, $\alpha^{p^n-1}  = 1$.
+	\begin{align*}
+		(x-\alpha)g(x) = & x^{p^n-1}-1 \\
+		g(x) = & \frac{x^{p^n-1}-1}{x-\alpha}
+		\intertext{By long division, we get}
+		g(x) = & x^{p^n-2} + \alpha x^{p^n-3} + \alpha^2 x^{p^n-4} + \dots + \alpha^{p^n-3} x + \alpha^{p^n-2} \\
+		g(\alpha) = & (p^n-1)\alpha^{p^n-2} \\
+		= &(p^n-1)\frac{\alpha^{p^n-1}}{\alpha} \\
+		= & p^n \frac{1}{\alpha} - \frac{1}{\alpha}\\
+		= & -\frac{1}{\alpha} \ne 0
+	\end{align*}
+	Thus, every zero of $x^{p^n-1}-x$ is of multiplicity $1$.
+\end{proof}
+
+\begin{lemma}
+	If $F$ is a field of prime characteristic $p$, then $(\alpha+\beta)^{p^n} = \alpha^{p^n} + \beta^{p^n}$.
+\end{lemma}
+\begin{proof}
+	Since $F$ is a field of characteristic $p$, for every $\alpha \in F$, $p\alpha = 0$.
+	\begin{align*}
+		\intertext{ For $n=1$, we have }
+		(\alpha+\beta)^p = & \alpha^p + p \alpha^{p-1}\beta+ \frac{p(p-1)}{2} \alpha^{p-2} \beta + \dots + p \alpha \beta^{p-1} + \beta^p \\
+		= &  \alpha^p + 0 \alpha^{p-1}\beta+ 0 \alpha^{p-2} \beta + \dots + 0 \alpha \beta^{p-1} + \beta^p \\
+		= & \alpha^p + \beta^p
+	\end{align*}
+	\begin{align*}
+		\intertext{Suppose $(\alpha+\beta)^{p^{n-1}} = \alpha^{p^{n-1}} + \beta^{p^{n-1}}$, then} 
+		(\alpha+\beta)^{p^n} = & \left[ (\alpha+\beta)^{p^{n-1}} \right]^p \\
+		= & \left[ \alpha^{p^{n-1}} + \beta^{p^{n-1}} \right]^p \\
+		= & \alpha^{p^n} + \beta^{p^n}
+	\end{align*}
+	Therefore, by mathematical induction the result is true.
+\end{proof}
+
+\begin{theorem}[Existence of Galois Field]
+	For every prime power $p^n$, a finite field of $p^n$ elements exists.
+\end{theorem}
+{\color{blue} Hint : $\alpha^{p^n} = \alpha \iff \alpha^{p^n} - \alpha = 0 \iff \alpha$ is a zero of $x^{p^n} - x$}
+\begin{proof}
+	Consider the algebraic closure $\overline{\mathbb{Z}_p}$ of $\mathbb{Z}_p$. Let $K$ be a subset of $\overline{\mathbb{Z}_p}$ containing all zeroes of $x^{p^n}-x \in \overline{\mathbb{Z}_p}$.\\
+	
+	Let $\alpha, \beta \in K$. Then $\alpha^{p^n} = \alpha$ and $\beta^{p^n} = \beta$. Since $\overline{\mathbb{Z}_p}$ is a field of characteristic $p$, we have ${\color{blue}(\alpha+\beta)^{p^n} = \alpha^{p^n}+ \beta^{p^n}} = \alpha + \beta$. Thus, $(\alpha+\beta)$ is a zero of $x^{p^n}-x$. ie, $(\alpha + \beta) \in K$. Clearly, $(\alpha\beta)^{p^n} = \alpha^{p^n} \beta^{p^n} = \alpha\beta$. Thus, $\alpha\beta \in K$.\\
+
+	Again $(-\alpha)^{p^n} = (-1 \cdot \alpha)^{p^n} = (-1)^{p^n} \cdot \alpha^{p^n} = -1 \cdot \alpha = -\alpha$. Thus, $-\alpha \in K$. Also $(\alpha^{-1})^{p^n} = \left( \frac{1}{\alpha} \right)^{p^n} = \frac{1}{\alpha^{p^n}} = \frac{1}{\alpha} = \alpha^{-1}$. Thus, $\alpha^{-1} \in K$.\\
+
+	Trivially, $0,1 \in K$. Therefore, $K$ is a subfield of $\overline{\mathbb{Z}_p}$ with $p^n$ elements since {\color{blue}the $p^n$ zeroes of $x^{p^n}-x$ are distinct}.
+\end{proof}
+
+\begin{corollary}
+	If $F$ is a finite field, then for every positive integer $n$, there exists an irreducible polynomial in $F[x]$ of degree $n$.
+\end{corollary}
+\begin{proof}
+	Let $F$ be a finite field. Then $\mathbb{Z}_p$ is prime field of $F$ for some prime $p$. And $F$ is of characteristic $p$ and has $p^r$ elements for some positive integer $r$.\\ %The number of elements of $F$ should be multiple of prime $p$ and shouldn't be a multiple of any other prime $q$.
+
+	Let $K$ be the subfield of $\overline{F}$ containing precisely all the zeroes of the polynomial $x^{p^{rn}}-x \in \mathbb{Z}_p[x]$. Then, $K$ has a subfield isomorphic to $\mathbb{Z}_p$ since $F$ is of characteristic $p$ and every subfield of $F$ has a subfield isomorphic to $\mathbb{Z}_p$.\\
+
+	By existence theorem of Galois Fields, every element of $F$ is a zero of the polynomial $x^{p^r}-x \in \mathbb{Z}_p[x]$. That is, $\alpha \in F \iff \alpha^{p^r} = \alpha$.
+	\begin{align*}
+		\alpha^{p^{rn}} & = \left[\alpha^{p^r}\right]^{p^{r(n-1)}} & =  \alpha^{p^{r(n-1)}} & \\
+		& = \left[\alpha^{p^r}\right]^{p^{r(n-2)}} & =  \alpha^{p^{r(n-2)}} & \\
+		& \vdots & \vdots & \\
+		& = \left[\alpha^{p^r}\right]^{p^r} & = \alpha^{p^r} & = \quad \alpha
+	\end{align*}
+	Thus, $\alpha \in F \implies \alpha^{p^{rn}} = \alpha \implies \alpha \in K$. Therefore $F$ is a subfield of $K$. Clearly, $K$ is a finite extension of the finite field $F$. And the vector space $K$ over $F$ is $n$-dimensional, since $K$ has $p^{rn} = [p^r]^n$ elements and $F$ has $p^r$ elements.\\
+	
+	Since every finite extension of finite fields are simple extensions, we have $K = F(\beta)$ and $irr(\beta,F) = n$. That is, there exists an unique monic, irreducible polynomial $p(x) \in F[x]$ of degree $n$ such that $p(\beta) = 0$. Therefore, $\forall n \in \mathbb{Z}^+$, there exists an irreducible polynomial in $F[x]$ of degree $n$.
+\end{proof}
+
+
+\begin{theorem}[Uniqueness of Galois Field]
+	Let $p$ be a prime and $n$ a positive integer. If $E$ and $E'$ are fields of order $p^n$, then $E$ and $E'$ are isomorphic.\\
+
+	There exists a unique finite field of order $p^n$, say \textbf{Galois Field}, $GF(p^n)$.
+\end{theorem}
+\begin{proof}
+	Let $E,E'$ be fields of order $p^n$. Then both fields have $\mathbb{Z}_p$ as prime field. Thus, $E$ is a simple extension of $\mathbb{Z}_p$ of degree $n$. ie, $[E:\mathbb{Z}_p] = n$. And there exits an irreducible polynomial $f(x)$ such that $E \simeq \mathbb{Z}_p[x]/\langle f(x) \rangle$. \\
+
+	Elements of $E$ are zeroes of $x^{p^n}-x$, thus $f(x)$ is a factor of $x^{p^n}-x$. Clearly, elements of $E'$ are zeroes of $x^{p^n}$ and therefore $E'$ has all zeroes of $f(x)$. And $E' \simeq \mathbb{Z}_p/\langle f(x) \rangle \simeq E$. Therefore, there exists a unique field of order $p^n$ (upto isomorphism), say $GF(p^n)$.
+\end{proof}
+
+\subsection{Exercise \S33}
+\begin{enumerate}
+	\item
+\end{enumerate}
 

@@ -320,12 +320,39 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	\end{equation}
 
 		We have $(A \cap E_1^c) \cap E_2^c = A \cap (E_1^c \cap E_2^c) = A \cap (E_1 \cup E_2)^c$. And $(A \cap E_1) \cup (A \cap E_1^c \cap E_2) = (A \cap E_1) \cup [A \cap (E_2 \cap E_1^c)] = A \cap (E_1 \cup E_2)$.
+\begin{center}
+\begin{tikzpicture}[scale=0.25]
+	\filldraw[fill = cyan] (0,-1.5) circle (3cm);
+	\filldraw[fill = white] (1,1.5) circle (3cm);
+	\filldraw[fill = white] (-1,2.5) circle (3cm);
+	\draw (0,-1.5) circle (3cm);
+	\draw (1,1.5) circle (3cm);
+	\draw (-2,-5) node{$A$};
+	\draw (5,4) node{$E_1$};
+	\draw (-5,4) node{$E_2$};
+
+	\begin{scope}
+		\clip (25,-1.5) circle (3cm);
+		\fill[blue] (24,2.5) circle (3cm);
+	\end{scope}
+	\begin{scope}
+		\clip (25,-1.5) circle (3cm);
+		\fill[cyan] (26,1.5) circle (3cm);
+	\end{scope}
+	\draw (25,-1.5) circle (3cm);
+	\draw (26,1.5) circle (3cm);
+	\draw (24,2.5) circle (3cm);
+	\draw (23,-5) node{$A$};
+	\draw (30,4) node{$E_1$};
+	\draw (20,4) node{$E_2$};
+\end{tikzpicture}
+\end{center}
 	\begin{align*}
 		m^\ast(A) = & m^\ast(A \cap E_1) + m^\ast(A \cap E_1^c) \\
 		= & {\color{blue}m^\ast(A \cap E_1) + m^\ast(A \cap E_1^c \cap E_2)} + m^\ast(A \cap E_1^c \cap E_2^c) \\
 		\ge & {\color{blue}m^\ast[A \cap (E_1 \cup E_2)]} + m^\ast[A \cap (E_1 \cup E_2)^c] 
 	\end{align*}
-		Therefore $E_1 \cup E_2$ is Lebesgue measurable. And by finite induction, finite union of measurable sets is also measurable.
+	Therefore $E_1 \cup E_2$ is Lebesgue measurable. And by finite induction, finite union of measurable sets is also measurable.
 	\end{proof}
 
 	\item Lebesgue Measure is finitely additive.
