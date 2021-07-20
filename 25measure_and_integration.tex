@@ -355,20 +355,87 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	Therefore $E_1 \cup E_2$ is Lebesgue measurable. And by finite induction, finite union of measurable sets is also measurable.
 	\end{proof}
 
-	\item Lebesgue Measure is finitely additive.
+	\item Lebesgue Measure is finitely additive.\\
+		In other words, Suppose $\{E_k\}_{k = 1}^n$ be a finite collection of disjoint, measurable sets. Then measure of their union is the sum of measures.
 	\begin{proof}
+	Let $A$ be any subset of $\mathbb{R}$ and $\{ E_k \}_{k=1}^n$ be a finite collection of disjoint, measurable subsets of $\mathbb{R}$.
+	\begin{equation}
+		\text{Claim : }	m^\ast \left( A \cap \left[ \bigcup_{k=1}^\infty E_k\right] \right) = \sum_{k=1}^\infty m^\ast (A \cap E_k)
+	\end{equation}
+	Trivially, the claim is true for $n=1$. Suppose the claim is true for $n-1$. That is,
+	\begin{equation}
+		m^\ast \left( A \cap \left[ \bigcup_{k=1}^{n-1} E_k \right] \right) = \sum_{k=1}^{n-1} m^\ast (A \cap E_k)
+	\end{equation}
+	From set theory we have,
+	\begin{align}
+		A \cap \left[ \bigcup_{k=1}^n E_k \right] \cap E_n & = A \cap E_n\\
+		A \cap \left[ \bigcup_{k=1}^n E_k \right] \cap E_n^c  & = A \cap \left[ \bigcup_{k=1}^{n-1} E_n \right]
+	\end{align}
+	By measurability of $E_n$, we have
+	\begin{align*}
+		m^\ast \left( A \cap \left[ \bigcup_{k=1}^n E_k \right] \right) = & m^\ast \left( A \cap \left[ \bigcup_{k=1}^n E_k \right] \cap E_n \right) + m^\ast \left( A \cap \left[ \bigcup_{k=1}^n E_k \right] \cap E_n^c \right)\\
+		& = m^\ast \left( A \cap E_n \right) + m^\ast  \left( A \cap \left[ \bigcup_{k=1}^{n-1} E_n \right] \right) \\
+		& =  \sum_{k=1}^n m^\ast \left( A \cap E_k \right) \text{, by mathematical induction}
+	\end{align*}
+	Taking $A = \mathbb{R}$, we get Lebesgue measure is finitely additive. That is,
+	\begin{equation}
+		m^\ast \left( \bigcup_{k=1}^n E_k \right) = \sum_{k=1}^n m^\ast \left( E_k \right)
+	\end{equation}
 	\end{proof}
-	\item Lebesgue Measure is countably additive.
+	\item Countable union of measurable sets is measurable
 	\begin{proof}
+		Let $A$ be any subset of $\mathbb{R}$. And $\{ E_k \}_{k=1}^\infty$ be a countable collection of disjoint, measurable subsets of $\mathbb{R}$. Define $F_n = \cup_{k=1}^n E_k$ and $E = \cup_{k=1}^\infty E_k$. Clearly, $F \subset E$ and $F^c \supset E^c$. Thus, $m^\ast(A \cap F_n^c) \ge m^\ast(A \cap E^c)$.
+	\begin{align*}
+		m^\ast(A) & =  m^\ast (A \cap F_n) + m^\ast (A \cap F_n^c) \\
+		& \ge m^\ast \left( A \cap \left[ \bigcup_{k=1}^n E_k \right] \right) + m^\ast(A \cap E^c) \\
+		& \ge \sum_{k=1}^n m^\ast(A \cap E_k) + m^\ast(A \cap E^c) 
+	\end{align*}
+	\begin{align*}
+		\lim_{n \to \infty} m^\ast(A) & \ge \lim_{n \to \infty} \sum_{k=1}^n m^\ast(A \cap E_k) + m^\ast(A \cap E^c) \\
+		m^\ast(A) & \ge \sum_{k=1}^\infty m^\ast(A \cap E_k) + m^\ast (A \cap E^c) \\
+		& \ge m^\ast \left( A \cap \left[ \bigcup_{k=1}^\infty E_k \right] \right) + m^\ast(A \cap E^c) \\
+		\implies m^\ast(A) & \ge m^\ast (A \cap E) + m^\ast(A \cap E^c)
+	\end{align*}
+		By above inequality, $E = \cup_{k=1}^\infty E_k$ is measurable.\\
+
+		And, any countable collection of measurable sets can be expressed as a countable collection of disjoint, measurable sets. Let $\{ E_k \}_{k=1}^\infty$ be a collection of measurable sets. Then, the countable collection, $\{ E_k' \}_{k=1}^\infty$ defined by $E_k'= E_k - \cup_{j=1}^{k-1}E_k$ contains disjoint, measurable\dag\footnote{Suppose $E_1,E_2$ are measurable, then $E_2^c = \mathbb{R} - E_2$ is measurable by the duality of measurability condition. And $E_1 \cap E_2^c = E_1-E_2$ is measurable since countable intersection of measurable sets is measurable (by Property 4 and de Morgan's Law).}
+	subsets of $\mathbb{R}$. Therefore, countable union of measurable sets is measurable.
 	\end{proof}
 	\item Every interval is Lebesgue measurable.
 	\begin{proof}
+		It is sufficient to prove that $(a,\infty)$ is measurable. Suppose $(a,\infty)$ is measurable for every $a \in \mathbb{R}$. Then interval $(a,b)$ is measurable, since $(a,b) = [(a,\infty) \cap (\mathbb{R}-(b,\infty))]-\{b\}$.\\
+
+		Let $A$ be any subset of $\mathbb{R}$. Define $A_1 = A\cap (-\infty,a)$ and $A_2 = A \cap (a,\infty)$ such that $A-\{a\} = A_1 \cup A_2$ and $A_1 \cap A_2 = \phi$. And the interval $(a,\infty)$ is measurable only if 
+	\begin{equation}
+		m^\ast(A) \ge m^\ast(A \cap (a,\infty)) + m^\ast(A \cap (a,\infty)^c) = m^\ast(A_1)+m^\ast(A_2)
+		\dag\footnote{We have, $m^\ast(A \cap (-\infty,a]) = m^\ast(A \cap (-\infty,a)$ since removing finite number of points from a subset of $\mathbb{R}$ won't affect its measure.}
+	\end{equation}
+	Let collection $\{ I_k \}_{k=1}^\infty$ be a countable cover of $A$. Then collection $\{ I_k' \}_{k=1}^\infty$ defined by $I_k' = I_k \cap (a,\infty)$ is a cover of $A_1$. And collection $\{I_k''\}_{k=1}^\infty$ defined by $I_k'' = I_k \cap (-\infty,a)$ is a cover of $A_2$.\\
+
+	Clearly, $m^\ast(A_1) \le \sum_{k=1}^\infty l(I_k')$ and $m^\ast(A_2) \le \sum_{k=1}^\infty l(I_k'')$.
+	\begin{align*}
+		m^\ast(A_1)+m^\ast(A_2) & \le \sum_{k=1}^\infty l(I_k') + \sum_{k=1}^\infty l(I_k'') \\
+		& \le \sum_{k=1}^\infty l(I_k') + l(I_k)'' \\
+		& \le \sum_{k=1}^\infty l(I_k) \le m^\ast(A)
+	\end{align*}
+		Thus, $(a,\infty)$ is measurable. Therefore, every interval is measurable.
 	\end{proof}
 	\item $\sigma$-algebra of Lebesgue measurable sets $\mathcal{M}$ contains Borel Sets $\mathcal{B}$.
+	\begin{equation}
+		\mathcal{B} \subset \mathcal{M}
+	\end{equation}
 	\begin{proof}
+	The Borel algebra $\mathcal{B}$ is the $\sigma$-algebra containing all intervals. We have proved that, every intervals are measurable. Also, we have proved that the set of all measurable subsets of $\mathbb{R}$ is a $\sigma$-algebra as complements of measurable sets are measurable by duality of the condition and countable union of measurable sets are also measurable. Therefore, every borel set is measurable. Clearly, $G_\delta$ and $F_\sigma$ are borel sets and are measurable.
 	\end{proof}
-	\item Lebesgue Measure is translational invariant
+	\item Lebesgue Measurability is translation invariant.
 	\begin{proof}
+		Let $E$ be a measurable set. Let $A$ be any subset of $\mathbb{R}$ and $y \in \mathbb{R}$. Then,
+	\begin{align*}
+		m^\ast(A) & = m^\ast(A-y)\\
+		& = m^\ast((A-y) \cap E) + m^\ast((A-y) \cap E^c)\\
+		& = m^\ast(A \cap (E+y)) + m^\ast(A \cap (E+y)^c)
+	\end{align*}
+		Thus, $E+y$ is measurable. And measurability is traslation invariant.
 	\end{proof}
 \end{enumerate}
 
