@@ -415,7 +415,7 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	Clearly, $m^\ast(A_1) \le \sum_{k=1}^\infty l(I_k')$ and $m^\ast(A_2) \le \sum_{k=1}^\infty l(I_k'')$.
 	\begin{align*}
 		m^\ast(A_1)+m^\ast(A_2) & \le \sum_{k=1}^\infty l(I_k') + \sum_{k=1}^\infty l(I_k'') \\
-		& \le \sum_{k=1}^\infty l(I_k') + l(I_k)'' \\
+		& \le \sum_{k=1}^\infty l(I_k') + l(I_k'') \\
 		& \le \sum_{k=1}^\infty l(I_k) \le m^\ast(A)
 	\end{align*}
 		Thus, $(a,\infty)$ is measurable. Therefore, every interval is measurable.
@@ -442,10 +442,27 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 \subsection{Exercise}
 \begin{enumerate}
 	\setcounter{enumi}{10}
-	\item			
-	\item			
-	\item			
-	\item			
-	\item			
+	\item Let $\mathcal{A}$ be the $\sigma$-algebra containing all intervals of the form $(a, \infty)$. Every interval has one of the four forms,
+	\begin{align}
+		(a,b] = & (a,\infty) \cap (b,\infty)^c \\
+		(a,b) = & (a,\infty) \cap \left[\bigcap_{k=1}^\infty \left(b-\frac{1}{k},\infty\right)\right]^c \\
+		[a,b] = & \left[ \bigcap_{k=1}^\infty \left(a-\frac{1}{k},\infty\right)\right] \cap (b,\infty)^c \\
+		[a,b) = & \left[\bigcap_{k=1}^\infty \left(a-\frac{1}{k},\infty\right)\right] \cap \left[ \bigcap_{k=1}^\infty \left(b-\frac{1}{k},\infty\right)\right]^c
+	\end{align}
+\item \textbf{Borel sets} is the $\sigma$-algebra containing all open intervals. The equations from previous equations are sufficient. However, we have a simpler form for closed intervals, $[a,b]$.
+	\begin{align}
+		[a,b] = & \left[(-\infty,a) \cup (b,\infty) \right]^c 
+	\end{align}
+		Clearly, every interval is a borel set.
+	\item
+	\begin{itemize}
+		\item $C \in F_\sigma \implies C = \bigcup_{k=1}^\infty C_k \implies \bigcup_{k=1}^\infty \left(C_k+y\right) = C+y \in F_\sigma$
+		\item $O \in G_\delta \implies O = \bigcap_{k=1}^\infty O_k \implies \bigcup_{k=1}^\infty \left( O_k+y \right) =  O+y \in G_\delta$
+		\item $m^\ast(E) = 0 \implies 0 = \inf\{\sum_{k=1}^\infty l(I_k)\} = \inf\{\sum_{k=1}^\infty l(I_k+y)\} \implies  m^\ast(E+y) = 0$
+	\end{itemize}
+	\item A subset $E$ has positive measure if and only if it has a bounded subset of positive measure.
+		$$m^\ast(E) > 0 \iff \exists \text{ bounded subset }F \subset E,\text{ such that } m^\ast(F) > 0$$
+		\textbf{Sufficient Part :} By monotonicity, $F \subset E \implies m^\ast(F) \le m^\ast(E)$. And $m^\ast(F) > 0 \implies 0 < m^\ast(F) \le m^\ast(E)$.
+	\item
 \end{enumerate}
 
