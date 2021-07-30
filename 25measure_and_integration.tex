@@ -46,7 +46,7 @@
 \end{definition}
 
 
-\subsection{Exercise}
+\subsubsection{Exercise}
 \subsubsection{Techniques in Measure Theory}
 	Let $\mathcal{A}$ be a $\sigma$-algebra. Let Lebesgue Measure $m : \mathcal{A} \to [0,\infty]$ be countably additive over disjoint collection of sets in $\mathcal{A}$.
 \begin{itemize}
@@ -55,12 +55,12 @@
 		$\implies m(B) = m(A) + m(B-A) \ge m(A)$
 	\item If exists $E \in \mathcal{A}$ such that $m(E) < \infty$, then $m(\phi) = 0$\\
 		Suppose $m(\phi) = c$ and $m(E) = k$ where $k < \infty$. If $c \ne 0$, then $m(E \cup \phi) = m(E) + m(\phi) = c+k > k = m(E)$ is a contradiction.
-	\item $m\left(\cup_{k=1}^\infty E_k\right) \le \sum_{k=1}^\infty m(E_k)$\\
+	\item $m\left(\displaystyle\bigcup_{k=1}^\infty E_k\right) \le \displaystyle\sum_{k=1}^\infty m(E_k)$\\
 		Define $\{ F_k : k \in \mathbb{N} \}$ by $F_k = E_k - \cup_{j = 1}^{k-1} E_j$\\
 		Then $F_1 = E_1$, $F_2 = E_2 - E_1$, $F_3 = E_3 - (E_1 \cup E_2)$, \dots\\
 		Also $F_k \in \mathcal{A}$ and $F_k \subseteq E_k,\ \forall k \in \mathbb{N}$. Thus $m(F_k) \le m(E_k),\ \forall k$
 		However, $\cup_{k=1}^\infty E_k = \cup_{k=1}^\infty F_k$\\
-		$\implies m\left( \cup_{k=1}^\infty E_k \right) = m \left( \cup_{k=1}^\infty F_k \right) = \sum_{k=1}^\infty m(F_k) \le \sum_{k=1}^\infty m(E_k)$
+		$\implies m\left( \cup_{k=1}^\infty E_k \right) = m \left( \cup_{k=1}^\infty F_k \right) = \displaystyle\sum_{k=1}^\infty m(F_k) \le \displaystyle\sum_{k=1}^\infty m(E_k)$
 \end{itemize}
 
 \subsubsection{Counting Measure}
@@ -114,7 +114,7 @@
 
 		Since $[a,b]$ is closed and bounded, $[a,b]$ is compact. And by Heine-Borel theorem, every open cover of $[a,b]$ has a finite subcover. Thus, it is sufficient to prove the theorem for finite covers of $[a,b]$.\\
 
-		Let $\mathcal{C}$ be a finite cover of $[a,b]$ with $n$ open intervals. Let $(a_1,b_1)$ be an open interval containing $a$ in $\mathcal{C}$. Then $a_1 < a < b_1$. If $b_1 > b$ then $l(a_1,b_1) > l(a,b)$. And $\sum_{i=1}^k l(I_k) \ge l(a_1,b_1) \ge b-a$.
+		Let $\mathcal{C}$ be a finite cover of $[a,b]$ with $n$ open intervals. Let $(a_1,b_1)$ be an open interval containing $a$ in $\mathcal{C}$. Then $a_1 < a < b_1$. If $b_1 > b$ then $l(a_1,b_1) > l(a,b)$. And $\displaystyle\sum_{i=1}^k l(I_k) \ge l(a_1,b_1) \ge b-a$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -132,7 +132,7 @@
 \end{tikzpicture}
 \end{center}
 
-		Suppose $b_1 < b$. Clearly, $a < b_1$. And the cover $\mathcal{C}$ must have an open interval containing $b_1$. Otherwise $\mathcal{C}$ is not a cover of $[a,b]$. That is, there exists $(a_2,b_2)$ containing $b_1 \in (a,b)$ such that $a_2 < b_1 < b_2$. If $b_2 > b$, then $\sum_{i=1}^k l(I_k) \ge l(a_1,b_1) + l(a_2,b_2) \ge l(a_1,b_2) \ge b-a$.
+		Suppose $b_1 < b$. Clearly, $a < b_1$. And the cover $\mathcal{C}$ must have an open interval containing $b_1$. Otherwise $\mathcal{C}$ is not a cover of $[a,b]$. That is, there exists $(a_2,b_2)$ containing $b_1 \in (a,b)$ such that $a_2 < b_1 < b_2$. If $b_2 > b$, then $\displaystyle\sum_{i=1}^k l(I_k) \ge l(a_1,b_1) + l(a_2,b_2) \ge l(a_1,b_2) \ge b-a$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -156,7 +156,7 @@
 \end{tikzpicture}
 \end{center}
 
-		Suppose $b_2 < b$. Continuing like this we get, $N$ open intervals in $\mathcal{C}$, $\{ (a_k,b_k) : k = 1,2,\cdots,N \} $ such that $a_1 < a < b_1$ and $a_N < b < b_N$ and $a_k < b_{k-1} < b_k$ for all $k$. The process should terminate in fintie steps as $\mathcal{C}$ is a finite cover of $[a,b]$. Then $\sum_{k=1}^N l(I_k) \ge \sum_{k=1}^N l(a_k,b_k) \ge l(a_1,b_N) \ge b-a$.
+		Suppose $b_2 < b$. Continuing like this we get, $N$ open intervals in $\mathcal{C}$, $\{ (a_k,b_k) : k = 1,2,\cdots,N \} $ such that $a_1 < a < b_1$ and $a_N < b < b_N$ and $a_k < b_{k-1} < b_k$ for all $k$. The process should terminate in fintie steps as $\mathcal{C}$ is a finite cover of $[a,b]$. Then $\displaystyle\sum_{k=1}^N l(I_k) \ge \displaystyle\sum_{k=1}^N l(a_k,b_k) \ge l(a_1,b_N) \ge b-a$.
 
 \begin{center}
 \begin{tikzpicture}
@@ -209,7 +209,7 @@
 \end{tikzpicture}
 \end{center}
 
-	Clearly, every open cover of $[a,b]$ contains a finite subcover $\mathcal{C}$, which contains a finite subcover of the form $\{ (a_k,b_k) : k=1,2,\cdots,N \}$ such that $\sum_{k=1}^N l(I_k) \ge b-a$. Thus, for any open cover $\sum_{k=1}^\infty l(I_k) \ge b-a$. And thus,
+	Clearly, every open cover of $[a,b]$ contains a finite subcover $\mathcal{C}$, which contains a finite subcover of the form $\{ (a_k,b_k) : k=1,2,\cdots,N \}$ such that $\displaystyle\sum_{k=1}^N l(I_k) \ge b-a$. Thus, for any open cover $\displaystyle\sum_{k=1}^\infty l(I_k) \ge b-a$. And thus,
 	\begin{equation}
 		m^\ast([a,b]) \ge b-a
 	\end{equation}
@@ -217,14 +217,14 @@
 	\textbf{Case 2 : Bounded Interval}
 	Let $I$ be a bounded interval. Then there exists bounded closed intervals $J_1$ and $J_2$ such that $J_1 \subsetneq I \subsetneq J_2$ such that $l(I) - \epsilon < l(J_1)$ and $l(J_2) < l(I)+\epsilon$. Suppose $I = (a,b]$, then $J_1 = [a+\frac{\epsilon}{2}, b-\frac{\epsilon}{2}]$ and $J_2 = [a-\frac{\epsilon}{2},b+\frac{\epsilon}{2}]$.\\
 
-	By monotonicity of outer measure, we have $m^\ast(J_1) \le m^\ast(I) \le m^\ast(J_2)$. However $m^\ast(J_1) = l(I)-\epsilon$ and $m^\ast(J_2) = l(I)+\epsilon$. Thus, $l(I)-\epsilon \le m^\ast(I) \le l(I)+\epsilon$.Therefore, $m^\ast(I) = l(I)$.
+	By monotonicity of outer measure, we have $m^\ast(J_1) \le m^\ast(I) \le m^\ast(J_2)$. However $m^\ast(J_1) = l(I)-\epsilon$ and $m^\ast(J_2) = l(I)+\epsilon$. Thus, $l(I)-\epsilon \le m^\ast(I) \le l(I)+\epsilon$. Therefore, $m^\ast(I) = l(I)$.
 
 	\textbf{Case 3 : Unbounded Interval}
 	Let $I$ be an unbounded interval. Then for any natural number $n$, there exists a closed bounded interval $J$ such that $J \subset I$ and $l(J) = n$. And $n = m^\ast(J) \le m^\ast(I),\ \forall n \in \mathbb{N}$. Therefore, $m^\ast(I) = \infty = l(I)$. 
 	\end{proof}
 	\item Outer Measure is translation invariant
 	\begin{proof}
-		Let $A$ be any set and $y \in \mathbb{R}$. Let $\{ I_k : k = 1,2,\dots \}$ be a cover of $A$. Then $\{ I_k+y : k = 1,2,\dots \}$ is a cover of $A+y$. And $l(I_k) = l(I_k+y)$ for every natural number $k$ and real number $y$. Thus, $\sum_{k=1}^\infty l(I_k) = \sum_{k=1}^\infty l(I_k+y)$. Clearly, for each cover $\{I_k\}_{k=1}^\infty$ of $A$, there exists a cover $\{ I_k+y \}_{k=1}^\infty$ of $A+y$ containing intevals of same length. Therefore, $m^\ast(A) = m^\ast(A+y)$.
+		Let $A$ be any set and $y \in \mathbb{R}$. Let $\{ I_k : k = 1,2,\dots \}$ be a cover of $A$. Then $\{ I_k+y : k = 1,2,\dots \}$ is a cover of $A+y$. And $l(I_k) = l(I_k+y)$ for every natural number $k$ and real number $y$. Thus, $\displaystyle\sum_{k=1}^\infty l(I_k) = \displaystyle\sum_{k=1}^\infty l(I_k+y)$. Clearly, for each cover $\{I_k\}_{k=1}^\infty$ of $A$, there exists a cover $\{ I_k+y \}_{k=1}^\infty$ of $A+y$ containing intevals of same length. Therefore, $m^\ast(A) = m^\ast(A+y)$.
 	\end{proof}
 	\item Outer Measure is countably subadditive
 	\begin{proof}
@@ -232,7 +232,7 @@
 		\begin{equation}
 			m^\ast \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m^\ast(E_k)
 		\end{equation}
-		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\sum_{i=1}^\infty I_{k,i} < m^\ast(E_k) + \frac{\epsilon}{2^k}$. Suppose that, for some $\epsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\epsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
+		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\displaystyle\sum_{i=1}^\infty I_{k,i} < m^\ast(E_k) + \frac{\epsilon}{2^k}$. Suppose that, for some $\epsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\epsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
 
 	Clearly,
 	\begin{align*}
@@ -244,7 +244,7 @@
 	\textbf{Note : } Finite subadditivity is a weaker notion than countable subadditivity. Since every finite collection is a countable collection.
 \end{enumerate}
 
-\subsection{Exercise}
+\subsubsection{Exercise}
 \begin{enumerate}
 	\setcounter{enumi}{4}
 \item Closed Interval $[0,1]$ is uncountable.\\
@@ -412,7 +412,7 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	\end{equation}
 	Let collection $\{ I_k \}_{k=1}^\infty$ be a countable cover of $A$. Then collection $\{ I_k' \}_{k=1}^\infty$ defined by $I_k' = I_k \cap (a,\infty)$ is a cover of $A_1$. And collection $\{I_k''\}_{k=1}^\infty$ defined by $I_k'' = I_k \cap (-\infty,a)$ is a cover of $A_2$.\\
 
-	Clearly, $m^\ast(A_1) \le \sum_{k=1}^\infty l(I_k')$ and $m^\ast(A_2) \le \sum_{k=1}^\infty l(I_k'')$.
+	Clearly, $m^\ast(A_1) \le \displaystyle\sum_{k=1}^\infty l(I_k')$ and $m^\ast(A_2) \le \displaystyle\sum_{k=1}^\infty l(I_k'')$.
 	\begin{align*}
 		m^\ast(A_1)+m^\ast(A_2) & \le \sum_{k=1}^\infty l(I_k') + \sum_{k=1}^\infty l(I_k'') \\
 		& \le \sum_{k=1}^\infty l(I_k') + l(I_k'') \\
@@ -439,7 +439,7 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	\end{proof}
 \end{enumerate}
 
-\subsection{Exercise}
+\subsubsection{Exercise}
 \begin{enumerate}
 	\setcounter{enumi}{10}
 	\item Let $\mathcal{A}$ be the $\sigma$-algebra containing all intervals of the form $(a, \infty)$. Every interval has one of the four forms,
@@ -462,7 +462,70 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	\end{itemize}
 	\item A subset $E$ has positive measure if and only if it has a bounded subset of positive measure.
 		$$m^\ast(E) > 0 \iff \exists \text{ bounded subset }F \subset E,\text{ such that } m^\ast(F) > 0$$
-		\textbf{Sufficient Part :} By monotonicity, $F \subset E \implies m^\ast(F) \le m^\ast(E)$. And $m^\ast(F) > 0 \implies 0 < m^\ast(F) \le m^\ast(E)$.
-	\item
+		\textbf{Sufficient Part :} By monotonicity, $F \subset E \implies m^\ast(F) \le m^\ast(E)$. And $m^\ast(F) > 0 \implies 0 < m^\ast(F) \le m^\ast(E)$.\\
+		\textbf{Necessary Part :}
+	\item 
 \end{enumerate}
 
+\subsection{Outter and Inner Approximation}
+\begin{definition}[Excision Property]
+Let $A$ be a measurable set of finite measure. Then,
+\begin{equation}
+	m^\ast(B \sim A) = m^\ast(B) - m^\ast(A)
+\end{equation}
+\begin{proof}
+\begin{align*}
+	m^\ast(B) = & m^\ast(B \cap A) + m^\ast(B \cap A^c) \\
+	= & m^\ast(A) + m^\ast(B \sim A) \\
+	\implies m^\ast(B \sim A) = & m^\ast(A) - m^\ast(B)
+\end{align*}
+\end{proof}
+\end{definition}
+
+\begin{theorem}[approximation]
+	The following conditions are equivalent to measurability of $E$
+\begin{enumerate}
+	\item $\forall \epsilon > 0$, there is an open set $\mathcal{O}$ containing $E$ for which $m^\ast(\mathcal{O}\sim E) < \epsilon$.
+	\item There is a $G_\delta$ set $G$ containining $E$ such that $m^\ast(G \sim E) = 0$.
+	\item $\forall \epsilon > 0$, there is a closed set $F$ contained in $E$ such that $m^\ast(E\sim F) = 0$.
+	\item There is an $F_\sigma$ set $F$ contained in $E$ sucht hat $m^\ast(E \sim F) = 0$.
+\end{enumerate}
+\end{theorem}
+
+\textbf{Note :} Equivalent conditions 1 \& 2 are about outer approximation of a measurable set and 3 \& 4 are about inner approximation of a measurable set.\\
+
+\begin{proof}
+\subsubsection*{Measurability $\implies$ Open set - Outer approximation}
+	Suppose that $E$ is measurable. And let $\epsilon > 0$.\\
+
+	\textbf{Case 1 :} Suppose $m^\ast(E) < \infty$. By definition of outer measure, there exists an open cover $\{ I_k \}_{k=1}^\infty$ such that $\displaystyle\sum_{k=1}^\infty l(I_k) <  m^\ast(E)+\epsilon$.\\
+
+	Define $\mathcal{O} = \displaystyle\bigcup_{k=1}^\infty I_k$. Then $\mathcal{O}$ is an open set containing $E$ and thus measurable. Also, $m^\ast(\mathcal{O}) \le \displaystyle\sum_{k=1}^\infty l(I_k) < m^\ast(E) + \epsilon$. Therefore, by excision property we have $m^\ast(\mathcal{O} \sim E) = m^\ast(\mathcal{O}) - m^\ast(E) < \epsilon$. \\
+
+	\textbf{Case 2 :} Suppose $m^\ast(E) = \infty$. Without loss of generality, $E$ may be written as countable union measurable sets $\{ E_k \}_{k=1}^\infty$ of finite measure.\\
+
+	By case 1, for every $k$, there exists $\mathcal{O}_k$ for each $E_k$ of finite measure such that $m^\ast(\mathcal{O}_k \sim E_k) < \frac{\epsilon}{2^k}$. Define $\mathcal{O} = \displaystyle\bigcup_{k=1}^\infty \mathcal{O}_k$. Then $\mathcal{O}$ is open, contains $E$ and 
+	\begin{align*}
+		m^\ast(\mathcal{O} \sim E) = & m^\ast\left(\bigcup_{k=1}^\infty \mathcal{O}_k \sim E \right) \\
+		\le & m^\ast \left(\bigcup_{k=1}^\infty \mathcal{O}_k \sim E_k \right) \\
+		\le & \sum_{k=1}^\infty m^\ast(\mathcal{O}_k \sim E_k) = \epsilon \sum_{k=1}^\infty \frac{1}{2^k} = \epsilon
+	\end{align*}
+
+\subsubsection*{Open, Outer approximation $\implies G_\delta$, Outer approximation }
+	Let $E$ be a subset of real numbers such that measure of $E$ has an open set inner approximation. That is, for every $\epsilon > 0$, there exits an open set $\mathcal{O}$ such that $m^\ast(\mathcal{O} \sim E) < \epsilon$.\\
+
+	Let $\mathcal{O}_k$ be open sets such that $m^\ast(\mathcal{O}_k \sim E) < \frac{1}{k}$. Define $G = \displaystyle\bigcap_{k=1}^\infty \mathcal{O}_k$. Then, $G$ is a $G_\delta$ set containing $E$. And $G \sim E \subset \mathcal{O}_k \sim E$. Thus, by monotonicity, $m^\ast(G \sim E) \le m^\ast(\mathcal{O}_k \sim E) < \frac{1}{k}$. Thus, we have a $G_\delta$ set $G$ containing $E$ such that $m^\ast(G \sim E) = 0$.
+
+\subsubsection*{$G_\delta$-Outer approximation $\implies$ Measurability}
+	We have, $m^\ast(G \sim  E) = 0$. Since every set of measure zero is measurable, $G \sim E$ is measurable. And its complement $(G \sim E)^c$ is also measurable. Also we have, $G$ is a $G_\delta$ set, thus a borel set and hence measurable.\\
+
+	Clearly,we have $E = G \cap (G \sim E)^c$. And therefore, $E$ is measurable.
+
+\subsubsection*{Open, Outer approximation $\iff$ Closed, Inner approximation}
+	By duality of measurability, $E$ is measurable if and only if $E^c$ is measurable. And by de Morgan's Law, we have $E^c$ has an open set - outer approximation $\mathcal{O}$ if and only if $E$ has a closed set - inner approximation $\mathcal{O}^c$.
+	$$ m^\ast(\mathcal{O} \sim E^c) < \epsilon \iff m^\ast(E \sim \mathcal{O}^c) < \epsilon $$
+
+\subsubsection*{$G_\delta$-Outer approximation $\iff F_\sigma$-Inner approximation}
+	Again, by duality of measurability and de Morgan's Law, we have $E^c$ has a $G_\delta$-outer approximation $G$ if and only if $E$ has an $F_\sigma$-inner approximation $F$.
+	$$ m^\ast(G \sim E^c) < \epsilon \iff m^\ast(E \sim F) < \epsilon $$
+\end{proof}
