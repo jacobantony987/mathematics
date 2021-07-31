@@ -21,32 +21,43 @@
 
 \section{Interpolation and Curve Fitting}
 \begin{definition}
-	Given $(n+1)$ data points $(x_k, y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that satisfy the data points is the interpolation problem. ie, $y(x_k) = y_k,\ k = 0,1,\cdots,n$.
+	Given $(n+1)$ data points $(x_k, y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that satisfy the data points is the interpolation problem.
+	ie, $y(x_k) = y_k,\ k = 0,1,\cdots,n$.
 \end{definition}
 \begin{definition}
-	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that is sufficiently close to the data points is the curve-fitting problem.\\ ie, Given $\epsilon > 0,\ |y(x_k)-y_k| < \epsilon,\ k = 0,1,\cdots,n$.
+	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that is sufficiently close to the data points is the curve-fitting problem.\\
+	ie, Given $\epsilon > 0,\ |y(x_k)-y_k| < \epsilon,\ k = 0,1,\cdots,n$.
 \end{definition}
 \begin{remark}
 \begin{commentary}
-The data could be from scientific experiments or computations on mathematical models. The interpolation problem assumes that the data is accurate. But, curve-fitting problem assumes that there are some errors involved which are sufficiently small.
+The data could be from scientific experiments or computations on mathematical models.
+	The interpolation problem assumes that the data is accurate.
+	But, curve-fitting problem assumes that there are some errors involved which are sufficiently small.
 \end{commentary}
 \end{remark}
 \begin{definition}
 	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a polynomial function of degree $n$ that satisfy the data points is the polynomial interpolation problem.
 \end{definition}
 \begin{remark}
-	Polynomial is the `simplest' interpolant.\cite[3.2]{kiusalaas}
+	Polynomial is the `simplest' interpolant.
+	\cite[3.2]{kiusalaas}
 \end{remark}
 
 \section{Polynomial Interpolation}
-There exists a unique polynomial of degree $n$ that satisfy $(n+1)$ distinct data points. There are a few methods to find this polynomial : 
+There exists a unique polynomial of degree $n$ that satisfy $(n+1)$ distinct data points.
+There are a few methods to find this polynomial : 
 \begin{enumerate*}
 	\item Lagrange's method
 	\item Newton's method
 \end{enumerate*}.
 
 \subsection{Lagrange's Method}
-Interpolation polynomial\footnote{Using $P_n$ to represent some polynomial of degree $n$. It is quite a confusing a notation when it comes to Newton's method as author construct a psuedo-recursive definition.} is given by,
+Interpolation polynomial
+\footnote{
+	Using $P_n$ to represent some polynomial of degree $n$.
+	It is quite a confusing a notation when it comes to Newton's method as author construct a psuedo-recursive definition.
+	}
+	is given by,
 \begin{equation}
 	P(x) = \sum_{i=0}^n y_i l_i(x),\text{ where } \l_i(x) = \prod_{j = 0,j \ne i}^n \frac{x-x_i}{x_j-x_i}
 	\label{equ:lagrange}
@@ -78,7 +89,8 @@ where $a_i = \nabla^i y_i,\ i = 0,1,\cdots,n$.
 	For Newton's Method, usually it is assumed that $x_0 < x_1 < \cdots < x_n$.
 \end{remark}
 \begin{remark}
-	 Lagrange's method is conceptually simple. But, Newton's method is computationaly more efficient than Lagrange's method.
+	 Lagrange's method is conceptually simple.
+	 But, Newton's method is computationaly more efficient than Lagrange's method.
 \end{remark}
 \subsubsection{Computing coefficients $a_i$ of the polynomial}
 The coefficients are given by,
@@ -121,9 +133,12 @@ The coefficients are given by,
 \end{remark}
 
 \begin{remark}
-	In Lagrange's Method, we can interpolate at the given point even without computing the polynomial. In Newton's method, we have to compute polynomial and then interpolate for the given point.\\
+	In Lagrange's Method, we can interpolate at the given point even without computing the polynomial.
+	In Newton's method, we have to compute polynomial and then interpolate for the given point.\\
 
-	That is, evaluate the value of cardinal polynomials at the point and substitute in Equation \ref{equ:lagrange} as shown in Section 3.2.\cite[Example 3.1]{kiusalaas}
+
+	That is, evaluate the value of cardinal polynomials at the point and substitute in Equation \ref{equ:lagrange} as shown in Section 3.2.
+	\cite[Example 3.1]{kiusalaas}
 \end{remark}
 
 \subsection{Implementation of Newton's Method}
@@ -141,19 +156,44 @@ The coefficients are given by,
 \begin{commentary}
 \begin{enumerate}[label=Line \arabic*]
 	\item \texttt{def coefficients(xData,yData):} \\
-		Defines a function which takes two arguments/parameters, named $xData$ and $yData$. In \cite[3.2]{kiusalaas}, you will find coeffts which I have changed to coefficients. $xData$,$yData$ are numpy array objects. $xData$ is a array with values $x_0,x_1,\cdots,x_n$. And $yData$ is array with values $y_0,y_1,\cdots,y_n$. For example, the value of $x_3$ can be accessed as $xData[3]$.
+		Defines a function which takes two arguments/parameters, named $xData$ and $yData$.
+		In \cite[3.2]{kiusalaas}, you will find coeffts which I have changed to coefficients.
+		$xData$,$yData$ are numpy array objects.
+		$xData$ is a array with values $x_0,x_1,\cdots,x_n$.
+		And $yData$ is array with values $y_0,y_1,\cdots,y_n$.
+		For example, the value of $x_3$ can be accessed as $xData[3]$.
 	\item \texttt{m = len(xData)}\\
-		The functon $len()$ is extended by numpy to give the length of array objects. In this context, $len(xData)$ will return the value $n+1$, since there are $n+1$ values in $xData$ array.
+		The functon $len()$ is extended by numpy to give the length of array objects.
+		In this context, $len(xData)$ will return the value $n+1$, since there are $n+1$ values in $xData$ array.
 	\item \texttt{a = yData.copy()}\\
-		We need a copy of $yData$ to work with. Unlike other programming languages like java, in python $a = yData$ will assign a new label $a$ to the same memory location and manipulating $a$ will corrupt the original data in $yData$ as well. In order to avoid this, we are \textbf{making a copy of the array object using the array method provided by the numpy library.}
+		We need a copy of $yData$ to work with.
+		Unlike other programming languages like java, in python $a = yData$ will assign a new label $a$ to the same memory location and manipulating $a$ will corrupt the original data in $yData$ as well.
+		In order to avoid this, we are \textbf{making a copy of the array object using the array method provided by the numpy library.}
 	\item \texttt{for k in range(1,m):}\\
-		This is a python loop statement. This ask python interpreter to repeat the following sub-block $m-1$ times.\footnote{Python block is a group of statement with same level of indentation. A sub-block is a block with an additional indentation.} In this context, Line 5 will be executed $n$ times, since the $range(1,m)$ object is a list-type object with values $1,2,\cdots,m-1$. And intepreter executes Line 5 for each values in the $range()$ object, ie, $k=1,2,\cdots, m-1$ before interpreting Line 6.
+		This is a python loop statement.
+		This ask python interpreter to repeat the following sub-block $m-1$ times.
+		\footnote{
+			Python block is a group of statement with same level of indentation.
+			A sub-block is a block with an additional indentation.
+		}
+		In this context, Line 5 will be executed $n$ times, since the $range(1,m)$ object is a list-type object with values $1,2,\cdots,m-1$.
+		And intepreter executes Line 5 for each values in the $range()$ object, ie, $k=1,2,\cdots, m-1$ before interpreting Line 6.
 	\item \texttt{a[k:m] = (a[k:m]-a[k-1])/(xData[k:m]-xData[k-1])}\\
-		This is very nice feature available in python. \textbf{This statement, evaluates $m-k$ values in a single step.ie, $a[k],a[k+1],\cdots,a[m]$. This calculation corresponds to subsequent columns of the divided difference table, that we are familiar with.} For example, executing Line 5 with $k=3$ is same as evaluating the $\nabla^3y_j$ column. Note that the value $a[0]$ is never updated and similarly $a[2]$ changes when Line 5 is executed with $k=1,2$. From column 3 onward, $a[2]$ is not updated. Therefore, \textbf{after completing $n$th executing of the Line 5, we have $a[0] = y_0,\ a[1]=\nabla y_1,\ a[2]=\nabla^2 y_2,\cdots,\ a[n]=\nabla^n y_n$.}
+		This is very nice feature available in python.
+		\textbf{
+			This statement, evaluates $m-k$ values in a single step.
+			ie, $a[k],a[k+1],\cdots,a[m]$.
+			This calculation corresponds to subsequent columns of the divided difference table, that we are familiar with.
+		}
+		For example, executing Line 5 with $k=3$ is same as evaluating the $\nabla^3y_j$ column.
+		Note that the value $a[0]$ is never updated and similarly $a[2]$ changes when Line 5 is executed with $k=1,2$.
+		From column 3 onward, $a[2]$ is not updated.
+		Therefore, \textbf{after completing $n$th executing of the Line 5, we have $a[0] = y_0,\ a[1]=\nabla y_1,\ a[2]=\nabla^2 y_2,\cdots,\ a[n]=\nabla^n y_n$.}
 	\item \texttt{return a}\\
 		This returns the array $a$ which is the array of coefficients.
 \end{enumerate}
-	The logic of this program is in Line 4 and Line 5. So they need more explanation/understanding than anything else.
+	The logic of this program is in Line 4 and Line 5.
+	So they need more explanation/understanding than anything else.
 \end{commentary}
 
 \begin{program}Interpolating using Newton's Method
@@ -169,9 +209,14 @@ The coefficients are given by,
 
 	Line 3 : We initialize the polynomial with the coefficient $a[n] = \nabla^n y_n = a_n$.\\
 
-	Line 4 : We are going define the polynomial recursively. This takes exactly $n$ steps further. So we use a loop which repeats $n$ times.\\
+	Line 4 : We are going define the polynomial recursively.
+	This takes exactly $n$ steps further.
+	So we use a loop which repeats $n$ times.\\
 
-	Line 5 : The value of $p$ and $k$ changes each time Line 5 is executed. Let $P_j$ be the value in $p$ after executing Line 5 with $k=j$. Then,\\ $P_0 = p = a[n]$\\ $P_1 = a[n-1]+(x-x_{n-1})P_0$\\ $P_2 = a[n-2]+(x-x_{n-2})P_1$\\ $\vdots$\\ $P_n = a[0]+(x-x_0)P_{n-1}$.\\ Clearly, $P_n$ is the unique $n$ degree polynomial given by the Newton's method.
+	Line 5 : The value of $p$ and $k$ changes each time Line 5 is executed.
+	Let $P_j$ be the value in $p$ after executing Line 5 with $k=j$.
+	Then,\\ $P_0 = p = a[n]$\\ $P_1 = a[n-1]+(x-x_{n-1})P_0$\\ $P_2 = a[n-2]+(x-x_{n-2})P_1$\\ $\vdots$\\ $P_n = a[0]+(x-x_0)P_{n-1}$.
+	Clearly, $P_n$ is the unique $n$ degree polynomial given by the Newton's method.
 \end{program}
 
 \begin{program}How to interpolate ?
@@ -226,7 +271,9 @@ The coefficients are given by,
 \subsection{Limitations of Polynomial Interpolation}
 \begin{enumerate}
 	\item Inaccuracy - The error in interpolation increases as the point moves away from most of the data points.
-	\item Oscilation - As the number of data points considered for polynomial interpolation increases, the degree of the polynomial increases. And the graph of the interpolant tend to oscilate excessively. In such cases, the error in interpolation is quite high. 
+	\item Oscilation - As the number of data points considered for polynomial interpolation increases, the degree of the polynomial increases.
+		And the graph of the interpolant tend to oscilate excessively.
+		In such cases, the error in interpolation is quite high. 
 	\item The best practice is to consider four to six data points nearest to the point of interest and ignore the rest of them.
 \end{enumerate}
 
@@ -240,7 +287,8 @@ The coefficients are given by,
 \end{definition}
 
 \begin{remark}
-	Suppose $a <  b$ and $f(a), f(b)$ are nonzero and are of different signs. If $f$ is continuous in $[a,b]$, then there is a point $c \in [a,b]$ such that $f(c) = 0$.\\
+	Suppose $a <  b$ and $f(a), f(b)$ are nonzero and are of different signs.
+	If $f$ is continuous in $[a,b]$, then there is a point $c \in [a,b]$ such that $f(c) = 0$.\\
 	
 	Thus given $a<b$ and $f(a),f(b)$ are nonzero values of different sign, then there may be a bracketed root in $[a,b]$.\\
 	
@@ -256,10 +304,17 @@ The coefficients are given by,
 \end{remark}
 
 \subsection{Bisection Method}
-	Suppose $a < b$ and $f(a),f(b)$ are nonzero values of different signs. We evaluate $f(c)$ where $c = \frac{a+b}{2}$. If $f(c)$ is a nonzero value, then at least one of the pairs $f(a),f(c)$ or $f(c),f(b)$ are of different signs. WLOG suppose that $f(a),f(c)$ are of different signs, then set $b = c$ and $c = \frac{a+b}{2}$. And continue this process until we get sufficiently accurate value of a root.
+	Suppose $a < b$ and $f(a),f(b)$ are nonzero values of different signs.
+	We evaluate $f(c)$ where $c = \frac{a+b}{2}$.
+	If $f(c)$ is a nonzero value, then at least one of the pairs $f(a),f(c)$ or $f(c),f(b)$ are of different signs.
+	WLOG suppose that $f(a),f(c)$ are of different signs, then set $b = c$ and $c = \frac{a+b}{2}$.
+	And continue this process until we get sufficiently accurate value of a root.
 
 \begin{remark}
-	Suppose $f(x) = x^5 - 2$. Then $f(0) = -2,\ f(1) = -1,\ f(2) = 30$. Since $f$ is known to be continuous, there is a bracketed root in $[1,2]$. Now $f(1.5) > 0 \implies [1,1.5]$\\
+	Suppose $f(x) = x^5 - 2$.
+	Then $f(0) = -2,\ f(1) = -1,\ f(2) = 30$.
+	Since $f$ is known to be continuous, there is a bracketed root in $[1,2]$.
+	Now $f(1.5) > 0 \implies [1,1.5]$\\
 	$f(1.25) > 0 \implies [1,1.25]$\\
 	$f(1.125) < 0 \implies [1.125,1.25]$\\
 	$f(1.1825)>0 \implies [1.125,1.1825]$\\
@@ -275,10 +330,15 @@ The coefficients are given by,
 %fifth root of 2 = 1.14869835
 
 \subsection{Newton-Raphson Method}
-	Suppose $f$ is differentiable at $x \in \mathbb{R}$ and $f(x) \ne 0$. Then compute $x = x - \frac{f(x)}{df(x)}$ and evaluate $f(x)$. Repeat this process to get more accurate value of a root near $x$.
+	Suppose $f$ is differentiable at $x \in \mathbb{R}$ and $f(x) \ne 0$.
+	Then compute $x = x - \frac{f(x)}{df(x)}$ and evaluate $f(x)$.
+	Repeat this process to get more accurate value of a root near $x$.
 
 \begin{remark}
-	Suppose $f(x) = x^5 - 2$. Then $df(x) = 5x^4$. Let $x = 2$. Then\\
+	Suppose $f(x) = x^5 - 2$.
+	Then $df(x) = 5x^4$.
+	Let $x = 2$.
+	Then
 	\begin{align*}
 		x = 2 - \frac{30}{80} & \implies f(1.625) = 9.330 \\
 		x = 1.625 - \frac{9.330}{34.86} & \implies f(1.35735) = 2.6074 \\
@@ -300,7 +360,8 @@ The coefficients are given by,
 		A_{n1}x_1 + A_{n2}x_2 + \cdots + A_{nn}x_n & = b_n 
 	\end{align*}
 
-	We may represent them using matrices as $Ax = b$. That is,
+	We may represent them using matrices as $Ax = b$.
+	That is,
 	\[ \begin{bmatrix} A_{11} & A_{12} & \cdots & A_{1n} \\ A_{21} & A_{22} & \cdots & A_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ A_{n1} & A_{n2} & \cdots & A_{nn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix} \]
 		
 	Gauss Elimination and Doolittle Decomposition are two methods to solve sytem of equaitons, $Ax = b$.
@@ -311,10 +372,14 @@ The coefficients are given by,
 		\item elimination and
 		\item back substitution
 	\end{enumerate*}.
-	In elimination phase, system $Ax = b$ is transformed into an equivalent system $Ux = c$ where $U$ is an upper-triangular\footnote{upper triangular - all the entries below the main diagonal are zero. ie $U_{ij} = 0,\ \text{ if }i<j$} matrix. And in back substitution phase, $Ux = c$ is solved. Since $Ax = b$ and $Ux =  c$ are equivalent, they have the same solution $x$.
+	In elimination phase, system $Ax = b$ is transformed into an equivalent system $Ux = c$ where $U$ is an upper-triangular\footnote{upper triangular - all the entries below the main diagonal are zero.
+	ie $U_{ij} = 0,\ \text{ if }i<j$} matrix.
+	And in back substitution phase, $Ux = c$ is solved.
+	Since $Ax = b$ and $Ux =  c$ are equivalent, they have the same solution $x$.
 
 \subsection{Elimination Phase}
-	We can eliminate unknowns from an equation by adding a scalar multiple of an equation to another equation of the system. In matrices, this is equivalent to adding a scalar multiple of one row to another row, say $R_i \leftarrow R_i + \lambda{}R_k$.
+	We can eliminate unknowns from an equation by adding a scalar multiple of an equation to another equation of the system.
+	In matrices, this is equivalent to adding a scalar multiple of one row to another row, say $R_i \leftarrow R_i + \lambda{}R_k$.
 	\begin{align*}
 		A_{k1}x_1 + A_{k2}x_2 + \cdots + A_{kn}x_n = b_k  & + \\
 		\lambda \left( A_{i1}x_1 + A_{i2}x_2 + \cdots + A_{in}x_n  = b_i \right) & \\ \hline
@@ -324,12 +389,24 @@ The coefficients are given by,
 	\[ \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \cdots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1} & A_{i2} & \cdots & A_{in} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix} \xrightarrow{R_i \leftarrow R_i + \lambda{}R_k} \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \cdots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1}+\lambda{}A_{k1} & A_{i2}+\lambda{}A_{k2} & \cdots & A_{in}+\lambda{}A_{kn} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix}\]
 		\[ \begin{bmatrix} \vdots \\ b_k \\ \vdots \\ b_i \\ \vdots \end{bmatrix} \xrightarrow{R_i \leftarrow R_i + \lambda{}R_k} \begin{bmatrix} \vdots \\ b_k \\ \vdots \\ b_i + \lambda{}b_k \\ \vdots \end{bmatrix} \]
 			
-%	However, we can reduce the number of operations\footnote{Number of steps is an important measure of the quality of algorithm.} required for the elimination. First we will eliminate $x_1$ from row $R_i,\ i = 2,3,\cdots,n$ using a suitable scalar, say $A_{i1}/A_{11}$. Then, we will eliminate $x_2$ from $R_i,\ i = 3,4,\cdots,n$. And so on.\\
-
-%	When $x_1$ is eliminated from $R_2$, we get $A_{k1} = 0,\ k=2,3,\cdots,n$. The variable $x_2$, is eliminated from equations $3,4,\cdots,n$ by the operation, $R_i \rightarrow R_i + \lambda{}R_2$ where $i = 3,4,\cdots,n$. However, $A_{21}$ is already reduced to zero, therefore we have to add only the scalar multiples of the nonzero values in the row $R_2$. Consider the elimination of $x_k$ from equation $i$ where $ i = k+1,k+2,\cdots,n$, we have $A_{k,1},A_{k,2},\cdots, \text{and}, A_{k,k-1}$ are already zero due to the elimination of $x_1,x_2,\cdots, \text{and} ,x_{k-1}$. Thus, adding scalar multiple (zero) of these entries can be avoided to reduce the number of operations.
+%	However, we can reduce the number of operations
+%	\footnote{
+%			Number of steps is an important measure of the quality of algorithm.
+%	}
+%			required for the elimination.
+%			First we will eliminate $x_1$ from row $R_i,\ i = 2,3,\cdots,n$ using a suitable scalar, say $A_{i1}/A_{11}$.
+%			Then, we will eliminate $x_2$ from $R_i,\ i = 3,4,\cdots,n$.
+%			And so on.\\
+%
+%	When $x_1$ is eliminated from $R_2$, we get $A_{k1} = 0,\ k=2,3,\cdots,n$.
+%	The variable $x_2$, is eliminated from equations $3,4,\cdots,n$ by the operation, $R_i \rightarrow R_i + \lambda{}R_2$ where $i = 3,4,\cdots,n$.
+%	However, $A_{21}$ is already reduced to zero, therefore we have to add only the scalar multiples of the nonzero values in the row $R_2$.
+%	Consider the elimination of $x_k$ from equation $i$ where $ i = k+1,k+2,\cdots,n$, we have $A_{k,1},A_{k,2},\cdots, \text{and}, A_{k,k-1}$ are already zero due to the elimination of $x_1,x_2,\cdots, \text{and} ,x_{k-1}$.
+%	Thus, adding scalar multiple (zero) of these entries can be avoided to reduce the number of operations.
 
 \subsection{Back substitution}
-	Let $Ux = c$ be a system of $n$ linear equations in $n$ unknowns and $U$ is an upper triangular matrix. Then we can solve the system of equations from the back.
+	Let $Ux = c$ be a system of $n$ linear equations in $n$ unknowns and $U$ is an upper triangular matrix.
+	Then we can solve the system of equations from the back.
 	\[ \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n-1} & U_{1,n} \\ 0 & U_{2,2} & \cdots & U_{2,n-1} & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & U_{n-1,n-1} & U_{n-1,n} \\ 0 & 0 & \cdots & 0 & U_{n,n} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_{n-1} \\ x_n \end{bmatrix} = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_{n-1} \\ c_n \end{bmatrix} \]
 	\begin{align*}
 		U_{n,n}\ x_n = c_n & \implies x_n = \frac{c_n}{U_{n,n}} \\
@@ -351,21 +428,25 @@ The coefficients are given by,
 
 	Phase 1 : Elimination Process\\
 
-	Using eq.1, the unknown $x_1$ is eliminated from all subsequent equations. An equivalent operation can be performed on both the matrices $A$ and $b$ by adding a suitable scalar multiples of row $R_1$ to row $R_2$ and $R_3$. 
+	Using eq.1, the unknown $x_1$ is eliminated from all subsequent equations.
+	An equivalent operation can be performed on both the matrices $A$ and $b$ by adding a suitable scalar multiples of row $R_1$ to row $R_2$ and $R_3$. 
 
 	\[ \begin{bmatrix} 4 & -2 & 1 \\ -2 & 4 & -2 \\ 1 & -2 & 4 \end{bmatrix} \xrightarrow{\substack{R_2 \leftarrow R_2 + 0.5R_1\\ R_3 \leftarrow R_3 - 0.25R_1}} \begin{bmatrix} 4 & -2 & 1 \\ 0 & 3 & -1.5 \\ 0 & -1.5 & 3.75 \end{bmatrix}\]
 	\[ \begin{bmatrix} 11 \\ -16 \\ 17 \end{bmatrix} \xrightarrow{\substack{R_2 \leftarrow R_2 + 0.5R_1 \\ R_3 \leftarrow R_3 - 0.25R_1}} \begin{bmatrix} 11 \\ -10.5 \\ 14.25 \end{bmatrix} \]
 
-	And using eq.2, $x_2$ is eliminated from all subsequent equations( only those rows below it). Again, we perform this by adding suitable scalar multiples of row 2 to row $R_3$.
+	And using eq.2, $x_2$ is eliminated from all subsequent equations( only those rows below it).
+	Again, we perform this by adding suitable scalar multiples of row 2 to row $R_3$.
 
 	\[ \begin{bmatrix} 4 & -2 & 1 \\ 0 & 3 & -1.5 \\ 0 & -1.5 & 3.75 \end{bmatrix} \xrightarrow{R_3 \leftarrow R_3 + 0.5R_2} \begin{bmatrix} 4 & -2 & 1 \\ 0 & 3 & -1.5 \\ 0 & 0 & 3 \end{bmatrix} \]
 	\[ \begin{bmatrix} 11 \\ -16 \\ 17 \end{bmatrix}  \xrightarrow{R_3 \leftarrow R_3 + 0.5R_2} \begin{bmatrix} 11 \\ -10.5 \\ 9 \end{bmatrix} \]
 
-	The elimination process is complete when all entries below the diagonal elements are reduced to zero. ie, upper triangular matrix.\\
+	The elimination process is complete when all entries below the diagonal elements are reduced to zero.
+	ie, upper triangular matrix.\\
 
 	Phase 2 : Back substitution Process\\
 
-	The unknowns are easily found from the equations by solving them in the reverse order. The unknowns are solved from the bottom and solved variables are used to solve the remain unknowns.
+	The unknowns are easily found from the equations by solving them in the reverse order.
+	The unknowns are solved from the bottom and solved variables are used to solve the remain unknowns.
 
 	\[ \begin{bmatrix} 4 & -2 & 1 & 11 \\ 0 & 3 & -1.5 & -10.5 \\ 0 & 0 & 3 & 9 \end{bmatrix} \to \begin{cases} 4x_1 - 2x_2 + &x_3  = 11 \\ \quad \qquad 3x_2 - &1.5x_3  = -10.5 \\  &3x_3 = 9 \end{cases}  \]
 
@@ -375,7 +456,11 @@ The coefficients are given by,
 \begin{commentary}
 		Why don't they use row-reduced echelon matrix of $A$ to simplify the back substitution phase ?\\
 
-		This doesn't have much advantage from algorithmic point of view. That is, the time complexity ( number of steps for computation) is unaffected. And algorithms always prefer methods even with slight advantage in time or memory. And they won't consider complications in the manual execution of the method. Therefore, programmers won't consider alternate algorithm for the sake of computational simplicity.
+		This doesn't have much advantage from algorithmic point of view.
+		That is, the time complexity ( number of steps for computation) is unaffected.
+		And algorithms always prefer methods even with slight advantage in time or memory.
+		And they won't consider complications in the manual execution of the method.
+		Therefore, programmers won't consider alternate algorithm for the sake of computational simplicity.
 \end{commentary}
 \end{remark}
 
@@ -400,35 +485,60 @@ The coefficients are given by,
 \begin{commentary}
 \begin{enumerate}[label=Line \arabic*]
 	\item \texttt{from numpy import dot} \\ Imports the ``dot()'' function for numpy arrays which takes two `numpy arrays' as input arguments and returns the dot product of them.
-	\item \texttt{def gaussElimination(a,b):}\\ it defines ``gaussElimination()'' as a function which takes two arguments (inputs). First argument is the coefficient matrix $A$ and second argument is the constant matrix $b$ of the linear system of the form $Ax = b$.
+	\item \texttt{def gaussElimination(a,b):}\\ it defines ``gaussElimination()'' as a function which takes two arguments (inputs).
+		First argument is the coefficient matrix $A$ and second argument is the constant matrix $b$ of the linear system of the form $Ax = b$.
 	\item \texttt{$n = len(b)$}\\ it assigns the length of the list $b$ into variable $n$ which is obviously the number of equations.
-	\item \texttt{for $k$ in range($0$,$n-1$):}  \\ it is a loop construct. Five instructions following it are part of this loop body, which are executed for each values of $k$ ie, $k = 0, 1, \cdots, n-1$. For each value of $k$, the unknown $x_{k+1}$ is selected for elimination process.
-	\item \texttt{for i in range($k+1$,$n$):}\\ it is a loop inside another loop. Four instructions following it are part of this loop body, which are executed for each values of $i$, ie, $i = k+1, k+2, \cdots, n$. This eliminates $x_{k+1}$ from all the equations after the $k+1$th equation of the system. Value of $i+1$ is the equation\footnote{Python starts counting from zero. For example : $A_{11} = a[0,0]$, $x_1 = x[0]$ and $b_1 = b[0]$} from which $x_{k+1}$ is eliminated.
-	\item \texttt{if $a[i,k] != 0.0$:} \\ If $a[i,k] = A_{i+1,k+1} \ne 0$, then those three instruction following it are executed. Otherwise, it skips the execution of those three statements. If $x_{k+1}=x[k]$ is not there in the $i$th equation, it doesn't need to be eliminated.
+	\item \texttt{for $k$ in range($0$,$n-1$):}  \\ it is a loop construct.
+		Five instructions following it are part of this loop body, which are executed for each values of $k$ ie, $k = 0, 1, \cdots, n-1$.
+		For each value of $k$, the unknown $x_{k+1}$ is selected for elimination process.
+	\item \texttt{for i in range($k+1$,$n$):}\\ it is a loop inside another loop.
+		Four instructions following it are part of this loop body, which are executed for each values of $i$, ie, $i = k+1, k+2, \cdots, n$.
+		This eliminates $x_{k+1}$ from all the equations after the $k+1$th equation of the system.
+		Value of $i+1$ is the equation\footnote{Python starts counting from zero.
+		For example : $A_{11} = a[0,0]$, $x_1 = x[0]$ and $b_1 = b[0]$} from which $x_{k+1}$ is eliminated.
+	\item \texttt{if $a[i,k] != 0.0$:} \\ If $a[i,k] = A_{i+1,k+1} \ne 0$, then those three instruction following it are executed.
+		Otherwise, it skips the execution of those three statements.
+		If $x_{k+1}=x[k]$ is not there in the $i$th equation, it doesn't need to be eliminated.
 	\item \texttt{$lam = a[i,k]/a[k,k]$} \\ In this step, $\lambda$ is computed so that equ.($i+1$) - $\lambda$ equ.($k+1$) doesn't have $x_{k+1}$ term in it.
-	\item \texttt{$a[i,k+1:n] = a[i,k+1:n]-lam \times a[k,k+1:n]$} \\ Coefficients of $(i+1)$th equation are updated.\\ Equivalent to $a[i,0:n] = a[i,0:n] - lam \times a[k,0:n]$, since zeroes need not be substracted. This is same as equ.($i+1$) $\leftarrow$ equ.($i+1$) - $\lambda$ equ.($k+1$)
+	\item \texttt{$a[i,k+1:n] = a[i,k+1:n]-lam \times a[k,k+1:n]$} \\ Coefficients of $(i+1)$th equation are updated.\\
+		Equivalent to $a[i,0:n] = a[i,0:n] - lam \times a[k,0:n]$, since zeroes need not be substracted.
+		This is same as equ.($i+1$) $\leftarrow$ equ.($i+1$) - $\lambda$ equ.($k+1$)
 	\item \texttt{$b[i] = b[i]-lam*b[k]$} \\ The same row operations are performed on the matrix $b$ instead of using an augmented matrix.
-	\item \texttt{for $k$ in range($n-1$,$-1$,$-1$):} \\ This is another loop construct. The following statement is executed $n$ times for values of $k = n-1, n-2, \cdots, 0$. Value of $k+1$ gives the unknown $x_{k+1}$ which is solved by the back substitution process.
-	\item \texttt{$x[k] = (b[k]-dot(a[k,k+1:n],x[k+1:n]))/a[k,k]$} \\ This is the back substitution process. After elimination phase we have $k$ equation in the form $A_{k,k}x_{k} + A_{k,k+1}x_{k+1}+\cdots+A_{k,n}x_n = b_k$. And we already have values of $x_{k+1},\ x_{k+2},\ \cdots,\ x_n$. Then
+	\item \texttt{for $k$ in range($n-1$,$-1$,$-1$):} \\ This is another loop construct.
+		The following statement is executed $n$ times for values of $k = n-1, n-2, \cdots, 0$.
+		Value of $k+1$ gives the unknown $x_{k+1}$ which is solved by the back substitution process.
+	\item \texttt{$x[k] = (b[k]-dot(a[k,k+1:n],x[k+1:n]))/a[k,k]$} \\ This is the back substitution process.
+		After elimination phase we have $k$ equation in the form $A_{k,k}x_{k} + A_{k,k+1}x_{k+1}+\cdots+A_{k,n}x_n = b_k$.
+		And we already have values of $x_{k+1},\ x_{k+2},\ \cdots,\ x_n$.
+		Then
 	\[x_{k} = \frac{b_k - (A_{k,k+1}x_{k+1} + A_{k,k+2}x_{k+2}+\cdots)}{A_{k,k}}\]
 	This is equivalent to 
 	\[ b_k \leftarrow \frac{ b_k - \begin{bmatrix}A_{k,k+1} & A_{k,k+2} & \cdots A_{k,n} \end{bmatrix}\begin{bmatrix} x_{k+1} \\ x_{k+2} \\ \vdots \\ x_n \end{bmatrix}}{A_{k,k}} \]
-	Remember : The values of $x_k$ are updated into $b_k$ as they are computed. Thus $x_{k}, x_{k+1}, \cdots, x_n$ are stored in $b$ for next back substitution ie, for evaluating $x_{k-1}$. We start with $x_{n-1}$, as $x_n = b_n$ is already solved.
+	Remember : The values of $x_k$ are updated into $b_k$ as they are computed.
+		Thus $x_{k}, x_{k+1}, \cdots, x_n$ are stored in $b$ for next back substitution ie, for evaluating $x_{k-1}$.
+		We start with $x_{n-1}$, as $x_n = b_n$ is already solved.
 	\item \texttt{return b} \\ It returns the new $b$ matrix as output of the ``gaussElimination()'' function where $x_k = b_k,\ \forall k$.
 \end{enumerate}
 \end{commentary}
 
 \section{LU Decomposition Method : Doolittle}
-	Let $Ax = b$ be a linear system of $n$ equations in $n$ unknowns and let $A = LU$ for some lower triangular matrix $L$ and upper triangular matrix $U$. Then we have $LUx = Ly = b$ where $y = Ux$. There are two phases for this method : \begin{enumerate*} \item LU decomposition and \item substitution \end{enumerate*}.\\
+	Let $Ax = b$ be a linear system of $n$ equations in $n$ unknowns and let $A = LU$ for some lower triangular matrix $L$ and upper triangular matrix $U$.
+Then we have $LUx = Ly = b$ where $y = Ux$.
+There are two phases for this method : \begin{enumerate*} \item LU decomposition and \item substitution \end{enumerate*}.\\
 
-	First, we compute $L$ and $U$ such that $A = LU$ using Gauss elimination. Then We can solve $Ly = b$ using forward substitution process and then solve $Ux = y$ using back substitution process.\\
+	First, we compute $L$ and $U$ such that $A = LU$ using Gauss elimination.
+	Then We can solve $Ly = b$ using forward substitution process and then solve $Ux = y$ using back substitution process.\\
 
 	For Doolittle decomposition, we prefer to write $A$ as a product $LU$ as shown below:
 	\[ A = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ L_{2,1} & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1} & L_{n,2} & \cdots & 1 \end{bmatrix} \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\ 0 & U_{2,2} & \cdots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & U_{n,n} \end{bmatrix} \]
 
 		\[ A = \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\ L_{2,1}U_{1,1} & L_{2,1}U_{1,2} + U_{2,2} & \cdots & L_{2,1}U_{1,n}+U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1}U_{1,1} & L_{n,1}U_{1,2}+L_{n,2}U_{2,2} & \cdots & \sum_{k=1}^{n-1} L_{n,k}U_{k,n}+U_{n,n} \end{bmatrix} \]
 
-	\begin{commentary}Note that in Doolittle's decomposition method, the diagonal entries of the lower triangular matrix $L$ are all 1. ie, $L_{ii} = 1,\ \forall i$. Thus, we can use an $n \times n$ matrix to represent both $L$ and $U$ by overwriting trivial entries( zeroes and ones) of both the matrices. And this matrix is reprensented by $[L\text{\textbackslash{}}U]$.\footnote{algorithmic implementation all decomposition algorithms prefer to use a combined matrix}\end{commentary}\\
+	\begin{commentary}Note that in Doolittle's decomposition method, the diagonal entries of the lower triangular matrix $L$ are all 1.
+	ie, $L_{ii} = 1,\ \forall i$.
+	Thus, we can use an $n \times n$ matrix to represent both $L$ and $U$ by overwriting trivial entries( zeroes and ones) of both the matrices.
+	And this matrix is reprensented by $[L\text{\textbackslash{}}U]$.
+	\footnote{algorithmic implementation all decomposition algorithms prefer to use a combined matrix}\end{commentary}\\
 
 	\[ [L\text{\textbackslash{}}U] = \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\ L_{2,1} & U_{2,2} & \cdots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\  L_{n,1} & L_{n,2} & \cdots & U_{n,n} \end{bmatrix} \]
 
@@ -444,7 +554,8 @@ The coefficients are given by,
 		& \cdots \\
 		U_{Rn} & \leftarrow L_{n,1}\cdot{}U_{R1} + L_{n,2}\cdot{}U_{R2} + \cdots + L_{n,n-1}\cdot{}U_{R(n-1)} + U_{Rn}
 	\end{align*}
-	Clearly, $\lambda$ we use to eliminate $x_k$ from row $i$ are $L_{i,k}$. And the matrix obtained after Gauss elimination is the upper triangular matrix $U$.
+	Clearly, $\lambda$ we use to eliminate $x_k$ from row $i$ are $L_{i,k}$.
+		And the matrix obtained after Gauss elimination is the upper triangular matrix $U$.
 	\end{commentary}
 \subsection{Illustrative example}
 	\[ \text{Solve } \begin{bmatrix} -3 & 6 & -4 \\ 9 & -8 & 24 \\ -12 & 24 & -26 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} -3 \\ 65 \\ -42 \end{bmatrix} \]
@@ -456,7 +567,13 @@ The coefficients are given by,
 
 	\[ A= \begin{bmatrix} U_{1,1} & U_{1,2} & U_{1,3} \\ L_{2,1}U_{1,1} & L_{2,1}U_{1,2} + U_{2,2} & L_{2,1}U_{1,3} + U_{2,3} \\ L_{3,1}U_{1,1} & L_{3,1}U_{1,2} + L_{3,2}U_{2,2} & L_{3,1}U_{1,3} + L_{3,1}U_{2,3} + U_{3,3} \end{bmatrix} \]
 
-	We can compute $L$ and $U$ using the Gauss elimination process\footnote{We usually need a proof for such a strong statement. In this paper, they are more focussed on the application side and therefore we will don't present any vigorous proof.}. The matrix obtained after Gauss elimination on $A$ is $U$ and the values of the variable $lam$ used in Gauss elimination are the entries in $L$. That is, in order to eliminate $x_k$ from row $i$, we use $lam = L_{i,k}$.
+	We can compute $L$ and $U$ using the Gauss elimination process
+	\footnote{
+		We usually need a proof for such a strong statement.
+		In this paper, they are more focussed on the application side and therefore we will don't present any vigorous proof.
+	}
+	The matrix obtained after Gauss elimination on $A$ is $U$ and the values of the variable $lam$ used in Gauss elimination are the entries in $L$.
+	That is, in order to eliminate $x_k$ from row $i$, we use $lam = L_{i,k}$.
 \end{commentary}
 
 	\[ \text{Given, }A = \begin{bmatrix} -3 & 6 & -4 \\ 9 & -8 & 24 \\ -12 & 24 & -26 \end{bmatrix} \]
@@ -467,13 +584,19 @@ The coefficients are given by,
 	That is, $A_{2,1} = L_{2,1},\ A_{3,1} = L_{3,1}$.\\
 
 \begin{commentary}
-	\textit{``In this case, $A_{3,2}$ became zero (this is not a trivial zero yet), and we won't eliminate $x_2$ from row 3 to save computation time. Thus, we are not computing $L_{3,2} = 0$ or storing it. However, the variable representing $L_{3,2}$ is $A_{3,2}$, which is already zero after Gauss elimination and we are quite happy with that.''}\\
+	\textit{``
+	In this case, $A_{3,2}$ became zero (this is not a trivial zero yet), and we won't eliminate $x_2$ from row 3 to save computation time.
+	Thus, we are not computing $L_{3,2} = 0$ or storing it.
+	However, the variable representing $L_{3,2}$ is $A_{3,2}$, which is already zero after Gauss elimination and we are quite happy with that.
+	''}\\
 \end{commentary}
 
-	Clearly, $L_{3,2} = 0$. Therefore, we have
+	Clearly, $L_{3,2} = 0$.
+	Therefore, we have
 	\[ U = \begin{bmatrix} -3 & 6 & -4 \\ 0 & 10 & 12 \\ 0 & 0 & -10 \end{bmatrix},\ L = \begin{bmatrix} 1 & 0 & 0 \\ 3 & 1 & 0 \\ -4 & 0 & 1 \end{bmatrix} \]
 
-		Since we are already stored those two non-trivial entries of $L$ into $A$. We get,
+		Since we are already stored those two non-trivial entries of $L$ into $A$.
+		We get,
 	\[ [L\text{\textbackslash{}}U] = \begin{bmatrix} -3 & 6 & -4 \\ 3 & 10 & 12 \\ -4 & 0 & -10 \end{bmatrix}\]
 \subsubsection{Phase 2 : Substitution}
 \begin{commentary}
@@ -489,7 +612,9 @@ The coefficients are given by,
 	In general,
 	\[ b_k \leftarrow y_k = b_k - \begin{bmatrix} L_{k,1} & L_{k,2} & \cdots & L_{k,k-1} \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_k-1 \end{bmatrix},\text{ since } b_j = y_j,\ j = 1,2,\cdots,(k-1) \]
 \end{commentary}
-	We have $A = LU \implies LUx = b$. Suppose $Ux = y$, then we get $Ly = b$. First of all, we will solve $Ly = b$ using forward substitution.
+	We have $A = LU \implies LUx = b$.
+	Suppose $Ux = y$, then we get $Ly = b$.
+	First of all, we will solve $Ly = b$ using forward substitution.
 
 	\[ \begin{bmatrix} 1 & 0 & 0 \\ 3 & 1 & 0 \\ -4 & 0 & 1 \end{bmatrix} \begin{bmatrix} y_1 \\ y_2 \\ y_3 \end{bmatrix} = \begin{bmatrix} -3 \\ 65 \\ -42 \end{bmatrix} \to \begin{cases} y_1 & = -3 \\ 3y_1 +y_2 & = 65 \\ -4y_1 + y_3 & = -42 \end{cases} \]
 
@@ -536,24 +661,43 @@ The coefficients are given by,
 \end{program}
 
 \begin{commentary}
-	This program mainly uses the Gauss elimination algorithm. Thus, the explanation for Lines 3-8 are not repeated here.\\
+	This program mainly uses the Gauss elimination algorithm.
+	Thus, the explanation for Lines 3-8 are not repeated here.\\
 
-	But remember the loop at Line 4 has inner loop at Line 5 and Line 7-9 are at same level of indentation which means they all are either executed or skipped depending on the truthness of the condition in Line 6. And Line 6-9 are executed for each instance of inner loop. Again, Line 5-9 are executed for each instance of the outer loop.\\
+	But remember the loop at Line 4 has inner loop at Line 5 and Line 7-9 are at same level of indentation which means they all are either executed or skipped depending on the truthness of the condition in Line 6.
+	And Line 6-9 are executed for each instance of inner loop.
+	Again, Line 5-9 are executed for each instance of the outer loop.\\
 
-This time the gaussElimination() function which you have seen earlier is split into two functions \begin{enumerate*} \item LUdecomposition() and \item LUsolve() \end{enumerate*}. And forward substituion is also added to LUsolve().
+This time the gaussElimination() function which you have seen earlier is split into two functions \begin{enumerate*} \item LUdecomposition() and \item LUsolve() \end{enumerate*}.
+			And forward substituion is also added to LUsolve().
 
 \begin{enumerate}[label=Line \arabic*]
 	\setcounter{enumi}{1}
-	\item \texttt{def LUdecomposition(a):} \\ LUdecomposition($A$) computes $L$ and $U$ such that $A = LU$ and combine both triangular matrices into a single matrix $[L/U]$, by over-writting their trivial entries. And returns this combined matrix.
+	\item \texttt{def LUdecomposition(a):} \\ LUdecomposition($A$) computes $L$ and $U$ such that $A = LU$ and combine both triangular matrices into a single matrix $[L/U]$, by over-writting their trivial entries.
+		And returns this combined matrix.
 	\setcounter{enumi}{8}
-	\item \texttt{$a[i,k]=lam$} \\ Clearly, $lam$ used for eliminating $x_k$ from row $i$, $\lambda_{i,k} = a[i,k]/a[k,k] = L[i,k],\ \forall k, \forall i,\ (i>k)$. Also $a[i,k]$ which is reduced zero by Gauss elimination process is not used anymore\footnote{$A[i,k]$ is not used after elimination of $x_k$ from row $i$ - It turns out that the trivial zeroes which are ignored on the row operations in Gauss elimination not only save time, but also provide a variable to store our intermediate result $L_{i,k}$ in Doolittle method.} in Gauss elimination process. Thus $L[i,k]$ can stored at $a[i,k]$ straight away. And $U[i,j],\ j\le i$ are already the entries of the matrix obained from Gauss elimination. Thus for each iterations of $k$, the matrix $a$ is updated ($k+1$th row and $k+1$th column) with respective entries of the combined matrix $[L\text{\textbackslash{}}U]$.
+	\item \texttt{$a[i,k]=lam$} \\ Clearly, $lam$ used for eliminating $x_k$ from row $i$, $\lambda_{i,k} = a[i,k]/a[k,k] = L[i,k],\ \forall k, \forall i,\ (i>k)$.
+		Also $a[i,k]$ which is reduced zero by Gauss elimination process is not used anymore
+		\footnote{
+			$A[i,k]$ is not used after elimination of $x_k$ from row $i$ - It turns out that the trivial zeroes which are ignored on the row operations in Gauss elimination not only save time, but also provide a variable to store our intermediate result $L_{i,k}$ in Doolittle method.}
+		in Gauss elimination process.
+		Thus $L[i,k]$ can stored at $a[i,k]$ straight away.
+		And $U[i,j],\ j\le i$ are already the entries of the matrix obained from Gauss elimination.
+		Thus for each iterations of $k$, the matrix $a$ is updated ($k+1$th row and $k+1$th column) with respective entries of the combined matrix $[L\text{\textbackslash{}}U]$.
 	\item \texttt{return $a$} \\ Matrix $a$ is already $[L\text{\textbackslash{}}U]$, and thus LUdecomposition($A$) returns $[L\text{\textbackslash{}}U]$ such that $A = LU$.
-	\item \texttt{def LUsolve(a,b):} \\ LUsolve() function does both forward substitution and back substitution. Suppose $Ax = b$ is the system to be solved. Then the inputs of LUsolve() are $ a = [L\text{\textbackslash{}}U]$ where $A = LU$. 
+	\item \texttt{def LUsolve(a,b):} \\ LUsolve() function does both forward substitution and back substitution.
+		Suppose $Ax = b$ is the system to be solved.
+		Then the inputs of LUsolve() are $ a = [L\text{\textbackslash{}}U]$ where $A = LU$. 
 	\item \texttt{$n = len(a)$} \\ We have to compute this again as this function starts fresh and thus value of the variable $n$ from LUdecomposition() is lost.
 	\item \texttt{for $k$ in range($1$,$n$):} \\ This is the loop for forward substitution.
 	\item \texttt{$b[k] = b[k]-dot(a[k,0:k],b[0:k])$} \\ updating $b_{k^*}$ with $y_{k^*}$ such that $Ly = b$ where $k^* = k-1$.
 	\[ b_k \leftarrow b_k - \begin{bmatrix} L_{k,1} & L_{k,2} & \cdots & L_{k,k-1} \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_k-1 \end{bmatrix} \]
-	\item \texttt{$b[n-1] = b[n-1]/a[n-1,n-1]$} \\ Computing\footnote{Mathematically, you can define dot product of empty matrices as zero, but nympy dot function can't handle such a situation. Therefore, we have to do this step separately.} $y_n$ and storing it into $b_n$.
+	\item \texttt{$b[n-1] = b[n-1]/a[n-1,n-1]$} \\ Computing
+		\footnote{
+			Mathematically, you can define dot product of empty matrices as zero, but nympy dot function can't handle such a situation.
+		Therefore, we have to do this step separately.
+		}
+		$y_n$ and storing it into $b_n$.
 	\[b_n \leftarrow \frac{b_n}{U_{n,n}}\]
 	\item \texttt{for $k$ in range($n-2$,$-1$,$-1$):}  \\ This is the loop for back substitution.
 	\item \texttt{$b[k] = (b[k] - dot(a[k,k+1:n],b[k+1:n]))/a[k,k]$} \\ updating $b_{k^*}$ with $x_{k^*}$ such that $Ux = y$ where $k^* = k-1$.
@@ -568,22 +712,35 @@ This time the gaussElimination() function which you have seen earlier is split i
 	\item The best way to give/take data to/from a function is through arguements/return-value
 \end{enumerate}
 
-	Beginner's Tip : In any programming language, we reuse variable. Thus, same variable may represent different values at different points of time. In Doolittle LU Decomposition, the variable `a' initially represent matrix $A$, this variable is passed into LUdecomposition() function. In that function, $A$ is changed to $[L\text{\textbackslash{}}U]$ in a step-by-step fashion. The value of `a' in updated in step 7, 8 and 9. This is bit hard to imagine this transition of `a' from $A$ to $[L\text{\textbackslash{}}U]$ for a beginner at programming. Simiarly, in LUsolve() function, the variable `b' changes from matrix $b$ to matrix $y$, and then to matrix $x$.
+	Beginner's Tip : In any programming language, we reuse variable.
+	Thus, same variable may represent different values at different points of time.
+	In Doolittle LU Decomposition, the variable `a' initially represent matrix $A$, this variable is passed into LUdecomposition() function.
+	In that function, $A$ is changed to $[L\text{\textbackslash{}}U]$ in a step-by-step fashion.
+	The value of `a' in updated in step 7, 8 and 9.
+	This is bit hard to imagine this transition of `a' from $A$ to $[L\text{\textbackslash{}}U]$ for a beginner at programming.
+	Simiarly, in LUsolve() function, the variable `b' changes from matrix $b$ to matrix $y$, and then to matrix $x$.
 \end{commentary}
 
 \section{Numerical Integraion}
-	Numerical integration/Quadrature is the numerical approximation of $\int_a^b f(x)dx$ by $\sum_{i=0}^n A_if(x_i)$ where $x_i$ are nodal abscissas, and $A_i$ are weights. There are two methods to determine these nodal abscissas and suitable weights so that the sum is sufficiently accurate to the value of the integral.
+	Numerical integration/Quadrature is the numerical approximation of $\int_a^b f(x)dx$ by $\sum_{i=0}^n A_if(x_i)$ where $x_i$ are nodal abscissas, and $A_i$ are weights.
+	There are two methods to determine these nodal abscissas and suitable weights so that the sum is sufficiently accurate to the value of the integral.
 \begin{enumerate}
 	\item Newton-Cotes forumulas
 	\item Gauss quadrature
 \end{enumerate}
 
-	Newton-Cotes formulas are useful when $f(x)$ can be evaluated without much computation. And using those values $f(x)$ can be interpolated to a piecewise-polynomial function. Then using equally spaces nodal abscissas and suitable weights $\int_a^b f(x)dx$ can be numerically approximated.\\
+	Newton-Cotes formulas are useful when $f(x)$ can be evaluated without much computation.
+	And using those values $f(x)$ can be interpolated to a piecewise-polynomial function.
+	Then using equally spaces nodal abscissas and suitable weights $\int_a^b f(x)dx$ can be numerically approximated.\\
 
-	Gauss quadrature rules require lesser evalutions of $f$. And therefore are quite useful when evaluation of $f(x)$ has much computational complexity. Also, this method can manage integrable singularities where as Newton-Cote formulas can't numerically integrate function with singularities. 
+	Gauss quadrature rules require lesser evalutions of $f$.
+	And therefore are quite useful when evaluation of $f(x)$ has much computational complexity.
+	Also, this method can manage integrable singularities where as Newton-Cote formulas can't numerically integrate function with singularities. 
 
 \subsection{Newton-Cotes formulas}
-	We divide the interval of integral $(a,b)$ into $n$ subintervals of equal length, ie, $h = (b-a)/n$. Let $x_0 = a, x_1, x_2,\cdots,x_{n-1},x_n=b$ be the end points of these subintervals. Then we can find an $n$ degree polymonial interpolant satisfying $f$ at those points, using Lagrange's method.\\
+	We divide the interval of integral $(a,b)$ into $n$ subintervals of equal length, ie, $h = (b-a)/n$.
+	Let $x_0 = a, x_1, x_2,\cdots,x_{n-1},x_n=b$ be the end points of these subintervals.
+	Then we can find an $n$ degree polymonial interpolant satisfying $f$ at those points, using Lagrange's method.\\
 
 	\[ \text{Polynomial, }P(x) = \sum_{i =0}^n f(x_i)l_i(x) \text{ where } l_i(x) = \prod_{\substack{j=0\\j\ne i}}^n \frac{x-x_i}{x_i-x_j} \]
 
@@ -603,7 +760,8 @@ This time the gaussElimination() function which you have seen earlier is split i
 		\[ \int_a^b f(x) dx = \sum_{i=0}^3 A_if(x_i) = \frac{3h}{8} (f(a) + 3f(a+h) + 3f(a+2h) + f(b)) \]
 \end{description}
 \subsubsection{Trapezoidal Rule : $n = 1$}
-	Consider interval $(a,b)$. Since $n=1$, we have $x_0 = a$ and $x_1 = b$.
+	Consider interval $(a,b)$.
+	Since $n=1$, we have $x_0 = a$ and $x_1 = b$.
 	\[ l_0(x) = \frac{x-x_1}{x_0-x_1} \]
 	\[ l_1(x) = \frac{x-x_0}{x_1-x_0} \]
 	\begin{align*}
@@ -670,7 +828,9 @@ This time the gaussElimination() function which you have seen earlier is split i
 %	\[ l_3(x) = \frac{x-x_0}{x_3-x_1} \frac{x-x_1}{x_3-x_2} \frac{x-x_2}{x_3-x_2} \]
 
 \subsection{Composite Trapezoidal Rule}
-	Suppose an interval $(a,b)$ is divided into $n$ subintervals. In Composite Trapezoidal Rule, Trapezoidal Rule is applied to each subinterval. Thus we have,
+	Suppose an interval $(a,b)$ is divided into $n$ subintervals.
+	In Composite Trapezoidal Rule, Trapezoidal Rule is applied to each subinterval.
+	Thus we have,
 \begin{align*}
 	I & = I_0 + I_1 + \cdots + I_{n-1} \text{ where } I_k \text{ is the integral over }(x_{k},x_{k+1})\\
 	& = \frac{h(f(x_0) + f(x_1))}{2} + \frac{h(f(x_1)+f(x_2))}{2} + \cdots + \frac{h(f(x_{n-1}+f(x_n))}{2} \\
@@ -678,7 +838,10 @@ This time the gaussElimination() function which you have seen earlier is split i
 \end{align*}
 
 \subsection{Recursive Trapezoidal Rule}
-	Suppose an interval $(a,b)$ is divided into $2^{k-1}$ subintervals. In Recursive Trapezoidal Rule, we apply Trapezoidal Rule on each subinterval. And there is a recursive forumula since the number of intervals doubles as value of $k$ increases by one. Let $H = b-a$
+	Suppose an interval $(a,b)$ is divided into $2^{k-1}$ subintervals.
+	In Recursive Trapezoidal Rule, we apply Trapezoidal Rule on each subinterval.
+	And there is a recursive forumula since the number of intervals doubles as value of $k$ increases by one.
+	Let $H = b-a$
 
 \begin{align*}
 	k=1 & \implies 2^0 = 1 \text{ and } \\
@@ -698,7 +861,8 @@ This time the gaussElimination() function which you have seen earlier is split i
 	= & \frac{I_2}{2} + \frac{H}{4} (f\left(a+\frac{H}{4}\right)+f\left(a+\frac{3H}{4}\right))
 \end{align*}
 \begin{commentary}
-	Consider interval $(0,64)$. We have $b-a = H = 64$.\\
+	Consider interval $(0,64)$.
+	We have $b-a = H = 64$.\\
 	$I_1 = 32(f(0)+f(64))$\\
 	$I_2 = 16(f(0)+2f(32)+f(64))$\\
 	$I_3 = 8(f(0)+2f(16)+2f(32)+2f(48)+f(64))$\\
@@ -706,7 +870,9 @@ This time the gaussElimination() function which you have seen earlier is split i
 	$I_5 = 2(f(0)+2f(4)+2f(8)+\cdots+2f(60)+f(64)$\\
 	$I_6 = f(0)+2f(2)+2f(4)+\cdots+2f(62)+f(64)$\\
 	$\vdots$\\
-	The values corresponding to the intervals in $I_{k-1}$ appear in $I_k$ as alternate terms. Other terms, corresponds to the odd multiples of $\frac{H}{2^k}$. We separate them into two sums and represent the first sum as $\frac{I_{k-1}}{2}$.
+	The values corresponding to the intervals in $I_{k-1}$ appear in $I_k$ as alternate terms.
+	Other terms, corresponds to the odd multiples of $\frac{H}{2^k}$.
+	We separate them into two sums and represent the first sum as $\frac{I_{k-1}}{2}$.
 \end{commentary}
 
 	\begin{align*}
@@ -735,30 +901,58 @@ This time the gaussElimination() function which you have seen earlier is split i
 \begin{commentary}
 \begin{enumerate}[label=Line \arabic*]
 	\item \texttt{def recursiveTrapezoidalRule(f,a,b,Iold,k):} \\
-	This function has five input arguments. \begin{enumerate*} \item $f$ is a real function \item $a$,$b$ are start and end of interval in which $f$ is going to be integrated \item $Iold$ is the value of the integral for $2^{k-1}$ subintevals using recursive trapezoidal method \item $k$ is a variable such that $2^k$ is the number of subintervals considered for Integration \end{enumerate*}.
+	This function has five input arguments.
+\begin{enumerate*}
+	\item $f$ is a real function
+	\item $a$,$b$ are start and end of interval in which $f$ is going to be integrated
+	\item $Iold$ is the value of the integral for $2^{k-1}$ subintevals using recursive trapezoidal method
+	\item $k$ is a variable such that $2^k$ is the number of subintervals considered for Integration
+\end{enumerate*}.
 	\item \texttt{if $k == 1$ :}\\
 		If $k=1$, we proceed to Line 3, otherwise we go to Line 4.
 	\item \texttt{$Inew = (f(a)+f(b))*(b-a)/2.0$}\\
-		For $k=1$, we use trapezoidal rule $I_1 = \frac{b-a}{2}(f(a)+f(b))$. When writing this in python, we are use $2.0$ so that the python won't ignore the decimal part of this fraction. \begin{commentary} In python, $5/2 = 2$. And $5/2.0 = 2.5$ \end{commentary}
+		For $k=1$, we use trapezoidal rule $I_1 = \frac{b-a}{2}(f(a)+f(b))$.
+		When writing this in python, we are use $2.0$ so that the python won't ignore the decimal part of this fraction.
+	\begin{commentary}
+		In python, $5/2 = 2$.
+		And $5/2.0 = 2.5$
+	\end{commentary}
 	\item \texttt{else :}\\
-		If Line 2 is false, (ie $k \ne 1$) python executes Line 5-8. These line implements the recursive formula for $I_k$.
+		If Line 2 is false, (ie $k \ne 1$) python executes Line 5-8.
+		These line implements the recursive formula for $I_k$.
 	\item \texttt{$n = 2**(k-2)$}\\
 		Equivalent to $n \leftarrow 2^{k-2}$.
 	\item \texttt{$h = (b-a) * 1.0 / n$}\\
-		This the length of a subinterval when we divide $(a,b)$ into $2^k$ subintervals/panels. Equivalent to $h \leftarrow \frac{b-a}{2^{k-2}}$
+		This the length of a subinterval when we divide $(a,b)$ into $2^k$ subintervals/panels.
+		Equivalent to $h \leftarrow \frac{b-a}{2^{k-2}}$
 	\item \texttt{$x = a + h/2.0$}\\
 		This the parameter of $f$ in the first term in the sum $\sum_{i=1}^{2^{k-2}} f\left(a+\frac{(2i-1)H}{2^{k-1}}\right)$ in the recursive formula for $I_k$.
 		Equivalent to $x \leftarrow a+\frac{h}{2}$.
 	\item \texttt{$sum = 0.0$}\\
-		We are going to use this variable to find that sum. To start with, we will make it $0$ and will add each term to it one-by-one. Equivalent to $sum \leftarrow 0$.
+		We are going to use this variable to find that sum.
+		To start with, we will make it $0$ and will add each term to it one-by-one.
+		Equivalent to $sum \leftarrow 0$.
 	\item \texttt{for $i$ in range($n$):}\\
-		This the variable $i$ in the recursive forumula for $I_k$. For each value of $i = 1,2,\cdots,2^{k-2}$, Lines 10 and 11 are executed. That is, for each value of $i$, the corresponding term in the sum is computed and added to the variable $sum$.
+		This the variable $i$ in the recursive forumula for $I_k$.
+		For each value of $i = 1,2,\cdots,2^{k-2}$, Lines 10 and 11 are executed.
+		That is, for each value of $i$, the corresponding term in the sum is computed and added to the variable $sum$.
 	\item \texttt{$sum = sum + f(x)$}\\
-		Value of $f$ at $x$ is computed and added to the partial sum. Equivalent to $sum \leftarrow sum + f(x)$. However, the value of $x$ is changed for each $i$ in Line 11. Thus, for next value of $i$, $x$ and $sum$ have the new values to use.
+		Value of $f$ at $x$ is computed and added to the partial sum.
+		Equivalent to $sum \leftarrow sum + f(x)$.
+		However, the value of $x$ is changed for each $i$ in Line 11.
+		Thus, for next value of $i$, $x$ and $sum$ have the new values to use.
 	\item \texttt{$x = x + h$}\\
-		Equivalent to $x \leftarrow x+h$. For $i=1$, $x = a + \frac{h}{2}$ before Line 11. At Line 11, $x \leftarrow a+\frac{3h}{2}$. And this is the value of $x$ for $i = 2$ before Line 11 next time. Thus, $x$ iterates through $a+\frac{h}{2}, a+\frac{3h}{2}, \cdots, a+\frac{(2n-1)h}{2}$. This $x$ is updated and used for next execution of Line 10 and 11.
+		Equivalent to $x \leftarrow x+h$.
+		For $i=1$, $x = a + \frac{h}{2}$ before Line 11.
+		At Line 11, $x \leftarrow a+\frac{3h}{2}$.
+		And this is the value of $x$ for $i = 2$ before Line 11 next time.
+		Thus, $x$ iterates through $a+\frac{h}{2}, a+\frac{3h}{2}, \cdots, a+\frac{(2n-1)h}{2}$.
+		This $x$ is updated and used for next execution of Line 10 and 11.
 	\item \texttt{$Inew = (Iold + h * sum ) / 2.0$}\\
-		We reach here only after executing Line 10-11 for all values of $i$. That is, $sum$ in the recursive forumula is already computed. This line, implements the recursive formula and stores that value into the variable $Inew$. Equivalent to $Inew \leftarrow \frac{Iold + h \times sum}{2}$.
+		We reach here only after executing Line 10-11 for all values of $i$.
+		That is, $sum$ in the recursive forumula is already computed.
+		This line, implements the recursive formula and stores that value into the variable $Inew$.
+		Equivalent to $Inew \leftarrow \frac{Iold + h \times sum}{2}$.
 	\item \texttt{return Inew}\\
 		It returns the value of $I_k$, the intergral of $f$ over $(a,b)$ using recursive trapezoidal rule for $2^k$ subintervals.
 \end{enumerate}

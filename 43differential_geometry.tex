@@ -75,7 +75,11 @@
 \end{remark}
 
 \begin{remark}
-	Let $c \in \mathbb{R}$ and $p \in \mathbb{R}^{n+1}$. Let $\mathbf{v}, \mathbf{w}$ be two vectors at $p$. That is, $\mathbf{v} = (p,v)$ and $\mathbf{w} = (p,w)$ for some $v,w \in \mathbb{R}^{n+1}$. Then the set of all vectors at $p$ is a vector space with vector addition $\mathbf{v}+\mathbf{w} = (p,v+w)$ and scalar multiplication $c\mathbf{v} = (p,cv)$. This vector space is denoted by $\mathbb{R}_p^{n+1}$.
+	Let $c \in \mathbb{R}$ and $p \in \mathbb{R}^{n+1}$.
+	Let $\mathbf{v}, \mathbf{w}$ be two vectors at $p$.
+	That is, $\mathbf{v} = (p,v)$ and $\mathbf{w} = (p,w)$ for some $v,w \in \mathbb{R}^{n+1}$.
+	Then the set of all vectors at $p$ is a vector space with vector addition $\mathbf{v}+\mathbf{w} = (p,v+w)$ and scalar multiplication $c\mathbf{v} = (p,cv)$.
+	This vector space is denoted by $\mathbb{R}_p^{n+1}$.
 \end{remark}
 
 \begin{figure}[h]
@@ -151,7 +155,10 @@ For example, $\mathbf{X}(p) = (p,X(p))$ where the associated function of the vec
 \begin{remark}
 	If $f$ is a smooth function, then the gradient of $f$ at $p$ is a smooth vector field.
 \end{remark}
-	For example, $f : \mathbb{R}^2 \to \mathbb{R}$ defined by $f(x_1,x_2) = 2x_1x_2$ is a smooth function. We have, $\frac{\partial f}{\partial x_1} = 2x_2$ and $\frac{\partial f}{\partial x_2} = 2x_1$. And gradient of $f$ at $(x_1,x_2)$ is $(x_1,x_2,2x_2,2x_1)$. That is, $(2x_2,2x_1)$ at $(x_1,x_2)$.
+	For example, $f : \mathbb{R}^2 \to \mathbb{R}$ defined by $f(x_1,x_2) = 2x_1x_2$ is a smooth function.
+	We have, $\frac{\partial f}{\partial x_1} = 2x_2$ and $\frac{\partial f}{\partial x_2} = 2x_1$.
+	And gradient of $f$ at $(x_1,x_2)$ is $(x_1,x_2,2x_2,2x_1)$.
+	That is, $(2x_2,2x_1)$ at $(x_1,x_2)$.
 
 Calculations : \\
 \begin{tabular}{|c|c|c|c|c|c|c|} \hline
@@ -205,21 +212,28 @@ Calculations : \\
 	\end{equation}
 \end{definition}
 
-For example, $\alpha : I \to \mathbb{R}^2$ defined by $\alpha(t) = (2t,t^2)$ is a parameterised curve. We have, $\frac{d\alpha}{dt} = (\frac{dx_1}{dt}(t),\frac{dx_2}{dt}(t)) = (2,2t)$ where $\alpha(t) = (x_1(t),x_2(t))$. The velocity vector at $t = 3$ is $\dot{\alpha}(3) = (\alpha(t),\frac{d\alpha}{dt}) = (6,9,2,6)$.
+For example, $\alpha : I \to \mathbb{R}^2$ defined by $\alpha(t) = (2t,t^2)$ is a parameterised curve.
+We have, $\frac{d\alpha}{dt} = (\frac{dx_1}{dt}(t),\frac{dx_2}{dt}(t)) = (2,2t)$ where $\alpha(t) = (x_1(t),x_2(t))$.
+The velocity vector at $t = 3$ is $\dot{\alpha}(3) = (\alpha(t),\frac{d\alpha}{dt}) = (6,9,2,6)$.
 
 \begin{definition}
 	Let $\mathbf{X}$ be a vector field and let $U$ be an open subet of $\mathbb{R}^{n+1}$.
-	An integral curve $\alpha$ on $U$ is a parameterised curve, $\alpha : I \to \mathbb{R}^{n+1}$ such that for each $\alpha(t) = p \in U$, the velocity vector $\dot{\alpha}(t)$ is the associated vector $\mathbf{X}(p)$ of the vector field $\mathbf{X}$ at that point. Thus, for each $t \in I$, $\dot{\alpha}(t) = \mathbf{X}(\alpha(t))$.
+	An integral curve $\alpha$ on $U$ is a parameterised curve, $\alpha : I \to \mathbb{R}^{n+1}$ such that for each $\alpha(t) = p \in U$, the velocity vector $\dot{\alpha}(t)$ is the associated vector $\mathbf{X}(p)$ of the vector field $\mathbf{X}$ at that point.
+	Thus, for each $t \in I$, $\dot{\alpha}(t) = \mathbf{X}(\alpha(t))$.
 	\begin{equation}
 		\left(\alpha(t),\frac{d \alpha}{dt}(t)\right) = \left(\alpha(t),X(\alpha(t))\right)
 	\end{equation}
-	Let $X(p) = \left(X_1(p),X_2(p),\dots,X_{n+1}(p)\right)$ and $\alpha(t) = \left(x_1(t),x_2(t),\dots,x_{n+1}(t)\right)$. Then, comparing components of the vector at $\alpha(t)$ we get the following system of equations,
+	Let $X(p) = \left(X_1(p),X_2(p),\dots,X_{n+1}(p)\right)$ and $\alpha(t) = \left(x_1(t),x_2(t),\dots,x_{n+1}(t)\right)$.
+	Then, comparing components of the vector at $\alpha(t)$ we get the following system of equations,
 	\begin{equation}
 		\frac{d x_j}{dt}(t) = X_j(\alpha(t)),\ j = 1,2,\dots,(n+1)
 	\end{equation}
 \end{definition}
 
-For example, Consider $\alpha : (2,3) \to \mathbb{R}^2$ defined by $\alpha(t) = (t,t^2)$. Then $\alpha$ is a parameterised curve in vector field, $\mathbf{X}$ which has the associated function $X(x_1,x_2) = (1,2x_1)$. Then, $\mathbf{X}(x_1,x_2) = (x_1,x_2,1,2x_1)$. And
+For example, Consider $\alpha : (2,3) \to \mathbb{R}^2$ defined by $\alpha(t) = (t,t^2)$.
+Then $\alpha$ is a parameterised curve in vector field, $\mathbf{X}$ which has the associated function $X(x_1,x_2) = (1,2x_1)$.
+Then, $\mathbf{X}(x_1,x_2) = (x_1,x_2,1,2x_1)$.
+And
 \[ \dot{\alpha}(t) = \left( \alpha(t),\frac{d\alpha}{dt}(t) \right) = \left( x_1(t),x_2(t),\frac{dx_1}{dt}(t), \frac{dx_2}{dt}(t) \right) = (t,t^2,1,2t) \]
 Clearly, $\alpha$ is an integral curve of $\mathbf{X}$ as $\dot{\alpha}(t) = X(\alpha(t))$ for every $t \in (2,3)$.
 
@@ -303,13 +317,17 @@ Calculations:\\
 \end{proof}
 	By the theorem on solution of systems of first order ordinary differential equations, there exists an interval $I$ containing $0$ and a solution --- a family of functions $\{ x_1(t), x_2(t), \dots,x_{n+1}(t)\}$ satisfying the above system of equations satisfying the initial condition $\alpha(0) = p$.
 
-	Define $\alpha : I \to U$ using the component functions of $\alpha$ as $x_j$s in the above solution. Then, we have a integral curve of the vector field $\mathbf{X}$ satifying the initial condition $\alpha(0) = p$.
+	Define $\alpha : I \to U$ using the component functions of $\alpha$ as $x_j$s in the above solution.
+	Then, we have a integral curve of the vector field $\mathbf{X}$ satifying the initial condition $\alpha(0) = p$.
 
-	Let $\beta : \tilde{I} \to U$ be another integral curve with $\beta(0) = p$. Then by the uniqueness of the solution for the system of first order ordinary differential equations with an initial condition, $\beta(t) = \alpha(t)$ for every $ t \in I \cup \tilde{I}$.
+	Let $\beta : \tilde{I} \to U$ be another integral curve with $\beta(0) = p$.
+	Then by the uniqueness of the solution for the system of first order ordinary differential equations with an initial condition, $\beta(t) = \alpha(t)$ for every $ t \in I \cup \tilde{I}$.
 
-	Let $\{\beta_1,\beta_2,\dots\}$ be the family of integral curves with $\beta_j : I_j \to U$ satisfying $\beta_j(0) = p$. Consider $I = \bigcup\limits_{j \in \mathbb{N}} I_j$.
+	Let $\{\beta_1,\beta_2,\dots\}$ be the family of integral curves with $\beta_j : I_j \to U$ satisfying $\beta_j(0) = p$.
+	Consider $I = \bigcup\limits_{j \in \mathbb{N}} I_j$.
 
-	Define $\alpha : I \to U$ by $\alpha(t) = \beta_j(t)$ where $t \in I_j$ for some $j \in \mathbb{N}$. Then $\alpha$ is well-defined and is a maximal integral curve in $\mathbf{X}$ such that $\alpha(0) = p$.
+	Define $\alpha : I \to U$ by $\alpha(t) = \beta_j(t)$ where $t \in I_j$ for some $j \in \mathbb{N}$.
+	Then $\alpha$ is well-defined and is a maximal integral curve in $\mathbf{X}$ such that $\alpha(0) = p$.
 
 \begin{definition}
 	A smooth vector field $\mathbf{X}$ on $U \subset \mathbb{R}^{n+1}$ is \textbf{complete} if for every $p \in U$, the maximal integral curve through $p$ has domain equal to $\mathbb{R}$.
@@ -321,7 +339,8 @@ Calculations:\\
 	where $X_i$ are the component function of the associated function $X$ of the vector field $\mathbf{X}$.
 \end{definition}
 
-For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \to \mathbb{R}^2$ defined by $X(x_1,x_2) = (2x_1,x_1x_2)$. Then $div\ \mathbf{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\partial X_2}{\partial x_2} = 2 + x_1$.
+For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \to \mathbb{R}^2$ defined by $X(x_1,x_2) = (2x_1,x_1x_2)$.
+Then $div\ \mathbf{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\partial X_2}{\partial x_2} = 2 + x_1$.
 
 %\chapter{The Tangent Space}
 \section{The Tangent Space}
@@ -334,45 +353,86 @@ For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \t
 
 %\chapter{The Gauss Map}
 \section{The Gauss Map}
-	Suppose $S$ is an $n$-surface. From the definition of an $n$-surface, there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$ such that $S = f^{-1}(c)$ for some real value $c \in \mathbb{R}$ and every point on $S$ is a regular point of $f$. That is $\nabla f(p) \ne \mathbf{0}$ for every point $p$ on the surface $S$.\\
+	Suppose $S$ is an $n$-surface.
+	From the definition of an $n$-surface, there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$ such that $S = f^{-1}(c)$ for some real value $c \in \mathbb{R}$ and every point on $S$ is a regular point of $f$.
+	That is $\nabla f(p) \ne \mathbf{0}$ for every point $p$ on the surface $S$.\\
 
-	We have proved that every $n$-surface has exactly two orientations $\mathbf{N}_1$ and $\mathbf{N}_2$. These orientations are $\frac{\nabla f}{\| \nabla f\|}$ and $\frac{-\nabla f}{\| \nabla f\|}$. Given an orientation $\mathbf{N}$ (either $\mathbf{N}_1$ or $\mathbf{N}_2$), the surface together with that orientation is collectively referred as an oriented $n$-surface.\\
 
-	\textbf{Since orientation $\mathbf{N}$ is a smooth, unit normal vector field. The vector field $\mathbf{N}$ has an associated function $N : U \to \mathbb{R}^{n+1}$. That is $\mathbf{N}(p) = (p,N(p))$ where $N : U \to \mathbb{R}^{n+1}$. And we already have, $\mathbf{N}(p) = (p,N(p)) = (p, \frac{\pm \nabla f}{\| \nabla f\|})$. This associated function restricted to the $n$-surface $S$ is the \textbf{Gauss Map}. That is, $N : S \to \mathbb{R}^{n+1}$.}\\
+	We have proved that every $n$-surface has exactly two orientations $\mathbf{N}_1$ and $\mathbf{N}_2$.
+	These orientations are $\frac{\nabla f}{\| \nabla f\|}$ and $\frac{-\nabla f}{\| \nabla f\|}$.
+	Given an orientation $\mathbf{N}$ (either $\mathbf{N}_1$ or $\mathbf{N}_2$), the surface together with that orientation is collectively referred as an oriented $n$-surface.\\
 
-	From the definition of orientation, we know that this function is actually assigning direction to each point on that surface $S$. If you don't remember, the directions are vector in $\mathbb{R}^{n+1}$ of unit length. That is $\|v\| = 1$. Thus, the range of Gauss Map is a subset of the set of all directions. And unit sphere $S^n$ is $\mathbb{R}^{n+1}$ is the set of all directions in $\mathbb{R}^{n+1}$.\\
+	\textbf{Since orientation $\mathbf{N}$ is a smooth, unit normal vector field.
+	The vector field $\mathbf{N}$ has an associated function $N : U \to \mathbb{R}^{n+1}$.
+	That is $\mathbf{N}(p) = (p,N(p))$ where $N : U \to \mathbb{R}^{n+1}$.
+	And we already have, $\mathbf{N}(p) = (p,N(p)) = (p, \frac{\pm \nabla f}{\| \nabla f\|})$.
+	This associated function restricted to the $n$-surface $S$ is the \textbf{Gauss Map}.
+	That is, $N : S \to \mathbb{R}^{n+1}$.}\\
+
+	From the definition of orientation, we know that this function is actually assigning direction to each point on that surface $S$.
+	If you don't remember, the directions are vector in $\mathbb{R}^{n+1}$ of unit length.
+	That is $\|v\| = 1$.
+	Thus, the range of Gauss Map is a subset of the set of all directions.
+	And unit sphere $S^n$ is $\mathbb{R}^{n+1}$ is the set of all directions in $\mathbb{R}^{n+1}$.\\
 
 	Thus, we may write Gauss Map, $N : S \to S^n$
 \subsection{Spherical Image}
 	We already saw that, the Gauss Map $N : S \to S^n$ is a function which maps directions/unit vectors to each point on that oriented surface $S$.\\
 
-	Do we need an oriented surface ? Yes. The Gauss Map is defined by this orientation. If we are provided with an oriented $n$ Surface $S$, then we have a unit vector/orientation assigned to each point $p$ on that surface. And Gauss Map assigns this unit vector to the point $p$ on surface $S$.\\
+	Do we need an oriented surface ? Yes.
+	The Gauss Map is defined by this orientation.
+	If we are provided with an oriented $n$ Surface $S$, then we have a unit vector/orientation assigned to each point $p$ on that surface.
+	And Gauss Map assigns this unit vector to the point $p$ on surface $S$.\\
 
-	We already saw that the range of the Gauss Map is a subset of the unit $n$ Sphere $S^n$. In other words, the Gauss Map assigns each point on the oriented $n$-surface $S$ into a subset of the unit $n$ sphere $S^n$. Thus, \textbf{range of the Gauss Map is referred as the spherical image of the oriented $n$-surface $S$}.
+	We already saw that the range of the Gauss Map is a subset of the unit $n$ Sphere $S^n$.
+	In other words, the Gauss Map assigns each point on the oriented $n$-surface $S$ into a subset of the unit $n$ sphere $S^n$.
+	Thus, \textbf{range of the Gauss Map is referred as the spherical image of the oriented $n$-surface $S$}.
 	\begin{equation}
 	N(S) = \{ q \in S^n : q = N(p),\ p \in S \}
 	\end{equation}
 
 \subsection{Compact, connected, oriented $n$ Surface}
-	Suppose we have a compact, connected, oriented $n$-surface $S$. The compact subsets in Euclidean spaces are closed and bounded subsets. And connected subsets in Euclidean Spaces are path connected.\\
+	Suppose we have a compact, connected, oriented $n$-surface $S$.
+	The compact subsets in Euclidean spaces are closed and bounded subsets.
+	And connected subsets in Euclidean Spaces are path connected.\\
 
 \begin{theorem}[Spherical Image of Compact, Connected, Oriented Surface]
 	The Gauss map of a compact, connected, oriented $n$-surface is surjective.
 \end{theorem}
 \begin{proof}
-	Let $v \in S^n$ be a direction in $\mathbb{R}^{n+1}$. Let $S$ be a compact, connected, oriented $n$-surface with orientation $N$ such that $S = f^{-1}(c)$ and every point $p \in S$ are regulr points of the smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$. Thus, we have the Gauss Map $N: S \to S^n$ defined by the orientation on $S$.\\
+	Let $v \in S^n$ be a direction in $\mathbb{R}^{n+1}$.
+	Let $S$ be a compact, connected, oriented $n$-surface with orientation $N$ such that $S = f^{-1}(c)$ and every point $p \in S$ are regulr points of the smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$.
+	Thus, we have the Gauss Map $N: S \to S^n$ defined by the orientation on $S$.\\
 	
-	Since $v$ is arbitary, it is enough to prove that $v \in N(S)$. Suppose there exists $v \in S^n$ such that $v \notin N(S)$, then the Gauss Map is not surjective. In other words, $N$ is surjective if for every $v \in S^n,\ v \in N(S)$ OR for every $v \in S^n$, there exists $p \in S$ such that $v = N(p)$\\
+	Since $v$ is arbitary, it is enough to prove that $v \in N(S)$.
+	Suppose there exists $v \in S^n$ such that $v \notin N(S)$, then the Gauss Map is not surjective.
+	In other words, $N$ is surjective if for every $v \in S^n,\ v \in N(S)$ OR for every $v \in S^n$, there exists $p \in S$ such that $v = N(p)$\\
 
-	Let $g : \mathbb{R}^{n+1} \to \mathbb{R}$ defined by $g(p) = p \cdot v$. Then $g$ is a smooth function since first order partial derivatives are constant functions and all other partial derivatives of higher orders vanishes.\\
+	Let $g : \mathbb{R}^{n+1} \to \mathbb{R}$ defined by $g(p) = p \cdot v$.
+	Then $g$ is a smooth function since first order partial derivatives are constant functions and all other partial derivatives of higher orders vanishes.\\
 
-	Since $S$ is compact, $g$ restricted to $S$ is a continuous function defined on a compact interval. And thus it attains maximum and minimum values, say $p$ and $q$. The maximum and minimum values of the dot product $p \cdot v$ are $\pm v$.\\
+	Since $S$ is compact, $g$ restricted to $S$ is a continuous function defined on a compact interval.
+	And thus it attains maximum and minimum values, say $p$ and $q$.
+	The maximum and minimum values of the dot product $p \cdot v$ are $\pm v$.\\
 	
-	By Lagrange's multiplier theorem, $\nabla g(p) = \lambda \nabla f(p)$ and $\nabla g(q) = \lambda \nabla f(q)$. From the definition of the Gauss Map, we have $\nabla g(p) = \lambda \nabla f(p) = \lambda \| \nabla f(p) \| \mathbf{N}(p) = \lambda \| \nabla f(p) \| (p,v)$. Thus, $v$ and $N(p)$ are multiples of one another. Similarly, $\nabla g(q) = \lambda \| \nabla f(q) \| \mathbf{N}(q)$. Therefore $N(p) = \pm v$ and $N(q) = \pm v$.\\
+	By Lagrange's multiplier theorem, $\nabla g(p) = \lambda \nabla f(p)$ and $\nabla g(q) = \lambda \nabla f(q)$.
+	From the definition of the Gauss Map, we have $\nabla g(p) = \lambda \nabla f(p) = \lambda \| \nabla f(p) \| \mathbf{N}(p) = \lambda \| \nabla f(p) \| (p,v)$.
+	Thus, $v$ and $N(p)$ are multiples of one another.
+	Similarly, $\nabla g(q) = \lambda \| \nabla f(q) \| \mathbf{N}(q)$.
+	Therefore $N(p) = \pm v$ and $N(q) = \pm v$.\\
 	
-	It remains to show that $N(p) \ne N(q)$. Suppose $N(p) = N(q)$. If there exists continuous function $\alpha$ such that $\alpha : [0,1] \to \mathbb{R}^{n+1}$, $\alpha(0) = p$, $\alpha(1) = q$, $\dot{\alpha}(0) = (p,v)$ and $\dot{\alpha}(1) = (q,v)$. And $\alpha$ maps the interior, the open interval $(0,1)$ outside the surface $S$. Then by intermediate value theorem, we arrive at a contradiction. And thus $N(p) \ne N(q)$.\\
+	It remains to show that $N(p) \ne N(q)$.
+	Suppose $N(p) = N(q)$.
+	If there exists continuous function $\alpha$ such that $\alpha : [0,1] \to \mathbb{R}^{n+1}$, $\alpha(0) = p$, $\alpha(1) = q$, $\dot{\alpha}(0) = (p,v)$ and $\dot{\alpha}(1) = (q,v)$.
+	And $\alpha$ maps the interior, the open interval $(0,1)$ outside the surface $S$.
+	Then by intermediate value theorem, we arrive at a contradiction.
+	And thus $N(p) \ne N(q)$.\\
 
-	Let $\alpha_1 : [0,x] \to \mathbb{R}^{n+1}$ defined by $\alpha_1(t) = p+tv$. Let $\alpha_2 : [y,1] \to \mathbb{R}^{n+1}$ defined by $\alpha_2(t) = q+(t-1)v$. Let $\alpha_3 : [x,y] \to S_1$ where $S_1$ is an $n$ sphere properly containing $S$. Such an $n$ sphere exists, since $S$ is compact (bounded). And there exists such a function $\alpha_3$, the image of which is a compact subset of $S_1$.\\
+	Let $\alpha_1 : [0,x] \to \mathbb{R}^{n+1}$ defined by $\alpha_1(t) = p+tv$.
+	Let $\alpha_2 : [y,1] \to \mathbb{R}^{n+1}$ defined by $\alpha_2(t) = q+(t-1)v$.
+	Let $\alpha_3 : [x,y] \to S_1$ where $S_1$ is an $n$ sphere properly containing $S$.
+	Such an $n$ sphere exists, since $S$ is compact (bounded).
+	And there exists such a function $\alpha_3$, the image of which is a compact subset of $S_1$.\\
 	
 	Now consider $\alpha : [0,1] \to \mathbb{R}^{n+1}$ defined by
 	\begin{equation}
@@ -416,24 +476,48 @@ For example, Consider $\mathbf{X}$ with associated function $X : \mathbb{R}^2 \t
 		\dot{\alpha}(1) & = \dfrac{d\alpha_2}{dt}(1) = \dfrac{d (q+(t-1)v}{dt} = v
 	\end{align*}
 
-	We have, $f(\alpha(0)) = f(0) = c$ since $p \in S = f^{-1}(c)$. Similarly, $f(\alpha(1)) = c$. And $(f \circ \alpha)'(0) = \nabla f \circ \alpha(0) \dot \dot{\alpha}(0) = \nabla f(p) \cdot \dot{\alpha}(0) = \| \nabla f(p) \| N(p) \cdot v$. Similarly, $(f \circ \alpha)'(1) = \| \nabla f(q) \| N(q) \cdot v$. We have assumed that $N(p) = N(q)$. Then, $f \circ \alpha$ is either increasing at both $0$ and $1$ OR decreasing at both $0$ and $1$.\\
+	We have, $f(\alpha(0)) = f(0) = c$ since $p \in S = f^{-1}(c)$.
+	Similarly, $f(\alpha(1)) = c$.
+	And $(f \circ \alpha)'(0) = \nabla f \circ \alpha(0) \dot \dot{\alpha}(0) = \nabla f(p) \cdot \dot{\alpha}(0) = \| \nabla f(p) \| N(p) \cdot v$.
+	Similarly, $(f \circ \alpha)'(1) = \| \nabla f(q) \| N(q) \cdot v$.
+	We have assumed that $N(p) = N(q)$.
+	Then, $f \circ \alpha$ is either increasing at both $0$ and $1$ OR decreasing at both $0$ and $1$.\\
 
-	Without Loss of Generality, Suppose that $f \circ \alpha$ is increasing at either points. Then, there exists a sufficiently small $\epsilon > 0$ such that $f(\alpha(\epsilon)) > c$ and $f(\alpha(1-\epsilon)) < c$. Since, $f \circ \alpha$ must have a value greater than $c$ immediately after $0$ and should have a value less than $c$ just before reaching $1$ as the function is increasing at either points (and in some small neighbourhood of those points).\\
 
-	By Intermediate Value theorem, the exists $t \in (0,1)$ such that $f \circ \alpha(t) = c$ since the composition of smooth functions $f$ and $\alpha$ is also smooth. But, it is clear from the construction that $\alpha(t)$ doesn't belong to the surface $S$. And therefore, $\alpha(t) \ne c \implies f(\alpha(t)) \ne c$ for any $t \in (0,1)$. Thus by contradiction, $N(p) \ne N(q)$. And if $N$ achieves $v$ at $p$. Then it achieves $-v$ at $q$. And since $v \in S^n$ is arbitrary, $N(S) = S^n$ and the spherical image is the entire $n$ sphere OR the Gauss map is surjective.
+	Without Loss of Generality, Suppose that $f \circ \alpha$ is increasing at either points.
+	Then, there exists a sufficiently small $\epsilon > 0$ such that $f(\alpha(\epsilon)) > c$ and $f(\alpha(1-\epsilon)) < c$.
+	Since, $f \circ \alpha$ must have a value greater than $c$ immediately after $0$ and should have a value less than $c$ just before reaching $1$ as the function is increasing at either points (and in some small neighbourhood of those points).\\
+
+	By Intermediate Value theorem, the exists $t \in (0,1)$ such that $f \circ \alpha(t) = c$ since the composition of smooth functions $f$ and $\alpha$ is also smooth.
+	But, it is clear from the construction that $\alpha(t)$ doesn't belong to the surface $S$.
+	And therefore, $\alpha(t) \ne c \implies f(\alpha(t)) \ne c$ for any $t \in (0,1)$.
+	Thus by contradiction, $N(p) \ne N(q)$.
+	And if $N$ achieves $v$ at $p$.
+	Then it achieves $-v$ at $q$.
+	And since $v \in S^n$ is arbitrary, $N(S) = S^n$ and the spherical image is the entire $n$ sphere OR the Gauss map is surjective.
 \end{proof}
 
-	\textbf{Given a compact, connected oriented, $n$-surface $S$, the Gauss Map on $S$ is surjective. In other words, the spherical image of such a surface is the unit $n$ sphere $S^n$ itself.}\\
+	\textbf{Given a compact, connected oriented, $n$-surface $S$, the Gauss Map on $S$ is surjective.
+	In other words, the spherical image of such a surface is the unit $n$ sphere $S^n$ itself.}\\
 
-	Connectedness is not that critical(in my opinion). For a compact, orientated $n$-surface with multiple components, the above observation is valid for each connected component. And thus for any compact, oriented surface. Again, $n$-surfaces are always closed. Thus, the restriction practically reduces to boundedness of the $n$-surface.
+
+	Connectedness is not that critical(in my opinion).
+	For a compact, orientated $n$-surface with multiple components, the above observation is valid for each connected component.
+	And thus for any compact, oriented surface.
+	Again, $n$-surfaces are always closed.
+	Thus, the restriction practically reduces to boundedness of the $n$-surface.
 
 %\chapter{Geodesics}
 \section{Geodesics}
-	We already know that our earth is not flat. Still, we feel like we move in straight lines. And our `straight lines' are curved for an observer who is not on earth. Geodesics are straightlines on an $n$-surface $S$.
+	We already know that our earth is not flat.
+	Still, we feel like we move in straight lines.
+	And our `straight lines' are curved for an observer who is not on earth.
+	Geodesics are straightlines on an $n$-surface $S$.
 
 \begin{description}
 	\item[vector field along $\alpha$] is function which assigns $X(t)$ at $\alpha(t)$ for each $t \in I$.
-		The defintion of vector field doesn't allow you to assign multiple vectors at a point. But, vector field along $\alpha$ allows you to assign vectors to points on a parametrised curve depending on the value of parameter $t$.
+		The defintion of vector field doesn't allow you to assign multiple vectors at a point.
+		But, vector field along $\alpha$ allows you to assign vectors to points on a parametrised curve depending on the value of parameter $t$.
 	\item[function along $\alpha$] is function with the same domain $I$ as $\alpha$.
 	\item[derivative of vector field $\mathbf{X}$ along $\alpha$] is a vector field along $\alpha$ given by $\dot{\mathbf{X}}(t) = \left( \alpha(t), \dfrac{dX}{dt}(t) \right)$ where $\mathbf{X}(t) = \left( \alpha(t), X(t) \right)$.
 	\item[velocity of $\alpha$] is a vector field along $\alpha$ defined by $\dot{\boldsymbol{\alpha}}(t)= \left( \alpha(t), \dfrac{d\alpha}{dt}(t) \right)$.\\
@@ -476,56 +560,91 @@ Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields along parametrised curve $\a
 \end{itemize}
 
 \begin{definition}[geodesic]
-	Let $S$ be an $n$-surface. A Geodesic on $S$ is a parametrised curve $\alpha : I \to S$ whose acceleration is orthogonal to $S$ everywhere.
+	Let $S$ be an $n$-surface.
+	A Geodesic on $S$ is a parametrised curve $\alpha : I \to S$ whose acceleration is orthogonal to $S$ everywhere.
 \begin{equation}
 	\ddot{\alpha}(t) \in S_{\alpha(t)}^\perp
 \end{equation}
 \end{definition}
 
 \subsection{An illustrative example}
-We know that $S^1$ given by $x_1^2+x_2^2 = 1$ is a $1$-surface in $\mathbb{R}^2$. Consider the cylinder $C$ over $S^1$, $x_1^2 + x_2^2 = 1$. Clearly, $C$ is a $2$ surface in $\mathbb{R}^3$. Also, $f : \mathbb{R}^3 \to \mathbb{R}$ defined by  $f(x_1,x_2,x_3) = x_1^2+x_2^2$ is a smooth function such that $C = f^{-1}(1)$ and $\nabla f(x_1,x_2,x_3) = (x_1,x_2,x_3,2x_1,2x_2,0) \ne \mathbf{0}$.\\
+We know that $S^1$ given by $x_1^2+x_2^2 = 1$ is a $1$-surface in $\mathbb{R}^2$.
+Consider the cylinder $C$ over $S^1$, $x_1^2 + x_2^2 = 1$.
+Clearly, $C$ is a $2$ surface in $\mathbb{R}^3$.
+Also, $f : \mathbb{R}^3 \to \mathbb{R}$ defined by  $f(x_1,x_2,x_3) = x_1^2+x_2^2$ is a smooth function such that $C = f^{-1}(1)$ and $\nabla f(x_1,x_2,x_3) = (x_1,x_2,x_3,2x_1,2x_2,0) \ne \mathbf{0}$.\\
 
-Clearly, every vector orthogonal to the surface in a scalar multiple of $\nabla f$ at that point. Therefore, vectors orthogonal to the surface $C$ at $\alpha(t)$ is of the form $(x_1,x_2,x_3,kx_1,kx_2,0)$ where $k \in \mathbb{R}$.\\
 
-If there exists a geodesic $\alpha$ in $C$, then $\ddot{\alpha}(t) \in  S_{\alpha(t)}^\perp$. That is, $\ddot{\alpha}(t) = (x_1,x_2,x_3,kx_1,kx_2,0)$. Thus, we need component functions $x_1(t),x_2(t),x_3(t)$ satisfying
+Clearly, every vector orthogonal to the surface in a scalar multiple of $\nabla f$ at that point.
+Therefore, vectors orthogonal to the surface $C$ at $\alpha(t)$ is of the form $(x_1,x_2,x_3,kx_1,kx_2,0)$ where $k \in \mathbb{R}$.\\
+
+
+If there exists a geodesic $\alpha$ in $C$, then $\ddot{\alpha}(t) \in  S_{\alpha(t)}^\perp$.
+That is, $\ddot{\alpha}(t) = (x_1,x_2,x_3,kx_1,kx_2,0)$.
+Thus, we need component functions $x_1(t),x_2(t),x_3(t)$ satisfying
 \begin{align}
 	\dfrac{d^2}{dt^2}x_1(t) = & kx_1(t) \\
 	\dfrac{d^2}{dt^2}x_2(t) = & kx_2(t) \\
 	\dfrac{d^2}{dt^2}x_3(t) = & 0
 \end{align}
 
-We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \sin t$. Thus, the parametrised curve $\alpha : I \to \mathbb{R}^3$ defined by $\alpha(t) = (\cos t, \sin t, t)$ is a geodesic in $C$ since $\ddot{\alpha}(t) = (\cos t,\sin t, t, -\cos t,-\sin t,0)$.
+We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \sin t$.
+Thus, the parametrised curve $\alpha : I \to \mathbb{R}^3$ defined by $\alpha(t) = (\cos t, \sin t, t)$ is a geodesic in $C$ since $\ddot{\alpha}(t) = (\cos t,\sin t, t, -\cos t,-\sin t,0)$.
 
 \subsection{Maximal Geodesic}
-	The conditions $\alpha(0) = p$, $\dot{\alpha}(0) = \mathbf{v}$ says that parametric curves are unique except for linear transformations on the parameter. That is, Suppose there exists another parametrised curve $\beta$ in $S$ through $p$ with initial velocity $\mathbf{v}$ with $\beta(t_0) = p$ and $\dot{\beta}(t_0) = \mathbf{v}$. Then, there exists a real number $\kappa$ such that $\alpha(t) = \beta(\kappa t+t_0)$.\\
+	The conditions $\alpha(0) = p$, $\dot{\alpha}(0) = \mathbf{v}$ says that parametric curves are unique except for linear transformations on the parameter.
+	That is, Suppose there exists another parametrised curve $\beta$ in $S$ through $p$ with initial velocity $\mathbf{v}$ with $\beta(t_0) = p$ and $\dot{\beta}(t_0) = \mathbf{v}$.
+	Then, there exists a real number $\kappa$ such that $\alpha(t) = \beta(\kappa t+t_0)$.\\
 	
-	In other words, both $\alpha$ and $\beta$ passes through the same points and the vectors assigned at each point is the same. And the difference between such two parametrised curves doesn't have any impact on the properties we are interested in.\\
+	In other words, both $\alpha$ and $\beta$ passes through the same points and the vectors assigned at each point is the same.
+	And the difference between such two parametrised curves doesn't have any impact on the properties we are interested in.\\
 
 	The condition, {\color{blue}if $\beta : \tilde{I} \to S$ is any other geodesic in $S$ with $\beta(0) = p$ and $\dot{\beta}(0) = \mathbf{v}$, then $\tilde{I} \subset I$ and $\beta(t) = \alpha(t),\ \forall t \in \tilde{I}$.} is another way of saying that $\alpha$ is maximal and uniquely defined.\\
 
-	In essence, the following theorem says that if you are standing on an $n$-surface $S$ at a point, say $p$. You can move on that surface in straightline from $p$, with any initial velocity, $\mathbf{v}$. Note that the velocity allows you to choose both direction and speed.
+	In essence, the following theorem says that if you are standing on an $n$-surface $S$ at a point, say $p$.
+	You can move on that surface in straightline from $p$, with any initial velocity, $\mathbf{v}$.
+	Note that the velocity allows you to choose both direction and speed.
 
 \begin{theorem}[maximal geodesic]
-	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p \in S$ and $\mathbf{v} \in S_p$. Then there exists a unique, maximal geodesic $\alpha : I \to S$ in $S$ through $p$ with initial velocity $\mathbf{v}$.
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$.
+	Let $p \in S$ and $\mathbf{v} \in S_p$.
+	Then there exists a unique, maximal geodesic $\alpha : I \to S$ in $S$ through $p$ with initial velocity $\mathbf{v}$.
 \end{theorem}
 \begin{proof}
-	Let $S$ be an $n$-surface, then there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$. And every points on that surface is regular with respect to $f$. That is, $\nabla f(p) \ne 0,\ \forall p \in S$. WLOG assume that every points in $U$ is regular.\\
+	Let $S$ be an $n$-surface, then there exists a smooth function $f : U \to \mathbb{R}$ where $U$ is an open subset of $\mathbb{R}^{n+1}$.
+	And every points on that surface is regular with respect to $f$.
+	That is, $\nabla f(p) \ne 0,\ \forall p \in S$.
+	WLOG assume that every points in $U$ is regular.\\
 	
-	Define $N = \frac{\nabla f}{\|\nabla f\|}$. A parametrised curve $\alpha$ in $S$ is a geodesic if it satisfies $\ddot{\alpha}(t) \in S_{\alpha(t)}^\perp$. Therefore,
+
+	Define $N = \frac{\nabla f}{\|\nabla f\|}$.
+	A parametrised curve $\alpha$ in $S$ is a geodesic if it satisfies $\ddot{\alpha}(t) \in S_{\alpha(t)}^\perp$.
+	Therefore,
 	\begin{equation}
 		\ddot{\alpha}(t) = g(t)\mathbf{N}(\alpha(t))
 		\label{eq:acceleration}
 	\end{equation}
+	
 
-	Why don't we write $\ddot{\boldsymbol{\alpha}}(t) = \kappa \mathbf{N}(\alpha(t))$ ? The vectors $\kappa \mathbf{N}(\alpha(t))$ are orthogonal to $S$. However, the coverse is not true. For a geodesic it is not necessary that $\ddot{\boldsymbol{\alpha}}(t) =  \kappa \mathbf{N}(\alpha(t))$. The acceleration could be any vector in $S_{\alpha(t)}^\perp$. Since $S_{\alpha(t)}^\perp$ is spanned by $\mathbf{N}(\alpha(t))$, at each point on $\alpha(t)$ the scalars may be different. We overcome this with the help of a real valued function $g : I \to \mathbb{R}$ along $\alpha$.\\
+	Why don't we write $\ddot{\boldsymbol{\alpha}}(t) = \kappa \mathbf{N}(\alpha(t))$ ? The vectors $\kappa \mathbf{N}(\alpha(t))$ are orthogonal to $S$.
+	However, the coverse is not true.
+	For a geodesic it is not necessary that $\ddot{\boldsymbol{\alpha}}(t) =  \kappa \mathbf{N}(\alpha(t))$.
+	The acceleration could be any vector in $S_{\alpha(t)}^\perp$.
+	Since $S_{\alpha(t)}^\perp$ is spanned by $\mathbf{N}(\alpha(t))$, at each point on $\alpha(t)$ the scalars may be different.
+	We overcome this with the help of a real valued function $g : I \to \mathbb{R}$ along $\alpha$.\\
 
-	We have $\ddot{\boldsymbol{\alpha}} = g(\mathbf{N}\circ \alpha)$. Thus $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N}\circ\alpha) = g \| \mathbf{N}\circ \alpha \|^2 = g$ since orientation $\mathbf{N}$ assigns directions (vectors of unit length) to each point of that surface.\\
+
+	We have $\ddot{\boldsymbol{\alpha}} = g(\mathbf{N}\circ \alpha)$.
+	Thus $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N}\circ\alpha) = g \| \mathbf{N}\circ \alpha \|^2 = g$ since orientation $\mathbf{N}$ assigns directions (vectors of unit length) to each point of that surface.\\
+
 
 	$\left[\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha)\right]' = \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) + \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha)$	since $(\mathbf{X} \cdot \mathbf{Y})' = \dot{\mathbf{X}} \cdot \mathbf{Y} + \mathbf{X} \cdot \dot{\mathbf{Y}}$.
 
-	Thus, $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = \left[ \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right]' - \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha) = -\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha)$ since $\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = 0$ as $\dot{\boldsymbol{\alpha}} \in S_{\alpha(t)}$, $\mathbf{N} \circ \alpha \in S_{\alpha(t)}^\perp$ and $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$. That is, velocity vectors always belongs to the tangent space and $(\mathbf{N} \circ \alpha)$ is an orientation which is orthogonal to all the tangent vectors.\\
+	Thus, $\ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = \left[ \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right]' - \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha) = -\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha)$ since $\dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) = 0$ as $\dot{\boldsymbol{\alpha}} \in S_{\alpha(t)}$, $\mathbf{N} \circ \alpha \in S_{\alpha(t)}^\perp$ and $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$.
+	That is, velocity vectors always belongs to the tangent space and $(\mathbf{N} \circ \alpha)$ is an orientation which is orthogonal to all the tangent vectors.\\
 
-	Substituting the value of $g$ in equation(\ref{eq:acceleration}). We get 
+
+	Substituting the value of $g$ in equation(\ref{eq:acceleration}).
+	We get 
 	\begin{equation}
 		\ddot{\boldsymbol{\alpha}} + \left[ \dot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \dot{\circ} \alpha) \right] (\mathbf{N} \circ \alpha) = \mathbf{0}
 		\label{eq:substitute}
@@ -546,13 +665,24 @@ We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \
 		\dfrac{d^2}{dt^2}x_{\color{red}i}(t) + \left[ \sum_{j,k=1}^{n+1} \dfrac{\partial N_j}{\partial x_k} \dfrac{dx_k}{dt}\dfrac{dx_j}{dt}\right] N_i \circ \alpha = 0
 	\end{equation}
 
-	By the existence theorem for solution of such system of second order differential equations, there exists an open interval $I$ containing $0$ and $(n+1)$ functions $x_k : I \to \mathbb{R}$ satisfying the above system. Then $\beta : I \to S$ defined by $\beta(t) = \left( x_1(t),x_2(t),\dots,x_{n+1}(t) \right)$\\
+	By the existence theorem for solution of such system of second order differential equations, there exists an open interval $I$ containing $0$ and $(n+1)$ functions $x_k : I \to \mathbb{R}$ satisfying the above system.
+	Then $\beta : I \to S$ defined by $\beta(t) = \left( x_1(t),x_2(t),\dots,x_{n+1}(t) \right)$\\
 
-	By the uniqueness theorem for solution of such system of second order differential equations, if there exists another open interval $\tilde{I}$ containing $0$ and $\beta_1 : I_1 \to U$. Then $\beta(t) = \beta(t)$ for every $t \in I \cap I_1$.\\
+	By the uniqueness theorem for solution of such system of second order differential equations, if there exists another open interval $\tilde{I}$ containing $0$ and $\beta_1 : I_1 \to U$.
+	Then $\beta(t) = \beta(t)$ for every $t \in I \cap I_1$.\\
 
-	Let $\beta_1,\beta_2,\dots$ be geodesics through $p$ with inintial velocity $\mathbf{v}$ with parameter domain $I_1,I_2,\dots$. Let $I = \cup_k I_k$ and $\alpha : I \to U$ defined by $\alpha(t) = \beta_k(t),\ t \in I_k$. Clearly, $\alpha$ is unique and maximal.\\
 
-	Now it is enough to prove that $\alpha$ is parametrised curve in $S$. We have $(f \circ \alpha)'(t) = \nabla f(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = \| \nabla f(\alpha(t)) \| \mathbf{N}(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = 0$ since $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$. Therefore, $f \circ \alpha : I \to \mathbf{R}$ is constant. Also, $f(\alpha(0)) = f(p) = c$ since $p \in S$ and $S = f^{-1}(c)$. Thus, $f \circ \alpha = c \implies \alpha \subset f^{-1}(c)$. Thus, $\alpha$ is a parametrised curve in $n$-surface $S$.
+	Let $\beta_1,\beta_2,\dots$ be geodesics through $p$ with inintial velocity $\mathbf{v}$ with parameter domain $I_1,I_2,\dots$.
+	Let $I = \cup_k I_k$ and $\alpha : I \to U$ defined by $\alpha(t) = \beta_k(t),\ t \in I_k$.
+	Clearly, $\alpha$ is unique and maximal.\\
+
+
+	Now it is enough to prove that $\alpha$ is parametrised curve in $S$.
+	We have $(f \circ \alpha)'(t) = \nabla f(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = \| \nabla f(\alpha(t)) \| \mathbf{N}(\alpha(t)) \cdot \dot{\boldsymbol{\alpha}}(t) = 0$ since $\dot{\boldsymbol{\alpha}} \perp (\mathbf{N} \circ \alpha)$.
+	Therefore, $f \circ \alpha : I \to \mathbf{R}$ is constant.
+	Also, $f(\alpha(0)) = f(p) = c$ since $p \in S$ and $S = f^{-1}(c)$.
+	Thus, $f \circ \alpha = c \implies \alpha \subset f^{-1}(c)$.
+	Thus, $\alpha$ is a parametrised curve in $n$-surface $S$.
 \end{proof}
 
 \subsection{Properites of Geodesics}
@@ -561,21 +691,25 @@ We have, $\dfrac{d^2}{dt} \cos t = - \cos t$ and $\dfrac{d^2}{dt^2} \sin t = - \
 		In other words, the acceleration is orthogonal to the velocity vector.
 	\item Constant Speed, $\| \mathbf{v} \|$\\
 		We have, $(\dot{\boldsymbol{\alpha}} \cdot \dot{\boldsymbol{\alpha}})' =  \ddot{\boldsymbol{\alpha}} \cdot \dot{\boldsymbol{\alpha}} + \dot{\boldsymbol{\alpha}} \cdot \ddot{\boldsymbol{\alpha}} = 2\dot{\boldsymbol{\alpha}} \cdot \ddot{\boldsymbol{\alpha}} = 0$\\
-		Clearly, $\dfrac{d}{dt} \|\dot{\boldsymbol{\alpha}} \|^2 =  \left( \dot{\boldsymbol{\alpha}} \cdot \dot{\boldsymbol{\alpha}} \right)' = 0$. Therefore, $\alpha$ has constant speed. \\
-
+		Clearly, $\dfrac{d}{dt} \|\dot{\boldsymbol{\alpha}} \|^2 =  \left( \dot{\boldsymbol{\alpha}} \cdot \dot{\boldsymbol{\alpha}} \right)' = 0$.
+		Therefore, $\alpha$ has constant speed.
 \end{enumerate} 
 
 Remark :  Geodesics in cylinder over $S^1$ are horizontal circles, vertical lines, helix or a constant. 
-%If $\alpha(t) = (\cos (at+b), ct+d )$, then $\ddot{\boldsymbol{\alpha}}(t) = (\cos (at+b), ct+d, -a^2\cos (at+b),0)$ is horizontal circle. If $\alpha(t) = (at+b, \cos (ct+d))$, then $\ddot{\boldsymbol{\alpha}} = (at+b,\cos (ct+d),0,-c^2\cos (ct+d))$ is a vertical line. 
+%If $\alpha(t) = (\cos (at+b), ct+d )$, then $\ddot{\boldsymbol{\alpha}}(t) = (\cos (at+b), ct+d, -a^2\cos (at+b),0)$ is horizontal circle.
+%If $\alpha(t) = (at+b, \cos (ct+d))$, then $\ddot{\boldsymbol{\alpha}} = (at+b,\cos (ct+d),0,-c^2\cos (ct+d))$ is a vertical line. 
 
 %\chapter{Parallel Transport}
 \section{Parallel Transport}
 \begin{description}
-	\item[covariant derivative] Covariant derivative of $\mathbf{X}$ is the vector field $\mathbf{X}'$ tangent to $S$ along $\alpha$ given by $\mathbf{X}'(t) = \dot{\mathbf{X}}(t) - [\dot{\mathbf{X}}(t) \cdot \mathbf{N}(\alpha(t))]\mathbf{N}(\alpha(t))$. And it is independent of the choie of the orientation.
-	\item[covariant acceleration] Let $\alpha : I \to S$ be a parametrised curve in $S$. Then covariant acceleration of $\alpha$ is $(\dot{\boldsymbol{\alpha}})' = \ddot{\boldsymbol{\alpha}} - \left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha)$ along $\alpha$.
+	\item[covariant derivative] Covariant derivative of $\mathbf{X}$ is the vector field $\mathbf{X}'$ tangent to $S$ along $\alpha$ given by $\mathbf{X}'(t) = \dot{\mathbf{X}}(t) - [\dot{\mathbf{X}}(t) \cdot \mathbf{N}(\alpha(t))]\mathbf{N}(\alpha(t))$.
+		And it is independent of the choie of the orientation.
+	\item[covariant acceleration] Let $\alpha : I \to S$ be a parametrised curve in $S$.
+		Then covariant acceleration of $\alpha$ is $(\dot{\boldsymbol{\alpha}})' = \ddot{\boldsymbol{\alpha}} - \left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha)$ along $\alpha$.
 \end{description}
 \subsection{Properties of Covariant Derivative}
-Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha$. Then, $\mathbf{X} \cdot (\mathbf{N} \circ \alpha) = \mathbf{0}$.
+Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha$.
+Then, $\mathbf{X} \cdot (\mathbf{N} \circ \alpha) = \mathbf{0}$.
 \begin{enumerate}
 	\item $(\mathbf{X}+\mathbf{Y})' = \mathbf{X}'+\mathbf{Y}'$\\
 	\begin{align*}
@@ -604,18 +738,22 @@ Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields tangent to $S$ along $\alpha
 
 
 \subsection{Parallelism}
-	We have seen earlier that, lines that look straight on a surface (geodesics) is not necessarily straight from outside. The same way, two vectors that look \textit{parallel on a surface} (Levi-Civita parallel) is not necessarily parallel.
+	We have seen earlier that, lines that look straight on a surface (geodesics) is not necessarily straight from outside.
+	The same way, two vectors that look \textit{parallel on a surface} (Levi-Civita parallel) is not necessarily parallel.
 \begin{description}
 	\item[Euclidean parallel] $(p,v)$ and $(q,w)$ are Euclidean parallel if $v = w$.\\
-		Let $\alpha : I \to \mathbb{R}^{n+1}$ be a parametrised curve. A vector field $\mathbf{X}$ is Euclidean parallel along $\alpha$ if the associated function $X$ is constant say, $v$.
+		Let $\alpha : I \to \mathbb{R}^{n+1}$ be a parametrised curve.
+		A vector field $\mathbf{X}$ is Euclidean parallel along $\alpha$ if the associated function $X$ is constant say, $v$.
 		Then, $\dot{\mathbf{X}} = \left( \alpha(t),\dfrac{d}{dt}X(t) \right) = \left( \alpha(t), \dfrac{dv}{dt} \right) = \left( \alpha(t), 0 \right) = \mathbf{0}$
-	\item[Levi-Civita parallel] A vector field $\mathbf{X}$ tangent to the surface $S$ along $\alpha$ is (Levi-Civita) parallel if $\mathbf{X}$ is a constant vector field along $\alpha$ with respect to the surface $S$. That is, $\mathbf{X}' = \mathbf{0}$.
+	\item[Levi-Civita parallel] A vector field $\mathbf{X}$ tangent to the surface $S$ along $\alpha$ is (Levi-Civita) parallel if $\mathbf{X}$ is a constant vector field along $\alpha$ with respect to the surface $S$.
+		That is, $\mathbf{X}' = \mathbf{0}$.
 \end{description}
 
 \subsubsection{Properties of Levi-Civita parallel}
 Applying the properties of covariant derivative, we get
 \begin{enumerate}
-	\item If $\mathbf{X}$ is parallel along $\alpha$, then $\mathbf{X}$ has constant length. That is, $\|\mathbf{X}\|' = 0$.
+	\item If $\mathbf{X}$ is parallel along $\alpha$, then $\mathbf{X}$ has constant length.
+		That is, $\|\mathbf{X}\|' = 0$.
 		$$\dfrac{d}{dt} \|\mathbf{X}\|^2 = \dfrac{d}{dt} \mathbf{X} \cdot \mathbf{X} = 2 \mathbf{X}' \cdot \mathbf{X} = 2(\mathbf{0} \cdot \mathbf{X}) = 0 $$ 
 	\item If $\mathbf{X},\mathbf{Y}$ are parallel along $\alpha$, then $\mathbf{X} \cdot \mathbf{Y}$  is constant along $\alpha$.
 		$$ (\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}' = \mathbf{0} \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{0} = 0$$
@@ -630,15 +768,27 @@ Applying the properties of covariant derivative, we get
 		Parametrised curve $\alpha$ is geodesic in $S$ if and only if covariant acceleration $(\dot{\boldsymbol{\alpha}})'$ is zero along $\alpha$ since $\ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$ and  $\left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \ddot{\boldsymbol{\alpha}}$.
 \end{enumerate}
 
-	We have, the notation $f'$ and $\mathbf{X}'$. You should keep a note of the fundamental differences. $f'$ refers to the derivative of a function along $\alpha$ with respect to the parameter $t$. And $\mathbf{X}'$ refers to the covariant derivative of a vector field tangent to $S$ along $\alpha$. You should always check whether it is real value OR vector at a point to understand what they really mean.\\
+
+	We have, the notation $f'$ and $\mathbf{X}'$.
+	You should keep a note of the fundamental differences.
+	$f'$ refers to the derivative of a function along $\alpha$ with respect to the parameter $t$.
+	And $\mathbf{X}'$ refers to the covariant derivative of a vector field tangent to $S$ along $\alpha$.
+	You should always check whether it is real value OR vector at a point to understand what they really mean.\\
+
 	
-	For example, $\|\mathbf{X}\|'$ is a derivative of a real valued function (derivative of the length of the vectors assigned at different points of a parametrised curve). And it has nothing to do with the covariant derivative $\mathbf{X}'$.
+	For example, $\|\mathbf{X}\|'$ is a derivative of a real valued function (derivative of the length of the vectors assigned at different points of a parametrised curve).
+	And it has nothing to do with the covariant derivative $\mathbf{X}'$.
+
 
 \begin{theorem}
-	Let $S$ be an $n$-surface and $\alpha : I \to S$ be a parametrised curve in $S$. Let $t_0 \in I$ and $\mathbf{v} \in S_{\alpha(t_0)}$. Then there exists a unique vector field $\mathbf{V}$ tangent to $S$ along $\alpha$ which is parallel and has $\mathbf{V}(t_0) = \mathbf{v}$.
+	Let $S$ be an $n$-surface and $\alpha : I \to S$ be a parametrised curve in $S$.
+	Let $t_0 \in I$ and $\mathbf{v} \in S_{\alpha(t_0)}$.
+	Then there exists a unique vector field $\mathbf{V}$ tangent to $S$ along $\alpha$ which is parallel and has $\mathbf{V}(t_0) = \mathbf{v}$.
 \end{theorem}
 \begin{proof}
-	Let $S$ be an $n$-surface with orientation $\mathbf{N}$. Suppose $\mathbf{V}$ is a vector field tangent to $S$ along $\alpha$ and is parallel. That is,$\mathbf{V}(t) \in S_{\alpha(t)}$ and $\mathbf{V}' = \mathbf{0}$.
+	Let $S$ be an $n$-surface with orientation $\mathbf{N}$.
+	Suppose $\mathbf{V}$ is a vector field tangent to $S$ along $\alpha$ and is parallel.
+	That is,$\mathbf{V}(t) \in S_{\alpha(t)}$ and $\mathbf{V}' = \mathbf{0}$.
 \begin{align*}
 	\mathbf{V}' = & \dot{\mathbf{V}} - \left[ \dot{\mathbf{V}} \cdot (\mathbf{N} \circ \alpha \right] (\mathbf{N} \circ \alpha) \\
 	= & \dot{\mathbf{V}} - \left[ \left(\mathbf{V} \cdot (\mathbf{N} \circ \alpha) \right)' - \mathbf{V} \cdot \dot{(\mathbf{N} \circ \alpha)} \right] (\mathbf{N} \circ \alpha) \\
@@ -657,26 +807,49 @@ Applying the properties of covariant derivative, we get
 	
 	By the existence and uniqueness theorem for first order differential equations, there exists $V_1(t), V_2(t), \dots, V_{n+1}(t)$ satisfying the sytem of equations with initial condition $\mathbf{V}(t_0) = \left( \alpha(t_0), V_1(t_0), V_2(t_0),\dots,V_{n+1}(t_0) \right) = \mathbf{v}$.\\
 
-	It remains to prove that $\mathbf{V}$ is tangent to $S$ along $\alpha$. By taking dot product with $\mathbf{N} \circ \alpha$ on either sides of equation(\ref{eq:parallelVectorField}), we get
+
+	It remains to prove that $\mathbf{V}$ is tangent to $S$ along $\alpha$.
+	By taking dot product with $\mathbf{N} \circ \alpha$ on either sides of equation(\ref{eq:parallelVectorField}), we get
 \begin{equation}
 	(\mathbf{V} \cdot \mathbf{N} \circ \alpha)'= \dot{\mathbf{V}} \cdot (\mathbf{N} \circ \alpha) + \mathbf{V} \cdot (\mathbf{N} \dot{\circ} \alpha) = \mathbf{0}
 \end{equation}
 
-	Thus, $\mathbf{V} \cdot (\mathbf{N} \circ \alpha) = \kappa$ is constant along $\alpha$. However, $\mathbf{V}(t_0) \cdot (\mathbf{N} \circ \alpha)(t_0) = \mathbf{v} \cdot N(\alpha(t_0)) = 0$ since $\mathbf{v} \in S_{\alpha(t)}$ is a tangent vector and $\mathbf{v} \perp \mathbf{N}$. Therefore, $\mathbf{V} \cdot (\mathbf{N} \circ \alpha) = 0$. And since $\mathbf{V}$ satisfies equation(\ref{eq:parallelVectorField}), this vector field is tangent to $S$ along $\alpha$ and is parallel.
+	Thus, $\mathbf{V} \cdot (\mathbf{N} \circ \alpha) = \kappa$ is constant along $\alpha$.
+	However, $\mathbf{V}(t_0) \cdot (\mathbf{N} \circ \alpha)(t_0) = \mathbf{v} \cdot N(\alpha(t_0)) = 0$ since $\mathbf{v} \in S_{\alpha(t)}$ is a tangent vector and $\mathbf{v} \perp \mathbf{N}$.
+	Therefore, $\mathbf{V} \cdot (\mathbf{N} \circ \alpha) = 0$.
+	And since $\mathbf{V}$ satisfies equation(\ref{eq:parallelVectorField}), this vector field is tangent to $S$ along $\alpha$ and is parallel.
 \end{proof}
 
 %	We claim that this \textbf{vector field $\mathbf{V}$ is well-defined on $I$.} \\
-%	Suppose the maximal interval on which $\mathbf{V}$ is defined in $\tilde{I} \subset I$, then the end points of $\tilde{I}$ are in $I$. Let $\{t_k\}$ be a sequence converging to an end point of $\tilde{I}$ say $b$. Then the sequence $\{V(t_k)\}$ is a bounded sequence and has a convergent subsequence as $I$ is compact. \dots to be updated
+%	Suppose the maximal interval on which $\mathbf{V}$ is defined in $\tilde{I} \subset I$, then the end points of $\tilde{I}$ are in $I$.
+%	Let $\{t_k\}$ be a sequence converging to an end point of $\tilde{I}$ say $b$.
+%	Then the sequence $\{V(t_k)\}$ is a bounded sequence and has a convergent subsequence as $I$ is compact.
+%	\dots to be updated
+
 
 \begin{corollary}
-	Let $S$ be a $2$-surface in $\mathbb{R}^3$ and let $\alpha : I \to S$ be a parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}} \ne \mathbf{0}$. Then the vector field $\mathbf{X}$ tangent to $S$ along $\alpha$ is parallel along $\alpha$ if and only if both $\|\mathbf{X}\|$ and the angle between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ are constant along $\alpha$.
+	Let $S$ be a $2$-surface in $\mathbb{R}^3$ and let $\alpha : I \to S$ be a parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}} \ne \mathbf{0}$.
+	Then the vector field $\mathbf{X}$ tangent to $S$ along $\alpha$ is parallel along $\alpha$ if and only if both $\|\mathbf{X}\|$ and the angle between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ are constant along $\alpha$.
 \end{corollary}
 \begin{proof}
-	\textbf{Sufficient Part : } Let $\mathbf{X}$ be a tangent vector field tangent to $S$ along $\alpha$. And $\alpha$ is a geodesic in $S$. Then $\mathbf{X}$ is parallel along $\alpha$. Also, we have $\dot{\boldsymbol{\alpha}}$ is also parallel along $\alpha$ since $(\dot{\boldsymbol{\alpha}})' = \mathbf{0}$. Thus $\|\mathbf{X}\|$ is constant and the angle between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ is constant by properties Levi-Civita parallelism.\\
+	\textbf{Sufficient Part : }
+	Let $\mathbf{X}$ be a tangent vector field tangent to $S$ along $\alpha$.
+	And $\alpha$ is a geodesic in $S$.
+	Then $\mathbf{X}$ is parallel along $\alpha$.
+	Also, we have $\dot{\boldsymbol{\alpha}}$ is also parallel along $\alpha$ since $(\dot{\boldsymbol{\alpha}})' = \mathbf{0}$.
+	Thus $\|\mathbf{X}\|$ is constant and the angle between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ is constant by properties Levi-Civita parallelism.\\
 
-	\textbf{Necessary Part : } Let $\mathbf{X}$ be a vector field tangent to $S$ along $\alpha$ and $\alpha$ is a geodesic in $S$. Then $\|\dot{\boldsymbol{\alpha}}\|$ is constant. Suppose $\|\mathbf{X}\|$ and the angle $\theta$ between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ are constant. Since $S$ is a $2$-surface, the tangent space $S_{\alpha(t)}$ is spanned by two tangent vectors $\mathbf{v}$ and $\dot{\boldsymbol{\alpha}}(t)$ such that $\mathbf{v} \perp \dot{\boldsymbol{\alpha}}(t)$ and $\|\mathbf{v}\| = 1$.\\
+
+	\textbf{Necessary Part : }
+	Let $\mathbf{X}$ be a vector field tangent to $S$ along $\alpha$ and $\alpha$ is a geodesic in $S$.
+	Then $\|\dot{\boldsymbol{\alpha}}\|$ is constant.
+	Suppose $\|\mathbf{X}\|$ and the angle $\theta$ between $\mathbf{X}$ and $\dot{\boldsymbol{\alpha}}$ are constant.
+	Since $S$ is a $2$-surface, the tangent space $S_{\alpha(t)}$ is spanned by two tangent vectors $\mathbf{v}$ and $\dot{\boldsymbol{\alpha}}(t)$ such that $\mathbf{v} \perp \dot{\boldsymbol{\alpha}}(t)$ and $\|\mathbf{v}\| = 1$.\\
+
 	
-	Let $\mathbf{V}$ be the unique vector field tangent to $S$ along $\alpha$ which is parallel, $\mathbf{V} \cdot \dot{\boldsymbol{\alpha}} = 0$ and $\|V\| = 1$. Then, any vector field $\mathbf{X}$ tangent to $S$ along $\alpha$ can be written as linear combination of $\mathbf{V}$ and $\dot{\boldsymbol{\alpha}}$. That is, $\mathbf{X} = f\dot{\boldsymbol{\alpha}} + g\mathbf{V}$
+	Let $\mathbf{V}$ be the unique vector field tangent to $S$ along $\alpha$ which is parallel, $\mathbf{V} \cdot \dot{\boldsymbol{\alpha}} = 0$ and $\|V\| = 1$.
+	Then, any vector field $\mathbf{X}$ tangent to $S$ along $\alpha$ can be written as linear combination of $\mathbf{V}$ and $\dot{\boldsymbol{\alpha}}$.
+	That is, $\mathbf{X} = f\dot{\boldsymbol{\alpha}} + g\mathbf{V}$
 
 	$$ \cos \theta = \frac{\mathbf{X} \cdot \dot{\boldsymbol{\alpha}}}{\| \mathbf{X}\|\ \|\dot{\boldsymbol{\alpha}}\|} = \frac{(f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) \cdot \dot{\boldsymbol{\alpha}}}{\|\mathbf{X}\|\ \|\dot{\boldsymbol{\alpha}}\|} = \frac{f \|\dot{\boldsymbol{\alpha}}\|}{\|\mathbf{X}\|} \implies f \text{ is constant}$$ 
 
@@ -686,19 +859,30 @@ Applying the properties of covariant derivative, we get
 \end{proof}
 
 \subsection{Transporting tangent vectors using parallelism}
-	Suppose you are standing on an $n$-surface with you hand stretched out as in a pledge. Then you can move on that surface along any smooth road (without sharp turns, bumps or potholes) from one point to another keeping your hand in the same position. This is what a parallel transport does to tangent vectors. And we can calculate the direction you will be pointing, at each point of your journey.
+	Suppose you are standing on an $n$-surface with you hand stretched out as in a pledge.
+	Then you can move on that surface along any smooth road (without sharp turns, bumps or potholes) from one point to another keeping your hand in the same position.
+	This is what a parallel transport does to tangent vectors.
+	And we can calculate the direction you will be pointing, at each point of your journey.
+
 
 \begin{definition}[Parallel transport]
-	Let $S$ be an $n$-surface. Let $p,q \in S$, and let $\alpha : [a,b] \to S$ be a (smooth) parametrised curve in $S$ from $p$ to $q$. \textbf{Parallel transport} is the function $P_\alpha : S_p \to S_q$ defined by $P_\alpha(\mathbf{v}) = \mathbf{V}(b)$ where $\mathbf{v} \in S_p$ and $\mathbf{V}$ is the unique vector field tangent to $S$ along $\alpha$ which is parallel and $\mathbf{V}(a) = \mathbf{v}$.
+	Let $S$ be an $n$-surface.
+	Let $p,q \in S$, and let $\alpha : [a,b] \to S$ be a (smooth) parametrised curve in $S$ from $p$ to $q$.
+	\textbf{Parallel transport} is the function $P_\alpha : S_p \to S_q$ defined by $P_\alpha(\mathbf{v}) = \mathbf{V}(b)$ where $\mathbf{v} \in S_p$ and $\mathbf{V}$ is the unique vector field tangent to $S$ along $\alpha$ which is parallel and $\mathbf{V}(a) = \mathbf{v}$.
 \end{definition}
 
 The following theorem says that, \textit{Parallel transports along piecewise smooth parametrised curves are vector space isomorphisms preserving dot products.}
 
 \begin{theorem}
-	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p,q \in S$ and let $\alpha$ be a piecewise smooth parametrised curve from $p$ to $q$. Then parallel transport $P_\alpha : S_p \to S_q$ along $\alpha$ is a vector space isomorphism which preserves dot products.
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$.
+	Let $p,q \in S$ and let $\alpha$ be a piecewise smooth parametrised curve from $p$ to $q$.
+	Then parallel transport $P_\alpha : S_p \to S_q$ along $\alpha$ is a vector space isomorphism which preserves dot products.
 \end{theorem}
 \begin{proof}
-	Let $S$ be an $n$-surface and $p,q \in S$. Let $\alpha : [a,b] \to S$ be a piecewise smooth parametrised curve from $p$ to $q$. Let $P_\alpha : S_p \to S_q$ be a parallel transport and $\mathbf{v},\mathbf{w} \in S_p$. Clearly, $\mathbf{v}+\mathbf{w}, c\mathbf{v} \in S_p$\\
+	Let $S$ be an $n$-surface and $p,q \in S$.
+	Let $\alpha : [a,b] \to S$ be a piecewise smooth parametrised curve from $p$ to $q$.
+	Let $P_\alpha : S_p \to S_q$ be a parallel transport and $\mathbf{v},\mathbf{w} \in S_p$.
+	Clearly, $\mathbf{v}+\mathbf{w}, c\mathbf{v} \in S_p$\\
 
 	To prove that $P_\alpha$ is a vector space isomorphism preserving dot products, we need to prove the following
 \begin{enumerate}
@@ -708,10 +892,12 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 		$$P_\alpha(c\mathbf{v}) = \left( c\mathbf{V} \right)(b) = c\mathbf{V}(b) = cP_\alpha(\mathbf{v})$$
 	\item $P_\alpha$ is bijective
 		$$\| P_\alpha(\mathbf{v}) \|= \|\mathbf{V}(b)\| = 0 \implies \| \mathbf{v} \| = 0 \implies \ker(P_\alpha) = \{ \mathbf{0} \}$$
-	Thus $P_\alpha$ is a linear map from $n$-dimensional vector space $S_p$ into another $n$-dimensional vector space $S_q$. Thus, $P_\alpha$ is onto.	
+	Thus $P_\alpha$ is a linear map from $n$-dimensional vector space $S_p$ into another $n$-dimensional vector space $S_q$.
+		Thus, $P_\alpha$ is onto.	
 	\item $P_\alpha$ preserves dot products, 
 		$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{v} \cdot \mathbf{w},\ \forall \mathbf{v},\mathbf{w} \in S_p$\\
-		We have, $\mathbf{V}$ and $\mathbf{W}$ are parallel along $\alpha$. Then $\mathbf{V} \cdot \mathbf{W}$ is constant.\\
+		We have, $\mathbf{V}$ and $\mathbf{W}$ are parallel along $\alpha$.
+		Then $\mathbf{V} \cdot \mathbf{W}$ is constant.\\
 		That is, $\mathbf{V}(t) \cdot \mathbf{W}(t) = \kappa$ for every $t \in [a,b]$.
 		$$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{V}(b) \cdot \mathbf{W}(b) = \kappa =  \mathbf{V}(a) \cdot \mathbf{W}(a) = \mathbf{v} \cdot \mathbf{w} $$
 \end{enumerate}
@@ -721,19 +907,26 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 \section{The Weingarten Map}
 	The Weingarten map $L_p$ gives information about the shape of a surface $S$ at a point $p \in S$.
 \begin{description}
-	\item[$\nabla_v f$] is the derivative of a function $f : U \to \mathbb{R}$ with respect to a vector tangent to $S$, say $\mathbf{v} = (p,v)$ where $U$ is an open subset of $\mathbb{R}^{n+1}$, $p \in U$ and $\alpha : I \to S$ is any parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}}(t_0) = \mathbf{v}$ and $\alpha(t_0) = p$. And $\nabla_v f$ is given by,
+	\item[$\nabla_v f$] is the derivative of a function $f : U \to \mathbb{R}$ with respect to a vector tangent to $S$, say $\mathbf{v} = (p,v)$ where $U$ is an open subset of $\mathbb{R}^{n+1}$, $p \in U$ and $\alpha : I \to S$ is any parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}}(t_0) = \mathbf{v}$ and $\alpha(t_0) = p$.
+		And $\nabla_v f$ is given by,
 	$$ \nabla_v f = (f \circ \alpha)'(t_0) = \nabla f(\alpha(t_0)) \cdot \dot{\boldsymbol{\alpha}}(t_0) = \nabla f(p) \cdot \mathbf{v}$$
-	For example : if $f(x_1,x_2) = x_1^2 - x_2^2$ and $\mathbf{v} = (1,1,\cos \theta, \sin \theta)$ Then, $p = (1,1)$, $v = (\cos \theta, \sin \theta)$ and $\nabla f = (x_1,x_2,2x_1,-2x_2)$. Therefore, $\nabla_v f = \nabla f(p) \cdot \mathbf{v} = (1,1,2,-2) \cdot (1,1,\cos \theta, \sin \theta) = 2\cos \theta -2 \sin \theta $.\\
+	For example : if $f(x_1,x_2) = x_1^2 - x_2^2$ and $\mathbf{v} = (1,1,\cos \theta, \sin \theta)$ Then, $p = (1,1)$, $v = (\cos \theta, \sin \theta)$ and $\nabla f = (x_1,x_2,2x_1,-2x_2)$.
+		Therefore, $\nabla_v f = \nabla f(p) \cdot \mathbf{v} = (1,1,2,-2) \cdot (1,1,\cos \theta, \sin \theta) = 2\cos \theta -2 \sin \theta $.\\
 
 	Note : $\nabla_v f$ is independent of the choice of $\alpha$.
 
-\item[$\nabla_v \mathbf{X}$] is the derivative of a smooth vector field $\mathbf{X}$ on open subset $U$ of $\mathbb{R}^{n+1}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$. And $\nabla_v \mathbf{X}$ is given by
+\item[$\nabla_v \mathbf{X}$] is the derivative of a smooth vector field $\mathbf{X}$ on open subset $U$ of $\mathbb{R}^{n+1}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$.
+	And $\nabla_v \mathbf{X}$ is given by
 	$$\nabla_v \mathbf{X} = \left(\alpha(t),\nabla_v X_1, \nabla_v X_2,\dots, \nabla_v X_{n+1} \right) $$
-	For example, if $\mathbf{X}(x_1,x_2) = (x_1,x_2,x_1x_2,x_2^2)$ and $\mathbf{v} = (1,0,0,1)$. Then $p = (1,0)$ and the component functions of the associated function $X$ are $X_1(x_1,x_2) = x_1x_2$ and $X_2(x_1,x_2) = x_2^2$.\\
+	For example, if $\mathbf{X}(x_1,x_2) = (x_1,x_2,x_1x_2,x_2^2)$ and $\mathbf{v} = (1,0,0,1)$.
+		Then $p = (1,0)$ and the component functions of the associated function $X$ are $X_1(x_1,x_2) = x_1x_2$ and $X_2(x_1,x_2) = x_2^2$.\\
 		
-	We have, $\nabla X_1(x_1,x_2) = (x_1,x_2,x_2,x_1)$, $\nabla X_2(x_1,x_2) = (x_1,x_2,0,2x_2)$. Thus, $\nabla_v X_1 = \nabla X_1(1,0) \cdot \mathbf{v} = (1,0,0,1) \cdot (1,0,0,1) = 1$ and\\ $\nabla_v X_2 = \nabla X_2(1,0) \cdot \mathbf{v} = (1,0,0,0) \cdot (1,0,0,1) = 0$. Therefore,\\ $\nabla_v \mathbf{X} = \left( 1,0,\nabla_v X_1,\nabla_v X_2 \right) = \left( 1,0,1,0 \right)$
+	We have, $\nabla X_1(x_1,x_2) = (x_1,x_2,x_2,x_1)$, $\nabla X_2(x_1,x_2) = (x_1,x_2,0,2x_2)$.
+		Thus, $\nabla_v X_1 = \nabla X_1(1,0) \cdot \mathbf{v} = (1,0,0,1) \cdot (1,0,0,1) = 1$ and\\ $\nabla_v X_2 = \nabla X_2(1,0) \cdot \mathbf{v} = (1,0,0,0) \cdot (1,0,0,1) = 0$.
+		Therefore,\\ $\nabla_v \mathbf{X} = \left( 1,0,\nabla_v X_1,\nabla_v X_2 \right) = \left( 1,0,1,0 \right)$
 
-\item[$D_v \mathbf{X}$] is the covariant derivative of the smooth vector field $\mathbf{X}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$, where $\mathbf{X}$ is tangent to $S$ along $\alpha$. And $D_v \mathbf{X}$ is given by,
+\item[$D_v \mathbf{X}$] is the covariant derivative of the smooth vector field $\mathbf{X}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$, where $\mathbf{X}$ is tangent to $S$ along $\alpha$.
+	And $D_v \mathbf{X}$ is given by,
 	$$D_v \mathbf{X} = \nabla_v \mathbf{X} - \left[ \nabla_v \mathbf{X} \cdot (\mathbf{N} \circ \alpha)\right] (\mathbf{N} \circ \alpha)$$
 	It is the component of the derivative $\nabla_v \mathbf{X}$ in the tangent space $S_p$.
 \end{description}
@@ -780,7 +973,14 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 \end{enumerate}
 
 \subsection{Properties of covariant differentiation, $D_v \mathbf{X}$}
-% In the text, the author states that $D_v$ have the same properties as $\nabla_v$. And we may change $\nabla$ to $D$. However, there is no reason for $\nabla_v f$ to have a covariante variant $D_v f$ as the $\nabla_v f$ is a real value which does't have components. Or you may write $\nabla_v f = D_v f$ since $\nabla_v f$ is a scalar/real value. I would prefer against $D_v f$ as it doesn't have a meaning. --- Check Exercise 9.5
+
+% In the text, the author states that $D_v$ have the same properties as $\nabla_v$.
+% And we may change $\nabla$ to $D$.
+% However, there is no reason for $\nabla_v f$ to have a covariante variant $D_v f$ as the $\nabla_v f$ is a real value which does't have components.
+% Or you may write $\nabla_v f = D_v f$ since $\nabla_v f$ is a scalar/real value.
+% I would prefer against $D_v f$ as it doesn't have a meaning.
+% --- Check Exercise 9.5
+
 \begin{enumerate}
 	\item $D_v (\mathbf{X} + \mathbf{Y}) = D_v \mathbf{X} + D_v \mathbf{Y}$
 	\begin{align*}
@@ -809,13 +1009,16 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 \end{enumerate}
 
 \subsection{Weingarten Map, $L_p$}
-	In the case of covariant derivatives along $\alpha$, we came across a linear map -- the parallel transport $P_\alpha$. Here in the case of covariant derivative with respect to a vector, we have another linear map -- the  Weingarten map $L_p$ given by
+	In the case of covariant derivatives along $\alpha$, we came across a linear map -- the parallel transport $P_\alpha$.
+	Here in the case of covariant derivative with respect to a vector, we have another linear map -- the  Weingarten map $L_p$ given by
 
 \begin{equation}
 	L_p(\mathbf{v}) = -\nabla_v \mathbf{N}
 \end{equation}
 	
-	Weingarten map tells us how much the tangent space turns/tilts as we move through $p$ along $\alpha$ on an $n$-surface $S$. It gives the information about the shape of $S$. And is the \textbf{shape operator} of $S$ at $p$.
+	Weingarten map tells us how much the tangent space turns/tilts as we move through $p$ along $\alpha$ on an $n$-surface $S$.
+	It gives the information about the shape of $S$.
+	And is the \textbf{shape operator} of $S$ at $p$.
 
 \subsection{Properties of Weingarten Map, $L_p$}
 \begin{enumerate}
@@ -831,7 +1034,8 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 		\ddot{\alpha}(t_0) \cdot \mathbf{N}(p) = & \mathbf{v} \cdot L_p(\mathbf{v}) \text{ since } (\mathbf{N} \dot{\circ} \alpha)(t_0) = \nabla_v \mathbf{N} = -L_p(\mathbf{v})
 	\end{align*}
 	\item Weingarten map is self adjoint, $L_p(\mathbf{v}) \cdot \mathbf{w} = \mathbf{v} \cdot L_p(\mathbf{w})$\\
-	Clearly, we have $\mathbf{v},\mathbf{w} \in S_{\alpha(t)}$ and $\nabla f \in S_{\alpha(t)}^\perp$. Also note that 
+	Clearly, we have $\mathbf{v},\mathbf{w} \in S_{\alpha(t)}$ and $\nabla f \in S_{\alpha(t)}^\perp$.
+		Also note that 
 	\begin{align*}
 		\nabla f(p) = & \left( p,\dfrac{\partial f}{\partial x_1}(p),\dfrac{\partial f}{\partial x_2}(p),\dots,\dfrac{\partial f}{\partial x_{n+1}}(p) \right) \\
 		\nabla_v (\nabla f(p)) = & \left( p, \nabla_v \dfrac{\partial f}{\partial x_1}(p),\nabla_v \dfrac{\partial f}{\partial x_2}(p),\dots, \nabla_v \dfrac{\partial f}{\partial x_{n+1}}(p) \right) \\
@@ -855,49 +1059,75 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 %\chapter{The Curvature of Plane Curves}
 \section{The Curvature of Plane Curves}
 \begin{description}
-	\item[curvature] Let $C$ be plane curve in $\mathbb{R}^2$. The curvature of $C$ is the function $\kappa : \mathbb{R}^2 \to \mathbb{R}$ defined by $\kappa(p) = L_p(\mathbf{v}) \cdot \mathbf{v} /\|\mathbf{v}\|^2$\\
+	\item[curvature] Let $C$ be plane curve in $\mathbb{R}^2$.
+		The curvature of $C$ is the function $\kappa : \mathbb{R}^2 \to \mathbb{R}$ defined by $\kappa(p) = L_p(\mathbf{v}) \cdot \mathbf{v} /\|\mathbf{v}\|^2$\\
 
 	For a parametrised curve $\alpha$ in $C$ with $\dot{\boldsymbol{\alpha}} \ne \mathbf{0}$,
 		$$\kappa(\alpha(t)) = \frac{\ddot{\boldsymbol{\alpha}}(t) \cdot (\mathbf{N} \circ \alpha(t))}{\| \dot{\boldsymbol{\alpha}}(t)\|^2}$$
 		For unit speed parametrised curve passing through $p$, curvature at $p$ is the normal component of acceleration at that point.
-	\item[local parametrisation of plane curve] Let $C$ be a plane curve in $\mathbb{R}^2$. Then $C$ is an oriented $1$-surface. Parametrisation of a segment of $C$ containing $p$ is a function $\alpha : I \to C$ such that
+	\item[local parametrisation of plane curve] Let $C$ be a plane curve in $\mathbb{R}^2$.
+		Then $C$ is an oriented $1$-surface.
+		Parametrisation of a segment of $C$ containing $p$ is a function $\alpha : I \to C$ such that
 	\begin{enumerate}
-		\item $\alpha$ is regular. That is, $\dot{\boldsymbol{\alpha}}(t) \ne \mathbf{0},\ \forall t \in I$
-		\item $\alpha$ is consistently oriented with $C$. That is, the orientation at $\alpha(t)$ should be the same as that of $C$ at that point.
+		\item $\alpha$ is regular.
+			That is, $\dot{\boldsymbol{\alpha}}(t) \ne \mathbf{0},\ \forall t \in I$
+		\item $\alpha$ is consistently oriented with $C$.
+			That is, the orientation at $\alpha(t)$ should be the same as that of $C$ at that point.
 		\item $p \in \alpha(I)$
 	\end{enumerate}
-\item[circle of curvature] Let $C$ be a plane curve in $\mathbb{R}^2$ with orientation $\mathbf{N}$. The circle of curvature of $C$ at a point $p$ is the unique oriented circle $O$ with orientation $\mathbf{N}_1$ such that
+\item[circle of curvature] Let $C$ be a plane curve in $\mathbb{R}^2$ with orientation $\mathbf{N}$.
+	The circle of curvature of $C$ at a point $p$ is the unique oriented circle $O$ with orientation $\mathbf{N}_1$ such that
 	\begin{enumerate}
 		\item $O$ is tangent to $C$ at $p$, $C_p = O_p$.
 		\item $O$ is oriented consistently with $C$, $\mathbf{N}(p) = \mathbf{N}_1(p)$ and
 		\item Its normal turns at the same rate at $p$ as the normal of the plane curve $C$, $\nabla_v \mathbf{N} = \nabla_v \mathbf{N}_1$
 	\end{enumerate}
 		This circle, $O$ is the circle which huges the curve $C$ closest among all circles containing $p$.
-		\item $\alpha$ is regular. That is, $\dot{\boldsymbol{\alpha}}(t) \ne \mathbf{0},\ \forall t \in I$
-		\item[radius of curvature] The radius of the circle of curvature of $C$ at point $p$. And radius of curvature, $r = 1/|\kappa(p)|$.
+		\item $\alpha$ is regular.
+			That is, $\dot{\boldsymbol{\alpha}}(t) \ne \mathbf{0},\ \forall t \in I$
+		\item[radius of curvature] The radius of the circle of curvature of $C$ at point $p$.
+			And radius of curvature, $r = 1/|\kappa(p)|$.
 	\item[center of curvature] The center of the circle of curvature of $C$ at point $p$.
 \end{description}
 
 \paragraph{Meaning of Sign of Curvature}
-	If curvature at $p$ is positive, $\kappa(p) > 0$ then the curve at $p$ is turning towards $\mathbf{N}(p)$. If curvature at $p$ is negative, $\kappa(p) < 0$ then the curve at $p$ is turning away from $\mathbf{N}(p)$.
+	If curvature at $p$ is positive, $\kappa(p) > 0$ then the curve at $p$ is turning towards $\mathbf{N}(p)$.
+	If curvature at $p$ is negative, $\kappa(p) < 0$ then the curve at $p$ is turning away from $\mathbf{N}(p)$.
 
 \paragraph{Construction of a local parametrisation}
-	We have, $C = f^{-1}(c)$ where $\nabla f(q) \ne \mathbf{0}$. Consider $\mathbf{X}(q) =\left( q,\dfrac{\partial f}{\partial x_2}(q),-\dfrac{\partial f}{\partial x_1}(q) \right)$. The maximal integral curve $\alpha$ through $p$ in $\mathbf{X}$ is a local parametrisation of a segment of $C$ containing $p$.\\
+	We have, $C = f^{-1}(c)$ where $\nabla f(q) \ne \mathbf{0}$.
+	Consider $\mathbf{X}(q) =\left( q,\dfrac{\partial f}{\partial x_2}(q),-\dfrac{\partial f}{\partial x_1}(q) \right)$.
+	The maximal integral curve $\alpha$ through $p$ in $\mathbf{X}$ is a local parametrisation of a segment of $C$ containing $p$.\\
 
-	For example, (refer : Exercise 10.3c) $f(x_1,x_2) = x_2-ax_1^2$. Then $C = f^{-1}(c) = \{ (x_1,x_2) \in \mathbb{R}^2 : x_2-ax_1^2 = c,\ a \ne 0\}$. The global parametrisation of $C$ with orientation $\nabla f/\|\nabla f\|$ can be obtained by constructing the maximal integral curve for each segment of a piecewise smooth plane curve. Since the given curve is smooth, it is sufficient to construct one integral curve through any point on that curve.\\
+	For example, (refer : Exercise 10.3c) $f(x_1,x_2) = x_2-ax_1^2$.
+	Then $C = f^{-1}(c) = \{ (x_1,x_2) \in \mathbb{R}^2 : x_2-ax_1^2 = c,\ a \ne 0\}$.
+	The global parametrisation of $C$ with orientation $\nabla f/\|\nabla f\|$ can be obtained by constructing the maximal integral curve for each segment of a piecewise smooth plane curve.
+	Since the given curve is smooth, it is sufficient to construct one integral curve through any point on that curve.\\
 
-	We have, $\dfrac{dx_1}{dt}(t) = -2ax_1(t)$ and $\dfrac{dx_2}{dt} = 1$. Thus, $x_1(t) = \cos 2at+c_1$ and $x_2(t) = t+c_2$. We have $(0,c) \in C$ since $c - a0^2 = c$. Therefore, $x_1(0) = 0 = c_1$ and $x_2(0) = c = c_2$. Thus, we have $\alpha : I \to \mathbb{R}^2$ given by $\alpha(t) = (\cos 2at, t+c)$ as a global parametrisation of $C$.
+
+	We have, $\dfrac{dx_1}{dt}(t) = -2ax_1(t)$ and $\dfrac{dx_2}{dt} = 1$.
+	Thus, $x_1(t) = \cos 2at+c_1$ and $x_2(t) = t+c_2$.
+	We have $(0,c) \in C$ since $c - a0^2 = c$.
+	Therefore, $x_1(0) = 0 = c_1$ and $x_2(0) = c = c_2$.
+	Thus, we have $\alpha : I \to \mathbb{R}^2$ given by $\alpha(t) = (\cos 2at, t+c)$ as a global parametrisation of $C$.
 
 \subsection{Unit speed local parametrisation of $C$ is unique.}
 \begin{theorem}
 Local parametrisations of plane curves are unique upto reparametrisation.
 \end{theorem}
 \begin{proof}
-	Let $\alpha$ be the unit speed local parametrisation which is the maximal integral curve through $p$. Let $\beta : \tilde{I} \to C$ be any parametrisation of a segment of $C$ containing $p$. Then it is enough to prove that there exists a smooth function $h : \tilde{I} \to \mathbb{R}$ such that $h'(t) > 0$ and $\beta(t) = \alpha(h(t))$ for every $t \in \tilde{I}$.\\
+	Let $\alpha$ be the unit speed local parametrisation which is the maximal integral curve through $p$.
+	Let $\beta : \tilde{I} \to C$ be any parametrisation of a segment of $C$ containing $p$.
+	Then it is enough to prove that there exists a smooth function $h : \tilde{I} \to \mathbb{R}$ such that $h'(t) > 0$ and $\beta(t) = \alpha(h(t))$ for every $t \in \tilde{I}$.\\
+
 
 	Define $h : \tilde{I} \to \mathbb{R}$ defined by $$h(t) = \int_{t_0}^t \| \dot{\boldsymbol{\beta}}(u) \| du$$
+
 	
-	Clearly, $h$ is monotone, $h(t_0) = 0$ and $h'(t) = \| \dot{\boldsymbol{\beta}}(t) \|$. Since $h$ is monotone and strictly increasing, $h(h^{-1}(t)) = t$. Thus, $(h \circ h^{-1})'(t) = h'(h^{-1}(t)) (h^{-1})'(t)$. Therefore,  $(h^{-1})'(t) = 1/h'(h^{-1}(t))$.\\ 
+	Clearly, $h$ is monotone, $h(t_0) = 0$ and $h'(t) = \| \dot{\boldsymbol{\beta}}(t) \|$.
+	Since $h$ is monotone and strictly increasing, $h(h^{-1}(t)) = t$.
+	Thus, $(h \circ h^{-1})'(t) = h'(h^{-1}(t)) (h^{-1})'(t)$.
+	Therefore,  $(h^{-1})'(t) = 1/h'(h^{-1}(t))$.\\ 
 	
 	Now, $\beta \circ h^{-1}$ is a reparametrised curve with velocity, $(\boldsymbol{\beta} \dot{\circ} h^{-1})(t)$ given by,
 	\begin{align*}
@@ -907,60 +1137,108 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 		\intertext{We know that, $\mathbf{X}(\beta(h^{-1}(t)))$ spans the tangent space $S_{\beta(h^{-1}(t))}$.}
 		= & \mathbf{X}(\beta(h^{-1}(t)) \text{ since } \beta \dot{\circ} h^{-1}(t)/\| \beta \dot{\circ} h^{-1} (t)\| = \mathbf{X}(\beta(h^{-1}(t)))
 	\end{align*}
-	Thus, $\beta \circ h^{-1}$ is an integral curve through $p$ in $\mathbf{X}$. By uniqueness of integral curves, $\beta \circ h^{-1}(t) = \alpha(t)$ for all $t \in \tilde{I}$.
+	Thus, $\beta \circ h^{-1}$ is an integral curve through $p$ in $\mathbf{X}$.
+	By uniqueness of integral curves, $\beta \circ h^{-1}(t) = \alpha(t)$ for all $t \in \tilde{I}$.
 \end{proof}
 
 %\chapter{Arc Length and Line Integrals}
 \section{Arc Length and Line Integrals}
 \begin{description}
-	\item[length of arc] The length of parametrised arc $\alpha$ is the integral of its speed. Let $\alpha : [a,b] \to \mathbb{R}^{n+1}$. Length of $\alpha$ is
+	\item[length of arc] The length of parametrised arc $\alpha$ is the integral of its speed.
+		Let $\alpha : [a,b] \to \mathbb{R}^{n+1}$.
+		Length of $\alpha$ is
 	\begin{equation}
 		l(\alpha) = \int_a^b \| \dot{\boldsymbol{\alpha}}(t) \| dt
 	\end{equation}
 
-	For Example (refer : Exercise 11.4) : Given $\alpha: [0,2\pi] \to \mathbb{R}^4$, $\alpha(t) = (\cos t,\sin t, \cos t,\sin t)$. Then, $\dot{\boldsymbol{\alpha}}(t) = (\alpha(t),-\sin t,\cos t,-\sin t,\cos t)$. We have, $\| \dot{\boldsymbol{\alpha}}(t) \| = \sqrt{\sin^2 t+\cos^2 t+\sin^2 t+ \cos^2 t} = \sqrt{2}$. Therefore, $l(\alpha) = \int_0^{2\pi} \sqrt{2}dt = 2\sqrt{2}\pi$.\\
+	For Example (refer : Exercise 11.4) : Given $\alpha: [0,2\pi] \to \mathbb{R}^4$, $\alpha(t) = (\cos t,\sin t, \cos t,\sin t)$.
+		Then, $\dot{\boldsymbol{\alpha}}(t) = (\alpha(t),-\sin t,\cos t,-\sin t,\cos t)$.
+		We have, $\| \dot{\boldsymbol{\alpha}}(t) \| = \sqrt{\sin^2 t+\cos^2 t+\sin^2 t+ \cos^2 t} = \sqrt{2}$.
+		Therefore, $l(\alpha) = \int_0^{2\pi} \sqrt{2}dt = 2\sqrt{2}\pi$.\\
 
-	\textbf{Note} : Length of arc is the total distance travelled.\\
-	For example : $\alpha_1 : [0,2\pi] \to \mathbb{R}^2$ defined by $\alpha_1(t) = (\cos t,\sin t)$ has its length $2\pi$, the perimeter of unit circle. But, for $\alpha_2 : [0,4\pi] \to \mathbb{R}^2$ defined by $\alpha_2(t) = (\cos t,\sin t)$ has its length $4\pi$. And $\alpha : \mathbb{R} \to \mathbb{R}^2$ defined by $\alpha(t) = (\cos t,\sin t)$ has its length $+\infty$.
+
+
+	\textbf{Note :} 
+		Length of arc is the total distance travelled.\\
+	For example : $\alpha_1 : [0,2\pi] \to \mathbb{R}^2$ defined by $\alpha_1(t) = (\cos t,\sin t)$ has its length $2\pi$, the perimeter of unit circle.
+		But, for $\alpha_2 : [0,4\pi] \to \mathbb{R}^2$ defined by $\alpha_2(t) = (\cos t,\sin t)$ has its length $4\pi$.
+		And $\alpha : \mathbb{R} \to \mathbb{R}^2$ defined by $\alpha(t) = (\cos t,\sin t)$ has its length $+\infty$.
 \end{description}
 
 \subsection{Properties of Arc Length}
 \begin{enumerate}
 	\item Arc length is preserved under reparametrisation.\\
-		Let $\alpha : [a,b] \to \mathbb{R}^{n+1}$ be a parametrised curve. And let $\beta : [c,d] \to \mathbb{R}^{n+1}$ be a reparametrisation of $\alpha$ defined by $\beta(t) = \alpha(h(t))$ where $h : [a,b] \to [c,d]$. Then length of $\beta$ is given by,
+		Let $\alpha : [a,b] \to \mathbb{R}^{n+1}$ be a parametrised curve.
+		And let $\beta : [c,d] \to \mathbb{R}^{n+1}$ be a reparametrisation of $\alpha$ defined by $\beta(t) = \alpha(h(t))$ where $h : [a,b] \to [c,d]$.
+		Then length of $\beta$ is given by,
 	\begin{align*}
 		l(\beta) = & \int_c^d \| \dot{\beta}(t)\|\ dt \\
 		= & \int_c^d \|\dot{\alpha}(h(t))\|h'(t)\ dt\\
 		= & \int_a^b \|\alpha(u)\|\ du = l(\alpha)
 	\end{align*}
 	\item Unit speed arcs are parametrised by arc length.\\
-		Let $\alpha$ be a unit speed parametrised curve. That is, $\|\dot{\alpha}\| = 1$. Therefore $l(\alpha) = \int_a^b dt = b-a$. Clearly, length of the arc is the length of the parameter interval.
+		Let $\alpha$ be a unit speed parametrised curve.
+		That is, $\|\dot{\alpha}\| = 1$.
+		Therefore $l(\alpha) = \int_a^b dt = b-a$.
+		Clearly, length of the arc is the length of the parameter interval.
 \end{enumerate}
 
 %Theorem 11.1
 \begin{theorem}[Existence of Global Parametrisation]
-	Let $C$ be an oriented plane curve. Then there exists a global parametrisation of $C$ if and only if $C$ is connected.
+	Let $C$ be an oriented plane curve.
+	Then there exists a global parametrisation of $C$ if and only if $C$ is connected.
 \end{theorem}
 \begin{proof}
-	\textbf{Sufficient Part : } Suppose plane curve $C$ has a global parametrisation, $\alpha : I \to \mathbb{R}^{n+1}$. Let $p,q \in C$, then $p = \alpha(t_1)$ and $q = \alpha(t_2)$ for some $t_1,t_2 \in I$. WLOG $t_1 < t_2$ and clearly, there exists a path from $p$ to $q$ obtained restricting $\alpha$ to $[t_1,t_2]$. Therefore, the plane curve $C$ is path-connected and thus connected. \\
+	\textbf{Sufficient Part : } Suppose plane curve $C$ has a global parametrisation, $\alpha : I \to \mathbb{R}^{n+1}$.
+	Let $p,q \in C$, then $p = \alpha(t_1)$ and $q = \alpha(t_2)$ for some $t_1,t_2 \in I$.
+	WLOG $t_1 < t_2$ and clearly, there exists a path from $p$ to $q$ obtained restricting $\alpha$ to $[t_1,t_2]$.
+	Therefore, the plane curve $C$ is path-connected and thus connected. \\
 
 	\textbf{Necessary Part : Step 1 Construction of $\alpha$}\\
-	Let $\mathbf{X}$ be the unit tangent vector field on $C$ (obtained by rotating $\nabla f$ by an angle of $-\pi/2$ and orientation $\mathbf{N} = \nabla f / \| \nabla f \|$). Suppose the plane curve $C = f^{-1}(c)$ is connected. Let $p \in C$ and $\alpha$ be the local parametrisation of $C$ at $p$, which is nothing but the maximal integral curve of $\mathbf{X}$ through $p$.
-	Let $p_1 \in C$. Parametrisation $\alpha$ is global if $p_1 \in Image\ \alpha$.\\
+	Let $\mathbf{X}$ be the unit tangent vector field on $C$ (obtained by rotating $\nabla f$ by an angle of $-\pi/2$ and orientation $\mathbf{N} = \nabla f / \| \nabla f \|$).
+	Suppose the plane curve $C = f^{-1}(c)$ is connected.
+	Let $p \in C$ and $\alpha$ be the local parametrisation of $C$ at $p$, which is nothing but the maximal integral curve of $\mathbf{X}$ through $p$.
+	Let $p_1 \in C$.
+	Parametrisation $\alpha$ is global if $p_1 \in Image\ \alpha$.\\
 	
+
 	\textbf{Step 2 : Construction of $\beta$}\\
-	The plane curve $C$ is connected. Thus there exists a continuous path $\beta$ from $p$ to $p_1$ where $\beta : [a,b] \to C$ with $\beta(a) = p$ and $\beta(b) = p_1$. \textit{We have, $\beta(a) \in Image\ \alpha$. But, $\beta(b) \notin Image\ \alpha$.} Let $t_0 = \sup \{ t \in [a,b] : \beta(t) \in Image\ \alpha \}$, the least upper bound of the points which are in $Image\ \alpha$. \textit{ That is, if $t > t_0$, then $\beta(t) \notin Image\ \alpha$. And if $t<t_0$, then there exists an $\epsilon > 0$ such that $\beta(t+\epsilon) \in Image\ \alpha$. Otherwise, $t_0$ is not the supremum.}\\
+	The plane curve $C$ is connected.
+	Thus there exists a continuous path $\beta$ from $p$ to $p_1$ where $\beta : [a,b] \to C$ with $\beta(a) = p$ and $\beta(b) = p_1$.
+	\textit{We have, $\beta(a) \in Image\ \alpha$.
+	But, $\beta(b) \notin Image\ \alpha$.}
+	Let $t_0 = \sup \{ t \in [a,b] : \beta(t) \in Image\ \alpha \}$, the least upper bound of the points which are in $Image\ \alpha$.
+	\textit{ That is, if $t > t_0$, then $\beta(t) \notin Image\ \alpha$.
+	And if $t<t_0$, then there exists an $\epsilon > 0$ such that $\beta(t+\epsilon) \in Image\ \alpha$.
+	Otherwise, $t_0$ is not the supremum.}\\
+
 
 	\textbf{Step 3 : Construction of $\gamma$}\\
-	Let $\gamma$ be the maximal integral curve of $\mathbf{X}$ through $\beta(t_0) = p_0$. {\color{blue}Suppose there exists an open rectangle $B$ about $\beta(t_0) = p_0$ such that $C \cap B \subset Image\ \gamma$.} Then by the continuity of $\beta$, there exists $\delta > 0$ such that $\beta(t) \in Image\ \gamma$ for all $t \in (t_0-\delta,t_0+\delta)$. Thus, there exists $\epsilon > 0$ such that $\epsilon < \delta$ and $\beta(t_0-\epsilon) \in Image\ \gamma$. Since $t_0$ is the least upper bound, $\beta(t_0-\epsilon) \in Image\ \alpha$ as well. Thus, $\alpha$ and $\gamma$ are maximal integral curves through a common point (in the neighbourhood of $p_0$). And thus, $Image\ \alpha = Image\ \gamma$. Clearly, $p_1 \in Image\ \alpha$. Therefore, the parametrisation $\alpha$ is global. Therefore it is sufficient to prove that there exists an open box $B$ such that $C \cap B \subset Image\ \gamma$.\\
+	Let $\gamma$ be the maximal integral curve of $\mathbf{X}$ through $\beta(t_0) = p_0$.
+	{\color{blue}Suppose there exists an open rectangle $B$ about $\beta(t_0) = p_0$ such that $C \cap B \subset Image\ \gamma$.}
+	Then by the continuity of $\beta$, there exists $\delta > 0$ such that $\beta(t) \in Image\ \gamma$ for all $t \in (t_0-\delta,t_0+\delta)$.
+	Thus, there exists $\epsilon > 0$ such that $\epsilon < \delta$ and $\beta(t_0-\epsilon) \in Image\ \gamma$.
+	Since $t_0$ is the least upper bound, $\beta(t_0-\epsilon) \in Image\ \alpha$ as well.
+	Thus, $\alpha$ and $\gamma$ are maximal integral curves through a common point (in the neighbourhood of $p_0$).
+	And thus, $Image\ \alpha = Image\ \gamma$.
+	Clearly, $p_1 \in Image\ \alpha$.
+	Therefore, the parametrisation $\alpha$ is global.
+	Therefore it is sufficient to prove that there exists an open box $B$ such that $C \cap B \subset Image\ \gamma$.\\
+
 
 	\textbf{Step 4 : Construction of $A$}\\
-	Let $u = (\frac{\partial f}{\partial x_2}(p_0),\frac{-\partial f}{\partial x_1}(p_0))$ and $v  = (\frac{\partial f}{\partial x_1}(p_0),\frac{\partial f}{\partial x_2}(p_0))$. Clearly, $\mathbf{u} = (p_0,u) \in C_{p_0}$ and $\mathbf{v} = (p_0,v) \perp C_{p_0}$. Consider the open rectangle $A$ given by,
+	Let $u = (\frac{\partial f}{\partial x_2}(p_0),\frac{-\partial f}{\partial x_1}(p_0))$ and $v  = (\frac{\partial f}{\partial x_1}(p_0),\frac{\partial f}{\partial x_2}(p_0))$.
+	Clearly, $\mathbf{u} = (p_0,u) \in C_{p_0}$ and $\mathbf{v} = (p_0,v) \perp C_{p_0}$.
+	Consider the open rectangle $A$ given by,
 	$$A = \{p_0+ru+sv : |r| < \epsilon_1,\ |s| < \epsilon_2 \}$$
-	where $\epsilon_1, \epsilon_2$ are so chosen that $A$ is contained in the domain of $f$ and $\nabla f(q) \cdot (q,v) > 0$ for every $q \in A$. Since $\nabla f(p_0) \cdot \mathbf{v} \ne 0$, by continuity of $\nabla f(q) \cdot (q,v)$ there exists a neighbourhood of $p_0$ in which this function is positive.\\
+	where $\epsilon_1, \epsilon_2$ are so chosen that $A$ is contained in the domain of $f$ and $\nabla f(q) \cdot (q,v) > 0$ for every $q \in A$.
+	Since $\nabla f(p_0) \cdot \mathbf{v} \ne 0$, by continuity of $\nabla f(q) \cdot (q,v)$ there exists a neighbourhood of $p_0$ in which this function is positive.\\
+
 
 	\textbf{Step 5 : Construction of $\{ g_r \}$}\\
-	Consider the family of functions $\{ g_r \}$ defined by $g_r(s) = f(p_0+ru+sv)$. Since $\nabla f(q) \cdot (q,v) > 0$ for every $q \in A$, for $|r| < \epsilon_1$, $g_r(s)$ is strictly increasing in $(-\epsilon_2,\epsilon_2)$ as $g_r'(s) > 0$. %why ?
+	Consider the family of functions $\{ g_r \}$ defined by $g_r(s) = f(p_0+ru+sv)$.
+	Since $\nabla f(q) \cdot (q,v) > 0$ for every $q \in A$, for $|r| < \epsilon_1$, $g_r(s)$ is strictly increasing in $(-\epsilon_2,\epsilon_2)$ as $g_r'(s) > 0$.
+	%why ?
 	That is, there exists at most one $s \in (-\epsilon_2,\epsilon_2)$ such that $f(p_0+ru+sv) =c$.
 
 	\textbf{Step 6 : Construction of $B$}\\
@@ -982,41 +1260,72 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 		h_2(t) = \frac{(\gamma(t)-p_0) \cdot \mathbf{v}}{\| v\|^2}
 	\end{equation}
 
-	Now, $h_1'(0) = \dot{\gamma}(0) \cdot (p_0,u/\|u\|^2) = \mathbf{X}(p_0) \cdot \mathbf{X}(p_0)/\|\mathbf{X}(p_0)\|^2 = 1$. And $h_1(0) = 0$ and $h_2(0) = 0$. Thus, there exists $(t_1,t_2)$ containing $0$ such that $\gamma(t) \in A$ and $h_1'(t) > 0$ for every $t \in (t_1,t_2)$. Set $r_1 = h_1(t_1)$ and $r_2 = h_1(t_2)$. Since $h_1$ is continuous and strictly increasing, for every $r \in (r_1,r_2)$ there exists $t \in (t_1,t_2)$ such that $r=h_1(t)$ and $s = h_2(t)$.
+	Now, $h_1'(0) = \dot{\gamma}(0) \cdot (p_0,u/\|u\|^2) = \mathbf{X}(p_0) \cdot \mathbf{X}(p_0)/\|\mathbf{X}(p_0)\|^2 = 1$.
+	And $h_1(0) = 0$ and $h_2(0) = 0$.
+	Thus, there exists $(t_1,t_2)$ containing $0$ such that $\gamma(t) \in A$ and $h_1'(t) > 0$ for every $t \in (t_1,t_2)$.
+	Set $r_1 = h_1(t_1)$ and $r_2 = h_1(t_2)$.
+	Since $h_1$ is continuous and strictly increasing, for every $r \in (r_1,r_2)$ there exists $t \in (t_1,t_2)$ such that $r=h_1(t)$ and $s = h_2(t)$.
 
 	\begin{equation}
 		\text{Define } B = \{ p_0 + ru + sv : r \in (r_1,r_2), |s| < \epsilon_2 \}
 	\end{equation}
-	Then $p_0 + ru + su \in B \cap C$ if and only if there exists $t \in (t_1,t_2)$ such that $r = h_1(t)$, and $s=h_2(t)$. That is, $p_0 + ru + sv \in Image\ \gamma$. Therefore, $C \cap B \subset Image\ \gamma$ as required in Step 3.
+	Then $p_0 + ru + su \in B \cap C$ if and only if there exists $t \in (t_1,t_2)$ such that $r = h_1(t)$, and $s=h_2(t)$.
+	That is, $p_0 + ru + sv \in Image\ \gamma$.
+	Therefore, $C \cap B \subset Image\ \gamma$ as required in Step 3.
 \end{proof}
 
 \begin{theorem}
-	Let $C$ be a connected oriented plane curve and let $\beta : I \to C$ be a unit speed global parametrisation of $C$. Then $\beta$ is either one to one or periodic. Moreover, $\beta$ is periodic if and only if $C$ is compact.
+	Let $C$ be a connected oriented plane curve and let $\beta : I \to C$ be a unit speed global parametrisation of $C$.
+	Then $\beta$ is either one to one or periodic.
+	Moreover, $\beta$ is periodic if and only if $C$ is compact.
 \end{theorem}
 \begin{proof}
-	Suppose $\beta(t_1) = \beta(t_2)$ for some $t_1,t_2 \in I$ ($t_1 \ne t_2$). Let $\mathbf{X}$ be the unit tangent vector field on $C$. And let $\alpha$ be the maximal integral curve of $\mathbf{X}$ through $\beta(t_1)$. That is, $\alpha(0) = \beta(t_1) = \beta(t_2)$. Since $\beta$ is a unit speed global parametrisation of $C$, $\beta$ is also a maximal integral curve of $\mathbf{X}$. Thus, $\beta$ is a reparametrisation of $\beta$. Thus, $\beta(t) = \alpha(t-t_1)$ and $\beta(t) = \alpha(t-t_2)$. Let $\tau = t_2-t_1$. Then $\beta(t) = \alpha(t-t_1) = \alpha(t-t_2) = \alpha(t-t_2+t_2-t_1) = \alpha(t+\tau-t_1) = \beta(t+\tau)$. Therefore, $\beta$ is periodic. \\
+	Suppose $\beta(t_1) = \beta(t_2)$ for some $t_1,t_2 \in I$ ($t_1 \ne t_2$).
+	Let $\mathbf{X}$ be the unit tangent vector field on $C$.
+	And let $\alpha$ be the maximal integral curve of $\mathbf{X}$ through $\beta(t_1)$.
+	That is, $\alpha(0) = \beta(t_1) = \beta(t_2)$.
+	Since $\beta$ is a unit speed global parametrisation of $C$, $\beta$ is also a maximal integral curve of $\mathbf{X}$.
+	Thus, $\beta$ is a reparametrisation of $\beta$.
+	Thus, $\beta(t) = \alpha(t-t_1)$ and $\beta(t) = \alpha(t-t_2)$.
+	Let $\tau = t_2-t_1$.
+	Then $\beta(t) = \alpha(t-t_1) = \alpha(t-t_2) = \alpha(t-t_2+t_2-t_1) = \alpha(t+\tau-t_1) = \beta(t+\tau)$.
+	Therefore, $\beta$ is periodic. \\
 
-	Suppose $\beta$ is periodic, then its continuous image, $C = \beta[t,t+\tau]$ is compact. Suppose $\beta$ is not periodic, then $\beta$ is one to one. Then, $C$ is not compact as $\beta^{-1}$ doesn't attain its extrema. Thus, it is enough to prove that $\beta^{-1}$ is continuous.\\
 
-	Given $t_0 \in I$ and $\epsilon > 0$, define $\gamma(t) = \beta(t+t_0)$ such that $|t| < \epsilon$ and $t+t_0 \in I$. Chose an open rectangle $B$ about $p_0 = \beta(t_0)$ such that $C \cap B \subset Image\ \gamma$. Then, $|\beta^{-1}(p) - t_0 | = | \gamma^{-1}(p) | < \epsilon$ for every $p \in C \cap B$.\\
+	Suppose $\beta$ is periodic, then its continuous image, $C = \beta[t,t+\tau]$ is compact.
+	Suppose $\beta$ is not periodic, then $\beta$ is one to one.
+	Then, $C$ is not compact as $\beta^{-1}$ doesn't attain its extrema.
+	Thus, it is enough to prove that $\beta^{-1}$ is continuous.\\
 
-	Therefore it is enough to prove that such an open rectangle $B$ exists. The construction of which is given in previous proof.
+
+	Given $t_0 \in I$ and $\epsilon > 0$, define $\gamma(t) = \beta(t+t_0)$ such that $|t| < \epsilon$ and $t+t_0 \in I$.
+	Chose an open rectangle $B$ about $p_0 = \beta(t_0)$ such that $C \cap B \subset Image\ \gamma$.
+	Then, $|\beta^{-1}(p) - t_0 | = | \gamma^{-1}(p) | < \epsilon$ for every $p \in C \cap B$.\\
+
+
+	Therefore it is enough to prove that such an open rectangle $B$ exists.
+	The construction of which is given in previous proof.
 \end{proof}
 
 \begin{description}
-	\item[Fundamental Domain] Let $\beta$ be a periodic parametrised plane curve with period $\tau$. Then any subset $[t_0,t_0+\tau]$ of its domain is a fundamental domain of $\beta$.
+	\item[Fundamental Domain] Let $\beta$ be a periodic parametrised plane curve with period $\tau$.
+		Then any subset $[t_0,t_0+\tau]$ of its domain is a fundamental domain of $\beta$.
 \end{description}
 
 \subsection{$1$-Form}
 \begin{definition}[1-form]
 		The $1$-form is a function $\omega : U \times R^{n+1} \to \mathbb{R}$  where $U \subset \mathbb{R}^{n+1}$ such that for every $p \in U$, $\mathbb{R}_p^{n+1} \subset U \times \mathbb{R}^{n+1}$.
 \end{definition}
-	\textbf{Note : } $1$-form $\omega$ is smooth if $\omega$ is a smooth function. A few examples of $1$-form are given below: $\omega_\mathbf{X}$, $df$ and $dx_i$.
+	\textbf{Note : } $1$-form $\omega$ is smooth if $\omega$ is a smooth function.
+	A few examples of $1$-form are given below: $\omega_\mathbf{X}$, $df$ and $dx_i$.
 
 \begin{description}
-	\item[1-form dual] Let $\mathbf{X} $ be a vector field on $U$. Then 1-form dual of $\mathbf{X}$ is $\omega_\mathbf{X}$ given by  $\omega_\mathbf{X}(p,v) = \mathbf{X}(p) \cdot (p,v)$
-	\item[differential of $f$] Let $f : U \to \mathbb{R}$ be a smooth function. Then differential of $f$ is $df$ given by $df(\mathbf{v}) = \nabla f(p) \cdot \mathbf{v}$ where $\mathbf{v} = (p,v)$.
-	\item[Cartesian Coordinate Function] Let $U \subset \mathbb{R}^{n+1}$. Then $i$th cartesian coordinate function $x_i$ is given by $x_i : U \to \mathbb{R},\ x_i(a_1,a_2,\dots,a_{n+1}) = a_i$.
+	\item[1-form dual] Let $\mathbf{X} $ be a vector field on $U$.
+		Then 1-form dual of $\mathbf{X}$ is $\omega_\mathbf{X}$ given by  $\omega_\mathbf{X}(p,v) = \mathbf{X}(p) \cdot (p,v)$
+	\item[differential of $f$] Let $f : U \to \mathbb{R}$ be a smooth function.
+		Then differential of $f$ is $df$ given by $df(\mathbf{v}) = \nabla f(p) \cdot \mathbf{v}$ where $\mathbf{v} = (p,v)$.
+	\item[Cartesian Coordinate Function] Let $U \subset \mathbb{R}^{n+1}$.
+		Then $i$th cartesian coordinate function $x_i$ is given by $x_i : U \to \mathbb{R},\ x_i(a_1,a_2,\dots,a_{n+1}) = a_i$.
 	\item[$dx_i$] The differential of the cartesian coordinate function $x_i$ is given by $dx_i$ where $dx_i : U \times R^{n+1} \to \mathbb{R}$
 		$$dx_i = \nabla x_i(p) \cdot \mathbf{v} = (p,0,0,\dots,1,\dots,0) \cdot (p,v_1,v_2,\dots,v_{n+1}) = v_i$$
 \end{description}
@@ -1047,14 +1356,20 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	And $\omega$ is smooth if and only if each $f_i$ is smooth.
 \end{proposition}
 \begin{proof}
-	Let $\mathbf{X}_j$ be a smooth vector field on $U$ where $X_j(p) = (p,0,0,\dots,1,\dots,0)$. Then, $dx_i(X_j) =\delta_{ij}$. Suppose $\omega = \sum f_i dx_i$. Then 
+	Let $\mathbf{X}_j$ be a smooth vector field on $U$ where $X_j(p) = (p,0,0,\dots,1,\dots,0)$.
+	Then, $dx_i(X_j) =\delta_{ij}$.
+	Suppose $\omega = \sum f_i dx_i$.
+	Then 
 	$$\omega(\mathbf{X}_j) = \sum_{i=1}^{n+1} (f_idx_i)\mathbf{X}_j = \sum_{i=1}^{n+1} f_i(p) dx_i(\mathbf{X}_j) = \sum_{i=1}^{n+1} f_i(p)\delta_{ij} = f_j(p)$$
 
-	Thus $f_j$ is unique for each $j$ if they exist. And for each $1$-form $\omega$ there exist functions $f_i$ such that $\omega = \sum f_i dx_i$ exists where $f_i = \omega(X_i)$. And thus, $\omega$ is smooth if and only if each $f_i$ is smooth.
+	Thus $f_j$ is unique for each $j$ if they exist.
+	And for each $1$-form $\omega$ there exist functions $f_i$ such that $\omega = \sum f_i dx_i$ exists where $f_i = \omega(X_i)$.
+	And thus, $\omega$ is smooth if and only if each $f_i$ is smooth.
 \end{proof}
 
 \begin{corollary}
-	Let $f : U \to \mathbb{R}$. Then
+	Let $f : U \to \mathbb{R}$.
+	Then
 	\begin{equation}
 	df = \sum_{i = 1}^{n+1} \frac{\partial f}{\partial x_i} dx_i
 	\end{equation}
@@ -1065,7 +1380,8 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 
 \subsection{Line Integral}
 \begin{definition}[Line Integral]
-	Let $\omega$ be a $1$-form and $\alpha : [a,b] \to U$ be a parametrised curve on $U$. Then the line integral of $\omega$ over $\alpha$ is given by,
+	Let $\omega$ be a $1$-form and $\alpha : [a,b] \to U$ be a parametrised curve on $U$.
+	Then the line integral of $\omega$ over $\alpha$ is given by,
 	\begin{equation}
 		\int_\alpha \omega = \int_a^b \omega(\dot{\alpha}(t))
 	\end{equation}
@@ -1073,7 +1389,8 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 
 \textbf{Note : } The line integral of $1$-form $\omega$ over a parametrised curve is invariant of reparametrisation.\\
 
-Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $\beta(t) = \alpha(h(t))$ and function $h : [c,d] \to [a,b]$. Then , 
+Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $\beta(t) = \alpha(h(t))$ and function $h : [c,d] \to [a,b]$.
+Then , 
 \begin{align*}
 	\int_\beta \omega & = \int_c^d \omega(\dot{\beta}(t)) \\
 	& = \int_c^d \omega(\dot{\alpha}(h(t))h'(t)) \\
@@ -1088,23 +1405,35 @@ Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $
 	$$\int_\alpha \eta = 2\pi k $$
 \end{theorem}
 \begin{proof}
-	Consider $\varphi : [a,b] \to \mathbb{R}$ defined by $\varphi(t) = \varphi(a) + \int_{\alpha_t}\eta$ where $\alpha_t$ is the restriction of $\alpha$ to $[a,t]$ and $\varphi(a)$ is so chosen that $\alpha(a)/\|\alpha(a)\| = (\cos \varphi(a),\sin \varphi(a))$. We claim that 
+	Consider $\varphi : [a,b] \to \mathbb{R}$ defined by $\varphi(t) = \varphi(a) + \int_{\alpha_t}\eta$ where $\alpha_t$ is the restriction of $\alpha$ to $[a,t]$ and $\varphi(a)$ is so chosen that $\alpha(a)/\|\alpha(a)\| = (\cos \varphi(a),\sin \varphi(a))$.
+	We claim that 
 	\begin{equation}
 		\frac{\alpha(t)}{\|\alpha(t)\|} = \left(\cos \varphi(t),\sin \varphi(t)\right),\ \forall t \in [a,b]
 	\end{equation}
 
-	Let $t_0 = \sup \{ t \in [a,b] : \alpha(t)/\|\alpha(t)\| = (\cos \varphi(t),\sin \varphi(t)) \}$. By continuity the claim should be true for $t_0$ as well. Therefore it is enough to prove that $t_0 = b$.\\
+	Let $t_0 = \sup \{ t \in [a,b] : \alpha(t)/\|\alpha(t)\| = (\cos \varphi(t),\sin \varphi(t)) \}$.
+	By continuity the claim should be true for $t_0$ as well.
+	Therefore it is enough to prove that $t_0 = b$.\\
 
-	Define $v = -\alpha(t_0)/\| \alpha(t_0) \|$ and $V = \mathbb{R}^2 - \{ rv : r \ge 0 \}$. And $\theta_V :  V \to \mathbb{R}$ is defined in such a way that $v = (\cos \theta_v,\sin \theta_v)$ and $\theta_v \in [0,2\pi)$. In other words, $\theta_V$ a real-valued function which give the angle of the ray from origin through the points.\\
+	Define $v = -\alpha(t_0)/\| \alpha(t_0) \|$ and $V = \mathbb{R}^2 - \{ rv : r \ge 0 \}$.
+	And $\theta_V :  V \to \mathbb{R}$ is defined in such a way that $v = (\cos \theta_v,\sin \theta_v)$ and $\theta_v \in [0,2\pi)$.
+	In other words, $\theta_V$ a real-valued function which give the angle of the ray from origin through the points.\\
 
-	Then $(\cos \theta_V(\alpha(t_0)),\sin \theta_V(\alpha(t_0))) = \alpha(t_0)/\| \alpha(t_0)\| = (\cos \varphi(t_0),\sin \varphi(t_0))$. Clearly, $\varphi(t_0) - \theta_V(\alpha(t_0)) = 2\pi m$ for some integer $m$.\\
+	Then $(\cos \theta_V(\alpha(t_0)),\sin \theta_V(\alpha(t_0))) = \alpha(t_0)/\| \alpha(t_0)\| = (\cos \varphi(t_0),\sin \varphi(t_0))$.
+	Clearly, $\varphi(t_0) - \theta_V(\alpha(t_0)) = 2\pi m$ for some integer $m$.\\
 
-	Consider a $\delta$ neighbourhood of $t_0$ such that $\alpha(t) \in V$ for every point $t$ in it. Then, $\alpha$ is smooth in that neighbourhood.
+
+	Consider a $\delta$ neighbourhood of $t_0$ such that $\alpha(t) \in V$ for every point $t$ in it.
+	Then, $\alpha$ is smooth in that neighbourhood.
 	$$\dfrac{d}{dt}\left(\varphi(t)-\theta_V(\alpha(t))\right) = \eta(\dot{\alpha}(t)) = d\theta_V(\dot{\alpha}(t)) = 0$$
 
-	Thus, $\varphi(t) - \theta_V(\alpha(t)) = 2\pi m$ for every $t \in (t_0-\delta,t_0+\delta)$. Therefore, the claim is true. Suppose $t_0 < b$, then the claim is true for $t_0+\epsilon \in (t_0-\delta,t_0+\delta)$ which is a contradiction to the choice of $t_0$ as least upper bound of all such values.\\
+	Thus, $\varphi(t) - \theta_V(\alpha(t)) = 2\pi m$ for every $t \in (t_0-\delta,t_0+\delta)$.
+	Therefore, the claim is true.
+	Suppose $t_0 < b$, then the claim is true for $t_0+\epsilon \in (t_0-\delta,t_0+\delta)$ which is a contradiction to the choice of $t_0$ as least upper bound of all such values.\\
 
-	Thus, $(\cos \varphi(a),\sin \varphi(a)) = (\cos \varphi(b),\sin \varphi(b))$. Therefore, $\varphi(b)-\varphi(a) = 2\pi k$ for some integer $k$. And $\int_\alpha \eta = \int_a^b \eta(\dot{\alpha}(t)) dt = \varphi(b) -\varphi(a) = 2\pi k$.
+	Thus, $(\cos \varphi(a),\sin \varphi(a)) = (\cos \varphi(b),\sin \varphi(b))$.
+	Therefore, $\varphi(b)-\varphi(a) = 2\pi k$ for some integer $k$.
+	And $\int_\alpha \eta = \int_a^b \eta(\dot{\alpha}(t)) dt = \varphi(b) -\varphi(a) = 2\pi k$.
 
 \end{proof}
 
@@ -1118,38 +1447,62 @@ Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $
 \begin{description}
 	\item[Normal Curvature] The number $\kappa(\mathbf{v}) = L_p(\mathbf{v}) \cdot \mathbf{v}$ is the normal curvature of the $n$-surface $S$ at point $p$ in the direction $\mathbf{v}$.\\
 
-	If $\kappa(\mathbf{v}) > 0$, then $S$ bends toward orientation at $p$. And if $\kappa(\mathbf{v}) < 0$, then $S$ bends away from orientation at $p$.\\
+	If $\kappa(\mathbf{v}) > 0$, then $S$ bends toward orientation at $p$.
+		And if $\kappa(\mathbf{v}) < 0$, then $S$ bends away from orientation at $p$.\\
 		
-	We have, $\kappa : S_p \to S$. When $n = 1$, then $\kappa(\mathbf{v}) = \kappa(p)$. Clearly $S_p$ is compact and $\kappa$ attains its extrema, which are the eigen values of the Weingarten Map.
+	We have, $\kappa : S_p \to S$.
+		When $n = 1$, then $\kappa(\mathbf{v}) = \kappa(p)$.
+		Clearly $S_p$ is compact and $\kappa$ attains its extrema, which are the eigen values of the Weingarten Map.
 	\item[Normal Section] The normal section of an $n$-surface $S$ with orientation $N$ is $\mathcal{N}(\mathbf{v}) \subset \mathbf{R}^{n+1}$ given by 
 	\begin{equation}
 		\mathcal{N}(\mathbf{v}) = \{ q \in \mathbf{R}^{n+1} : q = p+xv + yN(p),\ (x,y) \in \mathbb{R}^2 \}
 	\end{equation}
 
-	You take an apple and place a knife at any point on that apple in any direction tangent to its surface and cut it. The apple cuts into two parts. The $2$-dimensional space of that cut, is a \textbf{Nomal Section} of that apple. For any $n \ge 2$, the normal section of an $n$-surface is always $2$ dimensional.
+
+	You take an apple and place a knife at any point on that apple in any direction tangent to its surface and cut it.
+		The apple cuts into two parts.
+		The $2$-dimensional space of that cut, is a \textbf{Nomal Section} of that apple.
+		For any $n \ge 2$, the normal section of an $n$-surface is always $2$ dimensional.
 	\item[$S \cap \mathcal{N}(\mathbf{v})$] is the intersection of both the surface and its normal section.\\
+
 
 	In above example, $S \cap \mathcal{N}(\mathbf{v})$ is plane curve traced by the skin around cross-section of that apple.
 \end{description}
 
 \begin{theorem}[Components of $S\cap\mathcal{N}(\mathbf{v})$]
-	Let $S$ be an oriented $n$-surface and $\mathbf{v}$ is a tangent direction at $p$, $\mathbf{v} \in S_p$. Then there exists an open $V$ containing $p$ such that $S \cap \mathcal{N}(\mathbf{v}) \cap V$ is a plane curve. Moreover, the curvature at $p$ of this curve is the normal curvature $\kappa(\mathbf{v})$ of $S$ at $p$ in the direction $\mathbf{v}$.
+	Let $S$ be an oriented $n$-surface and $\mathbf{v}$ is a tangent direction at $p$, $\mathbf{v} \in S_p$.
+	Then there exists an open $V$ containing $p$ such that $S \cap \mathcal{N}(\mathbf{v}) \cap V$ is a plane curve.
+	Moreover, the curvature at $p$ of this curve is the normal curvature $\kappa(\mathbf{v})$ of $S$ at $p$ in the direction $\mathbf{v}$.
 \end{theorem}
 \begin{proof}
-	Let $f : U \to \mathbb{R}$ such that $S = f^{-1}(c)$ and $\nabla f(q) \ne \mathbf{0},\ \forall q \in S$. Let $\nabla f(q) = \left(q,\widetilde{\nabla f}(q)\right)$. Let $p \in S$ and $\mathbf{v} \in S_p$. Let $i : \mathbb{R}^2 \to \mathbb{R}^n$ defined by $i(x,y)=p+xv+yN(p)$. Clearly, the image of the function $i$ is the normal section, $\mathcal{N}(\mathbf{v}) = i(\mathbb{R}^2)$.\\
+	Let $f : U \to \mathbb{R}$ such that $S = f^{-1}(c)$ and $\nabla f(q) \ne \mathbf{0},\ \forall q \in S$.
+	Let $\nabla f(q) = \left(q,\widetilde{\nabla f}(q)\right)$.
+	Let $p \in S$ and $\mathbf{v} \in S_p$.
+	Let $i : \mathbb{R}^2 \to \mathbb{R}^n$ defined by $i(x,y)=p+xv+yN(p)$.
+	Clearly, the image of the function $i$ is the normal section, $\mathcal{N}(\mathbf{v}) = i(\mathbb{R}^2)$.\\
 
-	Let $V$ be the space spanned by $v$ and $N(p)$. That is,
+
+	Let $V$ be the space spanned by $v$ and $N(p)$.
+	That is,
 	\begin{equation}
 		V = \left\{ q \in U : \widetilde{\nabla f}(q) \cdot v \ne 0 \text{ OR } \widetilde{\nabla f}(q) \cdot N(p) \ne 0 \right\}
 	\end{equation}
-	Then $\nabla (f \circ i)(x,y) = \left(x,y,\widetilde{\nabla f}(i(x,y)) \cdot v, \widetilde{\nabla f}(i(x,y)) \cdot N(p) \right) \ne \mathbf{0}$ for every $(x,y) \in i^{-1}(V)$. Therefore, $C = i^{-1}(S \cap \mathcal{N}(\mathbf{v})) = (f \circ i)^{-1}(c)\ \cap\ i^{-1}(V)$ is a plane curve. In other words, $S \cap \mathcal{N}(\mathbf{v}) \cap V$ is a plane curve.
+	Then $\nabla (f \circ i)(x,y) = \left(x,y,\widetilde{\nabla f}(i(x,y)) \cdot v, \widetilde{\nabla f}(i(x,y)) \cdot N(p) \right) \ne \mathbf{0}$ for every $(x,y) \in i^{-1}(V)$.
+	Therefore, $C = i^{-1}(S \cap \mathcal{N}(\mathbf{v})) = (f \circ i)^{-1}(c)\ \cap\ i^{-1}(V)$ is a plane curve.
+	In other words, $S \cap \mathcal{N}(\mathbf{v}) \cap V$ is a plane curve.
 \end{proof}
 
 \begin{lemma}[Extrema of Curvature are Eigenvalue of Weingarten Map]
-	Let $V$ be a finite dimensional vector space with dot product and let $L : V \to V$ be a self-adjoint linear transformation on $V$. Let $S = \{ v \in V : v\cdot v = 1\}$ and define $f : S \to \mathbb{R}$ by $f(v) = L(v) \cdot v$. Suppose $f$ is stationary at $v_0 \in S$. Then $L(v_0) = f(v_0)v_0$.
+	Let $V$ be a finite dimensional vector space with dot product and let $L : V \to V$ be a self-adjoint linear transformation on $V$.
+	Let $S = \{ v \in V : v\cdot v = 1\}$ and define $f : S \to \mathbb{R}$ by $f(v) = L(v) \cdot v$.
+	Suppose $f$ is stationary at $v_0 \in S$.
+	Then $L(v_0) = f(v_0)v_0$.
 \end{lemma}
 \begin{proof}
-	Since $f$ is stationary at $v_0$, $f \circ \alpha)'(0) = 0$ for every parametrised curves in $S$ with $\alpha(0) = v_0$. Let $v \perp v_0$. Then $\alpha(t) = (\cos t)v_0 + (\sin t)v$. Then,
+	Since $f$ is stationary at $v_0$, $f \circ \alpha)'(0) = 0$ for every parametrised curves in $S$ with $\alpha(0) = v_0$.
+	Let $v \perp v_0$.
+	Then $\alpha(t) = (\cos t)v_0 + (\sin t)v$.
+	Then,
 	\begin{align*}
 		0 = & (f \circ \alpha)'(0)\\
 		= & \dfrac{d}{dt} \left( L(\alpha(t)) \cdot \alpha(t)  \right)(0)\\
@@ -1157,7 +1510,12 @@ Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $
 		= & \left(-\sin 2t\ L(v_0) \cdot v_0 + 2\cos 2t\ L(v_0) \cdot v + \sin 2t\ L(v) \cdot v\right)_{|t = 0} \\
 		= & 2L(v_0) \cdot v
 	\end{align*}
-	Clearly, $L(v_0) \perp v$ for every $v \in v_0^\perp$. In other words, $L(v_0) \perp v_0^\perp$. Thus, $v_0$ can span the space $L(v_0)$. That is, $L(v_0) = \lambda v_0$ for some $\lambda \in \mathbb{R}$. Thus $v_0$ is an eigen vector of $L(v_0)$. And the corresponding eigen vector $\lambda$ can be obtained, $ \lambda = \lambda v_0 \cdot v_0 = L(v_0) \cdot v_0 = f(v_0)$.
+	Clearly, $L(v_0) \perp v$ for every $v \in v_0^\perp$.
+	In other words, $L(v_0) \perp v_0^\perp$.
+	Thus, $v_0$ can span the space $L(v_0)$.
+	That is, $L(v_0) = \lambda v_0$ for some $\lambda \in \mathbb{R}$.
+	Thus $v_0$ is an eigen vector of $L(v_0)$.
+	And the corresponding eigen vector $\lambda$ can be obtained, $ \lambda = \lambda v_0 \cdot v_0 = L(v_0) \cdot v_0 = f(v_0)$.
 \end{proof}
 
 %\begin{description}
@@ -1168,32 +1526,49 @@ Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $
 %\end{description}
 
 \begin{theorem}
-	Let $V$ be a finite dimensional vector space with dot product and let $L : V \to V$ be a self-adjoint linear transformation on $V$. Then there exists an orthonormal basis for $V$ consisting of eigen vectors of $L$.
+	Let $V$ be a finite dimensional vector space with dot product and let $L : V \to V$ be a self-adjoint linear transformation on $V$.
+	Then there exists an orthonormal basis for $V$ consisting of eigen vectors of $L$.
 \end{theorem}
 \begin{proof}
 	The proof is by mathematical induction.
 	For $n=1$, the theorem is true by lemma.%Why ?
-	Suppose that the theorem is true for $n = k$. It is enough to prove that theorem is then true for $n=k+1$.\\
+	Suppose that the theorem is true for $n = k$.
+	It is enough to prove that theorem is then true for $n=k+1$.\\
 
-	By lemma, there exists a unit vector $v_1 \in V$ which is an eigen vector of $L$. This is done by selecting $v_1$ such that $L(v_1) \cdot v_1 \ge L(v) \cdot v$ for every unit vector $v \in V$. Define $W = v_1^\perp$. Then $L(w) \cdot v_1 = w \cdot L(v_1) = \lambda w \cdot v_1 = 0$ for every $w \in W$. \textit{(Remember : $L$ self-adjoint, $L(w) \cdot v = w \cdot L(v)$)}\\
 
-	Thus the restriction of $L$, $L_{|_W} : W \to W$ is surjective. And clearly self-adjoint. The dimension of $W$ is $k$, thus by induction hypothesis there exists an orthonormal basis $\{ v_2,\ v_3,\ \dots,\ v_{k+1} \}$ for $W$ with eigen vectors of $L_{|_W}$. Clearly, these are eigen vectors of $L$ and $\{ v_1,\ v_2,\ \dots, v_{k+1} \}$ is an orthonormal basis of $V$.
+	By lemma, there exists a unit vector $v_1 \in V$ which is an eigen vector of $L$.
+	This is done by selecting $v_1$ such that $L(v_1) \cdot v_1 \ge L(v) \cdot v$ for every unit vector $v \in V$.
+	Define $W = v_1^\perp$.
+	Then $L(w) \cdot v_1 = w \cdot L(v_1) = \lambda w \cdot v_1 = 0$ for every $w \in W$.
+	\textit{(Remember :}
+	$L$ self-adjoint, $L(w) \cdot v = w \cdot L(v)$)\\
+
+
+	Thus the restriction of $L$, $L_{|_W} : W \to W$ is surjective.
+	And clearly self-adjoint.
+	The dimension of $W$ is $k$, thus by induction hypothesis there exists an orthonormal basis $\{ v_2,\ v_3,\ \dots,\ v_{k+1} \}$ for $W$ with eigen vectors of $L_{|_W}$.
+	Clearly, these are eigen vectors of $L$ and $\{ v_1,\ v_2,\ \dots, v_{k+1} \}$ is an orthonormal basis of $V$.
 \end{proof}
 
 \begin{description}
-	\item[Principal Curvature Directions] are the vectors in the orthonormal basis $\{ \mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n \}$ for $S_p$ obtained as eigen vectors of the Weingarten Map. (Hint : $\mathbb{R}^n$ is a vector space with dot product and $L_p$ is self-adjoint, linear transformation)
-	\item[Principal Curvature] are the eigen values of the Weingarten Map. That is, $k_i(p)$ is the eigen value of $L_p : S_p \to S_p$ such that $L_p(\mathbf{w}) \cdot \mathbf{v}_i = \kappa_i(p) \mathbf{w} \cdot \mathbf{v}_i$.
+	\item[Principal Curvature Directions] are the vectors in the orthonormal basis $\{ \mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n \}$ for $S_p$ obtained as eigen vectors of the Weingarten Map.
+		(Hint : $\mathbb{R}^n$ is a vector space with dot product and $L_p$ is self-adjoint, linear transformation)
+	\item[Principal Curvature] are the eigen values of the Weingarten Map.
+		That is, $k_i(p)$ is the eigen value of $L_p : S_p \to S_p$ such that $L_p(\mathbf{w}) \cdot \mathbf{v}_i = \kappa_i(p) \mathbf{w} \cdot \mathbf{v}_i$.
 \end{description}
 
 \begin{theorem}
-	Let $S$ be an oriented $n$-surface in $\mathbb{R}^{n+1}$. Let $p in S$ and $\{ \kappa_1(p),\kappa_2(p),\dots,\kappa_n(p) \}$ be the principal curvatures of $S$ at $p$ with corresponding orthogonal principal curvature directions $\{ \mathbf{v}_1,\mathbf{v}_2, \dots, \mathbf{v}_n \}$. Then the normal curvature $\kappa(\mathbf{v})$ in the direction $\mathbf{v} \in S_p$ is given by
+	Let $S$ be an oriented $n$-surface in $\mathbb{R}^{n+1}$.
+	Let $p in S$ and $\{ \kappa_1(p),\kappa_2(p),\dots,\kappa_n(p) \}$ be the principal curvatures of $S$ at $p$ with corresponding orthogonal principal curvature directions $\{ \mathbf{v}_1,\mathbf{v}_2, \dots, \mathbf{v}_n \}$.
+	Then the normal curvature $\kappa(\mathbf{v})$ in the direction $\mathbf{v} \in S_p$ is given by
 	\begin{equation}
 		\kappa(v) = \sum_{i=1}^n \kappa_i(p)(\mathbf{v} \cdot \mathbf{v}_i)^2 = \sum_{i=1}^n \kappa_i(p)\cos^2 \theta_i
 	\end{equation}
 	where $\theta_i$ is the angle between $\mathbf{v}$ and $\mathbf{v}_i$.
 \end{theorem}
 \begin{proof}
-	We have $v \in V$ and $\{ \mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n \}$ is an orthonormal basis for $V$. Then,
+	We have $v \in V$ and $\{ \mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n \}$ is an orthonormal basis for $V$.
+	Then,
 	$$\mathbf{v} = \sum_{i=1}^n (\mathbf{v} \cdot \mathbf{v}_i)\mathbf{v}_i = \sum_{i=1}^n \cos \theta_i \mathbf{v}_i $$
 	We have,
 	\begin{align*}
@@ -1204,8 +1579,12 @@ Let $\beta : [c,d] \to U$ be reparametirsation of $\alpha : [a,b] \to U$ where $
 	\end{align*}
 \end{proof}
 \begin{description}
-	\item[Direction Cosines] Let $\{\mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n \}$ be an orthonomal basis for $S_p$. Then $\theta_i$ are the angles $\mathbf{v}$ makes with each vector in that basis. And direction cosines are the components of $\mathbf{v}$ in those directions. That is, $\cos \theta_i = \mathbf{v} \cdot \mathbf{v}_i$.
-	\item[Quadratic Form] Let $V$ be a finite dimensional vector space with dot product and $L : V \to V$ be a self-adjoint, linear transformation on $V$. Then quadratic form associated with $L$ is a $\mathcal{L} : V \to \mathbb{R}$ defined by $\mathcal{L}(v) = L(v) \cdot v$.
+	\item[Direction Cosines] Let $\{\mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n \}$ be an orthonomal basis for $S_p$.
+		Then $\theta_i$ are the angles $\mathbf{v}$ makes with each vector in that basis.
+		And direction cosines are the components of $\mathbf{v}$ in those directions.
+		That is, $\cos \theta_i = \mathbf{v} \cdot \mathbf{v}_i$.
+	\item[Quadratic Form] Let $V$ be a finite dimensional vector space with dot product and $L : V \to V$ be a self-adjoint, linear transformation on $V$.
+		Then quadratic form associated with $L$ is a $\mathcal{L} : V \to \mathbb{R}$ defined by $\mathcal{L}(v) = L(v) \cdot v$.
 	\item[First Fundamental Form, $\mathscr{I}_p$] of surface $S$ is the quadratic form associated with the identity transformation on $S_p$.
 	$$\mathscr{I}_p(v) = id(v) \cdot v = v \cdot v = \|v\|^2$$
 	\item[Second Fundamental Form $\mathscr{S}_p$] of surface $S$ is the quadratic form associated with the Weingarten Map. 
@@ -1228,11 +1607,21 @@ A quadratic forms is
 	On each compact, oriented $n$-surface $S$ in $\mathbb{R}^{n+1}$ there exists a point $p$ such that the second fundamental form at $p$ is definite.
 \end{theorem}
 \begin{proof}
-	Let $S^n$ be an $n$-sphere containing $S$ and $S^n$ touches $S$ at $p$. Then $\mathscr{S}_p$ is definite.\\
+	Let $S^n$ be an $n$-sphere containing $S$ and $S^n$ touches $S$ at $p$.
+	Then $\mathscr{S}_p$ is definite.\\
 
-	Define $g : \mathbb{R}^n \to \mathbb{R}$ by $g(x_1,x_2,\dots, x_n) = x_1^2 + x_2^2 + \dots + x_n^2$. Since $S$ is compact, $g$ attains maximum at $p \in S$. By Lagrange multiplier theorem, $\nabla g(p) = \lambda \nabla f(p) = \mu N(p)$ where $\lambda,\mu \in \mathbb{R}$ and $\mu = \pm \lambda \|\nabla f(p) \|$. WLOG Suppose that $\mu < 0$. Then $\mu = -|\mu| = -\|\mu N(p) \| = -\| \nabla g(p) \| = -2\|p\|$. Thus, $N(p) = \frac{1}{\mu} \nabla g(p) = \frac{-1}{\| p \|} (p,p)$. \\
 
-	Let $\mathbf{v} \in S_p$ such that $\| \mathbf{v} \| = 1$. Let $\alpha : I \to S$ defined by $\dot{\alpha}(t_0) = \mathbf{v}$. Then $g \circ \alpha(t_0) \ge g \circ \alpha(t),\ \forall t \in I$.
+	Define $g : \mathbb{R}^n \to \mathbb{R}$ by $g(x_1,x_2,\dots, x_n) = x_1^2 + x_2^2 + \dots + x_n^2$.
+	Since $S$ is compact, $g$ attains maximum at $p \in S$.
+	By Lagrange multiplier theorem, $\nabla g(p) = \lambda \nabla f(p) = \mu N(p)$ where $\lambda,\mu \in \mathbb{R}$ and $\mu = \pm \lambda \|\nabla f(p) \|$.
+	WLOG Suppose that $\mu < 0$.
+	Then $\mu = -|\mu| = -\|\mu N(p) \| = -\| \nabla g(p) \| = -2\|p\|$.
+	Thus, $N(p) = \frac{1}{\mu} \nabla g(p) = \frac{-1}{\| p \|} (p,p)$. \\
+
+
+	Let $\mathbf{v} \in S_p$ such that $\| \mathbf{v} \| = 1$.
+	Let $\alpha : I \to S$ defined by $\dot{\alpha}(t_0) = \mathbf{v}$.
+	Then $g \circ \alpha(t_0) \ge g \circ \alpha(t),\ \forall t \in I$.
 
 \begingroup
 \allowdisplaybreaks
@@ -1247,11 +1636,13 @@ A quadratic forms is
 		= & 2\left( 1-\|p\| \kappa(\mathbf{v} \right)
 	\end{align*}
 \endgroup
-	Thus, $0 \ge 2-2\|p\|\kappa(\mathbf{v}) \implies 2\|p\|\kappa(\mathbf{v}) \ge 2 \implies \kappa(\mathbf{v}) \ge \frac{1}{\|p\|},\ \forall \mathbf{v} \in S_p$. If $S$ is oriented so that $\mu > 0$, then $\kappa(\mathbf{v}) \le -\frac{1}{\|p\|}$.
+	Thus, $0 \ge 2-2\|p\|\kappa(\mathbf{v}) \implies 2\|p\|\kappa(\mathbf{v}) \ge 2 \implies \kappa(\mathbf{v}) \ge \frac{1}{\|p\|},\ \forall \mathbf{v} \in S_p$.
+	If $S$ is oriented so that $\mu > 0$, then $\kappa(\mathbf{v}) \le -\frac{1}{\|p\|}$.
 \end{proof}
 
 \begin{description}
-	\item[Gauss Kronecker Curvature, $K(p)$] of surface $S$ in $\mathbb{R}^{n+1}$ at a point $p$ is $K(p) = \det L_p$. It is equal to the product of the principal curvatures at $p$.
+	\item[Gauss Kronecker Curvature, $K(p)$] of surface $S$ in $\mathbb{R}^{n+1}$ at a point $p$ is $K(p) = \det L_p$.
+		It is equal to the product of the principal curvatures at $p$.
 	\begin{equation}
 		K(p) = k_1(p) k_2(p) \cdots k_n(p)
 	\end{equation}
@@ -1262,7 +1653,10 @@ A quadratic forms is
 \end{description}
 
 \begin{theorem}
-	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Let $p \in S$. Let $\mathbf{Z}$ be any  non-zero normal vector field on $S$ such that $\mathbf{N} = \mathbf{Z}/\|\mathbf{Z}\|$ and let $\{\mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n\}$ be any basis for $S_p$. Then
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$.
+	Let $p \in S$.
+	Let $\mathbf{Z}$ be any  non-zero normal vector field on $S$ such that $\mathbf{N} = \mathbf{Z}/\|\mathbf{Z}\|$ and let $\{\mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n\}$ be any basis for $S_p$.
+	Then
 	\begin{equation}
 		K(p) = \frac{(-1)^n \det \begin{pmatrix} \nabla_{v_1} \mathbf{Z} \\ \nabla_{v_2} \mathbf{Z} \\ \vdots \\ \nabla_{v_n} \mathbf{Z} \\ \mathbf{Z}(p) \end{pmatrix} }{ \|\mathbf{Z}(p)\|^n \det \begin{pmatrix} \mathbf{v}_1 \\ \mathbf{v}_2 \\ \vdots \\ \mathbf{v}_n \\ \mathbf{Z}(p) \end{pmatrix}}
 	\end{equation}
@@ -1318,14 +1712,32 @@ A quadratic forms is
 \end{description}
 
 \begin{theorem}[Global Characterisation of Surfaces with Definite Second Fundamental Form]
-	Let $S$ be a compact, connected, oriented $n$-surface in $\mathbb{R}^{n+1}$. Then $\forall p \in S,\ K(p) \ne 0 \iff \forall p \in S,\ \mathscr{S}_p$ is definte.
+	Let $S$ be a compact, connected, oriented $n$-surface in $\mathbb{R}^{n+1}$.
+	Then $\forall p \in S,\ K(p) \ne 0 \iff \forall p \in S,\ \mathscr{S}_p$ is definte.
 \end{theorem}
 \begin{proof}
-	If $\mathscr{S}_p$ is definite then normal curvature $\kappa(\mathbf{v}) = \mathscr{S}_p(\mathbf{v})$ is nonzero in every direction $\mathbf{v} \in S_p$. Thus, all principal curvatures are nonzero and their product Gauss Kronecker Curvatures $K(p)$ is also nonzero.\\
+	If $\mathscr{S}_p$ is definite then normal curvature $\kappa(\mathbf{v}) = \mathscr{S}_p(\mathbf{v})$ is nonzero in every direction $\mathbf{v} \in S_p$.
+	Thus, all principal curvatures are nonzero and their product Gauss Kronecker Curvatures $K(p)$ is also nonzero.\\
 
-	Let $\kappa_1 \le \kappa_2 \le \dots \kappa_n$. Let $\mathscr{S}_{p_0}$ be definite. Since every compact, connected, oriented $n$-surface $S$ has a point $p_0$ at which its second fundamental form $\mathscr{S}_{p_0}$ is definite. Suppose $\mathscr{S}_{p_0}$ is positive definite. Then minimal principal curvature $\kappa_1$ is positive at $p_0$. Clearly, $\kappa_i$ is nowhere zero and continuous. Thus, every principal curvature $\kappa_i$ are positive everywhere on $S$. Therefore, their product $K(p)$ is positive everywhere on $S$. That is, $\mathscr{S}_p$ is postiive definite.\\
 
-	Suppose $\mathscr{S}_{p_0}$ is negative definite. Then the maximal principal curvature $\kappa_n(p)$ is negative at $p_0$. And $\kappa_n$ is nonzero everywhere and continuous. Thus, $\kappa_n$ is negative definite. Thus every principal curvature is negative definite. Thus Gauss Kronecker Curvature $K(p)$ is either everywhere negative or postive depending on the parity on $n$. Therefore, $K(p)$ is definite.
+	Let $\kappa_1 \le \kappa_2 \le \dots \kappa_n$.
+	Let $\mathscr{S}_{p_0}$ be definite.
+	Since every compact, connected, oriented $n$-surface $S$ has a point $p_0$ at which its second fundamental form $\mathscr{S}_{p_0}$ is definite.
+	Suppose $\mathscr{S}_{p_0}$ is positive definite.
+	Then minimal principal curvature $\kappa_1$ is positive at $p_0$.
+	Clearly, $\kappa_i$ is nowhere zero and continuous.
+	Thus, every principal curvature $\kappa_i$ are positive everywhere on $S$.
+	Therefore, their product $K(p)$ is positive everywhere on $S$.
+	That is, $\mathscr{S}_p$ is postiive definite.\\
+
+
+	Suppose $\mathscr{S}_{p_0}$ is negative definite.
+	Then the maximal principal curvature $\kappa_n(p)$ is negative at $p_0$.
+	And $\kappa_n$ is nonzero everywhere and continuous.
+	Thus, $\kappa_n$ is negative definite.
+	Thus every principal curvature is negative definite.
+	Thus Gauss Kronecker Curvature $K(p)$ is either everywhere negative or postive depending on the parity on $n$.
+	Therefore, $K(p)$ is definite.
 \end{proof}
 %\chapter{Convex Surfaces}
 \setcounter{section}{13}
@@ -1336,7 +1748,8 @@ A quadratic forms is
 \end{description}
 
 \begin{definition}[Differential of parametrisations]
-	Let $\varphi : U \to \mathbb{R}^{n+1}$ be parametrisation of a surface. Then its differential $d\varphi : T(U) \to T(\mathbb{R}^{n+1})$ is given by
+	Let $\varphi : U \to \mathbb{R}^{n+1}$ be parametrisation of a surface.
+	Then its differential $d\varphi : T(U) \to T(\mathbb{R}^{n+1})$ is given by
 	\begin{equation}
 		d\varphi(\mathbf{v}) = (\varphi \dot{\circ} \alpha)(t_0)
 	\end{equation}
@@ -1345,7 +1758,8 @@ A quadratic forms is
 	\textbf{ Note : } $d\varphi$ is independent of the choice of $\alpha$.
 
 \begin{definition}[Differential of surface parametrisation]
-	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$. Then $d\varphi_p$ is the restriction of $d\varphi$ to $S_p$.
+	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$.
+	Then $d\varphi_p$ is the restriction of $d\varphi$ to $S_p$.
 \end{definition}
 
 	There are two different meanings for $d\varphi$ depending on its domain.
@@ -1357,23 +1771,29 @@ A quadratic forms is
 		{\color{blue}d\varphi(t,u)} = (\varphi(t),{\color{red}d\varphi(t,u)})
 	\end{equation}
 
-	Author could have used dark font for this second version, $\boldsymbol{d\varphi}$. But he chose not to.
+	Author could have used dark font for this second version, $\boldsymbol{d\varphi}$.
+	But he chose not to.
 
 \subsection{Parametrized Surfaces}
 \begin{description}
 	\item[parametrised $n$-surface] is a smooth map $\varphi : U \to \mathbb{R}^n$ where $U$ is a connected and open subset of $\mathbb{R}^n$.
 	\item[regular surface] A parametrised $n$-surface is regular if $d\varphi$ is non-singular.
 	\item[parametrised $2$-sphere] $\varphi : U \to \mathbb{R}^3$ defined by $\varphi(\theta,\phi) = (r\cos \theta \sin \phi,r \sin \theta \sin \phi,r\cos \phi)$
-	\item[parametrised $n$-plane] Let $L : \mathbb{R}^n \to \mathbb{R}^{n+k}$ be non-singular linear map. Then $\varphi : U \to \mathbb{R}^{n+k}$ defined by $\varphi(p) = L(p) + w$ is a parametrised $n$-plane through $w$ in $\mathbb{R}^{n+k}$.
-	\item[cylinder over $n$-surface $\varphi$] Let $\varphi : U \to \mathbb{R}^{n+k}$ be a parametrised $n$-surface in $\mathbb{R}^{n+k}$ where $U$ is an open subset of $\mathbb{R}^n$. The cylinder over $\varphi$ is an $(n+1)$-surface. $\tilde{\varphi} : U \times \mathbb{R} \to \mathbb{R}^{n+k+1}$ defined by 
+	\item[parametrised $n$-plane] Let $L : \mathbb{R}^n \to \mathbb{R}^{n+k}$ be non-singular linear map.
+		Then $\varphi : U \to \mathbb{R}^{n+k}$ defined by $\varphi(p) = L(p) + w$ is a parametrised $n$-plane through $w$ in $\mathbb{R}^{n+k}$.
+	\item[cylinder over $n$-surface $\varphi$] Let $\varphi : U \to \mathbb{R}^{n+k}$ be a parametrised $n$-surface in $\mathbb{R}^{n+k}$ where $U$ is an open subset of $\mathbb{R}^n$.
+		The cylinder over $\varphi$ is an $(n+1)$-surface.
+		$\tilde{\varphi} : U \times \mathbb{R} \to \mathbb{R}^{n+k+1}$ defined by 
 	\begin{equation}
 		\tilde{\varphi}(u_1,u_2,\dots,u_{n+1}) = (\varphi(u_1,u_2,\dots,u_n),u_{n+1})
 	\end{equation}
-\item[Surface of revolution] Let $\alpha : I \to \mathbb{R}^2$ be a parametrised curve in $\mathbb{R}^2$ whose image lies above $x_1$ axis. The surface obtained by revolving $\alpha(t)=(x_1(t),x_2(t))$ around $x_1$ axis is an $2$-surface in $\mathbb{R}^3$.
+\item[Surface of revolution] Let $\alpha : I \to \mathbb{R}^2$ be a parametrised curve in $\mathbb{R}^2$ whose image lies above $x_1$ axis.
+	The surface obtained by revolving $\alpha(t)=(x_1(t),x_2(t))$ around $x_1$ axis is an $2$-surface in $\mathbb{R}^3$.
 	\begin{equation}
 		\varphi : I \times \mathbb{R} \to \mathbb{R}^3 \text{ defined by } \varphi(t,\theta) = \left( x_1(t),x_2(t)\cos \theta, x_2(t)\sin \theta \right)
 	\end{equation}
-\item[Torus in $\mathbb{R}^3$] Consider the circle $\alpha(\phi) = (a+b\cos \phi,b\sin \phi)$ with center at $(a,0)$ with radius $b$ ($b>a$). Then the surface of revolution of $\alpha$ about $x_2$ axis, 
+\item[Torus in $\mathbb{R}^3$] Consider the circle $\alpha(\phi) = (a+b\cos \phi,b\sin \phi)$ with center at $(a,0)$ with radius $b$ ($b>a$).
+	Then the surface of revolution of $\alpha$ about $x_2$ axis, 
 	\begin{equation}
 		\varphi(\phi,\theta) = (a+b\cos \phi \cos \theta,a+b\cos \phi \sin \theta,b\sin \phi)
 	\end{equation}
@@ -1389,7 +1809,8 @@ A quadratic forms is
 
 \subsection{Vector Field along $\varphi$}
 \begin{definition}
-	Let $\varphi : U \to \mathbb{R}^{n+k}$ be a smooth function. A vector field along $\varphi$ is a map $\mathbf{X}$ which assigns a vector $\mathbf{X}(p) \in \mathbb{R}_{\varphi(p)}^{n+k}$ to each point $p \in U$.
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be a smooth function.
+	A vector field along $\varphi$ is a map $\mathbf{X}$ which assigns a vector $\mathbf{X}(p) \in \mathbb{R}_{\varphi(p)}^{n+k}$ to each point $p \in U$.
 \end{definition}
 
 \begin{definition}
@@ -1397,25 +1818,33 @@ A quadratic forms is
 \end{definition}
 
 \begin{definition}
-	Let $\varphi : U \to \mathbb{R}^{n+k}$ be a smooth map where $U$ is an open subset of $\mathbb{R}^n$. The coordinate vector fields along $\varphi$ are the tangent fields $\mathbf{E}_i$ defined by
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be a smooth map where $U$ is an open subset of $\mathbb{R}^n$.
+	The coordinate vector fields along $\varphi$ are the tangent fields $\mathbf{E}_i$ defined by
 	\begin{equation}
 		\mathbf{E}_i(p) = d\varphi_p(p,0,0,\dots,1,\dots,0)
 	\end{equation}
 \end{definition}
 
 \begin{theorem}[Basis for Tangent Space Image $d\varphi_p$]
-	Let $\varphi : U \to \mathbb{R}^{n+k}$ be smooth. Then the set of all coordinate vector fields $\{ \mathbf{E}_i(p) : i = 1,2,\dots,n \}$ form a basis for the tangent space image $d\varphi_p$.
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be smooth.
+	Then the set of all coordinate vector fields $\{ \mathbf{E}_i(p) : i = 1,2,\dots,n \}$ form a basis for the tangent space image $d\varphi_p$.
 \end{theorem}
 
 \begin{definition}
-	Let $\varphi : U \to \mathbb{R}^{n+k}$ be smooth. And $\mathbf{X}$ be a smooth vector field along $\varphi$. Let $p \in U$ and $\mathbf{v} \in \mathbf{R}_p^n$. The derivative $\nabla_\mathbf{v} \mathbf{X} \in \mathbb{R}_{\varphi(p)}^{n+k}$ defined by
+	Let $\varphi : U \to \mathbb{R}^{n+k}$ be smooth.
+	And $\mathbf{X}$ be a smooth vector field along $\varphi$.
+	Let $p \in U$ and $\mathbf{v} \in \mathbf{R}_p^n$.
+	The derivative $\nabla_\mathbf{v} \mathbf{X} \in \mathbb{R}_{\varphi(p)}^{n+k}$ defined by
 \begin{equation}
 	\nabla_\mathbf{v} \mathbf{X} = \left( \varphi(p), \left( \frac{d}{dt} X \circ \alpha \right) (t_0) \right)
 \end{equation}
 \end{definition}
 
 \begin{definition}[orientation vector field]
-	Let $\varphi : U \to \mathbb{R}^{n+1}$ be smooth parametrised $n$-surface in $\mathbb{R}^{n+1}$. Let $p \in U$. An orientation vector field along $\varphi$ is the unique vector field $\mathbf{N}$ along $\varphi$ such that $\mathbf{N}(p)$ are unit vectors and $\mathbf{N}(p) \perp d\varphi_p(\mathbf{v})$. And $\mathbf{N}$ is consistently oriented if the following determinant is positive.
+	Let $\varphi : U \to \mathbb{R}^{n+1}$ be smooth parametrised $n$-surface in $\mathbb{R}^{n+1}$.
+	Let $p \in U$.
+	An orientation vector field along $\varphi$ is the unique vector field $\mathbf{N}$ along $\varphi$ such that $\mathbf{N}(p)$ are unit vectors and $\mathbf{N}(p) \perp d\varphi_p(\mathbf{v})$.
+	And $\mathbf{N}$ is consistently oriented if the following determinant is positive.
 	\begin{equation}
 		det\begin{pmatrix} \mathbf{E}_1(p) \\ \mathbf{E}_2(p) \\ \vdots \\ \mathbf{E}_n(p) \\ \mathbf{N}(p) \end{pmatrix} > 0
 	\end{equation}

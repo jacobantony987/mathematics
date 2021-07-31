@@ -112,7 +112,8 @@
 
 \begin{description}
 	\item[$(X,Y)$] $=\{ (x,y) \in E(D) : x \in X,\ y \in Y \}$.\\
-		Let $X,Y$ be non-empty subsets of $V(D)$ such that $X,Y$ are disjoint. Then $(X,Y)$ is the set of all arcs from $X$ to $Y$.
+		Let $X,Y$ be non-empty subsets of $V(D)$ such that $X,Y$ are disjoint.
+		Then $(X,Y)$ is the set of all arcs from $X$ to $Y$.
 	\item[flow from $X$ to $Y$] is the sum of flow on each arc in $(X,Y)$
 		\begin{equation}
 		f(X,Y) = \sum_{(x,y) \in (X,Y)} f(x,y)
@@ -140,7 +141,12 @@
 	For any cut $(P,\bar{P})$, the flow in $N$ is $f(N) = f(P,\bar{P}) - f(\bar{P},P)$.
 \end{theorem}
 \begin{synopsis}
-	The net flow out of source $s$ is the flow $f(N)$ in the network $N$. Let $(P,\bar{P})$ be a cut of $N$, then $s \in P$ and $t \not\in P$. Suppose $P = \{ s\}$, then the theorem is true. Suppose $P$ is not singleton, then for each vertex $x \in P,\ x \ne s$, the net flow out of $x$ is zero by flow conservation equation. And flow between vertices in $P$ cancels out each other. Thus adding net flow out of each vertex in $P$, will be same as the net flow out of source which is the flow in the network, $f(N)$.
+	The net flow out of source $s$ is the flow $f(N)$ in the network $N$.
+	Let $(P,\bar{P})$ be a cut of $N$, then $s \in P$ and $t \not\in P$.
+	Suppose $P = \{ s\}$, then the theorem is true.
+	Suppose $P$ is not singleton, then for each vertex $x \in P,\ x \ne s$, the net flow out of $x$ is zero by flow conservation equation.
+	And flow between vertices in $P$ cancels out each other.
+	Thus adding net flow out of each vertex in $P$, will be same as the net flow out of source which is the flow in the network, $f(N)$.
 \end{synopsis}
 \begin{proof}
 	\begin{equation}
@@ -158,10 +164,14 @@
 \end{proof}
 
 \begin{corollary}
-	Flow cannot exceed the capacity of any cut $(P,\bar{P})$. Further, $f(N) \le \min c(P,\bar{P})$.
+	Flow cannot exceed the capacity of any cut $(P,\bar{P})$.
+	Further, $f(N) \le \min c(P,\bar{P})$.
 \end{corollary}
 \begin{synopsis}
-	Let $(P,\bar{P})$ be a cut in network $N$, then by theorem the flow $f(N) =$  flow from $P$ to $\bar{P}$ - flow from $\bar{P}$ to $P$. Since the flow from $\bar{P}$ to $P$ is non-negative, $f(N) \le$ flow from $P$ to $\bar{P}$. Clearly, $f(x,y) \le c(x,y)$ by the capacity constaint. Thus $f(N) \le f(P,\bar{P}) \le c(P,\bar{P}) \le \min c(P,\bar{P})$.
+	Let $(P,\bar{P})$ be a cut in network $N$, then by theorem the flow $f(N) =$  flow from $P$ to $\bar{P}$ - flow from $\bar{P}$ to $P$.
+	Since the flow from $\bar{P}$ to $P$ is non-negative, $f(N) \le$ flow from $P$ to $\bar{P}$.
+	Clearly, $f(x,y) \le c(x,y)$ by the capacity constaint.
+	Thus $f(N) \le f(P,\bar{P}) \le c(P,\bar{P}) \le \min c(P,\bar{P})$.
 \end{synopsis}
 \begin{proof}
 	\begin{align*}
@@ -179,7 +189,8 @@
 	Let $\bar{P} = \{ t \}$, then by theorem $f(N)$ is the net flow into the sink.
 \end{synopsis}
 \begin{proof}
-	Suppose $P = V(D)-\{t\}$. Then by theorem, we have
+	Suppose $P = V(D)-\{t\}$.
+	Then by theorem, we have
 	\begin{align*}
 		f(N) 	& = \sum_{(x,y) \in (P,\bar{P})} f(x,y) - \sum_{(y,x) \in (\bar{P},P)} f(y,x) \\
 			& = \sum_{x \in N^-(t)} f(x,t) - \sum_{x \in N^+(t)} f(t,x)
@@ -189,7 +200,11 @@
 \begin{remark}Exercise 5.1
 	\begin{enumerate}
 		\setcounter{enumi}{3}
-		\item Let $N$ be a network with underlying digraph $D$ which has a vertex $v \in V(D) - \{ s,t \}$ with zero indegree. Clearly the flow into $v$ is zero. Thus flow out of $v$ is also zero by flow conservation equation. Let $N'$ be the network obtained from $N$ by deleting the vertex $v$. Then $f(N) = f(N')$.
+		\item Let $N$ be a network with underlying digraph $D$ which has a vertex $v \in V(D) - \{ s,t \}$ with zero indegree.
+			Clearly the flow into $v$ is zero.
+			Thus flow out of $v$ is also zero by flow conservation equation.
+			Let $N'$ be the network obtained from $N$ by deleting the vertex $v$.
+			Then $f(N) = f(N')$.
 	\end{enumerate}
 \end{remark}
 
@@ -198,14 +213,19 @@
 	\item[maximum flow] A flow $f$ in network $N$ is maximum flow in $N$, if $f(N) \ge f'(N)$ for each flow $f'$ in $N$.
 	\item[minimum cut] A cut $(P,\bar{P})$ in network $N$ is minimum cut of $N$,\\ if $c(P,\bar{P}) \le c(X,\bar{X})$ for each cut $(X,\bar{X})$ in $N$.
 	\item[$f$-unsaturated] Let $f$ be a flow in network $N$ with underlying digraph $D$, and $Q = u_0,a_1,u_1,a_2,\cdots,u_{n-1},a_n,u_n$ be a semipath in $D$ such that every forward arc $a_i = (u_{i-1},u_i)$ has flow not upto its capacity, $f(a_i) < c(a_i)$ and every reverse arc $a_i = (u_i,u_{i-1})$ has some positive flow in it, $f(a_i) > 0$
-	\item[f-augmenting semipath] Let $f$ be a flow in a network $N$ with underlying digraph $D$. Suppose semipath $Q = s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ (from source to sink) is $f$-unsaturated, then $Q$ is an $f$-augmenting semipath.
+	\item[f-augmenting semipath] Let $f$ be a flow in a network $N$ with underlying digraph $D$.
+		Suppose semipath $Q = s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ (from source to sink) is $f$-unsaturated, then $Q$ is an $f$-augmenting semipath.
 \end{description}
 
 \begin{theorem}
-	Let $f$ be a flow in a network $N$ with underlying digraph $D$. The flow $f$ is maximum in $N$ iff there is no $f$-augmenting semipath in $D$.
+	Let $f$ be a flow in a network $N$ with underlying digraph $D$.
+	The flow $f$ is maximum in $N$ iff there is no $f$-augmenting semipath in $D$.
 \end{theorem}
 \begin{synopsis}
-	Suppose $Q$ is an $f$-augmenting semipath in $D$, then there exists a flow $f^*$ in $N$ such that $f(N)+\Delta = f^*(N)$. Therefore, $f$ is not a maximum flow in $N$. Suppose there is no $f$-augmenting semipath in $D$, then there exists a cut $(P,\bar{P})$ such that $f(a) = c(a)\ \forall a \in (P,\bar{P})$ and $f(a) = 0\ \forall a \in (\bar{P},P)$. Suppose $f^*$ in a maximum flow in $N$, then $f(N) \le f^*(N) \le c(P,\bar{P}) = f(N)$.
+	Suppose $Q$ is an $f$-augmenting semipath in $D$, then there exists a flow $f^*$ in $N$ such that $f(N)+\Delta = f^*(N)$.
+	Therefore, $f$ is not a maximum flow in $N$.
+	Suppose there is no $f$-augmenting semipath in $D$, then there exists a cut $(P,\bar{P})$ such that $f(a) = c(a)\ \forall a \in (P,\bar{P})$ and $f(a) = 0\ \forall a \in (\bar{P},P)$.
+	Suppose $f^*$ in a maximum flow in $N$, then $f(N) \le f^*(N) \le c(P,\bar{P}) = f(N)$.
 \end{synopsis}
 \begin{proof}
 	Let $f$ be a flow in a network $N$ with underlying digraph $D$ and $Q = s, a_1, u_1, a_2, u_2, \cdots, u_{n-1}, a_n, t$ be an $f$-augmenting semipath in $D$.
@@ -213,16 +233,24 @@
 		c(a_i) - f(a_i) \text{ for every forward arc } a_i \in Q, \\
 		f(a_i) \text{ for every reverse arc } a_i \in Q,
 	\end{cases}$$
-	Define $\Delta = \min \{ \Delta_i \}$. Also define $f^* : E(D) \to \mathbb{Z}$ such that 
+	Define $\Delta = \min \{ \Delta_i \}$.
+	Also define $f^* : E(D) \to \mathbb{Z}$ such that 
 	$$f^*(a_i) = \begin{cases} f(a) + \Delta \text{, for every forward arc } a_i \in Q, \\
 	f(a) - \Delta \text{, for every reverse arc } a_i \in Q, \\
 	f(a_i) \text{, for every arc of } D \text{ which are not in }Q.
 	\end{cases}$$
 		Since $Q$ is an $f$-augmenting semipath in $D$, $\Delta > 0$ and $f(N) + \Delta = f^*(N)$.\\
 
-	Clearly $f(N) < f^*(N)$, and it is enough to show that $f^*$ is a flow in $N$. $f^*$ is a flow if it satisfies \begin{enumerate*} \item capacity constraint and \item conservation equation \end{enumerate*}. For any arc $a_i \not\in Q$, $f^*(a_i) = f(a_i) \le c(a_i)$. Suppose $a_i \in Q$. If $a_i = (u_{i-1},u_i)$, $a_i$ is a forward arc and we have $f^*(a_i) = f(a_i) + \Delta \le f(a_i) + \Delta_i = f(a_i) + c(a_i) - f(a_i) = c(a_i)$. If $a_i = (u_i,u_{i-1})$, then $a_i$ is a reverse arc and we have $f^*(a_i) = \Delta \le \min \{ \Delta_i \} = \Delta_i = c(a_i)$. Thus $f^*$ satisfies capactity constraint on every arc of $D$.\\
+	Clearly $f(N) < f^*(N)$, and it is enough to show that $f^*$ is a flow in $N$.
+$f^*$ is a flow if it satisfies \begin{enumerate*} \item capacity constraint and \item conservation equation \end{enumerate*}.
+			For any arc $a_i \not\in Q$, $f^*(a_i) = f(a_i) \le c(a_i)$.
+			Suppose $a_i \in Q$.
+			If $a_i = (u_{i-1},u_i)$, $a_i$ is a forward arc and we have $f^*(a_i) = f(a_i) + \Delta \le f(a_i) + \Delta_i = f(a_i) + c(a_i) - f(a_i) = c(a_i)$.
+			If $a_i = (u_i,u_{i-1})$, then $a_i$ is a reverse arc and we have $f^*(a_i) = \Delta \le \min \{ \Delta_i \} = \Delta_i = c(a_i)$.
+			Thus $f^*$ satisfies capactity constraint on every arc of $D$.\\
 
-	Let $x \in V(D)-\{s,t\}$. Suppose $x \not\in Q$,
+	Let $x \in V(D)-\{s,t\}$.
+	Suppose $x \not\in Q$,
 	\begin{align*}
 		\text{Net flow out of } x
 		& = \sum_{y \in N^+(x)} f^*(x,y) - \sum_{y \in N^-(x)} f^*(y,x) \\
@@ -230,7 +258,8 @@
 		& = 0
 	\end{align*}
 	
-	Suppose $x = u_i \in Q$, then $Q$ has two arc having vertex $x$ say, $a_{i-1}$, and $a_i$. There are four possibilities for these two arcs,
+	Suppose $x = u_i \in Q$, then $Q$ has two arc having vertex $x$ say, $a_{i-1}$, and $a_i$.
+	There are four possibilities for these two arcs,
 	\begin{enumerate}
 		\item Both $a_{i-1},\ a_i$ are forward arcs.
 		\item Arc $a_{i-1}$ is forward, but arc $a_i$ is reverse.
@@ -277,11 +306,29 @@
 		& = \sum_{y \in N^+(x)} f(x,y) - \sum_{y \in N^-(x)} f(y,x) \\
 		& = 0
 	\end{align*}
-	Therefore, $f^*$ is a flow on $N$. We have $f(N) < f^*(N)$. Thus $f$ is not maximum flow in $N$ due to the existence of an $f$-augmenting semipath in $D$.
+	Therefore, $f^*$ is a flow on $N$.
+	We have $f(N) < f^*(N)$.
+	Thus $f$ is not maximum flow in $N$ due to the existence of an $f$-augmenting semipath in $D$.
 
-	\paragraph{}Conversely, assume that there is no $f$-augmenting semipath in $D$. Now, we construct a cut $(P,\bar{P})$ of $N$. Let $P$ be the set of all vertices $x \in V(D)$ such that there is an $f$-unsaturated $s-x$ semipath in $D$. Trivially, $s \in P$. And $t \not\in P$ since there are no $f$-augmenting semipath in $D$.\footnote{An $f$-augmenting semipath is an $f$-unsaturated $s-t$ semipath in $D$.} Clearly, $(P,\bar{P})$ is a cut of the network $N$.\\
+	\paragraph{}Conversely, assume that there is no $f$-augmenting semipath in $D$.
+	Now, we construct a cut $(P,\bar{P})$ of $N$.
+	Let $P$ be the set of all vertices $x \in V(D)$ such that there is an $f$-unsaturated $s-x$ semipath in $D$.
+	Trivially, $s \in P$.
+	And $t \not\in P$ since there are no $f$-augmenting semipath in $D$.
+	\footnote{An $f$-augmenting semipath is an $f$-unsaturated $s-t$ semipath in $D$.}
+	Clearly, $(P,\bar{P})$ is a cut of the network $N$.\\
 
-	We claim that $c(P,\bar{P}) = f(N)$. Suppose there is a forward arc $(x,y) \in (P,\bar{P})$, then flow in it is saturated. If $f(x,y) < c(x,y)$, then there is an $f$-unsaturated $s-y$ semipath in $D$. ie, $s-x$ semipath + arc $(x,y)$. Thus every forward arc $(x,y) \in (P,\bar{P})$ is saturated. Suppose there is a reverse arc $(y,x) \in (\bar{P},P)$, then there is no flow in it(saturated reversed arc). If $f(y,x) > 0$, then there is an $f$-unsaturated $s-y$ semipath in $D$. ie, $s-x$ semipath + arc $(y,x)$. Thus every reverse arc $(y,x) \in (\bar{P},P)$ is saturated. And we have,
+
+	We claim that $c(P,\bar{P}) = f(N)$.
+	Suppose there is a forward arc $(x,y) \in (P,\bar{P})$, then flow in it is saturated.
+	If $f(x,y) < c(x,y)$, then there is an $f$-unsaturated $s-y$ semipath in $D$.
+	ie, $s-x$ semipath + arc $(x,y)$.
+	Thus every forward arc $(x,y) \in (P,\bar{P})$ is saturated.
+	Suppose there is a reverse arc $(y,x) \in (\bar{P},P)$, then there is no flow in it(saturated reversed arc).
+	If $f(y,x) > 0$, then there is an $f$-unsaturated $s-y$ semipath in $D$.
+	ie, $s-x$ semipath + arc $(y,x)$.
+	Thus every reverse arc $(y,x) \in (\bar{P},P)$ is saturated.
+	And we have,
 	\begin{align*}
 		\sum_{(x,y) \in (P,\bar{P})} f(x,y) & = \sum_{(x,y) \in (P,\bar{P})} c(x,y) \\
 		\sum_{(y,x) \in (\bar{P},P)} f(y,x) & = 0 \\
@@ -290,42 +337,80 @@
 		& = c(P,\bar{P})
 	\end{align*}
 
-	Suppose $f^*$ is maximum flow in network $N$ and $(X,\bar{X})$ is minimum cut of $N$. Then $f(N) \le f^*(N)$. Thus we have, $f(N) \le f^*(N) \le c(X,\bar{X}) \le c(P,\bar{P}) = f(N)$. Therefore, $f(N) = f^*(N)$. ie, the flow $f$ is maximum in network $N$ if there are no $f$-augmenting semipaths in $D$.
+	Suppose $f^*$ is maximum flow in network $N$ and $(X,\bar{X})$ is minimum cut of $N$.
+	Then $f(N) \le f^*(N)$.
+	Thus we have, $f(N) \le f^*(N) \le c(X,\bar{X}) \le c(P,\bar{P}) = f(N)$.
+	Therefore, $f(N) = f^*(N)$.
+	ie, the flow $f$ is maximum in network $N$ if there are no $f$-augmenting semipaths in $D$.
 \end{proof}
 
 \begin{theorem}[maximum-flow, min-cut]
 	In every network, the value of maximum flow equals capacity of minimum cut.
 \end{theorem}
 \begin{proof}
-	Suppose flow $f$ in network $N$ in maximum, then by previous theorem there is no $f$-augmenting semipath in $D$. And $f(N) \le c(X,\bar{X})$ for any cut $(X,\bar{X})$ in $N$. We can construct a cut $(P,\bar{P})$ in $N$ such that $f(N) = c(P,\bar{P})$. Let $P$ be the set of all vertices $x$ in $D$ such that there is an $f$-unsaturated $s-x$ semipath in $D$. Clearly $s \in P$ and $t \not\in P$. Also $f(P,\bar{P}) = c(P,\bar{P})$ and $f(\bar{P},P) = 0$. Then the cut $(P,\bar{P})$ is minimum cut of $N$. Suppose there is a cut $(X,\bar{X})$ such that $c(X,\bar{X}) < c(P,\bar{P})$. Then $f(N) = f(P,\bar{P}) - f(\bar{P},P) = c(P,\bar{P}) < c(X,\bar{X})$ which is a contradiction. Therefore, the value of maximum flow equals capacity of minimum cut.
+	Suppose flow $f$ in network $N$ in maximum, then by previous theorem there is no $f$-augmenting semipath in $D$.
+	And $f(N) \le c(X,\bar{X})$ for any cut $(X,\bar{X})$ in $N$.
+	We can construct a cut $(P,\bar{P})$ in $N$ such that $f(N) = c(P,\bar{P})$.
+	Let $P$ be the set of all vertices $x$ in $D$ such that there is an $f$-unsaturated $s-x$ semipath in $D$.
+	Clearly $s \in P$ and $t \not\in P$.
+	Also $f(P,\bar{P}) = c(P,\bar{P})$ and $f(\bar{P},P) = 0$.
+	Then the cut $(P,\bar{P})$ is minimum cut of $N$.
+	Suppose there is a cut $(X,\bar{X})$ such that $c(X,\bar{X}) < c(P,\bar{P})$.
+	Then $f(N) = f(P,\bar{P}) - f(\bar{P},P) = c(P,\bar{P}) < c(X,\bar{X})$ which is a contradiction.
+	Therefore, the value of maximum flow equals capacity of minimum cut.
 \end{proof}
 
 \begin{remark}Exercise 5.2
 	\begin{enumerate}
-		\item Suppose $(X,\bar{X})$ is a cut of $N$ such that $f(a) = c(a),\ \forall a \in (X,\bar{X})$ and $f(a) = 0,\ \forall a \in (\bar{X},X)$. By the definition of cut, $s \in X$ and $t \in \bar{X}$. Thus there is no $f$-augmenting semipath in $D$. Suppose there is an $f$-augmenting semipath $Q$ in $D$, then there is either \begin{enumerate*} \item a forward arc $(x,y) \in (X,\bar{X})$ such that $f(x,y) < c(x,y)$ or \item a reverse arc $(y,x) \in (\bar{X},X)$ such that $f(y,x) > 0$ \end{enumerate*} which is a contradition. Therefore, the flow $f(N)$ is maximum and the given cut $(X,\bar{X})$ is minimum as shown in the proof of the maximum-flow min-cut theorem.
+		\item Suppose $(X,\bar{X})$ is a cut of $N$ such that $f(a) = c(a),\ \forall a \in (X,\bar{X})$ and $f(a) = 0,\ \forall a \in (\bar{X},X)$.
+		By the definition of cut, $s \in X$ and $t \in \bar{X}$.
+	Thus there is no $f$-augmenting semipath in $D$.
+Suppose there is an $f$-augmenting semipath $Q$ in $D$, then there is either \begin{enumerate*} \item a forward arc $(x,y) \in (X,\bar{X})$ such that $f(x,y) < c(x,y)$ or \item a reverse arc $(y,x) \in (\bar{X},X)$ such that $f(y,x) > 0$ \end{enumerate*} which is a contradition.
+			Therefore, the flow $f(N)$ is maximum and the given cut $(X,\bar{X})$ is minimum as shown in the proof of the maximum-flow min-cut theorem.
 		\setcounter{enumi}{2}
-	\item The algorithm suggested in the hint of this exercise won't work if two subnetworks have a common arc such that the direction of flow in which is not consistent. Suppose, the generalized network is not supposed to have any common arcs. Then construct subnetworks for each pair $(s,t)$ with all those arcs which are on some $s-t$ semipath. Define subnetwork capacity function $c'(a) = c(a)$ for every arc in $N'$.\\
+	\item The algorithm suggested in the hint of this exercise won't work if two subnetworks have a common arc such that the direction of flow in which is not consistent.
+		Suppose, the generalized network is not supposed to have any common arcs.
+			Then construct subnetworks for each pair $(s,t)$ with all those arcs which are on some $s-t$ semipath.
+			Define subnetwork capacity function $c'(a) = c(a)$ for every arc in $N'$.\\
 
-	Let $N$ be a generalized network with set of sources $S$ and set of sinks $T$. A flow in $N$ is maximum if there is not $f$-augmenting $s-t$ semipath for each pair $(s,t) \in S \times T$.
+	Let $N$ be a generalized network with set of sources $S$ and set of sinks $T$.
+			A flow in $N$ is maximum if there is not $f$-augmenting $s-t$ semipath for each pair $(s,t) \in S \times T$.
 %	Does there exists a generalised network where max-flow min-cut algorithm is inconsistent ? $\star$
 	\end{enumerate}
 \end{remark}
 
 \subsection{A max-flow min-cut algorithm}
 \begin{theorem}
-	Let $N$ be a network with underlying digraph $D$, source $s$, sink $t$, capacity function $c$ and flow $f$. Let $D'$ be the digraph with same vertex set as $D$ and arc set defined by $E(D') = \{ (x,y) : (x,y) \in E(D),\ c(x,y) > f(x,y) \text{ or } (y,x) \in E(D),\ f(y,x) > 0 \}$. ie, $D'$ has only the unsaturated arcs of $D$. Then $D'$ has an $s-t$ directed path iff $D$ has an $f$-augmenting semipath. Moreover, shortest $s-t$ path in $D'$ has the same length as shortest $f$-augmenting semipath in $D$.
+	Let $N$ be a network with underlying digraph $D$, source $s$, sink $t$, capacity function $c$ and flow $f$.
+	Let $D'$ be the digraph with same vertex set as $D$ and arc set defined by $E(D') = \{ (x,y) : (x,y) \in E(D),\ c(x,y) > f(x,y) \text{ or } (y,x) \in E(D),\ f(y,x) > 0 \}$.
+	ie, $D'$ has only the unsaturated arcs of $D$.
+	Then $D'$ has an $s-t$ directed path iff $D$ has an $f$-augmenting semipath.
+	Moreover, shortest $s-t$ path in $D'$ has the same length as shortest $f$-augmenting semipath in $D$.
 \end{theorem}
 \begin{synopsis}
-	Each directed $s-t$ path in $D'$ has respective $f$-augmenting semipath in $D$ and vice versa. Clearly, they have the same length.
+	Each directed $s-t$ path in $D'$ has respective $f$-augmenting semipath in $D$ and vice versa.
+	Clearly, they have the same length.
 \end{synopsis}
 \begin{proof}
-	Let $N$ be a network with underlying digraph $D$, capacity $c$ and flow $f$. Let $D'$ be the digraph with vertex set $V(D') = V(D)$ and arc set $E(D') = \{ (x,y) : \text{either }(x,y) \text{ or } (y,x) \text{ is unsaturated in } N \}$.\\
+	Let $N$ be a network with underlying digraph $D$, capacity $c$ and flow $f$.
+	Let $D'$ be the digraph with vertex set $V(D') = V(D)$ and arc set $E(D') = \{ (x,y) : \text{either }(x,y) \text{ or } (y,x) \text{ is unsaturated in } N \}$.\\
 
-	Suppose $D'$ has a directed $s-t$ path $Q' : s,u_1,u_2,\cdots,u_{n-1},t$. Then by the construction of $D'$, for each $u_i \in Q$, there exists an $f$ unsaturated arc $a_i$ in $D$. ie, either forward arc $a_i = (u_{k-1},u_k)$ such that $f(u_{k-1},u_k) < c(u_{k-1},u_k)$ or reverse arc $a_i = (u_k,u_{k-1})$ such that $f(u_k,u_{k-1}) > 0$. Therefore, we have an $s-t$ semipath $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ in $D$ such that $Q$ is an $f$-augmenting semipath since every arc in $Q$ is $f$-unsaturated. Clearly, $Q,Q'$ are of the same length.\\
 
-	Conversely, suppose that the digraph $D$ has an $f$-augmenting semipath $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$. Then each arc $a_i \in Q$ are $f$-unsaturated and by the construction of $D'$, there exists a directed $s-t$ path $Q' = s,u_1,u_2,\cdots,u_{n-1},t$ in $D'$. And $Q,Q'$ are of the same length.\\
+	Suppose $D'$ has a directed $s-t$ path $Q' : s,u_1,u_2,\cdots,u_{n-1},t$.
+	Then by the construction of $D'$, for each $u_i \in Q$, there exists an $f$ unsaturated arc $a_i$ in $D$.
+	ie, either forward arc $a_i = (u_{k-1},u_k)$ such that $f(u_{k-1},u_k) < c(u_{k-1},u_k)$ or reverse arc $a_i = (u_k,u_{k-1})$ such that $f(u_k,u_{k-1}) > 0$.
+	Therefore, we have an $s-t$ semipath $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ in $D$ such that $Q$ is an $f$-augmenting semipath since every arc in $Q$ is $f$-unsaturated.
+	Clearly, $Q,Q'$ are of the same length.\\
 
-	There is a one-one correspondence betweeen the directed $s-t$ paths in $D'$ and $f$-augmenting semipaths in $D$. Clearly, they have the same length. Thus shortest directed $s-t$ path in $D$ and shortest $f$-augmenting semipath in $D'$ are of the same length.
+
+	Conversely, suppose that the digraph $D$ has an $f$-augmenting semipath $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$.
+	Then each arc $a_i \in Q$ are $f$-unsaturated and by the construction of $D'$, there exists a directed $s-t$ path $Q' = s,u_1,u_2,\cdots,u_{n-1},t$ in $D'$.
+	And $Q,Q'$ are of the same length.\\
+
+
+	There is a one-one correspondence betweeen the directed $s-t$ paths in $D'$ and $f$-augmenting semipaths in $D$.
+	Clearly, they have the same length.
+	Thus shortest directed $s-t$ path in $D$ and shortest $f$-augmenting semipath in $D'$ are of the same length.
 \end{proof}
 
 \begin{description}
@@ -337,10 +422,20 @@
 	An algorithm to find maximum flow and minimum cut of a network $N$ with underlying digraph $D$, source $s$, sink $t$, capacity function $c$ and initial flow $f$.
 	\begin{enumerate}
 		\item Construct digraph $D'$ with vertex set $V(D') = V(D)$ and arc set $E(D') = \{ (x,y) : (x,y) \in E(D) \&  f(x,y) < c(x,y) \text{ or } (y,x) \in E(D) \& f(y,x) > 0 \}$
-		\item Find (shortest) $s-t$ directed path in $D'$ using Moore's breadth first search(BFS) algorithm. If $D'$ doesn't have an $s-t$ path, then proceed to step 5. Otherwise, let $Q' : s,u_1,u_2,\cdots,u_{n-1},t$ be a (shortest) $s-t$ path in $D'$.
-		\item Let $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ be the respective semipath in $D$ such that $f(a_j) < c(a_j)$ for forward arcs and $f(a_i) > 0$ for reverse arcs. Let $\Delta_j = c(a_j) - f(a_j)$ for forward arcs and $\Delta_j = f(a_j)$ for reverse arcs. And let $\Delta = \min \{ \Delta_j \}$. And augment flow $f$ by $\Delta$ ie, $f(a_j) \leftarrow f(a_j) + \Delta$ for forward arcs and $f(a_j) \leftarrow f(a_j)-\Delta$ for reverse arcs.
-		\item Goto step 1 (Proceed with new flow $f$ and find whether there are any directed $s-t$ paths in $D'$. If any, augment the flow along the new augmentation path $Q$ by saturating the flow along the saturation arc.)
-		\item There is no $s-t$ directed path in $D'$. Thus there is no $f$-augmenting semipath in $D$. Therefore the flow $f$ in $N$ is maximum. Let $P$ be the set of all vertices in $D'$ with non-zero breadth first index(bfi) from Moore's BFS algorithm applied in step 2. $(P,\bar{P})$ is minimum cut of $N$.
+		\item Find (shortest) $s-t$ directed path in $D'$ using Moore's breadth first search(BFS) algorithm.
+			If $D'$ doesn't have an $s-t$ path, then proceed to step 5.
+			Otherwise, let $Q' : s,u_1,u_2,\cdots,u_{n-1},t$ be a (shortest) $s-t$ path in $D'$.
+		\item Let $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ be the respective semipath in $D$ such that $f(a_j) < c(a_j)$ for forward arcs and $f(a_i) > 0$ for reverse arcs.
+			Let $\Delta_j = c(a_j) - f(a_j)$ for forward arcs and $\Delta_j = f(a_j)$ for reverse arcs.
+			And let $\Delta = \min \{ \Delta_j \}$.
+			And augment flow $f$ by $\Delta$ ie, $f(a_j) \leftarrow f(a_j) + \Delta$ for forward arcs and $f(a_j) \leftarrow f(a_j)-\Delta$ for reverse arcs.
+		\item Goto step 1 (Proceed with new flow $f$ and find whether there are any directed $s-t$ paths in $D'$.
+			If any, augment the flow along the new augmentation path $Q$ by saturating the flow along the saturation arc.)
+		\item There is no $s-t$ directed path in $D'$.
+			Thus there is no $f$-augmenting semipath in $D$.
+			Therefore the flow $f$ in $N$ is maximum.
+			Let $P$ be the set of all vertices in $D'$ with non-zero breadth first index(bfi) from Moore's BFS algorithm applied in step 2.
+			$(P,\bar{P})$ is minimum cut of $N$.
 	\end{enumerate}
 \end{algorithm}
 
@@ -373,16 +468,30 @@
 	For every graph $G$, $\kappa(G) \le \lambda(G) \le \delta(G)$
 \end{theorem}
 \begin{proof}
-	Suppose graph $G$ is disconnected then $\kappa(G) = \lambda(G) = \delta(G) = 0$. Let $G$ be a connected graph. Then $G$ has at least one vertex $v$ with degree $\delta(G)$. Therefore $\lambda(G) \le \delta(G)$ since edges incident with $v$ form an edge cutset of $G$ and $\lambda(G)$ is the cardinality of all edge cutsets.\\
+	Suppose graph $G$ is disconnected then $\kappa(G) = \lambda(G) = \delta(G) = 0$.
+	Let $G$ be a connected graph.
+	Then $G$ has at least one vertex $v$ with degree $\delta(G)$.
+	Therefore $\lambda(G) \le \delta(G)$ since edges incident with $v$ form an edge cutset of $G$ and $\lambda(G)$ is the cardinality of all edge cutsets.\\
 
-	Let $G$ be a graph with edge connectivity $\lambda(G) = c$. Let $U$ be a edge cutset with cardinality $c$ and let edge $uv \in U$. Construct a set of vertices $S \subset V(G)$ such that ($S$ is of minimal cardinality and) for each edge in $U$ other $uv$, $S$ has a vertex incident with it. Cardinality of $S$ is atmost $c-1$, since we can select one vertex each for each edge in $U$ other than $u, v$. If $G-S$ is a disconnected graph, then $\kappa(G) < \lambda(G)$. Suppose $G-S$ is a connected graph, then delete a non-pendent vertex $u$ or $v$ from $G-S$, say $v$. Since $G-S$ is a connected graph with a singleton edge cutset, $\{ uv \}$. We have a vertex cutset $S \cup \{ v\}$ of $G$. Therefore, $\kappa(G) \le c = \lambda(G)$.
+
+	Let $G$ be a graph with edge connectivity $\lambda(G) = c$.
+	Let $U$ be a edge cutset with cardinality $c$ and let edge $uv \in U$.
+	Construct a set of vertices $S \subset V(G)$ such that ($S$ is of minimal cardinality and) for each edge in $U$ other $uv$, $S$ has a vertex incident with it.
+	Cardinality of $S$ is atmost $c-1$, since we can select one vertex each for each edge in $U$ other than $u, v$.
+	If $G-S$ is a disconnected graph, then $\kappa(G) < \lambda(G)$.
+	Suppose $G-S$ is a connected graph, then delete a non-pendent vertex $u$ or $v$ from $G-S$, say $v$.
+	Since $G-S$ is a connected graph with a singleton edge cutset, $\{ uv \}$.
+	We have a vertex cutset $S \cup \{ v\}$ of $G$.
+	Therefore, $\kappa(G) \le c = \lambda(G)$.
 \end{proof}
 
 \begin{theorem}
 	If $G$ is a graph of diameter $2$, then $\lambda(G) = \delta(G)$
 \end{theorem}
 %\begin{proof}
-%	Clearly $\lambda(G) \le \delta(G)$. Therefore it is sufficient to prove that for a graph of diameter $2$, $\lambda(G) \not< \delta(G)$. ie, for every non-trivial partition $X,Y$ of the vertex set $V(G)$, there are at least $\delta(G)$ edges between $X$ and $Y$.$\star$
+%	Clearly $\lambda(G) \le \delta(G)$.
+%	Therefore it is sufficient to prove that for a graph of diameter $2$, $\lambda(G) \not< \delta(G)$.
+%	ie, for every non-trivial partition $X,Y$ of the vertex set $V(G)$, there are at least $\delta(G)$ edges between $X$ and $Y$.$\star$
 %\end{proof}
 
 \begin{description}
@@ -391,7 +500,8 @@
 \end{description}
 
 \begin{theorem}
-	Let $G$ be a graph of order $p$ and $n$ be an integer such that $1 \le n \le p-1$. If $\delta(G) \ge \frac{p+n-2}{2}$, then $G$ is $n$-connected.
+	Let $G$ be a graph of order $p$ and $n$ be an integer such that $1 \le n \le p-1$.
+	If $\delta(G) \ge \frac{p+n-2}{2}$, then $G$ is $n$-connected.
 \end{theorem}
 %\begin{proof}
 
@@ -408,7 +518,13 @@
 		\item $\lambda(K_{m,n}) = \kappa(K_{m,n}) = m$
 		\setcounter{enumi}{7}
 		\item $c(K_p) = 2$, $c(K_{m,n}) = n+1$, $c(C_p) = p-1$\\
-			Every two vertices of complete graph of order $p$ are adjacent. For complete bi-partitie graph $K_{m,n}$ such that $1 \le m \le n$, there exists a totally disconnected subgraph of order $n$. Therefore $c(K_{m,n}) \ge n+1$. And with $n+1$ vertices, both partitions have at least two vertices each and therefore the graph is connected and $c(K_{m,n}) \le n+1$. For cycle $C_p$, any subgraph is disconnected if two non-adjacent vertices are deleted. Therefore $c(C_p) \ge p-1$. And $C_p$ remains connected even after deletion of any vertex, therefore $c(C_p) \le p-1$.
+			Every two vertices of complete graph of order $p$ are adjacent.
+			For complete bi-partitie graph $K_{m,n}$ such that $1 \le m \le n$, there exists a totally disconnected subgraph of order $n$.
+			Therefore $c(K_{m,n}) \ge n+1$.
+			And with $n+1$ vertices, both partitions have at least two vertices each and therefore the graph is connected and $c(K_{m,n}) \le n+1$.
+			For cycle $C_p$, any subgraph is disconnected if two non-adjacent vertices are deleted.
+			Therefore $c(C_p) \ge p-1$.
+			And $C_p$ remains connected even after deletion of any vertex, therefore $c(C_p) \le p-1$.
 		\item $$\delta(G) \ge \frac{p+(l-1)(n-2)}{l} \implies \kappa_l(G) \ge n$$
 	\end{enumerate}
 \end{remark}
@@ -430,17 +546,26 @@
 
 \begin{algorithm}[connectivity $\kappa(G)$].
 	\begin{enumerate}
-		\item If degree of every vertex is $p-1$, then output $\kappa = p-1$ and stop. Otherwise, continue.
-		\item If $G$ is disconnected, output $\kappa = 0$ and stop. Otherwise, continue.
+		\item If degree of every vertex is $p-1$, then output $\kappa = p-1$ and stop.
+			Otherwise, continue.
+		\item If $G$ is disconnected, output $\kappa = 0$ and stop.
+			Otherwise, continue.
 		\item $\kappa \leftarrow p$
 		\item $i \leftarrow 0$
-		\item If $i \le \kappa$, then $i \leftarrow i+1$ and continue. Otherwise, output $\kappa$ and stop.
+		\item If $i \le \kappa$, then $i \leftarrow i+1$ and continue.
+			Otherwise, output $\kappa$ and stop.
 		\item $j \leftarrow i+1$
 		\item 
 			\begin{enumerate}[label=(\arabic*)]
-				\item If $j = p+1$, then return to step 5. Otherwise continue.
-				\item If $v_iv_j \not\in E(G)$, construct network $N$ with digraph $D$ as follows : for each vertex $ v \in V(G)$, there are two vertices $v',v'' \in V(D)$ and an arc $(v',v'') \in E(D)$. And for each edge $uv \in E(G)$, there are two arcs $(u'',v),(v'',u) \in E(D)$. The capacity function is given by, $c(v',v'') = 1$ for every $v \in V(G)$ and $c(a) = \infty$ for every other arc in $D$. Set source $s = v_i''$ and sink $t = v_j'$ and find maximum flow in $N$ using max-flow min-cut algorithm. Otherwise proceed to step 7d
-				\item If $f(N) < \kappa$, then $\kappa \leftarrow f(N)$. Otherwise, continue.
+				\item If $j = p+1$, then return to step 5.
+					Otherwise continue.
+				\item If $v_iv_j \not\in E(G)$, construct network $N$ with digraph $D$ as follows : for each vertex $ v \in V(G)$, there are two vertices $v',v'' \in V(D)$ and an arc $(v',v'') \in E(D)$.
+					And for each edge $uv \in E(G)$, there are two arcs $(u'',v),(v'',u) \in E(D)$.
+					The capacity function is given by, $c(v',v'') = 1$ for every $v \in V(G)$ and $c(a) = \infty$ for every other arc in $D$.
+					Set source $s = v_i''$ and sink $t = v_j'$ and find maximum flow in $N$ using max-flow min-cut algorithm.
+					Otherwise proceed to step 7d
+				\item If $f(N) < \kappa$, then $\kappa \leftarrow f(N)$.
+					Otherwise, continue.
 				\item $j \leftarrow j+1$ and return to step 7a
 			\end{enumerate}
 	\end{enumerate}
@@ -449,15 +574,23 @@
 \section{Matchings and Factorizations}
 \subsection{An Introduction to Matching}
 \begin{description}
-	\item[Marriage Problem] Given a collection of men and women, where each womon knows some of the men. Can every women marry a man she knows ?
-	\item[Assignment Problem] Given several job openings and applicants for one or more of these positions. Find an assignment so that maximum positions are filled ?
-	\item[Optimal Assignment Problem] Given several job openings and applicants for one or more of these positions. The benefits of employing these applicants on those positions are also given. Find an assignment of maximum benefit to the company ?
+	\item[Marriage Problem] Given a collection of men and women, where each womon knows some of the men.
+		Can every women marry a man she knows ?
+	\item[Assignment Problem] Given several job openings and applicants for one or more of these positions.
+		Find an assignment so that maximum positions are filled ?
+	\item[Optimal Assignment Problem] Given several job openings and applicants for one or more of these positions.
+		The benefits of employing these applicants on those positions are also given.
+		Find an assignment of maximum benefit to the company ?
 \end{description}
 
 \begin{description}
-	\item[matching] in $G$ is a $1$-regular\footnote{A graph $G$ is $k$-regular, if every vertex of $G$ has degree $k$.} subgraph of $G$.
+	\item[matching] in $G$ is a $1$-regular
+		\footnote{
+			A graph $G$ is $k$-regular, if every vertex of $G$ has degree $k$.
+			} subgraph of $G$.
 	\item[maximum matching] in $G$ is a matching of $G$ with maximum cardinality.
-	\item[perfect matching] in $G$ is a matching of cardinality $p/2$. ie, $p/2$ edges.
+	\item[perfect matching] in $G$ is a matching of cardinality $p/2$.
+		ie, $p/2$ edges.
 	\item[maximum weight matching] in a weighted graph $G$ is a matching with maximum weight.
 \end{description}
 
@@ -474,29 +607,55 @@
 \end{definition}
 
 \begin{theorem}
-	Let $M_1,M_2$ be two matchings in $G$ such that there is a spanning subgraph $H$ of $G$ with edges that are either in $M_1$ or $M_2$, but not both. Then the components of $H$ are either \begin{enumerate*} \item isolated vertex \item even cycle with edge alternately from $M_1$ and $M_2$ \item a non-trivial path with edges alternately from $M_1$ and $M_2$ such that each end vertex is single with respect to either $M_1$ or $M_2$, but not both. \end{enumerate*}
+	Let $M_1,M_2$ be two matchings in $G$ such that there is a spanning subgraph $H$ of $G$ with edges that are either in $M_1$ or $M_2$, but not both.
+Then the components of $H$ are either
+\begin{enumerate*}
+	\item isolated vertex
+	\item even cycle with edge alternately from $M_1$ and $M_2$
+	\item a non-trivial path with edges alternately from $M_1$ and $M_2$ such that each end vertex is single with respect to either $M_1$ or $M_2$, but not both.
+\end{enumerate*}
 \end{theorem}
 \begin{synopsis}
-	$\Delta(H) \le 2$ by Pigeonhole principle. Any component of $H$ is either a path or a cycle. A cycle with edge alternately from $M_1$ and $M_2$ is even. If an end vertex of a non-trivial path is matched with respect to $M_1$(WLOG), then it is there in $M_1-M_2$ ie, it is not there in $M_2$. If there is another edge in $M_2$ incident with it, then it has to be in $H$ and it will cease to be an end vertex of path component. Therefore, it is unmatched with respect to $M_2$.
+	$\Delta(H) \le 2$ by Pigeonhole principle.
+	Any component of $H$ is either a path or a cycle.
+	A cycle with edge alternately from $M_1$ and $M_2$ is even.
+	If an end vertex of a non-trivial path is matched with respect to $M_1$(WLOG), then it is there in $M_1-M_2$ ie, it is not there in $M_2$.
+	If there is another edge in $M_2$ incident with it, then it has to be in $H$ and it will cease to be an end vertex of path component.
+	Therefore, it is unmatched with respect to $M_2$.
 \end{synopsis}
 
 \begin{theorem}
 	A matching $M$ in a graph $G$ is maximum iff there is no augmenting path with respect to $M$ in $G$.
 \end{theorem}
 \begin{synopsis}
-	If $M$ is maximum matching and $P$ an $M$-augmenting path. Since both end-vertices are single, length of $P$ is odd. Let $M',M''$ be edges of $P$ which are in $M$ and not in $M$ respectively. Then $M - M' + M''$ is a matching of cardinality one greater than that of $M$ which is a contradiction since $M$ is maximum. Conversely, suppose $M$ be a matching such that there no $M$-augmenting paths in $G$. Let $M'$ be a maximum matching in $G$. Then a nontrivial path component of the graph induced by $M \Delta M'$ is of even length otherwise both end-vertices are matched with respect to one of the matching $M$ or $M'$ which is a contradiction. Again every cycle components are even. Therefore $|M| = |M'|$, since $M \Delta M'$ doesn't have a nontrivial component of another kind.
+	If $M$ is maximum matching and $P$ an $M$-augmenting path.
+	Since both end-vertices are single, length of $P$ is odd.
+	Let $M',M''$ be edges of $P$ which are in $M$ and not in $M$ respectively.
+	Then $M - M' + M''$ is a matching of cardinality one greater than that of $M$ which is a contradiction since $M$ is maximum.\\
+
+
+	Conversely, suppose $M$ be a matching such that there no $M$-augmenting paths in $G$.
+	Let $M'$ be a maximum matching in $G$.
+	Then a nontrivial path component of the graph induced by $M \Delta M'$ is of even length otherwise both end-vertices are matched with respect to one of the matching $M$ or $M'$ which is a contradiction.
+	Again every cycle components are even.
+	Therefore $|M| = |M'|$, since $M \Delta M'$ doesn't have a nontrivial component of another kind.
 \end{synopsis}
 
 \begin{definition}
-	Let $U_1,U_2$ be two nonempty, disjoint, subsets of the vertex set of a graph $G$. Then \textbf{$U_1$ is matched to $U_2$} if there exists a matching $M$ in $G$ such that every edge in $M$ incident with a vertex in $U_1$ and a vertex in $U_2$. And every vertex of $U_1$ (or $U_2$) is incident with some edge in $M$. Suppose $M^*$ be a matching such that $M \subset M^*$, then \textbf{$U_1$ is matched under $M^*$ to $U_2$}.
+	Let $U_1,U_2$ be two nonempty, disjoint, subsets of the vertex set of a graph $G$.
+	Then \textbf{$U_1$ is matched to $U_2$} if there exists a matching $M$ in $G$ such that every edge in $M$ incident with a vertex in $U_1$ and a vertex in $U_2$.
+	And every vertex of $U_1$ (or $U_2$) is incident with some edge in $M$.
+	Suppose $M^*$ be a matching such that $M \subset M^*$, then \textbf{$U_1$ is matched under $M^*$ to $U_2$}.
 \end{definition}
 
 \begin{definition}
-	Let $U$ be a nonempty set of vertices of a graph $G$. $U$ is \textbf{nondeficient},\footnote{N(S) is the neighbourhood set of all vertices adjacent to some vertex in S} if $|N(S)| \ge |S|$ for every nonempty subset $S$ of $U$.
+	Let $U$ be a nonempty set of vertices of a graph $G$.
+	$U$ is \textbf{nondeficient},\footnote{N(S) is the neighbourhood set of all vertices adjacent to some vertex in S} if $|N(S)| \ge |S|$ for every nonempty subset $S$ of $U$.
 \end{definition}
 
 \begin{theorem}
-	Let $G$ be a bipartite graph with partite sets $V_1,V_2$. The set $V_1$ can be matched to a subset of $V_2$ iff $V_1$ is nondeficient.
+	Let $G$ be a bipartite graph with partite sets $V_1,V_2$.
+	The set $V_1$ can be matched to a subset of $V_2$ iff $V_1$ is nondeficient.
 \end{theorem}
 \begin{corollary}
 	Every $r$-regular bipartite multigraph has a perfect matching.
@@ -507,17 +666,24 @@
 \end{theorem}
 
 \begin{remark}[Hall's Marriage Theorem]
-	Suppose there are $n$ women. Then every women can marry a man she knows iff each subset of $k$ women $(1 \le k \le n)$ colletively knows atleast $k$ men. 
+	Suppose there are $n$ women.
+	Then every women can marry a man she knows iff each subset of $k$ women $(1 \le k \le n)$ colletively knows atleast $k$ men. 
 \end{remark}
 
 \begin{remark}
-	Let $W$ be a set of $n$ women. Then there are $2^n-1$ nonempty subset for $W$. Thus, Hall's Marriage Theorem suggests that we ensure $|N(S)| \ge |S|$ for every nonempty subset $S$ of $W$. This method has complexity $O(2^n)$.
+	Let $W$ be a set of $n$ women.
+	Then there are $2^n-1$ nonempty subset for $W$.
+	Thus, Hall's Marriage Theorem suggests that we ensure $|N(S)| \ge |S|$ for every nonempty subset $S$ of $W$.
+	This method has complexity $O(2^n)$.
 \end{remark}
 
 \subsection{Maximum Matching in Bipartite Graphs}
 
 \begin{definition}
-	Let $M$ be a matching in a graph $G$ and $P$ is an augmenting path with respect to $M$. Let $M'$ be set of edge in $P$ and $M$. And $M''$ be the set of edges in $P$ and not in $M$. Then $M_1 = (M-M') \cup M''$ is the \textbf{matching obtained by augmenting M along path P}.
+	Let $M$ be a matching in a graph $G$ and $P$ is an augmenting path with respect to $M$.
+	Let $M'$ be set of edge in $P$ and $M$.
+	And $M''$ be the set of edges in $P$ and not in $M$.
+	Then $M_1 = (M-M') \cup M''$ is the \textbf{matching obtained by augmenting M along path P}.
 \end{definition}
 
 \begin{remark}
@@ -525,12 +691,17 @@
 \end{remark}
 
 \begin{theorem}
-	Let $M$ be a a matching of a graph $G$ that is not maximum, and let $v$ be a single vertex with respect to $M$. Let $M_1$ denote the mathing obtained by augmenting $M$ along some augmenting path. If $G$ contains an augmenting path with respect to $M_1$ that has $v$ and an end-vertex, then $G$ contains an augmenting path with respect to $M$ that has $v$ as an end-vertex
+	Let $M$ be a a matching of a graph $G$ that is not maximum, and let $v$ be a single vertex with respect to $M$.
+	Let $M_1$ denote the mathing obtained by augmenting $M$ along some augmenting path.
+	If $G$ contains an augmenting path with respect to $M_1$ that has $v$ and an end-vertex, then $G$ contains an augmenting path with respect to $M$ that has $v$ as an end-vertex
 \end{theorem}
 %\begin{proof}
 %\end{proof}
 \begin{corollary}
-	Let $M$ be a matching of a graph $G$. Suppose that $M = M_1,M_2,\cdots,M_k$ is a finite sequence of matchings of $G$ such that $M_i$ $(2 \le i \le k)$ is obtained by augmenting $M_{i-1}$ along some augmenting path. Suppose $v$ is a single vertex with respect to $M$ for which there exists no augmenting path starting at $v$. Then $G$ does not contain an augmenting path with respect to $M_i$ $(2 \le i \le k)$ that has $v$ as an end-vertex.
+	Let $M$ be a matching of a graph $G$.
+	Suppose that $M = M_1,M_2,\cdots,M_k$ is a finite sequence of matchings of $G$ such that $M_i$ $(2 \le i \le k)$ is obtained by augmenting $M_{i-1}$ along some augmenting path.
+	Suppose $v$ is a single vertex with respect to $M$ for which there exists no augmenting path starting at $v$.
+	Then $G$ does not contain an augmenting path with respect to $M_i$ $(2 \le i \le k)$ that has $v$ as an end-vertex.
 \end{corollary}
 
 \begin{definition}
@@ -551,24 +722,31 @@
 					otherwise, delete a vertex $x$ from $Q$ and continue.
 				\item 
 					\begin{enumerate}[label=(\arabic*)]
-						\item Suppose that $N(x) = \{y_1,y_2,\cdots,y_k\}$. Let $j \leftarrow 1$.
+						\item Suppose that $N(x) = \{y_1,y_2,\cdots,y_k\}$.
+							Let $j \leftarrow 1$.
 						\item If $j \le k$, then $y \leftarrow y_j$; otherwise return to Step 4.2
 						\item If $TREE(y) = T$, then $j \leftarrow j+1$ and return to Step 4.3.2. Otherwise, continue.
 						\item If $y$ is incident with a matching edge $yz$, then $TREE(y) \leftarrow T$, $TREE(z) \leftarrow T$, $PARENT(y) \leftarrow x$, $PARENT(z) \leftarrow y$ and add $z$ to $Q$, $j \leftarrow j+1$ and return to Step 4.3.2. Otherwise, $y$ is a single vertex and continue.
-						\item Use $PARENT$ to determine the alternating $v-x$ path $P'$ in the alternating tree. Let $P$ be the augmenting path obtained from $P'$ by adding the path $x,y$. Proceed to Step 5
+						\item Use $PARENT$ to determine the alternating $v-x$ path $P'$ in the alternating tree.
+							Let $P$ be the augmenting path obtained from $P'$ by adding the path $x,y$.
+							Proceed to Step 5
 					\end{enumerate}
 			\end{enumerate}
-		\item Augment $M$ along $P$ to obtain a new matching $M'$. Let $M \leftarrow M'$, $i \leftarrow i+1$, and return to Step 2.
+		\item Augment $M$ along $P$ to obtain a new matching $M'$.
+			Let $M \leftarrow M'$, $i \leftarrow i+1$, and return to Step 2.
 	\end{enumerate}
 	\label{alg:maxmatching}
 \end{algorithm}
 
 \begin{definition}
-	Let $G$ be a weighted complete bipartite graph with partite sets $V_1$ and $V_2$. A \textbf{feasible vertex labeling} is a real function $l : V(G) \to \mathbb{R}$ on vertex set of $G$ such that $l(v) + l(u) \ge w(vu)$ where $v \in V_1$ and $u \in V_2$.
+	Let $G$ be a weighted complete bipartite graph with partite sets $V_1$ and $V_2$.
+	A \textbf{feasible vertex labeling} is a real function $l : V(G) \to \mathbb{R}$ on vertex set of $G$ such that $l(v) + l(u) \ge w(vu)$ where $v \in V_1$ and $u \in V_2$.
 \end{definition}
 
 \begin{definition} Consider the function $l : V(G) \to \mathbb{R}$ such that \\
-	$\forall v \in V_1,\ l(v) = \max \{ w(vu) : u \in V_2\}$ and $\forall u \in V_2,\ l(u) = 0$. Then $l$ is a feasible vertex labeling on $V(G)$. And,
+	$\forall v \in V_1,\ l(v) = \max \{ w(vu) : u \in V_2\}$ and $\forall u \in V_2,\ l(u) = 0$.
+	Then $l$ is a feasible vertex labeling on $V(G)$.
+	And,
 	\begin{description}
 		\item[$E_l$] is the set of all edge of the weighted complete bipartite graph $G$ such that $l(v)+l(u) = w(vu)$.
 		\item[$H_l$] is the spanning subgraph of $G$ induced by the edge set $E_l$.
@@ -576,7 +754,8 @@
 \end{definition}
 
 \begin{theorem}
-	Let $l$ be a feasible vertex labeling of a weighted complete bipartite graph $G$. If $H_l$ contains a perfect matching $M'$, then $M'$ is a maximum weight matching of $G$.
+	Let $l$ be a feasible vertex labeling of a weighted complete bipartite graph $G$.
+	If $H_l$ contains a perfect matching $M'$, then $M'$ is a maximum weight matching of $G$.
 \end{theorem}
 
 \begin{algorithm}[Kuhn-Munkres].
@@ -591,11 +770,15 @@
 		\item Apply Algorithm \ref{alg:maxmatching} to determine a maximum matching $M$ in $G_l$.
 		\item 
 			\begin{enumerate}[label=(\arabic*)]
-				\item If every vertex $v$ of $V_1$ is matching with respect to $M$, output $M$ and stop. Otherwise, continue.
+				\item If every vertex $v$ of $V_1$ is matching with respect to $M$, output $M$ and stop.
+					Otherwise, continue.
 				\item Let $x$ be the first single vertex of $V_1$.
-				\item Construct an alternating tree with respect to $M$ that is rooted at $x$. If an augmenting path $P$ is discovered, then augmenting $M$ along $P$ and return to Step 3.1. Otherwise, let $T$ be the alternating tree with respect to $M$ and rooted at $x$ that cannot be expanded further in $G_l$.
+				\item Construct an alternating tree with respect to $M$ that is rooted at $x$.
+					If an augmenting path $P$ is discovered, then augmenting $M$ along $P$ and return to Step 3.1.
+					Otherwise, let $T$ be the alternating tree with respect to $M$ and rooted at $x$ that cannot be expanded further in $G_l$.
 			\end{enumerate}
-		\item Compute $m_l \leftarrow \min\{l(v)+l(u)-w(vu) : v \in V_1 \cap V(T), u \in V_2-V(T) \}$. Let
+		\item Compute $m_l \leftarrow \min\{l(v)+l(u)-w(vu) : v \in V_1 \cap V(T), u \in V_2-V(T) \}$.
+			Let
 			$$ l'(v) = \begin{cases} l(v) - m_l \text{ for } v \in V_1 \cap V(T) \\ l(v) + m_l \text{ for } v \in V_2 \cap V(T) \\ l(v) \text{ otherwise } \end{cases}$$
 		\item Let $l \leftarrow l'$, construct $G_l$ and return to Step 3.3.
 	\end{enumerate}
@@ -610,7 +793,8 @@
 \end{definition}
 
 \begin{definition}
-	Let $G_1, G_2, \cdots, G_n$ be edge-disjoint factors of $G$ such that $E(G) = \cup_{i = 1}^n E(G_i)$. Then $G$ is \textbf{factorable} and $G = G_1 \oplus G_2 \oplus \cdots \oplus G_n$.
+	Let $G_1, G_2, \cdots, G_n$ be edge-disjoint factors of $G$ such that $E(G) = \cup_{i = 1}^n E(G_i)$.
+	Then $G$ is \textbf{factorable} and $G = G_1 \oplus G_2 \oplus \cdots \oplus G_n$.
 \end{definition}
 
 \begin{definition}
@@ -622,11 +806,13 @@
 \end{definition}
 
 \begin{remark}
-	$K_{3,3}$ is 1-factorable. $K_5$ is 2-factorable.
+	$K_{3,3}$ is 1-factorable.
+	$K_5$ is 2-factorable.
 \end{remark}
 
 \begin{definition}
-	An \textbf{odd component of G} is a component of $G$ with odd number of vertices. And an \textbf{even component of G} is a component of G of with even number of vertices.
+	An \textbf{odd component of G} is a component of $G$ with odd number of vertices.
+	And an \textbf{even component of G} is a component of G of with even number of vertices.
 \end{definition}
 
 \begin{theorem}[Tutte]
@@ -642,7 +828,10 @@
 \end{theorem}
 
 \begin{remark}
-	Every brideless cubic graphs has a 1-factor. Let $G$ be a bridgeless cubic graph. Consider every pair of factors $G_1, G_2$ such that $G = G_1 \oplus G_2$ where $G_1$ is a $1$-factor and $G_2$ is a $2$-factor. $G$ is not 1-factorable only if every such $G_2$ doesn't have a $1$-factor.
+	Every brideless cubic graphs has a 1-factor.
+	Let $G$ be a bridgeless cubic graph.
+	Consider every pair of factors $G_1, G_2$ such that $G = G_1 \oplus G_2$ where $G_1$ is a $1$-factor and $G_2$ is a $2$-factor.
+	$G$ is not 1-factorable only if every such $G_2$ doesn't have a $1$-factor.
 \end{remark}
 
 \begin{theorem}
@@ -654,11 +843,14 @@
 \end{theorem}
 
 \begin{remark}[Application of 1-factorisation]
-	For even number $p$, a 1-factorisation of $K_p$ corresponds to the schedule of a round of the round robin tournament among $p$ teams. If $p$ is odd, consider $K_{p+1}$ where $v_{p+1}$ is an imaginary team called bye team. A game with bye team is a bye.
+	For even number $p$, a 1-factorisation of $K_p$ corresponds to the schedule of a round of the round robin tournament among $p$ teams.
+	If $p$ is odd, consider $K_{p+1}$ where $v_{p+1}$ is an imaginary team called bye team.
+	A game with bye team is a bye.
 \end{remark}
 
 \begin{definition}
-	A \textbf{hamiltonian cycle} is a spanning cycle. And, \textbf{Hamiltonian graph} is a graph containing a hamiltonian cycle.
+	A \textbf{hamiltonian cycle} is a spanning cycle.
+	And, \textbf{Hamiltonian graph} is a graph containing a hamiltonian cycle.
 \end{definition}
 
 \begin{theorem}
@@ -670,20 +862,29 @@
 \end{remark}
 
 \begin{theorem}
-	Let $0 \le r < p$. Then there exists an r-regular graph of order p iff pr is even.
+	Let $0 \le r < p$.
+	Then there exists an r-regular graph of order p iff pr is even.
 \end{theorem}
 
 \begin{definition}
-	Let $\{E_1, E_2, \cdots, E_n \}$ be partition of $E(G)$. And let $H_i$ be subgraph of $G$ induced by the edge set $E_i$. A \textbf{decomposition} of a graph $G$ is a colletion of these subgraphs $H_1, H_2, \cdots, H_n$. And $G = H_1 \oplus H_2 \oplus \cdots \oplus H_n$.
+	Let $\{E_1, E_2, \cdots, E_n \}$ be partition of $E(G)$.
+	And let $H_i$ be subgraph of $G$ induced by the edge set $E_i$.
+	A \textbf{decomposition} of a graph $G$ is a colletion of these subgraphs $H_1, H_2, \cdots, H_n$.
+	And $G = H_1 \oplus H_2 \oplus \cdots \oplus H_n$.
 \end{definition}
 
 \begin{definition}
-	Let $G = H_1 \oplus H_2 \oplus \cdots \oplus H_n$ be a decomposition of $G$ such that $H \cong H_i$. Then $G$ is $H$-decomposible.
+	Let $G = H_1 \oplus H_2 \oplus \cdots \oplus H_n$ be a decomposition of $G$ such that $H \cong H_i$.
+	Then $G$ is $H$-decomposible.
 \end{definition}
 
 \begin{remark}
-	$K_{3,3}$ is $3K_2$-decomposible. $K_5$ is $C_5$-decomposible. $K_{2n}$ is $nK_2$-decomposible. $K_{2n+1}$ is $C_{2n+1}$-decomposible.\\
-	Every graph is $K_2$-decomposible. Every complete bipartite graph $K_{m,n}$ is $K_{1,m}$-decomposible and $K_{1,n}$-decomposible.
+	$K_{3,3}$ is $3K_2$-decomposible.
+	$K_5$ is $C_5$-decomposible.
+	$K_{2n}$ is $nK_2$-decomposible.
+	$K_{2n+1}$ is $C_{2n+1}$-decomposible.\\
+	Every graph is $K_2$-decomposible.
+	Every complete bipartite graph $K_{m,n}$ is $K_{1,m}$-decomposible and $K_{1,n}$-decomposible.
 \end{remark}
 
 %\begin{remark}The following observations are not yet proved.
@@ -738,7 +939,8 @@
 \end{description}
 
 \begin{remark}
-	$(b,v,r,k,\lambda)$-designs are incomplete. However, a complete block design (ie, $v = 3$) is also included as a Steiner triple system.
+	$(b,v,r,k,\lambda)$-designs are incomplete.
+	However, a complete block design (ie, $v = 3$) is also included as a Steiner triple system.
 \end{remark}
 
 \begin{theorem}
@@ -746,7 +948,9 @@
 \end{theorem}
 
 \begin{definition}[Kirkman's Schoolgirls Problem]
-	A class of 15 girls. Parade 15 girls in five rows (3 girls in a row). Is it possible to plan 7 days parade so that two girls are together in a row exactly once ?
+	A class of 15 girls.
+	Parade 15 girls in five rows (3 girls in a row).
+	Is it possible to plan 7 days parade so that two girls are together in a row exactly once ?
 \end{definition}
 
 \begin{description}

@@ -118,14 +118,20 @@
 \subsection{Compactness and Separation Axioms}
 \cite[chapter 7 \S 2.1-10]{joshi}
 \begin{proposition}
-	Let $X$ be a $T_2$ space, $x \in X$ and $F$ is a compact subset of $X$ not containing $x$. Then there exist open subsets $U,\ V$ such that $x \in U$, $F \subset V$,\ $U \cap V = \phi$.
+	Let $X$ be a $T_2$ space, $x \in X$ and $F$ is a compact subset of $X$ not containing $x$.
+	Then there exist open subsets $U,\ V$ such that $x \in U$, $F \subset V$,\ $U \cap V = \phi$.
 \end{proposition}
 \begin{commentary}
 	$T_2$ spaces separates points from compact sets.
 \end{commentary}
 \begin{proof}
 	Let $x$ be a points in $X$ and $F$ be a compact subset not containing $x$.\\
-	$X \text{ is }T_2 \implies \forall y \in F,\ \exists U_y,V_y \in \mathcal{T},\ x \in U_y,\ y \in V_y, U-y \cap V_y = \phi$.($\dag$\footnote{\textbf{Q :} Do we need compactness for this result ? \\ \indent\indent\textbf{A :} Given $x \in X$. For each point $y \in F$, we have two open sets namely $U_y$ and $V_y$ that separates these two points $x$ and $y$ in $X$. But, the intersection ${\displaystyle \cap_{y \in F} \{ U_y \}}$ is not necessarily an open subset of $X$, since $F$ is not necessarily a finite subset of $X$ and an \textbf{arbitary} intersection of open subsets is not necessarily an open subset. Therefore, we have restrict this family into a finite family. We use compactness for this part.})\\
+	$X \text{ is }T_2 \implies \forall y \in F,\ \exists U_y,V_y \in \mathcal{T},\ x \in U_y,\ y \in V_y, U-y \cap V_y = \phi$.
+	$\dag$\footnote{\textbf{Q :} Do we need compactness for this result ? \\ \indent\indent\textbf{A :} Given $x \in X$.
+	For each point $y \in F$, we have two open sets namely $U_y$ and $V_y$ that separates these two points $x$ and $y$ in $X$.
+	But, the intersection ${\displaystyle \cap_{y \in F} \{ U_y \}}$ is not necessarily an open subset of $X$, since $F$ is not necessarily a finite subset of $X$ and an \textbf{arbitary} intersection of open subsets is not necessarily an open subset.
+	Therefore, we have restrict this family into a finite family.
+	We use compactness for this part.})\\
 	$\mathcal{C} = \{ V_y : y \in F \}$ is an open cover of compact subset $F$.\\
 	$\implies$ there exists a finite subcover, $\mathcal{C'} = \{ V_{y_i} : y_i \in F, i = 1,2,\cdots,n \}$.\\
 	Define $U = \cap_{i = 1}^n \{U_{y_i}\}$ and $V = \cup_{i = 1}^n \{V_{y_i}\}$.\\
@@ -139,7 +145,10 @@
 	Let $x \in X-F$.\\
 	By proposition, $x \in U$, $F \subset V$, $U \cap V = \phi$
 	$\implies x \in U \subset X-V \subset X-F$\\
-	$X-F$ is a nbd of each of its points. Thus $X-F$ is open. ($\star$\footnote{Neighbourhood characterisation of open subsets : Let $G \subset X$ be a nbd of each of its points. Then $G$ is an open subset of $X$.})
+	$X-F$ is a nbd of each of its points.
+	Thus $X-F$ is open.
+	($\star$\footnote{Neighbourhood characterisation of open subsets : Let $G \subset X$ be a nbd of each of its points.
+	Then $G$ is an open subset of $X$.})
 \end{proof}
 
 \begin{corollary}
@@ -148,10 +157,16 @@
 \begin{proof}
 	 Suppose $X$ is compact, $Y$ is $T_2$ and $f : X \to Y$ is continuous.\\
 	Let $C$ be a closed subset of $X$.\\
-	$\implies C$ is compact, since compact is weakly hereditary.($\star$\footnote{Compactness is weakly hereditary : Suppose $X$ is compact. Then every closed subset of $X$ is compact.})\\
-	$\implies f(C)$ is compact, since compactness is preserved by conti. functions. ($\star$\footnote{Compactness is preserved by continuous functions : Suppose $G$ be a compact subset of a topological space $X$. And function $f: X \to Y$ be a continuous function. Then $f(G)$ is a compact subset of the topological space $Y$.\cite[6.1.8]{joshi}})\\
+	$\implies C$ is compact, since compact is weakly hereditary.
+	$\star$\footnote{Compactness is weakly hereditary : Suppose $X$ is compact.
+	Then every closed subset of $X$ is compact.})\\
+	$\implies f(C)$ is compact, since compactness is preserved by continuous functions.
+	($\star$\footnote{Compactness is preserved by continuous functions : Suppose $G$ be a compact subset of a topological space $X$.
+	And function $f: X \to Y$ be a continuous function.
+	Then $f(G)$ is a compact subset of the topological space $Y$.\cite[6.1.8]{joshi}})\\
 	 By corollary, $f(C)$ is compact, $Y$ is $T_2\implies f(C)$ is a closed subset of $Y$.\\
-	Thus $f : X \to Y$ is closed.($\dag$\footnote{Closed function is a function which maps closed subsets into closed subsets.})\\
+	Thus $f : X \to Y$ is closed.
+	$\dag$\footnote{Closed function is a function which maps closed subsets into closed subsets.})\\
 	 $f : X \to Y$ is closed $\implies f : X \to f(X)$ is a quotient map, since every closed, surjective map is a quotient map..
 \end{proof}
 
@@ -215,7 +230,8 @@
 \end{proof}
 
 \begin{proposition}
-	Let $X$ be a regular space, $C$ a closed subset of $X$ and $F$ a compact subset of $X$, such that $C \cap F = \phi$. Then there exist open subsets $U,\ V$ such that $C \subset U$, $F \subset V$ and $U \cap V = \phi$.
+	Let $X$ be a regular space, $C$ a closed subset of $X$ and $F$ a compact subset of $X$, such that $C \cap F = \phi$.
+	Then there exist open subsets $U,\ V$ such that $C \subset U$, $F \subset V$ and $U \cap V = \phi$.
 \end{proposition}
 \begin{commentary}
 	Regular spaces separates closed subsets from compact subsets.
@@ -239,7 +255,8 @@
 	Let $C,D$ be two disjoint, closed subsets of a regular, lindeloff space $X$.\\
 	$X$ is regular $\implies \forall x \in C,\ \exists U_x, V_x \text{ such that } x \in U_x,\ D \subset V_x,\ U_x \cap V_x = \phi$\\
 	$X$ is regular $\implies \forall y \in D,\ \exists U_y, V_y \text{ such that } C \subset U_y,\ y \in U_y,\ U_y \cap U_y = \phi$\\
-	Then $\{ U_x : x \in C \}$ and $\{ V_y : y \in D \}$ are open covers of $C$ and $D$ respectively.($\dag$\footnote{Here, $U_x$, $V_y$ are unrelated.})\\
+	Then $\{ U_x : x \in C \}$ and $\{ V_y : y \in D \}$ are open covers of $C$ and $D$ respectively.
+	$\dag$\footnote{Here, $U_x$, $V_y$ are unrelated.})\\
 	Let $\{ U_n : n = 1,2,\cdots \}$ and $\{ V_n : n = 1,2,\cdots \}$ be their countable subcovers.\\
 	Define $G_n = U_n - \cup_{i = 1}^n \overline{V_i}$ and $H_n = V_n - \cup_{i = 1}^n \overline{U_i}$.\\
 	Define $G = \cup_{i = 1}^\infty G_n$ and $H = \cup_{i = 1}^\infty H_n$.\\
@@ -276,8 +293,11 @@
 %	\begin{enumerate}
 %		\item Prove that unit circle $S^1$ is compact.
 %		\item For any map \(f : S^1 \to \mathbb{R}\) prove that there exists a point \( x_0 \in S^1 \) such that \( f(x_0) = f(-x_0) \).
-%		\item Let $A,\ B$ be closed subsets of $S^1$ such that \( S^1 = A \cup B \). Prove that at least one of $A$ and $B$ contains a pair of mutually antipodal points.
-%		\item Let $X$ be any infinite set with a distinguished element $\ast$. Let $\mathcal{T}$ be the topology on $X$ consisting of the empty set and all subsets of $X$ containing $\ast$. Prove that $X$ has a compact subset whose closure is not compact.
+%		\item Let $A,\ B$ be closed subsets of $S^1$ such that \( S^1 = A \cup B \).
+%		Prove that at least one of $A$ and $B$ contains a pair of mutually antipodal points.
+%		\item Let $X$ be any infinite set with a distinguished element $\ast$.
+%		Let $\mathcal{T}$ be the topology on $X$ consisting of the empty set and all subsets of $X$ containing $\ast$.\
+%		Prove that $X$ has a compact subset whose closure is not compact.
 %		\item Prove that the closure of a compact subset of a regular space is compact.
 %		\item Prove that the real line with the semi-open interval topology is normal.
 %			---continue page 176---
@@ -296,12 +316,18 @@
 	\end{enumerate}
 
 \begin{commentary}
-\noindent \textbf{Q :} We know that, the completely regular space separates points from closed subsets using a real-valued function. Which space separates closed subsets from closed subsets using a real-valued function ?\\
-\textbf{A :} Normal space(by Urysohn's Lemma). Not completely normal($\star$\footnote{Completely Normal Space separates any two subsets. \cite[chapter 7 Exer. 1.11]{joshi} That is these subsets need not be closed. Thus every completely normal space is normal, but not the other way. Thus $T_1 + \text{Completely Normal} = T_5 \supset T_4$.})
+\noindent \textbf{Q :} We know that, the completely regular space separates points from closed subsets using a real-valued function.
+	Which space separates closed subsets from closed subsets using a real-valued function ?\\
+\textbf{A :} Normal space(by Urysohn's Lemma).
+	Not completely normal($\star$\footnote{Completely Normal Space separates any two subsets.
+	\cite[chapter 7 Exer. 1.11]{joshi} That is these subsets need not be closed.
+	Thus every completely normal space is normal, but not the other way.
+	Thus $T_1 + \text{Completely Normal} = T_5 \supset T_4$.})
 \end{commentary}
 
 \begin{proposition}
-	Let $A\ B$ be subsets of a space $X$ and suppose there exists a continuous function $f:X \to [0,1]$, such that $f(x)=0,\ \forall x \in A$ and $f(x)=1,\ \forall x \in B$. Then there exists disjoint open subsets $U,\ V$ such that $A \subset U$ and $B \subset V$.
+	Let $A\ B$ be subsets of a space $X$ and suppose there exists a continuous function $f:X \to [0,1]$, such that $f(x)=0,\ \forall x \in A$ and $f(x)=1,\ \forall x \in B$.
+	Then there exists disjoint open subsets $U,\ V$ such that $A \subset U$ and $B \subset V$.
 \end{proposition}
 \begin{proof}
 	Let $f$ be a continuous function, $f(x) = 0,\ \forall x \in A$ and $f(x) = 1,\ \forall x \in B$.\\
@@ -376,22 +402,32 @@
 	Enumerate rationals in the unit interval.\\
 	$\mathbb{Q} \cap [0,1] = \{ 0, 1, \cdots \} = \{ q_0, q_1, q_2, \cdots \}$.\\
 	Define $F_1 = F_{q_1} = X-B$. \\
-	$A \subset X-B \implies\exists H \text{ such that } A \subset H \subset \overline{H} \subset X-B$.($\star$\footnote{Equivalent condition for normality : Let $A$ be closed subset and $G$ be an open subset containing $A$. Then there exists open subset $H$ such that $A \subset H \subset \overline{H} \subset G$.\cite[7.1.16(3)]{joshi}})\\
+	$A \subset X-B \implies\exists H \text{ such that } A \subset H \subset \overline{H} \subset X-B$.
+	($\star$\footnote{Equivalent condition for normality : Let $A$ be closed subset and $G$ be an open subset containing $A$.
+	Then there exists open subset $H$ such that $A \subset H \subset \overline{H} \subset G$.
+	cite[7.1.16(3)]{joshi}})\\
 	Define $F_{q_0} = F_0 = H$.\\
 
 	$\overline{F_{q_0}} \subset F_{q_1} \implies $ true for $n = 1$.\\
 	Suppose : $\overline{F_{q_i}} \subset F_{q_j},\ \forall j > i$ is true for $j = 1,2,\cdots,n-1$.\\
-	Define $q_i = \sup \{ q_k : q_k < q_n, k < n \}$ and $q_j = \inf \{ q_k : q_k > q_n, k < n \}$ ($\dag$\footnote{ Let $\mathbb{Q}\cap[0,1] = \{ 0,1,0.3,0.7,0.8,\textbf{0.5},0.6,\cdots \}$. Consider $n = 5$. Then $q_n = q_5 = 0.5$ and in the respective induction step, $q_i = \sup\{0,0.3\} = 0.3$ and $q_j = \inf\{1,0.7,0.8\} = 0.7$}) \\
+	Define $q_i = \sup \{ q_k : q_k < q_n, k < n \}$ and $q_j = \inf \{ q_k : q_k > q_n, k < n \}$ ($\dag$\footnote{ Let $\mathbb{Q}\cap[0,1] = \{ 0,1,0.3,0.7,0.8,\textbf{0.5},0.6,\cdots \}$.
+	Consider $n = 5$.
+	Then $q_n = q_5 = 0.5$ and in the respective induction step, $q_i = \sup\{0,0.3\} = 0.3$ and $q_j = \inf\{1,0.7,0.8\} = 0.7$}) \\
 	$\implies q_i < q_n < q_j$ and $\overline{F_{q_i}} \subset F_{q_j}$.\\
-	$\overline{F_{q_i}} \subset F_{q_j} \implies \exists H \text{ such that } \overline{F_{q_i}} \subset H \subset \overline{H} \subset F_{q_j}$. Define $F_{q_n} = H$.\\
+	$\overline{F_{q_i}} \subset F_{q_j} \implies \exists H \text{ such that } \overline{F_{q_i}} \subset H \subset \overline{H} \subset F_{q_j}$.
+	Define $F_{q_n} = H$.\\
 	Therefore, $\overline{F_{q_j}} \subset F_{q_i},\ \forall j > i$.\\
 
 	Now, $\{ F_t : t \in \mathbb{Q}\}$ has the properties required in lemma 2.\\
-	By lemma 2, there exists a function $f$. This is a Urysohn function.($\dag$\footnote{You will have to replace ``Urysohn function'' with ``There exists a continuous real-valued function, $f : X \to [0,1]$ such that $f(x) = 0,\ \forall x \in A,\ f(x) = 1,\ \forall x \in B$''.})
+	By lemma 2, there exists a function $f$.
+	This is a Urysohn function.
+	($\dag$\footnote{You will have to replace ``Urysohn function'' with ``There exists a continuous real-valued function, $f : X \to [0,1]$ such that $f(x) = 0,\ \forall x \in A,\ f(x) = 1,\ \forall x \in B$''.})
 \end{proof}
 
 \begin{lemma}
-	Let \( f : X \to [0,1] \) be continuous. For each \( t \in \mathbb{R} \) let \( F_t  \{ x \in X : f(x) < t \} \). Then the indexed family \( \{F_t : t \in \mathbb{R} \} \) has the following properties
+	Let \( f : X \to [0,1] \) be continuous.
+	For each \( t \in \mathbb{R} \) let \( F_t  \{ x \in X : f(x) < t \} \).
+	Then the indexed family \( \{F_t : t \in \mathbb{R} \} \) has the following properties
 	\begin{enumerate}
 		\item \( F_t \) is an open subset of \( X \) for each \( t \in \mathbb{R} \)
 		\item \( F_t = \phi \) for \( t < 0 \)
@@ -412,7 +448,8 @@
 		\item \( F_t = X \) for \( t \in \mathbb{Q},\ t > 1 \)
 		\item \( \overline{F_s} \subset F_t \) for \( s,\ t \in \mathbb{Q},\ s < t \)
 	\end{enumerate}
-	For \( x \in X \), let \( f(x) = \inf \{ t \in \mathbb{Q} : x \in F_t \} \). Then \( f \) is a continuous real-valued function on \( X \) and it takes values in the unit interval \( [0,1] \).
+	For \( x \in X \), let \( f(x) = \inf \{ t \in \mathbb{Q} : x \in F_t \} \).
+	Then \( f \) is a continuous real-valued function on \( X \) and it takes values in the unit interval \( [0,1] \).
 \end{lemma}
 \begin{proof}
 	Function $f$ is well-defined and Range($f$) = $[0,1]$.\\
@@ -436,19 +473,26 @@
 	$ x \in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s \}$\\
 	Suppose(1) $x \in K \implies s < f(x) \implies \exists q,t \in \mathbb{Q}\ (s < q < t),\ t < f(x)$\\
 	Suppose(2) $x \in \overline{F_q} \implies x \in \overline{F_q} \subset F_t \implies \inf G_x < t \implies f(x) < t$\\
-	is a contradiction(2). Thus $x \not\in \overline{F_q}$.\\
-	$x \not\in \overline{F_q} \implies x \not\in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s\}$ is a contradition (1). Thus $x \not\in K$\\
+	is a contradiction(2).
+	Thus $x \not\in \overline{F_q}$.\\
+	$x \not\in \overline{F_q} \implies x \not\in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s\}$ is a contradition (1).
+	Thus $x \not\in K$\\
 	Thus, $\cap\{\overline{F_t} : t \in \mathbb{Q},\ s > t \} \subset X-K$.\\
-	Inverse images of subbase elements are open. Thus $f$ is continuous.
+	Inverse images of subbase elements are open.
+	Thus $f$ is continuous.
 \end{proof}
 
 \begin{corollary}
 	All \( T_4 \) spaces are completely regular and hence Tychonoff.
 \end{corollary}
 \begin{proof}
-	Let \( x \in X \) and \( D \) be closed subset not containing \( x \). We have \( X \) is a \( T_4 \) space. Therefore \( X \) is \( T_1 \) as well as normal.\\
+	Let \( x \in X \) and \( D \) be closed subset not containing \( x \).
+	We have \( X \) is a \( T_4 \) space.
+	Therefore \( X \) is \( T_1 \) as well as normal.\\
 
-	Now the singleton set, \( \{ x \} \) is closed, since \( X \) is a \( T_1 \) space. And by \textbf{Urysohn's lemma} for disjoint, closed subsets \( \{ x \},\ D \) there exists a Urysohn function which is a continuous, real-valued function \( f : X \to [0,1] \) such that \( f(x) = 0 \) and \( f(y) = 1 \) for all \( y \in D \). Therefore the space \( X \) is completely regular and hence Tychonoff.
+	Now the singleton set, \( \{ x \} \) is closed, since \( X \) is a \( T_1 \) space.
+	And by \textbf{Urysohn's lemma} for disjoint, closed subsets \( \{ x \},\ D \) there exists a Urysohn function which is a continuous, real-valued function \( f : X \to [0,1] \) such that \( f(x) = 0 \) and \( f(y) = 1 \) for all \( y \in D \).
+	Therefore the space \( X \) is completely regular and hence Tychonoff.
 \end{proof}
 
 \begin{remark}[Urysohn function]
@@ -461,7 +505,8 @@
 	$X$ is normal $\iff$ there exist continuous extension of real-valued functions on closed subsets. 
 \end{important}
 \begin{proposition}
-	Let \( A \) be a subset of a space \( X \) and let \( f : A \to \mathbb{R} \) be continuous. Then any two extensions of \( f \) to \( X \) agree on \( \overline{A} \).
+	Let \( A \) be a subset of a space \( X \) and let \( f : A \to \mathbb{R} \) be continuous.
+	Then any two extensions of \( f \) to \( X \) agree on \( \overline{A} \).
 	\begin{commentary}
 		In other words, if at all an extension of \( f \) exists its values on \( \overline{A} \) are uniquely determined by values of \( f \) on \( A \).
 	\end{commentary}
@@ -470,43 +515,55 @@
 %\end{proof}
 
 \begin{proposition}[Tietze : necessary condition]
-	Suppose a topological space \( X \) has the property that for every closed subset \( A \) of \( X \), every continuous real valued function on \( A \) has a continuous extension to \( X \). Then \( X \) is normal.
+	Suppose a topological space \( X \) has the property that for every closed subset \( A \) of \( X \), every continuous real valued function on \( A \) has a continuous extension to \( X \).
+	Then \( X \) is normal.
 \end{proposition}
 %\begin{proof}
 %\end{proof}
 
 \begin{definition}[Pointwise Convergence]
-	Let \( X \) be a topological space and \( (Y,d) \) a metric space. Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges pointwise to \( f \) if for every \( x \in X \) the sequence \( \{ f_n(x) \} \) converges to \( f(x) \) in \( Y \).
+	Let \( X \) be a topological space and \( (Y,d) \) a metric space.
+	Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges pointwise to \( f \) if for every \( x \in X \) the sequence \( \{ f_n(x) \} \) converges to \( f(x) \) in \( Y \).
 \end{definition}
 \begin{commentary}
-	In other words, given a very small value, \( \epsilon > 0 \), there exists some \( \delta > 0 \) such that for every \( x \in X \) there exists \( N_x \in \mathbb{N} \). This \( N_x \) may be different for different values of \( x \) and for every \( n > N_x \), \( d(f(x),f_n(x)) < \delta \).
+	In other words, given a very small value, \( \epsilon > 0 \), there exists some \( \delta > 0 \) such that for every \( x \in X \) there exists \( N_x \in \mathbb{N} \).
+	This \( N_x \) may be different for different values of \( x \) and for every \( n > N_x \), \( d(f(x),f_n(x)) < \delta \).
 \end{commentary}
 
 \begin{definition}[Uniform Convergence]
-	Let \( X \) be a topological space and \( (Y,d) \) a metric space. Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges uniformly to \( f \) if given a small \( \epsilon > 0 \), there exists \( \delta > 0 \) such that there exists \( N \in \mathbb{N} \). This $N$ is independent of the value of \( x \) and for every \( n > N \), \( d(f(x),f_n(x)) < \delta \).
+	Let \( X \) be a topological space and \( (Y,d) \) a metric space.
+	Then a sequence of functions \( \{ f_n \} \) from \( X \) to \( Y \) converges uniformly to \( f \) if given a small \( \epsilon > 0 \), there exists \( \delta > 0 \) such that there exists \( N \in \mathbb{N} \).
+	This $N$ is independent of the value of \( x \) and for every \( n > N \), \( d(f(x),f_n(x)) < \delta \).
 \end{definition}
 
 \begin{proposition}
-	Let \( X,\ (Y,d),\ \{ f_n \} \text{ and } f \) be as above and suppose \( \{ f_n \} \) converges to \( f \) uniformly. If each \( f_n \) is continuous, then \( f \) is continuous.
+	Let \( X,\ (Y,d),\ \{ f_n \} \text{ and } f \) be as above and suppose \( \{ f_n \} \) converges to \( f \) uniformly.
+	If each \( f_n \) is continuous, then \( f \) is continuous.
 \end{proposition}
 
 \begin{definition}[Uniform Convergence of Series]
-	Let \( X \) be a topological space and \( (Y,d) \) be a metric space. Then a series of function \( \sum^\infty_{n = 1} f_n \) converges uniformly to \( f \) if the sequence of partial sums converges uniformly to \( f \).
+	Let \( X \) be a topological space and \( (Y,d) \) be a metric space.
+	Then a series of function \( \sum^\infty_{n = 1} f_n \) converges uniformly to \( f \) if the sequence of partial sums converges uniformly to \( f \).
 \end{definition}
 \begin{commentary}
-	In other words, let \( g_m = \sum^m_{n = 1} f_n \). Then \( \sum^\infty_{n = 1} f_n \) converges to \( f \) uniformly if the sequence of partial sums \( \{ g_m \} \) converges to \( f \) uniformly.
+	In other words, let \( g_m = \sum^m_{n = 1} f_n \).
+	Then \( \sum^\infty_{n = 1} f_n \) converges to \( f \) uniformly if the sequence of partial sums \( \{ g_m \} \) converges to \( f \) uniformly.
 \end{commentary}
 
 \begin{proposition}
-	Let \( \sum^\infty_{n = 1} M_n \) be a convergent series of non-negative real numbers. Suppose \( \{ f_n \} \) is a sequence of real valued functions on a space \( X \) such that for each \( x \in X \) and \( n \in \mathbb{N},\ |f_n(x)| \le M_n \). Then the series \( \sum^\infty_{n = 1} f_n \) converges uniformly to a real valued function on \( X \).
+	Let \( \sum^\infty_{n = 1} M_n \) be a convergent series of non-negative real numbers.
+	Suppose \( \{ f_n \} \) is a sequence of real valued functions on a space \( X \) such that for each \( x \in X \) and \( n \in \mathbb{N},\ |f_n(x)| \le M_n \).
+	Then the series \( \sum^\infty_{n = 1} f_n \) converges uniformly to a real valued function on \( X \).
 \end{proposition}
 
 \begin{theorem}
-	Let $A$ be a closed subset of a normal space $X$ and suppose function $f : A \to [-1,1]$ is a continuous function. Then there exists a continuous function $F : X \to [-1,1]$ such that $F(x)=f(x)$ for all $x \in A$.
+	Let $A$ be a closed subset of a normal space $X$ and suppose function $f : A \to [-1,1]$ is a continuous function.
+	Then there exists a continuous function $F : X \to [-1,1]$ such that $F(x)=f(x)$ for all $x \in A$.
 \end{theorem}
 
 \begin{theorem}
-	Let $A$ be a closed subset of a normal space $X$ and suppose function $f : A \to (-1,1)$ is a continuous function. Then there exists a continuous function $F : X \to (-1,1)$ such that $F(x)=f(x)$ for all $x \in A$.
+	Let $A$ be a closed subset of a normal space $X$ and suppose function $f : A \to (-1,1)$ is a continuous function.
+	Then there exists a continuous function $F : X \to (-1,1)$ such that $F(x)=f(x)$ for all $x \in A$.
 \end{theorem}
 
 \begin{corollary}[Tietze : sufficient condition]
@@ -532,8 +589,10 @@
 \begin{definition}[Directed Set]\cite[10.1.1]{joshi}\\
 	A directed set \(D\) is a pair \( (D,\ge) \) where \( D \) is a nonempty set and  \( ge \) is a binary relation on \( D \) such that
 	\begin{enumerate}%[label=DS\arabic*]
-		\item The relation `follows'( \( \ge \) ) is transitive. ie,  \( m \ge n,\ n \ge p \implies m \ge p \)
-		\item The relation `follows'( \( \ge \) ) is reflexive. ie, For every \( m \in D,\ m \ge m \)
+		\item The relation `follows'( \( \ge \) ) is transitive.
+			ie,  \( m \ge n,\ n \ge p \implies m \ge p \)
+		\item The relation `follows'( \( \ge \) ) is reflexive.
+			ie, For every \( m \in D,\ m \ge m \)
 		\item For any \( m,n \in D \), there exists \( p \in D \) such that \( p \ge m \) and \( p \ge n \).
 	\end{enumerate}
 \end{definition}
@@ -548,44 +607,68 @@
 
 \begin{remark}
 \begin{commentary}
-	The set \( \mathbb{N} \) together with the relation `less than or equal to'( \( \le \) ) is a directed set. Clearly, the relation `less than or equal to' is reflexive and trasitive. And the third condition is true iff every finite subset \( E \) of \( D \) has an element \( p \in E \) such that \( p \) follows each element of \( E \). This is a weaker notion compared to the well ordering principle($\star$\footnote{Well-ordering principle : Every subset of \( \mathbb{N} \) has a least element in it.}) of the set of all integers. Thus \( \mathbb{N} \) is a directed set and every sequence in \( X \) is also a net in \( X \).
+	The set \( \mathbb{N} \) together with the relation `less than or equal to'( \( \le \) ) is a directed set.
+	Clearly, the relation `less than or equal to' is reflexive and trasitive.
+	And the third condition is true iff every finite subset \( E \) of \( D \) has an element \( p \in E \) such that \( p \) follows each element of \( E \).
+	This is a weaker notion compared to the well ordering principle($\star$\footnote{
+		Well-ordering principle : Every subset of $\mathbb{N}$ has a least element in it.
+	}of the set of all integers.
+	Thus \( \mathbb{N} \) is a directed set and every sequence in \( X \) is also a net in \( X \).
 \end{commentary}
 \end{remark}
 
 \begin{remark}[Significance of Net]
 \begin{commentary}
-	\par A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence into a directed set. The notion directed set is derived by assuming a few properties of \( \mathbb{N} \).\\
+	\par A net on a set is a generalisation of `a sequence on a set' obtained by simplifying the domain of the sequence into a directed set.
+	The notion directed set is derived by assuming a few properties of \( \mathbb{N} \).\\
 
-	\par The convergence of sequence is not strong enough to characterise topologies as the limit of convergent sequences are unique for both Hausdorff and Co-countable spaces. The notion of Net allows us to differentiate between Hausdorff spaces from Co-countable spaces in terms of convergence of nets. The limit of a convergent net on a topological space is unique iff it is a Hausdorff space. ie, We have removed a few restrictions, so that we will have some convergent nets (which are obviously not sequences) with multiple limit points for Co-countable spaces.
+	\par The convergence of sequence is not strong enough to characterise topologies as the limit of convergent sequences are unique for both Hausdorff and Co-countable spaces.
+	The notion of Net allows us to differentiate between Hausdorff spaces from Co-countable spaces in terms of convergence of nets.
+	The limit of a convergent net on a topological space is unique iff it is a Hausdorff space.
+	ie, We have removed a few restrictions, so that we will have some convergent nets (which are obviously not sequences) with multiple limit points for Co-countable spaces.
 \end{commentary}
 \end{remark}
 
 \begin{remark}
 	Examples of Directed Sets
 	\begin{enumerate}
-		\item Let \( X \) be a topological space and \( x \in X \). Then the neighbourhood system \( \mathcal{N}_x \) is a directed set with the binary relation \( \subset \) (subset/inclusion).
+		\item Let \( X \) be a topological space and \( x \in X \).
+			Then the neighbourhood system \( \mathcal{N}_x \) is a directed set with the binary relation \( \subset \) (subset/inclusion).
 		\begin{commentary}
 		\begin{enumerate}
-			\item Let \( U,\ V,\ W \) be any three neighbourhoods of \( x \in X \) such that \( U \subset V \) and \( V \subset W \). Then, clearly \( U \subset W \).\\ Therefore, \( U \ge V,\ V \ge W \implies U \ge W \).
-			\item Let \( U \) be any neighbourhood of \( x \in X \), then \( U \subset U \).\\ Therefore, \( U \ge U \).
-			\item Let \( U,V \) be any two neighbourhoods of \( x \in X \), then there exists their intersection \( W = U\cap V \), which is a neighbourhood of \( x \). Clearly \( W \subset U \) and \( W \subset V \).\\ Therefore \( \forall U,V \in \mathcal{N}_x, \exists W \in \mathcal{N}_x \) such that \( W \ge U \) and \( W \ge V \).
+			\item Let \( U,\ V,\ W \) be any three neighbourhoods of \( x \in X \) such that \( U \subset V \) and \( V \subset W \).
+				Then, clearly \( U \subset W \).
+				\ Therefore, \( U \ge V,\ V \ge W \implies U \ge W \).
+			\item Let \( U \) be any neighbourhood of \( x \in X \), then \( U \subset U \).\\
+				Therefore, \( U \ge U \).
+			\item Let \( U,V \) be any two neighbourhoods of \( x \in X \), then there exists their intersection \( W = U\cap V \), which is a neighbourhood of \( x \).
+				Clearly \( W \subset U \) and \( W \subset V \).\\
+				Therefore \( \forall U,V \in \mathcal{N}_x, \exists W \in \mathcal{N}_x \) such that \( W \ge U \) and \( W \ge V \).
 		\end{enumerate}
 		\end{commentary}
-		\item Let \( \mathcal{P} \) be the set of all partitions on closed unit interval \( [0,1] \). A partition \( P \in \mathcal{P} \) is a refinement of \( Q \in \mathcal{P} \) if every subinterval in \( P \) is contained in some subinterval of \( Q \). Then \( \mathcal{P} \) with the binary relation refinement is a directed set.
+		\item Let \( \mathcal{P} \) be the set of all partitions on closed unit interval \( [0,1] \).
+			A partition \( P \in \mathcal{P} \) is a refinement of \( Q \in \mathcal{P} \) if every subinterval in \( P \) is contained in some subinterval of \( Q \).
+			Then \( \mathcal{P} \) with the binary relation refinement is a directed set.
 
 		\begin{commentary}
 		\begin{enumerate}
 			\item Suppose \(P,\ Q,\ R \)  are three partitions of \( [0,1] \) such that \( P \) is a refinement of \( Q \) and \( Q \) is a refinement of \( R \), then clearly \( P \) is a refinement of \( R \) since each subinterval of \( P \) is contained some subinterval of \( Q \), which is contained in some subinterval of \( R \).\\
 			Therefore, \( P \ge Q,\ Q \ge R \implies P \ge R \)
-			\item Suppose \( P \) is a partition of \( [0,1] \). Then trivialy, \( P \) is a refinement of itself since every subinterval of \( P \) is contained in the same subinterval of \( P \).\\
+			\item Suppose \( P \) is a partition of \( [0,1] \).
+				Then trivialy, \( P \) is a refinement of itself since every subinterval of \( P \) is contained in the same subinterval of \( P \).\\
 			Therefore, \( \forall P \in \mathcal{P},\ P \ge P \)
-			\item Suppose \( P,\ Q \) be any two partition of \( [0,1] \). Then \( R = P \cup Q \) is a refinement of both the partitions.\\
+			\item Suppose \( P,\ Q \) be any two partition of \( [0,1] \).
+				Then \( R = P \cup Q \) is a refinement of both the partitions.\\
 			Therefore \( \forall P,Q \in \mathcal{P},\ \exists R \in \mathcal{P} \) such that \( R \ge P \) and \( R \ge Q \)
 		\end{enumerate}
 		\end{commentary}
 	\end{enumerate}
 \begin{commentary}
-	For example, let \( P = \{ 0,\ 0.3,\ 0.7,\ 1 \} \). Then the subintervals in \( P \) are \( [0,0.3] \), \( [0.3,0.7] \) and \( [0.7,1] \). Let \( Q = \{ 0,\ 0.3,\ 0.5,\ 1 \} \) and \( R = \{ 0,\ 0.3,\ 0.5,\ 0.7,\ 1 \} \). Then \( R \) is a refinement of \( P \), but \( Q \) is not a refinement of \( P \) since there is a subinterval \( [0.5,1] \) in \( Q \) which is not properly contained in any subinterval of \( P \). However, \( R \) is a refinement of \( Q \) as well.
+	For example, let \( P = \{ 0,\ 0.3,\ 0.7,\ 1 \} \).
+	Then the subintervals in \( P \) are \( [0,0.3] \), \( [0.3,0.7] \) and \( [0.7,1] \).
+	Let \( Q = \{ 0,\ 0.3,\ 0.5,\ 1 \} \) and \( R = \{ 0,\ 0.3,\ 0.5,\ 0.7,\ 1 \} \).
+	Then \( R \) is a refinement of \( P \), but \( Q \) is not a refinement of \( P \) since there is a subinterval \( [0.5,1] \) in \( Q \) which is not properly contained in any subinterval of \( P \).
+	However, \( R \) is a refinement of \( Q \) as well.
 \end{commentary}
 \end{remark}
 
@@ -593,10 +676,19 @@
 \begin{commentary}
 Examples of Nets
 \begin{enumerate}
-	\item Let \( X \) be a topological space and \( x \in X \). Let \( \mathcal{N}_x \) be the set of all neighbourhoods of \( x \). Let \( D = (\mathcal{N}_x,X) \) be the directed set given by \( (N,y) \in (\mathcal{N}_x,X) \) if \( N \in \mathcal{N}_x \) and \( y \in N \) and \( (N,y) \ge (M,z) \) if \( N \subset M \). Then the function \( S : (\mathcal{N}_x,X) \to X \) given by \( S(N,y) = y \) is a net on \( X \).\\
+	\item Let \( X \) be a topological space and \( x \in X \).
+		Let \( \mathcal{N}_x \) be the set of all neighbourhoods of \( x \).
+		Let \( D = (\mathcal{N}_x,X) \) be the directed set given by \( (N,y) \in (\mathcal{N}_x,X) \) if \( N \in \mathcal{N}_x \) and \( y \in N \) and \( (N,y) \ge (M,z) \) if \( N \subset M \).
+		Then the function \( S : (\mathcal{N}_x,X) \to X \) given by \( S(N,y) = y \) is a net on \( X \).\\
 
-	For example, let $X = \{ a,b,c,d \}$ and $\mathcal{T} = \{ \{a\},\ \{a,b\},\ \{a,b,c\},\ \{a,b,c,d\} \}$. Also let $S : (\mathcal{N}_b,X) \to X$ defined by $S(N,y) = y$. Suppose $C = \{a,b,c\}$. Then $C \in \mathcal{N}_b$. ie, $C$ is a neighbourhood of $b$. Then $S(C,c) = c$.
-	\item Riemann Net - Let $D = (\mathcal{P},\xi)$ where $\mathcal{P}$ is the set of all partitions on $[0,1]$ and $\xi$ is a finite sequence in $[0,1]$ such that consecutive terms belongs to consecutive subintervals of the partition. The set $(\mathcal{P},\xi)$ is directed set with $\ge$ given by $(P,\eta) \ge (Q,\psi)$ iff $P$ is a refinement of $Q$.\\
+	For example, let $X = \{ a,b,c,d \}$ and $\mathcal{T} = \{ \{a\},\ \{a,b\},\ \{a,b,c\},\ \{a,b,c,d\} \}$.
+		Also let $S : (\mathcal{N}_b,X) \to X$ defined by $S(N,y) = y$.
+		Suppose $C = \{a,b,c\}$.
+		Then $C \in \mathcal{N}_b$.
+		ie, $C$ is a neighbourhood of $b$.
+		Then $S(C,c) = c$.
+	\item Riemann Net - Let $D = (\mathcal{P},\xi)$ where $\mathcal{P}$ is the set of all partitions on $[0,1]$ and $\xi$ is a finite sequence in $[0,1]$ such that consecutive terms belongs to consecutive subintervals of the partition.
+		The set $(\mathcal{P},\xi)$ is directed set with $\ge$ given by $(P,\eta) \ge (Q,\psi)$ iff $P$ is a refinement of $Q$.\\
 			
 	For example, let $P \in \mathcal{P}$ is given by $P = \{\ 0,\ 0.3,\ 0.7,\ 1\ \}$ and $\eta = \{\ 0.2,\ 0.6,\ 0.9\ \}$. Then $(P,\eta) \in (\mathcal{P},\xi)$.\\
 
@@ -610,12 +702,13 @@ Examples of Nets
 \end{remark}
 	
 \begin{definition}[Convergence of a Net]\cite[10.1.3]{joshi}\\
-	A net $S:D \to X$ converges to a point $x \in X$ if for any nbd $U$ of $x$, there exists $m \in D$ such that $n \in D,\ n \ge m \implies S(n) \in U$. And $x$ is a limit of the net $S$.
+	A net $S:D \to X$ converges to a point $x \in X$ if for any nbd $U$ of $x$, there exists $m \in D$ such that $n \in D,\ n \ge m \implies S(n) \in U$.
+	And $x$ is a limit of the net $S$.
 \end{definition}
 
 \begin{remark}
 \begin{commentary}
-	The choice of $m$ depends on the choice of neighbourhood $U$.
+	The choice of $m$ depends on the choice of neighbourhood $U$
 	$$S: D \to X,\ S \to x \iff \left( \forall U \in \mathcal{N}_x,\ \exists m_U \in D,\text{ such that } n \ge m_U \implies S(n) \in U \right)$$
 \end{commentary}
 \end{remark}
@@ -624,23 +717,47 @@ Examples of Nets
 	A topological space is Hausdorff iff limits of all nets in it are unique.
 \end{theorem}
 \begin{proof}
-	Let $X$ be a  Hausdorff space. Suppose $S : D \to X$ is net on $X$ such that $S$ converges to two distinct points $x,y \in X$.
+	Let $X$ be a  Hausdorff space.
+	Suppose $S : D \to X$ is net on $X$ such that $S$ converges to two distinct points $x,y \in X$.
 	Since $X$ is a Hausdorff space and $x \ne y$, there exists open subsets $U,V$ such that $x \in U,\ y \in V, U \cap V = \phi$.\\
 
 	The net $S$ converges to $x \in X$, therefore $\exists m_x \in D$ such that $n \ge m_x \implies S(n) \in U$
 	And, the net $S$ converges to $y \in X$, therefore $\exists m_y \in D$ such that $n \ge m_y \implies S(n) \in V$.\\
 
-	Since $D$ is a directed set and $m_x, m_y \in D$, there exists $p \in D$ such that $p \ge m_x$ and $p \ge m_y$. Now, $n \ge p \implies n \ge m_x,\ n \ge m_y$, since $\ge$ is transitive. (ie, $n \ge p,\ p \ge m_x \implies n \ge m_x$, and $n \ge p,\ p \ge m_y \implies n \ge m_y$).\\
+	Since $D$ is a directed set and $m_x, m_y \in D$, there exists $p \in D$ such that $p \ge m_x$ and $p \ge m_y$.
+	Now, $n \ge p \implies n \ge m_x,\ n \ge m_y$, since $\ge$ is transitive.
+	(ie, $n \ge p,\ p \ge m_x \implies n \ge m_x$, and $n \ge p,\ p \ge m_y \implies n \ge m_y$).\\
 
-	We have $n \ge p \implies n \ge m_x$ and $n \ge m_x \implies S(n) \in U$. Therefore, $n \ge p \implies S(n) \in U$. Similarly, $n \ge p \implies n \ge m_y \implies S(n) \in V$. Therefore $S(n) \in U \cap V$ which is a contradiction, since $U \cap V = \phi$. Therefore, if a net $S$ converges to two points $x,y$, then $x = y$. That is, if a net $S$ in a Hausdorff space $X$ is convergent then its limit is unique.\\
+	We have $n \ge p \implies n \ge m_x$ and $n \ge m_x \implies S(n) \in U$.
+	Therefore, $n \ge p \implies S(n) \in U$.
+	Similarly, $n \ge p \implies n \ge m_y \implies S(n) \in V$.
+	Therefore $S(n) \in U \cap V$ which is a contradiction, since $U \cap V = \phi$.
+	Therefore, if a net $S$ converges to two points $x,y$, then $x = y$.
+	That is, if a net $S$ in a Hausdorff space $X$ is convergent then its limit is unique.\\
 
-	Conversely, suppose that $X$ is a topological space and every convergent net in $X$ has a unique limit. Suppose $X$ is not a Haudorff space. Then there exists at least two distinct points $x,y \in X$ such that every neighbourhood of $x$ intersects with every neighbourhood of $y$. Now consider the set $D = \mathcal{N}_x \times \mathcal{N}_y$ and relation $\ge$ on $D$ such that $(U_1,V_1) \ge (U_2,V_2)$ if $U_1 \subset U_2$ and $V_1 \subset V_2$.\\
+	Conversely, suppose that $X$ is a topological space and every convergent net in $X$ has a unique limit.
+	Suppose $X$ is not a Haudorff space.
+	Then there exists at least two distinct points $x,y \in X$ such that every neighbourhood of $x$ intersects with every neighbourhood of $y$.
+	Now consider the set $D = \mathcal{N}_x \times \mathcal{N}_y$ and relation $\ge$ on $D$ such that $(U_1,V_1) \ge (U_2,V_2)$ if $U_1 \subset U_2$ and $V_1 \subset V_2$.\\
 
-	By the axiom of choice, a function $S : D \to X$ such that $S(U,V) \in U\cap V$ is well defined, since every nbd of $x$ intersects every nbd of $y$. Thus, $S$ is a net in $X$. We claim that $S$ converges to both $x$ and $y$.\\
 
-	Let $U$ be a nbd of $x$. Then $S(U',V') \in U' \cap V'$. We have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies U' \subset U$. Then, $S(U',V') \in U' \cap V' \subset U \cap X = U$. Thus, for any nbd $U$ containing $x$, we have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies S(U',V') \in U$. Therefore, $S$ converges to $x \in X$.\\
+	By the axiom of choice, a function $S : D \to X$ such that $S(U,V) \in U\cap V$ is well defined, since every nbd of $x$ intersects every nbd of $y$.
+	Thus, $S$ is a net in $X$.
+	We claim that $S$ converges to both $x$ and $y$.\\
+
+	Let $U$ be a nbd of $x$.
+	Then $S(U',V') \in U' \cap V'$.
+	We have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies U' \subset U$.
+	Then, $S(U',V') \in U' \cap V' \subset U \cap X = U$.
+	Thus, for any nbd $U$ containing $x$, we have $(U,X) \in D$ such that $(U',V') \ge (U,X) \implies S(U',V') \in U$.
+	Therefore, $S$ converges to $x \in X$.\\
 	
-	Similarly, Let $V$ be a nbd of $y$. Then for any nbd $V$ containing $y$, we have $(X,V) \in D$ such that $(U',V') \ge (X,V) \implies S(U',V') \in V$, since $S(U',V') \in U' \cap V' \subset X \cap V = V$. Therefore, $S$ converges to $y \in X$ as well, where $x \ne y$. This is a contradition to the assumption that every convergent net in $X$ has a unique limit. Therefore, for any two points $x,y \in X$, there should be some nbd of $x$ that doesn't intersect some nbd of $y$. Therefore, $X$ is a Hausdorff space.
+	Similarly, Let $V$ be a nbd of $y$.
+	Then for any nbd $V$ containing $y$, we have $(X,V) \in D$ such that $(U',V') \ge (X,V) \implies S(U',V') \in V$, since $S(U',V') \in U' \cap V' \subset X \cap V = V$.
+	Therefore, $S$ converges to $y \in X$ as well, where $x \ne y$.
+	This is a contradition to the assumption that every convergent net in $X$ has a unique limit.
+	Therefore, for any two points $x,y \in X$, there should be some nbd of $x$ that doesn't intersect some nbd of $y$.
+	Therefore, $X$ is a Hausdorff space.
 \end{proof}
 
 \begin{definition}[Eventual Subset]\cite[10.1.5]{joshi}\\
@@ -649,7 +766,9 @@ Examples of Nets
 
 \begin{remark}
 \begin{commentary}
-	Let $E$ be an eventual subset of $D$ such that $n \ge m \implies n \in E$. Then $p \in E \not\!\!\!\implies p \ge m$. ie, Subset $E$ may contain elements that doesn't follow the above $m$.
+	Let $E$ be an eventual subset of $D$ such that $n \ge m \implies n \in E$.
+	Then $p \in E \not\!\!\!\implies p \ge m$.
+	ie, Subset $E$ may contain elements that doesn't follow the above $m$.
 \end{commentary}
 \end{remark}
 
@@ -660,11 +779,14 @@ Examples of Nets
 		\item $m \in E \implies m \in D \implies m \ge m$
 		\item $m,n \in E \implies m,n \in D \implies \exists p \in D$ such that $p \ge m$ and $\ \ge n$.\\
 
-			$\exists m' \in D$ such that $n' \ge m' \implies n' \in E$. ( $E$ is an eventual subset of $D$ )\\
+			$\exists m' \in D$ such that $n' \ge m' \implies n' \in E$.
+			( $E$ is an eventual subset of $D$ )\\
 
-			$p,m' \in D \implies \exists p' \in D$ such that $p' \ge p$ and $p' \ge m'$.($D$ is a directed Set)\\
+			$p,m' \in D \implies \exists p' \in D$ such that $p' \ge p$ and $p' \ge m'$.
+			($D$ is a directed Set)\\
 
-			$p' \ge m' \implies p' \in E$. ( $E$ is eventual subset of $D$ with respect to $m'$)\\
+			$p' \ge m' \implies p' \in E$.
+			( $E$ is eventual subset of $D$ with respect to $m'$)\\
 
 			$p' \ge p,\ p \ge m \implies p' \ge m$ and $p' \ge p,\ p \ge n \implies p' \ge n$.\\
 
@@ -673,11 +795,13 @@ Examples of Nets
 \end{remark}
 
 \begin{definition}[Net eventually in $A$]\cite[10.1.5]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Then $S$ is eventually in subset $A$ of $X$ if $S^{-1}(A)$ is an eventual subset of $D$.
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Then $S$ is eventually in subset $A$ of $X$ if $S^{-1}(A)$ is an eventual subset of $D$.
 \end{definition}
 
 \begin{remark}
-	Let $S : D \to X$ be a net in $X$. Then $S$ converges to $x \in X$ if $S$ is eventually in each nbd $U$ of $x$.
+	Let $S : D \to X$ be a net in $X$.
+	Then $S$ converges to $x \in X$ if $S$ is eventually in each nbd $U$ of $x$.
 \end{remark}
 
 \begin{definition}[Cofinal subset]\cite[10.1.7]{joshi}\\
@@ -685,7 +809,9 @@ Examples of Nets
 \end{definition}
 
 \begin{remark}
-	Let $X$ be a topological space and $x \in X$. Let $\mathcal{N}_x$ be the set of all neighbourhood of $x$ and $\mathcal{L}$ be a local base of $X$ at $x$. We have, $(\mathcal{N}_x,\ge)$ is a directed set where $\forall U,V \in \mathcal{N}_x,\ U \ge V \iff U \subset V$, then $\mathcal{L}$ is cofinal in $\mathcal{N}_x$.
+	Let $X$ be a topological space and $x \in X$.
+	Let $\mathcal{N}_x$ be the set of all neighbourhood of $x$ and $\mathcal{L}$ be a local base of $X$ at $x$.
+	We have, $(\mathcal{N}_x,\ge)$ is a directed set where $\forall U,V \in \mathcal{N}_x,\ U \ge V \iff U \subset V$, then $\mathcal{L}$ is cofinal in $\mathcal{N}_x$.
 \end{remark}
 
 \begin{remark}\cite[10.1.8]{joshi}\\
@@ -704,73 +830,127 @@ Examples of Nets
 \end{remark}
 
 \begin{definition}[Net frequently in $A$]\cite[10.1.7]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Then $S$ is frequently in subset $B$ of $X$ if $S^{-1}(B)$ is a cofinal subset of $D$.
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Then $S$ is frequently in subset $B$ of $X$ if $S^{-1}(B)$ is a cofinal subset of $D$.
 \end{definition}
 
 \begin{proposition}\cite[10.1.6]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Let $E$ be an eventual subset of $D$. Then, $S$ converges to $x$ iff $S_{/_E}$ converges to $x$.\cite[10.1.6]{joshi}
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Let $E$ be an eventual subset of $D$.
+	Then, $S$ converges to $x$ iff $S_{/_E}$ converges to $x$.
+	cite[10.1.6]{joshi}
 \end{proposition}
 \begin{proof}
-	Let $S : D \to X$ be a net in $X$, $E$ be an eventual subset of $D$, and $x \in X$. Then, $S_{/_E} : E \to X$ is defined by $n \in E \implies S_{/_E}(n) = S(n)$\\
+	Let $S : D \to X$ be a net in $X$, $E$ be an eventual subset of $D$, and $x \in X$.
+	Then, $S_{/_E} : E \to X$ is defined by $n \in E \implies S_{/_E}(n) = S(n)$\\
 	
-	Suppose $S$ converges to $x$. Let $U$ be a nbd of $x$, then $S$ is eventually in $U$. ie, $S^{-1}(U)$ is an eventual subset of $D$. Then $\exists m \in D$ such that $n \ge m \implies n \in S^{-1}(U) \implies S(n) \in U$. Since set $E$ is eventual subset of $D$, $\exists m' \in D$ such that $n \ge m' \implies n \in E$.\\
+	Suppose $S$ converges to $x$.
+	Let $U$ be a nbd of $x$, then $S$ is eventually in $U$.
+	ie, $S^{-1}(U)$ is an eventual subset of $D$.
+	Then $\exists m \in D$ such that $n \ge m \implies n \in S^{-1}(U) \implies S(n) \in U$.
+	Since set $E$ is eventual subset of $D$, $\exists m' \in D$ such that $n \ge m' \implies n \in E$.\\
 	
-	Since $E$ is a directed set, $S_{/_E} : E \to X$ is a net in $X$. And $m,m' \in D \implies \exists p \in D$ such that $p \ge m$ and $p \ge m'$. We have, $p \ge m' \implies p \in E$. And $n \ge' p \implies n \ge p,\ p \ge m \implies n \ge m \implies S(n) \in U \implies S_{/_E}(n) \in U$. Therefore, $n \ge' p \implies S_{/_E}(n) \in U$. Since $U$ is arbitrary, $S_{/_E}$ converges to $x$.\\
+	Since $E$ is a directed set, $S_{/_E} : E \to X$ is a net in $X$.
+	And $m,m' \in D \implies \exists p \in D$ such that $p \ge m$ and $p \ge m'$.
+	We have, $p \ge m' \implies p \in E$.
+	And $n \ge' p \implies n \ge p,\ p \ge m \implies n \ge m \implies S(n) \in U \implies S_{/_E}(n) \in U$.
+	Therefore, $n \ge' p \implies S_{/_E}(n) \in U$.
+	Since $U$ is arbitrary, $S_{/_E}$ converges to $x$.\\
 
-	Conversely, suppose that $S_{/_E}$ converges to $x$. Let $U$ be a nbd of $x$, then $S_{/_E}$ is eventually in $U$. ie, $S_{/_E}^{-1}(U)$ is an eventual subset of $D$. ie, $\exists m \in D$ such that $n \ge m \implies n \in S_{/_E}^{-1}(U) \implies S_{/_E}(n) \in U \implies S(n) \in U$. Therefore, $n \ge m \implies S(n) \in U$. Since, $U$ is arbitrary, $S$ converges to every nbd of $x$. ie, $S$ converges to $x$.
+
+	Conversely, suppose that $S_{/_E}$ converges to $x$.
+	Let $U$ be a nbd of $x$, then $S_{/_E}$ is eventually in $U$.
+	ie, $S_{/_E}^{-1}(U)$ is an eventual subset of $D$.
+	ie, $\exists m \in D$ such that $n \ge m \implies n \in S_{/_E}^{-1}(U) \implies S_{/_E}(n) \in U \implies S(n) \in U$.
+	Therefore, $n \ge m \implies S(n) \in U$.
+	Since, $U$ is arbitrary, $S$ converges to every nbd of $x$.
+	ie, $S$ converges to $x$.
 \end{proof}
 
 \begin{proposition}\cite[10.1.8]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Let $F$ be a cofinal subset of $D$. If $S$ converges to $x$, then $S_{/_F}$ converges to $x$.
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Let $F$ be a cofinal subset of $D$.
+	If $S$ converges to $x$, then $S_{/_F}$ converges to $x$.
 \end{proposition}
 \begin{proof}
-	Let $S : D \to X$ be a net in $X$ and $S$ converges to $x \in X$. Also let $F$ be a cofinal subset of $D$. Then $S_{/_F}$ is also a net in $X$, since $(F,\ge')$ is a directed set where $\forall m,n \in F,\ m \ge n \implies m \ge' n$.\\
+	Let $S : D \to X$ be a net in $X$ and $S$ converges to $x \in X$.
+	Also let $F$ be a cofinal subset of $D$.
+	Then $S_{/_F}$ is also a net in $X$, since $(F,\ge')$ is a directed set where $\forall m,n \in F,\ m \ge n \implies m \ge' n$.\\
 
-	Since $S$ converges to $x$, for any nbd $U$ of $x$, $\exists m \in D$, such that $n \ge m \implies S(n) \in U$. Since $F$ is cofinal, $\exists p \in F$ such that $p \ge m$. Thus $n \ge' p \implies n \ge p,\ p \ge m \implies n \ge m \implies S(n) \in U \implies S_{/_F}(n) \in U$. Therefore, $\exists p \in F$ such that $n \ge' p \implies S_{/_F}(n) \in U$. Since $U$ is arbitrary, $S_{/_F}$ is eventually in every nbd of $x$. ie, $S_{/_F}$ converges to $x$.
+	Since $S$ converges to $x$, for any nbd $U$ of $x$, $\exists m \in D$, such that $n \ge m \implies S(n) \in U$.
+	Since $F$ is cofinal, $\exists p \in F$ such that $p \ge m$.
+	Thus $n \ge' p \implies n \ge p,\ p \ge m \implies n \ge m \implies S(n) \in U \implies S_{/_F}(n) \in U$.
+	Therefore, $\exists p \in F$ such that $n \ge' p \implies S_{/_F}(n) \in U$.
+	Since $U$ is arbitrary, $S_{/_F}$ is eventually in every nbd of $x$.
+	ie, $S_{/_F}$ converges to $x$.
 \end{proof}
 
 \begin{remark}
 \begin{commentary}
-	But converse of the above is not true. $S_{/_F}$ converges to $x$ does not imply that $S$ converges to $x$, since cofinal subset $F$ not necessarily contain every element following a particular $m$.
+	But converse of the above is not true.
+	$S_{/_F}$ converges to $x$ does not imply that $S$ converges to $x$, since cofinal subset $F$ not necessarily contain every element following a particular $m$.
 \end{commentary}
 \end{remark}
 
 \begin{definition}[Cluster point]\cite[10.1.9]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$, if $S$ is frequently in each nbd $U$ of $x$ in $X$.
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Then $x \in X$ is a cluster point of $S$, if $S$ is frequently in each nbd $U$ of $x$ in $X$.
 \end{definition}
 
 \begin{proposition}\cite[10.1.10]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster points of $X$, if $S_{/_F}$ converges to $x$ for some cofinal subset $F$ of $D$.
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Then $x \in X$ is a cluster points of $X$, if $S_{/_F}$ converges to $x$ for some cofinal subset $F$ of $D$.
 \end{proposition}
 \begin{proof}
-	Let $S : D \to X$ be a net in $X$ and $(F,\ge')$ be a cofinal subset of $(D,\ge)$. Then $S_{/_F}$ is also a net in $X$. Suppose $S_{/_F}$ converges to $x \in X$. Let $U$ be a nbd of $x$, then $\exists m \in F$ such that $n \ge' m \implies S_{/_F}(n) \in U$.\\
+	Let $S : D \to X$ be a net in $X$ and $(F,\ge')$ be a cofinal subset of $(D,\ge)$. Then $S_{/_F}$ is also a net in $X$.
+	Suppose $S_{/_F}$ converges to $x \in X$.
+	Let $U$ be a nbd of $x$, then $\exists m \in F$ such that $n \ge' m \implies S_{/_F}(n) \in U$.\\
 
-	Let $m' \in D$. Then $\exists p' \in F$ such that $p' \ge m'$, since $F$ is a cofinal subset of $D$. We have, $m,p' \in F$, then $\exists p \in F$ such that $p \ge' m$ and $p \ge' p'$. Since $F \subset D$, we have $p,m \in F \implies p,m \in D$ and $p \ge' m \implies p \ge m$.\\
+	Let $m' \in D$.
+	Then $\exists p' \in F$ such that $p' \ge m'$, since $F$ is a cofinal subset of $D$.
+	We have, $m,p' \in F$, then $\exists p \in F$ such that $p \ge' m$ and $p \ge' p'$.
+	Since $F \subset D$, we have $p,m \in F \implies p,m \in D$ and $p \ge' m \implies p \ge m$.\\
 	
-	Also $p \ge' m \implies S_{/_F}(p) \in U \implies S(p) \in U$. Therefore, $\forall m' \in D,\ \exists p \in D$ such that $p \ge m'$ and $S(p) \in U$. Since $U,m'$ are arbitrary, $S$ is frequently in every nbd of $x$. ie, $x$ is a cluster point of $S$.
+	Also $p \ge' m \implies S_{/_F}(p) \in U \implies S(p) \in U$.
+	Therefore, $\forall m' \in D,\ \exists p \in D$ such that $p \ge m'$ and $S(p) \in U$.
+	Since $U,m'$ are arbitrary, $S$ is frequently in every nbd of $x$.
+	ie, $x$ is a cluster point of $S$.
 \end{proof}
 
 \begin{definition}[Subnet]\cite[10.1.11]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Then a net $T : E \to X$ in $X$, is a subnet of $S$ if there exists a function $N : E \to D$ such that $S \circ N = T$ and $\forall m \in D,\ \exists p \in E$ such that $n \ge' p \implies N(n) \ge m$.
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Then a net $T : E \to X$ in $X$, is a subnet of $S$ if there exists a function $N : E \to D$ such that $S \circ N = T$ and $\forall m \in D,\ \exists p \in E$ such that $n \ge' p \implies N(n) \ge m$.
 \end{definition}
 
 \begin{remark}
 \begin{commentary}
 	A net $T : E \to X$ is a subnet of $S : D \to X$ if $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
-	Let $T : E \to X$ be a subnet of $S : D \to X$ and $A$ be a subset of $X$. If $T$ eventually in $A$, then $S$ is frequently in $A$.
+	Let $T : E \to X$ be a subnet of $S : D \to X$ and $A$ be a subset of $X$.
+	If $T$ eventually in $A$, then $S$ is frequently in $A$.
 \end{commentary}
 \end{remark}
 
 \begin{proposition}\cite[10.1.12]{joshi}\\
-	Let $S : D \to X$ be a net in a topological space $X$. Then $x \in X$ is a cluster point of $S$ iff there exists a subnet of $S$ which converges to $x$.
+	Let $S : D \to X$ be a net in a topological space $X$.
+	Then $x \in X$ is a cluster point of $S$ iff there exists a subnet of $S$ which converges to $x$.
 \end{proposition}
 \begin{synopsis}
 \begin{commentary}
-	Let $(D,\ge)$, $(E,\ge')$ be two directed sets. And $T : E \to X$ be a subnet of $S : D \to X$.\\
+	Let $(D,\ge)$, $(E,\ge')$ be two directed sets.
+	And $T : E \to X$ be a subnet of $S : D \to X$.\\
 
-	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$. And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$. Therefore, $S$ is frequently in each nbd $U$ of $x$. Thus, $x$ is a cluster point of $S$.\\
+	If $T$ converges to $x$, then $T$ is eventually in each nbd $U$ of $x$.
+	And since $T$ is a subnet of $S$, there exists $N : E \to D$ such that $N(E)$ is a cofinal subset of $D$.
+	Therefore, $S$ is frequently in each nbd $U$ of $x$.
+	Thus, $x$ is a cluster point of $S$.\\
 
-	If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$. Let $N : E \to D$ be $N(n,U) = n$. Construct a directed subset $E$ of $D \times \mathcal{N}_x$ such that $(n,U) \in E \iff S(n) \in U$. Now $T$ is eventually in every nbd $U$ of $x$, as those points with images outside $U$ are removed by construction. Therefore, it is sufficient to show that $T : E \to X$ is a subnet of the net $S : D \to X$. Clearly, $E$ is a directed set and $N : E \to D$ defined by $N(n,U) =n$ satisfies both $S \circ N = T$ and $\forall n \in D$, $\exists p \in E$ such that $m \ge p \implies N(m) \ge n$.
+
+	If $x$ is a cluster point of $X$, then $S$ is frequently in every nbd of $x$.
+	Let $N : E \to D$ be $N(n,U) = n$.
+	Construct a directed subset $E$ of $D \times \mathcal{N}_x$ such that $(n,U) \in E \iff S(n) \in U$.
+	Now $T$ is eventually in every nbd $U$ of $x$, as those points with images outside $U$ are removed by construction.
+	Therefore, it is sufficient to show that $T : E \to X$ is a subnet of the net $S : D \to X$.
+	Clearly, $E$ is a directed set and $N : E \to D$ defined by $N(n,U) =n$ satisfies both $S \circ N = T$ and $\forall n \in D$, $\exists p \in E$ such that $m \ge p \implies N(m) \ge n$.
 \end{commentary}
 \end{synopsis}
 \begin{figure}
@@ -882,14 +1062,18 @@ Examples of Nets
 \caption{\scriptsize{$\forall (n,U),(m,V) \in E,\ \exists (q,W) \in E$ such that $(q,W) \ge' (n,U),\ (q,W) \ge' (m,V)$}}
 \end{figure}
 \begin{proof}
-	Let $S : D \to X$ be a net in $X$. Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$. By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
+	Let $S : D \to X$ be a net in $X$.
+	Suppose there exists a subnet $T : E \to X$ that converges to $x \in X$.
+	By the definition of subnet, we have $\exists N : E \to D$ such that $S \circ N = T$ and $S$ is frequently in $T(E)$.\\
 
 	We have, $T$ convergers to $x$, thus for any neighbourhood $U$ of $x$, there exists $m' \in E$ such that $n' \ge' m' \implies T(n') \in U$.\\
 
-	Also we have, $T$ is a subnet of $S$. Then $\exists N : E \to D$ such that
+	Also we have, $T$ is a subnet of $S$.
+	Then $\exists N : E \to D$ such that
 	$\forall m \in D,\ \exists p' \in E$ such that $n' \ge' p' \implies N(n') \ge m$.\\
 
-	Now, for any $m \in D$, we have $m',p' \in E$. Since $E$ is a directed set, there exists $n' \in E$ such that $n' \ge' m'$ and $n' \ge' p'$.\\
+	Now, for any $m \in D$, we have $m',p' \in E$.
+	Since $E$ is a directed set, there exists $n' \in E$ such that $n' \ge' m'$ and $n' \ge' p'$.\\
 
 	Then, $n' \ge m' \implies T(n') \in U$ and $n' \ge' p' \implies N(n') \ge m$.\\
 	
@@ -897,20 +1081,51 @@ Examples of Nets
 
 	Thus $S$ is frequently in any neighbourhood $U$ of $x$. Therefore, $x$ is a cluster point of $S$.\\
 
-	Conversely, suppose that $x$ is a cluster point of $S$. We have to construct a directed set $(E,\ge')$ and a function $N : E \to D$ such that $T$ is a subnet of $S$ and $T$ converges to $x$. \textcolor{blue}{Let $\mathcal{N}_x$ be the family of all neighbourhood of $x$ in $X$.}\\
 
-	Consider $E = \{ (n,U) \in D \times \mathcal{N}(x) : S(n) \in U \}$ and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$. Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$. Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$. Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$. Also, \textcolor{blue}{$U \cap V \in \mathcal{N}_x$ and} there exists $q \in D$ such that $S(q) \in \textcolor{blue}{U \cap V}$ and $q \ge' p$, since $S$ is frequently in every nbd of $x$. And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$. Thus $\exists (q,U\cap V) \in E$ such that $(q,U\cap V) \ge' (n,U)$ and $(q,U\cap V) \ge' (m,V)$. Therefore, $(E,\ge')$ is a directed set.\\
+	Conversely, suppose that $x$ is a cluster point of $S$.
+	We have to construct a directed set $(E,\ge')$ and a function $N : E \to D$ such that $T$ is a subnet of $S$ and $T$ converges to $x$.
+	\textcolor{blue}{Let $\mathcal{N}_x$ be the family of all neighbourhood of $x$ in $X$.}\\
 
-	Define $N : E \to D$ by $N(n,U) = n$. Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$.\\
+
+	Consider $E = \{ (n,U) \in D \times \mathcal{N}(x) : S(n) \in U \}$ and define $\ge'$ by $(n,U) \ge' (m,V)$ if $n \ge m$ and $U \subset V$.
+	Trivially, $(n,U) \ge' (m,V) \ge' (p,W) \implies (n,U) \ge' (p,W)$ and $(n,U) \ge' (n,U)$.
+	Also, for any $(n,U),(m,V) \in E$, we have $n,m \in D$ and $U,V \in \mathcal{N}(x)$.
+	Since $D$ is a directed set, $\exists p \in D$ such that $p \ge n$ and $p \ge m$.
+	Also, \textcolor{blue}{$U \cap V \in \mathcal{N}_x$ and} there exists $q \in D$ such that $S(q) \in \textcolor{blue}{U \cap V}$ and $q \ge' p$, since $S$ is frequently in every nbd of $x$.
+	And $U \cap V \in \mathcal{N}(x)$ such that $U \cap V \subset U$ and $U \cap V \subset V$.
+	Thus $\exists (q,U\cap V) \in E$ such that $(q,U\cap V) \ge' (n,U)$ and $(q,U\cap V) \ge' (m,V)$.
+	Therefore, $(E,\ge')$ is a directed set.\\
+
+
+	Define $N : E \to D$ by $N(n,U) = n$.
+	Again for any $(m,V) \in E$, there exists $m \in D$ such that $(n,U) \ge' (m,U)$ implies there exists $n \in D$ such that  $N(n,U) = n$ and $n \ge m$.\\
 	
-	\textcolor{blue}{It remains to prove that, $T$ converges to $x$. Let $U \in \mathcal{N}_x$ be a nbd of $x$ in $X$. We have, $x$ is a cluster points of $S$. Therefore, $\forall m \in D,\ \exists p \in D$ such that $S(p) \in U$. By the constructon of $E$, we have $(p,U) \in E$. Suppose $(n,V) \ge' (p,U)$, then $n \ge p,\ V \subset U, \text{ and } S(n) \in V$. Clearly $S(n) \in U$. Therefore, $\forall (n,V) \ge' (p,U),\ T(n,V) \in U$. That is, $T$ is eventually in every nbd of $x$. ie, subnet $T$ is convergent to $x$. Therefore, for each cluster point of the net $S$, there exists some subset converging to it.}
+	\textcolor{blue}{It remains to prove that, $T$ converges to $x$.
+	Let $U \in \mathcal{N}_x$ be a nbd of $x$ in $X$.
+	We have, $x$ is a cluster points of $S$.
+	Therefore, $\forall m \in D,\ \exists p \in D$ such that $S(p) \in U$.
+	By the constructon of $E$, we have $(p,U) \in E$.
+	Suppose $(n,V) \ge' (p,U)$, then $n \ge p,\ V \subset U, \text{ and } S(n) \in V$.
+	Clearly $S(n) \in U$.
+	Therefore, $\forall (n,V) \ge' (p,U),\ T(n,V) \in U$.
+	That is, $T$ is eventually in every nbd of $x$.
+	ie, subnet $T$ is convergent to $x$.
+	Therefore, for each cluster point of the net $S$, there exists some subset converging to it.}
 \end{proof}
 
 \begin{remark}
 \begin{commentary}
 	\begin{itemize}
-		\item  Importance of Construction of $E$\\ If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$. Thus, if we consider any cofinal subset $D'$ of $D$ which is a direct set with $\ge$ restricted to $D'$. Then $N : D' \to D$ defined by $N(n)=n$ gives a subnet $T : D' \to X$ of the net $S$. However, this subnet need not converge to $x$. The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$', since $N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$. This problem is overcame by constructing $E$ which is dependent on each nbd $U$ of $x$.
-		\item Existence of $q \in D$ such that $q \ge' p$ and $S(q) \in U$. We have, $p$ follows both $n \& m$ and $U \cap V$ is a subset of both $U \& V$. However, since $S$ is only frequently in $U$, $p$ not necessarily be in $U$. But there is always someone following $p$ which has its image in $U$. This $q$ follows both $n \& m$, since $\ge'$ is transitive.
+		\item  Importance of Construction of $E$\\ If $x$ is a cluster point of a net $S$ in $X$, then $S$ is frequently in some cofinal subset of $D$.
+			Thus, if we consider any cofinal subset $D'$ of $D$ which is a direct set with $\ge$ restricted to $D'$.
+			Then $N : D' \to D$ defined by $N(n)=n$ gives a subnet $T : D' \to X$ of the net $S$.
+			However, this subnet need not converge to $x$.
+			The strongest statement, we can make on $T$ is that `$x$ is a cluster point of $T$', since $N : D \times \mathcal{N}(x) \to D,\ N(n) = n$ is completely independent of $U$. This problem is overcame by constructing $E$ which is dependent on each nbd $U$ of $x$.
+		\item Existence of $q \in D$ such that $q \ge' p$ and $S(q) \in U$.
+			We have, $p$ follows both $n \& m$ and $U \cap V$ is a subset of both $U \& V$.
+			However, since $S$ is only frequently in $U$, $p$ not necessarily be in $U$.
+			But there is always someone following $p$ which has its image in $U$.
+			This $q$ follows both $n \& m$, since $\ge'$ is transitive.
 	\end{itemize}
 \end{commentary}
 \end{remark}
@@ -922,113 +1137,188 @@ Examples of Nets
 %\chapter{Compactness}
 \section{Variations of Compactness}
 \subsection{Variations of Compactness}
-	In this chapter, we have two other notions of compactness - countable compactness and sequential compactness.($\star$\footnote{For $\mathbb{R}$, Compactness \& Sequentially compactness are equivalent to the completeness axiom.})
+	In this chapter, we have two other notions of compactness - countable compactness and sequential compactness.
+	($\star$\footnote{For $\mathbb{R}$, Compactness \& Sequentially compactness are equivalent to the completeness axiom.})
 
 	\begin{description}
-		\item[Compact] A topological space is compact iff every open cover of it has a finite subcover. (\cite[6.1.1]{joshi}) [Heine-Borel]
-		\item[Countably Compact] A topological space is countably compact iff every countable, open cover of it has a finite subcover. \cite[11.1.1]{joshi}
-		\item[Sequentially Compact] A topological space is sequentially compact iff every sequence in it has a convergent subsequence. \cite[11.1.8]{joshi} [Bolzano-Weierstrass]
+		\item[Compact] A topological space is compact iff every open cover of it has a finite subcover.
+			(\cite[6.1.1]{joshi}) [Heine-Borel]
+		\item[Countably Compact] A topological space is countably compact iff every countable, open cover of it has a finite subcover.
+			\cite[11.1.1]{joshi}
+		\item[Sequentially Compact] A topological space is sequentially compact iff every sequence in it has a convergent subsequence.
+			\cite[11.1.8]{joshi} [Bolzano-Weierstrass]
 	\end{description}
 
-	Countable compactness is a weaker notion compared to compactness.($\star$\footnote{Every compact space is countably compact.}) However, sequentially compact and compact are not necessarily comparable.($\star$\footnote{$\mathcal{T}_1, \mathcal{T}_2$ are non-comparable, if $\mathcal{T}_1 \not\subset \mathcal{T}_2$ and $\mathcal{T}_2 \not\subset \mathcal{T}_1$.\cite[4.2.1]{joshi}})\\
+	Countable compactness is a weaker notion compared to compactness.
+	($\star$\footnote{Every compact space is countably compact.})
+	However, sequentially compact and compact are not necessarily comparable.
+	($\star$\footnote{$\mathcal{T}_1, \mathcal{T}_2$ are non-comparable, if $\mathcal{T}_1 \not\subset \mathcal{T}_2$ and $\mathcal{T}_2 \not\subset \mathcal{T}_1$.
+	\cite[4.2.1]{joshi}})\\
 
 	We have seen earlier that compactness has the following properties
 \begin{enumerate*}
-	\item compactness is weakly hereditary.\cite[6.1.10]{joshi}
-	\item compactness is preserved under continuous functions.\cite[6.1.8]{joshi}
-	\item every continuous real functions on compact space is bounded and attains its extrema.\cite[6.1.6]{joshi}
-	\item every continuous real function on a compact, metric space is uniformly continuous by Lebesgue covering lemma.\cite[6.1.7]{joshi}
+	\item compactness is weakly hereditary.
+		\cite[6.1.10]{joshi}
+	\item compactness is preserved under continuous functions.
+		\cite[6.1.8]{joshi}
+	\item every continuous real functions on compact space is bounded and attains its extrema.
+		\cite[6.1.6]{joshi}
+	\item every continuous real function on a compact, metric space is uniformly continuous by Lebesgue covering lemma.
+		\cite[6.1.7]{joshi}
 \end{enumerate*}\\
 
 	Countably compact spaces, Sequentially compact spaces have all the four properites listed above.
 
 \subsection{Countable compactness}
 \subsubsection{Weakly hereditary property}
-	A subspace $(A,\mathcal{T}_{/_A})$ being countably compact doesn't imply that $(X,\mathcal{T})$ is countably compact. However, if $(X,\mathcal{T})$ is a countably compact space and \textsf{$A$ is a closed subset of $X$}, then $(A,\mathcal{T}_{/_A})$ is also a countably compact space.
+	A subspace $(A,\mathcal{T}_{/_A})$ being countably compact doesn't imply that $(X,\mathcal{T})$ is countably compact.
+	However, if $(X,\mathcal{T})$ is a countably compact space and \textsf{$A$ is a closed subset of $X$}, then $(A,\mathcal{T}_{/_A})$ is also a countably compact space.
 \begin{commentary}
 	In other words, countably compactness is weakly hereditary.
 \end{commentary}
 
 \begin{theorem}
-	Countable compactness is weakly hereditary.\cite[11.1.3]{joshi}
+	Countable compactness is weakly hereditary.
+	\cite[11.1.3]{joshi}
 \end{theorem}
 \begin{synopsis}
-	Let $A$ be a closed subset of countably compact space, $X$. If $A$ has a countable open cover $\mathcal{U}$, then we can obtain a respective countable, open cover for $X$ by attaching $X-A$ to the extensions of members of $\mathcal{U}$ to $X$. This cover has a finite subcover. Then restricting them to $A$, we get a finite subcover of $\mathcal{U}$.
+	Let $A$ be a closed subset of countably compact space, $X$.
+	If $A$ has a countable open cover $\mathcal{U}$, then we can obtain a respective countable, open cover for $X$ by attaching $X-A$ to the extensions of members of $\mathcal{U}$ to $X$.
+	This cover has a finite subcover.
+	Then restricting them to $A$, we get a finite subcover of $\mathcal{U}$.
 \end{synopsis}
 \begin{proof}
-	Suppose $X$ is a countably compact space. And $A$ is a closed subset of $X$. We need to show that $A$ is countably compact. Without loss of generality,($\star$\footnote{Suppose $A$ is not a proper subset of $X$. Then $X = A$ and $A$ is countably compact.}) assume that $A$ is a proper subset of $X$. Then $X-A$ is a non-empty, open subset of $X$.\\ 
+	Suppose $X$ is a countably compact space.
+	And $A$ is a closed subset of $X$.
+	We need to show that $A$ is countably compact.
+	Without loss of generality,($\star$\footnote{Suppose $A$ is not a proper subset of $X$.
+	Then $X = A$ and $A$ is countably compact.}) assume that $A$ is a proper subset of $X$.
+	Then $X-A$ is a non-empty, open subset of $X$.\\ 
 
-	Let $\mathcal{U}$ be a countable open cover of $A$. Then $\mathcal{U} = \{ U_1, U_2, \cdots \}$ where each element $U_k \in \mathcal{U}$ is an open subset of $A$. Since $A$ is a subspace of $X$, every open subset $U_k$ in $A$ is of the form $G \cap A$ for some open subset $G$ in $X$. Therefore, there exists open subsets $V(U_k)$ for each $U_k$ such that $A \cap V(U_k) = U_k$.($\star$\footnote{Relative topology,$\mathcal{T}_{/_A} = \{ G \cap A : G \in \mathcal{T} \}$})\\
+	Let $\mathcal{U}$ be a countable open cover of $A$.
+	Then $\mathcal{U} = \{ U_1, U_2, \cdots \}$ where each element $U_k \in \mathcal{U}$ is an open subset of $A$.
+	Since $A$ is a subspace of $X$, every open subset $U_k$ in $A$ is of the form $G \cap A$ for some open subset $G$ in $X$.
+	Therefore, there exists open subsets $V(U_k)$ for each $U_k$ such that $A \cap V(U_k) = U_k$.
+	$\star$\footnote{Relative topology,$\mathcal{T}_{/_A} = \{ G \cap A : G \in \mathcal{T} \}$})\\
 
-	Define $\mathcal{V} = \{ X-A, V(U_1), V(U_2), \cdots \}$. Clearly, $\mathcal{V}$ is a countable open cover ($\star$\footnote{$X-A$ is open in $X$. If $y \not\in A$, then $y \in X-A$. If $y \in A$, then $y \in U_k$ for some $k$.}) of $X$. We have $X$ is countably compact, thus $\mathcal{V}$ has a finite subcover, say $\mathcal{V}'$. Without loss of generality assume ($\star$\footnote{Otherwise, you will have to consider two cases: $X-A \in \mathcal{V}'$ and $X-A \not\in \mathcal{V}'$}) that $X-A \in \mathcal{V}'$. Suppose $X-A \not\in \mathcal{V}'$, then we can define another finite subcover $\mathcal{V}' \cup \{X-A\}$. Thus $\mathcal{V}' = \{ X-A,\ V(U_{n_1}),\ V(U_{n_2}),\cdots,\ V(U_{n_k})\}$.\\
+	Define $\mathcal{V} = \{ X-A, V(U_1), V(U_2), \cdots \}$.
+	Clearly, $\mathcal{V}$ is a countable open cover ($\star$\footnote{$X-A$ is open in $X$.
+	If $y \not\in A$, then $y \in X-A$.
+	If $y \in A$, then $y \in U_k$ for some $k$.}) of $X$.
+	We have $X$ is countably compact, thus $\mathcal{V}$ has a finite subcover, say $\mathcal{V}'$.
+	Without loss of generality assume ($\star$\footnote{Otherwise, you will have to consider two cases: $X-A \in \mathcal{V}'$ and $X-A \not\in \mathcal{V}'$}) that $X-A \in \mathcal{V}'$.
+	Suppose $X-A \not\in \mathcal{V}'$, then we can define another finite subcover $\mathcal{V}' \cup \{X-A\}$.
+	Thus $\mathcal{V}' = \{ X-A,\ V(U_{n_1}),\ V(U_{n_2}),\cdots,\ V(U_{n_k})\}$.\\
 
-	Then the corresponding subcover $\mathcal{U}'=\{U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$. Since countable open cover $\mathcal{U}$ and closed subset $A$ are arbitrary, every closed subset of $X$ with relative topology is countably compact. Therefore, countable compactness is weakly hereditary.
+	Then the corresponding subcover $\mathcal{U}'=\{U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$.
+	Since countable open cover $\mathcal{U}$ and closed subset $A$ are arbitrary, every closed subset of $X$ with relative topology is countably compact.
+	Therefore, countable compactness is weakly hereditary.
 \end{proof}
 
 \begin{remark}
 	Proof depends on the following,
 	\begin{enumerate}
-		\item There is an extension map, $\psi : P(A) \to P(X)$ that preserve open subsets (and closed subsets). This $\psi$ is an open map which not a true inverse of the restriction, $r : P(X) \to P(A)$, defined by $r(G) = G \cap A$ for every subset $G$ of $X$.
-		\item Also we rely on the subset $A$ being closed. Suppose $X$ have many countable open covers, but $X$ has only uncountable open covers corresponding to a particular countable open cover of $A$. In such a case, $X$ being countably compact is insufficient for $A$ to be countably compact.
+		\item There is an extension map, $\psi : P(A) \to P(X)$ that preserve open subsets (and closed subsets).
+			This $\psi$ is an open map which not a true inverse of the restriction, $r : P(X) \to P(A)$, defined by $r(G) = G \cap A$ for every subset $G$ of $X$.
+		\item Also we rely on the subset $A$ being closed.
+			Suppose $X$ have many countable open covers, but $X$ has only uncountable open covers corresponding to a particular countable open cover of $A$.
+			In such a case, $X$ being countably compact is insufficient for $A$ to be countably compact.
 	\end{enumerate}
 \end{remark}
 
 \subsubsection{The behaviour of countinous functions}
-	We will now study the nature of continuous functions defined on countably compact spaces. Suppose $X,Y$ are topological space and function $f : X \to Y$ is continuous. If $X$ is countably compact, then $f(X)$ is also countably compact. Continuous images of countably compact spaces are countably compact.
+	We will now study the nature of continuous functions defined on countably compact spaces.
+	Suppose $X,Y$ are topological space and function $f : X \to Y$ is continuous.
+	If $X$ is countably compact, then $f(X)$ is also countably compact.
+	Continuous images of countably compact spaces are countably compact.
 \begin{commentary}
-	In other words, countable compactness is preserved under continuous functions.($\star$\footnote{A topological property is preserved under continuous functions if whenever a space has that property so does every continuous image of it.\cite[6.1.9]{joshi}})
+	In other words, countable compactness is preserved under continuous functions.($\star$\footnote{A topological property is preserved under continuous functions if whenever a space has that property so does every continuous image of it.
+	\cite[6.1.9]{joshi}})
 \end{commentary}
 	
 \begin{theorem}
-	Countable compactness is preserved under continuous functions.\cite[11.1.2]{joshi}
+	Countable compactness is preserved under continuous functions.
+	\cite[11.1.2]{joshi}
 \end{theorem}
 \begin{synopsis}
-	Let $X$ be countably compact and $f:X\to Y$ be continuous. Suppose $\mathcal{U}$ is a countable cover of $f(X)$, then $X$ has a countable cover $\mathcal{V}$ obtained by taking inverse images. Since $X$ is countably compact, $\mathcal{V}$ has a finite subcover $\mathcal{V}'$. Now taking images of members of $\mathcal{V}'$, we get a finite subcover $\mathcal{U}'$ of $f(X)$.
+	Let $X$ be countably compact and $f:X\to Y$ be continuous.
+	Suppose $\mathcal{U}$ is a countable cover of $f(X)$, then $X$ has a countable cover $\mathcal{V}$ obtained by taking inverse images.
+	Since $X$ is countably compact, $\mathcal{V}$ has a finite subcover $\mathcal{V}'$.
+	Now taking images of members of $\mathcal{V}'$, we get a finite subcover $\mathcal{U}'$ of $f(X)$.
 \end{synopsis}
 \begin{proof}
-	Suppose $X$ is a countably compact space, $Y$ is a topological space and $f:X \to Y$ is a continuous function. Let $\mathcal{U} = \{ U_1, U_2,\cdots \}$ be a countable cover of $f(X)$ by set open in $f(X)$. We have to show that $\mathcal{U}$ has a finite subcover.\\
+	Suppose $X$ is a countably compact space, $Y$ is a topological space and $f:X \to Y$ is a continuous function.
+	Let $\mathcal{U} = \{ U_1, U_2,\cdots \}$ be a countable cover of $f(X)$ by set open in $f(X)$.
+	We have to show that $\mathcal{U}$ has a finite subcover.\\
 
-	Define $\mathcal{V} = \{ f^{-1}(U_1), f^{-1}(U_2), \cdots \}$. Then $\mathcal{V}$ is a countable open cover of $X$, since $f^{-1}(U_k)$ are open subsets of $X$ and,
+
+	Define $\mathcal{V} = \{ f^{-1}(U_1), f^{-1}(U_2), \cdots \}$.
+	Then $\mathcal{V}$ is a countable open cover of $X$, since $f^{-1}(U_k)$ are open subsets of $X$ and,
 
 \begin{align*}
 	\bigcup_{k = 1}^\infty U_k = f(X) \implies & f^{-1}\left(\bigcup_{k=1}^\infty U_k\right) = X\\
 	\implies & \bigcup_{k = 1}^\infty f^{-1}(U_k) = X
 \end{align*}
 
-	We have, $\mathcal{V}$ is a countable open cover of $X$, which is a countably compact space. Therefore $\mathcal{V}$ has a finite subcover $\mathcal{V}' = \{ f^{-1}(U_{n_1}),\ f^{-1}(U_{n_2}),\cdots,\ f^{-1}(U_{n_k}) \}$.
+	We have, $\mathcal{V}$ is a countable open cover of $X$, which is a countably compact space.
+	Therefore $\mathcal{V}$ has a finite subcover $\mathcal{V}' = \{ f^{-1}(U_{n_1}),\ f^{-1}(U_{n_2}),\cdots,\ f^{-1}(U_{n_k}) \}$.
 
 \begin{align*}
 	\bigcup_{j=1}^k f^{-1}(U_{n_j}) = X \implies & f^{-1}\left(\bigcup_{j=1}^k U_{n_j}\right) = X\\
 	\implies & \bigcup_{j=1}^k U_{n_j} = f(X)
 \end{align*}
 
-	Clearly $\mathcal{U}' = \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$. Thus every countable open cover of $f(X)$ by sets open in $f(X)$ has a finite subcover. Therefore, continuous images of countably compact spaces are countably compact.
+	Clearly $\mathcal{U}' = \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$.
+	Thus every countable open cover of $f(X)$ by sets open in $f(X)$ has a finite subcover.
+	Therefore, continuous images of countably compact spaces are countably compact.
 \end{proof}
 
 \begin{remark}
 	\begin{enumerate}
-		\item For a continuous function, $f : X \to Y$ the inverse images of open subsets are open in $X$. The relation $f^{-1} \subset f(X) \times X$ is not a function. However, we may consider a function, $\psi : P(Y) \to P(X)$ such that $\psi(U) = f^{-1}(U)$ for any subset $U$ of $Y$. This $\psi$ is an open map which maps open subsets of $Y$ to open subsets of $X$.
+		\item For a continuous function, $f : X \to Y$ the inverse images of open subsets are open in $X$.
+			The relation $f^{-1} \subset f(X) \times X$ is not a function.
+			However, we may consider a function, $\psi : P(Y) \to P(X)$ such that $\psi(U) = f^{-1}(U)$ for any subset $U$ of $Y$.
+			This $\psi$ is an open map which maps open subsets of $Y$ to open subsets of $X$.
 	\end{enumerate}
 \end{remark}
 
 \begin{theorem}
-	Every continuous, real-valued function on a countably compact, metric space is bounded and attains its extrema.\cite[11.1.7]{joshi}
+	Every continuous, real-valued function on a countably compact, metric space is bounded and attains its extrema.
+	\cite[11.1.7]{joshi}
 \end{theorem}
 \begin{synopsis}
-	Let $X$ be a countably compact space and function $f : X \to \mathbb{R}$ be continuous. Then $f(X) \subset \mathbb{R}$ is countably compact. Real line $\mathbb{R}$ is metrisable($\star$\footnote{\cite[4.2 Example 4]{joshi}, $\mathbb{R}$ with usual metric $d:R \to R,\ d(x,y) = |x-y|$}). Then $f(X)$ is countably compact, metric space. Therefore $f(X)$ compact.($\star$\footnote{\cite[11.1.11]{joshi} On metric spaces, countable compactness $\implies$ compactness.}). The subset $f(X)$ of $\mathbb{R}$ is bounded and closed, since every compact subset of $\mathbb{R}$ is bounded and closed. Thus $f(X)$ contains its supremum and infimum. Therefore, $f$ is bounded and attains its extrema.
+	Let $X$ be a countably compact space and function $f : X \to \mathbb{R}$ be continuous.
+	Then $f(X) \subset \mathbb{R}$ is countably compact.
+	Real line $\mathbb{R}$ is metrisable($\star$\footnote{\cite[4.2 Example 4]{joshi}, $\mathbb{R}$ with usual metric $d:R \to R,\ d(x,y) = |x-y|$}).
+	Then $f(X)$ is countably compact, metric space.
+	Therefore $f(X)$ compact.($\star$\footnote{\cite[11.1.11]{joshi} On metric spaces, countable compactness $\implies$ compactness.}).
+	The subset $f(X)$ of $\mathbb{R}$ is bounded and closed, since every compact subset of $\mathbb{R}$ is bounded and closed.
+	Thus $f(X)$ contains its supremum and infimum.
+	Therefore, $f$ is bounded and attains its extrema.
 \end{synopsis}
 \begin{proof}
-	Let $X$ be a countably compact space and $f : X \to \mathbb{R}$ be continuous, real-valued function on the countably compact space, $X$. We have to show that $f$ is bounded and attains its extrema.\\
+	Let $X$ be a countably compact space and $f : X \to \mathbb{R}$ be continuous, real-valued function on the countably compact space, $X$.
+	We have to show that $f$ is bounded and attains its extrema.\\
 	
-	Since countable compactness is preserved under continuous functions, $f(X)$ is countably compact subset of $\mathbb{R}$. Since, $f(X)$ is a subset of the metric space, $\mathbb{R}$ and metrisability is hereditary, $f(X)$ is again metrisable. (suppose) We have, every countably compact, metric space is compact. Then $f(X)$ is a compact subset of $\mathbb{R}$.\\
+	
+	Since countable compactness is preserved under continuous functions, $f(X)$ is countably compact subset of $\mathbb{R}$.
+	Since, $f(X)$ is a subset of the metric space, $\mathbb{R}$ and metrisability is hereditary, $f(X)$ is again metrisable.
+	(suppose) We have, every countably compact, metric space is compact.
+	Then $f(X)$ is a compact subset of $\mathbb{R}$.\\
 
-	Since every compact subset of $\mathbb{R}$ is bounded and closed, $f(X)$ is bounded and closed. Since every closed subset of $\mathbb{R}$ contains supremem and infimum, $f(X)$ contains its extrema. Therefore, every continuous, real-valued function on a countably compact space is bounded and attains its extrema.\\
 
-	We have assumed that every countably compact, metric space is compact. This result will be proved in the last section of this chapter.
+	Since every compact subset of $\mathbb{R}$ is bounded and closed, $f(X)$ is bounded and closed.
+	Since every closed subset of $\mathbb{R}$ contains supremem and infimum, $f(X)$ contains its extrema.
+	Therefore, every continuous, real-valued function on a countably compact space is bounded and attains its extrema.\\
+
+
+	We have assumed that every countably compact, metric space is compact.
+	This result will be proved in the last section of this chapter.
 \end{proof}
 
 \begin{remark}
-	Since countably compact, metric spaces are compact. The above theorem can be used to prove that continuous, real-valued functions on a compact, metric space attains its extrema.
+	Since countably compact, metric spaces are compact.
+	The above theorem can be used to prove that continuous, real-valued functions on a compact, metric space attains its extrema.
 \end{remark}
 
 Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
@@ -1037,11 +1327,16 @@ Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
 	Every continuous, real-valued function on a countably compact, metric space is uniformly continuous.
 \end{theorem}
 %\begin{proof}
-%Let $f : X \to Y$ be a continuous function on countaby compact, metric space $X$. Then $f(X)$ is a countably compact, metric space and thus a compact, metric space. Let $\mathcal{U}$ be an open cover of $f(X)$. Then by Lebesgue covering lemma, there exists a positive real number $r$ such that for any $y \in f(X)$, the open ball $B(y,r) \subset U$ for each $U \in \mathcal{U}$. Then $\mathcal{V} = \{ f^{-1}(U) : U \in \mathcal{U} \}$ is an open cover of $X$ and for each $x \in X$, $f^{-1}\left( B(f(x),r) \right) \subset f^{-1}(U)$.
+%Let $f : X \to Y$ be a continuous function on countaby compact, metric space $X$.
+% Then $f(X)$ is a countably compact, metric space and thus a compact, metric space.
+% Let $\mathcal{U}$ be an open cover of $f(X)$.
+% Then by Lebesgue covering lemma, there exists a positive real number $r$ such that for any $y \in f(X)$, the open ball $B(y,r) \subset U$ for each $U \in \mathcal{U}$.
+% Then $\mathcal{V} = \{ f^{-1}(U) : U \in \mathcal{U} \}$ is an open cover of $X$ and for each $x \in X$, $f^{-1}\left( B(f(x),r) \right) \subset f^{-1}(U)$.
 %\end{proof}
 
 \begin{proposition}
-	Let $X$ be a first countable, Hausdorff space. Then every countably compact subset $A$ of $X$ is closed.\cite[Exercises 11.1.7]{joshi}
+	Let $X$ be a first countable, Hausdorff space.
+	Then every countably compact subset $A$ of $X$ is closed.\cite[Exercises 11.1.7]{joshi}
 \end{proposition}
 %\begin{synopsis}
 %\end{synopsis}
@@ -1059,7 +1354,8 @@ Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
 \subsection{Sequential Compactness}
 \subsubsection{Weakly hereditary property}
 \begin{theorem}
-	Sequential compactness is weakly hereditary.\cite[Exercises 11.1.3]{joshi}
+	Sequential compactness is weakly hereditary.
+	\cite[Exercises 11.1.3]{joshi}
 \end{theorem}
 %\begin{synopsis}
 %\end{synopsis}
@@ -1068,45 +1364,71 @@ Due to the Lebesgue covering lemma, next result is quite simple.$^\star$
 
 \subsubsection{The behaviour of countinous functions}
 \begin{theorem}
-	Sequential compactness is preserved under continuous functions.\cite[Exercises 11.1.4]{joshi}
+	Sequential compactness is preserved under continuous functions.
+	\cite[Exercises 11.1.4]{joshi}
 \end{theorem}
 \begin{synopsis}
-	Let $X$ be sequentially compact and function $f : X \to Y$ be continuous. Then any sequence, $\{y_k\}$ in $f(X)$ has a sequence, $\{x_k\}$ in $X$ such that $f(x_k) = y_k$. Sequence $\{x_k\}$ has a subsequence $\{x_{n_k}\}$ converging to $x$, then sequence $\{ f(x_n)\}$ in $f(X)$ has the subsequence $\{f(x_{n_k})\}$ converging to $f(x)$.
+	Let $X$ be sequentially compact and function $f : X \to Y$ be continuous.
+	Then any sequence, $\{y_k\}$ in $f(X)$ has a sequence, $\{x_k\}$ in $X$ such that $f(x_k) = y_k$.
+	Sequence $\{x_k\}$ has a subsequence $\{x_{n_k}\}$ converging to $x$, then sequence $\{ f(x_n)\}$ in $f(X)$ has the subsequence $\{f(x_{n_k})\}$ converging to $f(x)$.
 \end{synopsis}
 \begin{proof}
-	Let $X$ be a sequentially compact space, function $f: X \to Y$ be continuous and $\{y_n\}$ be a sequence in $f(X)$ subset of $Y$. Construct a sequence $\{x_n\}$ such that $f(x_k) = y_k,\ \forall k$.\\
+	Let $X$ be a sequentially compact space, function $f: X \to Y$ be continuous and $\{y_n\}$ be a sequence in $f(X)$ subset of $Y$.
+	Construct a sequence $\{x_n\}$ such that $f(x_k) = y_k,\ \forall k$.\\
 
-	Every sequence in $X$ has a convergent subsequence. Thus $\{x_n\}$ has a subsequence $\{x_{n_k}\}$ converging to $x \in X$. The image of this subsequence $\{f(x_{n_k})\}$ is a subsequence of $\{y_k\}$. We claim that, $\{f(x_{n_k})\}$ converges to $f(x) \in f(X)$.\\
+	
+	Every sequence in $X$ has a convergent subsequence.
+	Thus $\{x_n\}$ has a subsequence $\{x_{n_k}\}$ converging to $x \in X$.
+	The image of this subsequence $\{f(x_{n_k})\}$ is a subsequence of $\{y_k\}$.
+	We claim that, $\{f(x_{n_k})\}$ converges to $f(x) \in f(X)$.\\
 
-	Let $U$ be an open subset containing $f(x)$, then $f^{-1}(U)$ is an open subset containing $x$. Since $\{x_{n_k}\}$ converges to $x$. There exists an integer $n$ such that for every $k \ge n$, $x_k \in f^{-1}(U)$. Clearly, for each $k \ge n$, $f(x_k) \in U$. Since $U$ is arbitrary, $\{ f(x_{n_k})\}$ converges to $f(x)$. Therefore, the image of any sequentially compact space is sequentially compact. In other words, sequentially compactness is preserved under continuous functions.
+
+	Let $U$ be an open subset containing $f(x)$, then $f^{-1}(U)$ is an open subset containing $x$.
+	Since $\{x_{n_k}\}$ converges to $x$.
+	There exists an integer $n$ such that for every $k \ge n$, $x_k \in f^{-1}(U)$.
+	Clearly, for each $k \ge n$, $f(x_k) \in U$.
+	Since $U$ is arbitrary, $\{ f(x_{n_k})\}$ converges to $f(x)$. Therefore, the image of any sequentially compact space is sequentially compact.
+	In other words, sequentially compactness is preserved under continuous functions.
 \end{proof}
 
 \begin{remark}
 	\begin{enumerate}
-		\item Given a sequence $\{y_n\}$ in $f(X)$, there is a sequence of subsets $\{U_n\}$ in $P(Y)$ such that $U_n = f^{-1}(y_n)$. Since each $U_n$ is non-empty, we can construct a sequence $\{x_n\}$ in $X$ using a choice function. The convergent subsequence of $\{y_n\}$ depends on the selection of this choice function.
+		\item Given a sequence $\{y_n\}$ in $f(X)$, there is a sequence of subsets $\{U_n\}$ in $P(Y)$ such that $U_n = f^{-1}(y_n)$.
+			Since each $U_n$ is non-empty, we can construct a sequence $\{x_n\}$ in $X$ using a choice function.
+			The convergent subsequence of $\{y_n\}$ depends on the selection of this choice function.
 	\end{enumerate}
 \end{remark}
 
-Given every sequentially compact, metric space is countably compact. We may assert the properties of countably compact, metric spaces on sequentially compact, metric spaces.
+Given every sequentially compact, metric space is countably compact.
+We may assert the properties of countably compact, metric spaces on sequentially compact, metric spaces.
 
 \begin{theorem}
 	Every continuous, real-valued function on a sequentially compact, metric space is bounded and attains its extrema.
 \end{theorem}
 
 \begin{theorem}
-	Every continuous, real-valued function on a sequentially compact, metric space is uniformly continuous.\cite[Exercises 11.1.6]{joshi}
+	Every continuous, real-valued function on a sequentially compact, metric space is uniformly continuous.
+	\cite[Exercises 11.1.6]{joshi}
 \end{theorem}
 
 \subsection{Countable Compactness on $T_1$ spaces}
-	In this section, we are going to see four different characterisations of countable compactness in $T_1$ spaces.	The first two characterisations doesn't have anything to do with the $T_1$ axiom.
+	In this section, we are going to see four different characterisations of countable compactness in $T_1$ spaces.
+	The first two characterisations doesn't have anything to do with the $T_1$ axiom.
 
 \begin{description}
-	\item[$T_1$ Space] A topological space $X$ satisfy $T_1$ axiom if for any two distinct points $x,y \in X$, there exists an open subset $U \subset X$ containing $x$ but not $y$.\cite[7.1.2]{joshi}
-	\item[countable compactness] A topological space is countably compact if every countable open cover has a finite subcover.\cite[11.1.1]{joshi}
-	\item[finite intersection property] A family $\mathcal{F}$ of subsets of $X$ has finite intersection property(f.i.p.) if every finite subfamily of $\mathcal{F}$ has a non-empty intersection.\cite[10.2.6]{joshi}
-	\item[accumulation point] A point $x \in X$ is accumulation point of a subset $A \subset X$ if every open subset containing $x$ has atleast one point of $A$ other than $x$.\cite[5.2.7]{joshi}
-	\item[limit point] A point $x \in X$ is a limit point of a sequence $< x_k >$ in $X$ if for every open subset $U$ containing $x$, there exists an integer $N \in \mathbb{N}$ such that $x_k \in U$ for every $k \ge N$.\cite[4.1.7]{joshi}
-	\item[cluster point] A point $x \in X$ is a cluster point of a sequence $< x_k >$ in $X$ if for any neighbourhood $V$ of $x$, the sequence $< x_k >$ assumes a point in $V$ infinitely many times.($\star$\footnote{$x$ is a cluster point of $< x_k >$ if for every integer N, there exists $k > N$ such that $x_k \in V$. In other words, $< x_k >$ is frequently in $V$.\cite[10.1.9]{joshi}})
+	\item[$T_1$ Space] A topological space $X$ satisfy $T_1$ axiom if for any two distinct points $x,y \in X$, there exists an open subset $U \subset X$ containing $x$ but not $y$.
+		\cite[7.1.2]{joshi}
+	\item[countable compactness] A topological space is countably compact if every countable open cover has a finite subcover.
+		\cite[11.1.1]{joshi}
+	\item[finite intersection property] A family $\mathcal{F}$ of subsets of $X$ has finite intersection property(f.i.p.) if every finite subfamily of $\mathcal{F}$ has a non-empty intersection.
+		\cite[10.2.6]{joshi}
+	\item[accumulation point] A point $x \in X$ is accumulation point of a subset $A \subset X$ if every open subset containing $x$ has atleast one point of $A$ other than $x$.
+		\cite[5.2.7]{joshi}
+	\item[limit point] A point $x \in X$ is a limit point of a sequence $< x_k >$ in $X$ if for every open subset $U$ containing $x$, there exists an integer $N \in \mathbb{N}$ such that $x_k \in U$ for every $k \ge N$.
+		\cite[4.1.7]{joshi}
+	\item[cluster point] A point $x \in X$ is a cluster point of a sequence $< x_k >$ in $X$ if for any neighbourhood $V$ of $x$, the sequence $< x_k >$ assumes a point in $V$ infinitely many times.($\star$\footnote{$x$ is a cluster point of $< x_k >$ if for every integer N, there exists $k > N$ such that $x_k \in V$.
+		In other words, $< x_k >$ is frequently in $V$.
+		\cite[10.1.9]{joshi}})
 \end{description}
 
 \subsubsection{Countable compactness in $T_1$ spaces}
@@ -1123,42 +1445,64 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 \begin{proof}
 	$1 \implies 2$\\
-	Suppose $X$ is countably compact. Let $\mathcal{C} = \{C_1,C_2,\cdots\}$ be a countable family of closed subsets of $X$ with empty intersection. Define $\mathcal{U} = \{X-C_1, X-C_2, \cdots \}$ is a family of open subsets of $X$. By de Morgan's law, ($\star$\footnote{Complement of Intersection = Union of complements, $X - (C \cap D) = (X-C) \cup (X-D)$, })
+	Suppose $X$ is countably compact.
+	Let $\mathcal{C} = \{C_1,C_2,\cdots\}$ be a countable family of closed subsets of $X$ with empty intersection.
+	Define $\mathcal{U} = \{X-C_1, X-C_2, \cdots \}$ is a family of open subsets of $X$.
+	By de Morgan's law, ($\star$\footnote{Complement of Intersection = Union of complements, $X - (C \cap D) = (X-C) \cup (X-D)$, })
 
 	$$\bigcap_{k = 1}^\infty C_k = \phi, \text{ then } X =  X - \left(\bigcap_{k = 1}^\infty C_k\right) = \bigcup_{k = 1}^\infty (X-C_k)$$
 
-	We have $\mathcal{U}$ is a countable cover of $X$ and $X$ is countably compact space. Thus $\mathcal{U}$ has a finite subcover $\mathcal{U}' = \{X-C_{n_1},X-C_{n_2},\cdots,X-C_{n_k}\}$.
+	We have $\mathcal{U}$ is a countable cover of $X$ and $X$ is countably compact space.
+	Thus $\mathcal{U}$ has a finite subcover $\mathcal{U}' = \{X-C_{n_1},X-C_{n_2},\cdots,X-C_{n_k}\}$.
 
 	$$ \mathcal{U}' \text{ is a cover of } X, \text{ then } X = \bigcup_{j = 1}^k \left( X-C_{n_j} \right)$$
 
 	$$X - \bigcup_{j = 1}^k \left( X-C_{n_j} \right) = \bigcap_{j = 1}^k \left( X - \left( X - C_{n_j} \right) \right) = \bigcap_{j = 1}^k C_{n_j} = \phi $$
 
-	Now $\mathcal{C}' = \{ C_{n_1},C_{n_2},\cdots,C_{n_k}\}$ has empty intersection. This is a contradiction to the finite intersection property of $\mathcal{C}$. Thus $\mathcal{C}$ has non-empty intersection. Therefore, every countably family of closed subsets of $X$ have non-empy intersection.\\
+	Now $\mathcal{C}' = \{ C_{n_1},C_{n_2},\cdots,C_{n_k}\}$ has empty intersection.
+	This is a contradiction to the finite intersection property of $\mathcal{C}$.
+	Thus $\mathcal{C}$ has non-empty intersection.
+	Therefore, every countably family of closed subsets of $X$ have non-empy intersection.\\
 
 	$2 \implies 1$\\
 
-	Let $\mathcal{U}=\{ U_1, U_2, \cdots \}$ be a countable cover of $X$. Then $\mathcal{C} = \{ X-U_1,X-U_2,\cdots \}$ is a countable family of closed subsets of $X$.\\
+	Let $\mathcal{U}=\{ U_1, U_2, \cdots \}$ be a countable cover of $X$.
+	Then $\mathcal{C} = \{ X-U_1,X-U_2,\cdots \}$ is a countable family of closed subsets of $X$.\\
 
-	Let $\mathcal{U}'= \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ be any finite subfamily of $\mathcal{U}$. Suppose $X$ is not countably compact, then $\mathcal{U}$ doesn't have a finite subcover. Therefore, $\mathcal{U}'$ is not a cover of $X$. And $\mathcal{C}$ is a family of closed subsets with finite intersection property.\\
+	Let $\mathcal{U}'= \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ be any finite subfamily of $\mathcal{U}$.
+	Suppose $X$ is not countably compact, then $\mathcal{U}$ doesn't have a finite subcover.
+	Therefore, $\mathcal{U}'$ is not a cover of $X$.
+	And $\mathcal{C}$ is a family of closed subsets with finite intersection property.\\
 
 	Therefore by assumption, the countable family of closed subsets $\mathcal{C}$ has a non-empty intersection.
 
 	$$ \bigcap_{k=1}^\infty C_k \ne \phi, \text{ then } \bigcap_{k=1}^\infty C_k = \bigcap_{k=1}^\infty \left( X - U_k \right) = X - \left( \bigcup_{k=1}^\infty U_k \right) \ne \phi $$
 
-	Then $\mathcal{U}$ is not a cover of $X$ as well. This is a contradiction, therefore $X$ is countably compact.\\
+	Then $\mathcal{U}$ is not a cover of $X$ as well.
+	This is a contradiction, therefore $X$ is countably compact.\\
 
 	$1 \implies 3$\\
-	Suppose $X$ is countably compact. Let $A$ be an infinite subset of $X$. Suppose $A$ doesn't have an accumulation point.\\
+	Suppose $X$ is countably compact.
+	Let $A$ be an infinite subset of $X$.
+	Suppose $A$ doesn't have an accumulation point.\\
 
-	Let $B$ be a countably infinite subset of $A$. Then $B$ also doesn't have any accumulation point. Therefore, the derived set $B'$ is empty. Thus $B$ is a closed subset of $X$. Since countable compactness is weakly hereditary, subspace $B$ is again countably compact.\\
+	Let $B$ be a countably infinite subset of $A$.
+	Then $B$ also doesn't have any accumulation point.
+	Therefore, the derived set $B'$ is empty.
+	Thus $B$ is a closed subset of $X$.
+	Since countable compactness is weakly hereditary, subspace $B$ is again countably compact.\\
 
-	For each point $b \in B$, there is an open subset $V_b$ such that $V_b \cap B = \{ b\}$, since $b \in B$ is not an accumulation point. Thus $\mathcal{U} = \{ V_b \cap B : b \in B \}$ is a countable open cover of $B$. Clearly, $\mathcal{U}$ doesn't have any finite subcover.\\
+	For each point $b \in B$, there is an open subset $V_b$ such that $V_b \cap B = \{ b\}$, since $b \in B$ is not an accumulation point.
+	Thus $\mathcal{U} = \{ V_b \cap B : b \in B \}$ is a countable open cover of $B$.
+	Clearly, $\mathcal{U}$ doesn't have any finite subcover.\\
 
-	This is a contradiction to $B$ being countably compact. Therefore, $A$ has an accumulation point.
+	This is a contradiction to $B$ being countably compact.
+	Therefore, $A$ has an accumulation point.
 \end{proof}
 
 \subsection{Variations of Compactness on Metric Spaces}
-	In this document, we will see that from metric space point of view these two notions were equivalent to the compactness and were used alternatively. For example : in functional analysis (semester 3), you will find definitions like `a normed space is compact iff every sequence in it has a convergent subsequence', which is clearly sequential compactness for a topologist.
+	In this document, we will see that from metric space point of view these two notions were equivalent to the compactness and were used alternatively.
+	For example : in functional analysis (semester 3), you will find definitions like `a normed space is compact iff every sequence in it has a convergent subsequence', which is clearly sequential compactness for a topologist.
 
 \begin{description}
 	\item[Lindeloff] A topological space is Lindeloff iff every open cover has a countable subcover.
@@ -1176,22 +1520,41 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	Countably compact, metric spaces are second countable.
 \end{theorem}
 \begin{synopsis}
-	For every positive real number $r$,   there exists a non-empty maximal subsets $A_r$ with every pair of points atleast $r$ distance apart. $A_r$ are finite. The union of maximal subsets $A_\frac{1}{n}$ for each natural number $n$ is a countable, dense subset $D$ of $X$. Thus countably compact, metric spaces are separable. The family $\mathcal{B}$ of all open balls with center at $d \in D$ and rational radius is a countable, base for $X$. Thus countably compact, metric spaces are second countable.
+	For every positive real number $r$,   there exists a non-empty maximal subsets $A_r$ with every pair of points atleast $r$ distance apart.
+	$A_r$ are finite.
+	The union of maximal subsets $A_\frac{1}{n}$ for each natural number $n$ is a countable, dense subset $D$ of $X$.
+	Thus countably compact, metric spaces are separable.
+	The family $\mathcal{B}$ of all open balls with center at $d \in D$ and rational radius is a countable, base for $X$.
+	Thus countably compact, metric spaces are second countable.
 \end{synopsis}
 \begin{proof}
-	Let $(X;d)$ be a countably compact,, metric space. For each positive real number $r \in \mathbb{R},\ r > 0$ construct a family of subsets $A_r \subset X$ such that it is a maximal set of points which are atleast $r$ distances apart.\\
+	Let $(X;d)$ be a countably compact,, metric space.
+	For each positive real number $r \in \mathbb{R},\ r > 0$ construct a family of subsets $A_r \subset X$ such that it is a maximal set of points which are atleast $r$ distances apart.\\
 
-	Then $A_r$ is finite for every positive real number $r$. Suppose $A_r$ is infinite for some real number $r > 0$, then $A_r$ has a accumulation point, say $x$ by the Characterisation of countable compactness of $X$.\\
+	Then $A_r$ is finite for every positive real number $r$.
+	Suppose $A_r$ is infinite for some real number $r > 0$, then $A_r$ has a accumulation point, say $x$ by the Characterisation of countable compactness of $X$.\\
 
-	Then every neighbourhood of $x$ must intersect $A_r$ at infinitely many points, since every metric space is a $T_1$ space. Consider $B(x,\frac{r}{2})$. Since any two points of $B(x,\frac{r}{2})$ are less than $r$ distances apart, the intersection $B(x,\frac{r}{2}) \cap A_r$ can have atmost one point in it. Thus for every positive real number $r$, $A_r$ is finite.\\
+	Then every neighbourhood of $x$ must intersect $A_r$ at infinitely many points, since every metric space is a $T_1$ space.
+	Consider $B(x,\frac{r}{2})$.
+	Since any two points of $B(x,\frac{r}{2})$ are less than $r$ distances apart, the intersection $B(x,\frac{r}{2}) \cap A_r$ can have atmost one point in it.
+	Thus for every positive real number $r$, $A_r$ is finite.\\
 
-	Define $D = \cup_{n = 1}^\infty A_\frac{1}{n}$. We claim that $D$ is a countable, dense subset of $X$.\\
+	Define $D = \cup_{n = 1}^\infty A_\frac{1}{n}$.
+	We claim that $D$ is a countable, dense subset of $X$.\\
 
-	Let $x \in X$ and $B(x,r)$ be an open ball containing $x$, then there exists integer $n \in \mathbb{N}$ such that $\frac{1}{n} < r$.($\star$\footnote{By archimedean property of integers, we have $\forall r \in \mathbb{R},\ r>0,\ \exists n \in \mathbb{N}$ such that $nr > 1$.})\\
+	Let $x \in X$ and $B(x,r)$ be an open ball containing $x$, then there exists integer $n \in \mathbb{N}$ such that $\frac{1}{n} < r$.
+	$\star$\footnote{By archimedean property of integers, we have $\forall r \in \mathbb{R},\ r>0,\ \exists n \in \mathbb{N}$ such that $nr > 1$.})\\
 
-	Then $B(x,r) \cap D \ne \phi$, since $B(x,r) \cap A_\frac{1}{n} \ne \phi$. Suppose $B(x,r) \cap A_\frac{1}{n} = \phi$, then $A_\frac{1}{n}$ is not maximal. Since, $x$ is atleast $r > \frac{1}{n}$ distance apart from each points of $A_\frac{1}{n}$. Therefore, $D$ intersects with every open subset and thus dense in $X$.\\
+	Then $B(x,r) \cap D \ne \phi$, since $B(x,r) \cap A_\frac{1}{n} \ne \phi$.
+	Suppose $B(x,r) \cap A_\frac{1}{n} = \phi$, then $A_\frac{1}{n}$ is not maximal.
+	Since, $x$ is atleast $r > \frac{1}{n}$ distance apart from each points of $A_\frac{1}{n}$.
+	Therefore, $D$ intersects with every open subset and thus dense in $X$.\\
 
-	We have have a countable, dense subset $D$ of $X$. Therefore, $X$ is separable. Now define $\mathcal{B} = \{ B(x,r) : r \in \mathbb{Q},\ x \in D \}$. Clearly, $\mathcal{B}$ is a countable base for $X$. By the construction of $\mathcal{B}$, $X$ is second countable.($\star$\footnote{Every separable, metric space is second countable.})
+	We have have a countable, dense subset $D$ of $X$.
+	Therefore, $X$ is separable.
+	Now define $\mathcal{B} = \{ B(x,r) : r \in \mathbb{Q},\ x \in D \}$.
+	Clearly, $\mathcal{B}$ is a countable base for $X$.
+	By the construction of $\mathcal{B}$, $X$ is second countable.($\star$\footnote{Every separable, metric space is second countable.})
 \end{proof}
 
 \subsubsection{Countable Compactness, Lindeloff $\iff$ Compactness}
@@ -1199,9 +1562,15 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	A topological space $X$ is compact iff it is countably compact, Lindeloff space.
 \end{theorem}
 \begin{proof}
-	Let $X$ be a compact space. Let $\mathcal{U}$ be a  countable open cover of $X$, then $\mathcal{U}$ has a finite subcover $\mathcal{U}'$. Therefore, every compact space is countably compact.($\star$\footnote{Countable compactness is a weaker notion than compactness.})\\
+	Let $X$ be a compact space.
+	Let $\mathcal{U}$ be a  countable open cover of $X$, then $\mathcal{U}$ has a finite subcover $\mathcal{U}'$.
+	Therefore, every compact space is countably compact.($\star$\footnote{Countable compactness is a weaker notion than compactness.})\\
 
-	Conversely, suppose $X$ is a countably compact, Lindeloff space.  Since $X$ is Lindeloff, every open cover $\mathcal{U}$ has a countable subcover $\mathcal{U}'$. Since $X$ countably compact, every countable open cover $\mathcal{U}'$ has a finite subcover $\mathcal{U}''$. Thus every open cover $\mathcal{U}$ has a finite subcover $\mathcal{U}''$. Therefore every countably compact, Lindeloff space is compact.
+	Conversely, suppose $X$ is a countably compact, Lindeloff space.
+	Since $X$ is Lindeloff, every open cover $\mathcal{U}$ has a countable subcover $\mathcal{U}'$.
+	Since $X$ countably compact, every countable open cover $\mathcal{U}'$ has a finite subcover $\mathcal{U}''$.
+	Thus every open cover $\mathcal{U}$ has a finite subcover $\mathcal{U}''$.
+	Therefore every countably compact, Lindeloff space is compact.
 \end{proof}
 
 \subsubsection{Countable Compactness, First Countable $\implies$ Seq. Compactness}
@@ -1209,7 +1578,13 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	Every countably compact, first countable space is Sequentially compact.
 \end{theorem}
 \begin{proof}
-	Let $X$ be a countably compact, first countable space. Let $\{x_n\}$ be a sequence in $X$. By, equivalent conditions($\star$\footnote{\cite[11.1]{joshi} Conditions 1,2, and 4 are equivalent. $2 \implies 4$ without $T_1$ axiom is out of scope.}) of countably compact spaces, every sequence in countably compact space $X$ has a cluster point, say $x$. We have, $X$ is first countable. Therefore, $X$ has a countable local base $\mathcal{L}$ at $x \in X$. How to construct a subsequence of $\{x_n\}$ converging to $x$ ?($\star$\footnote{\cite[Exercises 10.1.11]{joshi}})
+	Let $X$ be a countably compact, first countable space.
+	Let $\{x_n\}$ be a sequence in $X$.
+	By, equivalent conditions($\star$\footnote{\cite[11.1]{joshi} Conditions 1,2, and 4 are equivalent.
+	$2 \implies 4$ without $T_1$ axiom is out of scope.}) of countably compact spaces, every sequence in countably compact space $X$ has a cluster point, say $x$.
+	We have, $X$ is first countable.
+	Therefore, $X$ has a countable local base $\mathcal{L}$ at $x \in X$.
+	How to construct a subsequence of $\{x_n\}$ converging to $x$ ?($\star$\footnote{\cite[Exercises 10.1.11]{joshi}})
 \end{proof}
 
 \begin{remark}
@@ -1217,18 +1592,28 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{remark}
 
 \begin{theorem}
-	In a second countable space, all the three forms of compactness are equivalent.\cite[11.1.10]{joshi}
+	In a second countable space, all the three forms of compactness are equivalent.
+	\cite[11.1.10]{joshi}
 \end{theorem}
 \begin{proof}
-	Every second countable space is both first countable and Lindeloff. Every countably compact, Lindeloff space is countably compact. Therefore every countably compact, second countable space compact. Again, every countably compact, first countable space is sequentially compact. Therefore every countably compact, second countable space is sequentially compact. Conversely, every compact space is countably compact and every sequentially compact space is countably compact.($\star$\footnote{Countable compactness is a weaker notion than sequential compactness as well.})
+	Every second countable space is both first countable and Lindeloff.
+	Every countably compact, Lindeloff space is countably compact.
+	Therefore every countably compact, second countable space compact.
+	Again, every countably compact, first countable space is sequentially compact.
+	Therefore every countably compact, second countable space is sequentially compact.
+	Conversely, every compact space is countably compact and every sequentially compact space is countably compact.($\star$\footnote{Countable compactness is a weaker notion than sequential compactness as well.})
 \end{proof}
 
 \begin{theorem}
-	In a metric space, all the three forms of compactness are equivalent.\cite[11.1.11]{joshi}
+	In a metric space, all the three forms of compactness are equivalent.
+	\cite[11.1.11]{joshi}
 \end{theorem}
 \begin{proof}
-	In a metric space each form of compactness implies second countability. And in second countable spaces, they are all equivalent.
-%	Compact, metric spaces are second countable. Countably compact, metric spaces are second countable. Sequentially compact, metric spaces are second countable.$\star$
+	In a metric space each form of compactness implies second countability.
+	And in second countable spaces, they are all equivalent.
+%	Compact, metric spaces are second countable.
+%	Countably compact, metric spaces are second countable.
+%	Sequentially compact, metric spaces are second countable.$\star$
 \end{proof}
 
 %\section{The Alexander Sub-base Theorem*}
@@ -1329,11 +1714,15 @@ Given every sequentially compact, metric space is countably compact. We may asse
 %\chapter{The Fundamental Group}
 \section{Homotopy of Paths}
 \begin{definition}
-	Let $X,\ Y$ be topological spaces and $f : X \to Y$, $f':X \to Y$ be continuous functions. Then $f,\ f'$ are homotopic if there exists a continuous function $F : X \times I \to Y$ such that for every $x \in X$, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$. And we write, $f \simeq f'$.
+	Let $X,\ Y$ be topological spaces and $f : X \to Y$, $f':X \to Y$ be continuous functions.
+	Then $f,\ f'$ are homotopic if there exists a continuous function $F : X \times I \to Y$ such that for every $x \in X$, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$.
+	And we write, $f \simeq f'$.
 \end{definition}
 
 \begin{definition}
-	Let $X$ be a topological space and $f : I \to X$ and $f' : I \to X$ be two paths. Then $f,\ f'$ are path-homotopic if they have same initial point $x_0$ (ie, $x_0=f(0)=f'(0)$), same final point $x_1$ (ie, $x_1=f(1)=f'(1)$) and they are homotopic (ie, $\exists F: I \times I \to X$ such that $\forall x \in I$, $F(x,0)=f(x)$ and $F(x,1)=f'(x)$ also fixed at the end points $x_0$ and $x_1$(ie, $\forall t \in I$, $F(0,t) = x_0$ and $F(1,t) = x_1$). And we write $f \simeq_p f'$.
+	Let $X$ be a topological space and $f : I \to X$ and $f' : I \to X$ be two paths.
+	Then $f,\ f'$ are path-homotopic if they have same initial point $x_0$ (ie, $x_0=f(0)=f'(0)$), same final point $x_1$ (ie, $x_1=f(1)=f'(1)$) and they are homotopic (ie, $\exists F: I \times I \to X$ such that $\forall x \in I$, $F(x,0)=f(x)$ and $F(x,1)=f'(x)$ also fixed at the end points $x_0$ and $x_1$(ie, $\forall t \in I$, $F(0,t) = x_0$ and $F(1,t) = x_1$).
+	And we write $f \simeq_p f'$.
 \end{definition}
 
 \begin{remark}
@@ -1344,26 +1733,46 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	The relations $\simeq,\ \simeq_p$ are equivalence relations.
 \end{proposition}
 \begin{proof}
-	Homotopy : Let $f,\ f'$ be continuous functions from $X$ into $Y$. Then $f$ and $f'$ are homotopic, $f \simeq f' \iff \exists F : X \times I \to Y$ such that $F$ is continuous, $F(x,0)=f(x)$, and $F(x,1)=f'(x)$
+	Homotopy : Let $f,\ f'$ be continuous functions from $X$ into $Y$.
+	Then $f$ and $f'$ are homotopic, $f \simeq f' \iff \exists F : X \times I \to Y$ such that $F$ is continuous, $F(x,0)=f(x)$, and $F(x,1)=f'(x)$
 	\begin{enumerate}
 		\item $f \simeq f$ \\
-			We have $f : X \to Y$ is continuous. Define $F : X \times I \to Y$ such that $F(x,t)=f(x)$. Clearly, $F$ is continuous, $F(x,0) = f(x)$ and $F(x,1) = f(x)$. And $\exists F : X \times I \to Y \implies f \simeq f$.
-		\item $f \simeq f' \implies f' \simeq f$\\ We have, $f \simeq f'$. Thus there exists a continuous function $F : X \times I \to Y$ such that $F(x,0) = f(x)$ and $F(x,1) = f'(x)$.\\ Consider $F' : X \times I \to Y$ defined by $F'(x,t) = F(x,1-t)$. Clearly, $F'$ is continuous, $F'(x,0) = F(x,1) = f'(x)$, and $F'(x,1) = F(x,0) = f(x)$. Thus, $\exists F'(x,t) : X \times I \to Y \implies f' \simeq_p f$
+			We have $f : X \to Y$ is continuous.
+			Define $F : X \times I \to Y$ such that $F(x,t)=f(x)$.
+			Clearly, $F$ is continuous, $F(x,0) = f(x)$ and $F(x,1) = f(x)$.
+			And $\exists F : X \times I \to Y \implies f \simeq f$.
+		\item $f \simeq f' \implies f' \simeq f$\\ We have, $f \simeq f'$.
+			Thus there exists a continuous function $F : X \times I \to Y$ such that $F(x,0) = f(x)$ and $F(x,1) = f'(x)$.\\
+			Consider $F' : X \times I \to Y$ defined by $F'(x,t) = F(x,1-t)$.
+			Clearly, $F'$ is continuous, $F'(x,0) = F(x,1) = f'(x)$, and $F'(x,1) = F(x,0) = f(x)$.
+			Thus, $\exists F'(x,t) : X \times I \to Y \implies f' \simeq_p f$
 		\item $f \simeq f',\ f' \simeq f'' \implies f \simeq f''$\\
 			We have, $f \simeq f' \iff \exists F : X \times I \to Y$ such that $F$ is continuous, $F(x,0) = f(x)$ and $F(x,1) = f'(x)$.\\
 			
 			Similarly, $f' \simeq f'' \iff \exists F' : X \times I \to Y$ such that $F'$ is continuous, $F'(x,0) = f'(x)$ and $F'(x,1) = f''(x)$.\\
 
-			Consider $G:X \times I \to Y$ defined by \[ G(x,t) = \begin{cases} F(x,2t) & , t \in [0,\frac{1}{2}]\\ F'(x,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \] We have, $G(x,\frac{1}{2}) = F(x,1) = F'(x,0) = f'(x)$. Thus, $G$ is continuous by pasting lemma since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$. Also $G(x,0) = F(x,0) = f(x)$ and $G(x,1) = F'(x,1) = f''(x)$. Thus, $\exists G : X \times I \to Y \implies f \simeq f''$
+			Consider $G:X \times I \to Y$ defined by \[ G(x,t) = \begin{cases} F(x,2t) & , t \in [0,\frac{1}{2}]\\ F'(x,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \] We have, $G(x,\frac{1}{2}) = F(x,1) = F'(x,0) = f'(x)$.
+				Thus, $G$ is continuous by pasting lemma since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$.
+				Also $G(x,0) = F(x,0) = f(x)$ and $G(x,1) = F'(x,1) = f''(x)$.
+				Thus, $\exists G : X \times I \to Y \implies f \simeq f''$
 	\end{enumerate}
-	Path Homotopy : Let $f,\ f',\ f''$ be paths in $X$. Then $f$ and $f'$ are path homotopic, $f \simeq_p f' \iff \exists F : I \times I \to X$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$
+	Path Homotopy : Let $f,\ f',\ f''$ be paths in $X$.
+	Then $f$ and $f'$ are path homotopic, $f \simeq_p f' \iff \exists F : I \times I \to X$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$
 	\begin{enumerate}
 		\item $f \simeq_p f$ \\
-			We have $f : I \to X$ is continuous. Define $F : I \times I \to X$ such that $\forall s,t \in [0,1],\ F(s,t)=f(s)$. Clearly, $F$ is continuous, $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f(s)$ and $\forall t \in [0,1],\ F(0,t) = f(0),\ F(1,t) = f(1)$. Thus, $\exists F : I \times I \to X \implies f \simeq_p f$.
+			We have $f : I \to X$ is continuous.
+			Define $F : I \times I \to X$ such that $\forall s,t \in [0,1],\ F(s,t)=f(s)$.
+			Clearly, $F$ is continuous, $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f(s)$ and $\forall t \in [0,1],\ F(0,t) = f(0),\ F(1,t) = f(1)$.
+			Thus, $\exists F : I \times I \to X \implies f \simeq_p f$.
 		\item $f \simeq_p f' \implies f' \simeq_p f$\\
-			We have, $f \simeq_p f'$. Thus there exists a continuous function $F : I \times I \to X$ such that $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t) = f(1) = f'(1)$.\\
+			We have, $f \simeq_p f'$.
+			Thus there exists a continuous function $F : I \times I \to X$ such that $\forall s \in [0,1],\ F(s,0) = f(s),\ F(s,1) = f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t) = f(1) = f'(1)$.\\
 			
-			Consider $F' : I \times I \to X$ defined by $F'(s,t) = F(s,1-t)$. Clearly, $F'$ is continuous. And $F'(s,0) = F(s,1) = f'(s)$, and $F'(s,1) = F(s,0) = f(s)$. Also, $F'(0,t) = F(0,1-t) = f(0) = f'(0)$ and $F'(1,t) = F(1,1-t) = f(1) = f'(1)$. Thus, $\exists F'(s,t) : I \times I \to X \implies f' \simeq_p f$
+			Consider $F' : I \times I \to X$ defined by $F'(s,t) = F(s,1-t)$.
+			Clearly, $F'$ is continuous.
+			And $F'(s,0) = F(s,1) = f'(s)$, and $F'(s,1) = F(s,0) = f(s)$.
+			Also, $F'(0,t) = F(0,1-t) = f(0) = f'(0)$ and $F'(1,t) = F(1,1-t) = f(1) = f'(1)$.
+			Thus, $\exists F'(s,t) : I \times I \to X \implies f' \simeq_p f$
 		\item $f \simeq f',\ f' \simeq f'' \implies f \simeq f''$\\
 			We have, $f \simeq f' \iff \exists F : I \times I \to X$ such that $F$ is continuous, $\forall s \in [0,1],\ F(s,0)=f(s),\ F(s,1)=f'(s)$ and $\forall t \in [0,1],\ F(0,t)=f(0)=f'(0),\ F(1,t)=f(1)=f'(1)$\\
 			
@@ -1371,32 +1780,40 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 			Consider $G:I \times I \to X$ defined by \[ G(s,t) = \begin{cases} F(s,2t) & , t \in [0,\frac{1}{2}]\\ F'(s,2t-1) & , t \in [\frac{1}{2},1] \end{cases} \]
 				
-				We have, $G(s,\frac{1}{2}) = F(s,1) = F'(s,0) = f'(s)$. Thus, $G$ is continuous by pasting lemma\cite[\S{}18.3 pp. 106]{munkres}, since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$.\\
+				We have, $G(s,\frac{1}{2}) = F(s,1) = F'(s,0) = f'(s)$.
+				Thus, $G$ is continuous by pasting lemma\cite[\S{}18.3 pp. 106]{munkres}, since $[0,\frac{1}{2}] \cap [\frac{1}{2},1] = \{ \frac{1}{2}\}$.\\
 			
 			Also $G(s,0) = F(s,0) = f(s)$ and $G(s,1) = F'(s,1) = f''(s)$.\\
 
-			Again, $\forall t \in [0,\frac{1}{2}],\ G(0,t) = F(0,2t) = f(0) = f'(0) = f''(0)$ and $\forall t \in [\frac{1}{2},1],\ G(0,t) = F'(0,2t-1) = f(0) = f'(0) = f''(0)$. Therefore, $\forall t \in [0,1],\ G(0,t) = f(0) = f''(0)$.\\
+			Again, $\forall t \in [0,\frac{1}{2}],\ G(0,t) = F(0,2t) = f(0) = f'(0) = f''(0)$ and $\forall t \in [\frac{1}{2},1],\ G(0,t) = F'(0,2t-1) = f(0) = f'(0) = f''(0)$.
+			Therefore, $\forall t \in [0,1],\ G(0,t) = f(0) = f''(0)$.\\
 			
-			Similarly, $\forall t \in [0,\frac{1}{2}],\ G(1,t) = F(1,2t) = f(1) = f'(1) = f''(1)$ and $\forall t \in [\frac{1}{2},1],\ G(1,t) = F'(1,2t-1) = f(1) = f'(1) = f''(1)$. Therefore, $\forall t \in [0,1],\ G(1,t) = f(1) = f''(1)$. Thus, $\exists G : I \times I \to X \implies f \simeq_p f''$
+			Similarly, $\forall t \in [0,\frac{1}{2}],\ G(1,t) = F(1,2t) = f(1) = f'(1) = f''(1)$ and $\forall t \in [\frac{1}{2},1],\ G(1,t) = F'(1,2t-1) = f(1) = f'(1) = f''(1)$.
+			Therefore, $\forall t \in [0,1],\ G(1,t) = f(1) = f''(1)$.
+			Thus, $\exists G : I \times I \to X \implies f \simeq_p f''$
 	\end{enumerate}
 \end{proof}
 
 \begin{definition}
-	Let $f$ be a path in $X$ (ie, $f : I \to X$), then $[f]$ is the equivalence class of all paths homotopic to $f$ in $X$. (ie, $g \in [f] \iff f \simeq_p g$)
+	Let $f$ be a path in $X$ (ie, $f : I \to X$), then $[f]$ is the equivalence class of all paths homotopic to $f$ in $X$.
+	(ie, $g \in [f] \iff f \simeq_p g$)
 \end{definition}
 
 \begin{remark}
-	The set of homotopy classes of functions from $X$ into $Y$ is dentoed by $[X,Y]$. And, the set of all path-homotopic classes on $X$ is denoted by $[I,X]$.
+	The set of homotopy classes of functions from $X$ into $Y$ is dentoed by $[X,Y]$.
+	And, the set of all path-homotopic classes on $X$ is denoted by $[I,X]$.
 \end{remark}
 
 \begin{remark}[Straight-line homotopy]\cite[\S{}51 Example 1 pp. 320]{munkres}
-	Let $X$ be a topological space, and $f,\ g$ be continuous functions from $X$ into a eucilidean space, say $\mathbb{R}^2$. Then $f,\ g$ are straight line homotopic if there exists a continuous function $F$ from $X \times I$ such that $F$ deforms $f$ into $g$ along straight line segments joining them.\\
+	Let $X$ be a topological space, and $f,\ g$ be continuous functions from $X$ into a eucilidean space, say $\mathbb{R}^2$.
+	Then $f,\ g$ are straight line homotopic if there exists a continuous function $F$ from $X \times I$ such that $F$ deforms $f$ into $g$ along straight line segments joining them.\\
 
 	For example, $F(x,t) = (1-t)f(x)+tg(x)$.
 \end{remark}
 
 \begin{remark}
-	Let $A$ be a convex subspace of $\mathbb{R}^n$. Then any two paths in $A$ from $x_0$ to $x_1$ are path homotopic in $A$.
+	Let $A$ be a convex subspace of $\mathbb{R}^n$.
+	Then any two paths in $A$ from $x_0$ to $x_1$ are path homotopic in $A$.
 \end{remark}
 \begin{proof}
 	---continue page 321---
@@ -1409,9 +1826,12 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{remark}
 
 \begin{definition}
-	Let $f,\ g$ be two paths in $X$ (ie, $f : I \to X$ and $g: I \to X$) such that $f(0)=x_0$, $f(1)=g(0)=x_1$ and $g(1)=x_2$. Then the prduct $h = f \ast g$ is given by $h : I \to X$ and
+	Let $f,\ g$ be two paths in $X$ (ie, $f : I \to X$ and $g: I \to X$) such that $f(0)=x_0$, $f(1)=g(0)=x_1$ and $g(1)=x_2$.
+	Then the prduct $h = f \ast g$ is given by $h : I \to X$ and
 	\[ h(s) = \begin{cases} f(2s) & , s \in [0,\frac{1}{2}] \\ g(2s-1) & , s \in [\frac{1}{2},1] \end{cases} \]
-		This $h$ is well-defined, and continuous by pasting lemma.($\star$\footnote{Pasting Lemma : Let $X = A \cup B$, where $A$ and $B$ are closed in $A$. Let $f : A \to Y$ and $g : B \to Y$ be continuous. If $f(x) = g(x)$ for every $x \in A \cup B$, then $f$ and $g$ combine to give a continuous function $h : X \to Y$, defined by setting $h(x) = f(x)$ if $x \in A$ and $h(x) = g(x)$ if $x \in B$.})
+		This $h$ is well-defined, and continuous by pasting lemma.($\star$\footnote{Pasting Lemma : Let $X = A \cup B$, where $A$ and $B$ are closed in $A$.
+		Let $f : A \to Y$ and $g : B \to Y$ be continuous.
+		If $f(x) = g(x)$ for every $x \in A \cup B$, then $f$ and $g$ combine to give a continuous function $h : X \to Y$, defined by setting $h(x) = f(x)$ if $x \in A$ and $h(x) = g(x)$ if $x \in B$.})
 \end{definition}
 
 \begin{definition}
@@ -1419,7 +1839,8 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \end{definition}
 \begin{remark} The product of path-homotopic classes is well-defined.\end{remark}
 \begin{proof}
-	Let $F$ be a path-homotopy between $f,\ f' \in [f]$ and $G$ be a path-homotopy between $g,\ g' \in [g]$. Then $H : I \times I \to X$ defined by
+	Let $F$ be a path-homotopy between $f,\ f' \in [f]$ and $G$ be a path-homotopy between $g,\ g' \in [g]$.
+	Then $H : I \times I \to X$ defined by
 	\[ H(s,t) = \begin{cases} F(2s,t) & s \in [0,\frac{1}{2}] \\ G(2s-1,t) & s \in [\frac{1}{2},1] \end{cases} \]
 	Then $H$ is well-defined, and continuous by pasting lemma.\\
 	
@@ -1439,7 +1860,8 @@ Given every sequentially compact, metric space is countably compact. We may asse
 
 \begin{definition}[Groupoid]
 \begin{commentary}
-	Let $G$ be a set and $\ast$ be a binary operation on $G$. Then $(G,\ast)$ is a groupoid if it satisfies the following axioms
+	Let $G$ be a set and $\ast$ be a binary operation on $G$.
+	Then $(G,\ast)$ is a groupoid if it satisfies the following axioms
 	\begin{enumerate}[label=g\arabic*]
 		\item Associativity - $\forall x,y,z \in G,\ (x\ast{}y)\ast{}z = x \ast{}(y\ast{}z)$
 		\item Existence of left and right identies - There exist unique elements $e_L$ and $e_R$ such that $\forall x \in G,\ x\ast{}e_R = x$ and $e_L\ast{}x = x$.
@@ -1452,7 +1874,8 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \begin{definition}[Positive Linear Map]
 	A positive liear map $p : [a,b] \to [c,d]$ is the unique map of the form $p(x) = mx+k$ such that $p(a) = c$ and $p(b)=d$.
 	\begin{commentary}
-		Clearly, scaling factor, $m =  \frac{d-c}{b-a}$ as we want to transform an interval of length $b-a$ into an interval of length $d-c$. And offset $k$ is given by,
+		Clearly, scaling factor, $m =  \frac{d-c}{b-a}$ as we want to transform an interval of length $b-a$ into an interval of length $d-c$.
+		And offset $k$ is given by,
 		\[ p(a) = \frac{d-c}{b-a}a+k = c \implies k = c - \frac{a(d-c)}{b-a} = \frac{bc-ad}{b-a} \]
 		But, we won't fix $m$ and $k$ in $p(x) = mx+k$, instead we will focus on the unique map with graph of positive slope and passing through required end points.
 	\end{commentary}
@@ -1462,73 +1885,114 @@ Given every sequentially compact, metric space is countably compact. We may asse
 \begin{remark}
 	The inverse of a positive linear map is also a positive linear map.
 	\begin{commentary}
-		Given $p : [a,b] \to [c,d], p(x) = mx+k,\text{ where } m = \frac{d-c}{b-a},\ k = \frac{bc-ad}{b-a}$. Then it's inverse, $\bar{p} : [c,d] \to [a,b]$ is given by $p(y) : m'y+k',\text{ where } m' = \frac{b-a}{d-c} = \frac{1}{m},\ k' =  \frac{ad-bc}{d-c} = \frac{-k}{m}$. Clearly $m > 0 \implies m' = \frac{1}{m} > 0$.
+		Given $p : [a,b] \to [c,d], p(x) = mx+k,\text{ where } m = \frac{d-c}{b-a},\ k = \frac{bc-ad}{b-a}$.
+		Then it's inverse, $\bar{p} : [c,d] \to [a,b]$ is given by $p(y) : m'y+k',\text{ where } m' = \frac{b-a}{d-c} = \frac{1}{m},\ k' =  \frac{ad-bc}{d-c} = \frac{-k}{m}$.
+		Clearly $m > 0 \implies m' = \frac{1}{m} > 0$.
 	\end{commentary}
 \end{remark}
 
 \begin{remark}
-	The composite of two positive linear maps is also a (piece-wise) positive linear map. \begin{commentary} Let $f$, $g$ be two positive linear maps. Then their composite map $f \ast g$ is given by
+	The composite of two positive linear maps is also a (piece-wise) positive linear map.
+	\begin{commentary} Let $f$, $g$ be two positive linear maps.
+		Then their composite map $f \ast g$ is given by
 	\[ (f \ast g) (x) = \begin{cases} f(2x) & x \in [a,\frac{a+b}{2}] \\ g(2\left(x-\frac{b-a}{2}\right)) & x \in [\frac{a+b}{2},b] \end{cases} \]
-		Remember $f \ast g$ exists only if $f(b) = g(a)$. Therefore, $f \ast g$ is a well-defined, continuous (by pasting lemma) and (piecewise) positive linear map.
-%	Here comes the trouble, we should use a pair $(f,g)$ such that the end of map $f$, $f(\frac{a+b}{2})$ and start of map $g$, $g(\frac{a+b}{2})$ coincides. Thus, instead of focussing on values of slope and offset, we should focus on the graph of the map. And squeeze them into half horizontally, then stick them together. But, still I have some trouble imagining graph of $f \ast g$ which is linear and contains both $f$ and $g$.
+		Remember $f \ast g$ exists only if $f(b) = g(a)$.
+		Therefore, $f \ast g$ is a well-defined, continuous (by pasting lemma) and (piecewise) positive linear map.
+%	Here comes the trouble, we should use a pair $(f,g)$ such that the end of map $f$, $f(\frac{a+b}{2})$ and start of map $g$, $g(\frac{a+b}{2})$ coincides.
+%	Thus, instead of focussing on values of slope and offset, we should focus on the graph of the map.
+%	And squeeze them into half horizontally, then stick them together.
+%	But, still I have some trouble imagining graph of $f \ast g$ which is linear and contains both $f$ and $g$.
 	\end{commentary}
 \end{remark}
 
 \begin{lemma}
-	Let $f,\ f'$ be two paths in $X$ and $k : X \to Y$ be a continuous function. Let $F$ be the path homotopy in $X$ between the paths $f$ and $f'$. Then $k \circ{} F$ is a path homotopy in $Y$ between that paths $k \circ{} f$ and $k \circ{} f'$
-	\begin{commentary} That is, path homotopy is preserved under a continuous function.\end{commentary}
+	Let $f,\ f'$ be two paths in $X$ and $k : X \to Y$ be a continuous function.
+	Let $F$ be the path homotopy in $X$ between the paths $f$ and $f'$.
+	Then $k \circ{} F$ is a path homotopy in $Y$ between that paths $k \circ{} f$ and $k \circ{} f'$
+	\begin{commentary} That is, path homotopy is preserved under a continuous function.
+	\end{commentary}
 \end{lemma}
 
 \begin{lemma}
-	Let $f,\ g$ be two paths in $X$ with $f(1) = g(0)$ and $k : X \to Y$ be a continous function. Then $k \circ{} (f \ast{} g) = (k \ast{} f) \circ{} (k \ast{} g)$
+	Let $f,\ g$ be two paths in $X$ with $f(1) = g(0)$ and $k : X \to Y$ be a continous function.
+	Then $k \circ{} (f \ast{} g) = (k \ast{} f) \circ{} (k \ast{} g)$
 \end{lemma}
 
 \begin{theorem}
-	Let $f,g,h$ be paths in a topological space $X$, and $[f],[g],[h]$ be respective path-homotopy classes. Suppose the operation product, $\ast$ is defined by
+	Let $f,g,h$ be paths in a topological space $X$, and $[f],[g],[h]$ be respective path-homotopy classes.
+	Suppose the operation product, $\ast$ is defined by
 	\[ [f]\ast{}[g] = [f \ast{'} g] \text{ where } (f \ast{'} g)(s) = \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ g(2s-1) & s \in [\frac{1}{2},1] \end{cases} \]
 	Then the product, $\ast{}$ has the following properties : 
 	\begin{enumerate}
 		\item Associativity
 			\[ \forall [f],[g],[h] \in [I,X],\ \left([f]\ast{}[g]\right)\ast{}[h] = [f] \ast{}\left([g]\ast{}[h]\right) \]
 		\item Existence of left and right identies\\
-			Let $e_x : I \to X$ defined by $\forall s \in [0,1],\ e_x(s) = x$. Let $f$ be a path from $x_0$ to $x_1$, then there exist unique paths $e_{x_0}$ and $e_{x_1}$ such that $[f]\ast{}[e_{x_1}] = [f]$ and $[e_{x_0}]\ast{}[f] = [f]$.
+			Let $e_x : I \to X$ defined by $\forall s \in [0,1],\ e_x(s) = x$.
+			Let $f$ be a path from $x_0$ to $x_1$, then there exist unique paths $e_{x_0}$ and $e_{x_1}$ such that $[f]\ast{}[e_{x_1}] = [f]$ and $[e_{x_0}]\ast{}[f] = [f]$.
 		\begin{commentary}
 			That is, $e_{x_0},\ e_{x_1}$ are respectively the left and right path-homotopy-identities.
 		\end{commentary}
 		\item Existence of inverse\\
-			Let $f$ be a path in $X$. The path,$\bar{f}$, defined by $\bar{f}(s) = f(1-s)$ is the reverse path of $f$. Then $[f]\ast{}[\bar{f}] = [e_{x_0}]$ and $[\bar{f}]\ast{}[f] = [e_{x_1}]$.
+			Let $f$ be a path in $X$.
+			The path,$\bar{f}$, defined by $\bar{f}(s) = f(1-s)$ is the reverse path of $f$.
+			Then $[f]\ast{}[\bar{f}] = [e_{x_0}]$ and $[\bar{f}]\ast{}[f] = [e_{x_1}]$.
 		\begin{commentary}
 			That is, the inverse of class of $f$ is the class of reverse path of $f$.
 		\end{commentary}
 	\end{enumerate}
 \begin{commentary}
-	In other words, Set of all path-homotopy classes together with binary operation product, $\ast$ is a groupoid. ie, $([I,X],\ast{})$ is a groupoid.
+	In other words, Set of all path-homotopy classes together with binary operation product, $\ast$ is a groupoid.
+	ie, $([I,X],\ast{})$ is a groupoid.
 \end{commentary}
 \end{theorem}
 \begin{proof}
 	Step 1 : Properties $2 \& 3$\\
 
-	Let $e_0 : I \to I$ such that $e_0(t) = 0,\ \forall t \in I$. And $i : I \to I$ such that $i(t)=t,\ \forall t \in I$. Then $e_0 \ast{} i$ is also a path. Since $I$ is convex, there is a path homotopy($\star$\footnote{$ G : I \times I \to I,\ G(s,0) = i(s),\ G(s,1) = (e_0 \ast{} i)(s),\ G(0,t) = 0,\ G(1,t) = 1$.}) $G$ between $i$ and $e_0 \ast{} i$. Let $f : I \to X$ be continuous path in $X$ from $x_0$ to $x_1$. Then $f \circ G$ is a path homotopy (by Lemma 2) in $X$ between $f \circ i$ and $f \circ e_0 \ast{} i$ where $f \circ i$ and $f \circ e_0$ are paths from $x_0$ to $x_1$ in $X$.
+	Let $e_0 : I \to I$ such that $e_0(t) = 0,\ \forall t \in I$.
+	And $i : I \to I$ such that $i(t)=t,\ \forall t \in I$.
+	Then $e_0 \ast{} i$ is also a path.
+	Since $I$ is convex, there is a path homotopy($\star$\footnote{$ G : I \times I \to I,\ G(s,0) = i(s),\ G(s,1) = (e_0 \ast{} i)(s),\ G(0,t) = 0,\ G(1,t) = 1$.}) $G$ between $i$ and $e_0 \ast{} i$.
+	Let $f : I \to X$ be continuous path in $X$ from $x_0$ to $x_1$.
+	Then $f \circ G$ is a path homotopy (by Lemma 2) in $X$ between $f \circ i$ and $f \circ e_0 \ast{} i$ where $f \circ i$ and $f \circ e_0$ are paths from $x_0$ to $x_1$ in $X$.
 \begin{align*}
 	f \circ (e_0 \ast i) = & (f \circ e_0)  \ast (f \circ i), \text{ by Lemma 1} \\
 	= & e_{x_0} \ast f, \text{ since } \forall s \in I,\ f(e_0(s)) = x_0 = e_{x_0}(s) \text{ and }f \ast{} i \simeq_p f
 \end{align*}
 	Therefore $[e_{x_0}] \ast [f] \simeq_p [f]$, since $e_0 \ast i \simeq_p i$, and $f \circ (e_0 \ast i) \simeq_p f \circ i = f$. \\
 	
-	Similarly, $e_1 : I \to I$ such that $e_1(t) = 1$. Let $H$ be a path homotopy($\star$\footnote{$H : I \times I \to I,\ H(s,0)=(i \ast e_1)(s),\ H(s,1) = i(s),\ H(0,t) = 0,\ H(1,t) = 1$}) between $i \ast e_1$ and $i$. Thus, $f \circ H$ is a path homotopy in $X$ from $f \circ (i \ast e_1)$ and $f \circ i$.
+	Similarly, $e_1 : I \to I$ such that $e_1(t) = 1$.
+	Let $H$ be a path homotopy($\star$\footnote{$H : I \times I \to I,\ H(s,0)=(i \ast e_1)(s),\ H(s,1) = i(s),\ H(0,t) = 0,\ H(1,t) = 1$}) between $i \ast e_1$ and $i$.
+	Thus, $f \circ H$ is a path homotopy in $X$ from $f \circ (i \ast e_1)$ and $f \circ i$.
 \begin{align*}
 	f \circ (i \ast e_1) = & (f \circ i) \ast (f \circ e_1), \text{ by Lemma 1} \\
 	= & f \ast e_{x_1}, \text{ since } f \ast i \simeq_p f,\ i \ast e_1 \simeq_p e_1,\ \forall s \in I,\ (f(e_1(s)) = x_1 = e_{x_1}(s) 
 \end{align*}
-	Since $i \ast e_1 \simeq_p i$, we have $f \circ (i \ast e_1) \simeq_p f \circ i = f$. Therefore $[f] \ast [e_{x_1}] \simeq_p [f]$. Thus, $[f] \ast [e_{x_1}] \simeq_p [f] \simeq_p [e_{x_0}] \ast [f]$. Therefore, $[f]$ has left and right inverses ie, property 2 holds.\\
+	Since $i \ast e_1 \simeq_p i$, we have $f \circ (i \ast e_1) \simeq_p f \circ i = f$.
+	Therefore $[f] \ast [e_{x_1}] \simeq_p [f]$.
+	Thus, $[f] \ast [e_{x_1}] \simeq_p [f] \simeq_p [e_{x_0}] \ast [f]$.
+	Therefore, $[f]$ has left and right inverses ie, property 2 holds.\\
 
-	Consider inverse path $\bar{i} : I \to I,\ \bar{i}(s) = 1-s$. Then $i \ast \bar{i}$ is a path in $I$ with both end points at $0$. We have, $e_0 : I \to I,\ e_0(s) = 0$ is also a path with both end points at $0$. Since $I$ is convex, there is a path homotopy $H$ in $I$ between $e_0$ and $i \ast \bar{i}$. Then $f \circ H$ is a path homotopy between $f \circ e_0 = e_{x_0}$ and $f \circ (i \ast \bar{i}) = (f \circ i) \ast (f \circ \bar{i}) = f \ast \bar{f}$. Therefore, $[e_{x_0}] \simeq_p [f] \ast [\bar{f}]$.\\
 
-	Similarly $\bar{i} \ast i$ and $e_1$ are paths with both end points at $1$. Since $I$ is convex, there is a path homotopy $G$ in $I$ between $\bar{i} \ast i$ and $e_1$. Then $f \circ G$ is a path homotopy between $f \circ (\bar{i} \ast i) = (f \circ \bar{i}) \ast (f \circ i) = \bar{f} \ast f$ and $f \circ e_1 = e_{x_1}$. Therefore, $[\bar{f}] \ast [f] \simeq_p [e_{x_1}]$. Thus the path $\bar{f} : I \to X,\ \bar{f}(s) = f(1-s),\ \forall s \in I$ is reverse of $f$. Also $[f] \ast [\bar{f}] = [e_{x_0}]$ and $[\bar{f}] \ast [f] = [e_{x_1}]$. ie, property 3 holds.
+	Consider inverse path $\bar{i} : I \to I,\ \bar{i}(s) = 1-s$.
+	Then $i \ast \bar{i}$ is a path in $I$ with both end points at $0$.
+	We have, $e_0 : I \to I,\ e_0(s) = 0$ is also a path with both end points at $0$.
+	Since $I$ is convex, there is a path homotopy $H$ in $I$ between $e_0$ and $i \ast \bar{i}$.
+	Then $f \circ H$ is a path homotopy between $f \circ e_0 = e_{x_0}$ and $f \circ (i \ast \bar{i}) = (f \circ i) \ast (f \circ \bar{i}) = f \ast \bar{f}$.
+	Therefore, $[e_{x_0}] \simeq_p [f] \ast [\bar{f}]$.\\
+
+
+	Similarly $\bar{i} \ast i$ and $e_1$ are paths with both end points at $1$.
+	Since $I$ is convex, there is a path homotopy $G$ in $I$ between $\bar{i} \ast i$ and $e_1$.
+	Then $f \circ G$ is a path homotopy between $f \circ (\bar{i} \ast i) = (f \circ \bar{i}) \ast (f \circ i) = \bar{f} \ast f$ and $f \circ e_1 = e_{x_1}$.
+	Therefore, $[\bar{f}] \ast [f] \simeq_p [e_{x_1}]$.
+	Thus the path $\bar{f} : I \to X,\ \bar{f}(s) = f(1-s),\ \forall s \in I$ is reverse of $f$.
+	Also $[f] \ast [\bar{f}] = [e_{x_0}]$ and $[\bar{f}] \ast [f] = [e_{x_1}]$.
+	ie, property 3 holds.
 
 	Step 2 : Property 1 \\
 
-	Let $f,g,h$ be three paths in $X$ and $f(1) = g(0) = x_1$ and $g(1) = h(0) = x_2$. Then $f \ast (g \ast h)$ is defined by 
+	Let $f,g,h$ be three paths in $X$ and $f(1) = g(0) = x_1$ and $g(1) = h(0) = x_2$.
+	Then $f \ast (g \ast h)$ is defined by 
 	\[ (g \ast h)(s) = \begin{cases} g(2s) & s \in [0,\frac{1}{2}] \\ h(2s-1) & s \in [\frac{1}{2},1] \end{cases} \]
 	\begin{align*}
 		(f \ast (g\ast{}h))(s) =  & \begin{cases} f(2s) & s \in [0,\frac{1}{2}] \\ (g \ast h)(2s-1) & s \in [\frac{1}{2},1] \end{cases} \\
@@ -1541,19 +2005,27 @@ Given every sequentially compact, metric space is countably compact. We may asse
 			= & \begin{cases} f(2(2s)) & s \in [0,\frac{1}{4} \\ g(2(2s-1)) & s \in [\frac{1}{4},\frac{1}{2}] \\ h(2s-1) & s \in [\frac{1}{2},\frac{3}{4}] \end{cases}
 	\end{align*}
 
-	Clearly, $f \ast (g \ast h)$ and $(f \ast g) \ast h$ are distinct path with common endpoints. ie, $(f \ast (g \ast h))(0) = f(0) = ((f \ast g) \ast h)(0)$. And $(f \ast (g \ast h)(1) = h(1) = ((f \ast g) \ast h)(1)$.\\
+	Clearly, $f \ast (g \ast h)$ and $(f \ast g) \ast h$ are distinct path with common endpoints.
+	ie, $(f \ast (g \ast h))(0) = f(0) = ((f \ast g) \ast h)(0)$.
+	And $(f \ast (g \ast h)(1) = h(1) = ((f \ast g) \ast h)(1)$.\\
 
-	We need to define a path homotopy $G$ between $f \ast (g \ast h)$ and $(f \ast g) \ast h$. Let $[a,b], [c,d] \subset I$. Consider the path $p : I \to I$ defined by the following three unique($\star$\footnote{$p_1(t) = \frac{ct}{a},\ p_2(t) = \frac{(d-c)t}{b-a}+\frac{bc-ad}{b-a},\ p_3(t) = \frac{(1-d)t}{1-b}+\frac{d-b}{1-b}$}) positive linear maps $p_1 : [0,a] \to [0,c]$, $p_2 : [a,b] \to [c,d]$ and $p_3 : [b,1] \to [d,1]$.
+	We need to define a path homotopy $G$ between $f \ast (g \ast h)$ and $(f \ast g) \ast h$.
+	Let $[a,b], [c,d] \subset I$.
+	Consider the path $p : I \to I$ defined by the following three unique($\star$\footnote{$p_1(t) = \frac{ct}{a},\ p_2(t) = \frac{(d-c)t}{b-a}+\frac{bc-ad}{b-a},\ p_3(t) = \frac{(1-d)t}{1-b}+\frac{d-b}{1-b}$}) positive linear maps $p_1 : [0,a] \to [0,c]$, $p_2 : [a,b] \to [c,d]$ and $p_3 : [b,1] \to [d,1]$.
 	\[ p(t) = \begin{cases} p_1(t) & t \in [0,a] \\ p_2(t) & t \in [a,b] \\ p_3(t) & t \in [b,1] \end{cases} \]
 	We can easily construct, a path homotopy $P$ between identity map $i : I \to I,\ i(s) = s$ and $p$ as follows :
 	\[ P(s,t) = \begin{cases} t + (p_1(t)-t)\frac{s}{a} & s \in [0,a] \\ t + (p_2(t)-t)\frac{(s-a)}{(b-a)} & s \in [a,b] \\ t+(p_3(t)-t)\frac{(s-b)}{(1-b)} & s \in [b,1] \end{cases} \]
 
-		Therefore, we have $f \ast (g \ast h) \simeq_p i$ since there exists a path homotopy $P$ corresponding to  $[a,b]=[\frac{1}{2},\frac{3}{4}]$ and $[c,d] = [x_1,x_2]$. Similarly $(f \ast g) \ast h \simeq_p i$ since there exists a path homotopy $P$ where $[a,b]=[\frac{1}{4},\frac{1}{2}]$ and $[c,d] = [x_1,x_2]$. ie, $[f \ast (g \ast h)] \simeq_p [(f \ast g) \ast h]$.
+		Therefore, we have $f \ast (g \ast h) \simeq_p i$ since there exists a path homotopy $P$ corresponding to  $[a,b]=[\frac{1}{2},\frac{3}{4}]$ and $[c,d] = [x_1,x_2]$.
+		Similarly $(f \ast g) \ast h \simeq_p i$ since there exists a path homotopy $P$ where $[a,b]=[\frac{1}{4},\frac{1}{2}]$ and $[c,d] = [x_1,x_2]$.
+		ie, $[f \ast (g \ast h)] \simeq_p [(f \ast g) \ast h]$.
 \end{proof}
 
 
 \begin{theorem}
-	Let $f$ be a path in $X$, and $a_0, a_1, \cdots, a_n$ be numbers such that $0 = a_0 < a_1 < \cdots < a_n = 1$. Let $f_i : I \to X$ be the path that equals the positive linear map of $I$ onto $[a_{i-1},a_i]$ followed by $f$. Then $[f] = [f_1]\ast{}[f_2]\ast{}\cdots[f_n]$.
+	Let $f$ be a path in $X$, and $a_0, a_1, \cdots, a_n$ be numbers such that $0 = a_0 < a_1 < \cdots < a_n = 1$.
+	Let $f_i : I \to X$ be the path that equals the positive linear map of $I$ onto $[a_{i-1},a_i]$ followed by $f$.
+	Then $[f] = [f_1]\ast{}[f_2]\ast{}\cdots[f_n]$.
 	\begin{commentary}
 	In other words, every path is path-homotopic to a piecewise-linear path.
 	\end{commentary}
@@ -1575,14 +2047,25 @@ Given every sequentially compact, metric space is countably compact. We may asse
 	Then there exists a path homotopy $P$ between identity map $i : I \to I,\ i(t) = t$  and $p$ given by
 	\[ P(s,t) = \begin{cases} t + (p_1(t)-t)\frac{a_1}{x_1} & s \in [0,x_1] \\ t + (p_2(t)-t)\frac{s-x_1}{x_2-x_1} & s \in [x_1,x_2] \\ \vdots & \\ t + (p_n(t)-t)\frac{s-x_{n-1}}{x_n - x_{n-1}} & s \in [x_{n-1},x_n] \end{cases} \]
 	
-	Since any product of $f_1$, $f_2$, $\cdots$, $f_n$ is a path $p$ for some partition decided by the order of associativity. This partition can be constructed as follows :\\
-	Let the last product operation (by associtivity) corresponds to $\frac{1}{2}$. The expression on its left corresponds to $[0,\frac{1}{2}]$ and expression on the right corresponds to $[\frac{1}{2},1]$. If there are any operations on any of these parts, the last operation (by associtivity) in them corresponds to the midpoint the respective subinterval and so on.\\
+	Since any product of $f_1$, $f_2$, $\cdots$, $f_n$ is a path $p$ for some partition decided by the order of associativity.
+	This partition can be constructed as follows :\\
+	Let the last product operation (by associtivity) corresponds to $\frac{1}{2}$.
+	The expression on its left corresponds to $[0,\frac{1}{2}]$ and expression on the right corresponds to $[\frac{1}{2},1]$.
+	If there are any operations on any of these parts, the last operation (by associtivity) in them corresponds to the midpoint the respective subinterval and so on.\\
 
 \begin{commentary}
-	For examples : Consider, $(f_1 \ast ( f_2 \ast f_3)) \ast (f_4 \ast f_5)$. Suppose we number the operations, $(f_1 \ast_1 ( f_2 \ast_2 f_3)) \ast_3 (f_4 \ast_4 f_5)$. Then we have,  $\ast_3 \to \frac{1}{2} \implies \ast_1 \to \frac{1}{4} \implies \ast_2 \to \frac{3}{8}$. Again $\ast_3 \to \frac{1}{2} \implies \ast_4 \to \frac{3}{4}$. Thus, we have $\{0, \frac{1}{4}, \frac{3}{8}, \frac{1}{2}, \frac{3}{4},1 \}$.\\
+	For examples : Consider, $(f_1 \ast ( f_2 \ast f_3)) \ast (f_4 \ast f_5)$.
+	Suppose we number the operations, $(f_1 \ast_1 ( f_2 \ast_2 f_3)) \ast_3 (f_4 \ast_4 f_5)$.
+	Then we have,  $\ast_3 \to \frac{1}{2} \implies \ast_1 \to \frac{1}{4} \implies \ast_2 \to \frac{3}{8}$.
+	Again $\ast_3 \to \frac{1}{2} \implies \ast_4 \to \frac{3}{4}$.
+	Thus, we have $\{0, \frac{1}{4}, \frac{3}{8}, \frac{1}{2}, \frac{3}{4},1 \}$.\\
 \end{commentary}
 	
-	Thus given two paths $f$ and $f'$ with distinct order of associativity of $n$ paths : $f_1$, $f_2$, $\cdots$, $f_n$. We have path homotopy $P$, $P'$ given by the $P(s,t)$ for the respective partition constructed according to the order of associativity. Then, we have $f \simeq_p i$ and $f' \simeq_p i$. Thus, irrespective of the order of associativity all these paths are path homotopic. ie, $[f] = [f_1] \ast [f_2] \cdots [f_n]$
+	Thus given two paths $f$ and $f'$ with distinct order of associativity of $n$ paths : $f_1$, $f_2$, $\cdots$, $f_n$.
+	We have path homotopy $P$, $P'$ given by the $P(s,t)$ for the respective partition constructed according to the order of associativity.
+	Then, we have $f \simeq_p i$ and $f' \simeq_p i$.
+	Thus, irrespective of the order of associativity all these paths are path homotopic.
+	ie, $[f] = [f_1] \ast [f_2] \cdots [f_n]$
 \end{proof}
 
 %\section{The Fundamental Group}
