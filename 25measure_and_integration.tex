@@ -674,11 +674,45 @@ Let $A$ be a measurable set of finite measure and $A \subset B$.
 	Then for any $\epsilon > 0$, there exists a finite collection of disjoint open sets $\{ I_k \}_{k=1}^n$ such that  $\mathcal{O} = \displaystyle\bigcup_{k=1}^n I_k$ and $m^\ast(\mathcal{O} \sim E) + m^\ast(E-\mathcal{O}) < \epsilon$.
 \end{theorem}
 \begin{proof}
-	Since $E$ is measurable, by outer approximation theorem we have an open set $U$ such that $E \subset U$ and $m^\ast(U \sim E) < \frac{\epsilon}{2}$.
-	And by excision property, $m^\ast(U) = m^\ast(E)+m^\ast(U \sim E) < \infty$.
-	That is, $U$ is of finite measure.\\
+	Since $E$ is measurable, by outer approximation theorem we have an open set $U$ such that $E \subset U$ and 
+	\begin{equation*}
+		m^\ast(U \sim E) < \frac{\epsilon}{2}
+	\end{equation*}
 
-	Since $U$ is open, $U$ is countable union of a disjoint collection of open intervals, $\{ I_k \}_{k=1}^\infty$.
-	Clearly, $\displaystyle\sum_{k=1}^n l(I_k) \le \displaystyle\sum_{k=1}^\infty \le m^\ast(U) < \infty$.
+	\begin{align*}
+		U =  & (U \cap E) \cup (U \cap E^c)
+		\intertext{Since $E$ is measurable, $m^\ast(E) < k$}
+		m^\ast(U) = &  m^\ast(U \cap E) + m^\ast(U \cap E^c) \\
+		= & m^\ast(E) + m^\ast(U \sim E)
+		\intertext{Since $E$ has finite measure}
+		m^\ast(U) = & m^\ast(E) + m^\ast(U \sim E) \\
+		< & k+\frac{\epsilon}{2} < \infty
+	\end{align*}
+	That is, $U$ is of finite measure. \\
 
+	Since $U$ is open, $U$ is countable\dag\footnote{
+		By definition, \textbf{Open sets} are countable union of disjoint, open intervals}
+	union of a disjoint collection of open intervals, say $\{ I_k \}_{k=1}^\infty$. Clearly,
+	\begin{align*}
+		\sum_{k=1}^n l(I_k) & \le \sum_{k=1}^\infty \le m^\ast(U) < \infty \\
+		\sum_{k=1}^\infty l(I_k) & < \infty 
+		\intertext{ By characterisation of series convergence, there exists an integer $n$ such that,}
+		\sum_{k=n+1}^\infty l(I_k) & < \frac{\epsilon}{2}
+	\end{align*}
+	Define $\mathcal{O} = \displaystyle\bigcup_{k=1}^n I_k$.
+	Since $\mathcal{O} \sim E \subset U \sim E$, by monotonicity we have 
+	\begin{equation}
+		m^\ast(\mathcal{O} \sim E) \le m^\ast(U \sim E) < \frac{\epsilon}{2}
+	\end{equation}
+
+	Since $E \subset U$, we have $E \sim \mathcal{O} \subset U \sim \mathcal{O} = \displaystyle\bigcup_{k=1}^n I_k$.
+	And clearly, 
+	\begin{equation*}
+		U \sim \mathcal{O} = \displaystyle\bigcup_{k=1}^\infty I_k \sim \displaystyle\bigcup_{k=1}^n I_k = \displaystyle\bigcup_{k=n+1}^\infty I_k
+	\end{equation*}
+	\begin{align}
+		\text{Thus, } m^\ast(E \sim \mathcal{O}) \le & m^\ast(U \sim \mathcal{O}) \le \sum_{k=n+1}^\infty l(I_k) < \frac{\epsilon}{2} 
+		\intertext{Therefore,}
+		m^\ast(E \sim \mathcal{O}) + m^\ast(\mathcal{O} \sim E) < & \epsilon \nonumber
+	\end{align}
 \end{proof}
