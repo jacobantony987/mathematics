@@ -864,12 +864,16 @@ And assume that these three operations define the entire field of constructible 
 \begin{definition}[UFD]
 	\textbf{Unique factorisation domain}, UFD is an integral domain such that
 	\begin{enumerate}
-		\item Every element can be factored into a finite number of irreducibles, except 0 and units\dag\footnote{Unit is a element which has multiplicative inverse.}.
+		\item Every element can be factored into a finite number of irreducibles, except 0 and units
+		\dag\footnote{
+			Unit is a element which has multiplicative inverse.}.
 		\item The above factorisation is unique except for order and associates.
 	\end{enumerate}
 \end{definition}
 
-For example, In $\mathbb{Z}$, $24 = 2 \times 2 \times 2 \times 3 = -2 \times -3 \times 2 \times 2$. Here $2$ and $-2$ are associates. And $2$ and $3$ are not units, since $2^{-1}, 3^{-1} \notin \mathbb{Z}$.
+For example, In $\mathbb{Z}$, $24 = 2 \times 2 \times 2 \times 3 = -2 \times -3 \times 2 \times 2$.
+Here $2$ and $-2$ are associates.
+And $2$ and $3$ are not units, since $2^{-1}, 3^{-1} \notin \mathbb{Z}$.
 
 \begin{definition}
 	An integral domain is $D$ is a \textbf{Principal Ideal Domain}, PID if every ideal in $D$ is a principal ideal.
@@ -882,6 +886,122 @@ There are two important results on UFDs.
 	\item If $D$ is a UFD, then $D[x]$ is a UFD.
 \end{enumerate}
 
+\begin{lemma}
+	Let $R$ be a commutative ring and let $N_1 \subset N_2 \subset \dots $ be an ascending chain of ideals in $R$.
+	Then $N = \cup_i N_i$ is an ideal of $R$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}[\textbf{A}scending \textbf{C}hain \textbf{C}ondition]
+	Let $D$ be a PID.
+	If $N_1 \subset N_2 \subset \dots$ is an ascending chain of ideal, then there exists a positive integer $r$ such that $N_r = N_s$ for every $s \ge r$.\\
+
+	In other words, every strictly ascending chain of ideals in a PID is of finite length.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $D$ be a PID.
+	Every element that is neither $0$ nor a unit in $D$ is a product of irreducibles.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+	An ideal $\langle p \rangle$ in a PID is maximal if and only if $p$ is an irreducible.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+	In a PID, if an irreducible $p$ divides $ab$, then either $p|a$ or $p|b$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	If $p$ is an irreducible in a PID $D$ and $p$ divides $a_1a_2\dots a_n$ where $a_i \in D$, then $p|a_i$ for at least one $i$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	A nonzero, nonunit element $p$ in an integral domain $D$ is a prime if $\forall a,b \in D,\ p|ab \implies p|a \text{ or } p|b$.
+\end{definition}
+
+\begin{theorem}
+	Every PID is a UFD.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	The integral domain $\mathbb{Z}$ is a UFD.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	Let $D$ be a UFD and $a_1,a_2,\dots,a_n$ be nonzero elements in $D$.
+	An element $d \in D$ is a \textbf{g}reatest \textbf{c}ommon \textbf{d}ivisor of $a_i$ if $d$ is a common divisor of all $a_i$s and also divides any common divisor of $a_i$s.
+\end{definition}
+
+\begin{definition}
+	Let $D$ be a UFD.
+	A noncontant polynomial $a_0 + a_1x + \dots + a_nx^n \in D[x]$ is a primitive if $1$ is the gcd of all $a_i$s.
+\end{definition}
+	For exmaple, $4x^3+3x^2+2 \in \mathbb{Z}[x]$ is a primitive since $\gcd(4,3,2) = 1$.
+
+\begin{lemma}
+	If $D$ is a UFD, then for every nonconstant $f(x) \in D[x]$ we have $f(x) = cg(x)$ where $c \in D$ and $g(x) \in D[x]$ and $g(x)$ is primitive.
+	The element $c \in D$ is unique upto a unit factor in $D$ and is the \textbf{content} of $f(x)$.
+	Also $g(x)$ is unique upto a unit factor in $D$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}[Gauss]
+	If $D$ is a UFD, then product of two primitive polynomials in $D[x]$ is again primitive.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	If $D$ is a UFD, then a finite product of primitive polynomials in $D[x]$ is again primitive.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+	Let $D$ be a UFD and let $F$ be a field of quotients of $D$.
+	Let $f(x) \in D[x]$ where $\deg f(x) > 0$.
+	If $f(x)$ is an irreducible in $D[x]$, then $f(x)$ is also an irreducible in $F[x]$.
+	Also, if $f(x)$ is primitive in $D[x]$ and irreducible in $F[x]$, then $f(x)$ is irreducible in $D[x]$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	If $D$ is a UFD and $F$ is a field of quotients of $D$, then a nonconstant polynomial $f(x) \in D[x]$ factors into a product of two polynomials of lower degrees $r$ and $s$ in $F[x]$ if and only if it has a factorization into polynomials of the same degress $r$ and $s$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	If $D$ is a UFD, then $D[x]$ is a UFD.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+For example, let $x,y$ be two indeterminates, then an element $f(x) \in F[x,y]$ is of the form $\displaystyle\sum_{i,j = 0}^{n,m} a_{ij}x^i y^j$.
+
+\begin{corollary}
+	If $F$ is a field of quotients and $x_1,x_2,\dots,x_n$ are indeterminates, then $F[x_1,x_2,\dots,x_n]$ is a UFD.
+\end{corollary}
+\begin{proof}
+\end{proof}
 
 \subsection{Exercise \S45}
 \begin{enumerate}

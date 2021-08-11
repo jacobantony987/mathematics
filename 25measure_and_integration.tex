@@ -47,7 +47,6 @@
 	If an interval $I$ is unbounded say $(a,\infty)$, then its length, $l(I) = \infty$.
 \end{definition}
 
-
 \subsubsection{Exercise}
 \subsubsection{Techniques in Measure Theory}
 	Let $\mathcal{A}$ be a $\sigma$-algebra.
@@ -716,3 +715,49 @@ Let $A$ be a measurable set of finite measure and $A \subset B$.
 		m^\ast(E \sim \mathcal{O}) + m^\ast(\mathcal{O} \sim E) < & \epsilon \nonumber
 	\end{align}
 \end{proof}
+
+\subsubsection{Exercise}
+
+\begin{enumerate}
+	\setcounter{enumi}{16}
+\item Let $\epsilon > 0$ and $E$ is measurable.
+	Then there exists open set $\mathcal{O}$ and closed set $F$ such that $F \subset E \subset \mathcal{O}$, $m^\ast(E \sim F) < \frac{\epsilon}{2}$ and $m^\ast(\mathcal{O} \sim E) < \frac{\epsilon}{2}$.
+	Clearly, $\mathcal{O} \sim E$ and $E \sim F$ are disjoint and $\mathcal{O} \sim F = (\mathcal{O} \sim E) \cup (E \sim F)$.
+		Thus by monotonicity of Lebesgue outer measure, we have $m^\ast(\mathcal{O} \sim F) \le m^\ast(\mathcal{O} \sim E) + m^\ast(E \sim F) < \epsilon$.
+\item
+% Suppose $E$ has finite outer measure.
+%	\dag\footnote{
+%		$E$ has finite outer measure does not imply $E$ is bounded or measurable.}
+%	Let $\epsilon > 0$.
+%	Then by the definition of outer measure, there exists a cover $\{ I_k \}_{k=1}^\infty$ of $E$ such that $\displaystyle\sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.
+%	Define $G = \displaystyle\bigcup_{k=1}^\infty I_k$.
+%	Then $G$ is a $G_\delta$ set and $m^\ast(G) \le \displaystyle\sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.
+%	--- yet to find an $F_\sigma$ set $F$ ?
+\item
+ 	Let $E$ be a set of finite outer measure.
+	Suppose $E$ is not measurable.
+	And $\mathcal{O}$ be an open set containing $E$.
+	Then $\mathcal{O} = (\mathcal{O} \sim E) \cup E$.
+	By monotonicity, $m^\ast(\mathcal{O}) \le m^\ast(\mathcal{O} \sim E) + m^\ast(E)$
+	\dag\footnote{I am not able to change $\le$ into $<$ as non-measurability doesn't mean that for this particular $\mathcal{O}$ the sum of outer measures should be greater}.
+	Since $m^\ast(E)$ is finite, we have $m^\ast(\mathcal{O}) - m^\ast(E) \le m^\ast(\mathcal{O} \sim E)$.
+\item  Let $E$ be a set of finite outer measure.
+	Suppose $E$ is measurable.
+	Let $(a,b)$ be any open, bounded interval.
+	Then by the definiton of measurability, $b-a = m^\ast(a,b) = m^\ast((a,b) \cap E) + m^\ast((a,b) \cap E^c)$.
+%	Suppose $m^\ast(\mathcal{O}) = m^\ast(\mathcal{O} \cap E) + m^\ast(\mathcal{O} \cap E^c)$ for every open, bounded interval $\mathcal{O}$.
+\item  
+ 	A subet $E$ is measurable if there exists a $G_\delta$ set $G$ containing $E$ such that $m^\ast(G \sim E) = 0$.
+	Suppose $E_1$ and $E_2$ are measurable sets.	
+	Then, we have $G_\delta$ sets $G_1$ and $G_2$.
+	And two countable family of open intervals $\{\mathcal{O}_{1,k}\}_{k=1}^\infty$ and $\{ \mathcal{O}_{2,k}\}_{k=1}^\infty$ such that $\cap \mathcal{O}_{1,k} = G_1$ and $\cap \mathcal{O}_{2,k} = G_2$.
+	Let $\mathcal{O} = \{ \mathcal{O}_k \}_{k=1}^\infty$ be collection of open intervals in $\mathcal{O}_1$ and $\mathcal{O}_2$.
+	Define $G = \cap_{k=1}^\infty \mathcal{O}_k$.
+	Then, $E = E_1 \cup E_2 \subset G_1 \cup G_2 = G$.
+	Since $G \sim E = (G_1 \sim E_1) \cup (G_2 \cup E_2)$, by monotonicity of outer measure we have $m^\ast(G \sim E) \le m^\ast(G_1 \sim E_1) + m^\ast(G_2 \sim E_2) = 0$.
+\item Let $m^{\ast\ast}$ be a non-negative set function defined by $m^{\ast\ast}(A) = \inf \{ m^\ast(\mathcal{O}) : A \subset \mathcal{O}, \mathcal{O} \text{ is open} \}$.
+	Suppose $E$ is measurable.
+		Then, by open set - outer approximation theorem we have $m^\ast(E) \le m^{\ast\ast}(E) < m^\ast(E) + \epsilon$ for any $\epsilon > 0$.
+	Thus, $m^{\ast\ast}(E) = m^\ast(E)$.
+\item  
+\end{enumerate}
