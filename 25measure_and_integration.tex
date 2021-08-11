@@ -725,21 +725,24 @@ Let $A$ be a measurable set of finite measure and $A \subset B$.
 	Clearly, $\mathcal{O} \sim E$ and $E \sim F$ are disjoint and $\mathcal{O} \sim F = (\mathcal{O} \sim E) \cup (E \sim F)$.
 		Thus by monotonicity of Lebesgue outer measure, we have $m^\ast(\mathcal{O} \sim F) \le m^\ast(\mathcal{O} \sim E) + m^\ast(E \sim F) < \epsilon$.
 \item
-% Suppose $E$ has finite outer measure.
-%	\dag\footnote{
-%		$E$ has finite outer measure does not imply $E$ is bounded or measurable.}
-%	Let $\epsilon > 0$.
-%	Then by the definition of outer measure, there exists a cover $\{ I_k \}_{k=1}^\infty$ of $E$ such that $\displaystyle\sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.
-%	Define $G = \displaystyle\bigcup_{k=1}^\infty I_k$.
-%	Then $G$ is a $G_\delta$ set and $m^\ast(G) \le \displaystyle\sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.
-%	--- yet to find an $F_\sigma$ set $F$ ?
+ Suppose $E$ has finite outer measure.
+	\dag\footnote{
+		$E$ has finite outer measure does not imply $E$ is bounded or measurable.}\\
+	\textbf{$G_\delta$ set : }
+	Let $\epsilon > 0$.
+	Then by the definition of outer measure, there exists a cover $\{ I_k \}_{k=1}^\infty$ of $E$ such that $\displaystyle\sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.
+	Define $G = \displaystyle\bigcup_{k=1}^\infty I_k$.
+	Then $G$ is a $G_\delta$ set and $m^\ast(G) \le \displaystyle\sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.\\
+
+	\textbf{$F_\sigma$ set : }
+		%---yet to update---
 \item
  	Let $E$ be a set of finite outer measure.
 	Suppose $E$ is not measurable.
 	And $\mathcal{O}$ be an open set containing $E$.
 	Then $\mathcal{O} = (\mathcal{O} \sim E) \cup E$.
-	By monotonicity, $m^\ast(\mathcal{O}) \le m^\ast(\mathcal{O} \sim E) + m^\ast(E)$
-	\dag\footnote{I am not able to change $\le$ into $<$ as non-measurability doesn't mean that for this particular $\mathcal{O}$ the sum of outer measures should be greater}.
+		By monotonicity, $m^\ast(\mathcal{O}) \textcolor{red}{ \le } m^\ast(\mathcal{O} \sim E) + m^\ast(E)$
+		\dag\footnote{\textcolor{red}{I am not able to change $\le$ into $<$} as non-measurability doesn't mean that for this particular $\mathcal{O}$ the sum of outer measures should be greater. There may be a better proof.}.
 	Since $m^\ast(E)$ is finite, we have $m^\ast(\mathcal{O}) - m^\ast(E) \le m^\ast(\mathcal{O} \sim E)$.
 \item  Let $E$ be a set of finite outer measure.
 	Suppose $E$ is measurable.
@@ -755,9 +758,92 @@ Let $A$ be a measurable set of finite measure and $A \subset B$.
 	Define $G = \cap_{k=1}^\infty \mathcal{O}_k$.
 	Then, $E = E_1 \cup E_2 \subset G_1 \cup G_2 = G$.
 	Since $G \sim E = (G_1 \sim E_1) \cup (G_2 \cup E_2)$, by monotonicity of outer measure we have $m^\ast(G \sim E) \le m^\ast(G_1 \sim E_1) + m^\ast(G_2 \sim E_2) = 0$.
-\item Let $m^{\ast\ast}$ be a non-negative set function defined by $m^{\ast\ast}(A) = \inf \{ m^\ast(\mathcal{O}) : A \subset \mathcal{O}, \mathcal{O} \text{ is open} \}$.
+\item
+	Let $m^{\ast\ast}$ be a non-negative set function defined by $m^{\ast\ast}(A) = \inf \{ m^\ast(\mathcal{O}) : A \subset \mathcal{O}, \mathcal{O} \text{ is open} \}$.
 	Suppose $E$ is measurable.
-		Then, by open set - outer approximation theorem we have $m^\ast(E) \le m^{\ast\ast}(E) < m^\ast(E) + \epsilon$ for any $\epsilon > 0$.
-	Thus, $m^{\ast\ast}(E) = m^\ast(E)$.
+	Then, by open set - outer approximation theorem
+	we have $m^\ast(E) \le m^{\ast\ast}(E) < m^\ast(E) + \epsilon$ for any $\epsilon > 0$.
+	Thus, $m^{\ast\ast}(E) = m^\ast(E)$. \\
+
+	In other words, for measurable sets $m^\ast$ and $m^{\ast\ast}$ are the same.
 \item  
+	Let $m^{\ast\ast\ast}$ be a non-negative set function defined by $m^{\ast\ast\ast}(E) = \sup \{ m^\ast(F) : F \subset E, F \text{ is closed } \}$.
+	Let $E$ be measurable set.
+	Then, by closed set - inner approximation theorem
+	we have $m^\ast(E) \ge m^{\ast\ast\ast}(E) > m^\ast(E)-\epsilon$.\\
+
+	In other words, for measurable sets $m^\ast$ and $m^{\ast\ast\ast}$ are the same.
 \end{enumerate}
+\subsection{Further Properties}
+\subsubsection{Countable Subadditivity}
+\begin{theorem}
+	The set function Lebesgue measure defined on $\sigma$ algebra of measurable sets
+	\begin{enumerate*}
+		\item assigns length to any interval, 
+		\item is translation invariant, and
+		\item is countably additive.
+	\end{enumerate*}
+\end{theorem}
+\begin{proof}
+\textbf{Length of interval}\\
+	Let $E$ be an interval, then $E$ belongs to the $\sigma$ algebra of measurable sets as Borel sets are measurable.
+	Also, we have $m^\ast(E) = m(E)$ for any measurable set $E$.
+	And outer measure $m^\ast$ of an interval is its length.
+	Therefore, Lebesgue measure of any interval is its length.\\
+
+	\textbf{Translation invariant}\\
+	Let $E$ be a measurable set.
+	We have, $E+y$ is also measurable.
+	Since $E+y$ is measurable and outer measure is translation invariant, we have $m^\ast(E) = m^\ast(E+y) = m(E+y)$.
+	Clearly, $m(E) = m(E+y)$.\\
+
+	\textbf{Countably additive}
+	\footnote{ A real-valued set function $m$ is countably additive if $m(\cup_{k=1}^\infty E_k) = \sum_{k=1}^\infty m(E_k)$ for any disjoint family of sets $\{E_k\}$.}\\
+	Let $\{ E_k \}_{k=1}^\infty$ be a countable family of disjoint, measurable sets.
+	Lebesgue outer measure is countably subadditive and countable union of measurable sets is also measurable.
+	Thus we have,
+	\begin{equation*}
+	 	m \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m(E_k)
+	\end{equation*}
+	Since Lebesgue measure is finitely additive we have,
+	\begin{align*}
+		m \left( \bigcup_{k=1}^\infty E_k \right) \ge m \left( \bigcup_{k=1}^n E_k \right) = & \sum_{k=1}^n m(E_k)\\
+		\lim_{n \to \infty} m \left( \bigcup_{k=1}^\infty E_k \right) \ge \lim_{n \to \infty} m \left( \bigcup_{k=1}^n E_k \right) = & \lim_{n \to \infty} \sum_{k=1}^n m(E_k)\\
+	 	\implies m \left( \bigcup_{k=1}^\infty E_k \right) \ge & \sum_{k=1}^\infty m(E_k)
+	\end{align*}
+	Therefore, Lebesgue measure is countably additive.
+	\begin{equation*}
+	 	m \left( \bigcup_{k=1}^\infty E_k \right) = \sum_{k=1}^\infty m(E_k)
+	\end{equation*}
+\end{proof}
+\subsubsection{Continuity}
+\begin{theorem}[continuity]
+	Let $m$ be Lebesgue measure.
+\begin{enumerate}
+	\item
+	Suppose $\{ A_k \}_{k=1}^\infty$ be an ascending
+	\footnote{$\{A_k\}$ is ascending if $A_1 \subset A_2 \subset \dots$}
+	collection of measurable sets.
+	Then, 
+	\begin{equation}
+		m \left( \bigcup_{k=1}^\infty A_k \right) = \lim_{k \to \infty} m(A_k)
+	\end{equation}
+	\item
+	Suppose $\{ B_k \}_{k=1}^\infty$ be an descending
+	\footnote{$\{A_k\}$ is ascending if $B_1 \supset B_2 \supset \dots$}
+	collection of measurable sets and $m(B_1) < \infty$.
+	Then, 
+	\begin{equation}
+		m \left( \bigcap_{k=1}^\infty B_k \right) = \lim_{k \to \infty} m(B_k)
+	\end{equation}
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+\subsubsection{Borel-Cantelli Lemma}
+\begin{lemma}[Borel-Cantelli]
+	Let $\{E_k\}_{k=1}^\infty$ be a countable colection of measurable sets for which $\sum_{k=1}^\infty m(E_k) < \infty$.
+	Then, almost all $x \in \mathbb{R}$ belongs to at most finitely many of the $E_k$s.
+\end{lemma}
+\begin{proof}
+\end{proof}
