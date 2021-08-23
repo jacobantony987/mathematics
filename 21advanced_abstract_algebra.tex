@@ -875,9 +875,9 @@ For example, In $\mathbb{Z}$, $24 = 2 \times 2 \times 2 \times 3 = -2 \times -3 
 Here $2$ and $-2$ are associates.
 And $2$ and $3$ are not units, since $2^{-1}, 3^{-1} \notin \mathbb{Z}$.
 
-\begin{definition}
-	An integral domain is $D$ is a \textbf{Principal Ideal Domain}, PID if every ideal in $D$ is a principal ideal.
-\end{definition}[PID]
+\begin{definition}[PID]
+	An integral domain is $D$ is a \textbf{Principal Ideal Domain} if every ideal in $D$ is a principal ideal.
+\end{definition}
 
 \subsection{Construction of UFD}
 There are two important results on UFDs.
@@ -886,11 +886,19 @@ There are two important results on UFDs.
 	\item If $D$ is a UFD, then $D[x]$ is a UFD.
 \end{enumerate}
 
+%45.9
 \begin{lemma}
 	Let $R$ be a commutative ring and let $N_1 \subset N_2 \subset \dots $ be an ascending chain of ideals in $R$.
 	Then $N = \cup_i N_i$ is an ideal of $R$.
 \end{lemma}
 \begin{proof}
+	Suppose $N_i,\ N_j$ are two ideals in the chain, $N_i \subset N_j$ and $a \in N_i$, $b \in N_j$.
+	Clearly, $a \in N_j$.
+	And $a \pm b,\ ab \in N_j$.
+	We have, $0$ in every ideal\dag\footnote{
+		Suppose $b \in N$.
+		We have $-b \in R$ and $-b+b = 0 \in bN \subset N$.}.
+	Take $a = 0$, we know that for every element $b \in N_j$, its additive inverse $-b \in N_j$.
 \end{proof}
 
 \begin{lemma}[\textbf{A}scending \textbf{C}hain \textbf{C}ondition]
