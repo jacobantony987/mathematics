@@ -534,8 +534,8 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	The Borel algebra $\mathcal{B}$ is the $\sigma$-algebra containing all intervals.
 		We have proved that, every intervals are Lebesgue measurable.
 		Also, we have proved that the set of all Lebesgue measurable subsets of $\mathbb{R}$ is a $\sigma$-algebra as complements of Lebesgue measurable sets are Lebesgue measurable by duality of the condition and countable union of Lebesgue measurable sets are also Lebesgue measurable.
-		Therefore, every borel set is Lebesgue measurable.
-		Clearly, $G_\delta$ and $F_\sigma$ are borel sets and are Lebesgue measurable.
+		Therefore, every Borel set is Lebesgue measurable.
+		Clearly, $G_\delta$ and $F_\sigma$ are Borel sets and are Lebesgue measurable.
 	\end{proof}
 	\item Lebesgue Measurability is translation invariant.
 	\begin{proof}
@@ -569,7 +569,7 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	\begin{align}
 		[a,b] = & \left[(-\infty,a) \cup (b,\infty) \right]^c 
 	\end{align}
-		Clearly, every interval is a borel set.
+		Clearly, every interval is a Borel set.
 	\item
 	\begin{itemize}
 		\item $C \in F_\sigma \implies C = \bigcup_{k=1}^\infty C_k \implies \bigcup_{k=1}^\infty \left(C_k+y\right) = C+y \in F_\sigma$
@@ -653,7 +653,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	We have, $m^\ast(G \sim  E) = 0$.
 	Since every set of Lebesgue measure zero is Lebesgue measurable, $G \sim E$ is Lebesgue measurable.
 	And its complement $(G \sim E)^c$ is also Lebesgue measurable.
-	Also we have, $G$ is a $G_\delta$ set, thus a borel set and hence Lebesgue measurable.\\
+	Also we have, $G$ is a $G_\delta$ set, thus a Borel set and hence Lebesgue measurable.\\
 
 	Clearly,we have $E = G \cap (G \sim E)^c$.
 	And therefore, $E$ is Lebesgue measurable.
@@ -1053,13 +1053,109 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 	Let $C_0 = I$.
 	Let $\{ I_k \}$ be the collection of subintervals in $C_k$.
 	Construct $C_{k+1}$ recursively by removing subintervals of length $\frac{l(I_k)}{3}$ from the middle of each $I_k$ in $C_k$.
-	Then, Cantor set, $C = \bigcap_{k \to 1}^\infty C_k$.
+	Cantor set $C$ is given by, 
+	\begin{equation}
+		C = \bigcap_{k = 1}^\infty C_k
+		\label{eq:cantorset}
+	\end{equation}
 \end{definition}
-Note that $C_k$ are descending collection of $2^k$ disjoint, closed intervals, each of length $\frac{1}{3^k}$. Thus, effective length of $C_k$ is $(\frac{2}{3})^k$.
+	Note that $C_k$ are descending collection of $2^k$ disjoint, closed intervals, each of length $\frac{1}{3^k}$.
+	Thus, effective length of $C_k$ is $(\frac{2}{3})^k$.
 
-\begin{proposition}
+\begin{theorem}
 	Cantor set $C$ is a closed, uncountable set of measure zero.
-\end{proposition}
+\end{theorem}
 \begin{proof}
-	i
+	\textbf{Step 1 : $C$ is measurable}\\
+	By construction, Cantor set is an intersection of (countably	many) closed subsets of real numbers.
+	Since intersections of closed sets are closed, Cantor set is also closed.
+	Also every closed subset is a Borel set and therefore measurable.\\
+
+	\textbf{Step 2 : $m(C) = 0$}\\
+	%We have, $C \subset C_k$ for every $k$.
+	%Thus, by monotonicity of Lebesgue measure $m(C) \le m(C_k)$ for every $k$.
+	From the construction of $C$,
+	we have $m(C_k) = \left( \frac{2}{3} \right)^k$.
+	Clearly, $\{ C_k \}_{k=1}^\infty$ is a descending collection of measurable sets and $m(C_1) < \infty$.
+	Thus by continuity of Lebesgue measure, 
+	$$\displaystyle m(C) = m \left( \bigcap_{k=1}^\infty C_k \right) =  \lim_{k \to \infty} m(C_k) = \lim_{k \to \infty} \left( \frac{2}{3} \right)^k = 0$$
+
+	\textbf{Step 3 : $C$ is uncountable}\\
+	Suppose $C$ is countable.
+	Then elements of $C$ can be enumerated.
+	That is, $C = \{ x_k \}_{k=1}^\infty$.
+	We have, $x_1  \in C \implies x_1 \in C_1$.
+	There are two disjoint intervals in $C_1$.
+	Clearly, $C_1$ has an interval $F_1$ which doesn't contain $x_1$.
+	Similarly, there exists a closed interval, $F_2$ in  $C_2$ such that $x_2 \notin F_2$ and $F_2 \subset F_1$.
+	Continuing like this, we get a descending collection of closed intervals $\{ F_k \}_{k=1}^\infty$ sucht that $x_k \notin F_k$.\\
+
+	By nested set theorem, intersection of descending collection of closed and bounded intervals is non-empty.
+	Thus, $\displaystyle \bigcap_{k=1}^\infty F_k \ne \phi$.
+	Let $x \in \displaystyle \bigcap_{k=1}^\infty F_k$.
+	Clearly $x \ne c_k$ for any $k$ as $\displaystyle c_k \notin F_k \implies c_k \notin \bigcap_{k=1}^\infty F_k$.
+	However, $x \in C$ which is a contradiction to the assumption that $C = \{ c_k : k = 1,2,\dots \}$.
+	Therefore, elements of $C$ can't be enumerated.
+	In other words, $C$ is uncountable.
+\end{proof}
+
+\begin{definition}[increasing]
+	A real-valued function $f$ is increasing if $f(x) {\color{red}\ge} f(y)$ for every $x > y$.
+\end{definition}
+\begin{definition}[strictly increasing]
+	A real-valued function $f$ is strictly increasing if $f(x) {\color{red}>} f(y)$ for every $x > y$.
+\end{definition}
+
+\begin{definition}[Cantor-Lebesgue function $\varphi$]
+	Let $C$ be the Cantor set.
+	Define open set, $\mathcal{O} = I \sim C$.
+	$$\mathcal{O} = I \sim C = I \sim \left( \bigcap_{k=1}^\infty C_k \right) = \bigcup_{k=1}^\infty \left( I \sim C_k \right) = \bigcup_{k=1}^\infty \mathcal{O}_k$$
+	We know that $\mathcal{O}_k$ has $2^{k-1}$ open intervals $I_{k,1}, I_{k,2},\dots,I_{k,2^{k-1}}$.
+	Define Cantor-Lebesgue function $\varphi$ on $\mathcal{O}$ by $\varphi(x) = \frac{m}{2^k}$ for every $x \in I_{k,m}$.
+	We may extend $\varphi$ to unit interval such that $\varphi(0) = 0$ and $\varphi(x) = \sup \left\{ \varphi(t) : t \in [0,x] \cap \mathcal{O} \right\}$.
+\end{definition}
+
+Clearly, by the construction $\phi$ is an increasing real-valued function.
+
+\begin{theorem}[Properties of $\varphi$]
+	Cantor-Lebesgue function $\varphi : I \to I$ is a surjection. And $\varphi$ is differentiable in $\mathcal{O}$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+	We already saw that there exists non-measurable subsets.
+	Using the properties of the function $\psi$, we assert that there exist a measurable set $\psi^{-1}(W)$ which is not a Borel set.
+\begin{theorem}
+	The function $\psi : [0,1] \to [0,2]$ defined by $\psi(x) = \varphi(x)+x$
+	\begin{enumerate}
+		\item is a strictly increasing\dag\footnote{
+				Strictly increasing functions are one-to-one.
+				Thus, $\psi$ is a bijection.}
+			function which maps $[0,1]$ onto $[0,2]$ and
+		\item $\psi$ maps Cantor set, $C$ onto a set of positive measure and
+		\item $\psi$ maps a measurable\dag\footnote{
+			Cantor set is a subset of zero measure.
+			Thus every subset of Cantor set is measurable.}
+		subset of $C$ onto a non-measurable set.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Cantor set has a measurable subset which is not a Borel set.
+\end{theorem}
+\begin{proof}
+	By Vitali's theorem, $\psi(C)$ has a non-measurable subset, say $W$.
+	Clearly $W$ is not a Borel set, since every Borel set is measurable.\\
+
+	Now $\psi : \psi^{-1}(W) \to W$ is a bijection.
+	And $W \subset \psi(C) \implies \psi^{-1}(W) \subset C$.
+	Also we know that, every subset of zero measure sets are measurable.
+	Thus, $\psi^{-1}(W)$ is measurable subset of Cantor set, $C$.\\
+
+	Suppose $\psi^{-1}(W)$ is a Borel set.
+	Then, $W$ must be a Borel set, since continuous functions maps Borel sets onto Borel sets.
+	This leads to a contradiction since $W$ is not a Borel set.
+	Therefore, Cantor set $C$ has a measurable, non-Borel subset $\psi^{-1}(W)$.
 \end{proof}
