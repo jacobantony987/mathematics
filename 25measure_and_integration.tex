@@ -1121,6 +1121,17 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	Cantor-Lebesgue function $\varphi : I \to I$ is a surjection. And $\varphi$ is differentiable in $\mathcal{O}$.
 \end{theorem}
 \begin{proof}
+	We know from the definition of $\varphi$ on $\mathcal{O}$, it is increasing on $\mathcal{O}$.
+	And for extending $\varphi$ from $\mathcal{O}$ to $[0,1]$ we are considering the supremum(least upper bound) of all the previous values of $\varphi$ on $\mathcal{O}$.
+	Thus, function $\varphi$ is increasing on the unit interval, $[0,1]$.\\
+
+	For continuity of $\varphi$, it is enough to prove that $\varphi$ doesn't have any jump discontinuities\dag\footnote{
+		If the function $\varphi$ has unbounded variation(jump) at some points of $[0,1]$.
+		That is $\exists \epsilon > 0$ such that $\forall \delta > 0, \exists x \in [0,1] \text{ where } f(x+\epsilon/2)-f(x-\epsilon/2) > \delta$. ---need revisit---}
+		as it is an increasing function.
+
+		---to continue---
+
 \end{proof}
 
 	We already saw that there exists non-measurable subsets.
@@ -1140,6 +1151,13 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
+	By definition, $\psi(x) = \varphi(x) + id(x)$.
+	We know that the sum of continuous functions is continuous.
+	Thus, $\psi$ is continuous.
+	Again, the sum of an increasing function and strictly increasing function is always strictly increasing.
+	Thus, $\psi$ is a strictly increasing function.\\
+
+	---to continue---
 \end{proof}
 
 \begin{theorem}
