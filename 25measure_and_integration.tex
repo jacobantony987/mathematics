@@ -1046,6 +1046,8 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 \end{enumerate}
 
 \subsection{Cantor Set and Cantor-Lebesgue Function}
+
+\subsubsection{Cantor set, $C$}
 	We know that every countable set is of measure zero. However, subsets of zero measure are not necessarily countable. Cantor set is an uncountable set of zero measure.
 
 \begin{definition}[Cantor set]
@@ -1099,6 +1101,7 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 	In other words, $C$ is uncountable.
 \end{proof}
 
+\subsubsection{Cantor-Lebesgue Function, $\varphi$}
 \begin{definition}[increasing]
 	A real-valued function $f$ is increasing if $f(x) {\color{red}\ge} f(y)$ for every $x > y$.
 \end{definition}
@@ -1128,12 +1131,28 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	For continuity of $\varphi$, it is enough to prove that $\varphi$ doesn't have any jump discontinuities\dag\footnote{
 		If the function $\varphi$ has unbounded variation(jump) at some points of $[0,1]$.
 		That is $\exists \epsilon > 0$ such that $\forall \delta > 0, \exists x \in [0,1] \text{ where } f(x+\epsilon/2)-f(x-\epsilon/2) > \delta$. ---need revisit---}
-		as it is an increasing function.
+	as it is an increasing function.
+	Suppose $x \in C$ and $x \ne 0$.
+	Then for sufficiently large $k$, $x$ lies between two consecutive intervals of $\mathcal{O}_k$.
+	Let $a_k$ and $b_k$ be the upper and lower bounds of intervals to the left and right of $x$ in $\mathcal{O}_k$.
+	Then $x \in (a_k,b_k)$.\\
 
-		---to continue---
+	We know that, $\varphi(b_k)-\varphi(a_k) = \frac{1}{2^k}$.
+	And $\varphi(a_k) < \varphi(x) < \varphi(b_k)$, by the construction of $\varphi$.
+	As $k \to \infty$, the jump $\displaystyle \lim_{k \to \infty} \varphi(b_k)-\varphi(a_k) = \lim_{k \to \infty} \frac{1}{2^k} = 0$.
+	Thus, $\varphi$ doesn't have any jump discontinuities.
+	Therefore, $\varphi$ is continuous on $[0,1]$.\\
 
+	Clearly, $\varphi$ is constant on each interval of $\mathcal{O}$.
+	Therefore, its derivative exists and equals to zero everywhere on $\mathcal{O}$.\\
+
+	We have, $\mathcal{O} = [0,1] \sim C$.
+	Thus, $m(\mathcal{O}) = 1$, since $m(C) = 0$ and $m([0,1]) = 1$.
+	Also, $\varphi$ is a an increasing, continuous function from $[0,1]$ into $[0,1]$ where $\varphi(0) = 0$ and $\varphi(1) = 1$.
+	Therefore, Cantor-Lebesgue function, $\varphi$ is onto unit interval $[0,1]$.
 \end{proof}
 
+\subsubsection{Measurable, non-Borel set}
 	We already saw that there exists non-measurable subsets.
 	Using the properties of the function $\psi$, we assert that there exist a measurable set $\psi^{-1}(W)$ which is not a Borel set.
 \begin{theorem}
