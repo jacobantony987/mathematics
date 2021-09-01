@@ -194,7 +194,7 @@
 
 	Suppose $b_2 < b$.
 	Continuing like this we get, $N$ open intervals in $\mathcal{C}$, $\{ (a_k,b_k) : k = 1,2,\cdots,N \} $ such that $a_1 < a < b_1$ and $a_N < b < b_N$ and $a_k < b_{k-1} < b_k$ for all $k$.
-	The process should terminate in fintie steps as $\mathcal{C}$ is a finite cover of $[a,b]$.
+	The process should terminate in finite steps as $\mathcal{C}$ is a finite cover of $[a,b]$.
 	Then $\displaystyle \sum_{k=1}^N l(I_k) \ge \sum_{k=1}^N l(a_k,b_k) \ge l(a_1,b_N) \ge b-a$.
 
 \begin{center}
@@ -288,16 +288,17 @@
 		\begin{equation}
 			m^\ast \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m^\ast(E_k)
 		\end{equation}
-		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\displaystyle \sum_{i=1}^\infty I_{k,i} < m^\ast(E_k) + \frac{\epsilon}{2^k}$.
+		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\displaystyle \sum_{i=1}^\infty l(I_{k,i}) < m^\ast(E_k) + \frac{\epsilon}{2^k}$.
 		Suppose that, for some $\epsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\epsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
 
 	Clearly,
-	\begin{align*}
-		m^\ast \left( \bigcup_{i,k = 0}^\infty I_{k,i} \right) \le & \sum_{k=1}^\infty \sum_{i=1}^\infty I_{k,i} \\
-		= & \sum_{k=1}^\infty \left( m^\ast(E_k) + \frac{\epsilon}{2^k} \right) \\
-		= & \sum_{k=1}^\infty  m^\ast(E_k) + \epsilon
+`	\begin{align*}
+	m^\ast \left( \bigcup_{i,k = 0}^\infty I_{k,i} \right)
+	\le & \sum_{k=1}^\infty \sum_{i=1}^\infty l(I_{k,i}) \\
+	= & \sum_{k=1}^\infty \left( m^\ast(E_k) + \frac{\epsilon}{2^k} \right) \\
+	= & \sum_{k=1}^\infty  m^\ast(E_k) + \epsilon
 	\end{align*}
-	\end{proof}
+\end{proof}
 	\textbf{Note : } Finite subadditivity is a weaker notion than countable subadditivity.
 	Since every finite collection is a countable collection.
 \end{enumerate}
