@@ -21,6 +21,9 @@
 %Module 4 - \cite{royden} 18, 20
 %Missing - \cite{royden} 1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19, 21?
 
+%To match the chapter number of Royden
+\setcounter{section}{1}
+
 \section{Lebesgue Measure}
 \begin{description}
 	\item[set function] A function which maps sets into (extended) real numbers.
@@ -606,7 +609,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \begin{enumerate}
 	\item $\forall \epsilon > 0$, there is an open set $\mathcal{O}$ containing $E$ for which $m^\ast(\mathcal{O}\sim E) < \epsilon$.
 	\item There is a $G_\delta$ set $G$ containining $E$ such that $m^\ast(G \sim E) = 0$.
-	\item $\forall \epsilon > 0$, there is a closed set $F$ contained in $E$ such that $m^\ast(E\sim F) = 0$.
+	\item $\forall \epsilon > 0$, there is a closed set $F$ contained in $E$ such that $m^\ast(E\sim F) {\color{red}<} 0$.
 	\item There is an $F_\sigma$ set $F$ contained in $E$ sucht hat $m^\ast(E \sim F) = 0$.
 \end{enumerate}
 \end{theorem}
@@ -666,7 +669,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 
 \subsubsection*{$G_\delta$-Outer approximation $\iff F_\sigma$-Inner approximation}
 	Again, by duality of Lebesgue measurability and de Morgan's Law, we have $E^c$ has a $G_\delta$-outer approximation $G$ if and only if $E$ has an $F_\sigma$-inner approximation $F$.
-	$$ m^\ast(G \sim E^c) < \epsilon \iff m^\ast(E \sim F) < \epsilon $$
+	$$ m^\ast(G \sim E^c) {\color{red}= 0} \iff m^\ast(E \sim F){\color{red} = 0} $$
 \end{proof}
 
 \begin{theorem}
@@ -694,8 +697,8 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 		By definition, \textbf{Open sets} are countable union of disjoint, open intervals}
 	union of a disjoint collection of open intervals, say $\{ I_k \}_{k=1}^\infty$. Clearly,
 	\begin{align*}
-		\sum_{k=1}^n l(I_k) & \le \sum_{k=1}^\infty \le m^\ast(U) < \infty \\
-		\sum_{k=1}^\infty l(I_k) & < \infty 
+		\sum_{k=1}^n l(I_k) & \le \sum_{k=1}^\infty {\color{red}l(I_k)} \le m^\ast(U) < \infty 
+		%\sum_{k=1}^\infty l(I_k) & < \infty  %% not required
 		\intertext{ By characterisation of series convergence, there exists an integer $n$ such that,}
 		\sum_{k=n+1}^\infty l(I_k) & < \frac{\epsilon}{2}
 	\end{align*}
@@ -708,7 +711,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	Since $E \subset U$, we have $\displaystyle E \sim \mathcal{O} \subset U \sim \mathcal{O} = \bigcup_{k=1}^n I_k$.
 	And clearly, 
 	\begin{equation*} 
-		U \sim \mathcal{O} = \bigcup_{k=1}^\infty I_k \sim \bigcup_{k=1}^n I_k = \bigcup_{k=n+1}^\infty I_k
+		U \sim \mathcal{O} = \bigcup_{k=1}^\infty I_k \sim \bigcup_{k=1}^n I_k\ {\color{red}\subseteq} \bigcup_{k=n+1}^\infty I_k
 	\end{equation*}
 	\begin{align}
 		\text{Thus, } m^\ast(E \sim \mathcal{O}) \le & m^\ast(U \sim \mathcal{O}) \le \sum_{k=n+1}^\infty l(I_k) < \frac{\epsilon}{2} 
@@ -1197,3 +1200,150 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	This leads to a contradiction since $W$ is not a Borel set.
 	Therefore, Cantor set $C$ has a measurable, non-Borel subset $\psi^{-1}(W)$.
 \end{proof}
+
+\section{Lebesgue Measurable Functions}
+\subsection{Sum, Products, and Compositions}
+\begin{theorem}
+	Let function $f$ have a measurable domain.
+	Then the following statements are equivalent :
+	\begin{enumerate}
+		\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) > c\}$ is measurable
+		\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) \ge c\}$ is measurable
+		\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) < c\}$ is measurable
+		\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) \le c\}$ is measurable
+	\end{enumerate}
+	And each statement above imply that $\{ x \in E : f(x) = c \}$ is measurable.
+\end{theorem}
+\begin{proof}
+	\textbf{Step 1 : $1 \iff 4$ and $2 \iff 3$}\\
+	The sets considered in statements $1$ and $4$ are complementary.
+	Thus, if one set is measurable, then the other set is also measurable.
+	Similarly, the sets in $2$ and $3$ are complementary.
+	Thus, one statement implies the other.\\
+
+	\textbf{Step 2 : $1 \implies 2$}\\
+	Suppose $\{ x \in E : f(x) > c \}$ is measurable for any real number $c$.
+	Clearly, the sets $\{ x \in E : f(x) > c-\frac{1}{k} \}$ is measurable for every natural number $k$.
+	And countable intersection of measurable sets is measurable.
+	Thus,
+	$$\displaystyle \bigcap_{k=1}^\infty \left\{ x \in E : f(x) > c-\frac{1}{k} \right\} = \left\{ x \in E : f(x) \ge c \right\} \text{ is measurable}$$
+	\textbf{Step 3 : $2 \implies 1$}
+	Suppose $\{ x \in E : f(x) \ge c \}$ is measurable for any real number $c$.
+	Clearly, the sets $\{ x \in E : f(x) \ge c+\frac{1}{k} \}$ is measurable for every natural number $k$.
+	Again, countable union of measurable sets is measurable. Thus,
+	$$\displaystyle \bigcup_{k=1}^\infty \left\{ x \in E : f(x) \ge c+\frac{1}{k} \right\} = \left\{ x \in E : f(x) > c \right\} \text{ is measurable}$$
+	\textbf{Step 4 : $\forall c \in \mathbb{R},\ \{ x \in E : f(x) =c \}$ is measurable}\\
+	Suppose one of the statements is true.
+	Then other three statements are also true.
+	The sets $\{ x \in E : f(x) \ge c \}$ and $\{ x \in E : f(x) \le c \}$ are both measurable.
+	Thus, their intersection $\{ x \in E : f(x) = c \}$ is also measurable.
+\end{proof}
+
+\begin{definition}[measurable function]
+	A function $f$ is measurable if
+	\begin{enumerate}
+		\item the domain of $f$ is measurable and
+		\item one of the following statements is true 
+		\begin{enumerate}
+			\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) > c\}$ is measurable
+			\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) \ge c\}$ is measurable
+			\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) < c\}$ is measurable
+			\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) \le c\}$ is measurable
+		\end{enumerate}
+	\end{enumerate}
+\end{definition}
+
+Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1}(c)$ is measurable for any real number $c$. ({\color{blue}why ?})
+
+\subsubsection{Study of measurable functions}
+\begin{enumerate}
+	\item \textbf{Inverse images of open sets measurable}\\
+		Suppose function $f$ is defined on a measurable set $E$.
+	Then $f$ is a measurable function $\iff \forall \text{ open set } \mathcal{O},\ f^{-1}(\mathcal{O})$ is measurable.
+	\begin{proof}
+	Given the domain of $f$ is measurable.\\
+	\textbf{Step 1 : $f^{-1}(\mathcal{O})$ is measurable $\implies f$ is measurable}\\
+	Suppose inverse image of every open set is measurable.
+	Then, $f^{-1}(c,\infty) = \{ x \in E : f(x) > c \}$ is measurable.
+	Then, by the definition, $f$ is a measurable function.\\
+
+	\textbf{Step 2 : $f$ measurable $\implies f^{-1}(\mathcal{O})$ is measurable}\\
+	Suppose function $f$ is measurable.
+	Let $\mathcal{O}$ be an open set.
+	Then it can be expressed as a countable union of open, bounded intervals, $I_k$.
+	That is, $\displaystyle \mathcal{O} = \bigcup_{k=1}^\infty I_k$.
+	We know that, $\forall k \in \mathbb{N},\ I_k = (a_k,b_k) = (-\infty,b_k) \cap (a_k,\infty)$.
+	By the definition of measurablility $\{ x \in E : f(x) < b_k \} = f^{-1}(-\infty,b_k)$ and $\{ x\in E : f(x) > a_k \} = f^{-1}(a_k,\infty)$ are measurable.
+	And $f^{-1}(a_k,b_k) = f^{-1}(-\infty,b_k) \cap f^{-1}(a_k,\infty)$  is measurable.
+	Again, inverse image of the open set $f^{-1}(\mathcal{O})$ which is a countable union of measurable sets $\{f^{-1}(I_k)\}_{k=1}^\infty$ is also measurable.
+	Therefore, inverse image of every open set is measurable.
+	\end{proof}
+\item \textbf{Continous, real-valued functions are measurable}\\
+	Suppose the function $f$ has a measurable domain. And $f$ is a real-valued, continuous function. Then $f$ is measurable.
+	\begin{proof}
+	\end{proof}
+\item \textbf{Monotone functions on an interval are measurable}\\
+	Monotone functions defined on an interval are measurable.
+	\begin{proof}
+		Every interval is measurable.
+		Thus, $f$ is defined on a measurable set.
+	\end{proof}
+\item \textbf{$f$ measurable $\implies$ $g$ measurable ($f = g$  a.e.)}\\
+	If $f$ is measurable and $f = g$ a.e.(almost everywhere).
+		Then $g$ is measurable.\\
+
+	\begin{proof}
+	\end{proof}
+\item \textbf{$f$ measurable $\iff$ $f|_D, D \sim E$ measurable ($\forall D$ measurable)}\\
+	Suppose function $f$ is an extended real-valued function on a measurable set $E$.
+		For measurable subet $D$ of $E$, $f$ is measurable on $E$ if and only if the resctriction of $f$ to $D$ and $D \sim E$ are measurable.
+	\begin{proof}
+	\end{proof}
+\end{enumerate}
+
+\begin{definition}[characteristic function]
+	Let $A$ be a subset of $\mathbb{R}$.
+	The characteristic function $\chi_A$ of $A$ is given by
+	\begin{equation}
+		\chi_A(x) = \begin{cases} 1 & x \in A \\ 0 & x \notin A  \end{cases}
+	\end{equation}
+\end{definition}
+\begin{definition}
+	Let $\{f_1,f_2,\dots,f_n \}$ be a finite family of measurable functions on the same domain $E$.
+	Then $\max\{f_1,f_2,\dots,f_n\}$ on $E$ is given by
+	\begin{equation}
+	\max\{f_1,f_2,\dots,f_n\}(x) = \max\{f_1(x),f_2(x),\dots,f_n(x)\},\ \forall x \in E
+	\end{equation}
+	And function $\min\{f_1,f_2,\dots,f_n\}$ on $E$ is given by
+	\begin{equation}
+	\min\{f_1,f_2,\dots,f_n\}(x) = \min\{f_1(x),f_2(x),\dots,f_n(x)\},\ \forall x \in E
+	\end{equation}
+\end{definition}
+\subsubsection{Properties of Measurable Functions}
+Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
+\begin{enumerate}
+\item \textbf{Linearity : }$\alpha f + \beta g$ is measurable $\forall \alpha,\beta$\\
+
+	\begin{proof}
+	\end{proof}
+\item \textbf{ Product : }$fg$ is measurable\\
+
+	\begin{proof}
+	\end{proof}
+\item \textbf{Composition of measurable functions is not necessarily measurable}\\
+	We know that, Cantor set $C$ has subset $A$ such that $\psi$ maps $A$ onto a non-measurable set.
+	Let $A$ be a measurable subset of open interval $(0,1)$ such that $\psi(A)$ is non-measurable.\\
+		
+	Let $\chi_A$ be the characteristic function of $A$.
+	Then $\chi_A \circ \psi^{-1}$ is not measurable.
+	But, both the functions $\chi_A$ and $\psi^{-1}$ are measurable functions.
+	\item \textbf{If $f$ is continuous and $g$ is measurable, then $f \circ g$ is measurable}\\
+	\begin{proof}
+
+	\end{proof}
+\item \textbf{}\\
+	For a finite family of measurable functions $\{ f_1, f_2, \dots,f_n \}$ with common domain $E$, both the functions $\max\{f_1,f_2,\dots,f_n\}$ and $\min\{f_1,f_2,\dots,f_n\}$ are measurable.
+	\begin{proof}
+
+	\end{proof}
+\end{enumerate}
