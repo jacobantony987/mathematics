@@ -862,7 +862,7 @@ And assume that these three operations define the entire field of constructible 
 %Section 45
 \section{Unique Factorisation Domains}
 \begin{definition}[divides]
-	An element $a \in R$ divides $b$ if there exists an element $c in R$ such that $b = ac$.
+	An element $a \in R$ divides $b$ if there exists an element $c \in R$ such that $b = ac$.
 \end{definition}
 \begin{definition}[associate]
 	Two elements $a,b$ are associates if $a = bu$ where $u$ is a unit.
@@ -1122,8 +1122,14 @@ Remember that for any field $F$, $F[x]$ is a PID.
 	Thus, we have $f(x) = cg(x)$ where $g(x) = q_0+q_1x+\dots+q_nx^n)$ is a primitive.\\
 
 	\textbf{Step 2 : There exists unique $c$ such that  $f(x) = cg(x)$}\\
-	Suppose $f(x) = cg(x) = dh(x)$ where $c,d \in D$ and $g(x), h(x)$ are primitives.
-		
+	Suppose $f(x) = cg(x) = dh(x)$ where $c,d \in D$ and $g(x), h(x)$ are primitives.\\
+
+	Clearly, $c$ and $d$ are associates.
+	Otherwise, there exists an irreducible element $p$ such that $p | cg(x)$ but $p\!\not|\ dh(x)$ which is a contradiction.
+	Thus, we can cancel all irreducible factors of $c$ to obtain, $ug(x) = vh(x)$ where $u$ and $v$ are units.
+	Therefore, the content of $f(x)$, $c$ unique upto associates.\\
+
+	Again, $f(x) = cg(x) = (cu) (u^{-1}g(x))$ and thus $g(x)$ is unique upto associates/units.
 \end{proof}
 
 \begin{definition}[content]
@@ -1132,7 +1138,7 @@ Remember that for any field $F$, $F[x]$ is a PID.
 	Then $f(x) = cg(x)$ for some primitive $g(x) \in D[x]$ and $c \in D$.
 	The element $c$ which is unique upto units, is the content of $f(x)$.
 \end{definition}
-	For exmaple, Let $f(x) = 8x^3+6x^2+4 \in \mathbb{Z}[x]$.
+	For example, Let $f(x) = 8x^3+6x^2+4 \in \mathbb{Z}[x]$.
 	Then $f(x) = 2(4x^3+3x^2+2)$ where $4x^3+3x^2+2 \in \mathbb{Z}[x]$ is a primitive and $2 \in \mathbb{Z}$.
 	Thus, $content(f) = 2$.
 
@@ -1140,12 +1146,40 @@ Remember that for any field $F$, $F[x]$ is a PID.
 	If $D$ is a UFD, then product of two primitive polynomials in $D[x]$ is again primitive.
 \end{lemma}
 \begin{proof}
+	Let $f(x) = a_0 + a_1x + \dots + a_nx^n$ and $g(x) = b_0 + b_1x + \dots + b_mx^m$.
+	Suppose $f(x)$ and $g(x)$ are primitives.
+	Let $h(x) = f(x)g(x) = c_0 + c_1x + \dots + c_{n+m}x^{n+m}$.
+	Let $p$ be an irreducible in $D$.
+	Then $f(x)$ has a coefficient which is not divisible by $p$.
+	Suppose $p$ divides every coefficient $f(x)$, then $f(x)$ is not a primitive.\\
+
+	Let $r$ be the smallest integer such that $p\not\!|\ a_r$.
+	Similarly, let $s$ be the smallest integer such that $p\not|\ b_s$.
+	Now consider the coefficient $c_{r+s}$ of $h(x)$.
+	$$ c_{r+s} = a_0b_{r+s}+\dots+a_{r-1}b_{s+1}+a_rb_s+a_{r+1}b_{s-1}+\dots+a_{r+s}b_0$$
+	By the selection of $r$, $p | a_j$ for every $j < r$.
+	Thus, $p | a_0b_s+\dots+a_{r-1}b_{s+1}$.
+	Similarly, by the selection of $s$, $p | b_k$ for every $k < s$.
+	Thus, $p | a_{r+1}b_{s-1}+\dots+a_0b_s$.
+	Clearly, $p | c_{r+s} \iff p | a_rb_s \implies p|a_r \text{ or } p|b_s$.
+	This is not possible, thus $p \not| c_{r+s}$.	
+	Thus, for any irreducible $p \in D$, $h(x)$ has a coefficient which is not divisible by $p$.
+	Therefore, product of two primitives is always a primitive.
 \end{proof}
 
 \begin{corollary}
 	If $D$ is a UFD, then a finite product of primitive polynomials in $D[x]$ is again primitive.
 \end{corollary}
 \begin{proof}
+	Let $\{f_k\}_{k=1}^n$ be a family of primitives.
+	Then $f_1(x)f_2(x)$ is a primitive, since product of two primitives is always a primitive.\\
+
+	Suppose $g(x) = f_1(x)f_2(x)\dots f_k(x)$ is a primitive.\\
+
+	Consider $h(x) = f_1(x)f_2(x)\dots f_{k+1}(x) = g(x)f_{k+1}(x)$.
+	Since both $g(x)$ and $f_{k+1}(x)$ are primitives their product $h(x)$ is also a primitive.\\
+
+	Thus by finite mathematical induction, every finite product of primitives is a primitive.
 \end{proof}
 
 \begin{lemma}
@@ -1155,18 +1189,62 @@ Remember that for any field $F$, $F[x]$ is a PID.
 	Also, if $f(x)$ is primitive in $D[x]$ and irreducible in $F[x]$, then $f(x)$ is irreducible in $D[x]$.
 \end{lemma}
 \begin{proof}
+	Let $D$ be a UFD and $F$ be the field of quotients of $D$.
+	Then elements of $F$ are of the form $(a,b) \in D \times D$.
+	Also $(a,b)+(c,d)  = (ad+bc,bd)$ and $(a,b)\cdot (c,d) = (ac,bd)$.
+	And we say express $(a,b)$ as $a/b$.\\
+
+	\textbf{Part 1 : irreducible in $D[x] \implies$ irreducible in $F[x]$}\\
+	Let $f(x) \in D[x]$ be an irreducible in $D[x]$.
+	Suppose $f(x)$ is not irreducible in $F[x]$.
+	Then $f(x) = r(x)s(x)$ where $r(x),s(x) \in F[x]$.\\
+
+	The coefficients of $r(x)$ are of the form $a/b$.
+	By multiplying $r(x)$ with the product of all denominators, we can remove its denomiators and obtain an associate $r_1(x) \in D[x]$.
+	Similarly, we have $s(x) = vs_1(x)$ where $s_1(x) \in D[x]$.
+	Thus, $f(x) = r(x)s(x) = ur_1(x)vs_1(x) = uv r_1(x)s_1(x)$.
+	Therefore, $f(x) \in D[x]$ is not an irreducible, which is a contradiction.
+	Thus, $f(x)$ is irreducible in the quotient field $F$ as well.\\
+
+	\textbf{Part 2 : irreducible in $F[x] \implies$ irreducible in $D[x]$}\\
+	Suppose $f(x) \in D[x]$ is irreducible in $F[x]$.	
+	Clearly, $F$ contains a UFD isomorphic to $D$.
+	Thus $D[x] \le F[x]$.
+	Therefore, any polynomial irreducible in $F[x]$ is also irreducible in $D[x]$.
 \end{proof}
+	We just saw that if $F$ is the quotient field of a UFD $D$ and $f(x) \in D[x]$. The irreducibility of $f(x)$ in $F[x]$ is necessary and sufficient for the irreducibility of $f(x)$ in $D[x]$. Now we prove that the factorisation is also unique upto a morphism.
 
 \begin{corollary}
 	If $D$ is a UFD and $F$ is a field of quotients of $D$, then a nonconstant polynomial $f(x) \in D[x]$ factors into a product of two polynomials of lower degrees $r$ and $s$ in $F[x]$ if and only if it has a factorization into polynomials of the same degress $r$ and $s$.
 \end{corollary}
 \begin{proof}
+	We know that if $f(x) \in D[x]$ has a factorisation $f(x) = r(x)s(x)$ in $F[x]$.
+	Then it has a factorisation in $D[x]$ as well, $f(x) = cr_1(x)s_1(x)$ where $r_1(x),s_1(x)$ are associates of $r(x), s(x)$ in $F[x]$.
+	Clearly, the associates are always of the same degree.\\
+
+	Trivially, any factorisation in $D[x]$ will also be a factorisation in $F[x]$.
+	And the factors will have the same degree, unless $D[x]$ has an irreducible polymonial which is not irreducible in $F[x]$.
+	This is not possible.
 \end{proof}
 
 \begin{theorem}
 	If $D$ is a UFD, then $D[x]$ is a UFD.
 \end{theorem}
 \begin{proof}
+	Let $f(x) \in D[x]$.
+	Suppose $deg(f) > 0$.
+	Otherwise, $f(x)$ is a constant and we have trival factorisation.\\
+	
+	Let $f(x) = g_1(x)g_2(x)\dots g_r(x)$ be a factorisation in $D[x]$ with maximum number of factors.	
+	Then $f(x) = c_1h_1(x)c_2h_2(x)\dots c_rh_r(x)$ where $g_k(x) = c_kh_k(x)$ and $h_k(x)$ are primitives.
+	And $h_k(x)$ are irreducibles.
+	Otherwise, $f(x)$ has a factorisation with greater number of factors than $r$ which is a contradiction.
+	Thus, $f(x) = uh_1(x)h_2(x)\dots h_r(x)$ is a factorisation of $f(x)$ into a product of irreducibles.\\
+
+	Suppose $f(x)$ has another factorisation $f(x) = G_1(x)G_2(x)\dots G_r(x)$.
+	Then $f(x) = vH_1(x)H_2(x)\dots H_r(x)$ with $H_k(x)$ are all irreducibles.
+	We know that, $h_k(x) | f(x) \implies h_k(x) | H_1(x)H_2(x)\dots H_r(x) \implies h_k(x) | H_k(x)$ (WLOG).
+	Therefore, the factorisation is unique.
 \end{proof}
 
 For example, let $x,y$ be two indeterminates, then an element $f(x) \in F[x,y]$ is of the form $\displaystyle\sum_{i,j = 0}^{n,m} a_{ij}x^i y^j$.
@@ -1175,6 +1253,11 @@ For example, let $x,y$ be two indeterminates, then an element $f(x) \in F[x,y]$ 
 	If $F$ is a field of quotients and $x_1,x_2,\dots,x_n$ are indeterminates, then $F[x_1,x_2,\dots,x_n]$ is a UFD.
 \end{corollary}
 \begin{proof}
+	Suppose $D$ is a UFD and $F$ is its field of quotients, then $F[x]$ is a UFD.\\
+
+	Suppose $K = F[x_1,x_2,\dots,x_k]$ is a UFD.\\
+
+	Then, $F[x_1,x_2,\dots,x_k,x_{k+1}] = F[x_1,x_2,\dots,x_k][x_{k+1}] = K[x_{k+1}] = K[x]$ is a UFD.
 \end{proof}
 
 \subsection{Exercise \S45}
