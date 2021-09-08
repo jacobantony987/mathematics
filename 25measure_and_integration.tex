@@ -1281,18 +1281,24 @@ Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1
 \item \textbf{Continous, real-valued functions are measurable}\\
 	Suppose the function $f$ has a measurable domain. And $f$ is a real-valued, continuous function. Then $f$ is measurable.
 	\begin{proof}
+	Let $E$ be a measurable set.
+	And $f$ be a continuous function on $E$.
+	Let $\mathcal{O}$ be an open set, then by open set characterisation of continuous function we have $f^{-1}(\mathcal{O}) = E \cap U$ where $U$ is an open set.
+	Clearly, $f^{-1}(\mathcal{O})$ is a union of two measurable sets and thus measurable.
+	Therefore, $f$ is measurable since $\forall \text{ open set } \mathcal{O},\ f^{-1}(\mathcal{O})$ is measurable.
 	\end{proof}
-\item \textbf{Monotone functions on an interval are measurable}\\
-	Monotone functions defined on an interval are measurable.
+\item \textbf{Monotone function on an interval is measurable}\\
 	\begin{proof}
 		Every interval is measurable.
 		Thus, $f$ is defined on a measurable set.
+		Without loss of generality, suppose that $f(x)$ is an increasing function.
+		Then $\{ g_n \}_{n=1}^\infty$ where $g_n(x) = f(x) + \frac{x}{n}$ is a collection of strictly increasing functions.
+		---yet to prove that $g_n$ are measurable.
+		---then $\lim_{n \to \infty} g_n = f$ is also measurable
 	\end{proof}
-\item \textbf{$f$ measurable $\implies$ $g$ measurable ($f = g$  a.e.)}\\
-	If $f$ is measurable and $f = g$ a.e.(almost everywhere).
-		Then $g$ is measurable.\\
-
+\item \textbf{$f$ measurable and $f = g$(a.e) $\implies$ $g$ measurable}\\
 	\begin{proof}
+		
 	\end{proof}
 \item \textbf{$f$ measurable $\iff$ $f|_D, D \sim E$ measurable ($\forall D$ measurable)}\\
 	Suppose function $f$ is an extended real-valued function on a measurable set $E$.
