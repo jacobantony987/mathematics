@@ -27,7 +27,7 @@
 %Missing - \cite{fraleigh} 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 %	12, 13, 15, 18, 19, 25, 28, 30, 35, 38, 39, 40, 41, 42, 43, 44
 
-%Section 29
+%Module 1
 \section{Extension Fields \S29}
 \subsubsection*{Previous Results}
 \begin{itemize}
@@ -251,7 +251,6 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 	Note : Students should be able to perform long division of polynomials over extended fields.
 \end{enumerate}
 
-%Section 31
 \section{Algebraic Extensions \S31}
 \begin{description}
 	\item[$(G : H)$] is the number of $H$-left cosets in $G$.
@@ -452,7 +451,6 @@ Then every irreducible polynomial in $F[x]$ are linear since every non-constant 
 	\item
 \end{enumerate}
 
-%Section 32
 \section{Geometric Constructions \S32}
 \subsection{Basic Constructions}
 \subsubsection{Finding Midpoint of a line}
@@ -652,7 +650,6 @@ And assume that these three operations define the entire field of constructible 
 	\item
 \end{enumerate}
 
-%Section 33
 \section{Finite Fields \S33}
 \subsection{Structure of a Finite Field}
 \begin{theorem}
@@ -859,8 +856,8 @@ And assume that these three operations define the entire field of constructible 
 	\item
 \end{enumerate}
 
-%Section 45
-\section{Unique Factorisation Domains}
+%Module 2
+\section{Unique Factorisation Domains \S45}
 \begin{definition}[divides]
 	An element $a \in R$ divides $b$ if there exists an element $c \in R$ such that $b = ac$.
 \end{definition}
@@ -1265,4 +1262,199 @@ For example, let $x,y$ be two indeterminates, then an element $f(x) \in F[x,y]$ 
 	\item
 \end{enumerate}
 
+\section{Euclidean Domain \S46}
+\begin{definition}[Euclidean Norm]
+	Euclidean norm on an integral domain $D$ is a function $v$ which maps non-zero elements of $D$ into non-negative integers such that 
+	\begin{enumerate}
+		\item $\forall a,b \in D, (b \ne 0)$ there exists $q,r \in D$ such that $a = qb + r$ where  either $r = 0$ or $v(r) < v(b)$ and 
+		\item $\forall a,b \in D, (a,b \ne 0)$ $v(a) \le v(ab)$
+	\end{enumerate}
+\end{definition}
+\begin{definition}[Euclidean Domain]
+	An integral domain $D$ is a Euclidean Domain if there exists a Euclidean Norm in $D$.
+\end{definition}
+For example, $v(n) = |n|$ is a Euclidean norm on Euclidean domain $\mathbb{Z}$. And $v(f(x)) = deg(f(x))$ is a Euclidean norm on Euclidean domain $F[x]$.
 
+\begin{theorem}
+	Every Euclidean domain is a PID.
+\end{theorem}
+\begin{proof}
+	Let $D$ be a Euclidean domain with Euclidean norm $v$.
+	Let $N$ be an ideal in $D$.
+	If $N = \{ 0\}$, then $N = \langle 0 \rangle$ is a principal ideal.\\
+
+	Suppose $N \ne \{ 0 \}$.
+	Then there exists $b \in N\ (b \ne 0)$.
+	Clearly, $b \in N \implies \langle b \rangle \subset N$.
+	Choose a $b \in N$ such that $v(b)$ is minimal in $N$.\\
+
+	\textbf{Claim : $N = \langle b \rangle$}\\
+	Let $a \in N$.
+	Then there exists $q,r \in D$ such that $a = qb + r$ where $r = 0$ or $v(r) < v(b)$.
+	Clearly, $r = a-qb \in N$.
+	Thus, $r = 0$ since $v(r) < v(b)$ and $v(b)$ is minimal in $N$.
+	That is, $a = qb$ or $b|a$ for every $a \in N$.
+	Thus, $N \subset \langle b \rangle$.
+	Therefore, $N = \langle b \rangle$.
+	In other words, evey ideal in $D$ is a principal ideal.
+\end{proof}
+
+\begin{corollary}
+	Every Euclidean domain is a UFD.
+\end{corollary}
+\begin{proof}
+	We know that, every Euclidean domain is a PID.
+	And every PID is a UFD.
+	Thus, every Euclidean domain is a UFD.
+\end{proof}
+\subsection{Arithmetic in Euclidean Domain}
+\begin{theorem}
+	For a Euclidean domain with Euclidean norm $v$, $v(1)$ is minimal and $u \in D$ is a unit if and only if $v(u) = v(1)$.
+\end{theorem}
+\begin{proof}
+	We have, $v(a) \le v(ab)$.
+	Take $a = 1$, $v(1) \le v(1b) \implies v(1) \le v(b)$ for every $b \in D$.
+	Thus, $v(1)$ is minimal.\\
+
+	Suppose $u$ is a unit with multplicative inverse $u^{-1}$.
+	Clearly, $v(1) \le v(u)$ since $u \in D$.
+	Take $a = u$ and $b = u^{-1}$.
+	Then $v(u) \le v(uu^{-1}) = v(1)$.
+	Therefore, for every unit $u \in D$, we have $v(u) = v(1)$.
+\end{proof}
+
+\begin{theorem}[division algorithm]
+	Let $D$ be a Euclidean domain with Euclidean norm $v$.
+	And $a,b \in D\ (a,b \ne 0)$.
+	\begin{align*}
+		a = & bq_1 + r_1, \text{ where } r_1 = 0 \text{ or } v(r_1) < v(b)
+		\intertext{if $r_1 \ne 0$}
+		b = & r_1q + r_2, \text{ where } r_2 = 0 \text{ or } v(r_2) < v(r_1)
+		\intertext{ In general, if $r_i \ne 0$}
+		r_{i-1} = & r_iq + r_{i+1} \text{ where } r_{i+1} = 0 \text{ or } v(r_{i+1}) < v(r_i)
+	\end{align*}
+	Then the sequence $r_1,r_2, \dots$ must terminate with some $r_s = 0$.\\
+
+	If $r_1 = 0$, then $gcd(a,b) = b$.\\
+	If $r_k = 0$, then $gcd(a,b) = r_{k-1}$.\\
+
+	Furthermore, if $d$ is a gcd of $a$ and $b$, then there exists $\lambda,\mu \in D$ such that $d= \lambda a + \mu b$.
+\end{theorem}
+\begin{proof}
+	\textbf{Step 1 : Finite Sequence  $r_1,r_2,\dots,r_s$}\\
+	Suppose $r_1,r_2,\dots,r_{i-1} \ne 0$.
+	Then $v(r_1) > v(r_2) > \dots > v(r_{i-1})$ is a strictly decreasing sequence of non-negative integers.
+	Thus, the sequence will terminate in finite numbers of steps.
+	That is, $r_s = 0 $ for some integer $s$.\\
+	
+	\textbf{Step 2 : $gcd(a,b) = r_{s-1}$}\\
+	Suppose $r_1 = 0$.
+	Then $a = bq$ and $gcd(a,b) = b$ since $b|a, b|b$ and there does not exist an integer greater than $b$ that divides $b$.\\
+
+	Suppose $r_1 \ne 0$ and $gcd(a,b) = d$.
+	Then $r_1 = a-bq$ and $d|r_1$.\\
+	And $d | b, d | r_1 \implies d|a$ since $a = qb+r_1$.
+	Thus, $gcd(a,b) = gcd(b,r_1)$.\\
+	Continuing like this, we get $gcd(a,b) = gcd(r_{s-2},r_{s-1})$ if $r_{s-1} \ne 0$.\\
+	And we have, $r_s = 0 \implies r_{s-2} = qr_{s-1}$.\\
+	Clearly, $gcd(r_{s-2},r_{s-1}) = r_{s-1} = gcd(a,b)$.\\
+
+	\textbf{Step 3 : $gcd(a,b) = \lambda a + \mu b$}\\
+	Let $b$ be a $gcd(a,b)$.
+	Then, $b = 0a+1b$ and result is complete.\\
+
+	Suppose $gcd(a,b) = r_{s-1}$.
+	And $r_{s-1} = r_{s-3} - qr_{s-2}$.
+	Clearly, $r_i = \lambda_i r_{i-2} + \mu_i r_{i-1}$.
+	Keep on substituting using these equations until we reach $r_{s-1} = \lambda a + \mu b$.\\
+
+	Suppose $d'$ is another $gcd(a,b)$.
+	Then $d' = ud$ is an associate of $d$.
+	And $d' = ud = (\lambda u)a + (\mu u) b$.
+	And the result is true for any $gcd(a,b)$.
+\end{proof}
+
+\section{Gaussian Integers and Multiplicative Norms \S47}
+\begin{definition}[Gaussian integers]
+	Gaussian integers are complex numbers of the form $a+ib$ where $a,b \in \mathbb{Z}$.
+\end{definition}
+Note : Let $\alpha = a+ib$.
+Clearly, Gaussian integers are elements of $\mathbb{Z}[i]$.
+Here, $\mathbb{Z}[i]$ is a simple extension of the integral domain $\mathbb{Z}$ with a zero of $x^2+1$.
+
+\begin{definition}[Gaussian Norm]
+	Let $\alpha = a+ib$ be a Gaussian integer.
+	Then $N(\alpha) = |\alpha|^2 = a^2+b^2$ is a Euclidean norm on $\mathbb{Z}[i]$.
+\end{definition}
+
+\begin{lemma}
+	Let $N : \mathbb{Z}[i] \to \mathbb{Z}$ defined by $N(a+ib) = a^2+b^2$ be a norm function on $\mathbb{Z}[i]$ with the following properties
+	\begin{enumerate}
+		\item $N(\alpha) \ge 0,\ \forall \alpha \in \mathbb{Z}[i]$
+		\item $N(\alpha) = 0 \iff \alpha = 0$
+		\item $N(\alpha\beta) = N(\alpha)N(\beta)$
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	We have $\alpha \in \mathbb{Z}[i]$.
+	Then $\alpha = a+ib$ where $a,b \in \mathbb{Z}$.
+	Clearly, $N(a+ib) = a^2+b^2 \ge 0$.\\
+
+	$N(\alpha) = 0 \iff a^2+b^2 = 0 \iff a=0,b=0 \iff \alpha = 0+i0 = 0$.\\
+
+	Also, $N(\alpha\beta) = |\alpha\beta|^2 = |\alpha|^2 |\beta|^2 = N(\alpha)N(\beta)$.
+\end{proof}
+
+\begin{lemma}
+	$\mathbb{Z}[i]$ is an integral domain.
+\end{lemma}
+\begin{proof}
+	Let $\alpha, \beta \in \mathbb{Z}[i]$.\\
+	Then, $\alpha + \beta = (a+ib) + (c+id) = (a+c) + i(b+d) = (c+a) + i(d+b) = \beta + \alpha$.
+	And for any $\alpha \in \mathbb{Z}[i]$, we have $\alpha \cdot 1 = (a+ib) \cdot (1+i0) = (a+ib)$.
+	Thus, we have $\mathbb{Z}[i]$ is a commutative ring with unity.\\
+
+	It remains to prove that $\mathbb{Z}[i]$ has no zero divisors.
+	Suppose $\alpha\beta = 0$.
+	$\alpha\beta = 0 \implies N(\alpha\beta) = 0 \implies N(\alpha) N(\beta) = 0$.
+	But, $N(\alpha),N(\beta) \in \mathbb{Z}$ and $\mathbb{Z}$ has no zero divisors.
+	Thus, $N(\alpha) = 0$ or $N(\beta) = 0 \implies \alpha = 0$ or $\beta = 0$.
+	Therefore $\mathbb{Z}[i]$ has no zero divisors.
+\end{proof}
+
+\begin{theorem}[Gaussian integers is a Euclidean Domain]
+	The function $v$ defined by $v(\alpha) = N(\alpha)$ for every non-zero $\alpha \in \mathbb{Z}[i]$ is a Euclidean norm.
+\end{theorem}
+\begin{proof}
+	\textbf{Step 1 : $v(a) \le v(ab)$}\\
+	Let $\beta = b_1 + ib_2$ and $\beta \ne 0$.
+	Then $N(\beta) = b_1^2+b_2^2 \ge 1$.
+	Thus, $N(\alpha) \le N(\alpha)N(\beta) = N(\alpha\beta)$.\\
+
+	\textbf{Step 2 : Division algorithm}\\
+	That is, $\forall \alpha,\beta \in \mathbb{Z}[i],(\beta \ne 0)\ \exists \sigma,\rho \in \mathbb{Z}[i]$ such that $\alpha = \beta\sigma+\rho$, and $\rho = 0$ or $v(\rho) < v(\beta)$.
+
+	Since $\beta \ne 0$, $\alpha/\beta$ exists.
+	And we have, $\frac{\alpha}{\beta} = \frac{a_1+ia_2}{b_1+ib_2} = \frac{(a_1+ia_2)(b_1-ib_2)}{(b_1+ib_2)(b_1-ib_2)} = \frac{a_1b_1+a_2b_2}{b_1^2+b_2^2} + i \frac{a_2b_1-a_1b_2}{b_1^2+b_2^2} = r+is$ where $r,s \in \mathbb{Q}$.
+	Consider integers $q_1,q_2$ that are nearest to the rational numbers $r,s$.
+	Define $\sigma = q_1 + iq_2 \in \mathbb{Z}[i]$ and $\rho = \alpha - \beta\sigma$.\\
+
+	Suppose $\rho \ne 0$.
+	If $\rho = 0$, then the proof is complete.
+	By definition of $\sigma$, $|q_1-r| \le 0.5$ and $|q_2-s| \le 0.5$.
+	And we have, $$N \left(\frac{\alpha}{\beta} - \sigma \right) = N((r-q_1)+i(s-q_2)) = |q_1-r|^2 + |q_2-s|^2 \le 0.5$$
+	Since $\alpha = \beta\sigma + \rho$,
+	we have $\rho = \beta(\frac{\alpha}{\beta}-\sigma)$
+	$$N(\rho) = N \left( \beta \left(\frac{\alpha}{\beta}-\sigma \right) \right) = N(\beta) N \left(\frac{\alpha}{\beta}-\sigma\right) \le 0.5N(\beta)$$
+	Therefore, $N(\rho) < N(\beta)$.
+\end{proof}
+%Module 3
+\section{Automorphism and Fields \S48}
+\section{The Isomorphism Extension Theorem \S49}
+\section{Splitting Fields \S50}
+
+%Module 4
+\section{Separable Extensions \S51}
+\section{Galois Theory \S53}
+\section{Illustrations of Galois Theory \S54}
+\section{Cyclotomic Extensions \S55}
