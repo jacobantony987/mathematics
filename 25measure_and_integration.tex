@@ -24,6 +24,7 @@
 %To match the chapter number of Royden
 \setcounter{section}{1}
 
+%chapter 2
 \section{Lebesgue Measure}
 \begin{description}
 	\item[set function] A function which maps sets into (extended) real numbers.
@@ -1180,7 +1181,17 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	Again, the sum of an increasing function and strictly increasing function is always strictly increasing.
 	Thus, $\psi$ is a strictly increasing function.\\
 
-	---to continue---
+	We know that $\psi$ is only translating open intervals in $\mathcal{O}$.
+	That is, $\psi(I_{k,m}) = I_{k,m} + \frac{m}{2^k}$.
+	In other words, $\psi$ translates every interval $I_k$ in $\mathcal{O}$ into an interval of same length since $\varphi$ is constant in each subinterval of $\mathcal{O}$.
+	Thus, $$\displaystyle m(\psi(\mathcal{O})) = \sum_{k=1}^\infty l(\psi(I_k)) = \sum_{k=1}^\infty l(I_k) = m(\mathcal{O}) = 1$$
+	We know that $[0,2] = \psi(\mathcal{O}) \cup \psi(C)$.
+	Since $m(\psi(\mathcal{O})) = 1$, $m(\psi(C)) = 2-1 = 1$.\\
+
+	Clearly, $\psi(C)$ is a subset of positive measure.
+	Thus, by Vitali's theorem $\psi(C)$ has a subset $W$ which is not measurable.
+	However, $\psi^{-1}(W)$ is a subset of $C$ which is of measure zero.
+	Therefore, $C$ has a measurable subset which $\psi$ maps onto a non-measurable set.
 \end{proof}
 
 \begin{theorem}
@@ -1201,6 +1212,7 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	Therefore, Cantor set $C$ has a measurable, non-Borel subset $\psi^{-1}(W)$.
 \end{proof}
 
+%chapter 3
 \section{Lebesgue Measurable Functions}
 \subsection{Sum, Products, and Compositions}
 \begin{theorem}
@@ -1353,3 +1365,263 @@ Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
 
 	\end{proof}
 \end{enumerate}
+
+\subsection{Sequential Pointwise Limits and Simple Approximation}
+\begin{definition}[pointwise convergence]
+	A sequence of functions $\{f_n\}$ on a common domain $E$ convergence pointwise to $f$ if 
+	$$\forall x \in E,\ \lim_{n \to \infty} f_n(x) = f(x)$$
+\end{definition}
+\begin{definition}[pointwise convergence(a.e.)]
+	Let $B$ be a set of zero measure.
+	A sequence of functions $\{f_n\}$ on a common domain $E$ convergence pointwise a.e. on $A \subset E$ to $f$ if 
+	$$\forall x \in A \sim B,\ \lim_{n \to \infty} f_n(x) = f(x)$$
+\end{definition}
+\begin{definition}[uniform convergence]
+	A sequence of functions $\{f_n\}$ on a common domain $E$ convergence uniformly to $f$ if 
+	$$\forall \epsilon > 0,\ \exists N \in \mathbb{N},\text{ such that } \forall n \ge N,\ |f_n-f| < \epsilon $$
+\end{definition}
+
+\begin{theorem}[Pointwise Convergence(a.e.) preserves measurability]
+	Let $\{ f_n \}$ be a sequence measurable functions on $E$.
+	If $\{ f_n \}$ converges to $f$ pointwise a.e. on $E$, then $f$ is measurable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[simple function]
+	A real-valued function $\varphi$ on a measurable set $E$ is simple if it is measurable and assumes at most finitely many values.
+\end{definition}
+
+Note : $xRy \iff \varphi(x) = \varphi(y)$ is an equivalence relation which partitions $E$ into $k$ disjoint subsets $E$.
+
+Note : Suppose $\varphi$ is a simple function.
+Then each equivalent class of $E$ under above equivalence is also measurable by the definition of measurable function.(Why ?)
+
+\begin{definition}[canonical representation]
+	The canonical representation of a simple function $\varphi$ on $E$ is given by,
+	$$\varphi = \sum_{k=1}^n c_k \chi_{E_k} \text{ where } E_k = \{ x \in E : \varphi(x) = c_k \} $$
+\end{definition}
+
+\begin{lemma}[simple approximation]
+	Let $f$ be a measurable, real-valued function which is bounded on $E$.
+	Then for any $\epsilon > 0$, there exist simple functions $\varphi_\epsilon$ and $\psi_\epsilon$  approximating $f$ (from below and above) such that $0 \le \psi_\epsilon - \varphi_\epsilon < \epsilon$ on $E$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[simple approximation]
+	An extended real-valued function $f$ on a measurable set $E$ is measurable if and only if there exists a sequence of simple functions $\{ \varphi_n \}$ converging to $f$ pointwise on $E$ and $|\varphi_n| \le |f|$ on $E$ for every $n \in \mathbb{N}$.\\
+	And if $f$ is non-negative, there exists an increasing sequence of functions $\{ \varphi_n \}$ with the same property.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+%\subsection{Littlewood, Egoroff, Lusin}
+
+%chapter 4
+\section{Lebesgue Integration}
+\subsection{Riemann integral}
+\begin{definition}[partition]
+	A set $P = \{a,x_1,x_2,\dots,x_{n-1},b \}$ is a partition of an interval $[a,b]$ into $n$ subintervals if $a < x_1 < x_2 < \dots < x_{n-1} < b$.
+\end{definition}
+\begin{definition}[lower/upper Riemann integral]
+	Let $f$ be a bounded, real-valued function on a closed interval $[a,b]$ and $P$ be a partition of $[a,b]$.
+	Let $M_i,m_i$ be the supremum and infimum of $f$ in each subinterval of the partition.
+	Then upper and lower Riemann integrals are the infimum of upper Darboux sums and supremum of lower Darboux sums.\\
+
+	Riemann upper integral, 
+	\begin{equation}
+	 (R)\overline{\int_a^b} f = \inf_P \{ U(f,P) \} = \inf \left\{ \sum_{i=1}^n M_i (x_i - x_{i-1}) \right\} 
+	\end{equation}
+	Riemann lower integral, 
+	\begin{equation}
+	 (R)\underline{\int_a^b} f = \sup_P \{ L(f,P) \} = \inf \left\{ \sum_{i=1}^n m_i (x_i - x_{i-1}) \right\} 
+	\end{equation}
+\end{definition}
+\begin{definition}[Riemann integrable]
+	A function $f$ is Riemann integrable over $[a,b]$ if lower and upper Riemann integrals are equal.
+	And Riemann integral of $f$ over $[a,b]$ is given by,
+	\begin{equation}
+		(R)\int_a^b f = (R)\overline{\int_a^b} f = (R) \underline{\int_a^b} f 
+	\end{equation}
+\end{definition}
+
+\begin{definition}[step function]
+	A function $\psi$ is a step function if it assumes constant values in each subinterval of some partition of its domain.
+	$$ \psi(x) = \sum_{i = 1}^n c_i \chi_{(x_i,x_{i-1})} $$
+\end{definition}
+Note : $\displaystyle (R)\int_a^b \psi = \sum_{i=1}^n c_i (x_i-x_{i-1})$
+\begin{definition}[Dirchlet's function]
+	Dirchlet's function is given by,
+	$$ f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \notin \mathbb{Q} \end{cases} $$
+\end{definition}
+Note : Dirchlet's function is not Riemann integrable(why ?). But it is Lebesgue integrable since $\mathbb{Q}$ is Lebesgue measurable.
+
+\subsection{Lebesgue integral of a bounded, measurable function over a set of finite measure}
+\begin{definition}
+	Let $\psi$ be a simple function on a finite measure set $E$.
+	Then,
+	\begin{equation}
+		\int_E \psi = \sum_{i=1}^n a_i m(E_i) \text{ where } \psi = \sum_{i = 1}^n a_i \chi_{E_i}
+	\end{equation}
+\end{definition}
+Note : Step functions are simple functions.
+And the Riemann integral and Lebesgue integral of step functions are the same.\\
+
+Note : Dirchlet's function is a simple function. And thus Lebesgue integrable.
+
+\begin{lemma}
+	Let $\{ E_k \}_{k=1}^n$ be a disjoint collection of measurable subsets of a set $E$ of finite measure.
+	If $\varphi = \sum_{k = 1}^n a_k \chi_{E_k}$, then $\int_E \varphi = \sum_{k=1}^n a_k m(E_k)$
+\end{lemma}
+\begin{proof}
+	Suppose $\varphi = \sum_{k=1}^n a_k \chi_{E_k}$ where $E_k$ are of finite measure.
+	We consider distinct values of $a_i$, $\{ \lambda_1, \lambda_2, \dots, \lambda_m \}$.
+	Then, the function has the canonical representation, $\varphi = \sum_{i = 1}^r \lambda_r m(A_r)$ where $\displaystyle A_r = \bigcup_{\substack{k \\ a_k = \lambda_r}} E_k$.
+
+	Then, we have $\varphi^{-1}(\lambda_k) = A_k$ is a union of finite measurable set and thus measurable.
+	Thus, $\varphi$ is a measurable function which assumes at most $m$ different values.
+	And 
+	\begin{align*}
+		\int_E \varphi = & \sum_{r = 1}^m \lambda_r m(A_r) \\
+		= & \sum_{r = 1}^m \lambda_r m \left(\bigcup_{\substack{k \\ a_k = \lambda_r}} E_k \right)\\
+		= & \sum_{r=1}^m \sum_{\substack{k\\a_k = \lambda_r}} a_k m(E_k) \\
+		= & \sum_{k = 1}^n a_k m(E_k)
+		\end{align*}
+\end{proof}
+
+\begin{theorem}[linearity + monotonicity of integral of simple functions]
+	Let $\varphi$ and $\psi$ be simple functions defined a set $E$ of finite measure.
+	Then for any $\alpha,\beta \in \mathbb{R}$,
+	\begin{equation}
+		\int_E (\alpha\varphi + \beta\psi) = \alpha \int_E \varphi + \beta \int_E \psi
+	\end{equation}
+	Moreover, if $\varphi \le \psi$ on $E$, then
+	\begin{equation}
+		\int_E \varphi \le \int_E \psi
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Lebesgue integral for bounded functions}
+	Now we define Lebesgue integral of bounded functions, the same way we have constructed Riemann integral.
+	We use simple approximations and the definition of Lebesgue integral for simple functions for this construction.
+\begin{definition}[upper/lower Lebesgue integral]
+	Let $f$ be a bounded, real-valued function on a set $E$ of finite measure.
+	Any simple approximation lemma, we have two families of simple functions $\{ \varphi_\epsilon\}$ and $\{ \psi_\epsilon \}$ such that $\forall \epsilon > 0,\ \varphi \le f \le \psi$ and $0 \le \varphi-\psi < \epsilon$.Then \\
+	Upper Lebesgue integral,
+	\begin{equation}
+		\overline{\int_E} f = \inf_{\psi_\epsilon} \left\{ \int_E \psi_\epsilon \right\}
+	\end{equation}
+	Lower Lebesgue integral,
+	\begin{equation}
+		\underline{\int_E} f = \sup_{\varphi_\epsilon} \left\{ \int_E \varphi_\epsilon \right\}
+	\end{equation}
+
+\end{definition}
+
+\begin{definition}[Lebesgue integrability of bounded functions]
+	Let $f$ be a bouned, real-valued function defined on a set $E$ of finite measure.
+	Function $f$ is Lebesgue integrable on $E$ if both lower and upper Lebesgue integrals of $f$ over $E$ are equal.\\
+
+	And the Lebesgue integral of a bounded, real-valued function $f$ over $E$ is given by,
+	\begin{equation}
+		\int_E f = \sup_\varphi \int_E \varphi = \inf_\psi \int_E \psi
+	\end{equation}
+\end{definition}
+
+Now we can prove that Lebesgue integral is a generalisation of Riemann integral for bounded functions.
+\begin{theorem}
+	Let $f$ be a bounded, real-valued function defined on a close, bounded interval $[a,b]$.
+	If $f$ is Riemann integrable over $[a,b]$, then it is Lebesgue integrable over $[a,b]$.
+	And both Riemann integral and Lebesgue integral of $f$ over $[a,b]$ are equal.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Every bounded, measurable function $f$ defined on a set $E$ of finite measure is Lebesgue integrable over $E$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+\begin{theorem}[linearity + monotonicity of integral of bounded functions]
+	Let $f$ and $g$ be bounded, measurable functions defined a set $E$ of finite measure.
+	Then for any $\alpha,\beta \in \mathbb{R}$,
+	\begin{equation}
+		\int_E (\alpha f + \beta g) = \alpha \int_E f + \beta \int_E g
+	\end{equation}
+	Moreover, if $f \le g$ on $E$, then
+	\begin{equation}
+		\int_E f \le \int_E g
+	\end{equation}
+
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[additivity over the domain of integration]
+	Let $f$ be a bounded, measurable function on a set $E$ of finite measure.
+	Suppose $A,B$ are disjoint, measurable subsets of $E$. Then
+	\begin{equation}
+		\int_{A \cup B} f = \int_A f + \int_B f
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[passage of limit under the integral sign]
+	Let $\{ f_n \}$ be a sequence of bounded, measurable functions on a set $E$ of finite measure.
+	If $\{ f_n \}$ converges to $f$ uniformly on $E$, then the sequence of the integrals $\left\{ \int_E f_n \right\}$ converges to the integral of the limit function $\int_E f$.
+	\begin{equation}
+		\lim_{n \to \infty} \int_E f_n = \int_E f
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+For example, $\{ f_n \}$ converges to $f$ pointwise on $[0,1]$.
+But we don't observe the passage of limit under integral sign as,
+$$ \lim_{n \to \infty} \int_0^1 f_n \ne int_0^1 f $$
+
+Note :  ---yet to update the sequence---
+Pointwise convergence is not sufficient for passage of limit under integral sign.
+However, the bounded convergence theorem gives us an additional constraint (uniformly pointwise bounded) for the passage of limit under integral sign.
+
+\begin{theorem}[bounded convergence]
+	Let $\{ f_n \}$ be a sequence of measurable functions defined on a set $E$ of fintie measure.
+	Suppose $\{ f_n \}$ is uniformly pointwise bounded on $E$.
+	If $\{ f_n \}$ converges to $f$ pointwise on $E$, then the sequence of the integrals converges to the integral of the limit function.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Lebesgue integral of a measurable non-negative function}
+\subsection{General Lebesgue integral}
+
+
+\setcounter{section}{16}
+%chapter 17
+\section{General Measure Spaces}
+\subsection{Measures and Measurable Sets}
+\subsection{Signed Measures}
+\subsection{Caratheodory Measure}
+%\subsection{Construction of outer measures}
+%\subsection{Caratheodory-Hahn Theorem : Extension of a premeasure to a measure}
+
+%chapter 18
+\section{Integration over General Measure Spaces}
+\subsection{Measurable Functions}
+\subsection{Integration of non-negative measurable functions}
+\subsection{Integration of general measurable functions}
+\subsection{Radon-Nikodym Theorem}
+%\subsection{Nikodym Metric Space}
+
+%\section{General $L^p$ spaces}
+
+\setcounter{section}{19}
+%chapter 20
+\section{The Construction of a particular measure}
+\subsection{Product Measures}
+%\subsection{Lebesgue measure on Euclidean space}
+
