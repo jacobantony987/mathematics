@@ -10,7 +10,7 @@
 %The Hanh and Jordan decompositions, The Caratheodory Measure induced by an outer measure, Measureable functions
 %Chapter 17; Sections 17.1 to 17.3, Chapter 18; Section 18.1 upto corollory 7 (20 Hours)
 %Module 4: Integration over General Measure Space and Product Measure
-%Integration of non-negative meaurable functions, Integration of General Measurable functions, The Radon Nikodym Theorem
+%Integration of non-negative measurable functions, Integration of General Measurable functions, The Radon Nikodym Theorem
 %The Theorems of Fubini and Tonelli
 %Chapter 18; Sections 18.2 to 18.4, Chapter 20; Section 20.1 (20 Hours)
 
@@ -645,7 +645,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 
 \subsubsection*{Open, Outer approximation $\implies G_\delta$, Outer approximation }
 	Let $E$ be a subset of real numbers such that Lebesgue measure of $E$ has an open set inner approximation.
-	That is, for every $\epsilon > 0$, there exits an open set $\mathcal{O}$ such that $m^\ast(\mathcal{O} \sim E) < \epsilon$.\\
+	That is, for every $\epsilon > 0$, there exists an open set $\mathcal{O}$ such that $m^\ast(\mathcal{O} \sim E) < \epsilon$.\\
 
 	Let $\mathcal{O}_k$ be open sets such that $m^\ast(\mathcal{O}_k \sim E) < \frac{1}{k}$.
 	Define $\displaystyle G = \bigcap_{k=1}^\infty \mathcal{O}_k$.
@@ -1299,23 +1299,61 @@ Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1
 	Clearly, $f^{-1}(\mathcal{O})$ is a union of two measurable sets and thus measurable.
 	Therefore, $f$ is measurable since $\forall \text{ open set } \mathcal{O},\ f^{-1}(\mathcal{O})$ is measurable.
 	\end{proof}
-\item \textbf{Monotone function on an interval is measurable}\\
+\item \textbf{Monotone function on an interval is measurable}
 	\begin{proof}
-		Every interval is measurable.
-		Thus, $f$ is defined on a measurable set.
-		Without loss of generality, suppose that $f(x)$ is an increasing function.
-		Then $\{ g_n \}_{n=1}^\infty$ where $g_n(x) = f(x) + \frac{x}{n}$ is a collection of strictly increasing functions.
-		---yet to prove that $g_n$ are measurable.
-		---then $\lim_{n \to \infty} g_n = f$ is also measurable
+		Without loss of generality, suppose that $f$ is an increasing function defined on an interval $I$.
+		Since, every interval is measurable, $f$ is defined on a measurable set.\\
+
+		Consider $\{ g_n \}_{n=1}^\infty$ defined by $g_n(x) = f(x) + \frac{x}{n}$.
+		Since $g_n$ are strictly increasing functions, $g_n^{-1}(c,\infty) = I \cap U$ where $U$ is an interval.
+		Thus, $g_n^{-1}(c,\infty) = \{ x \in I : g_n(x) > c \}$ is always measurable.
+		Therefore, $\{ g_n \}$ is a family of measurable functions.\\
+
+
+                Now, from the construction of $g_n$, we have $\displaystyle \lim_{n \to \infty} g_n = f$.
+                We have, $\{g_n\}$ is a sequence of measurable functions converging pointwise to the limit function $f$ (a.e.) on the interval $I$.
+		Therefore, $f$ is measurable.\dag\footnote{
+			Limit of measurable functions under pointwise convergence(a.e.) is measurable.
+
+			{\color{red} We will prove this result in the upcoming subsection
+.}}
 	\end{proof}
-\item \textbf{$f$ measurable and $f = g$(a.e) $\implies$ $g$ measurable}\\
+\item \textbf{$f$ measurable and $f = g$(a.e) $\implies$ $g$ measurable}
 	\begin{proof}
+                Suppose $f,g$ are functions defined on a measurable set $E$.
+		Suppose $f$ is measurable.
+                Let $A \subset E$ such that $A = \{ x \in \mathbb{R} : f(x) \ne g(x) \}$.
+		We have $f = g$ (a.e.).
+		Thus, $m(A) = 0$.
+		And we have,
+	\begin{align*}
+		\{ x \in E : g(x) > c \} = & \{ x \in A : g(x) > c \} \cup \{ x \in E \sim A : g(x) > c \} \\
+		= & \{ x \in A : g(x) > c \} \cup \{ x \in E \sim A : f(x) > c \}\\
+                = & \{ x \in A : g(x) > c \} \cup \left[ \{ x \in E : f(x) > c \} \cap (E \sim A) \right]
+	\end{align*}
 		
+		Clearly, $\{ x \in A : g(x) > c \}$ is a subset of a set of measurse zero and thus measurable.
+                Also, $E \sim A$ measurable since both $E$ and $A$ are measurable.
+		And since $f$ is measurable, $\{ x \in E : f(x) > c\}$ is measurable.
+                Thus, $\{ x \in E : g(x) > c\}$ is measurable for any $c \in \mathbb{R}$.
+		Therefore, $g$ is a measurable function.
 	\end{proof}
 \item \textbf{$f$ measurable $\iff$ $f|_D, D \sim E$ measurable ($\forall D$ measurable)}\\
 	Suppose function $f$ is an extended real-valued function on a measurable set $E$.
-		For measurable subet $D$ of $E$, $f$ is measurable on $E$ if and only if the resctriction of $f$ to $D$ and $D \sim E$ are measurable.
+	For measurable subet $D$ of $E$, $f$ is measurable on $E$ if and only if the resctriction of $f$ to $D$ and $D \sim E$ are measurable.
 	\begin{proof}
+		\textbf{Part 1 : $f$ measurable $\implies f|_D$ measurable}\\
+   		Suppose $f$ is a measurable function defined on $E$ and $D$ is a measurable subset of $E$.
+		Since, $f$ is measurable, $E$ is measurable.
+		Clearly $E \sim D$ is measurable.
+		\begin{align*}
+			\{ x \in D : f|_D(x) > c \} = & \{ x \in D : f(x) > c \} \\
+			= & \{ x \in E : f(x) > c\} \cap D
+		\end{align*}
+		Since $f$ is measurable, $\{ x \in E : f(x) > c\}$ is measurable for any $c \in \mathbb{R}$.
+		And intersection of measurable sets are measurable.
+		Thus, $\{ x \in D : f|_D(x) > c\}$ is measurable for any $c \in \mathbb{R}$.
+		Therefore, $f|_D$ is a measurable function.
 	\end{proof}
 \end{enumerate}
 
@@ -1340,31 +1378,98 @@ Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1
 \subsubsection{Properties of Measurable Functions}
 Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
 \begin{enumerate}
-\item \textbf{Linearity : }$\alpha f + \beta g$ is measurable $\forall \alpha,\beta$\\
-
+\item \textbf{Linearity : }$\alpha f + \beta g$ is measurable $\forall \alpha,\beta$
 	\begin{proof}
+		\textbf{Step 1 : $f$ measurable $\implies \alpha f$ measurable}\\	
+		Suppose $\alpha = 0$.
+		Then $\alpha f = 0$.
+		And $0$ function is trivially measurable.\\
+		Suppose $\alpha \ne 0$.
+		Then $\{ x \in E : f(x) > c/\alpha \} = \{ x \in E : \alpha f(x) > c \}$ is measurable for any $c \in \mathbb{R}$.
+		Therefore $\alpha f$ is measurable for any $\alpha \in \mathbb{R}$.\\
+
+		In other words, if $f$ is measurable, then $\alpha f$ is measurable and if $g$ is measurable, then $\beta g$ is measurable for any $\alpha,\beta \in \mathbb{R}$.
+		Therefore, it is enough to prove that $f,g$ measurable $\implies f+g$ measurable.
+
+		\textbf{Step 2 : $f,g$ are measurable $\implies f+g$ is measurable}\\
+		\begin{align*}
+			f(x)+g(x) < c \iff & f(x) <  c - g(x) 
+			\intertext{Since $\mathbb{Q}$ is dense, there exists a rational number $q \in \mathbb{Q}$ between any two distinct real numbers}
+                        f(x) + g(x) < c\iff & \exists q \in \mathbb{Q},\ f(x) < q < c-g(x) \\
+			\iff & f(x) < q \text{ AND } g(x) < c-q
+		\end{align*}
+		\begin{align*}
+			\{ x \in E : f+g(x) < c \} = & \{ x \in E : f(x) + g(x) < c \} \\
+			= & \bigcup_{q \in \mathbb{Q}} \left[ \{ x \in E : f(x) < c \} \cap \{ x \in E : g(x) < c - q \} \right]
+		\end{align*}
+		Since, $f,g$ are measurable, each set in the union is measurable.
+		Thus, $\{ x \in E : f+g(x) < c\}$ is measurable for every $c \in \mathbb{R}$, since rational numbers are countable, and countable union of measurable sets is measurable.
+		Therefore, $f+g$ is measurable.
 	\end{proof}
-\item \textbf{ Product : }$fg$ is measurable\\
-
+\item \textbf{ Product : }$fg$ is measurable
 	\begin{proof}
+		Suppose $f,g$ are measurable functions {\color{red}which are finite (a.e.)} on a measurable set $E$.
+		And we have,
+		\begin{equation}
+			fg = \frac{1}{2} \left[ (f+g)^2 - f^2 - g^2 \right]
+		\end{equation}
+		\textbf{Step 1 : $f$ is measurable $\implies f^2$ is measurable}\\
+		Suppose $c \ge 0$.
+		If $c < 0$, then $\{ x \in E : f^2(x) > c \} = E$ is measurable.
+		\begin{equation*}
+			\{ x \in E : f^2(x) > c \} = \{ x \in E : f(x) > \sqrt{c} \} \cup \{ x \in E : f(x) < -\sqrt{c} \}
+		\end{equation*}
+		is a union of two measurable sets and is measurable.\\
+
+		\textbf{Step 2 : $fg$ is measurable} \\
+		We have $f,g$ are measurable.
+		Thus, $f+g$ is measurable, since linear combination of measurable sets is measurable.
+		And, $f^2,g^2,(f+g)^2$ are measurable by Step 1.
+		We know that $fg$ is a linear combination of these measurable sets and therefore $fg$ is measurable.
 	\end{proof}
 \item \textbf{Composition of measurable functions is not necessarily measurable}\\
-	We know that, Cantor set $C$ has subset $A$ such that $\psi$ maps $A$ onto a non-measurable set.
-	Let $A$ be a measurable subset of open interval $(0,1)$ such that $\psi(A)$ is non-measurable.\\
+	We know that, Cantor set $C$ has subset $A = \psi^{-1}(W)$ such that $\psi$ maps $A$ onto a non-measurable set $W$.\dag\footnote{
+		From the proof of Vitali's theorem and associated lemma, $\psi(C)$ has such a subset $W$ which is a choice set of $\psi(C)$ under rational equaivalence.}
+	Then $A$ is a measurable subset of open interval $(0,1)$ and $\psi(A)$ is non-measurable.\\
 		
 	Let $\chi_A$ be the characteristic function of $A$.
-	Then $\chi_A \circ \psi^{-1}$ is not measurable.
-	But, both the functions $\chi_A$ and $\psi^{-1}$ are measurable functions.
-	\item \textbf{If $f$ is continuous and $g$ is measurable, then $f \circ g$ is measurable}\\
+	Then $\chi_A \circ \psi^{-1}$ is not measurable since $\{ x \in (0,1) : \chi_A \circ \psi^{-1}(x) \ge 1 \} = \psi(A)$ is not measurable.
+	But, both the functions $\chi_A$ and $\psi^{-1}$ are measurable functions since $\chi_A^{-1}$ is either $\phi,A$ or $\mathbb{R}$ and $\psi^{-1}$ is a continuous real-valued function defined on $(0,1)$.
+	\item \textbf{If $f$ is continuous and $g$ is measurable, then $f \circ g$ is measurable}
 	\begin{proof}
+		Suppose $f$ be a continuous function and $g$ be a measurable function both defined on a common set $E$ which is measurable.
+		Since $f$ is continuous, we know that $f$ is measurable.\\
 
+		Let $\mathcal{O}$ be an open set.
+		Then $(f \circ g)^{-1}(\mathcal{O}) = g^{-1} ( f^{-1}(\mathcal{O}))$.
+		By characterisation of continuity, $U = f^{-1}(\mathcal{O})$ is an open set since $\mathcal{O}$ is open.
+		And by characterisation of measurability of $g$, we have $g^{-1}(U)$ is an open set since $g$ is measurable and $U$ is open.
+		Now we have $(f \circ g)^{-1}(\mathcal{O})$ is an open set for any open set $\mathcal{O}$.
+		Therefore by the characterisation of measurability, $f \circ g$ is measurable.
 	\end{proof}
 \item \textbf{}\\
 	For a finite family of measurable functions $\{ f_1, f_2, \dots,f_n \}$ with common domain $E$, both the functions $\max\{f_1,f_2,\dots,f_n\}$ and $\min\{f_1,f_2,\dots,f_n\}$ are measurable.
 	\begin{proof}
-
+		Let $\{f_1,f_2,\dots,f_n\}$ be a finite family of measurable functions defined on a common measurable set $E$.
+		We have,
+		$$ \{ x \in E : max\{ f_1,f_2,\dots,f_n \}(x) > c \} = \bigcup_{k = 1}^n \{ x \in E : f_k(x) > c \}$$
+		is a finite union of measurable sets since each $f_k$ is measurable.
+		Therefore, $max\{f_1,f_2,\dots,f_n\}$ is measurable.
+		Similary, we have,
+		$$ \{ x \in E : min\{ f_1,f_2,\dots,f_n \}(x) < c \} = \bigcup_{k = 1}^n \{ x \in E : f_k(x) < c \}$$
+		Therefore, $min\{f_1,f_2,\dots,f_n\}$ is also measurable.
+		
 	\end{proof}
 \end{enumerate}
+
+	Note : Let $f$ be a measurable function on a measurable set $E$.\\
+	Then $-f$ is measurable since
+	$$ \{ x \in E : -f(x) > c \} = \{ x \in E : f(x) < -c \} $$
+	And  $|f|,f^+,f^-$ are also measurable since
+	$$|f| = max\{ f,-f \},\ f^+ = max\{ f,0 \},\ f^- = max\{ -f,0 \}$$
+	These function $f^+,f^-$ are quite important as we may write $f = f^+ - f^-$ where both the functions $f^+$ and $f^-$ are non-negative.
+	And Lebesgue integral for non-negative functions are sufficient to integrate any function $f$.
+	$$ \int_E f = \int_E f^+ - \int_E f^- $$
 
 \subsection{Sequential Pointwise Limits and Simple Approximation}
 \begin{definition}[pointwise convergence]
@@ -1386,6 +1491,25 @@ Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
 	If $\{ f_n \}$ converges to $f$ pointwise a.e. on $E$, then $f$ is measurable.
 \end{theorem}
 \begin{proof}
+	Let $\{ f_n \}$ be a sequence of measurable functions converging to $f$ pointwise a.e. on $E$.
+	Then $\{ f_n\}_{n = 1}^\infty$	converges pointwise on $E \sim E_0$ where $E_0$ is a set of measure zero.
+	Without loss of generality, suppose that $\{ f_n \}$ converges pointwise everywhere on $E$.\dag\footnote{
+		Consider $E' = E \sim E_0$}\\
+
+	Let $c \in \mathbb{R}$.
+	We claim that,
+	\begin{equation}
+		f(x) < c \iff \exists n,k \text{ such that } f_j(x) < c-\frac{1}{n},\ \forall j \ge k
+	\end{equation}
+	Suppose that for every natural numbers $n,k$, there exists $j \ge k$ for which $f_j(x) \ge c - \frac{1}{n}$.
+	Since $f(x)$ is the limit function, $f(x) \not< c$ which is a contradiction. 
+	Thus, we may write,
+	\begin{equation}
+		\{ x \in E : f(x) < c \} = \bigcup_{n,k = 1}^\infty \left[ \bigcap_{j=k}^\infty \left\{ x \in E : f_j(x) < c-\frac{1}{n} \right\} \right] 
+	\end{equation}
+	Countable union of countable intersections of measurable sets is also measurable.
+	Thus $\{ x \in E : f(x) < c \}$ is a measurable set for any $c \in \mathbb{R}$.
+	Therefore, $f$ is measurable.
 \end{proof}
 
 \begin{definition}[simple function]
@@ -1399,7 +1523,14 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 
 \begin{definition}[canonical representation]
 	The canonical representation of a simple function $\varphi$ on $E$ is given by,
-	$$\varphi = \sum_{k=1}^n c_k \chi_{E_k} \text{ where } E_k = \{ x \in E : \varphi(x) = c_k \} $$
+	\begin{equation}
+		\varphi = \sum_{k=1}^n c_k \chi_{E_k} \text{ where } E_k = \{ x \in E : \varphi(x) = c_k \} 
+	\end{equation}
+\end{definition}
+
+\begin{definition}[bounded]
+	Let $f$ be a function on $E$.
+	The function $f$ is bounded if there exists $m \in \mathbb{R},\ m \ge 0$ such that $|f(x)| < m$ for every $x \in E$.
 \end{definition}
 
 \begin{lemma}[simple approximation]
@@ -1407,6 +1538,17 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 	Then for any $\epsilon > 0$, there exist simple functions $\varphi_\epsilon$ and $\psi_\epsilon$  approximating $f$ (from below and above) such that $0 \le \psi_\epsilon - \varphi_\epsilon < \epsilon$ on $E$.
 \end{lemma}
 \begin{proof}
+	Let $f$ be a bounded, measurable function on $E$.
+	Then there exists open, bounded interval $(c,d)$ such that $f(E) \subset (c,d)$.
+	Let $P = \{y_0,y_1,\dots,y_n\}$ be a partitions of open interval $(c,d)$ such that $y_0 =c < y_1 < \dots < y_{n-1} < y_n = d$ and $y_k - y_{k-1} < \epsilon$ for every $k$.
+	Define $I_k = [y_{k-1},y_k)$ and $E_k = f^{-1}(I_k)$.
+	Then $E_k$ are measurable since $I_k$ are intervals and $f$ is measurable.({ \color{blue}Why ?})\\
+
+	Define $\displaystyle \varphi_\epsilon = \sum_{k=1}^n y_{k-1} \chi_{E_k}$ and $\displaystyle \psi_\epsilon = \sum_{k=1}^n y_k \chi_{E_k}$.
+	Then for any $x \in E$, we have $\varphi_\epsilon(x) = y_{k-1} \le f(x) \le y_k = \psi_\epsilon(x)$
+	Clearly, $\varphi_\epsilon \le \psi_\epsilon$ by the construction.
+	And for each $k$, we have $\varphi_\epsilon(y) - \psi_\epsilon(y) = y_k - y_{k-1} < \epsilon$ for any $y \in [y_{k-1},y_k)$.
+	Therefore, $0 \le \varphi_\epsilon - \psi_\epsilon < \epsilon$.
 \end{proof}
 
 \begin{theorem}[simple approximation]
@@ -1414,6 +1556,22 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 	And if $f$ is non-negative, there exists an increasing sequence of functions $\{ \varphi_n \}$ with the same property.
 \end{theorem}
 \begin{proof}
+	\textbf{Part 1}\\
+	Suppose there exists a sequence of simple functions $\{\varphi_n \}$ converging pointwise to $f$ on $E$.
+	Since simple functions are measurable and pointwise limit of measurable functions are measurable, $f$ is measurable.\\
+
+	\textbf{Part 2}\\	
+	Suppose $f$ is measurable.
+	Without loss of generality, suppose that $f \ge 0$ on $E$.
+	Otherwise, $f = f^+ - f^-$ where $f^+,f^- \ge 0$.
+	And $f$ is measurable since both $f^+$ and $f^-$ are measurable.\\
+
+	Let $n \in \mathbb{N}$.
+	Define $E_n = \{ x \in E : f(x) \le n \}$.
+	Since $f$ is measurable, $E_n$ is a measurable subset of $E$.
+	And we know that $f|_{E_n}$ is also a non-negative, bounded, measurable function.\\
+
+	Then by simple approximation lemma, for $\epsilon = \frac{1}{n}$ there exists $\varphi_n$ and $\psi_n$ such that $0 \le \varphi_n \le f \le \psi_n$ and $0 \le \varphi_n - \psi_n < \frac{1}{n}$.
 \end{proof}
 
 %\subsection{Littlewood, Egoroff, Lusin}
