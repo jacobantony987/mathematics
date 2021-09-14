@@ -1566,13 +1566,56 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 	Otherwise, $f = f^+ - f^-$ where $f^+,f^- \ge 0$.
 	And $f$ is measurable since both $f^+$ and $f^-$ are measurable.\\
 
+	\textbf{Step 1 : Construction of simple functions on $E_n$}\\
 	Let $n \in \mathbb{N}$.
 	Define $E_n = \{ x \in E : f(x) \le n \}$.
 	Since $f$ is measurable, $E_n$ is a measurable subset of $E$.
 	And we know that $f|_{E_n}$ is also a non-negative, bounded, measurable function.\\
 
-	Then by simple approximation lemma, for $\epsilon = \frac{1}{n}$ there exists $\varphi_n$ and $\psi_n$ such that $0 \le \varphi_n \le f \le \psi_n$ and $0 \le \varphi_n - \psi_n < \frac{1}{n}$.
+	Then by simple approximation lemma, for $\epsilon = \frac{1}{n}$ there exists $\varphi_n$ and $\psi_n$ such that $0 \le \varphi_n \le f \le \psi_n$ and $0 \le \varphi_n - \psi_n < \frac{1}{n}$ on $E_n$.\\
+
+	\textbf{Step 2 : Extending simple function to $E$}\\
+	Extend $\varphi$ to $E$ by setting $\varphi(x) = n$ if $f(x) > n$.
+	Again, $\varphi$ is a simple function on $E$.
+	And $0 \le \varphi \le f$ on $E$.\\
+
+	\textbf{Step 3 : Sequence of simple functions converging to $f$}\\
+	We claim that the sequence of simple functions $\{ \varphi \}$ converges to $f$ pointwise on $E$.
+	Suppose $x \in E$.
+	Suppose $f(x)$ is finite.
+	Let $m \in \mathbb{N}$.
+	Then $0 \le f(x) - \varphi_n(x) \le \frac{1}{n}$ for all $n \ge m$.
+	Therefore, $\displaystyle \lim_{n \to \infty} \varphi_n(x) = f(x)$.
+	Suppose $f(x) = \infty$.
+	Then $\varphi_n(x) = n,\ \forall n$.
+	Therefore, $\displaystyle \lim_{n \to \infty} \varphi_n(x) = f(x)$.\\
+
+	Replace each $\varphi_n$ with $max\{ \varphi_1,\varphi_2,\dots,\varphi_n\}$\dag\footnote{
+		We replace each simple function $\varphi_k$ with the maximum of the finite subsequence from $\varphi_1$ upto $\varphi_k$.
+		That is,
+		$\varphi_1' = max \{ \varphi_1 \} = \varphi_1$, and
+		$\varphi_2' = max \{ \varphi_1,\varphi_2 \}$, and
+		$\varphi_3' = max \{ \varphi_1,\varphi_2,\varphi_3 \}$, $\dots$
+		},
+	we have an increasing sequence of simple functions $\varphi_n \}$ converging to $f$ pointwise on $E$.
 \end{proof}
+\subsubsection{Exercise}
+\begin{enumerate}
+	\setcounter{enumi}{11}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
 
 %\subsection{Littlewood, Egoroff, Lusin}
 
