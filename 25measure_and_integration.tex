@@ -28,6 +28,7 @@
 
 %chapter 2
 \section{Lebesgue Measure}
+\subsection{Introduction}
 \begin{description}
 	\item[set function] A function which maps sets into (extended) real numbers.
 	\item[$\sigma$-algebra] A family $\mathcal{A}$ of subsets of a nonempty set $X$ such that
@@ -54,7 +55,7 @@
 \end{definition}
 
 \subsubsection{Exercise}
-\subsubsection{Techniques in Measure Theory}
+\paragraph{Techniques in Measure Theory}
 	Let $\mathcal{A}$ be a $\sigma$-algebra.
 	Let Lebesgue Measure $m : \mathcal{A} \to [0,\infty]$ be countably additive over disjoint collection of sets in $\mathcal{A}$.
 \begin{itemize}
@@ -73,7 +74,7 @@
 		$\displaystyle \implies m\left( \cup_{k=1}^\infty E_k \right) = m \left( \cup_{k=1}^\infty F_k \right) = \sum_{k=1}^\infty m(F_k) \le \sum_{k=1}^\infty m(E_k)$
 \end{itemize}
 
-\subsubsection{Counting Measure}
+\paragraph{Counting Measure}
 	The counting measure $c : \mathcal{A} \to [0,\infty]$ is a set function which maps sets to their cardinality.
 	For example, if $E = \{2,3,4\}$, then $c(E) = 3$.
 \begin{itemize}
@@ -90,7 +91,7 @@
 	\item[$F_\sigma$] A set which is countable union of closed subsets.
 \end{description}
 
-\subsubsection{Set-theoretic Construction of Lebesgue Measure}
+\subsubsection{Caratheodory Construction of Lebesgue Measure}
 \begin{enumerate}
 	\item Construct Lebesgue Outer Measure $m^\ast$ (with Axiom 3 relaxed) \\
 		ie, Obtain the underlying relation of the set function
@@ -107,7 +108,7 @@
 	 \label{eq:outermeasure}
 \end{equation}
 \end{definition}
-\subsection{Properties of Lebesgue Outer Measure}
+\subsubsection{Properties of Lebesgue Outer Measure}
 \begin{enumerate}
 	\item Outer Measure of the empty set is zero\\
 	Let $\epsilon > 0$.
@@ -1619,9 +1620,30 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 	\item
 	\item
 \end{enumerate}
+{\color{violet}
+\subsection{Littlewood, Egoroff, Lusin}
+Out of syllabus - But important for our understanding of the subject.
+\subsubsection{Littlewoods' three principles}
+\begin{enumerate}
+	\item Every measurable set is \textbf{nearly} a finite union of intervals.
+	\item Every measurable function is \textbf{nearly} continuous.
+	\item Every convergent sequence of measurable functions is \textbf{nearly} uniform.
+\end{enumerate}
+\begin{theorem}[Egoroff]
+	Suppose a sequence $\{ f_n \}$ of measurable functions converges to $f$ pointwise on a set $E$ of finite measure.
+	Then for any $\epsilon > 0$, there exists a closed set $F \subset E$ such that $m(E \sim F) < \epsilon$ and $\{ f_n \}$ conveges to $f$ uniformly on $F$.
+\end{theorem}
 
-%\subsection{Littlewood, Egoroff, Lusin}
+\begin{theorem}
+	Let $f$ be a simple function on $E$.
+	Then for any $\epsilon > 0$, there exists a continuous function $g$ on $\mathbb{R}$ and a closed set $F \subset E$ such that $f =g$ on $F$ and $m(E \sim F) < \epsilon$.
+\end{theorem}
 
+\begin{theorem}[Lusin]
+	Let $f$ be a real-valued measurable function on $E$.
+	Then for any $\epsilon > 0$, there exists a continuous function $g$ on $\mathbb{R}$ and closed set $F \subset E$ such that $f=g$ on $F$ and $m(E \sim F) < \epsilon$.
+\end{theorem}
+}
 %chapter 4
 \section{Lebesgue Integration}
 \subsection{Riemann integral}
@@ -1894,25 +1916,76 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	Suppose a sequence $\{ f_n \}$ of bounded, measurable functions converges uniformly to $f$ on a set of fintie measure $E$.
+	Uniform limit of bounded functions is bounded.
+	And limit function of measurable functions is measurable.
+	Therefore, $f$ is also a bounded, measurable function.\\
+
+	Let $\epsilon > 0$.
+	Choose an $N$ such that $|f - f_n | \le \epsilon/m(E),\ \forall n \ge N$.(such an $N$ exists since the convergence is uniform)\\
+	By linearlity and monotonicity,
+	$$ \left| \int_E f - \int_E f_n \right| = \left| \int_E f - f_n \right| \le \int_E |f-f_n| \le \frac{\epsilon}{m(E)} \cdot m(E) = \epsilon $$
+	Clearly, $\displaystyle \left\{ \int_E f_n \right\}$ is sequence of functions converging pointwise to $\displaystyle \int_E f$.
+	Therefore we have, $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{proof}
+\begin{definition}[passage of limit under integral sign]
+	Suppose $\{ f_n \}$ is a sequence of bounded, measurable functions converging to $f$ pointwise (a.e.) on $E$.
+	If 
+	\begin{equation}
+		\lim_{n \to \infty} \int_E f_n  = \int_E \lim_{n \to \infty} f_n = \int_E f 
+	\end{equation}
+	then this equality is the passage\dag\footnote{
+		`Passge of limit under integral' is used by I.P. Natanson,
+		in his ``Theory of functions of real variable''}
+	of the limit under the integral sign.
+\end{definition}
 
-For example, $\{ f_n \}$ converges to $f$ pointwise on $[0,1]$.
-But we don't observe the passage of limit under integral sign as,
-$$ \lim_{n \to \infty} \int_0^1 f_n \ne \int_0^1 f $$
+	\textbf{Note : } Pointwise convergence is not sufficient for passage of limit under integral sign.
+	In other words, there exists a sequence $\{ f_n \}$ of bounded, measurable functions such that
+	$$ \lim_{n \to \infty} \int_0^1 f_n \ne \int_0^1 f $$
+	where $\{ f_n \}$ converges to limit function $f$ pointwise on $[0,1]$.
 
-Note :  ---yet to update the sequence---
-Pointwise convergence is not sufficient for passage of limit under integral sign.
-However, the bounded convergence theorem gives us an additional constraint (uniformly pointwise bounded) for the passage of limit under integral sign.
+\begin{proof}
+	Consider a family of functions defined by $f_n(\frac{1}{n}) = n$ and $f_n$ increases from $f_n(0) = 0$ to $f_n(\frac{1}{n}) = n$ linearly and decreases from $f_n(\frac{1}{n}) = n$ to $f_n(\frac{2}{n}) = 0$ linearly. And vanishes for any $x \ge \frac{2}{n}$ on $[0,1]$.
+	$$ f_n(x) = \begin{cases} 0 & x \in [\frac{2}{n},1] \\ nx(2-n) & x = [\frac{1}{n},\frac{2}{n}) \\ n^2 x & x \in [0,\frac{1}{n}) \end{cases}$$
 
+	We know that these functions are bounded by their construction as $0 \le f_n \le \frac{1}{n}$ for every $n \in \mathbb{N}$.
+	Each $f_n$ is continuous, and thus measurable.
+	Clearly, $\{ f_n \}$ is a sequence of bounded, measurable functions defined on $[0,1]$.\\
+
+	We have, $\displaystyle \lim_{n \to \infty} f_n = 0$.
+	And, $\displaystyle \lim_{n \to \infty}\int_0^1 f_n  = 1 \ne 0 = \int_0^1 0$.
+\end{proof}
+	\textbf{Note :} However, the bounded convergence theorem gives us an additional constraint (uniformly pointwise bounded) for the passage of limit under integral sign.
 \begin{theorem}[bounded convergence]
-	Let $\{ f_n \}$ be a sequence of measurable functions defined on a set $E$ of fintie measure.
+	Let $\{ f_n \}$ be a sequence of measurable, functions on a set of finite measure $E$.
 	Suppose $\{ f_n \}$ is uniformly pointwise bounded on $E$.
-	If $\{ f_n \}$ converges to $f$ pointwise on $E$, then the sequence of the integrals converges to the integral of the limit function.
+	If $\{ f_n \}$ converges to $f$ pointwise on $E$, then $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{theorem}
 \begin{proof}
+	Suppose sequence $\{ f_n \}$ of bounded, measurable functions converges to $f$ pointwise on $E$.
+	Then the limit function $f$ is also measurable.
+	And since $\{ f_n \}$ is uniformly pointwise bounded on $E$, $f$ is bounded on $E$.\\
+
+	Let $A$ be a measurable subset of $E$ and $n \in \mathbb{N}$.
+	By linearlity and monotonicity,
+	$$ \int_E f_n - \int_E f = \int_E f_n - f = \int_A f_n - f + \int_{E \sim A} f_n + \int_{E \sim A}-f$$
+	By monotonicity of integral,
+	\begin{equation}
+	 	\left| \int_E f_n - \int_E f \right| \le \int_A |f_n - f| + 2M \cdot m(E \sim A)
+	\end{equation}
+
+	Let $\epsilon > 0$.
+	Since $E$ a set of finte measure and $f$ is a real-valued function.
+	By Egoroff's theorem, there exists a measurable subset $A \subset E$ on which $\{ f_n \}$ converges to $f$ uniformly and $m(E \sim A ) < \epsilon/4M$.
+	By uniform convergence on $A$, there exists $N \in \mathbb{N}$ such that
+	$$ |f_n - f| < \frac{\epsilon}{2 \cdot m(E)} \text{ on } A,\ \forall n \ge N$$
+	Thus, by monotonicity of integration we have,
+	$$ \left| \int_E f_n - \int_E f \right| \le \frac{\epsilon}{2 \cdot m(E)} m(A) + 2M \cdot m(E \sim A) < \epsilon $$
+	Therefore, $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{proof}
 
-\subsection{Exercise}
+\subsubsection{Exercise}
 \begin{enumerate}
 	\item
 	\item
@@ -2050,7 +2123,7 @@ However, the bounded convergence theorem gives us an additional constraint (unif
 \end{theorem}
 \begin{proof}
 \end{proof}
-\subsection{Exercise}
+\subsubsection{Exercise}
 \begin{enumerate}
 	\setcounter{enumi}{16}
 	\item
@@ -2149,7 +2222,7 @@ However, the bounded convergence theorem gives us an additional constraint (unif
 \end{theorem}
 \begin{proof}
 \end{proof}
-\subsection{Exercise}
+\subsubsection{Exercise}
 \begin{enumerate}
 	\setcounter{enumi}{27}
 	\item
