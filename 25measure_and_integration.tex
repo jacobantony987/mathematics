@@ -678,7 +678,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 
 \begin{theorem}
 	Let $E$ be a Lebesgue measurable set of finite measure.
-	Then for any $\epsilon > 0$, there exists a finite collection of disjoint open sets $\{ I_k \}_{k=1}^n$ such that  $\displaystyle \mathcal{O} = \bigcup_{k=1}^n I_k$ and $m^\ast(\mathcal{O} \sim E) + m^\ast(E-\mathcal{O}) < \epsilon$.
+	Then for any $\epsilon > 0$, there exists a finite collection of disjoint open sets $\{ I_k \}_{k=1}^n$ such that  $\displaystyle \mathcal{O} = \bigcup_{k=1}^n I_k$ and $m^\ast(\mathcal{O} \sim E) + m^\ast(E \sim \mathcal{O}) < \epsilon$.
 \end{theorem}
 \begin{proof}
 	Since $E$ is Lebesgue measurable, by outer approximation theorem we have an open set $U$ such that $E \subset U$ and 
@@ -1837,21 +1837,22 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Thus, if $f,g$ are bounded, measurable functions, then $\alpha f + \beta g$ is also a bounded, measurable function.
 	And $\alpha f + \beta g$ is integrable as every bounded, measurable function on $E$ is integrable over $E$.\\
 
-	\textbf{Step 1 : $\int_E \alpha f = \alpha \int_E f$}\\
+	\textbf{Step 1 : $\displaystyle \int_E \alpha f = \alpha \int_E f$}\\
 	\begin{align*}
 		\int_E \alpha f = & \inf_{\psi \ge \alpha f} \left\{ \int_E \psi : \psi \text{ simple} \right\} \\
-		= & \alpha \sup_{\psi/\alpha \ge f} \left\{ \int_E \psi/\alpha : \psi/\alpha \text{ simple} \right\}\\
-		= & \alpha \sup_{\psi' \ge f} \left\{ \int_E \psi' : \psi' \text{ simple} \right\}\\
+		= & \alpha \inf_{\psi/\alpha \ge f} \left\{ \int_E \psi/\alpha : \psi/\alpha \text{ simple} \right\}\\
+		= & \alpha \inf_{\psi' \ge f} \left\{ \int_E \psi' : \psi' \text{ simple} \right\}\\
 		= & \alpha \int_E f
 	\end{align*}
-	\textbf{Step 2 : $\int_E f+g = \int_E f + \int_E g$}\\
+	\textbf{Step 2 : $\displaystyle \int_E f+g = \int_E f + \int_E g$}\\
 	\begin{align*}
-		\intertext{ Since $f \le \psi_f$ and $g \le \psi_g$, we have}
-		& \int_E f+g \le \int_E \psi_f + \psi_g
-		\intertext{Since integral of simple functions have linearlity}
+		\intertext{ Since $f \le \psi_f$ and $g \le \psi_g$, we have $f+g \le \psi_f + \psi_g$ and $\psi_f + \psi_g$ is a simple function.
+		And } 
+		\int_E f+g & = \inf \left \{ \int_E \psi : \psi \text{ simple, } f+g \le \psi \right\} \le \int_E \psi_f + \psi_g
+		\intertext{Since integral of simple functions have linearity}
 		& \int_E f+g \le \int_E \psi_f +  \psi_g =  \int_E \psi_f + \int_E \psi_g
 		\intertext{This inequality is true for simple functions dominating $f,g$. Thus, it is true for the infimum of a family of such simple functions.}
-		\int_E f+g \le & \inf \left\{ \int_E \psi_f : \psi_f \text{ simple}, f \le \psi_f \right\} + \inf \left\{ \int_E \psi_g  : \psi_g \text{ simple}, g \le \psi_g \right\} 
+		\int_E f+g \le & \inf \left\{ \int_E \psi_f : \psi_f \text{ simple, } f \le \psi_f \right\} + \inf \left\{ \int_E \psi_g  : \psi_g \text{ simple, } g \le \psi_g \right\} 
 	\end{align*}
 	Therefore,
 	\begin{equation}
@@ -1859,8 +1860,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 	Similarly,
 	\begin{align*}
-		\int_E f+g \ge & \int_E \varphi_f + \varphi_g = \int_E \varphi_f + \int_E \varphi_g \\
-		\ge & \sup \left\{ \int_E \varphi_f \right\} + \sup \left\{ \int_E \varphi_g \right\} 
+		\int_E f+g = & \sup \left\{ \int_E \varphi : \varphi \text{ simple, } \varphi \le f+g \right\} \\
+		\ge & \int_E \varphi_f + \varphi_g = \int_E \varphi_f + \int_E \varphi_g \\
+		\ge & \sup \left\{ \int_E \varphi_f : \varphi_f \text{ simple, } \varphi_f \le f \right\} + \sup \left\{ \int_E \varphi_g : \varphi_g \text{ simple, } \varphi_g \le g \right\} 
 	\end{align*}
 	Therefore,
 	\begin{equation}
@@ -2019,7 +2021,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Let $f$ be a function on $E$.
 	Then support of $f$ is the set $\{ x \in E : f(x) \ne 0 \}$ of all non-vanishing points of $f$ in $E$.
 \end{definition}
-\textbf{Warning : }The defintion of support is different for measure spaces and topological spaces.\dag\footnote{
+\textbf{Warning : }The defintion of support is slightly different for measure spaces and topological spaces.\dag\footnote{
 	``Support of a function $f$ on a topological space is the \textbf{closure} of the set of all non-vanishing points of $f$.''
 	We use topological version for differential forms in multivariate real analysis and above definition for Lebesgue integration in integral transforms.
 	Luckily, it is not apparent in our syllabus.
@@ -2044,6 +2046,27 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \end{theorem}
 	In other words $\displaystyle \lambda \cdot m \left( E_\lambda \right) \le \int_E f$ where $E_\lambda = \{ x \in E : f(x) \ge \lambda \}$.
 \begin{proof}
+	Suppose $f$ is a non-negative, measurable function on $E$.
+	Let $\lambda > 0$ be a real number.
+	Define $E_\lambda = \{ x \in E : f(x) \ge \lambda \}$\\
+
+	\textbf{Case 1 : $m(E_\lambda) = \infty$}\\
+	Let $n \in \mathbb{N}$.
+	Define $E_{\lambda,n} = E_\lambda \cap [-n,n]$ and $\psi_n = \lambda \cdot \chi_{E_{\lambda,n}}$.
+	Clearly, $\psi_n$ is a bounded, measurable function of finite support.
+	$$\lambda\cdot m(E_{\lambda,n}) = \int_E \psi_n \text{ and } 0 \le \psi_n \le f \text{ on $E$ for every $n$}$$
+	By continuity of measure we have,
+	$$ \infty = \lambda \cdot m(E_\lambda) = \lambda \lim_{n \to \infty} m(E_{\lambda,n}) = \lim_{n \to \infty} \int_E \psi_n \le \int_E f $$
+	Therefore,
+	$$\lambda \cdot m(E_\lambda) = \int_E f$$
+
+	\textbf{Case 2 : $m(E_\lambda) <\infty$}\\
+	Define $h = \lambda \cdot \chi_{E_\lambda}$.
+	Clearly, $h$ is a bounded, measurable function of finite support and $0 \le h \le f$ on $E$.
+	By definition of integral,
+	$$ \lambda \cdot m(E_\lambda) = \int_E h \le \int_E f$$
+	Therefore,
+	$$ m(E_\lambda) = \frac{1}{\lambda} \int_E h \le \frac{1}{\lambda} \int_E f$$
 \end{proof}
 
 \begin{theorem}
@@ -2054,6 +2077,22 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	\textbf{Part 1}\\
+	Suppose $\displaystyle \int_E f = 0$.
+	Then by Chebychev's inequality,
+	$$\forall n \in \mathbb{N},\  m\left(\left\{x \in E : f(x) \ge \frac{1}{n} \right\}\right) \le n\int_E f = 0$$
+	We have,
+	$$ \{ x \in E : f(x) > 0 \} = \bigcup_{n \in \mathbb{N}} \left\{ x \in E : f(x) \ge \frac{1}{n} \right\} = 0$$
+
+	\textbf{Part 2}\\
+	Suppose $f = 0$ (a.e.) on $E$.
+	Let $\varphi$ be a simple function and $h$ be a bounded, measurable function of finite support such that $0 \le \varphi \le h \le f$.\\
+
+	We have, $f = 0$ (a.e.) on $E$, thus $\varphi =  0$ (a.e.) on $E$.
+	Then $\varphi = 0$ (a.e.) on $E$, and we have $\int_E \varphi =  0$.
+	Since $\int_E \varphi = 0$ for every simple function $\varphi \le h$, we have $\int_E h = 0$. 
+	Again,  $\int_E h = 0$ for every bounded, measurable function $h \le f$  with finite support.
+	Therefore, $\int_E f =  0$.
 \end{proof}
 
 \begin{theorem}[linearity + monotonicity of integral of non-negative functions]
@@ -2069,6 +2108,45 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	\textbf{Step 1 : $\displaystyle \int_E \alpha f = \alpha \int_E f$}\\
+	Suppose $\alpha > 0$.
+	For any bounded, measurable function $h$ with finite support, dominated by $f$, we have $\alpha h$ is also a bounded, measurable function with finite support such that $0 \le \alpha h \le \alpha f$ on $E$.
+	$$0 \le h \le f \iff 0 \le \alpha h \le \alpha f$$
+	Thus by the definition of Lebesgue integral for non-negative, measurable functions,
+	$$0 \le \int_E \alpha h  = \alpha \int_E h \le \alpha \int_E f $$
+	Therefore, $\displaystyle \int_E \alpha f = \alpha \int_E f,\ \forall \alpha > 0$.\\
+
+	\textbf{Step 2 : $\displaystyle \int_E f+g = \int_E f + \int_E g$}\\
+	Suppose $0 \le h \le f$ and $0 \le k \le g$ on $E$.
+	Then, $h+k$ is also a bounded, measurable function with finite support such that $0 \le h+k \le f+g$ on $E$.
+	\begin{equation}
+		0 \le h+k \le f+g \implies \int_E h + \int_E k = \int_E h+k \le \int_E f+g 
+	\end{equation}
+	Let $l$ be the supremum of all the bounded, measurable functions with finite support such that $0 \le l \le f+g$ on $E$.
+	Then, it is enough to prove that,
+	$$ \int_E f+g = \int_E l \le \int_E f + \int_E g$$
+	Define $h = min\{f,l\}$ and $k = l -h$ on $E$.
+	Let $x \in E$.\\
+	If $l(x) \le f(x)$, then $h(x) = l(x) \le f(x)$ and $k(x) = h(x) - l(x) = 0 \le g(x)$.\\
+	If $l(x) > f(x)$, then $l(x) < g(x)$ since $l \le f+g$ on $E$.\\
+	Thus, $h(x) = f(x) < l(x) < g(x)$ and $k(x) = h(x) - l(x) < 0 < f(x)$.
+	%---I had a confusion here---
+	Clearly, $h,k$ are bounded, measurable functions with finite support.\\
+
+	We have, $0 \le h \le f$, $0 \le k \le g$, and $ l = h+k$ on $E$.
+	Then,
+	\begin{equation}
+		\int_E l = \int_E h + k = \int_E h + \int_E k \le \int_E f + \int_E g
+	\end{equation}
+	Therefore, by Step 1
+	$$\int_E \alpha f+ \beta g = \int_E \alpha f + \int_E \beta g = \alpha \int_E f + \beta \int_E g $$
+
+	Suppose $f \le g$.
+	Let $h$ be any bounded, measurable function with finite support such that $0 \le h \le f$.
+	Then $h \le g$.
+	Thus, for any bounded, measurable function $h$ with finite support and $h \le f$, we have $\displaystyle \int_E h \le \int_E g$.
+	Therefore,
+	$$ \int_E f = \sup \left\{ \int_E h : \text{ bounded,measurable,finite support },h \le f \right\} \le \int_E g $$
 \end{proof}
 
 \begin{theorem}[additivity over domain of integration of non-negative functions]
@@ -2083,13 +2161,44 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	Let $f$ be a non-negative, measurable function defined on a measurable set $E$ and $A,B$ are two disjoint measurable subsets of $E$.\\
+
+	We have $\displaystyle \int_E f \cdot \chi_A = \int_A f$ and $f \cdot \chi_{A \cup B} = f \cdot (\chi_{A} + \chi_B) = f \cdot \chi_A + f \cdot \chi_B$.
+	And if $f$ is a bounded, measurable function with finite support, then $f \cdot \chi_A$ is also a bounded, measurable function with fintie support for any measurable subet $A \subset E$.
+	Therefore, by linearity of the Lebesgue integral of non-negative functions,
+	$$ \int_{A \cup B} f = \int_E f \cdot \chi_{A \cup B} = \int_E f \cdot \chi_A + f \cdot \chi_B = \int_E f \cdot \chi_A + \int_E f \cdot \chi_B = \int_A f + \int_B f$$
+
+	Suppose $E_0$ is a subset of $E$ of measure zero.
+	Then, we have the \textbf{excision formula} by the additivity of integral over domain
+	\begin{equation}
+		\int_{(E \sim E_0) \cup E_0} f = \int_{E \sim E_0} f + \int_{E_0} f = \int_{E \sim E_0} f
+	\end{equation}
+	since $m(E_0) = 0$ and $\displaystyle \int_{E_0} f = 0$.
 \end{proof}
 
-\begin{theorem}[Fatou's lemma]
+\subsubsection{Fatou's Lemma and Passage of limit under Integral sign}
+	Fatou's Lemma is a important tool for establishing passage of limit under integral sign.
+\begin{lemma}[Fatou]
 	Let $\{ f_n \}$ be a sequence of non-negative, measurable functions on $E$.
-	If $\{ f_n \}$ converges to $f$ pointwise (a.e.) on $E$, then $\displaystyle \int_E f \le \liminf \int_E f_n$
-\end{theorem}
+	If $\{ f_n \}$ converges to $f$ pointwise (a.e.) on $E$, then $$\int_E f \le \liminf \int_E f_n$$
+\end{lemma}
 \begin{proof}
+	Let $\{ f_n \}$ be a sequence of functions converging to $f$ pointwise a.e. on $E$.
+	Let $h$ be a bounded, measurable function with finite support and $0 \le h \le f$.
+	Then $0 \le h \le M$, $h$ has support, $E_0 = \{ x \in E : h(x) \ne 0 \}$ and $m(E_0) < \infty$.\\
+
+	\textbf{Step 1 : Construction of $h_n$}\\
+	Define $h_n = \min \{ h,f_n \}$ on $E$.
+	And $0 \le h_n \le M$.
+	Then, $h_n$ are measurable since each $h_n$ is a bounded function defined on a set of finite measure.
+	And $h_n$ has finite support $E_n \subset E_0$.\\
+
+	\textbf{Step 2 : Bounded Convergence Theorem}\\
+	For each $x \in E$, $\{ h_n(x) \}$ converges to $h(x)$ since $\{ f_n(x) \}$ converges to $f(x)$.
+	Since $h_n$ are uniformly bounded, by Bounded Convgerence thereom we have
+	$$ \lim_{n \to \infty} \int_E h_n = \lim_{n \to \infty} \int_{E_0} h_n = \int_{E_0} h $$
+	However $h_n \le f_n$.
+	Therefore, $\displaystyle \int_E h_n \le \int_E f_n \le \liminf \int_E f_n$.
 \end{proof}
 
 \begin{theorem}[monotone convergence]
@@ -2097,12 +2206,30 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	If $\{ f_n \}$ converges to $f$ pointwise (a.e.) on $E$, then $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{theorem}
 \begin{proof}
+	Let $\{ f_n \}$ be an increasing sequence of non-negative, measurable functions on $E$.
+	Then, by Fatou's lemma
+	\begin{equation}
+		\int_E f \le \liminf \int_E f_n
+	\end{equation}
+	However, $\forall n \in \mathbb{N},\ f_n \le f$.
+	Otherwise, $\{ f_n \}$ won't converge to $f$.
+	Thus, by monotonicity of Lebesgue integral for non-negative functions,
+	\begin{equation}
+		\forall n \in \mathbb{N},\ \int_E f_n \le \int_E f \implies \limsup \int_E f_n \le \int_E f
+	\end{equation}
+	Thus, limit inferior and limit superior are equal by sandwitch lemma.\\
+	Therefore, the sequence $\displaystyle \left\{ \int_E f_n \right\}$ converges and $\displaystyle \int_E f = \lim_{n \to \infty} \int_E f_n$.
 \end{proof}
 \begin{corollary}
 	Let $\{ u_n \}$ be a sequence of non-negative, measurable functions on $E$.
 	If $\displaystyle f = \sum_{n =1}^\infty u_n$ pointwise (a.e.) on $E$, then $\displaystyle \int_E f = \sum_{n = 1}^\infty \int_E u_n$.
 \end{corollary}
 \begin{proof}
+	Let $\{ u_n \}$ be a sequence of non-negative, measurable functions on $E$ and $f = \sum_{n = 1}^\infty u_n$.
+	Define $f_n =\sum_{k = 1}^n u_k$.
+	Then $\{ f_n \}$ is an increasing sequence of non-negative, measurable functions.
+	And by linearity and monotone convergence theorem,
+	$$\lim_{n \to \infty} \sum_{k = 1}^n \int_E u_k = \lim_{n \to \infty} \int_E \sum_{k = 1}^n u_k = \lim_{n \to \infty} \int_E f_n = \int_E f$$
 \end{proof}
 
 \begin{definition}[integrable function]
@@ -2114,6 +2241,14 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Then $f$ is finite a.e. on $E$.
 \end{theorem}
 \begin{proof}
+	Suppose $f$ is a non-negative measurable function defined on a measurable set $E$.
+	And $f$ is integrable over $E$.
+	Then,
+	$$ \int_E f = M < \infty$$
+	However by monotonicity and Chebychev's inequality,
+	$$ m\left\{ x \in E : f(x) = \infty \right\} \le m\left\{ x \in E : f(x) \ge n \right\} \le \frac{1}{n} \int_E f = \frac{M}{n}, \forall n \in \mathbb{N} $$
+	As $n \to \infty$, we have $m\left\{ x \in E : f(x) = \infty \right\} \to 0$.\\
+	Therefore, $f$ is finite a.e. on $E$.
 \end{proof}
 
 \begin{theorem}[Beppo Levi's Lemma]
@@ -2122,6 +2257,13 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	$$ \lim_{n \to \infty} \int_E f_n = \int_E f < \infty $$
 \end{theorem}
 \begin{proof}
+	Let $\{ f_n \}$ be an increasing, sequence of non-negative, measurable functions on $E$.
+	Since every monotone sequence of extended real numbers converges to an extended real number, $\{ f_n \}$ converges to extended real valued function $f$ on $E$.
+	And by monotone convergence theorem, $\left\{ \int_E f_n \right\}$ converges to $\displaystyle \int_E f$.\\
+
+	Suppose $\displaystyle\left\{ \int_E f_n \right\}$ is a bounded sequence, then $\displaystyle \int_E f$ is also bounded.
+	Thus, $\displaystyle \int_E f < \infty$.
+	Therefore, $f$ is finite a.e. on $E$, since $f$ is integrable over $E$.
 \end{proof}
 \subsubsection{Exercise}
 \begin{enumerate}
@@ -2144,6 +2286,15 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Then $f^+,f^-$ are integrable over $E$ if and only if $|f|$ is integrable over $E$.
 \end{theorem}
 \begin{proof}
+	Let $f$ be a measurable function on $E$.
+	Suppose $f^+,f^-$ are non-negative, integrable functions over $E$.
+	Then $|f| = f^+ + f^-$ is integrable over $E$ by linearity.\\
+
+	Suppose $|f|$ is a non-negative, integrable function over $E$.
+	Then, we have $0 \le f^+ \le |f|$ and $0 \le f^- \le |f|$.
+	Thus, by monotonicity $\displaystyle \int_E f^+ \le \int_E |f| < \infty$.
+	Similarly, $\displaystyle \int_E f^- < \infty$.
+	Therefore, $f^+,f^-$ are integrable over $E$.
 \end{proof}
 
 \textbf{Note : } A measurable function $f$ is integrable over $E$ if $|f|$ is integrable over $E$.
@@ -2164,6 +2315,18 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	where $E_0$ is a subset of $E$ and is of measure zero.
 \end{theorem}
 \begin{proof}
+	Suppose $f$ is an integrable function.
+	Then $f = f^+ - f^-$ where $f^+,f^-$ are non-negative, integrable functions.
+	And $|f| = f^+ + f^-$ is a non-negative integrable function on $E$, thus $|f|$ is finite a.e. on $E$.
+	Therefore $f$ is finite a.e. on $E$.\\
+
+	Suppose $E_0 \subset E$ such that $m(E_0) = 0$.
+	Then by linearity and additivity over domain of the integral of non-negative measurable functions,
+	\begin{align*}
+		\int_E f = & \int_E f^+ - f^- = \int_E f^+ + \int_E -f^- \\
+		= & \int_{E_0} f^+ + \int_{E \sim E_0} f^+ + \int_{E_0} -f^- + \int_{E \sim E_0} -f^- \\
+		= & \int_{E \sim E_0} f^+ + \int_{E \sim E_0} -f^- = \int_{E \sim E_0} f^+ - f^- = \int_{E \sim E_0} f
+	\end{align*}
 \end{proof}
 
 \begin{theorem}[integral comparison test]
@@ -2174,8 +2337,20 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
-\end{proof}
+	Let $f$ be a measurable function.
+	And $g$ be a non-negative, measurable function such that $g$ is integrable over $E$ and $|f| \le g$ on $E$.
+	Clearly, by monotonicity of integral $|f|$ is integrable over $E$.
+	Therefore, $f$ is also integrable over $E$.\\
 
+	Also we have,
+	\begin{align*}
+		\left| \int_E f \right| = & \left| \int_E f^+ - f^- \right| = \left| \int_E f^+ - \int_E f^- \right| 
+		\intertext{By triangular inequality,}
+		\le & \left| \int_E f^+ \right| + \left| \int_E f^- \right| = \int_E f^+ + \int_E f^- \text{ since } 0 \le \int_E f^+  \\
+		\le & \int_E f^+ + f^- = \int_E |f|
+	\end{align*}
+\end{proof}
+\subsubsection{Linearity, Monotonicity, and Additivity over the domain of integration}
 \begin{theorem}[linearlity+monotonicity of general integral]
 	Let functions $f,g$ be integrable over $E$.
 	Then for any $\alpha,\beta \in \mathbb{R}$, function $\alpha f + \beta g$ is integrable over $E$ and
@@ -2188,6 +2363,39 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	\textbf{Step 1 : $\displaystyle \int_E \alpha f = \alpha \int_E f$}\\
+	If $\alpha > 0$, then $[\alpha f]^+ = \alpha f^+$ and $[\alpha f]^- = \alpha f^-$.\\
+	If $\alpha < 0$, then $[\alpha f]^+ = -\alpha f^-$ and $[\alpha f]^- = -\alpha f^+$. \\
+	Thus,
+	\begin{align*}
+		\int_E \alpha f = & \int_E [\alpha f]^+ - \int_E [\alpha f]^- \\
+		= & \int_E \alpha f^+ - \int_E \alpha f^- = \alpha \int_E f^+ - \alpha \int_E f^- \\
+		= & \alpha \left(\int_E f^+ - \int_E f^- \right) = \alpha \int_E f
+	\end{align*}
+	\textbf{Step 2 : $\displaystyle \int_E f+g = \int_E f + \int_E g$}\\
+	We have,
+	$$ [f+g]^+ - [f+g]^- = f+g = (f^+ - f^-) + (g^+ - g^-)$$
+	Therefore,
+	\begin{equation}
+		[f+g]^+ + f^- + g^- = [f+g]^- + f^+ + g^+
+	\end{equation}
+	And,
+	\begin{align*}
+		\int_E [f+g]^+ + f^- + g^- =&  \int_E [f+g]^- + f^+ + g^+
+		\intertext{By linearity of non-negative, measurable functions,}
+		\int_E [f+g]^+ + \int_E f^- + \int_E g^- =& \int_E [f+g]^- + \int_E f^+ + \int_E g^+
+		\intertext{Since all the terms are finite, rearranging the terms we get,}
+		\int_E [f+g]^+ - \int_E [f+g]^- =& \int_E f^+ - \int_E f^- + \int_E g^+ - \int_E g^-
+		\intertext{Therefore,}
+		\int_E f+g =& \int_E f + \int_E g
+	\end{align*}
+
+	Let $f,g$ be measurable functions such that $f \le g$ on $E$.
+	Then $h = g-f$ is a non-negative, measurable function.
+	And
+	$$\int_E h = \int_E g-f = \int_E g - \int_E f \ge 0 $$
+	Therefore,
+	$$ \int_E f \le \int_E g $$
 \end{proof}
 
 \begin{theorem}[additivity over domain of integration]
@@ -2199,7 +2407,16 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	We have, $f \cdot \chi_{A \cup B} = f \cdot \chi_A + f \cdot \chi_B$.\\
+	Also by monotonicity, $\displaystyle |f \cdot \chi_A| \le |f| \implies \int_E |f \cdot \chi_A| \le \int_E |f| < \infty$.\\
+	Thus, $|f \cdot \chi_A|$ and $|f \cdot \chi_B|$ are integrable.
+	\begin{equation*}
+		\int_{A \cup B} f =  \int_{E} f \cdot (\chi_{A \cup B}) = \int_E f \cdot \chi_A + \int_E f \cdot \chi_B = \int_A f + \int_B f
+	\end{equation*}
 \end{proof}
+
+\subsubsection{Sufficient Condition for Passage of limit under integral sign}
+	Lebesgue dominated convergece theorems shows that \textbf{the existence of an integrable function or a sequence of functions (with integrable limit function) dominating every function in the sequence} is sufficient for the passage of limit under the integral sign.
 
 \begin{theorem}[Lebesgue dominated convergence]
 	Let $\{ f_n \}$ be a sequence of measurable functions on $E$.
@@ -2210,6 +2427,32 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	Suppose $\{ f_n \}$ is a sequence of measurable functions on $E$.
+	And $g$ is a function which is integrable over $E$ and $|f_n| \le g$ on $E$.
+	Suppose $\{ f_n \}$ converges to $f$ pointwise on $E$.
+	Clearly, $|f| \le g$ a.e. on $E$.
+	And by monotonicity, $f$, $f_n$ are integrable over $E$.
+	We know that, since $f$, $f_n$ are integrable over $E$, they are finite a.e. on $E$.\\
+
+	We have, $g-f$, $g-f_n$ are non-negative, measurable functions on $E$.
+	And $\{ g-f_n \}$ converges to $g-f$ pointwise a.e. on $E$.
+	By Fatou's lemma,
+	\begin{align*}
+		\int_E (g-f) \le & \liminf \int_E (g-f_n) \\
+		\int_E g - \int_E f \le & \int_E g - \limsup \int_E f_n
+		\intertext{Then,}
+		\limsup \int_E f_n \le & \int_E f
+	\end{align*}
+	
+	Now consider, $\{ g+f_n \}$ converging to $g+f$ pointwise a.e. on $E$.
+	Again by Fatou's lemma,
+	\begin{align*}
+		\int_E (g+f) \le & \liminf \int_E (g+f_n) \\
+		\int_E g - \int_E f \le & \int_E g + \liminf \int_E f_n
+		\intertext{Then,}
+		\int_E f \le & \liminf \int_E f_n
+	\end{align*}
+	Therefore, $$ \int_E f = \lim_{n \to \infty} \int_E f_n $$
 \end{proof}
 
 \begin{theorem}[General Lebesgue dominated convergence]
@@ -2221,6 +2464,28 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	Suppose $\{ f_n \}$ is a sequence of measurable functions on $E$ converging to $f$ pointwise a.e. on $E$.
+	Also suppose $\{ g_n \}$ is another sequence of measurable functions on $E$ convering to $g$ pointwise a.e. on $E$ such that $|f_n| \le g_n$ and $g$ is integrable on $E$.
+	Clearly, $|f_n| \le g_n \implies |f| \le g$.
+	And by monotonicity, $f_n,f$ are integrable over $E$.\\
+
+	Consider, $\{ g_n-f_n \}$ converging to $g-f$ pointwise a.e. on $E$.
+	By Fatou's lemma,
+	\begin{align*}
+		\int_E (g-f) \le & \liminf \int_E (g_n-f_n) \\
+		\int_E g - \int_E f {\color{red}\le} & \liminf \int_E g_n - \limsup \int_E f_n
+		\intertext{Then,}
+		\limsup \int_E f_n \le & \int_E f
+	\end{align*}
+	Now consider, $\{ g_n+f_n \}$ converging to $g+f$ pointwise a.e. on $E$.
+	Again, by Fatou's lemma,
+	\begin{align*}
+		\int_E (g+f) \le & \liminf \int_E (g_n+f_n) \\
+		\int_E g + \int_E f {\color{red}\le} & \liminf \int_E g_n + \liminf \int_E f_n
+		\intertext{Then,}
+		\int_E f_n \le & \liminf \int_E f
+	\end{align*}
+	Therefore, $$ \int_E f = \lim_{n \to \infty} \int_E f_n $$
 \end{proof}
 \subsubsection{Exercise}
 \begin{enumerate}
@@ -2248,7 +2513,34 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \setcounter{section}{16}
 %chapter 17
 \section{General Measure Spaces}
+	Let $X$ be any non-empty set.
+	Let $\mu$ be any non-negative set function defined on a family of subsets of $X$.
+	Then there exists a $\sigma$-algrebra $\mathcal{M}$ of measurable functions with respect to the outer measure $\mu^\ast$ induced by $\mu$.
 \subsection{Measures and Measurable Sets}
+\begin{definition}[measure space]
+	Let $X$ be non-empty set and $\mathcal{M}$ be a $\sigma$-algebra of subset of $X$.
+	Then $(X,\mathcal{M})$ is a measure space.
+	And $E \subset X$ is a measurable subset of $X$ if $E \in \mathcal{M}$.
+\end{definition}
+\begin{definition}[measure]
+	A set function $\mu : \mathcal{M} \to [0,\infty]$ is a measure if $\mu(\phi) = 0$ and $\mu$ is countably additive\dag\footnote{
+		We have dropped an axiom - ``length of the interval is its measure.''}.
+\end{definition}
+\subsubsection{A few examples of measure space}
+\begin{enumerate}
+	\item $(\mathbb{R},\mathcal{L},m)$ Lebesgue Measure Space
+	\item $(\mathbb{R},\mathcal{B},m)$ 
+	\item $(X,2^X,\eta)$ Counting Measure where $\eta(A) = |A|$.
+	\item $(X,\mathcal{M},\delta_{x_0})$ Dirac Measure where $\delta_{x_0}(A) = \begin{cases}1 & x_0 \in A \\ 0 & x_0 \notin A \end{cases}$.
+	\item $(X,\mathcal{C},\mu)$ \\
+		$\mathcal{C}$ is the family of all countable subsets and their complements.\\
+		And $\mu(A) = \begin{cases} 0 & A \text{ is countable} \\ 1 & A^c \text{ is countable} \end{cases}$.
+\end{enumerate}
+
+	\textbf{Note :} Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $X_0 \in \mathcal{M}$.
+	Then $(X_0,\mathcal{M}_0,\mu_0)$ is also a measure space where $\mathcal{M}_0 = \mathcal{M}$ respectricted to $X_0$ and $\mu_0$ is $\mu$ restricted to $X_0$.
+
 \subsection{Signed Measures}
 \subsection{Caratheodory Measure}
 %\subsection{Construction of outer measures}
