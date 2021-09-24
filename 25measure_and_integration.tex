@@ -758,7 +758,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	Then by the definiton of Lebesgue measurability, $b-a = m^\ast(a,b) = m^\ast((a,b) \cap E) + m^\ast((a,b) \cap E^c)$.
 %	Suppose $m^\ast(\mathcal{O}) = m^\ast(\mathcal{O} \cap E) + m^\ast(\mathcal{O} \cap E^c)$ for every open, bounded interval $\mathcal{O}$.
 \item  
- 	A subet $E$ is Lebesgue measurable if there exists a $G_\delta$ set $G$ containing $E$ such that $m^\ast(G \sim E) = 0$.
+ 	A subset $E$ is Lebesgue measurable if there exists a $G_\delta$ set $G$ containing $E$ such that $m^\ast(G \sim E) = 0$.
 	Suppose $E_1$ and $E_2$ are Lebesgue measurable sets.	
 	Then, we have $G_\delta$ sets $G_1$ and $G_2$.
 	And two countable family of open intervals $\{\mathcal{O}_{1,k}\}_{k=1}^\infty$ and $\{ \mathcal{O}_{2,k}\}_{k=1}^\infty$ such that $\cap \mathcal{O}_{1,k} = G_1$ and $\cap \mathcal{O}_{2,k} = G_2$.
@@ -901,7 +901,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 
 \begin{lemma}[Borel-Cantelli]
 	Let $\{E_k\}_{k=1}^\infty$ be a countable colection of Lebesgue measurable sets for which $\sum_{k=1}^\infty m(E_k) < \infty$.
-	Then, almost all $x \in \mathbb{R}$ belongs to at most finitely many of the $E_k$s.
+	Then, almost all $x \in \mathbb{R}$ belongs to at most finitely many of the $E_k$'s.
 \end{lemma}
 \begin{proof}
 	We have $\sum_{k=1}^\infty m(E_k) < \infty$.
@@ -1029,7 +1029,7 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 \begin{proof}
 	Suppose that for every disjoint pair of subsets $A,B \subset \mathbb{R},\ m^\ast(A \cup B) = m^\ast(A) + m^\ast(B)$.
 	Then, by the definition of Lebesgue measurability, every subset of real numbers is measurable.
-	By, Vital's theroem there does exist non-measurable subsets of real numbers which is a contradiction.
+	By, Vital's theorem there does exist non-measurable subsets of real numbers which is a contradiction.
 	Therefore, there does exists disjoint subsets $A,B$ such that $m^\ast(A \cup B) \ne m^\ast(A) + m^\ast(B)$.
 	By subadditivity of Lebesgue outer measure, we have $m^\ast(A \cup B) \le m^\ast(A) + m^\ast(B)$.
 	Thererfore, $m^\ast(A \cup B) < m^\ast(A)+ m^\ast(B)$.
@@ -1344,7 +1344,7 @@ Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1
 	\end{proof}
 \item \textbf{$f$ measurable $\iff$ $f|_D, D \sim E$ measurable ($\forall D$ measurable)}\\
 	Suppose function $f$ is an extended real-valued function on a measurable set $E$.
-	For measurable subet $D$ of $E$, $f$ is measurable on $E$ if and only if the resctriction of $f$ to $D$ and $D \sim E$ are measurable.
+	For measurable subset $D$ of $E$, $f$ is measurable on $E$ if and only if the resctriction of $f$ to $D$ and $D \sim E$ are measurable.
 	\begin{proof}
 		\textbf{Part 1 : $f$ measurable $\implies f|_D$ measurable}\\
    		Suppose $f$ is a measurable function defined on $E$ and $D$ is a measurable subset of $E$.
@@ -1918,7 +1918,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 \end{theorem}
 \begin{proof}
-	Suppose a sequence $\{ f_n \}$ of bounded, measurable functions converges uniformly to $f$ on a set of fintie measure $E$.
+	Suppose a sequence $\{ f_n \}$ of bounded, measurable functions converges uniformly to $f$ on a set of finite measure $E$.
 	Uniform limit of bounded functions is bounded.
 	And limit function of measurable functions is measurable.
 	Therefore, $f$ is also a bounded, measurable function.\\
@@ -2164,7 +2164,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Let $f$ be a non-negative, measurable function defined on a measurable set $E$ and $A,B$ are two disjoint measurable subsets of $E$.\\
 
 	We have $\displaystyle \int_E f \cdot \chi_A = \int_A f$ and $f \cdot \chi_{A \cup B} = f \cdot (\chi_{A} + \chi_B) = f \cdot \chi_A + f \cdot \chi_B$.
-	And if $f$ is a bounded, measurable function with finite support, then $f \cdot \chi_A$ is also a bounded, measurable function with fintie support for any measurable subet $A \subset E$.
+	And if $f$ is a bounded, measurable function with finite support, then $f \cdot \chi_A$ is also a bounded, measurable function with finite support for any measurable subset $A \subset E$.
 	Therefore, by linearity of the Lebesgue integral of non-negative functions,
 	$$ \int_{A \cup B} f = \int_E f \cdot \chi_{A \cup B} = \int_E f \cdot \chi_A + f \cdot \chi_B = \int_E f \cdot \chi_A + \int_E f \cdot \chi_B = \int_A f + \int_B f$$
 
@@ -2473,7 +2473,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	By Fatou's lemma,
 	\begin{align*}
 		\int_E (g-f) \le & \liminf \int_E (g_n-f_n) \\
-		\int_E g - \int_E f {\color{red}\le} & \liminf \int_E g_n - \limsup \int_E f_n
+		\int_E g - \int_E f {\color{red}\le} & \liminf \int_E g_n - \limsup \int_E f_n \dag\footnote{The logic I have applied here is $\min(A,B) = \min(A) - \max(B)$. But, need to confirm the logic formally.}
 		\intertext{Then,}
 		\limsup \int_E f_n \le & \int_E f
 	\end{align*}
@@ -2481,7 +2481,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Again, by Fatou's lemma,
 	\begin{align*}
 		\int_E (g+f) \le & \liminf \int_E (g_n+f_n) \\
-		\int_E g + \int_E f {\color{red}\le} & \liminf \int_E g_n + \liminf \int_E f_n
+		\int_E g + \int_E f {\color{red}\le} & \liminf \int_E g_n + \liminf \int_E f_n \dag\footnote{I have some problem understanding this. Need to check the condition for linearlity of limit inferior.}
 		\intertext{Then,}
 		\int_E f_n \le & \liminf \int_E f
 	\end{align*}
@@ -2528,27 +2528,360 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \end{definition}
 \subsubsection{A few examples of measure space}
 \begin{enumerate}
-	\item $(\mathbb{R},\mathcal{L},m)$ Lebesgue Measure Space
-	\item $(\mathbb{R},\mathcal{B},m)$ 
-	\item $(X,2^X,\eta)$ Counting Measure where $\eta(A) = |A|$.
-	\item $(X,\mathcal{M},\delta_{x_0})$ Dirac Measure where $\delta_{x_0}(A) = \begin{cases}1 & x_0 \in A \\ 0 & x_0 \notin A \end{cases}$.
+	\item $(\mathbb{R},\mathcal{L},m)$\\
+		The set of real numbers $\mathbb{R}$ together with the $\sigma$-algebra $\mathcal{L}$ of Lebesgue measurable functions and the Lebesuge measure $m$ is a measure space.
+	\item $(\mathbb{R},\mathcal{B},m)$ \\
+		The set of real numbers together with the $\sigma$-algebra $\mathcal{B}$ of Borel sets and Lebesgue measure $m$ is a measure space.
+	\item $(X,2^X,\eta)$\\
+		A non-empty set $X$ together with its powerset $2^X$ and counting measure, $\eta : \mathcal{M} \to [0,\infty)$ given by $\eta(A) = |A|$ is a measure space.
+	\item $(X,\mathcal{M},\delta_{x_0})$\\
+		A non-empty set $X$ together with a $\sigma$-algebra $\mathcal{M}$ of subset of $X$ and Dirac measure concentrated about $x_0 \in X$, $\delta_{x_0} : \mathcal{M} \to \{ 0,1 \}$ given by
+		$$\delta_{x_0}(A) = \begin{cases}1 & x_0 \in A \\ 0 & x_0 \notin A \end{cases}$$
+			is a measure space.
 	\item $(X,\mathcal{C},\mu)$ \\
-		$\mathcal{C}$ is the family of all countable subsets and their complements.\\
-		And $\mu(A) = \begin{cases} 0 & A \text{ is countable} \\ 1 & A^c \text{ is countable} \end{cases}$.
+		A non-empty set $X$ together with the family of all countable subsets and their complements, $\mathcal{C}$ and measure $\mu : \mathcal{C} \to \{0,1\}$ given by 
+		$$\mu(A) = \begin{cases} 0 & A \text{ is countable} \\ 1 & A^c \text{ is countable} \end{cases}$$
+			is a measure space.
 \end{enumerate}
 
-	\textbf{Note :} Let $(X,\mathcal{M},\mu)$ be a measure space.
-	Let $X_0 \in \mathcal{M}$.
-	Then $(X_0,\mathcal{M}_0,\mu_0)$ is also a measure space where $\mathcal{M}_0 = \mathcal{M}$ respectricted to $X_0$ and $\mu_0$ is $\mu$ restricted to $X_0$.
+	\textbf{Note : }  Lebesgue measure offers an addition property, that is measure of an interval is its length.\\
 
-\subsection{Signed Measures}
-\subsection{Caratheodory Measure}
+\subsubsection{Measure {\color{red}Sub}space}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $X_0 \in \mathcal{M}$.
+	Then $(X_0,\mathcal{M}_0,\mu_0)$ is also a measure space where $\mathcal{M}_0$ is $\mathcal{M}$ respectricted to $X_0$ and $\mu_0$ is $\mu$ restricted to $X_0$.\\
+
+	For example, let $I = [0,1]$.
+	Clearly, $I \in \mathcal{L}$ since $I$ is a Borel set, and measurable.
+	Then $(I,\mathcal{L}_{|_I},m_{|_I})$ is a measure space on the closed interval $I$ obtained from the Lebesgue measure Space $(\mathbb{R},\mathcal{L},m)$.
+
+\subsubsection{Properties : Additivity, Monotonicity, Excision}
+\begin{enumerate}
+	\item Finite Additivity \\
+		For any finite, disjoint collection of measurable sets $\{ E_k \}_{k = 1}^n$, we have
+		$$ \mu\left(\bigcup_{k=1}^n E_k\right) = \sum_{k=1}^n \mu(E_k) $$
+		\begin{proof}
+			Countably additive implies finitely additive.
+		\end{proof}
+	\item Monotonicity \\
+		Suppose $A,B$ are measurable subsets and $A \subset B$, then $\mu(A) \le \mu(B)$.
+		\begin{proof}
+			$\mu(B) = \mu(A) + \mu(B \sim A) \implies \mu(B) \ge \mu(A)$, since $\mu(B \sim A) \ge 0$.
+		\end{proof}
+	\item Excision \\
+		Suppose $A,B$ are measurable subsets, $A \subset B$ and $\mu(A) < \infty$, then $\mu(B \sim A) = \mu(B) - \mu(A)$. And if $\mu(A) = 0$, then $\mu(B \sim A) = \mu(B)$.
+		\begin{proof}
+			$\mu(B) = \mu(A) + \mu(B \sim A) \implies \mu(B \sim A ) = \mu(B) - \mu(A)$.
+		\end{proof}
+	\item Countable Monotonicity \\
+		Suppose a countable collection of measurable sets $\{ E_k \}_{k=1}^\infty$ covers another measurable sets $E$.
+		Then, $\displaystyle \mu(E) \le \sum_{k=1}^\infty \mu(E_k)$.
+		\begin{proof}
+			Suppose $\{ E_k \}_{k=1}^\infty$ is a countable collection of measurable sets covering $E$.
+			Then, we can construct $\{ F_k \}_{k=1}^\infty$ is a countable collection of disjoint, measurable sets where $\displaystyle F_k = E_k \sim \bigcup_{n=1}^{k-1} E_n$.\\
+
+			Clearly, $\displaystyle \bigcup_{k=1}^\infty E_k = \bigcup_{k=1}^\infty F_k$ and $\forall k,\ \mu(F_k) \le \mu(E_k) \text{ since } F_k \subset E_k$.\\
+			Therefore $\displaystyle \mu(E) \le \mu \left(\bigcup_{k=1}^\infty E_k \right) = \mu \left( \bigcup_{k=1}^\infty F_k \right) = \sum_{k=1}^\infty \mu(F_k) \le \sum_{k=1}^\infty \mu(E_k)$.
+		\end{proof}
+\end{enumerate}
+\subsubsection{Properties : Continuity of Measure}
+\begin{enumerate}
+	\item If $\{ A_k \}_{k=1}^\infty$ is an ascending sequence of measurable sets, then
+		$$ \mu\left( \bigcup_{k=1}^\infty A_k \right) = \lim_{k \to \infty} \mu(A_k) $$
+	\item If $\{ B_k \}_{k=1}^\infty$ is a descending sequence of measurable sets and $\mu(B_1) < \infty$, then
+		$$ \mu \left( \bigcap_{k=1}^\infty B_k \right) = \lim_{k \to \infty} \mu(B_k) $$
+\end{enumerate}
+\subsubsection{Properties : Borel-Cantelli Lemma}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+And $\{ E_k \}_{k=1}^\infty$ a countable collection of measurable sets such tha t $\displaystyle \sum_{k=1}^\infty E_k < \infty$.
+	Then almost all $x \in X$ belongs to at most a finite number of $E_k$'s.
+\subsubsection{$\sigma$-finite Measure}
+\begin{definition}[$\sigma$-finite]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Measure $\mu$ is finite if $\mu(X) < \infty$.
+	Measure $\mu$ is $\sigma$-finite if $X$ is a countble union of measurable sets of finite measure.
+	A measurable subset $E$ is of finite measure if $\mu(E) < \infty$.
+	And $E$ is $\sigma$-finite if $E$ is a countable union of measurable sets of finite measure.
+\end{definition}
+For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n \in \mathbb{Z}} [n,n+1]$. But, counting measure on $[0,1]$ is not $\sigma$-finite since $[0,1]$ is uncountably infinite and countable union of finite subsets is countable.
+\subsubsection{Complete Measure Space}
+\begin{definition}[complete measure space]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Then the measure space is complete if every subset of sets of measure zero are measurable.
+\end{definition}
+\textbf{Note : } $(\mathbb{R},\mathcal{L},m)$ is complete, however, $(\mathbb{R},\mathcal{B},m)$ is not complete since cantor set $C$  of measure zero has a non-borel subset $\psi^{-1}(W)$ where $W$ is a choice set of $\psi(C)$ under rational equivalence.
+
+\begin{theorem}[completion]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\mathcal{M}_0 = \{ A \cup B : A \subset C \in \mathcal{M}, \mu(C) = 0, B \in \mathcal{M} \}$.
+	And $\mu_0(E) = \mu(B)$ where $E = A \cup B$.
+	Then, $(X,\mathcal{M}_0,\mu_0)$ is a completion of $(X,\mathcal{M},\mu)$.
+\end{theorem}
+\begin{proof}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.\\
+
+	\textbf{Step 1 : $\mathcal{M}_0$ is a $\sigma$-algebra containing $\mathcal{M}$}\\
+	Define a family of subsets of $X$, $\mathcal{M}_0$ in such a way that a subset $E \in \mathcal{M}_0$ if it can be expressed as union of a subset $C$ such that $\mu(C) = 0$ and a set $B \in \mathcal{M}$.
+	Clearly, $E \in \mathcal{M} \implies E = E \cup \phi \in \mathcal{M}_0$.
+	Thus, $\mathcal{M} \subset \mathcal{M}_0$.\\
+
+	Suppose $E = A \cup B$, then $$X \sim E = X \sim (A \cup B) = (X \sim D) \cup (X \sim (C \cup B))$$ where $D = C \sim (A \cup B)$.
+	Clearly $D \subset C$ and $C \cup B$ is a union of measurable sets and therefore measurable.
+	Therefore, for any set $E \in \mathcal{M}_0$, we have $X \sim E \in \mathcal{M}_0$.\\
+
+	Suppose $\{ E_k \}$ be a collection of sets in $\mathcal{M}_0$.
+	Let $E_k = A_k \cup B_k$ where $A_k$'s are subsets of some set $C_k$ such that $\mu(C_k) = 0$.
+	Clearly,$\mu(C) = \mu(\cup_{k=1}^\infty C_k) = 0$.
+	And $A = \cup_{k=1}^\infty A_k$ is a subset of $C$.
+	Also $B = \cup_{k=1}\infty B_k \in \mathcal{M}$ since $\mathcal{M}$ is a $\sigma$-algebra.
+	Therefore,
+	$$ E = \bigcup_{k=1}^\infty E_k = \bigcup_{k=1}^\infty (A_k \cup B_k) = \bigcup_{k=1}^\infty A_k \cup \bigcup_{k=1}^\infty B_k = A \cup B \in \mathcal{M}_0$$
+	Therefore, by de Morgan's law, $\mathcal{M}_0$ is a $\sigma$-algebra.\\
+
+	\textbf{Step 2 : $\mu_0$ is well-defined}\\
+		Let $E \in \mathcal{M}_0$.
+		We have $E = A \cup B$ where $A$ is a subset $C$ such that $\mu(C) = 0$, $B \in \mathcal{M}$ and $\mu_0(E) = \mu(B)$.
+		Suppose there exists $A',B'$ such that $E = A' \cup B'$ satifying the conditions.
+		Then $\mu(B) = \mu(B')$.
+		Suppose $\mu(B) < \mu(B')$, without loss of generality.
+		Then $\mu(B' \sim B) > 0 \implies 0 < \mu(A \sim A') \le \mu(C) = 0$ which is a contradiction.
+		Therefore, $\mu_0(E)$ is well-defined irrespective of the representation $E = A \cup B$.\\
+
+	\textbf{Step 3 : $(X,\mathcal{M}_0,\mu_0)$ is complete}\\
+	Suppose $A$ is a subset of some set $C$ such that $\mu(C) = 0$.
+	Then there exists $E \in \mathcal{M}_0$ such that $E = A \cup \phi$ where $\phi \in \mathcal{M}$.
+	Therefore, $(X,\mathcal{M}_0,\mu_0)$ is complete.
+\end{proof}
+
+\subsubsection{Exercise}
+\begin{definition}[semi-finite]
+	Measure $\mu$ is semi-finite if every subset of infinite measure contains measurable subsets of arbitrarily large finite measure.
+\end{definition}
+\begin{definition}[locally measurable]
+	A subset $E$ is locally measurable if $B \cap E$ is measurable for any subset $B$ of finite measure.
+\end{definition}
+\begin{definition}[saturated]
+	A measure space is saturated if every locally measurable subset is measurable.
+\end{definition}
+\begin{enumerate}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\begin{enumerate}
+		\item If $\mu,\nu$ are measures on $(X,\mathcal{M})$, then $\lambda = \mu + \nu$ is also a measuare on $(X,\mathcal{M})$.
+		\item Suppose $\nu,\mu$ are measures on $(X,\mathcal{M})$. If $\nu \le \mu$, then there exists measure $\lambda$ such that $\nu+\lambda = \mu$.
+		\item Suppose $\nu \le \mu$ and $\mu$ is $\sigma$-finite, then $\lambda$ is unique.
+		\item Suppose $\nu \le \mu$. Then there exists a minimal $\lambda$ such that $\nu+\lambda = \mu$.
+	\end{enumerate}
+	\item
+	\begin{enumerate}
+		\item Every $\sigma$-finite measure is semi-finite.
+		\item Any measure $\mu = \mu_1 + \mu_2$ where measure $\mu_1$ is semifinite and measure $\mu_2$ assumes either $0$ or $\infty$.
+	\end{enumerate}
+	\item The completion $(X,\mathcal{M}_0,\mu_0)$ of $(X,\mathcal{M},\mu)$ is minimal with respect to ?
+	\item
+	\begin{enumerate}
+		\item Every $\sigma$-finite measure is saturated.
+		\item Locally measurable sets is a $\sigma$-algebra.
+		\item $(X,2^X,\underline{\mu})$ is a saturation of $(X,\mathcal{M},\mu)$ where $\overline{\mu}(E) = \infty$ if $E \notin \mathcal{M}$.
+		\item $(X,\mathcal{C},\overline{\mu})$ is a saturation of $(X,\mathcal{M},\mu)$ where $\mathcal{C}$ is the $\sigma$-algebra of locally measurable sets and $\overline{\mu}(E) = \sup \{ \mu(B) : B \subset E,\ B \in \mathcal{M} \}$
+	\end{enumerate}
+	\item If $\mu,\eta$ are measures on $(X,\mathcal{M})$, then $\max\{\mu,\eta\}$ is also a measure on $\mathcal{M}$.
+\end{enumerate}
+\subsection{Signed measures}
+\begin{definition}[signed measure]
+	A set function $\nu : \mathcal{M} \to [-\infty,\infty]$ is a signed measure on $X,\mathcal{M}$ if
+	\begin{enumerate}
+		\item $\nu$ assumes at most one of the infinities
+		\item $\nu(\phi) = 0$ and
+		\item If $\nu$ is countably additive for a disjoint collection of measurable sets $\{ E_k \}_{k=1}^\infty$ and $\nu(\cup_{k=1}^\infty E_k) < \infty$, then the series $\sum_{k=1}^\infty \nu(E_k)$ is absolutely convergent.
+	\end{enumerate}
+\end{definition}
+\textbf{Note : } Difference of two measures, one of which is finite is always a signed measure. And we later prove that evey signed measure is of this form.
+
+\begin{definition}
+	Let $\nu$ be a signed measure.
+\begin{description}
+	\item[positive set] A set is positive with respect to $\nu$ if it is measurable and every measurable subset $E \subset A$ has positive measure.
+	\item[negative set] A set is negative with respect to $\nu$ if it is measurable and every measurable subset of it has negative measure.
+	\item[null (measure) set] A set is null with respect to $\nu$ if it is measurable and every measurable subset of it has measure zero.
+\end{description}
+\end{definition}
+
+\textbf{Note : } Signed measure restricted to any positive set is a measure.
+
+\begin{theorem}
+	Let $\nu$ be a signed measure on $(X,\mathcal{M})$.
+	Then every measurable subset of a positive set is positive and union of countable collection of positive sets in positive.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}[Hahn]
+	Let $\nu$ be a signed measure on $(X,\mathcal{M})$.
+	And $E$ is a measurable set of finite, positive measure.
+	Then there exists subset $A \subset E$ such that $A$ is positive and is of positive measure.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Hahn Decomposition]
+	Let $\nu$ be a signed measure on $(X,\mathcal{M})$.
+	Then there exists a positive set $A$ and a negative set $B$ for which $ X = A \cup B$ and $A \cap B = \phi$.
+	And we write $[A,B] = X$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[singular measures]
+	Two signed measures $\nu_1,\nu_2$ are singular if there exists disjoint subsets $A,B \subset X$ such that $X = A \cup B$ and $\nu_1(A) = \nu_2(B) = 0$.
+	If $\nu_1,\nu_2$ are singular, then we write $\nu_1 \perp \nu_2$.
+\end{definition}
+
+\begin{theorem}[Jordan-Hahn Decomposition]
+	Let $\nu$ be a signed measure on $(X,\mathcal{M})$.
+	Then there two mutually singular measures $\nu^+,\nu^-$ on $(X,\mathcal{M})$ such that $\nu = \nu^+ - \nu^-$.
+	Moreover, there is only one such pair of mutually singular measures.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+%\textbf{Note : } Every measurable set of measure zero is not necessarily null.
+\subsubsection{Exercise}
+\begin{enumerate}
+	\setcounter{enumi}{11}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
+\subsection{Caratheodory measure}
+\begin{definition}[outer measure]
+	A set function $\mu^\ast : 2^X \to [0,\infty]$ is an outer measure if $\mu^\ast(\phi) = 0$. and $\mu^\ast$ is countably monotone.\dag\footnote{Further simplifying the axiom countable additivity into countable monotonicity.}
+\end{definition}
+
+\begin{definition}[measurable set]
+	A set $E$ is measurable if for any subset $A$ of $X$, we have
+	$$ \mu^\ast(A) = \mu^\ast(A \cap E) + \mu^\ast(A \cap E^c)$$
+	Since $\mu^\ast$ is monotone, we can use simpler condition
+	$$ \mu^\ast(A) \ge \mu^\ast(A \cap E) + \mu^\ast(A \cap E^c)$$
+\end{definition}
+
+\begin{theorem}
+	Union of finite collection of measurable sets is measurable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $A \subset X$ and $\{ E_k \}_{k=1}^n$ be a finite, disjoint collection of measurable sets.
+	Then
+	$$ \mu^\ast \left( A \cap \bigcup_{k=1}^n E_k \right) = \sum_{k=1}^n \mu^\ast (A \cap E_k) $$
+	In particular, the restriction of $\mu^\ast$ to the finite collection of measurable sets is finitely additive.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Union of countable collection of measurable sets is measurable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $\mu^\ast$ be an outer measure on $2^X$.
+	Then the collection $\mathcal{M}$ of measurable subsets is a $\sigma$-algebra.
+	If $\overline{\mu}$ is the restriction of $\mu^\ast$ to $\mathcal{M}$, then $(X,\mathcal{M},\mu)$ is a complete measure space.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 %\subsection{Construction of outer measures}
 %\subsection{Caratheodory-Hahn Theorem : Extension of a premeasure to a measure}
 
 %chapter 18
-\section{Integration over General Measure Spaces}
+\section{Integration over General measure Spaces}
 \subsection{Measurable Functions}
+
+\begin{theorem}
+	Let $(X,\mathcal{M})$ be a measure space.
+	Let function $f$ be defined on $X$.
+	Then the following statements are equivalent
+	\begin{enumerate}
+		\item $\forall c \in \mathbb{R},\ \{ x \in X : f(x) < c \}$ is measurable.
+		\item $\forall c \in \mathbb{R},\ \{ x \in X : f(x) \le c \}$ is measurable.
+		\item $\forall c \in \mathbb{R},\ \{ x \in X : f(x) > c \}$ is measurable.
+		\item $\forall c \in \mathbb{R},\ \{ x \in X : f(x) \ge c \}$ is measurable.
+	\end{enumerate}
+	Each of the above statements imply that $\forall c \in \mathbb{R},\ \{ x \in X : f(x) = c \}$ is measurable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[measurable function] 
+	Let $(X,\mathcal{M})$ be a measure space.
+	A function $f$ on $X$ is measurable if one of the equivalent statements above and  hence all are true.
+\end{definition}
+
+\begin{theorem}
+	Let $(X,\mathcal{M})$ be a measure space and function $f$ be defined on $X$.
+	Then $f$ is measurable if and only if for every open set $\mathcal{O}$, $f^{-1}(\mathcal{O})$ is open.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M})$ be a complete measure space.
+	And $X_0$ is a measurable subset of $X$ for which $\mu(X \sim X_0) = 0$.
+	Then $f$ is measurable if and only if its restriction to $X_0$ is measurable.
+	In particular, let two functions $g = h$ a.e. on $X$, $g$ is measurable if and only if $h$ is measurable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M})$ be a measure space. And $f,g$ are measurable functions on $X$.
+	\begin{enumerate}
+		\item Linearity : $\alpha f + \beta g$ is measurable $\forall \alpha,\beta \in \mathbb{R}$.
+		\item Products : $f \cdot g$ is measurable.
+		\item minimum/maximum : $\max\{f,g\}, \min\{f,g\}$ are measurable.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M})$ be a measure space.
+	Let $f$ be continuous function and $g$ be measurable, then $f \circ g$ is measurable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\{ f_n \}$ be a sequence of measurable functions on $X$ for which $\{ f_n \}$ converges to $f$ pointwise a.e. on $X$.
+	If either $(X,\mathcal{M},\mu)$ is complete or convergence is pointwise on $X$, then $f$ is measurable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	Let $(X,\mathcal{M})$ be a measure space.
+	Let $\{ f_n \}$ be a sequence of measurable functions on $X$.
+	Then $\sup\{f_n\},\ \inf\{f_n\},\limsup\{f_n\},\liminf\{f_n\}$ are measurable.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+%definition of simple function
+%\subsubsection{Simple Approximation Theorem}
 
 %Module 4
 \subsection{Integration of non-negative measurable functions}
@@ -2561,6 +2894,6 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \setcounter{section}{19}
 %chapter 20
 \section{The Construction of a particular measure}
-\subsection{Product Measures}
+\subsection{Product measures}
 %\subsection{Lebesgue measure on Euclidean space}
 
