@@ -2885,8 +2885,401 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 
 %Module 4
 \subsection{Integration of non-negative measurable functions}
+\begin{definition}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	And $\psi$ be a non-negative simple function on $X$.
+	Then 
+	\begin{equation}
+		\int_X \psi\ d\mu = \sum_{k=1}^n c_k \cdot \mu(E_k) \text{ where } \psi = \sum_{k=1}^n c_k \cdot \chi_{E_k}
+	\end{equation}
+	And for $E \subset X$, we have
+	\begin{equation}
+		\int_E \psi\ d\mu = \int_X \psi \cdot \chi_E\ d\mu = \sum_{k=1}^n c_k \cdot \mu(E_k \cap E) \text{ where } \psi = \sum_{k=1}^n c_k \cdot \chi_{E_k}
+	\end{equation}
+\end{definition}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\psi,\varphi$ be non-negative simple functions.
+	\begin{enumerate}
+		\item Linearity\\
+			Let $\alpha, \beta$ be positive real numbers.
+			\begin{equation}
+				 \int_X (\alpha \psi + \beta \varphi) \ d\mu = \alpha \int_X \psi \ d\mu + \beta \int_X \varphi \ d\mu 
+			\end{equation}
+		\item Additivity over domain of integration\\
+			Let $A,B$ be disjoint measurable subsets of $X$
+			\begin{equation}
+				\int_{A \cup B} \psi \ d\mu = \int_A \psi \ d\mu + \int_B \psi \ d\mu
+			\end{equation}
+		\item Suppose $X_0 \subset X$ such that $\mu(X_0 \sim X) = 0$, then
+			\begin{equation}
+				\int_X \psi \ d\mu = \int_{X_0} \psi \ d\mu
+			\end{equation}
+		\item Monotonicity \\
+			Suppose $\psi \le \varphi$ a.e. on $X$, then
+			\begin{equation}
+				\int_X \psi \ d\mu \le \int_X \varphi \ d\mu
+			\end{equation}
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	And $f$ be a non-negative, extended real-valued, measurable function on $X$.
+	Then
+	\begin{equation}
+		\int_X f \ d\mu = \sup \left\{ \int_X \varphi \ d\mu : \varphi \text{ simple, } 0 \le \varphi \le f \right\}
+	\end{equation}
+	And if $E \subset X$, then
+	\begin{equation}
+		\int_E f \ d\mu = \int_X f \cdot \chi_E \ d\mu = \sup \left\{ \int_X \varphi \cdot \chi_E \ d\mu : \varphi \text{ simple, } 0 \le \varphi \le f \text{ on E} \right\}
+	\end{equation}
+\end{definition}
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $g,h$ be non-negative, measurable functions.
+	Then
+	\begin{enumerate}
+		\item Linearity (Part 1)\\
+			Let $\alpha$ be a positive real number.
+			\begin{equation}
+				 \int_X \alpha f \ d\mu = \alpha \int_X f \ d\mu
+			\end{equation}
+		\item Suppose $X_0 \subset X$ such that $\mu(X_0 \sim X) = 0$, then
+			\begin{equation}
+				\int_X f \ d\mu = \int_{X_0} f \ d\mu
+			\end{equation}
+		\item Monotonicity \\
+			Suppose $f \le g$ a.e. on $X$, then
+			\begin{equation}
+				\int_X f \ d\mu \le \int_X g \ d\mu
+			\end{equation}
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Chebychev's Inequality]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a non-negative measurable function on $X$.
+	Let $\lambda \in \mathbb{R}$.
+	$$\mu \{ x \in X : f(x) \ge \lambda \} \le \frac{1}{\lambda} \int_X f \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a non-negative measurable function on $X$ for which $\int_X f \ d\mu < \infty$.
+	Then $f$ is finite a.e. on $X$ and $\{ x \in X : f(x) \ge \frac{1}{n}\}$ is $\sigma$-finite.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}[Fatou]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\{ f_n \}$ be a sequence of non-negative, measurable functions converging to $f$ pointwise a.e. on $X$.
+	If $f$ is measurable, then
+	$$ \int_X f\ d\mu \le \liminf \int_X f_n \ d\mu $$
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[monotone convergence]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	And $\{ f_n \}$ be an increasing sequence of non-negative measurable functions converging to $f$ pointwise on $X$.
+	Then
+	$$ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f\ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}[Beppo-Levi]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\{ f_n \}$ be an increasing sequence of non-negative measurable functions on $X$.
+	If the sequnce of integrals $\displaystyle \left\{ \int_X f_n \ d\mu \right\}$ is bounded, then $\{ f_n \}$ converges to a function $f$ pointwise on $X$ which is measurable, finite a.e. on $X$ and 
+	$$ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f \ d\mu < \infty $$
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a non-negative measurable function on $X$.
+	Then there exists an increasing sequence $\{ \psi_n \}$ of simple functions on $X$ that converges pointwise on $X$ and 
+	$$ \lim_{n \to \infty} \int_X \psi_n \ d\mu = \int_X f \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f,g$ abe non-negative, measurable functions on $X$.
+	If $\alpha,\beta > 0$, then
+	$$ \int_X (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta\int_X g \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a non-negative, measurable function on $X$.
+	Then there exists an increasing sequnce of simple functions $\{ \psi_n \}$ that converges to $f$ pointwise on $X$ and
+	$$ \lim_{n \to \infty} \int_X \psi_n \ d\mu = \int_X f \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be  a measure space.
+	Let $f,g$ be non-negative measurable functions on $X$.
+	If $\alpha,\beta > 0$, then
+	$$ \int_E (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta \int_X g \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[integrable]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	A non-negative, measurable function $f$ is integrable over $X$ with respect to $\mu$ if $\displaystyle \int_X f \ d\mu < \infty$.
+\end{definition}
+
+\subsubsection{Exercise}
+\begin{enumerate}
+	\setcounter{enumi}{16}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
 \subsection{Integration of general measurable functions}
+\begin{definition}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a measurable function on $X$.
+	Then $f$ be an integrable function over $X$ with respect to $\mu$, if $|f|$ is integrable over $X$ with respect to $\mu$.
+	And
+	$$ \int_X f \ d\mu = \int_X f^+ \ d\mu - \int_X f^- \ d\mu $$
+\end{definition}
+
+\begin{theorem}[integral comparison test]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a measurable function on $X$.
+	If $g$ is integrable over $X$ and $g$ dominates $f$ on $X$, ie, $|f| \le g$.
+	Then $f$ is integrable over $X$ and 
+	$$ \left| \int_X f \ d\mu \right| \le \int_X |f| \ d\mu \le \int_X g \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f,g$ be integrable over $X$ with respect to $\mu$.
+	\begin{enumerate}
+		\item Linearlity \\
+			$$ \int_X (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta \int_X f \ d\mu $$
+		\item Monotonicity \\
+			If $f \le g$ a.e. on $X$, then
+			$$ \int_X f \ d\mu \le \int_X g \ d\mu $$
+		\item Additivity over domain of integration \\
+			Let $A,B$ be disjoint, measurable subsets of $X$. Then
+			$$ \int_{A \cup B} f \ d\mu = \int_A f \ d\mu + \int_B f \ d\mu $$
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[countably additivity over the domain of integration]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a function integrable over $X$ with respect to $\mu$.
+	Let $\{ X_n \}_{n = 1}^\infty $ be a disjoint, collection of measurable sets whose union is $X$.
+	Then
+	$$ \int_X f \ d\mu = \sum_{n=1}^\infty \int_{X_0} f \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[continuity of integation]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a function integrable over $X$ with respect to $\mu$.
+	\begin{enumerate}
+		\item If $\{ X_n \}_{n=1}^\infty$ is an ascending collection of measurable sets whose union is $X$.
+			Then
+			$$ \int_X f \ d\mu = \lim_{n \to \infty} \int_{X_0} f \ d \mu $$
+		\item If $\{ X_n \}_{n =1}^\infty$ is a descending collection of measurable sets, then
+			$$ \int_{\cap_{n = 1}^\infty X_n} f \ d\mu = \lim_{n \to \infty} \int_{X_0} f \ d\mu $$
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $f$ be a measurable function on $X$.
+	If $f$ is bounded and vanishes outside a set of finite measure, then $f$ is integrable over $X$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	Let $X$ be a compact, topological space.
+	Let $\mathcal{M}$ be a $\sigma$-algebra containing the topology.
+	If $f$ is continuous, real-valued function on $X$ and $(X,\mathcal{M},\mu)$ is a finite measure space, then $f$ is integrable over $X$ with respect to $\mu$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Lebesgue Dominated Convergence]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\{ f_n \}$ be a sequence of measurable functions converging to a measurable function $f$ pointwise a.e. on $X$.
+	Let $g$ be an integrable, non-negative function dominating the sequence $\{ f_n \}$.
+	Then $f$ is integrable over $X$ and,
+	$$ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f \ d\mu $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[uniformly integrable]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\{ f_n \}$ be a sequence of functions integrable over $X$.
+	The sequence $\{ f_n \}$ is uniformly integrable over $X$ if for any $\epsilon > 0$, there exist $\delta > 0$ such that for any measurable subset $E \subset X$ of measure $\mu(E) < \delta$, $\displaystyle \int_E |f_n| \ d\mu < \epsilon,\ \forall n \in \mathbb{N}$.
+\end{definition}
+
+\begin{definition}[tight sequence]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	A sequence of function $\{ f_n \}$ is tight over $X$ if for any $\epsilon > 0$, there exists a subset of finite measure $X_0$ such that $\displaystyle \int_{X \sim X_0} | f_n | \ d\mu < \epsilon,\ \forall n \in \mathbb{N}$.
+\end{definition}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let function $f$ be integrable over $X$.
+	Then for any $\epsilon > 0$, there exists $\delta > 0$ such that for any subset $E$ with $\mu(E) < \delta$, $\displaystyle \int_E |f| \ d\mu < \epsilon$.
+	Furthermore, for any $\epsilon > 0$, there exists a subset of finite measure $X_0 \subset X$ such that $\displaystyle \int_{X \sim X_0} |f_n| \ d\mu < \epsilon$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Vitali Convergence theorem]
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\{ f_n \}$ be a sequence of functions which are uniformly integrable and tight over $X$.
+	Suppose $\{ f_n \}$ conveges to function $f$ pointwise a.e. on $X$ and $f$ is integrable over $X$.
+	Then,
+	$\displaystyle \lim_{n \to \infty} \int_E f_n \ d\mu = \int_E f \ d\mu$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\{ h_n \}$  be sequence on non-negative, integrable functions over $X$.
+	Suppose $\{ h_n \}$ converges to $0$ for almost all $x \in X$.
+	Then $\displaystyle \lim_{n \to \infty} \int_E h_n \ d\mu = 0$ if and only if $\{ h_n \}$ is uniformly integrable and tight over $X$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Exercises}
+\begin{enumerate}
+	\setcounter{enumi}{26}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
 \subsection{Radon-Nikodym Theorem}
+\begin{definition}[Uniformly continuous]
+	Let $(X,\mathcal{M})$ be a measure space.
+	Let $\mu,\nu$ be measures on $X$.
+	The measure $\nu$ is absolutely continuous with respect to $\mu$ if $\nu(E) = 0$ for any measure subset $E \in \mathcal{M}$ with $\mu(E) = 0$.
+\end{definition}
+	For example : The set function $\nu(E) = \displaystyle \int_E f \ d\mu$ is a measure on $(X,\mathcal{M})$ and is absolutely continuous with respect to $\mu$.
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a measure space.
+	Let $\nu$ be a measure on $(X,\mathcal{M})$.
+	Then $\nu$ is absolutely continuous with respect to $\mu$ if and only if for any $\epsilon > 0$, there exists $\delta > 0$ such that for any measurable subset $E \in \mathcal{M}$ with $\mu(E) < \delta$, $\nu(E) < \epsilon$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Radon-Nikodym]
+	Let $(X,\mathcal{M},\mu)$ be a $\sigma$-finite measure space.
+	If there exists a $\sigma$-finite measure $\nu$ on $(X,\mathcal{M})$ which is absolutely continuous with respect to $\mu$.
+	Then there exists a non-negative function $f$ such that $f$ is measurable (with respect to $\mathcal{M}$) and
+	$$ \nu(E) = \int_E f \ d\mu,\ \forall E \in \mathcal{M} $$
+	And this function $f$ is unique with respect to $\mu$. That is, for any other non-negative, measurable[$\mu$] function $g$ defining $\nu$, $f = g$ a.e.[$\mu$] on $X$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $(X,\mathcal{M},\mu)$ be a $\sigma$-finite measure space.
+	If there exists a finite signed measure $\nu$ which is absolutely continuous with respect to $\mu$ on $X$.
+	Then there exist a function $f$ which is integrable over $X$ with respect to $\mu$ and
+	$$ \nu(E) = \int_E f \ d\mu,\ \forall E \in \mathcal{M} $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Lebesgue Decomposition]
+	Let $(X,\mathcal{M},\mu)$ be a $\sigma$-finite measure space.
+	Let $\nu$ be a $\sigma$-finite measure on $(X,\mathcal{M})$.
+	Then there exists unique measures $\nu_0,\nu_1$ such that $\nu = \nu_0 + \nu_1$, $\nu_0$ is singlular with respect to $\mu$ and $\nu_1$ is absolutely continuous with respect to $\mu$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[Radon-Nikodym derivative]
+	Let $(X,\mathcal{M})$ be a measure space.
+	Let $\mu,\nu$ be two $\sigma$-finite measures on $(X,\mathcal{M})$ such that $\nu$ is absolutely continuous with respect to $\mu$.
+	By, Radon-Nikodym theorem, there exists a measurable function $f$ which is unique upto $\mu$ such that $\nu = \int_E f \ d\mu$.
+	This function $f$ is the Radon-Nikodym derivative $f = \frac{d\nu}{d\mu}$.
+\end{definition}
+
+\subsubsection{Exercises}
+\begin{enumerate}
+	\setcounter{enumi}{48}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
 %\subsection{Nikodym Metric Space}
 
 %\section{General $L^p$ spaces}
