@@ -7,7 +7,7 @@
 %Chapter 3; Sections 3.1 to 3.2, Chapter 4; Sections 4.1 to 4.4(25 Hours) 
 %Module 3: General Measure Space and Measureable Functions \& Signed Measures
 %Measures and Measurable Sets
-%The Hanh and Jordan decompositions, The Caratheodory Measure induced by an outer measure, Measureable functions
+%The Hahn and Jordan decompositions, The Caratheodory Measure induced by an outer measure, Measureable functions
 %Chapter 17; Sections 17.1 to 17.3, Chapter 18; Section 18.1 upto corollory 7 (20 Hours)
 %Module 4: Integration over General Measure Space and Product Measure
 %Integration of non-negative measurable functions, Integration of General Measurable functions, The Radon Nikodym Theorem
@@ -1631,7 +1631,7 @@ Out of syllabus - But important for our understanding of the subject.
 \end{enumerate}
 \begin{theorem}[Egoroff]
 	Suppose a sequence $\{ f_n \}$ of measurable functions converges to $f$ pointwise on a set $E$ of finite measure.
-	Then for any $\epsilon > 0$, there exists a closed set $F \subset E$ such that $m(E \sim F) < \epsilon$ and $\{ f_n \}$ conveges to $f$ uniformly on $F$.
+	Then for any $\epsilon > 0$, there exists a closed set $F \subset E$ such that $m(E \sim F) < \epsilon$ and $\{ f_n \}$ converges to $f$ uniformly on $F$.
 \end{theorem}
 
 \begin{theorem}
@@ -2448,7 +2448,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Again by Fatou's lemma,
 	\begin{align*}
 		\int_E (g+f) \le & \liminf \int_E (g+f_n) \\
-		\int_E g - \int_E f \le & \int_E g + \liminf \int_E f_n
+		\int_E g \ {\color{red}+} \int_E f \le & \int_E g + \liminf \int_E f_n
 		\intertext{Then,}
 		\int_E f \le & \liminf \int_E f_n
 	\end{align*}
@@ -2483,7 +2483,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 		\int_E (g+f) \le & \liminf \int_E (g_n+f_n) \\
 		\int_E g + \int_E f {\color{red}\le} & \liminf \int_E g_n + \liminf \int_E f_n \dag\footnote{I have some problem understanding this. Need to check the condition for linearlity of limit inferior.}
 		\intertext{Then,}
-		\int_E f_n \le & \liminf \int_E f
+		\int_E f \le & \liminf \int_E f_n
 	\end{align*}
 	Therefore, $$ \int_E f = \lim_{n \to \infty} \int_E f_n $$
 \end{proof}
@@ -2716,9 +2716,16 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 
 \begin{theorem}
 	Let $\nu$ be a signed measure on $(X,\mathcal{M})$.
-	Then every measurable subset of a positive set is positive and union of countable collection of positive sets in positive.
+	Then every measurable subset of a positive set is positive and union of countable collection of positive sets is positive.
 \end{theorem}
 \begin{proof}
+	Let $\{ A_k \}_{k=1}^\infty$ be countable collection of postive sets.
+	Let $\displaystyle A = \bigcup_{k=1}^\infty A_k$ and $E$ be a measurable subset of $A$.
+	Consider the disjoint collection of countable subsets, $\{ E_k \}_{k=1}^\infty$ where
+	$$E_k = (E \cap A_k) \sim \bigcup_{k=1}^{n-1}E_k$$
+	Clearly $\displaystyle \bigcup_{k=1}^\infty E_k = E$ and $\displaystyle \nu(E) = \sum_{k=1}^\infty \nu(E_k) \ge 0$.
+	Since $E \subset A$ is arbitrary, every measurable subset of $A$ is of non-negative measure.
+	Therefore, union of positive sets is also a positive set.
 \end{proof}
 
 \begin{lemma}[Hahn]
@@ -2727,6 +2734,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Then there exists subset $A \subset E$ such that $A$ is positive and is of positive measure.
 \end{lemma}
 \begin{proof}
+	Suppose $E$ is not a positive set, otherwise the proof is complete.
 \end{proof}
 
 \begin{theorem}[Hahn Decomposition]
@@ -2912,7 +2920,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 			\begin{equation}
 				\int_{A \cup B} \psi \ d\mu = \int_A \psi \ d\mu + \int_B \psi \ d\mu
 			\end{equation}
-		\item Suppose $X_0 \subset X$ such that $\mu(X_0 \sim X) = 0$, then
+		\item Suppose $X_0 \subset X$ such that $\mu(X \sim X_0) = 0$, then
 			\begin{equation}
 				\int_X \psi \ d\mu = \int_{X_0} \psi \ d\mu
 			\end{equation}
@@ -2948,7 +2956,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 			\begin{equation}
 				 \int_X \alpha f \ d\mu = \alpha \int_X f \ d\mu
 			\end{equation}
-		\item Suppose $X_0 \subset X$ such that $\mu(X_0 \sim X) = 0$, then
+		\item Suppose $X_0 \subset X$ such that $\mu(X \sim X_0) = 0$, then
 			\begin{equation}
 				\int_X f \ d\mu = \int_{X_0} f \ d\mu
 			\end{equation}
@@ -3006,7 +3014,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[simple approximation]
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $f$ be a non-negative measurable function on $X$.
 	Then there exists an increasing sequence $\{ \psi_n \}$ of simple functions on $X$ that converges pointwise on $X$ and 
@@ -3103,7 +3111,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $f$ be a function integrable over $X$ with respect to $\mu$.
 	Let $\{ X_n \}_{n = 1}^\infty $ be a disjoint, collection of measurable sets whose union is $X$.
 	Then
-	$$ \int_X f \ d\mu = \sum_{n=1}^\infty \int_{X_0} f \ d\mu $$
+	$$ \int_X f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f \ d\mu $$
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3114,9 +3122,9 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	\begin{enumerate}
 		\item If $\{ X_n \}_{n=1}^\infty$ is an ascending collection of measurable sets whose union is $X$.
 			Then
-			$$ \int_X f \ d\mu = \lim_{n \to \infty} \int_{X_0} f \ d \mu $$
+			$$ \int_X f \ d\mu = \lim_{n \to \infty} \int_{X_n} f \ d \mu $$
 		\item If $\{ X_n \}_{n =1}^\infty$ is a descending collection of measurable sets, then
-			$$ \int_{\cap_{n = 1}^\infty X_n} f \ d\mu = \lim_{n \to \infty} \int_{X_0} f \ d\mu $$
+			$$ \int_{\bigcap_{n = 1}^\infty X_n} f \ d\mu = \lim_{n \to \infty} \int_{X_n} f \ d\mu $$
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -3148,6 +3156,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \begin{proof}
 \end{proof}
 
+\subsubsection{Vitali Convergence Theorem}
 \begin{definition}[uniformly integrable]
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $\{ f_n \}$ be a sequence of functions integrable over $X$.
@@ -3162,20 +3171,59 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \begin{theorem}
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let function $f$ be integrable over $X$.
-	Then for any $\epsilon > 0$, there exists $\delta > 0$ such that for any subset $E$ with $\mu(E) < \delta$, $\displaystyle \int_E |f| \ d\mu < \epsilon$.
-	Furthermore, for any $\epsilon > 0$, there exists a subset of finite measure $X_0 \subset X$ such that $\displaystyle \int_{X \sim X_0} |f_n| \ d\mu < \epsilon$.
+	Then for any $\epsilon > 0$, there exists $\delta > 0$ such that for any subset $E$ with $\mu(E) < \delta$, $\displaystyle \int_E |f| \ d\mu < \epsilon$.\\
+
+	Furthermore, for any $\epsilon > 0$, there exists a subset of finite measure $X_0 \subset X$ such that $\displaystyle \int_{X \sim X_0} |f| \ d\mu < \epsilon$.
 \end{theorem}
 \begin{proof}
+	Without loss of generality, suppose $0 \le f$ on $X$.
+	Otherwise, consider $f = f^+ - f^-$ and apply the following proof for those non-negative functions.\\
+
+	Let $\epsilon > 0$.
+	Since $f$ is integrable, $\int_X f \ d\mu $ is finite.
+	By the definition of integral of a non-negative functions, there exists a simple function $\psi$ on $X$ such that $0 \le \psi \le f$ on $X$ and
+	$$0 \le \int_X f \ d\mu - \int_X \psi \ d\mu < \epsilon/2$$
+
+	Since $\psi$ assume only finite number of values, we can choose $M > 0$ such that $0 \le \psi < M$ on $X$.
+	$$ \int_E f \ d\mu = \int_E \psi \ d\mu + \int_E (f - \psi) \ d\mu \le M \cdot \mu(E) + \epsilon/2 $$
+	Choose $\delta = \epsilon/2M$, then $\mu(E) < \epsilon/2M$ and $\int_E f \ d\mu < \epsilon$.\\
+
+	Let $X_0 = \{ x \in X : f(x) > 0 \}$.
+	Then $f = f-\psi$ on $X \sim X_0$.
+	Thus,
+	$$ \int_{X \sim X_0} |f| \ d\mu = \int_{X \sim X_0} f \ d\mu = \int_{X \sim X_0} (f-\psi) \ d\mu \le \int_X (f-\psi) \ d\mu < \epsilon $$
 \end{proof}
 
 \begin{theorem}[Vitali Convergence theorem]
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $\{ f_n \}$ be a sequence of functions which are uniformly integrable and tight over $X$.
-	Suppose $\{ f_n \}$ conveges to function $f$ pointwise a.e. on $X$ and $f$ is integrable over $X$.
+	Suppose $\{ f_n \}$ converges to function $f$ pointwise a.e. on $X$ and $f$ is integrable over $X$.
 	Then,
 	$\displaystyle \lim_{n \to \infty} \int_E f_n \ d\mu = \int_E f \ d\mu$.
 \end{theorem}
 \begin{proof}
+	By integral test, we have
+	\begin{align*}
+		\left| \int_X (f_n - f) \ d\mu  \right| \le & \int_X |f_n - f| \ d\mu\\
+		\le & \int_{X_1} |f_n-f|\ d\mu + \int_{X_0 \sim X_1} |f_n-f| \ d\mu + \int_{X \sim X_0} |f_n-f| \ d\mu \\
+		\le & \int_{X_1} |f_n-f|\ d\mu + \int_{X_0 \sim X_1} (|f_n| + |f|) \ d\mu + \int_{X \sim X_0} (|f_n| + |f|) \ d\mu
+	\end{align*}
+
+	Let $\epsilon > 0$.
+	Then since $\{ f_n \}$ is tight and $f$ is integrable, there exists $X_0 \subset X$ such that $X_0$ is a measurable subset of finite measure and
+	\begin{equation}
+		\int_{X \sim X_0} |f_n| \ d\mu + \int_{X \sim X_0} |f|\ d\mu < \epsilon/3
+	\end{equation}
+	Since $f$ is integrable over $X$, $f$ is finite a.e. on $X$ and $\mu(X_0) < \infty$.
+	Thus by Egoroff's theorem, $X_0$ has a subset $X_1$ with $\mu(X_0 \sim X_1) < \delta$ such that $\{ f_n \}$ is uniformly convergent on $X_1$.
+	By uniform integrability of $\{ f_n \}$, there exits $\delta > 0$ such that for any measurable set $E$ with $\mu(E) < \delta$.
+	\begin{equation}
+		\int_{X_0 \sim X_1} (|f_n|+ |f|) \ d\mu = \int_{X_0 \sim X_1} |f_n| \ d\mu + \int_{X_0 \sim X_1} |f|\ d\mu < \epsilon/3
+	\end{equation}
+	By uniform convergence of $\{ f_n \}$ into $f$ on $X_1$, there exists $N$ such that for every $n \ge N$.
+	\begin{equation}
+		\int_{X_1} |f_n -f| \ d\mu \le \sup_{x \in X_1} |f_n(x) -f(x)| \cdot \mu(X-1) < \epsilon/3
+	\end{equation}
 \end{proof}
 
 \begin{corollary}
@@ -3185,6 +3233,12 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Then $\displaystyle \lim_{n \to \infty} \int_E h_n \ d\mu = 0$ if and only if $\{ h_n \}$ is uniformly integrable and tight over $X$.
 \end{corollary}
 \begin{proof}
+	Since $\{ h_n \}$ is uniformly convergent to $0$ almost everywhere on $X$ and is tight, from theorem we have 
+	$$ \lim_{n \to \infty} \int_X h_n \ d\mu = 0$$
+
+	Suppose $\displaystyle \lim_{n \to \infty} \int_X h_n \ d\mu = 0$.
+	Then by Fatou's lemma,
+	$$ \int_X \lim_{n \to \infty} h_n \ d\mu < \liminf \int_X h_n(x) \ d\mu = 0 $$
 \end{proof}
 
 \subsubsection{Exercises}
@@ -3215,6 +3269,8 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \end{enumerate}
 
 \subsection{Radon-Nikodym Theorem}
+%What do you mean by continuity and absolute continuity ?
+%Why would having all their zeroes identical, make measures continuous ?
 \begin{definition}[Uniformly continuous]
 	Let $(X,\mathcal{M})$ be a measure space.
 	Let $\mu,\nu$ be measures on $X$.
@@ -3222,29 +3278,114 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \end{definition}
 	For example : The set function $\nu(E) = \displaystyle \int_E f \ d\mu$ is a measure on $(X,\mathcal{M})$ and is absolutely continuous with respect to $\mu$.
 
+%Absolutely continuous f(x) \to 0 as g(x) \to 0 ?? (Why absolutely ?)
+%We observe that two measures are absolutley continuous iff they have idential zeroes
+%due to this characterisation we call this property absolutely continuous !
 \begin{theorem}
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $\nu$ be a measure on $(X,\mathcal{M})$.
 	Then $\nu$ is absolutely continuous with respect to $\mu$ if and only if for any $\epsilon > 0$, there exists $\delta > 0$ such that for any measurable subset $E \in \mathcal{M}$ with $\mu(E) < \delta$, $\nu(E) < \epsilon$.
 \end{theorem}
 \begin{proof}
+	Suppose for $\epsilon > 0$, there exists $\delta > 0$ such that $\nu(E) < \epsilon$ if $\mu(E) < \delta$.
+	Since measure has monotonicity, as $\epsilon \to 0$, $\delta \to 0$.
+	Therefore, $\nu$ is absolutely continuous with respect to $\mu$.\\
+
+	Let $\epsilon > 0$.
+	Suppose that for any $\delta > 0$, there exists some measurable set $E$ with $\mu(E) < \delta$, but $\nu(E) \ge \epsilon$.
+	Then, we can construct a sequence of measurable sets, $\{ E_n \}$ such that $\mu(E_n) \le \frac{1}{2^n}$ and $\nu(E_n) \ge \epsilon$.
+	Define a descencding sequence $\{ A_n \}$ where $\displaystyle A_n = \bigcup_{k = n}^\infty E_k$.
+	By the continuity of measure, $\displaystyle \lim_{n \to \infty} \mu (A_n) = \mu \left( \bigcap_{n = 1}^\infty A_n \right) = 0$ which is a contradiction to absolute continuity since $\displaystyle \lim_{n \to \infty} \nu(A_n) \ge \epsilon$.
+	Therefore, if $\epsilon > 0$, then there exists $\delta > 0$ such that $\mu(E) < \delta \implies \nu(E) < \epsilon$.
 \end{proof}
 
 \begin{theorem}[Radon-Nikodym]
 	Let $(X,\mathcal{M},\mu)$ be a $\sigma$-finite measure space.
 	If there exists a $\sigma$-finite measure $\nu$ on $(X,\mathcal{M})$ which is absolutely continuous with respect to $\mu$.
 	Then there exists a non-negative function $f$ such that $f$ is measurable (with respect to $\mathcal{M}$) and
-	$$ \nu(E) = \int_E f \ d\mu,\ \forall E \in \mathcal{M} $$
+	\begin{equation}
+		\nu(E) = \int_E f \ d\mu,\ \forall E \in \mathcal{M} 
+	\end{equation}
 	And this function $f$ is unique with respect to $\mu$. That is, for any other non-negative, measurable[$\mu$] function $g$ defining $\nu$, $f = g$ a.e.[$\mu$] on $X$.
 \end{theorem}
 \begin{proof}
+	Suppose $\mu,\nu$ are finite measures.
+	%We can extend the same proof for $\sigma$-finite measures $\mu,\nu$.
+	If $\nu(E) = 0$ for any $E \in \mathcal{M}$, then the equation is true for $f = 0$ on $X$.\\
+
+	Suppose $\nu(E) \ne 0$ for some $E \in \mathcal{M}$.
+	First, we prove that there exists a non-negative function $f$ on $X$ such that
+	$$ \int_X f \ d\mu > 0 \text{ and } \int_E f \ d\mu \le \nu(E),\ \forall E \in \mathcal{M} $$
+	Then we prove that the supremum of all such function is the unique function satisfying our requirements.\\
+	
+	\textbf{Step 1 : Existence of $f$}\\
+	Let $\lambda > 0$.
+	Then $\nu - \lambda\mu$ is difference of two finite measures and thus a signed measure.
+	According to Hahn decomposition therem, there exists a Hahn decomposition $\{ P_\lambda,N_\lambda\}$ of signed measure $\nu - \lambda\mu$.
+	Thus, for each $\lambda$, we have $X = P_\lambda \cup N_\lambda$ and $P_\lambda \cap N_\lambda = \phi$.
+	Also the sets $P_\lambda, N_\lambda$ are positive and negative with respect to $\nu-\lambda\mu$ respectively.\\
+
+	We claim that there exists $\lambda > 0$ such that $\mu(P_\lambda) > 0$.\\
+	Suppose that for any $\lambda > 0$, $\mu(P_\lambda) = 0$.
+	Then by monotonicity, $\mu(E) = 0$ for any measurable subset $E \subset P_\lambda$.
+	We have $P_\lambda$ is a positive set with respect to $\nu-\lambda\mu$. 
+	Also $\nu$ is absolutely continuous with respect to $\mu$.
+	Thus, we have $\nu(E)=0$.
+	And since $N_\lambda$ is negative with respect to $\nu-\lambda\mu$, we have $\nu(E) \le \lambda\mu(E)$.
+	Clearly, every measurable subset $E$ is of the form $E = E_P \cup E_N$ where $E_P \subset P_\lambda$ and $E_N \subset N_\lambda$.
+	And $\nu(E)=\nu(E_P) + \nu(E_N) \le 0+\lambda\mu(E_N) \le \lambda\mu(E)$.
+	Thus, $\nu \le \lambda\mu$ for every measurable subset $E \in \mathcal{M}$ and for any real-number $\lambda > 0$.
+	Clearly, $\mu(E) = 0 \implies \nu(E) = 0$ and $\mu(E) < \infty \implies \nu(E) = 0$ by archimedian property.
+	This is a contradiction, since we assumed that $\nu(E) \ne 0$ for some $E \in \mathcal{M}$.\\
+
+	Let $\lambda_0 >0$ such that $\mu(P_{\lambda_0}) > 0$.
+	Define $f = \lambda_0 \cdot \chi_{P_{\lambda_0}}$.
+	Then, we have $\displaystyle \int_X f \ d\mu = \lambda_0 \cdot \mu(P_{\lambda_0}) > 0$.
+	And for any measurable subset $E \in \mathcal{M}$, we have
+	$$\int_E f \ d\mu = \lambda_0 \cdot \mu(P_{\lambda_0} \cap E) \le \nu(P_{\lambda_0} \cap E) \le \nu(E)$$
+	And by construction, $f$ is a non-negative, measurable function on $X$.
+
+	\textbf{Step 2 : Construction of $f$}\\
+	Let $\mathcal{F}$ be the collection of all such non-negative, measurable functions on $X$.
+	Define $\displaystyle M = \sup_{f \in \mathcal{F}} \left\{ \int_X f \ d\mu \right\}$.
+	Suppose $g,h \in \mathcal{F}$, then $\max\{g,h\} \in \mathcal{F}$.
+	And,
+	$$\int_E \max \{g,h\} \ d\mu = \int_{E_1} h \ d\mu + \int_{E_2} g \ d\mu$$
+	where $E_1 = \{ x \in X : h(x) > g(x) \}$ and $E_2 = \{ x \in X : h(x) \le g(x) \}$.\\
+
+	Consider a sequence $\{f_n\}$ in $\mathcal{F}$ such that $\displaystyle \lim_{n \to \infty} \int_X f_n \ d\mu = M$.
+	Without loss of generality, this is an increasing sequence.
+	If the sequence is not increasing, then replace $f_k$ with $\displaystyle \sum_{n=1}^k f_n$.\\
+
+	Define $\displaystyle f(x) = \lim_{n \to \infty} \int_X f_n \ d\mu$.
+	By monotone convergence theorem,  we have $\int_X f \ d\mu = M$.
+	Define $\eta(E) = \nu(E) - \int_E f \ d\mu$.
+	Since integral is coutably additive and $\nu(X) < \infty$, $\eta$ is a signed measure.
+	Also $\eta$ is absolutely continuous with respect to $\nu$ by its construction.\\
+
+	We claim that $\eta = 0$ on $\mathcal{M}$.\\
+	Suppose $\eta \ne 0$.
+	Then by performing Step 1, 2 for $\eta$ instead of $\nu$, we get a non-negative measurable function $\hat{f}$ such that
+	$$ \int_X \hat{f} \ d\mu > 0 \text{ and } \int_E \hat{f} \ d\mu \le \eta(E) = \nu(E) - \int_E f \ d\mu $$
+	Clearly $f + \hat{f} \in \mathcal{F}$ and $\displaystyle \int_X (f+\hat{f}) \ d\mu > \int_X f \ d\mu = M$ which is a contradiction.\\
+
+	\textbf{Step 3 : Uniqueness of $f$}\\
+	Suppose $f_1,f_2$ are two limit function on $\mathcal{F}$ satisfying the conditions.
+	Then, for every measurable subset $E \in \mathcal{M}$, we have $\displaystyle s\int_E (f_1-f_2) \ d\mu = 0$ and $f_1 = f_2$ a.e.[$\mu$] on $X$.
+	Therefore, the choice of $f$ is unique upto measure $\mu$.\\
+
+	\textbf{Step 4 : Extending the proof to $\sigma$-finite measures}\\
+	Suppose $\mu,\nu$ are $\sigma$-finite measures.
+	---yet to complete---
 \end{proof}
 
 \begin{theorem}
 	Let $(X,\mathcal{M},\mu)$ be a $\sigma$-finite measure space.
 	If there exists a finite signed measure $\nu$ which is absolutely continuous with respect to $\mu$ on $X$.
 	Then there exist a function $f$ which is integrable over $X$ with respect to $\mu$ and
-	$$ \nu(E) = \int_E f \ d\mu,\ \forall E \in \mathcal{M} $$
+	\begin{equation}
+		\nu(E) = \int_E f \ d\mu,\ \forall E \in \mathcal{M} 
+	\end{equation}
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3288,5 +3429,152 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 %chapter 20
 \section{The Construction of a particular measure}
 \subsection{Product measures}
+
+\begin{definition}[measurable rectangle]
+	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces.
+	A rectangle is a subset of $X \times Y$ of the form $A \times B$ where $A \subset X$ and $B \subset Y$.
+	A measurable rectangle is a subset of $X \times Y$ of the form $A \times B$ where $A \in \mathcal{A}$ and $B \in \mathcal{B}$.
+\end{definition}
+\begin{lemma}
+	Let $\{ A_k \times B_k \}_{k=1}^\infty$ be a countable disjoint, collection of measurable rectangles such that $\displaystyle \bigcup_{k=1}^\infty \left( A_k \times B_k \right) = A \times B$ is also a meausurable rectangle.
+	Then
+	$\displaystyle \mu(A) \times \nu(B) = \sum_{k=1}^\infty \mu(A_k) \times \mu(B_k) $
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+
+\begin{theorem}
+	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces.
+	Let $\mathcal{R}$ be the collection of all measurable renctangles in $X \times Y$.
+	Let $\lambda : \mathcal{R} \to [0,\infty]$ given by $\lambda(A \times B) = \mu(A) \cdot \nu(B)$.
+	Then $\langle \mathcal{R},\lambda \rangle$ is a semiring and $\lambda$ is a premeasure.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces.
+	Let $\mathcal{R}$ be the collection of measurable rectangles in $X \times Y$ and $\lambda$ is the premeasure defined by $\lambda : \mathbb{R} \to [0,\infty],\ \lambda(A \times B) = \mu(A) \cdot \nu(B)$.
+	The product measure $\lambda = \mu \times \nu$ is the Caratheodory extension of $\lambda : \mathbb{R} \to [0,\infty]$ defined by the $\sigma$-algebra of $(\mu \times \nu)^\ast$-measurable subsets of $X \times Y$.
+\end{definition}
+
+\begin{definition}[$x$-section]
+	Let $E$ be a subset of $X \times Y$ and $f$ be a function on $E$.
+	Let $x \in X$.
+	Then the $x$-section of $f$, $E_x = \{ y \in Y : (x,y) \in E \}$.
+\end{definition}
+
+\subsubsection{Fubini's Theorem}
+\begin{lemma}
+	Let $E \subset X \times Y$ be an $\mathcal{R}_{\sigma\delta}$ set for which $(\mu \times \nu)(E) < \infty$.
+	Then for every $x \in X$, the $x$-section of $E$, $E_x$ is a $\nu$-measurable subset of $Y$, the function which maps each $x \in X$ into $\nu(E_x)$ is a $\mu$-measurable function and
+	\begin{equation}
+		(\mu \times \nu)(E) = \int_X \nu(E_x) \ d\mu(x)
+	\end{equation}
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+	Suppose measure $\nu$ is complete.
+	Let $E \subset X \times Y$ be measurable with respect to $\mu \times \nu$.
+	If $(\mu \times \nu)(E) = 0$, then for almost all $x \in X$, the $x$-section of $E$, $E_x$ is $\nu$-measurable and $\nu(E_x) = 0$.
+	Therefore,
+	\begin{equation}
+		(\mu \times \nu)(E) = \int_X \nu(E_x) \ d\mu(x)
+	\end{equation}
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Suppose measure $\nu$ is complete.
+	et $E \subset X \times Y$ be measurable with respect to $\mu \times \nu$ and $(\mu \times \nu)(E) < \infty$.
+	Then for almost all $x \in X$, the $x$-section of $E$, $E_x$ is a $\nu$-measurable subset of $Y$, the function which maps each $x \in X$ into $\nu(E_x)$ is a $\mu$-measurable function and
+	\begin{equation}
+		(\mu \times \nu)(E) = \int_X \nu(E_x) \ d\mu(x)
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Suppose measure $\nu$ is complete.
+	Let $\varphi : X \times Y \to \mathbb{R}$ be asimple functions that is integrable over $X \times Y$ with respect to $\mu \times \nu$.
+	Then for almost all $x \in X$, the $x$-section of $\varphi$, $\varphi(x,\cdot)$ is integrable over $Y$ with respect to $\nu$ and
+	\begin{equation}
+		\int_{X \times Y} \varphi \ d(\mu \times \nu) = \int_X \left( \int_Y  \varphi(x,y) \ d\nu(y) \right) \ d\mu(x)
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Fubini]
+	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces where $\nu$ is complete.
+	Let $f$ be integrable over $X \times Y$ with respect to the product measure $\mu \times \nu$.
+	Then for almost all $x \in X$, the $x$-section of $f$ is integrable over $Y$ with respect to $\nu$ and
+	\begin{equation}
+		\int_{X \times Y} f \ d(\mu \times \nu) = \int_X \left( \int_Y f(x,y) \ d\nu(y) \right) d\mu(x)
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Tonelli's Theorem}
+\begin{theorem}[Tonelli]
+	Let $(X,\mathcal{A},\mu)$ and $(Y,\mathcal{B},\nu)$ be two $\sigma$-finite measure spaces where $\nu$ is complete.
+	Let $f$ be a non-negative $(\mu \times \nu)$-measurable function on $X \times Y$.
+	Then for almost all $x \in X$, the $x$-section of $f$, $f(x,\cdot)$ is $\nu$-measurable and the function which maps almost every $x \in X$ into integral of $f(x,\cdot)$ over $Y$ with respect to $\nu$ is $\mu$-measurable.
+	Moreover,
+	\begin{equation}
+		\int_{X \times Y} f \ d(\mu \times \nu) = \int_X \left( \int_Y f(x,y) \ d\nu(y) \right) \ d\mu(x)
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	Let $(X,\mathcal{A},\mu)$ and $(Y,\mathcal{B},\nu)$ be two $\sigma$-finite, complete measure spaces.
+	Let $f$ be a non-negative $(\mu \times \nu)$-measurable function on $X \times Y$.
+	Then
+	\begin{enumerate}
+		\item for almost all $x \in X$, the $x$-section of $f$, $f(x,\cdot)$ is $\nu$-measurable function and the function defined almost everywhere on $X$ by $x \to $ the integral of $f(x,\cdot)$ over $Y$ with respect to $\nu$ is $\mu$-measurable and
+		\item for almost all $y \in Y$, the $y$-section of $f$, $f(\cdot,y)$ is $\mu$-measurable and the function defined almost everywhere on $Y$ by $y \to $ the integral of $f(\cdot,y)$ over $X$ with respect to $\mu$ is $\nu$-measurable if
+		\begin{equation}
+			\int_X \left( \int_Y f(x,y) \ d\nu(y) \right) \ d\mu(x) < \infty
+		\end{equation}
+		then $f$ is integrable over $X \times Y$ with respect to $\mu \times \nu$ and
+		\begin{align}
+			\int_Y \left( \int_X f(x,y) \ d\mu(x) \right) \ d\nu(y) = & \int_{X \times Y} f d(\mu \times \nu) \\
+			= & \int_X \left( \int_Y f(x,y) \ d\nu(y) \right) \ d\mu(x) \nonumber
+		\end{align}
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Exercises}
+\begin{definition}[probability measure space]
+	A probability measure space is a measure space $(X,\mathcal{M},\mu)$ where $\mu(X) = 1$.
+\end{definition}
+\begin{enumerate}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item 
+\end{enumerate}
+
+
 %\subsection{Lebesgue measure on Euclidean space}
 
