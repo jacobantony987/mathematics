@@ -111,12 +111,12 @@
 \subsubsection{Properties of Lebesgue Outer Measure}
 \begin{enumerate}
 	\item Outer Measure of the empty set is zero\\
-	Let $\epsilon > 0$.
-	Then $\mathcal{C}_\epsilon = \{ (0,\frac{\epsilon}{2^n}) : n \in \mathbb{N} \}$ is an open cover of $\phi$ containing nonempty, bounded, open intervals.
-	Clearly, sum of length of intervals in $C_\epsilon = \epsilon$.
+	Let $\varepsilon > 0$.
+	Then $\mathcal{C}_\varepsilon = \{ (0,\frac{\varepsilon}{2^n}) : n \in \mathbb{N} \}$ is an open cover of $\phi$ containing nonempty, bounded, open intervals.
+	Clearly, sum of length of intervals in $C_\varepsilon = \varepsilon$.
 	Suppose $m^\ast(\phi) = \delta$ and $\delta > 0$.
-	There exists $\epsilon$ such that $0 < \epsilon < \delta$.
-	The sum of intervals of $\mathcal{C}_\epsilon$ is less than $\delta$, which is a contradiction by the definition of Outer Measure.
+	There exists $\varepsilon$ such that $0 < \varepsilon < \delta$.
+	The sum of intervals of $\mathcal{C}_\varepsilon$ is less than $\delta$, which is a contradiction by the definition of Outer Measure.
 	\item Outer Measure is monotone\\
 	Suppose $A \subset B$.
 	Then every cover of $B$ is also an  cover of $A$.
@@ -130,15 +130,15 @@
 	\item Outer Measure of Countable Sets is zero\\
 	Let $C$ be a countable set.
 	That is, $C = \{ c_k \}_{k=1}^\infty$.\\
-	Then $\{ (c_k-\frac{\epsilon}{2^k}, c_k + \frac{\epsilon}{2^k}) \}_{k=1}^\infty$ is cover of $C$ with sum of length of intervals $\epsilon$.
-	Thus, for any $\epsilon > 0$, we have $m^\ast(C) \le \epsilon$.
+	Then $\{ (c_k-\frac{\varepsilon}{2^k}, c_k + \frac{\varepsilon}{2^k}) \}_{k=1}^\infty$ is cover of $C$ with sum of length of intervals $\varepsilon$.
+	Thus, for any $\varepsilon > 0$, we have $m^\ast(C) \le \varepsilon$.
 	Thus, $m^\ast(C) = 0$.
 	\item Outer Measure of an Interval is its length
 	\begin{proof}
 		\textbf{Case 1 : Closed, Bounded Interval}
 		Let $[a,b]$ be a closed, bounded interval.
-		Then for any $\epsilon > 0$, $(a-\epsilon,b+\epsilon)$ is a cover of $[a,b]$.
-		Thus, by the definition of Lebesgue outer measure $m^\ast([a,b]) \le b-a+2\epsilon$ since $[a,b] \subset (a-\epsilon,b+\epsilon)$ and $m^\ast$ is monotonic.
+		Then for any $\varepsilon > 0$, $(a-\varepsilon,b+\varepsilon)$ is a cover of $[a,b]$.
+		Thus, by the definition of Lebesgue outer measure $m^\ast([a,b]) \le b-a+2\varepsilon$ since $[a,b] \subset (a-\varepsilon,b+\varepsilon)$ and $m^\ast$ is monotonic.
 		Therefore,
 	\begin{equation}
 		m^\ast([a,b]) \le b-a
@@ -264,12 +264,12 @@
 
 	\textbf{Case 2 : Bounded Interval}
 	Let $I$ be a bounded interval.
-	Then there exists bounded closed intervals $J_1$ and $J_2$ such that $J_1 \subsetneq I \subsetneq J_2$ such that $l(I) - \epsilon < l(J_1)$ and $l(J_2) < l(I)+\epsilon$.
-	Suppose $I = (a,b]$, then $J_1 = [a+\frac{\epsilon}{2}, b-\frac{\epsilon}{2}]$ and $J_2 = [a-\frac{\epsilon}{2},b+\frac{\epsilon}{2}]$.\\
+	Then there exists bounded closed intervals $J_1$ and $J_2$ such that $J_1 \subsetneq I \subsetneq J_2$ such that $l(I) - \varepsilon < l(J_1)$ and $l(J_2) < l(I)+\varepsilon$.
+	Suppose $I = (a,b]$, then $J_1 = [a+\frac{\varepsilon}{2}, b-\frac{\varepsilon}{2}]$ and $J_2 = [a-\frac{\varepsilon}{2},b+\frac{\varepsilon}{2}]$.\\
 
 	By monotonicity of Lebesgue outer measure, we have $m^\ast(J_1) \le m^\ast(I) \le m^\ast(J_2)$.
-	However $m^\ast(J_1) = l(I)-\epsilon$ and $m^\ast(J_2) = l(I)+\epsilon$.
-	Thus, $l(I)-\epsilon \le m^\ast(I) \le l(I)+\epsilon$.
+	However $m^\ast(J_1) = l(I)-\varepsilon$ and $m^\ast(J_2) = l(I)+\varepsilon$.
+	Thus, $l(I)-\varepsilon \le m^\ast(I) \le l(I)+\varepsilon$.
 	Therefore, $m^\ast(I) = l(I)$.
 
 	\textbf{Case 3 : Unbounded Interval}
@@ -295,15 +295,15 @@
 		\begin{equation}
 			m^\ast \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m^\ast(E_k)
 		\end{equation}
-		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\displaystyle \sum_{i=1}^\infty l(I_{k,i}) < m^\ast(E_k) + \frac{\epsilon}{2^k}$.
-		Suppose that, for some $\epsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\epsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
+		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\displaystyle \sum_{i=1}^\infty l(I_{k,i}) < m^\ast(E_k) + \frac{\varepsilon}{2^k}$.
+		Suppose that, for some $\varepsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\varepsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
 
 	Clearly,
 `	\begin{align*}
 	m^\ast \left( \bigcup_{i,k = 0}^\infty I_{k,i} \right)
 	\le & \sum_{k=1}^\infty \sum_{i=1}^\infty l(I_{k,i}) \\
-	= & \sum_{k=1}^\infty \left( m^\ast(E_k) + \frac{\epsilon}{2^k} \right) \\
-	= & \sum_{k=1}^\infty  m^\ast(E_k) + \epsilon
+	= & \sum_{k=1}^\infty \left( m^\ast(E_k) + \frac{\varepsilon}{2^k} \right) \\
+	= & \sum_{k=1}^\infty  m^\ast(E_k) + \varepsilon
 	\end{align*}
 \end{proof}
 	\textbf{Note : } Finite subadditivity is a weaker notion than countable subadditivity.
@@ -394,6 +394,7 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	Thus, they are Lebesgue measurable.
 	\end{proof}
 	\item Finite union of Lebesgue measurable sets is Lebesgue measurable.
+		\label{thm:finiteunionmeasurable}
 	\begin{proof}
 		It is enough to prove that if $E_1$ and $E_2$ are Lebesgue measurable, then their union is also Lebesgue measurable.
 		Then, by finite mathematical induction, we can prove that the result if true for any finite collection of Lebesgue measurable sets.\\
@@ -480,6 +481,7 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 	\end{equation}
 	\end{proof}
 \item Countable union of Lebesgue measurable sets is Lebesgue measurable
+	\label{thm:countableunionmeasurable}
 	\begin{proof}
 		Let $A$ be any subset of $\mathbb{R}$.
 		And $\{ E_k \}_{k=1}^\infty$ be a countable collection of disjoint, Lebesgue measurable subsets of $\mathbb{R}$.
@@ -611,9 +613,9 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \begin{theorem}[approximation]
 	The following conditions are equivalent to Lebesgue measurability of $E$
 \begin{enumerate}
-	\item $\forall \epsilon > 0$, there is an open set $\mathcal{O}$ containing $E$ for which $m^\ast(\mathcal{O}\sim E) < \epsilon$.
+	\item $\forall \varepsilon > 0$, there is an open set $\mathcal{O}$ containing $E$ for which $m^\ast(\mathcal{O}\sim E) < \varepsilon$.
 	\item There is a $G_\delta$ set $G$ containining $E$ such that $m^\ast(G \sim E) = 0$.
-	\item $\forall \epsilon > 0$, there is a closed set $F$ contained in $E$ such that $m^\ast(E\sim F) {\color{red}<} 0$.
+	\item $\forall \varepsilon > 0$, there is a closed set $F$ contained in $E$ such that $m^\ast(E\sim F) {\color{red}<} 0$.
 	\item There is an $F_\sigma$ set $F$ contained in $E$ sucht hat $m^\ast(E \sim F) = 0$.
 \end{enumerate}
 \end{theorem}
@@ -623,32 +625,32 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \begin{proof}
 \subsubsection*{Measurability $\implies$ Open set - Outer approximation}
 	Suppose that $E$ is Lebesgue measurable.
-	And let $\epsilon > 0$.\\
+	And let $\varepsilon > 0$.\\
 
 
 	\textbf{Case 1 :} Suppose $m^\ast(E) < \infty$.
-	By definition of Lebesgue outer measure, there exists an open cover $\{ I_k \}_{k=1}^\infty$ such that $\displaystyle \sum_{k=1}^\infty l(I_k) <  m^\ast(E)+\epsilon$.\\
+	By definition of Lebesgue outer measure, there exists an open cover $\{ I_k \}_{k=1}^\infty$ such that $\displaystyle \sum_{k=1}^\infty l(I_k) <  m^\ast(E)+\varepsilon$.\\
 
 	Define $\mathcal{O} = \displaystyle \bigcup_{k=1}^\infty I_k$.
 	Then $\mathcal{O}$ is an open set containing $E$ and thus Lebesgue measurable.
-	Also, $\displaystyle m^\ast(\mathcal{O}) \le \sum_{k=1}^\infty l(I_k) < m^\ast(E) + \epsilon$.
-	Therefore, by excision property we have $m^\ast(\mathcal{O} \sim E) = m^\ast(\mathcal{O}) - m^\ast(E) < \epsilon$. \\
+	Also, $\displaystyle m^\ast(\mathcal{O}) \le \sum_{k=1}^\infty l(I_k) < m^\ast(E) + \varepsilon$.
+	Therefore, by excision property we have $m^\ast(\mathcal{O} \sim E) = m^\ast(\mathcal{O}) - m^\ast(E) < \varepsilon$. \\
 
 	\textbf{Case 2 :} Suppose $m^\ast(E) = \infty$.
 	Without loss of generality, $E$ may be written as countable union Lebesgue measurable sets $\{ E_k \}_{k=1}^\infty$ of finite measure.\\
 
-	By case 1, for every $k$, there exists $\mathcal{O}_k$ for each $E_k$ of finite measure such that $m^\ast(\mathcal{O}_k \sim E_k) < \frac{\epsilon}{2^k}$.
+	By case 1, for every $k$, there exists $\mathcal{O}_k$ for each $E_k$ of finite measure such that $m^\ast(\mathcal{O}_k \sim E_k) < \frac{\varepsilon}{2^k}$.
 	Define $\displaystyle \mathcal{O} = \bigcup_{k=1}^\infty \mathcal{O}_k$.
 	Then $\mathcal{O}$ is open, contains $E$ and 
 	\begin{align*}
 		m^\ast(\mathcal{O} \sim E) = & m^\ast\left(\bigcup_{k=1}^\infty \mathcal{O}_k \sim E \right) \\
 		\le & m^\ast \left(\bigcup_{k=1}^\infty \mathcal{O}_k \sim E_k \right) \\
-		\le & \sum_{k=1}^\infty m^\ast(\mathcal{O}_k \sim E_k) = \epsilon \sum_{k=1}^\infty \frac{1}{2^k} = \epsilon
+		\le & \sum_{k=1}^\infty m^\ast(\mathcal{O}_k \sim E_k) = \varepsilon \sum_{k=1}^\infty \frac{1}{2^k} = \varepsilon
 	\end{align*}
 
 \subsubsection*{Open, Outer approximation $\implies G_\delta$, Outer approximation }
 	Let $E$ be a subset of real numbers such that Lebesgue measure of $E$ has an open set inner approximation.
-	That is, for every $\epsilon > 0$, there exists an open set $\mathcal{O}$ such that $m^\ast(\mathcal{O} \sim E) < \epsilon$.\\
+	That is, for every $\varepsilon > 0$, there exists an open set $\mathcal{O}$ such that $m^\ast(\mathcal{O} \sim E) < \varepsilon$.\\
 
 	Let $\mathcal{O}_k$ be open sets such that $m^\ast(\mathcal{O}_k \sim E) < \frac{1}{k}$.
 	Define $\displaystyle G = \bigcap_{k=1}^\infty \mathcal{O}_k$.
@@ -669,7 +671,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \subsubsection*{Open, Outer approximation $\iff$ Closed, Inner approximation}
 	By duality of Lebesgue measurability, $E$ is Lebesgue measurable if and only if $E^c$ is Lebesgue measurable.
 	And by de Morgan's Law, we have $E^c$ has an open set - outer approximation $\mathcal{O}$ if and only if $E$ has a closed set - inner approximation $\mathcal{O}^c$.
-	$$ m^\ast(\mathcal{O} \sim E^c) < \epsilon \iff m^\ast(E \sim \mathcal{O}^c) < \epsilon $$
+	$$ m^\ast(\mathcal{O} \sim E^c) < \varepsilon \iff m^\ast(E \sim \mathcal{O}^c) < \varepsilon $$
 
 \subsubsection*{$G_\delta$-Outer approximation $\iff F_\sigma$-Inner approximation}
 	Again, by duality of Lebesgue measurability and de Morgan's Law, we have $E^c$ has a $G_\delta$-outer approximation $G$ if and only if $E$ has an $F_\sigma$-inner approximation $F$.
@@ -678,12 +680,12 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 
 \begin{theorem}
 	Let $E$ be a Lebesgue measurable set of finite measure.
-	Then for any $\epsilon > 0$, there exists a finite collection of disjoint open sets $\{ I_k \}_{k=1}^n$ such that  $\displaystyle \mathcal{O} = \bigcup_{k=1}^n I_k$ and $m^\ast(\mathcal{O} \sim E) + m^\ast(E \sim \mathcal{O}) < \epsilon$.
+	Then for any $\varepsilon > 0$, there exists a finite collection of disjoint open sets $\{ I_k \}_{k=1}^n$ such that  $\displaystyle \mathcal{O} = \bigcup_{k=1}^n I_k$ and $m^\ast(\mathcal{O} \sim E) + m^\ast(E \sim \mathcal{O}) < \varepsilon$.
 \end{theorem}
 \begin{proof}
 	Since $E$ is Lebesgue measurable, by outer approximation theorem we have an open set $U$ such that $E \subset U$ and 
 	\begin{equation*}
-		m^\ast(U \sim E) < \frac{\epsilon}{2}
+		m^\ast(U \sim E) < \frac{\varepsilon}{2}
 	\end{equation*}
 
 	\begin{align*}
@@ -693,7 +695,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 		= & m^\ast(E) + m^\ast(U \sim E)
 		\intertext{Since $E$ has finite measure}
 		m^\ast(U) = & m^\ast(E) + m^\ast(U \sim E) \\
-		< & k+\frac{\epsilon}{2} < \infty
+		< & k+\frac{\varepsilon}{2} < \infty
 	\end{align*}
 	That is, $U$ is of finite measure. \\
 
@@ -704,12 +706,12 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 		\sum_{k=1}^n l(I_k) & \le \sum_{k=1}^\infty {\color{red}l(I_k)} \le m^\ast(U) < \infty 
 		%\sum_{k=1}^\infty l(I_k) & < \infty  %% not required
 		\intertext{ By characterisation of series convergence, there exists an integer $n$ such that,}
-		\sum_{k=n+1}^\infty l(I_k) & < \frac{\epsilon}{2}
+		\sum_{k=n+1}^\infty l(I_k) & < \frac{\varepsilon}{2}
 	\end{align*}
 	Define $\displaystyle \mathcal{O} = \bigcup_{k=1}^n I_k$.
 	Since $\mathcal{O} \sim E \subset U \sim E$, by monotonicity we have 
 	\begin{equation}
-		m^\ast(\mathcal{O} \sim E) \le m^\ast(U \sim E) < \frac{\epsilon}{2}
+		m^\ast(\mathcal{O} \sim E) \le m^\ast(U \sim E) < \frac{\varepsilon}{2}
 	\end{equation}
 
 	Since $E \subset U$, we have $\displaystyle E \sim \mathcal{O} \subset U \sim \mathcal{O} = \bigcup_{k=1}^n I_k$.
@@ -718,9 +720,9 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 		U \sim \mathcal{O} = \bigcup_{k=1}^\infty I_k \sim \bigcup_{k=1}^n I_k\ {\color{red}\subseteq} \bigcup_{k=n+1}^\infty I_k
 	\end{equation*}
 	\begin{align}
-		\text{Thus, } m^\ast(E \sim \mathcal{O}) \le & m^\ast(U \sim \mathcal{O}) \le \sum_{k=n+1}^\infty l(I_k) < \frac{\epsilon}{2} 
+		\text{Thus, } m^\ast(E \sim \mathcal{O}) \le & m^\ast(U \sim \mathcal{O}) \le \sum_{k=n+1}^\infty l(I_k) < \frac{\varepsilon}{2} 
 		\intertext{Therefore,}
-		m^\ast(E \sim \mathcal{O}) + m^\ast(\mathcal{O} \sim E) < & \epsilon \nonumber
+		m^\ast(E \sim \mathcal{O}) + m^\ast(\mathcal{O} \sim E) < & \varepsilon \nonumber
 	\end{align}
 \end{proof}
 
@@ -728,19 +730,19 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 
 \begin{enumerate}
 	\setcounter{enumi}{16}
-\item Let $\epsilon > 0$ and $E$ is Lebesgue measurable.
-	Then there exists open set $\mathcal{O}$ and closed set $F$ such that $F \subset E \subset \mathcal{O}$, $m^\ast(E \sim F) < \frac{\epsilon}{2}$ and $m^\ast(\mathcal{O} \sim E) < \frac{\epsilon}{2}$.
+\item Let $\varepsilon > 0$ and $E$ is Lebesgue measurable.
+	Then there exists open set $\mathcal{O}$ and closed set $F$ such that $F \subset E \subset \mathcal{O}$, $m^\ast(E \sim F) < \frac{\varepsilon}{2}$ and $m^\ast(\mathcal{O} \sim E) < \frac{\varepsilon}{2}$.
 	Clearly, $\mathcal{O} \sim E$ and $E \sim F$ are disjoint and $\mathcal{O} \sim F = (\mathcal{O} \sim E) \cup (E \sim F)$.
-		Thus by monotonicity of Lebesgue outer measure, we have $m^\ast(\mathcal{O} \sim F) \le m^\ast(\mathcal{O} \sim E) + m^\ast(E \sim F) < \epsilon$.
+		Thus by monotonicity of Lebesgue outer measure, we have $m^\ast(\mathcal{O} \sim F) \le m^\ast(\mathcal{O} \sim E) + m^\ast(E \sim F) < \varepsilon$.
 \item
  Suppose $E$ has finite outer measure.
 	\dag\footnote{
 		$E$ has finite outer measure does not imply $E$ is bounded or Lebesgue measurable.}\\
 	\textbf{$G_\delta$ set : }
-	Let $\epsilon > 0$.
-	Then by the definition of Lebesgue outer measure, there exists a cover $\{ I_k \}_{k=1}^\infty$ of $E$ such that $\displaystyle \sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.
+	Let $\varepsilon > 0$.
+	Then by the definition of Lebesgue outer measure, there exists a cover $\{ I_k \}_{k=1}^\infty$ of $E$ such that $\displaystyle \sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\varepsilon}{2}$.
 	Define $\displaystyle G = \bigcup_{k=1}^\infty I_k$.
-	Then $G$ is a $G_\delta$ set and $\displaystyle m^\ast(G) \le \sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\epsilon}{2}$.\\
+	Then $G$ is a $G_\delta$ set and $\displaystyle m^\ast(G) \le \sum_{k=1}^\infty l(I_k) < m^\ast(E) - \frac{\varepsilon}{2}$.\\
 
 	\textbf{$F_\sigma$ set : }
 		%---yet to update---
@@ -770,7 +772,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	Let $m^{\ast\ast}$ be a non-negative set function defined by $m^{\ast\ast}(A) = \inf \{ m^\ast(\mathcal{O}) : A \subset \mathcal{O}, \mathcal{O} \text{ is open} \}$.
 	Suppose $E$ is Lebesgue measurable.
 	Then, by open set - outer approximation theorem
-	we have $m^\ast(E) \le m^{\ast\ast}(E) < m^\ast(E) + \epsilon$ for any $\epsilon > 0$.
+	we have $m^\ast(E) \le m^{\ast\ast}(E) < m^\ast(E) + \varepsilon$ for any $\varepsilon > 0$.
 	Thus, $m^{\ast\ast}(E) = m^\ast(E)$. \\
 
 	In other words, for Lebesgue measurable sets $m^\ast$ and $m^{\ast\ast}$ are the same.
@@ -778,7 +780,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	Let $m^{\ast\ast\ast}$ be a non-negative set function defined by $m^{\ast\ast\ast}(E) = \sup \{ m^\ast(F) : F \subset E, F \text{ is closed } \}$.
 	Let $E$ be Lebesgue measurable set.
 	Then, by closed set - inner approximation theorem
-	we have $m^\ast(E) \ge m^{\ast\ast\ast}(E) > m^\ast(E)-\epsilon$.\\
+	we have $m^\ast(E) \ge m^{\ast\ast\ast}(E) > m^\ast(E)-\varepsilon$.\\
 
 	In other words, for Lebesgue measurable sets $m^\ast$ and $m^{\ast\ast\ast}$ are the same.
 \end{enumerate}
@@ -854,6 +856,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 		m \left( \bigcap_{k=1}^\infty B_k \right) = \lim_{k \to \infty} m(B_k)
 	\end{equation}
 	\end{enumerate}
+	\label{thm:continuityofmeasure}
 \end{theorem}
 \begin{proof}
 	\textbf{Ascending Collection}\\
@@ -902,6 +905,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \begin{lemma}[Borel-Cantelli]
 	Let $\{E_k\}_{k=1}^\infty$ be a countable colection of Lebesgue measurable sets for which $\sum_{k=1}^\infty m(E_k) < \infty$.
 	Then, almost all $x \in \mathbb{R}$ belongs to at most finitely many of the $E_k$'s.
+	\label{lem:borelcantelli}
 \end{lemma}
 \begin{proof}
 	We have $\sum_{k=1}^\infty m(E_k) < \infty$.
@@ -913,12 +917,12 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 		m \left( \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty E_k \right) = \lim_{n \to \infty} m \left( \bigcup_{k=n}^\infty E_k \right) = 0
 	\end{equation*}
 	Clearly, $\displaystyle \lim_{n \to \infty} \bigcup_{k =n}^\infty E_k$ is a set of zero measure.
-	Suppose $x \in \mathbb{R}$ belongs to countably many $E_k$s.
+	Suppose $x \in \mathbb{R}$ belongs to countably many $E_k$'s.
 	Then, for any $m \in \mathbb{N}$, there exists $k > m$ such that  $x \in E_k$.
 	Clearly, $\displaystyle x \in \lim_{n \to \infty} \bigcup_{k=n}^\infty E_k$.
 	That is, $x$ belongs to a set of zero measure.
-	Therefore by contrapositivity, if $x$ does not belong to a set of measuare zero, then $x$ belongs to at most finitely many $E_k$s.	
-	In other words, almost every $x$ in $\mathbb{R}$ belongs to at most finitely many $E_k$s.
+	Therefore by contrapositivity, if $x$ does not belong to a set of measuare zero, then $x$ belongs to at most finitely many $E_k$'s.	
+	In other words, almost every $x$ in $\mathbb{R}$ belongs to at most finitely many $E_k$'s.
 \end{proof}
 
 \subsubsection{Exercise}
@@ -979,8 +983,8 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 \end{equation*}
 
 	Clearly, $m(E) = 0$.
-	Suppose $m(E) = \epsilon$.
-	Then $\displaystyle \sum_{\lambda \in \Lambda} m(\lambda + E) = \sum_{\lambda \in \Lambda} \epsilon = \infty$ since $\Lambda$ has countably infinite elements.
+	Suppose $m(E) = \varepsilon$.
+	Then $\displaystyle \sum_{\lambda \in \Lambda} m(\lambda + E) = \sum_{\lambda \in \Lambda} \varepsilon = \infty$ since $\Lambda$ has countably infinite elements.
 \end{proof}
 
 \begin{theorem}[Vitali]
@@ -1138,7 +1142,7 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 
 	For continuity of $\varphi$, it is enough to prove that $\varphi$ doesn't have any jump discontinuities\dag\footnote{
 		If the function $\varphi$ has unbounded variation(jump) at some points of $[0,1]$.
-		That is $\exists \epsilon > 0$ such that $\forall \delta > 0, \exists x \in [0,1] \text{ where } f(x+\epsilon/2)-f(x-\epsilon/2) > \delta$. ---need revisit---}
+		That is $\exists \varepsilon > 0$ such that $\forall \delta > 0, \exists x \in [0,1] \text{ where } f(x+\varepsilon/2)-f(x-\varepsilon/2) > \delta$. ---need revisit---}
 	as it is an increasing function.
 	Suppose $x \in C$ and $x \ne 0$.
 	Then for sufficiently large $k$, $x$ lies between two consecutive intervals of $\mathcal{O}_k$.
@@ -1229,6 +1233,7 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 		\item $\forall c \in \mathbb{R},\ \{ x \in E : f(x) \le c\}$ is measurable
 	\end{enumerate}
 	And each statement above imply that $\{ x \in E : f(x) = c \}$ is measurable.
+	\label{thm:4measurablesets}
 \end{theorem}
 \begin{proof}
 	\textbf{Step 1 : $1 \iff 4$ and $2 \iff 3$}\\
@@ -1276,6 +1281,7 @@ Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1
 	\item \textbf{Inverse images of open sets measurable}\\
 		Suppose function $f$ is defined on a measurable set $E$.
 	Then $f$ is a measurable function $\iff \forall \text{ open set } \mathcal{O},\ f^{-1}(\mathcal{O})$ is measurable.
+		\label{thm:measurabilityopen}
 	\begin{proof}
 	Given the domain of $f$ is measurable.\\
 	\textbf{Step 1 : $f^{-1}(\mathcal{O})$ is measurable $\implies f$ is measurable}\\
@@ -1323,6 +1329,7 @@ Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1
 .}}
 	\end{proof}
 \item \textbf{$f$ measurable and $f = g$(a.e) $\implies$ $g$ measurable}
+	\label{thm:measurabilityae}
 	\begin{proof}
                 Suppose $f,g$ are functions defined on a measurable set $E$.
 		Suppose $f$ is measurable.
@@ -1487,7 +1494,7 @@ Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
 \end{definition}
 \begin{definition}[uniform convergence]
 	A sequence of functions $\{f_n\}$ on a common domain $E$ convergence uniformly to $f$ if 
-	$$\forall \epsilon > 0,\ \exists N \in \mathbb{N},\text{ such that } \forall n \ge N,\ |f_n-f| < \epsilon $$
+	$$\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\text{ such that } \forall n \ge N,\ |f_n-f| < \varepsilon $$
 \end{definition}
 
 \begin{theorem}[Pointwise Convergence(a.e.) preserves measurability]
@@ -1539,25 +1546,27 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 
 \begin{lemma}[simple approximation]
 	Let $f$ be a measurable, real-valued function which is bounded on $E$.
-	Then for any $\epsilon > 0$, there exist simple functions $\varphi_\epsilon$ and $\psi_\epsilon$  approximating $f$ (from below and above) such that $0 \le \psi_\epsilon - \varphi_\epsilon < \epsilon$ on $E$.
+	Then for any $\varepsilon > 0$, there exist simple functions $\varphi_\varepsilon$ and $\psi_\varepsilon$  approximating $f$ (from below and above) such that $0 \le \psi_\varepsilon - \varphi_\varepsilon < \varepsilon$ on $E$.
+	\label{lem:simpleapproximation}
 \end{lemma}
 \begin{proof}
 	Let $f$ be a bounded, measurable function on $E$.
 	Then there exists open, bounded interval $(c,d)$ such that $f(E) \subset (c,d)$.
-	Let $P = \{y_0,y_1,\dots,y_n\}$ be a partitions of open interval $(c,d)$ such that $y_0 =c < y_1 < \dots < y_{n-1} < y_n = d$ and $y_k - y_{k-1} < \epsilon$ for every $k$.
+	Let $P = \{y_0,y_1,\dots,y_n\}$ be a partitions of open interval $(c,d)$ such that $y_0 =c < y_1 < \dots < y_{n-1} < y_n = d$ and $y_k - y_{k-1} < \varepsilon$ for every $k$.
 	Define $I_k = [y_{k-1},y_k)$ and $E_k = f^{-1}(I_k)$.
 	Then $E_k$ are measurable since $I_k$ are intervals and $f$ is measurable.({ \color{blue}Why ?})\\
 
-	Define $\displaystyle \varphi_\epsilon = \sum_{k=1}^n y_{k-1} \cdot \chi_{E_k}$ and $\displaystyle \psi_\epsilon = \sum_{k=1}^n y_k \cdot \chi_{E_k}$.
-	Then for any $x \in E$, we have $\varphi_\epsilon(x) = y_{k-1} \le f(x) \le y_k = \psi_\epsilon(x)$
-	Clearly, $\varphi_\epsilon \le \psi_\epsilon$ by the construction.
-	And for each $k$, we have $\psi_\epsilon(y) - \varphi_\epsilon(y) = y_k - y_{k-1} < \epsilon$ for any $y \in [y_{k-1},y_k)$.
-	Therefore, $0 \le \psi_\epsilon - \varphi_\epsilon < \epsilon$.
+	Define $\displaystyle \varphi_\varepsilon = \sum_{k=1}^n y_{k-1} \cdot \chi_{E_k}$ and $\displaystyle \psi_\varepsilon = \sum_{k=1}^n y_k \cdot \chi_{E_k}$.
+	Then for any $x \in E$, we have $\varphi_\varepsilon(x) = y_{k-1} \le f(x) \le y_k = \psi_\varepsilon(x)$
+	Clearly, $\varphi_\varepsilon \le \psi_\varepsilon$ by the construction.
+	And for each $k$, we have $\psi_\varepsilon(y) - \varphi_\varepsilon(y) = y_k - y_{k-1} < \varepsilon$ for any $y \in [y_{k-1},y_k)$.
+	Therefore, $0 \le \psi_\varepsilon - \varphi_\varepsilon < \varepsilon$.
 \end{proof}
 
 \begin{theorem}[simple approximation]
 	An extended real-valued function $f$ on a measurable set $E$ is measurable if and only if there exists a sequence of simple functions $\{ \varphi_n \}$ converging to $f$ pointwise on $E$ and $|\varphi_n| \le |f|$ on $E$ for every $n \in \mathbb{N}$.\\
 	And if $f$ is non-negative, there exists an increasing sequence of functions $\{ \varphi_n \}$ with the same property.
+	\label{thm:simpleapproximation}
 \end{theorem}
 \begin{proof}
 	\textbf{Part 1}\\
@@ -1576,7 +1585,7 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 	Since $f$ is measurable, $E_n$ is a measurable subset of $E$.
 	And we know that $f|_{E_n}$ is also a non-negative, bounded, measurable function.\\
 
-	Then by simple approximation lemma, for $\epsilon = \frac{1}{n}$ there exists $\varphi_n$ and $\psi_n$ such that $0 \le \varphi_n \le f \le \psi_n$ and $0 \le \psi_n - \varphi_n < \frac{1}{n}$ on $E_n$.\\
+	Then by simple approximation lemma, for $\varepsilon = \frac{1}{n}$ there exists $\varphi_n$ and $\psi_n$ such that $0 \le \varphi_n \le f \le \psi_n$ and $0 \le \psi_n - \varphi_n < \frac{1}{n}$ on $E_n$.\\
 
 	\textbf{Step 2 : Extending simple function to $E$}\\
 	Extend $\varphi_n$ to $E$ by setting $\varphi_n(x) = n$ if $f(x) > n$.
@@ -1631,17 +1640,17 @@ Out of syllabus - But important for our understanding of the subject.
 \end{enumerate}
 \begin{theorem}[Egoroff]
 	Suppose a sequence $\{ f_n \}$ of measurable functions converges to $f$ pointwise on a set $E$ of finite measure.
-	Then for any $\epsilon > 0$, there exists a closed set $F \subset E$ such that $m(E \sim F) < \epsilon$ and $\{ f_n \}$ converges to $f$ uniformly on $F$.
+	Then for any $\varepsilon > 0$, there exists a closed set $F \subset E$ such that $m(E \sim F) < \varepsilon$ and $\{ f_n \}$ converges to $f$ uniformly on $F$.
 \end{theorem}
 
 \begin{theorem}
 	Let $f$ be a simple function on $E$.
-	Then for any $\epsilon > 0$, there exists a continuous function $g$ on $\mathbb{R}$ and a closed set $F \subset E$ such that $f =g$ on $F$ and $m(E \sim F) < \epsilon$.
+	Then for any $\varepsilon > 0$, there exists a continuous function $g$ on $\mathbb{R}$ and a closed set $F \subset E$ such that $f =g$ on $F$ and $m(E \sim F) < \varepsilon$.
 \end{theorem}
 
 \begin{theorem}[Lusin]
 	Let $f$ be a real-valued measurable function on $E$.
-	Then for any $\epsilon > 0$, there exists a continuous function $g$ on $\mathbb{R}$ and closed set $F \subset E$ such that $f=g$ on $F$ and $m(E \sim F) < \epsilon$.
+	Then for any $\varepsilon > 0$, there exists a continuous function $g$ on $\mathbb{R}$ and closed set $F \subset E$ such that $f=g$ on $F$ and $m(E \sim F) < \varepsilon$.
 \end{theorem}
 }
 %chapter 4
@@ -1758,14 +1767,14 @@ Note : Dirchlet's function is a simple function. And thus Lebesgue integrable.
 	We use simple approximations and the definition of Lebesgue integral for simple functions for this construction.
 \begin{definition}[upper/lower Lebesgue integral]
 	Let $f$ be a bounded, real-valued function on a set $E$ of finite measure.
-	Any simple approximation lemma, we have two families of simple functions $\{ \varphi_\epsilon\}$ and $\{ \psi_\epsilon \}$ such that $\forall \epsilon > 0,\ \varphi \le f \le \psi$ and $0 \le \varphi-\psi < \epsilon$.Then \\
+	Any simple approximation lemma, we have two families of simple functions $\{ \varphi_\varepsilon\}$ and $\{ \psi_\varepsilon \}$ such that $\forall \varepsilon > 0,\ \varphi \le f \le \psi$ and $0 \le \varphi-\psi < \varepsilon$.Then \\
 	Upper Lebesgue integral,
 	\begin{equation}
-		\overline{\int_E} f = \inf_{\psi_\epsilon} \left\{ \int_E \psi_\epsilon \right\}
+		\overline{\int_E} f = \inf_{\psi_\varepsilon} \left\{ \int_E \psi_\varepsilon \right\}
 	\end{equation}
 	Lower Lebesgue integral,
 	\begin{equation}
-		\underline{\int_E} f = \sup_{\varphi_\epsilon} \left\{ \int_E \varphi_\epsilon \right\}
+		\underline{\int_E} f = \sup_{\varphi_\varepsilon} \left\{ \int_E \varphi_\varepsilon \right\}
 	\end{equation}
 
 \end{definition}
@@ -1806,7 +1815,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Let $E$ be a set of finite measure.
 	And $f$ be a bounded, measurable function on $E$.
 	Let $n \in \mathbb{N}$.
-	By simple approximation lemma, for $\epsilon = \frac{1}{n}$ we have simple functions $\varphi_n,\psi_n$ such that $\varphi_n \le f \le \psi_n$ and $\psi_n - \varphi_n < \frac{1}{n}$ on $E$.
+	By simple approximation lemma, for $\varepsilon = \frac{1}{n}$ we have simple functions $\varphi_n,\psi_n$ such that $\varphi_n \le f \le \psi_n$ and $\psi_n - \varphi_n < \frac{1}{n}$ on $E$.
 	\begin{equation*}
 		0 \le \psi_n - \varphi_n \le \frac{1}{n} \implies 0 \le \int_E \psi_n - \varphi_n  = \int_E \psi_n - \int_E \varphi_n \le \frac{1}{n} \int_E 1 \\
 	\end{equation*}
@@ -1923,10 +1932,10 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	And limit function of measurable functions is measurable.
 	Therefore, $f$ is also a bounded, measurable function.\\
 
-	Let $\epsilon > 0$.
-	Choose an $N$ such that $|f - f_n | \le \epsilon/m(E),\ \forall n \ge N$.(such an $N$ exists since the convergence is uniform)\\
+	Let $\varepsilon > 0$.
+	Choose an $N$ such that $|f - f_n | \le \varepsilon/m(E),\ \forall n \ge N$.(such an $N$ exists since the convergence is uniform)\\
 	By linearlity and monotonicity,
-	$$ \left| \int_E f - \int_E f_n \right| = \left| \int_E f - f_n \right| \le \int_E |f-f_n| \le \frac{\epsilon}{m(E)} \cdot m(E) = \epsilon $$
+	$$ \left| \int_E f - \int_E f_n \right| = \left| \int_E f - f_n \right| \le \int_E |f-f_n| \le \frac{\varepsilon}{m(E)} \cdot m(E) = \varepsilon $$
 	Clearly, $\displaystyle \left\{ \int_E f_n \right\}$ is sequence of functions converging pointwise to $\displaystyle \int_E f$.
 	Therefore we have, $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{proof}
@@ -1977,13 +1986,13 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	 	\left| \int_E f_n - \int_E f \right| \le \int_A |f_n - f| + 2M \cdot m(E \sim A)
 	\end{equation}
 
-	Let $\epsilon > 0$.
+	Let $\varepsilon > 0$.
 	Since $E$ a set of finte measure and $f$ is a real-valued function.
-	By Egoroff's theorem, there exists a measurable subset $A \subset E$ on which $\{ f_n \}$ converges to $f$ uniformly and $m(E \sim A ) < \epsilon/4M$.
+	By Egoroff's theorem, there exists a measurable subset $A \subset E$ on which $\{ f_n \}$ converges to $f$ uniformly and $m(E \sim A ) < \varepsilon/4M$.
 	By uniform convergence on $A$, there exists $N \in \mathbb{N}$ such that
-	$$ |f_n - f| < \frac{\epsilon}{2 \cdot m(E)} \text{ on } A,\ \forall n \ge N$$
+	$$ |f_n - f| < \frac{\varepsilon}{2 \cdot m(E)} \text{ on } A,\ \forall n \ge N$$
 	Thus, by monotonicity of integration we have,
-	$$ \left| \int_E f_n - \int_E f \right| \le \frac{\epsilon}{2 \cdot m(E)} m(A) + 2M \cdot m(E \sim A) < \epsilon $$
+	$$ \left| \int_E f_n - \int_E f \right| \le \frac{\varepsilon}{2 \cdot m(E)} m(A) + 2M \cdot m(E \sim A) < \varepsilon $$
 	Therefore, $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{proof}
 
@@ -2043,6 +2052,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\begin{equation}
 		m\left\{x \in E : f(x) \ge \lambda \right\}\ \le\ \frac{1}{\lambda} \cdot \int_E f
 	\end{equation}
+	\label{thm:chebychev}
 \end{theorem}
 	In other words $\displaystyle \lambda \cdot m \left( E_\lambda \right) \le \int_E f$ where $E_\lambda = \{ x \in E : f(x) \ge \lambda \}$.
 \begin{proof}
@@ -2591,10 +2601,16 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\item If $\{ B_k \}_{k=1}^\infty$ is a descending sequence of measurable sets and $\mu(B_1) < \infty$, then
 		$$ \mu \left( \bigcap_{k=1}^\infty B_k \right) = \lim_{k \to \infty} \mu(B_k) $$
 \end{enumerate}
+\begin{proof}
+	Refer proof on page \pageref{thm:continuityofmeasure}
+\end{proof}
 \subsubsection{Properties : Borel-Cantelli Lemma}
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 And $\{ E_k \}_{k=1}^\infty$ a countable collection of measurable sets such tha t $\displaystyle \sum_{k=1}^\infty E_k < \infty$.
 	Then almost all $x \in X$ belongs to at most a finite number of $E_k$'s.
+\begin{proof}
+	Refer proof on page \pageref{lem:borelcantelli}
+\end{proof}
 \subsubsection{$\sigma$-finite Measure}
 \begin{definition}[$\sigma$-finite]
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
@@ -2735,6 +2751,21 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \end{lemma}
 \begin{proof}
 	Suppose $E$ is not a positive set, otherwise the proof is complete.
+	Let $m_1$ be the smallest natural number\dag\footnote{
+		Since $E$ has measurable subsets of negative measure and negative measures are bounded above by $0$, there exists a least upper bound $-M < -\frac{1}{m}$ for a natural number $m$.}
+	such that there exists a measurable set with measure less than $-\frac{1}{m}$.
+	Let $E_1 \subset E$ be a measurable subset with $\nu(E_1) < -\frac{1}{m_1}$.\\
+
+	Let $n$ be a natural number and  $m_1,m_2,\dots,m_n$ are natural numbers where $m_k$'s are the smallest natural numbers such that there exists a measurable subset $E_k$,
+	$$ E_k \subset E \sim \bigcup_{j=1}^{k-1} E_j \text{ and }\nu(E_k) < -\frac{1}{m_k}$$
+
+	If this sequence terminates, then $\displaystyle E \sim \bigcup_{j=1}^n E_j$ is a positive set with positive measrue.
+	Suppose the sequence does not terminate.
+	Define $\displaystyle A = E \sim \bigcup_{j=1}^\infty E_j$.
+	Then $A$ is a positive set by construction.
+	Suppose $A$ has a measurable subset $B$, then $\displaystyle \nu(B) \ge \lim_{k \to \infty} -\frac{1}{m_k} = 0$.
+	And measure of $A$ is positive, since we have $\displaystyle E = A \cup \bigcup_{j=1}^\infty E_j$ and $\displaystyle 0 < \nu(E) = \nu(A) + \sum_{j=1}^\infty \nu(E_j)$ where $\nu(E_j)$'s are all negative.
+	Therefore, every measurable set $E$ with positive measure has a postive subset $A$ with positive measure.
 \end{proof}
 
 \begin{theorem}[Hahn Decomposition]
@@ -2743,6 +2774,22 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	And we write $[A,B] = X$.
 \end{theorem}
 \begin{proof}
+	Let $(X,\mathcal{M}$ be measure space with signed measure $\nu$.
+	Let $\mathcal{P}$ be the collection of positive subset of $X$.
+	Let $\lambda = \sup \{ \nu(E) : E \in \mathcal{P}\}$.
+	And $\lambda \ge 0$ since $\phi$ is trivially a positive set in $\mathcal{P}$ with measure zero.\\
+
+	Let $\{ A_n \}$ be a countable collection of positive subsets of $X$ such that $\displaystyle \lim_{n \to \infty} \nu(A_k) = \lambda$.
+	Define $\displaystyle A = \bigcup_{n=1}^\infty A_n$.
+	Then $A$ is also a positive set and $\nu(A) \le \sup \{ \nu(E) : E \in \mathcal{P}\} = \lambda$ since $A \in \mathcal{P}$.
+	Also for each $k$, $A \sim A_k \subset A$ and $\nu(A) = \nu(A \sim A_k) + \nu(A_k) \ge \nu(A_k)$.
+	This inequality is true for every $k$, and for the limit as well.
+	Thus, $\nu(A) \ge \lambda$.\\
+
+	Let $B = X \sim A$.
+	Then $B$ is a negative set by construction as $X \sim A$ doesn't have any measurable subset of positive measure.
+	Suppose $E$ be a subset of $B$ with positive measure.
+	Then $\nu(A \cap E) = \nu(A) + \nu(E) < \nu(A) = \lambda$ which is a contradiction.
 \end{proof}
 
 \begin{definition}[singular measures]
@@ -2756,6 +2803,12 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Moreover, there is only one such pair of mutually singular measures.
 \end{theorem}
 \begin{proof}
+	Let $(X,\mathcal{M})$ be a measure space with signed meausre $\nu$.
+	Then by Hahn decomposition theorem, $X$ has a partition $X = A \cup B$, $A \cap B = \phi$ such that $A,B$ are positive and negative sets[$\nu$] respectively.\\
+
+	Define $\nu^+(E) = \nu(E \cap A)$ and $\nu^-(E) = -\nu(E \cap B)$.
+	Then $\nu^+,\nu^-$ are measure and $\nu = \nu^+ - \nu^-$.
+	Also, $\nu^+(B) = \nu(B \cap A) = \nu(\phi) = 0$ and $\nu^-(A) = \nu(A \cap B) = \nu(\phi) = 0$.
 \end{proof}
 
 %\textbf{Note : } Every measurable set of measure zero is not necessarily null.
@@ -2786,6 +2839,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Union of finite collection of measurable sets is measurable.
 \end{theorem}
 \begin{proof}
+	Refer proof on page \pageref{thm:finiteunionmeasurable}
 \end{proof}
 
 \begin{theorem}
@@ -2795,12 +2849,14 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	In particular, the restriction of $\mu^\ast$ to the finite collection of measurable sets is finitely additive.
 \end{theorem}
 \begin{proof}
+	---yet to complete---
 \end{proof}
 
 \begin{theorem}
 	Union of countable collection of measurable sets is measurable.
 \end{theorem}
 \begin{proof}
+	Refer proof on page \pageref{thm:countableunionmeasurable}
 \end{proof}
 
 \begin{theorem}
@@ -2809,6 +2865,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	If $\overline{\mu}$ is the restriction of $\mu^\ast$ to $\mathcal{M}$, then $(X,\mathcal{M},\mu)$ is a complete measure space.
 \end{theorem}
 \begin{proof}
+	---yet to complete---
 \end{proof}
 
 %\subsection{Construction of outer measures}
@@ -2831,6 +2888,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Each of the above statements imply that $\forall c \in \mathbb{R},\ \{ x \in X : f(x) = c \}$ is measurable.
 \end{theorem}
 \begin{proof}
+	Refer proof on page \pageref{thm:4measurablesets}
 \end{proof}
 
 \begin{definition}[measurable function] 
@@ -2843,6 +2901,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Then $f$ is measurable if and only if for every open set $\mathcal{O}$, $f^{-1}(\mathcal{O})$ is open.
 \end{theorem}
 \begin{proof}
+	Refer proof on page \pageref{thm:measurabilityopen}
 \end{proof}
 
 \begin{theorem}
@@ -2852,6 +2911,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	In particular, let two functions $g = h$ a.e. on $X$, $g$ is measurable if and only if $h$ is measurable.
 \end{theorem}
 \begin{proof}
+	Refer proof on page \pageref{thm:measurabilityae}
 \end{proof}
 
 \begin{theorem}
@@ -2977,6 +3037,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	$$\mu \{ x \in X : f(x) \ge \lambda \} \le \frac{1}{\lambda} \int_X f \ d\mu $$
 \end{theorem}
 \begin{proof}
+	Refer proof on page \pageref{thm:chebychev}
 \end{proof}
 
 \begin{theorem}
@@ -3021,6 +3082,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	$$ \lim_{n \to \infty} \int_X \psi_n \ d\mu = \int_X f \ d\mu $$
 \end{theorem}
 \begin{proof}
+	Refer proof on page \pageref{thm:simpleapproximation}
 \end{proof}
 
 \begin{theorem}
@@ -3160,38 +3222,38 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \begin{definition}[uniformly integrable]
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $\{ f_n \}$ be a sequence of functions integrable over $X$.
-	The sequence $\{ f_n \}$ is uniformly integrable over $X$ if for any $\epsilon > 0$, there exist $\delta > 0$ such that for any measurable subset $E \subset X$ of measure $\mu(E) < \delta$, $\displaystyle \int_E |f_n| \ d\mu < \epsilon,\ \forall n \in \mathbb{N}$.
+	The sequence $\{ f_n \}$ is uniformly integrable over $X$ if for any $\varepsilon > 0$, there exist $\delta > 0$ such that for any measurable subset $E \subset X$ of measure $\mu(E) < \delta$, $\displaystyle \int_E |f_n| \ d\mu < \varepsilon,\ \forall n \in \mathbb{N}$.
 \end{definition}
 
 \begin{definition}[tight sequence]
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
-	A sequence of function $\{ f_n \}$ is tight over $X$ if for any $\epsilon > 0$, there exists a subset of finite measure $X_0$ such that $\displaystyle \int_{X \sim X_0} | f_n | \ d\mu < \epsilon,\ \forall n \in \mathbb{N}$.
+	A sequence of function $\{ f_n \}$ is tight over $X$ if for any $\varepsilon > 0$, there exists a subset of finite measure $X_0$ such that $\displaystyle \int_{X \sim X_0} | f_n | \ d\mu < \varepsilon,\ \forall n \in \mathbb{N}$.
 \end{definition}
 
 \begin{theorem}
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let function $f$ be integrable over $X$.
-	Then for any $\epsilon > 0$, there exists $\delta > 0$ such that for any subset $E$ with $\mu(E) < \delta$, $\displaystyle \int_E |f| \ d\mu < \epsilon$.\\
+	Then for any $\varepsilon > 0$, there exists $\delta > 0$ such that for any subset $E$ with $\mu(E) < \delta$, $\displaystyle \int_E |f| \ d\mu < \varepsilon$.\\
 
-	Furthermore, for any $\epsilon > 0$, there exists a subset of finite measure $X_0 \subset X$ such that $\displaystyle \int_{X \sim X_0} |f| \ d\mu < \epsilon$.
+	Furthermore, for any $\varepsilon > 0$, there exists a subset of finite measure $X_0 \subset X$ such that $\displaystyle \int_{X \sim X_0} |f| \ d\mu < \varepsilon$.
 \end{theorem}
 \begin{proof}
 	Without loss of generality, suppose $0 \le f$ on $X$.
 	Otherwise, consider $f = f^+ - f^-$ and apply the following proof for those non-negative functions.\\
 
-	Let $\epsilon > 0$.
+	Let $\varepsilon > 0$.
 	Since $f$ is integrable, $\int_X f \ d\mu $ is finite.
 	By the definition of integral of a non-negative functions, there exists a simple function $\psi$ on $X$ such that $0 \le \psi \le f$ on $X$ and
-	$$0 \le \int_X f \ d\mu - \int_X \psi \ d\mu < \epsilon/2$$
+	$$0 \le \int_X f \ d\mu - \int_X \psi \ d\mu < \varepsilon/2$$
 
 	Since $\psi$ assume only finite number of values, we can choose $M > 0$ such that $0 \le \psi < M$ on $X$.
-	$$ \int_E f \ d\mu = \int_E \psi \ d\mu + \int_E (f - \psi) \ d\mu \le M \cdot \mu(E) + \epsilon/2 $$
-	Choose $\delta = \epsilon/2M$, then $\mu(E) < \epsilon/2M$ and $\int_E f \ d\mu < \epsilon$.\\
+	$$ \int_E f \ d\mu = \int_E \psi \ d\mu + \int_E (f - \psi) \ d\mu \le M \cdot \mu(E) + \varepsilon/2 $$
+	Choose $\delta = \varepsilon/2M$, then $\mu(E) < \varepsilon/2M$ and $\int_E f \ d\mu < \varepsilon$.\\
 
 	Let $X_0 = \{ x \in X : f(x) > 0 \}$.
 	Then $f = f-\psi$ on $X \sim X_0$.
 	Thus,
-	$$ \int_{X \sim X_0} |f| \ d\mu = \int_{X \sim X_0} f \ d\mu = \int_{X \sim X_0} (f-\psi) \ d\mu \le \int_X (f-\psi) \ d\mu < \epsilon $$
+	$$ \int_{X \sim X_0} |f| \ d\mu = \int_{X \sim X_0} f \ d\mu = \int_{X \sim X_0} (f-\psi) \ d\mu \le \int_X (f-\psi) \ d\mu < \varepsilon $$
 \end{proof}
 
 \begin{theorem}[Vitali Convergence theorem]
@@ -3209,20 +3271,20 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 		\le & \int_{X_1} |f_n-f|\ d\mu + \int_{X_0 \sim X_1} (|f_n| + |f|) \ d\mu + \int_{X \sim X_0} (|f_n| + |f|) \ d\mu
 	\end{align*}
 
-	Let $\epsilon > 0$.
+	Let $\varepsilon > 0$.
 	Then since $\{ f_n \}$ is tight and $f$ is integrable, there exists $X_0 \subset X$ such that $X_0$ is a measurable subset of finite measure and
 	\begin{equation}
-		\int_{X \sim X_0} |f_n| \ d\mu + \int_{X \sim X_0} |f|\ d\mu < \epsilon/3
+		\int_{X \sim X_0} |f_n| \ d\mu + \int_{X \sim X_0} |f|\ d\mu < \varepsilon/3
 	\end{equation}
 	Since $f$ is integrable over $X$, $f$ is finite a.e. on $X$ and $\mu(X_0) < \infty$.
 	Thus by Egoroff's theorem, $X_0$ has a subset $X_1$ with $\mu(X_0 \sim X_1) < \delta$ such that $\{ f_n \}$ is uniformly convergent on $X_1$.
 	By uniform integrability of $\{ f_n \}$, there exits $\delta > 0$ such that for any measurable set $E$ with $\mu(E) < \delta$.
 	\begin{equation}
-		\int_{X_0 \sim X_1} (|f_n|+ |f|) \ d\mu = \int_{X_0 \sim X_1} |f_n| \ d\mu + \int_{X_0 \sim X_1} |f|\ d\mu < \epsilon/3
+		\int_{X_0 \sim X_1} (|f_n|+ |f|) \ d\mu = \int_{X_0 \sim X_1} |f_n| \ d\mu + \int_{X_0 \sim X_1} |f|\ d\mu < \varepsilon/3
 	\end{equation}
 	By uniform convergence of $\{ f_n \}$ into $f$ on $X_1$, there exists $N$ such that for every $n \ge N$.
 	\begin{equation}
-		\int_{X_1} |f_n -f| \ d\mu \le \sup_{x \in X_1} |f_n(x) -f(x)| \cdot \mu(X-1) < \epsilon/3
+		\int_{X_1} |f_n -f| \ d\mu \le \sup_{x \in X_1} |f_n(x) -f(x)| \cdot \mu(X-1) < \varepsilon/3
 	\end{equation}
 \end{proof}
 
@@ -3271,10 +3333,11 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \subsection{Radon-Nikodym Theorem}
 %What do you mean by continuity and absolute continuity ?
 %Why would having all their zeroes identical, make measures continuous ?
-\begin{definition}[Uniformly continuous]
+\begin{definition}[absolutely continuous]
 	Let $(X,\mathcal{M})$ be a measure space.
 	Let $\mu,\nu$ be measures on $X$.
-	The measure $\nu$ is absolutely continuous with respect to $\mu$ if $\nu(E) = 0$ for any measure subset $E \in \mathcal{M}$ with $\mu(E) = 0$.
+	The measure $\nu$ is absolutely continuous with respect to $\mu$ if $\nu(E) = 0$ whenever $\mu(E) = 0$ for any measure subset $E \in \mathcal{M}$.
+	And we write $\nu \ll \mu$.
 \end{definition}
 	For example : The set function $\nu(E) = \displaystyle \int_E f \ d\mu$ is a measure on $(X,\mathcal{M})$ and is absolutely continuous with respect to $\mu$.
 
@@ -3284,19 +3347,19 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \begin{theorem}
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $\nu$ be a measure on $(X,\mathcal{M})$.
-	Then $\nu$ is absolutely continuous with respect to $\mu$ if and only if for any $\epsilon > 0$, there exists $\delta > 0$ such that for any measurable subset $E \in \mathcal{M}$ with $\mu(E) < \delta$, $\nu(E) < \epsilon$.
+	Then $\nu$ is absolutely continuous with respect to $\mu$ if and only if for any $\varepsilon > 0$, there exists $\delta > 0$ such that for any measurable subset $E \in \mathcal{M}$ with $\mu(E) < \delta$, $\nu(E) < \varepsilon$.
 \end{theorem}
 \begin{proof}
-	Suppose for $\epsilon > 0$, there exists $\delta > 0$ such that $\nu(E) < \epsilon$ if $\mu(E) < \delta$.
-	Since measure has monotonicity, as $\epsilon \to 0$, $\delta \to 0$.
+	Suppose for $\varepsilon > 0$, there exists $\delta > 0$ such that $\nu(E) < \varepsilon$ if $\mu(E) < \delta$.
+	Since measure has monotonicity, as $\varepsilon \to 0$, $\delta \to 0$.
 	Therefore, $\nu$ is absolutely continuous with respect to $\mu$.\\
 
-	Let $\epsilon > 0$.
-	Suppose that for any $\delta > 0$, there exists some measurable set $E$ with $\mu(E) < \delta$, but $\nu(E) \ge \epsilon$.
-	Then, we can construct a sequence of measurable sets, $\{ E_n \}$ such that $\mu(E_n) \le \frac{1}{2^n}$ and $\nu(E_n) \ge \epsilon$.
+	Let $\varepsilon > 0$.
+	Suppose that for any $\delta > 0$, there exists some measurable set $E$ with $\mu(E) < \delta$, but $\nu(E) \ge \varepsilon$.
+	Then, we can construct a sequence of measurable sets, $\{ E_n \}$ such that $\mu(E_n) \le \frac{1}{2^n}$ and $\nu(E_n) \ge \varepsilon$.
 	Define a descencding sequence $\{ A_n \}$ where $\displaystyle A_n = \bigcup_{k = n}^\infty E_k$.
-	By the continuity of measure, $\displaystyle \lim_{n \to \infty} \mu (A_n) = \mu \left( \bigcap_{n = 1}^\infty A_n \right) = 0$ which is a contradiction to absolute continuity since $\displaystyle \lim_{n \to \infty} \nu(A_n) \ge \epsilon$.
-	Therefore, if $\epsilon > 0$, then there exists $\delta > 0$ such that $\mu(E) < \delta \implies \nu(E) < \epsilon$.
+	By the continuity of measure, $\displaystyle \lim_{n \to \infty} \mu (A_n) = \mu \left( \bigcap_{n = 1}^\infty A_n \right) = 0$ which is a contradiction to absolute continuity since $\displaystyle \lim_{n \to \infty} \nu(A_n) \ge \varepsilon$.
+	Therefore, if $\varepsilon > 0$, then there exists $\delta > 0$ such that $\mu(E) < \delta \implies \nu(E) < \varepsilon$.
 \end{proof}
 
 \begin{theorem}[Radon-Nikodym]
@@ -3376,7 +3439,15 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 
 	\textbf{Step 4 : Extending the proof to $\sigma$-finite measures}\\
 	Suppose $\mu,\nu$ are $\sigma$-finite measures.
-	---yet to complete---
+	Then from the defintion of $\sigma$-finite measure, $X$ has a countable partition, $X = \cup_{n =1}^\infty X_n$ such that $\mu(X_n) < \infty$ and $\nu(X_n) < \infty$ for every $n$.
+	Now we may represent $\sigma$-finite measures as countable sum of finite measures, $\mu_n,\nu_n$ on $X_n$.\\
+	That is, $\displaystyle \mu = \sum_{n=1}^\infty \mu_n \cdot \chi_{X_n}$ and $\displaystyle \nu = \sum_{n=1}^\infty \nu_n \cdot \chi_{X_n}$\\
+	Now $\displaystyle \nu-\lambda\mu = \sum_{n=1}^\infty (\nu_n - \lambda\mu_n) \cdot \chi_{X_n}$ is a $\sigma$-finite signed measure.
+	From Step 1,2 and 3, we have a non-negative measurable function $f$ such that integral of $f$ is the supremum of integrals of all the non-negative functions dominated by $\nu$.
+	Then,
+	$$\int_{X} f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f \ d\mu_n > 0$$
+	And
+	$$\int_{E} f \ d\mu = \sum_{n=1}^\infty \int_{E \cap X_n} f \ d\mu_n < \sum_{n=1}^\infty \nu_n(E \cap X_n) = \nu(E)$$
 \end{proof}
 
 \begin{theorem}
