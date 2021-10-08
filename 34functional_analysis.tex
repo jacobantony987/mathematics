@@ -19,6 +19,75 @@
 
 %\chapter 1
 \section{Metric Spaces}
+The following are a few metric spaces and their distance functions,
+\begin{enumerate}
+	\item $\mathbb{R}, d(x,y) = |x -y|$
+	\item $\mathbb{R}^2, d(x,y) = \left( |\xi_1-\eta_1|^2 + |\xi_2 - \eta_2|^2 \right)^\frac{1}{2} $ where $x = (\xi_1,\xi_2)$
+	\item $\mathbb{R}^3, d(x,y) = \left( |\xi_1-\eta_1|^2 + |\xi_2 - \eta_2|^2 + |\xi_3-\eta_3|^2 \right)^\frac{1}{2} $ where $x = (\xi_1,\xi_2,\xi_3)$
+	\item Euclidean space, $\displaystyle \mathbb{R}^n, d(x,y) = \left( \sum_{j=1}^n |\xi_j - \eta_j|^2 \right)^\frac{1}{2}$ where $x = (\xi_1,\xi_2,\dots,\xi_n)$
+	\item $\mathbb{C}, d(x,y) = |x - y|$ where $x = a+ib$ and $|x| = (a^2+b^2)^\frac{1}{2}$
+	\item Unitary space, $\displaystyle \mathbb{C}^n, d(x,y) =  \left( \sum_{j=1}^n |\xi_j - \eta_j|^2 \right)^\frac{1}{2}$ where  $x = (\xi_1,\xi_2)$ and $\xi_j \in \mathbb{C}$.
+	\item $\displaystyle C[a,b], d(x,y) = \max_{t \in [a,b]} \left\{ |x(t)-y(t)| \right\}$ where $x$ is a continuous, complex-valued function defined on closed interval $[a,b] \subset \mathbb{R}$.
+	\item $\displaystyle B(A), d(x,y) = \sup_{t \in A} \left\{ |x(t)-y(t)| \right\}$ where $x$ is a bounded, complex-valued function defined on $A \subset \mathbb{R}$
+	\item $\displaystyle l^p, d(x,y) = \left( \sum_{j = 1}^\infty |\xi_j - \eta_j|^p \right)^\frac{1}{p}$ where $x = (\xi_j)$ and $\displaystyle \sum_{j=1}^\infty |\xi_j|^p < \infty$. That is, set of all sequences such that the $p$th power series is convergent.
+	\item $\displaystyle l^\infty, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \} $ where $x = (\xi_j)$ and $|\xi_j| \le c$. That is, $l^\infty$ is the space of all bounded sequences of complex numbers.
+	\item $\displaystyle c, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \}$ where $(\xi_j) = \xi_1,\xi_2,\dots$ is the space of all convergent sequences of complex numbers.
+	\item $\displaystyle s, d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{1+|\xi_j-\eta_j|}$ where $x = (\xi_j) = \xi_1,\xi_2,\dots$ is the space of all sequence of complex numbers.
+\end{enumerate}
+Clearly, $l^p \subset l^\infty \subset s$.
+But, $B(A),C[a,b]$ are non-comparable since there exists discontinuous, bounded functions and continuous, unbounded functions.
+
+\begin{definition}[conjugate exponents]
+	Real numbers $p,q$ are conjugates, if $p>1,q>1$ and $\frac{1}{p}+\frac{1}{q} = 1$.
+\end{definition}
+Note : if $p,q$ are conjugates, then $p+q=pq$ and $(p-1)(q-1) = 1$.
+Also if $u = t^{p-1}$, then $t = u^{q-1}$.
+
+\begin{theorem}[H\"older\footnote{O.H\"older} Inequality for sums]
+	Let $p,q$ be conjugates and $(\xi_j), (\eta_j)$ be two complex sequences. $(\xi_j) \in l^p$ and $(\eta_j) \in l^q$.
+	Then
+	\begin{equation}
+		\sum_{j=1}^\infty |\xi_j\eta_j| \le \left( \sum_{j=1}^\infty |\xi_j|^p \right)^\frac{1}{p} \quad \left( \sum_{j=1}^\infty |\eta_j|^q \right)^\frac{1}{q}
+	\end{equation}
+\end{theorem}
+\begin{corollary}[Cauchy-Schwarz Inequality]
+	When $p=2$, we have its conjugate $q=2$.
+	Then H\"older inequality reduces to the following
+	\begin{equation}
+		\sum_{j=1}^\infty |\xi_j\eta_j| \le \left( \sum_{j=1}^\infty |\xi_j|^2 \right)^\frac{1}{2} \quad \left( \sum_{j=1}^\infty |\eta_j|^2 \right)^\frac{1}{2}
+	\end{equation}
+
+\end{corollary}
+\begin{theorem}[Minkowski\footnote{H. Minkowski} Inequality]
+	Let $p,q$ be conjugates and $(\xi_j), (\eta_j)$ be two complex sequences in $l^p$.
+	Then
+	\begin{equation}
+		\left( \sum_{j=1}^\infty |\xi_j + \eta_j|^p \right)^\frac{1}{p} \le \left( \sum_{j=1}^\infty |\xi_j|^p \right)^\frac{1}{p} + \left( \sum_{j=1}^\infty |\eta_j|^q \right)^\frac{1}{q}
+	\end{equation}
+\end{theorem}
+\subsection{A few more Concepts}
+\begin{description}
+	\item[product of metric spaces]
+		Let $(X_1,d_1),(X_2,d_2)$ be two metric spaces.
+		Then, $X_1 \times X_2$ is a metric space with following metrics,
+		\begin{enumerate}
+			\item $d(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)$ where $x = (x_1,x_2 ) \in X_1 \times X_2$
+			\item $\displaystyle d(x,y) = \left( d_1(x_1,y_1)^2 + d_2(x_2,y_2)^2 \right)^\frac{1}{2}$ where $x = (x_1,x_2 ) \in X_1 \times X_2$
+			\item $\displaystyle d(x,y) = \max \{ d_1(x_1,y_1) , d_2(x_2,y_2) \}$ where $x = (x_1,x_2 ) \in X_1 \times X_2$
+		\end{enumerate}
+	\item[separable] A space is separable if it has a countable, dense subset.\\
+		Note : $l^\infty$ is not separable. But, $l^p$ spaces are separable $(1 \le p <\infty)$. $\mathbb{R},\mathbb{C}$ are separable. $B[a,b]$ not seprable.
+	\item[complete] A space is complete if every Cauchy sequence in it converges.\\
+		Note : $\mathbb{R},\mathbb{C},\mathbb{R}^n,\mathbb{C}^n$ are complete.
+		Sequence spaces $c,l^p,l^\infty$ are complete.
+		Function space $C[a,b]$ is complete.
+		Every convergent sequence in a metric space is Cauchy.
+\end{description}
+\subsection{Exercises}
+\begin{enumerate}
+	\item Find a sequence $(\xi_j)$ which converges to $0$ but does not belong to any $l^p$ space. $(1 \le p < \infty)$.
+	\item Find a sequence $(\xi_j)$ which belong to $l^p$ space with $p>1$ but not in $l^1$.
+\end{enumerate}
 %\chapter 2
 \section{Banach Spaces}
 %\chapter 3
