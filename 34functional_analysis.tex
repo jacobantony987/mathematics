@@ -69,11 +69,12 @@ Also if $u = t^{p-1}$, then $t = u^{q-1}$.
 \begin{description}
 	\item[product of metric spaces]
 		Let $(X_1,d_1),(X_2,d_2)$ be two metric spaces.
+		Let $x,y \in X_1 \times X_2$ where $x = (\xi_1,\xi_2 )$ and $y = (\eta_1,\eta_2)$.
 		Then, $X_1 \times X_2$ is a metric space with following metrics,
 		\begin{enumerate}
-			\item $d(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)$ where $x = (x_1,x_2 ) \in X_1 \times X_2$
-			\item $\displaystyle d(x,y) = \left( d_1(x_1,y_1)^2 + d_2(x_2,y_2)^2 \right)^\frac{1}{2}$ where $x = (x_1,x_2 ) \in X_1 \times X_2$
-			\item $\displaystyle d(x,y) = \max \{ d_1(x_1,y_1) , d_2(x_2,y_2) \}$ where $x = (x_1,x_2 ) \in X_1 \times X_2$
+			\item $\displaystyle d(x,y) = d_1\left(\xi_1,\eta_1\right) + d_2\left(\xi_2,\eta_2\right)$
+			\item $\displaystyle d(x,y) = \left( d_1\left( \xi_1,\eta_1 \right)^2 + d_2\left(\xi_2,\eta_2\right)^2 \right)^\frac{1}{2}$
+			\item $\displaystyle d(x,y) = \max \{ d_1 \left(\xi_1,\eta_1\right) , d_2\left(\xi_2,\eta_2\right) \}$
 		\end{enumerate}
 	\item[separable] A space is separable if it has a countable, dense subset.\\
 		Note : $l^\infty$ is not separable. But, $l^p$ spaces are separable $(1 \le p <\infty)$. $\mathbb{R},\mathbb{C}$ are separable. $B[a,b]$ not seprable.
