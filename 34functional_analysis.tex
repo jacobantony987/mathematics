@@ -29,10 +29,10 @@ The following are a few metric spaces and their distance functions,
 	\item Unitary space, $\displaystyle \mathbb{C}^n, d(x,y) =  \left( \sum_{j=1}^n |\xi_j - \eta_j|^2 \right)^\frac{1}{2}$ where  $x = (\xi_1,\xi_2)$ and $\xi_j \in \mathbb{C}$.
 	\item $\displaystyle C[a,b], d(x,y) = \max_{t \in [a,b]} \left\{ |x(t)-y(t)| \right\}$ where $x$ is a continuous, complex-valued function defined on closed interval $[a,b] \subset \mathbb{R}$.
 	\item $\displaystyle B(A), d(x,y) = \sup_{t \in A} \left\{ |x(t)-y(t)| \right\}$ where $x$ is a bounded, complex-valued function defined on $A \subset \mathbb{R}$
-	\item $\displaystyle l^p, d(x,y) = \left( \sum_{j = 1}^\infty |\xi_j - \eta_j|^p \right)^\frac{1}{p}$ where $x = (\xi_j)$ and $\displaystyle \sum_{j=1}^\infty |\xi_j|^p < \infty$. That is, set of all sequences such that the $p$th power series is convergent.
-	\item $\displaystyle l^\infty, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \} $ where $x = (\xi_j)$ and $|\xi_j| \le c$. That is, $l^\infty$ is the space of all bounded sequences of complex numbers.
-	\item $\displaystyle c, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \}$ where $(\xi_j) = \xi_1,\xi_2,\dots$ is the space of all convergent sequences of complex numbers.
-	\item $\displaystyle s, d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{1+|\xi_j-\eta_j|}$ where $x = (\xi_j) = \xi_1,\xi_2,\dots$ is the space of all sequence of complex numbers.
+	\item $\displaystyle l^p, d(x,y) = \left( \sum_{j = 1}^\infty |\xi_j - \eta_j|^p \right)^\frac{1}{p}$ where $x = \sequence{\xi_j}$ and $\displaystyle \sum_{j=1}^\infty |\xi_j|^p < \infty$. That is, set of all sequences such that the $p$th power series is convergent.
+	\item $\displaystyle l^\infty, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \} $ where $x = \sequence{\xi_j}$ and $|\xi_j| \le c$. That is, $l^\infty$ is the space of all bounded sequences of complex numbers.
+	\item $\displaystyle c, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \}$ where $\sequence{\xi_j} = \xi_1,\xi_2,\dots$ is the space of all convergent sequences of complex numbers.
+	\item $\displaystyle s, d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{1+|\xi_j-\eta_j|}$ where $x = \sequence{\xi_j} = \xi_1,\xi_2,\dots$ is the space of all sequence of complex numbers.
 \end{enumerate}
 Clearly, $l^p \subset l^\infty \subset s$.
 But, $B(A),C[a,b]$ are non-comparable since there exists discontinuous, bounded functions and continuous, unbounded functions.
@@ -86,9 +86,94 @@ Also if $u = t^{p-1}$, then $t = u^{q-1}$.
 \end{description}
 \subsection{Exercises}
 \begin{enumerate}
-	\item Find a sequence $(\xi_j)$ which converges to $0$ but does not belong to any $l^p$ space. $(1 \le p < \infty)$.
-	\item Find a sequence $(\xi_j)$ which belong to $l^p$ space with $p>1$ but not in $l^1$.
+	\item Find a sequence $\sequence{\xi_j}$ which converges to $0$ but does not belong to any $l^p$ space. $(1 \le p < \infty)$.
+	\item Find a sequence $\sequence{\xi_j}$ which belong to $l^p$ space with $p>1$ but not in $l^1$.
 \end{enumerate}
+\setcounter{subsection}{4}
+\subsection{Completeness}
+\begin{theorem}
+	$\mathbb{R}$ is complete.
+\end{theorem}
+\begin{proof}
+	Let $\sequence{\xi_n}$ be a Cauchy sequence in $\mathbb{R}$.
+	Let $M_0 > 0$.
+	Then, there exists $N \in \mathbb{N}$ such that $\forall n,m > N,\ d(x_n,x_m) < M_0$.
+	Let $M = \max \{M_0,M_1,\dots,M_N \}$ where $\forall n \le N,\ |\xi_j| < M_j$.
+	Then $\sequence{\xi_n}$ is bounded by $M$.\\
+
+	By Bolzano Weierstrass\dag\footnote{
+		Every sequence has a monotone subsequence.
+		And by monotone converges theorem, every monotone bounded sequence has a convergent subsequence.} 
+	theorem, every bounded sequence in $\mathbb{R}^n$ has a convergent subsequence.
+	Let $x \in \mathbb{R}$ be the limit of a convergent subsequence $\sequence{\xi_{n_k}}$ of $\sequence{\xi_n}$.
+	Then $\xi_n \to x$ since $\sequence{\xi_n}$ is a Cauchy sequence.
+\end{proof}
+
+\begin{theorem}
+	$\mathbb{C}$ is complete.
+\end{theorem}
+\begin{proof}
+	Let $\sequence{\xi_n}$ be a Cauchy sequence in $\mathbb{C}$.
+	Then the real, imaginary parts of $\xi_n$ are a Cauchy sequences in $\mathbb{R}$.
+	We know that $\mathbb{R}$ is complete.
+	Let $\Re(\xi_n) \to a$ and $\Im(\xi_n) \to b$.
+	Then $\xi_n \to a+ib$ since $\sequence{\xi_n}$ is a Cauchy sequence.
+\end{proof}
+
+\begin{theorem}
+	$\mathbb{R}^n$ is complete.
+\end{theorem}
+\begin{proof}
+	Let $\sequence{x_k}$ be Cauchy sequence in $\mathbb{R}^n$.
+	Let $\epsilon > 0$.
+	There exists $N \in \mathbb{N}$ such that $\forall m,r > N,\ d(x_m,x_r) < \epsilon$.
+	Let $x_m = (\xi_{1,m},\xi_{2,m},\dots,\xi_{n,m})$ and $x_r = (\xi_{1,r},\xi_{2,r},\dots,\xi_{n,r})$.
+	\begin{align*}
+		d(x_m,x_r) = \left( \sum_{j=1}^n |\xi_{j,m} - \xi_{j,r}|^2 \right)^\frac{1}{2} & <  \epsilon\\
+		\implies \sum_{j=1}^n |\xi_{j,m} - \xi_{j,r}|^2 & <  \epsilon^2 \\
+		\implies |\xi_{j,m} - \xi_{j,r}| & < \epsilon^2,\ j = 1,2,\dots,n
+	\end{align*}
+	Therefore, $\sequence{\xi_{j,k}}$'s are Cauchy sequences in $\mathbb{R}$ for $j = 1,2,\dots,n$.
+	Since $\mathbb{R}$ is convergent, $\xi_{j,k} \to \xi_j$ for each $j$.
+	Let $x = (\xi_1,\xi_2,\dots,\xi_n)$.
+	Let $\epsilon > 0$.
+	Then there exists $N_j \in \mathbb{N}$ such that $\forall m > N,\ |\xi_{j,m} - \xi_j|  < \frac{\epsilon}{n} $.
+	Let $N = \max \{ N_1,N_2,\dots,N_n\}$.
+	Then $\forall m > N$,
+	$$ d(x_m,x) = \left( \sum_{j=1}^n | \xi_{j,m} - \xi_j|^2 \right)^\frac{1}{2} = \left( \sum_{j=1}^n \frac{\epsilon^2}{n^2} \right)^\frac{1}{2} = \frac{\epsilon}{\sqrt{n}} < \epsilon $$
+	Therefore, $\sequence{x_n}$ converges to $x$ in $\mathbb{R}^n$.
+\end{proof}
+
+\begin{theorem}
+	$\mathbb{C}^n$ is complete.
+\end{theorem}
+\begin{proof}
+	Same proof as above.
+\end{proof}
+
+\begin{theorem}
+	$l^\infty$ is complete.
+\end{theorem}
+\begin{proof}
+	Let $\sequence{x_k}$ be a Cauchy sequence in $l^\infty$ where $x_k = \xi_{k,1},\ \xi_{k,2},\ \dots$ are bounded sequences in $\mathbb{C}$ for each $k$.\\
+	\textbf{Step 1 : Construct $x$}\\
+	Let $\epsilon > 0$.
+	Then there exists $N \in \mathbb{N}$ such that $\forall m,n > N$,
+	$$d(x_m,x_n) = \sup_{k \in \mathbb{N}} \left\{ \left|\xi_{m,k} - \xi_{n,k} \right| \right\} < \epsilon $$
+	Clearly, $\sequence{\xi_{j,k}}$ are Cauchy sequences in $\mathbb{C}$ for each $j$.
+	Thus, $\xi_{j,k} \to \xi_j \in \mathbb{C}$.
+	Let $x = \xi_1,\ \xi_2,\ \dots $.
+	Now we need to prove that $x_k \to x$ and $x \in l^\infty$.\\
+	\textbf{Step 2 : $x \in l^\infty$}\\
+	\textbf{Step 3 : $x_n \to x$}\\
+%	We have, $x_1 = \xi_{1,1},\ \xi_{1,2},\ \dots$ is a bounded sequence in $\mathbb{C}$.
+%	there exists a convergent subseqeunce $\xi_{1,k_1},\ \xi_{1,k_2},\ \dots $ converging to $\xi_1 \in \mathbb{C}$.
+\end{proof}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
 %\chapter 2
 \section{Banach Spaces}
 %\chapter 3
