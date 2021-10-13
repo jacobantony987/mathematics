@@ -77,12 +77,7 @@ Also if $u = t^{p-1}$, then $t = u^{q-1}$.
 			\item $\displaystyle d(x,y) = \max \{ d_1 \left(\xi_1,\eta_1\right) , d_2\left(\xi_2,\eta_2\right) \}$
 		\end{enumerate}
 	\item[separable] A space is separable if it has a countable, dense subset.\\
-		Note : $l^\infty$ is not separable. But, $l^p$ spaces are separable $(1 \le p <\infty)$. $\mathbb{R},\mathbb{C}$ are separable. $B[a,b]$ not seprable.
-	\item[complete] A space is complete if every Cauchy sequence in it converges.\\
-		Note : $\mathbb{R},\mathbb{C},\mathbb{R}^n,\mathbb{C}^n$ are complete.
-		Sequence spaces $c,l^p,l^\infty$ are complete.
-		Function space $C[a,b]$ is complete.
-		Every convergent sequence in a metric space is Cauchy.
+		Examples : $l^\infty$ is not separable. But, $l^p$ spaces are separable $(1 \le p <\infty)$. $\mathbb{R},\mathbb{C}$ are separable. $B[a,b]$ not seprable.
 \end{description}
 \subsection{Exercises}
 \begin{enumerate}
@@ -91,6 +86,10 @@ Also if $u = t^{p-1}$, then $t = u^{q-1}$.
 \end{enumerate}
 \setcounter{subsection}{4}
 \subsection{Completeness}
+Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequences are not necessarily convergent.
+\begin{definition}[complete]
+	A metric space is complete if every Cauchy sequence in it is convergent.
+\end{definition}
 \begin{theorem}
 	$\mathbb{R}$ is complete.
 \end{theorem}
@@ -121,58 +120,260 @@ Also if $u = t^{p-1}$, then $t = u^{q-1}$.
 \end{proof}
 
 \begin{theorem}
-	$\mathbb{R}^n$ is complete.
+	Finite dimensional Euclidean space, $\mathbb{R}^n$ is complete.
 \end{theorem}
 \begin{proof}
 	Let $\sequence{x_k}$ be Cauchy sequence in $\mathbb{R}^n$.
-	Let $\epsilon > 0$.
-	There exists $N \in \mathbb{N}$ such that $\forall m,r > N,\ d(x_m,x_r) < \epsilon$.
+	Let $\varepsilon > 0$.
+	There exists $N \in \mathbb{N}$ such that $\forall m,r > N,\ d(x_m,x_r) < \varepsilon$.
 	Let $x_m = (\xi_{1,m},\xi_{2,m},\dots,\xi_{n,m})$ and $x_r = (\xi_{1,r},\xi_{2,r},\dots,\xi_{n,r})$.
 	\begin{align*}
-		d(x_m,x_r) = \left( \sum_{j=1}^n |\xi_{j,m} - \xi_{j,r}|^2 \right)^\frac{1}{2} & <  \epsilon\\
-		\implies \sum_{j=1}^n |\xi_{j,m} - \xi_{j,r}|^2 & <  \epsilon^2 \\
-		\implies |\xi_{j,m} - \xi_{j,r}| & < \epsilon^2,\ j = 1,2,\dots,n
+		d(x_m,x_r) = \left( \sum_{j=1}^n |\xi_{j,m} - \xi_{j,r}|^2 \right)^\frac{1}{2} & <  \varepsilon\\
+		\implies \sum_{j=1}^n |\xi_{j,m} - \xi_{j,r}|^2 & <  \varepsilon^2 \\
+		\implies |\xi_{j,m} - \xi_{j,r}| & < \varepsilon^2,\ j = 1,2,\dots,n
 	\end{align*}
 	Therefore, $\sequence{\xi_{j,k}}$'s are Cauchy sequences in $\mathbb{R}$ for $j = 1,2,\dots,n$.
 	Since $\mathbb{R}$ is convergent, $\xi_{j,k} \to \xi_j$ for each $j$.
 	Let $x = (\xi_1,\xi_2,\dots,\xi_n)$.
-	Let $\epsilon > 0$.
-	Then there exists $N_j \in \mathbb{N}$ such that $\forall m > N,\ |\xi_{j,m} - \xi_j|  < \frac{\epsilon}{n} $.
+	Let $\varepsilon > 0$.
+	Then there exists $N_j \in \mathbb{N}$ such that $\forall m > N,\ |\xi_{j,m} - \xi_j|  < \frac{\varepsilon}{n} $.
 	Let $N = \max \{ N_1,N_2,\dots,N_n\}$.
 	Then $\forall m > N$,
-	$$ d(x_m,x) = \left( \sum_{j=1}^n | \xi_{j,m} - \xi_j|^2 \right)^\frac{1}{2} = \left( \sum_{j=1}^n \frac{\epsilon^2}{n^2} \right)^\frac{1}{2} = \frac{\epsilon}{\sqrt{n}} < \epsilon $$
+	$$ d(x_m,x) = \left( \sum_{j=1}^n | \xi_{j,m} - \xi_j|^2 \right)^\frac{1}{2} = \left( \sum_{j=1}^n \frac{\varepsilon^2}{n^2} \right)^\frac{1}{2} = \frac{\varepsilon}{\sqrt{n}} < \varepsilon $$
 	Therefore, $\sequence{x_n}$ converges to $x$ in $\mathbb{R}^n$.
 \end{proof}
 
 \begin{theorem}
-	$\mathbb{C}^n$ is complete.
+	Finite dimensional Unitary space, $\mathbb{C}^n$ is complete.
 \end{theorem}
 \begin{proof}
 	Same proof as above.
 \end{proof}
 
 \begin{theorem}
-	$l^\infty$ is complete.
+	The complex sequence space of all bounded sequences, $l^\infty$ is complete.
 \end{theorem}
 \begin{proof}
 	Let $\sequence{x_k}$ be a Cauchy sequence in $l^\infty$ where $x_k = \xi_{k,1},\ \xi_{k,2},\ \dots$ are bounded sequences in $\mathbb{C}$ for each $k$.\\
 	\textbf{Step 1 : Construct $x$}\\
-	Let $\epsilon > 0$.
+	Let $\varepsilon > 0$.
 	Then there exists $N \in \mathbb{N}$ such that $\forall m,n > N$,
-	$$d(x_m,x_n) = \sup_{k \in \mathbb{N}} \left\{ \left|\xi_{m,k} - \xi_{n,k} \right| \right\} < \epsilon $$
-	Clearly, $\sequence{\xi_{j,k}}$ are Cauchy sequences in $\mathbb{C}$ for each $j$.
-	Thus, $\xi_{j,k} \to \xi_j \in \mathbb{C}$.
+	$$d(x_m,x_n) = \sup_{k \in \mathbb{N}} \left\{ \left|\xi_{m,k} - \xi_{n,k} \right| \right\} < \varepsilon $$
+	From the metric, we have $\sequence{\xi_{j,k}}$'s are Cauchy sequences in $\mathbb{C}$ for each $k$.
+	\begin{figure}
+		$$\begin{matrix}
+			x_1 = & \xi_{1,1} & \xi_{1,2} & \xi_{1,3} & \dots \\
+			x_2 = & \xi_{2,1} & \xi_{2,2} & \xi_{2,3} & \dots \\
+			x_3 = & \xi_{3,1} & \xi_{3,2} & \xi_{3,3} & \dots \\
+			\vdots & \vdots & \vdots & \vdots & \vdots \\
+			x = & \xi_1 & \xi_2 & \xi_3 & \dots 
+		\end{matrix}$$
+		\caption{Construction of limit in Sequence spaces}
+	\end{figure}
+	Thus, $\xi_{j,k} \to \xi_k \in \mathbb{C}$.
 	Let $x = \xi_1,\ \xi_2,\ \dots $.
 	Now we need to prove that $x_k \to x$ and $x \in l^\infty$.\\
 	\textbf{Step 2 : $x \in l^\infty$}\\
+	We have, $x_j \in l^\infty \implies |\xi_{m,j}| < c_j, \ \forall m \in \mathbb{N} $.
+	Therefore,
+	$$ |\xi_j| \le |\xi_j-\xi_{m,j}| + |\xi_{m,j}| \le \varepsilon + c_j, \quad \forall j \in \mathbb{N} $$
+	Thus, $x \in l^\infty$.\\
 	\textbf{Step 3 : $x_n \to x$}\\
-%	We have, $x_1 = \xi_{1,1},\ \xi_{1,2},\ \dots$ is a bounded sequence in $\mathbb{C}$.
-%	there exists a convergent subseqeunce $\xi_{1,k_1},\ \xi_{1,k_2},\ \dots $ converging to $\xi_1 \in \mathbb{C}$.
+	Since $|\xi_{m,j}-\xi_j| < \varepsilon$ for $m \in \mathbb{N}$,
+	$$ d(x_m,x) = \sup_{j \in \mathbb{N}} |\xi_{m,j} - \xi_j| \le \varepsilon $$
 \end{proof}
 
 \begin{theorem}
+	The complex sequence space of all convergent sequences, $c$ is complete
 \end{theorem}
 \begin{proof}
+	Since every convergent sequence is bounded, $c \subset l^\infty$.
+	And the sequence space $c$ is complete if $c$ is a closed subset of the complete space $l^\infty$.
+	Therefore, it is sufficient to show that $c = \overline{c}$\\
+
+	Let $x = \sequence{\xi_k} \in \overline{c}$.	
+	Then there exists a convergent sequence $\sequence{x_k} = \sequence{\xi_{k,j}}$ in $c$ converging to $x$.
+	That is, $\xi_{k,j} \to \xi_j$.\\
+
+	Let $\varepsilon > 0$.
+	Then there exists $N \in \mathbb{N}$ such that $\forall n \ge N$ and $\forall j,k \in \mathbb{N}$, we have $\displaystyle d(x_N,x) = \sup_{r \in \mathbb{N}} \{ |\xi_{n,r} - \xi_r| \} < \frac{\varepsilon}{3}$.
+	Therefore,
+	\begin{equation}
+		|\xi_{N,j} - \xi_j| < \frac{\varepsilon}{3} \text{ and } |\xi_{N,k} - \xi_k| < \frac{\varepsilon}{3} 
+	\end{equation}
+	Every convergent sequence in complete metric space $l^\infty$ is also a Cauchy sequence.
+	Since $x_N = \sequence{\xi_{N,k}}$ is a Cauchy sequence, there exists $N_1 \in \mathbb{N}$ and $\forall j,k \ge N_1$,
+	\begin{equation}
+		|\xi_{N,j} - \xi_{N,k}| < \frac{\varepsilon}{3}
+	\end{equation}
+	Therefore,
+	$$|\xi_j - \xi_k| \le |\xi_j - \xi_{N,j}| + |\xi_{N,j}-\xi_{N,k}| + |\xi_{N,k} - \xi_k| \le \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon $$
+	Clearly, $x = \sequence{\xi_k}$ is a Cauchy sequence in $l^\infty$.
+	And since $l^\infty$ is complete, every Cauchy sequence in $l^\infty$ is convergent.
+	Therefore, $x$ is a convergent sequence and $x \in c$.
+	Thus, $c = \overline{c}$ and the induced\dag\footnote{
+		Let $(X,d)$ be a complete metric space.
+		And $Y$ is a closed subset of $X$.
+		Then the induced metric space $(Y,d_{|_Y})$ is complete.}
+	metric space $c$ is complete.
+\end{proof}
+
+\begin{theorem}
+	For any $p \ge 1$, the sequence space $l^p$ is complete.
+\end{theorem}
+\begin{proof}
+	Let $\sequence{x_k}$ be a Cauchy sequence $l^p$ where $x_k = \sequence{\xi_{k,j}}$ and
+	$$ \sum_{j = 1}^\infty \left| \xi_{k,j} \right|^p < \infty,\ \forall k \in \mathbb{N} $$
+	Since $\sequence{x_k}$ is a Cauchy sequence, for $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that
+	\begin{equation}
+		\label{equ:lpcauchy}
+		d(x_m,x_n) = \left( \sum_{j=1}^\infty |\xi_{m,j} - \xi_{n,j}|^p \right) ^\frac{1}{p} < \varepsilon,\quad \forall m,n > N \text{ since } x_k \in l^p
+	\end{equation}
+	Thus, $\forall m,n > N,\ |\xi_{m,j} - \xi_{n,j}| < \varepsilon$ for each $j$.
+
+	\textbf{Step 1 : Construction of $x$}\\
+	Define $x = \sequence{\xi_j}$ where $\xi_j$ is an accumulation point of $\sequence{\xi_{k,j}}$.\\% Then $\xi_{k,j} \to \xi_j$ OR $x_k \to x$. \\
+
+	\textbf{Step 2 : $x \in l^p$}\\
+	Let $j > N$.
+	Then, $\sequence{\xi_{k,j}}$ is a Cauchy sequence of complex numbers.
+	Then, $\xi_{k,j} \to \xi_j$.
+	Applying limit $n \to \infty$ on equation \ref{equ:lpcauchy}, we get
+	\begin{align*}
+		\left( \sum_{j=1}^\infty |\xi_{m,j} - \xi_j|^p \right) ^\frac{1}{p} & < \varepsilon,\quad \forall m > N \\
+		\implies \sum_{j=1}^\infty |\xi_{m,j} - \xi_j|^p  & < \varepsilon^p
+	\end{align*}
+	Let $m > N$. Then $x_m - x \in l^p$. By Minkowski inequality, we have
+	\begin{equation}
+		\sum_{j=1}^\infty |\xi_j|^p  \le \sum_{j=1}^\infty |\xi_{m,j}-\xi_j|^p + \sum_{j=1}^\infty |\xi_{m,j}|^p  < \infty
+	\end{equation}
+	Thus, $x \in l^p$. \\
+	\textbf{Step 3: $x_m \to x$}\\
+	Since $\displaystyle \sum_{j=1}^\infty |\xi_{m,j} - \xi_j|^p < \varepsilon^p$, we have $\xi_{k,j} \to \xi_j$.
+	Therefore, $x_m \to x$.
+\end{proof}
+
+\begin{theorem}
+	The function space of all continuous functions defined on closed interval $[a,b]$, $C[a,b]$ is complete.
+\end{theorem}
+\begin{proof}
+	Let $\sequence{x_k}$ be a Cauchy sequence in $C[a,b]$.\\
+	Let $\varepsilon > 0$.
+	Then there exists $N \in \mathbb{N}$ such that $m,n > N$, 
+	$$ d(x_m,x_n) = \max_{t \in [a,b]} \left\{ x_m(t) - x_n(t) \right\} < \varepsilon $$
+	Thus, for each $t \in [a,b]$, sequence $\sequence{x_k(t)}$'s are Cauchy sequences.
+	We know that $\mathbb{C}$ is complete.
+	Thus every Cauchy sequence in $\mathbb{C}$ is convergent.\\
+
+	Define $x : [a,b] \to \mathbb{C}$ defined by $x(t) = $ the limit of the sequence $\sequence{x_k(t)}$.
+	As $n \to \infty$, $d(x_m,x_n) \to d(x_m,x)$ and for any $m > N$, $d(x_m,x) < \varepsilon$ uniformly.
+	It is evident from the construction that, the convergence $x_k(t) \to x(t)$ is uniform.\\
+
+	Since the function $x_k$'s are continuous and the convergence is uniform, the limit function $x$ is also continuous.
+	Therefore $x \in C[a,b]$.
+\end{proof}
+
+\begin{definition}[uniform metric]
+	Let $(X,d)$ be a metric space in which every convergence $x_k \to x$ is uniform.
+	Then the metric $d$ is a uniform metric.
+\end{definition}
+For example, the metric of $C[a,b]$ is a uniform metric.
+
+\subsubsection{A few examples of incomplete metric spaces}
+The following metric spaces are not complete,
+\begin{enumerate}
+	\item The space of rational numbers, $\mathbb{Q}$ with usual metric $d(x,y) = |x-y|$ is not complete since the rational approximations of $\pi$ is sequence in $\mathbb{Q}$ which doesn't converge in $\mathbb{Q}$.
+		$$ 3,\ 3.1,\ 3.14,\ 3.141,\ \dots \to \pi \notin \mathbb{Q}$$
+	\item The space of polynomial functions with metric $d(x,y) = \sup \{ x(t) - y(t)|$ is not complete since taylor approximations of $\sin x$ is a sequence of polynomial funcitons which doesn't converge to a polynomial function.
+		$$ x,\ x+\frac{-x^3}{3!},\ x+\frac{-x^3}{3!}+\frac{x^5}{5!},\ \dots \to \sin x \notin p $$
+	\item The space of continuous function on unit interval $[0,1]$ with a different\dag\footnote{Area under the graph of difference function is well-defined for integrable functions.} metric 
+		$$ d(x,y) = \int_0^1 \left| x(t)-y(t) \right| \ dt $$
+		is not complete since $\sequence{x_k}$ where $x_k : [0,1] \to \mathbb{R}$ is defined by
+		$$x_k(t) = \begin{cases} 0 & t \in \left[0,\frac{1}{2}\right) \\
+			(t-\frac{1}{2})k & t \in \left[\frac{1}{2},\frac{1}{2}+\frac{1}{k}\right) \\
+		1 & t \in \left[\frac{1}{2}+\frac{1}{k},1\right] \end{cases} $$
+		doesn't converge to a continuous polynomial function.
+\end{enumerate}
+\subsection{Completion of Metric Space}
+Let $Y$ be an incomplete metric space.
+Completion of $Y$ is a construction of a complete metric space $X$ in which $Y$ is dense.\\
+
+For example, $\mathbb{Q}$ is not complete. However, $\mathbb{R}$ is a complete metric space in which $\mathbb{Q}$ is complete. Therefore, $\mathbb{R}$ is a completion of $\mathbb{Q}$.
+
+\begin{definition}[Isometry]
+	Isometric functions are distance preserving functions.
+	And two metric spaces are isometric if there exists a bijective isometry between them.
+\end{definition}
+
+For example, function $f : X \to Y$ is an isometry if
+$$ \forall x,y \in X,\quad \hat{d}(f(x),f(y)) = d(x,y)$$
+where $d, \hat{d}$ are metrics in $X,Y$ respectively.
+And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
+
+\begin{commentary}
+	Two metric spaces are isometric is another way of saying that the spaces are identical (same) from metric point of view.
+\end{commentary}
+
+\begin{theorem}[completion]
+	Let $(X,d)$ be a metric space.
+	Then, there exists a complete metric space, $(\hat{X},\hat{d})$ such that it has a dense subspace $W$ which is isometric with $X$.
+	And $\hat{X}$ is unique upto isomerties.
+\end{theorem}
+\begin{commentary}
+	In other words, for any metric space $X$ there exists a unique complete metric space, $\hat{X}$ in which $X$ is dense.
+\end{commentary}
+\begin{proof}
+	\textbf{Step 1 : Construction of $(\hat{X},\hat{d})$}\\
+	Let $(X,d)$ be a metric space.
+	Let $C$ be the set of all Cauchy sequence in $X$.
+	Define relation $\sequence{x_k} \sim \sequence{y_k}$ if and only if $\displaystyle \lim_{k \to \infty} d(x_k,y_k) = 0$.
+	This is an equivalence relation.(proof not required)
+
+	\begin{commentary}
+		{\footnotesize
+		\begin{enumerate}
+			\item Reflexive - $\displaystyle \hat{x} \sim \hat{x}$ since $\lim_{k \to \infty} d(x_k,x_k) = 0$. 
+			\item Symmetric -  $\displaystyle \hat{x} \sim \hat{y} \implies \lim_{k \to \infty} d(x_k,y_k) = \lim_{k \to \infty} d(y_k,x_k) \implies \hat{y} \sim \hat{x}$.
+		\item Transitive - Suppose, $\hat{x} \sim \hat{y}$ and $\hat{y} \sim \hat{z}$.\\
+		$\displaystyle \hat{x} \sim \hat{y} \implies \hat{d}(\hat{x},\hat{y}) = \lim_{k \to \infty} d(x_k,y_k) = 0$, $\displaystyle \hat{y} \sim \hat{z} \implies \hat{d}(\hat{y},\hat{z}) = \lim_{k \to \infty} d(y_k,z_k) = 0$.\\
+		Then $\displaystyle \hat{d}(\hat{x},\hat{z}) = \lim_{k \to \infty} d(x_n,z_n) \le \lim_{k \to \infty} d(x_n,y_n) + d(y_n,z_n) = \hat{d}(\hat{x},\hat{y}) + \hat{d}(\hat{y},\hat{z}) = 0$.\\
+		Therefore $\hat{x} \sim \hat{z}$.
+		\end{enumerate}
+		}
+	\end{commentary}
+
+	Let $\hat{X}$ be the set of all equivalent classes in $C$.
+	Define $\hat{d} : \hat{X} \times \hat{X} \to \mathbb{R}$ given by  $\displaystyle \hat{d}(\hat{x},\hat{y}) = \lim_{k \to \infty} d(x_k,y_k)$ where the Cauchy sequences $x_k \in \hat{x}$ and $y_k \in \hat{y}$.
+	Then $\hat{d}$ is metric in $\hat{X}$.
+	\begin{enumerate}
+		\item $\hat{d}$ is well-defined\\
+			Suppose $x_k,x_k' \in \hat{x}$ and $y_k,y_k' \in \hat{y}$.
+			Then $x_k \sim x_k'$ and $y_k \sim y_k'$.
+			In other words, $\displaystyle \lim_{k \to \infty} d(x_k,x_k') = 0$ and $\displaystyle \lim_{k \to \infty} d(y_k,y_k') = 0$.\\
+
+			By triangular inequality, we have
+			$$ d(x_k,y_k) \le d(x_k,x_k') + d(x_k',y_k') + d(y_k',y_k) $$
+			$$ \implies d(x_k,y_k) - d(x_k',y_k') \le d(x_k,x_k') + d(y_k,y_k')$$
+			Similarly,
+			$$ d(x_k',y_k') - d(x_k,y_k) \le d(x_k,x_k') + d(y_k,y_k')$$
+			Therefore, 
+			$$ | d(x_k,y_k) - d(x_k',y_k')| \le d(x_k,x_k') + d(y_k,y_k')$$
+			Apply the limit $k \to \infty$ on either sides, we get
+			$$ \lim_{k\to \infty} |d(x_k,y_k)-d(x_k',y_k')| \le \lim_{k \to \infty} d(x_k,x_k') + \lim_{k \to \infty} d(y_k,y_k') = 0 $$
+			Thus, $\hat{d}(x_k,y_k)$ depends only on the equivalent class $\hat{x},\hat{y}$ to which $x_k,y_k$ belongs and is independent of the representative from these equivalent classes.
+			Therefore, $\hat{d} : \hat{X} \times \hat{X} \to \mathbb{R}$ is well-defined.
+		\item $\hat{d}(\hat{x},\hat{y}) = 0 \iff \hat{x} = \hat{y}$
+			$$ \hat{d}(\hat{x},\hat{y}) = 0 \iff \forall x_k \in \hat{x}, \forall y_k \in \hat{y},\ \lim_{k \to \infty} d(x_k,y_k) = 0 \iff x_k \sim y_k $$
+		\item $\hat{d}(\hat{x},\hat{y}) = \hat{d}(\hat{y},\hat{x})$ is trivial since $d(x_k,y_k) = d(y_k,x_k)$.
+		\item $\hat{d}(\hat{x},\hat{y}) \le \hat{d}(\hat{x},\hat{z}) + \hat{d}(\hat{z},\hat{y})$
+			$$ d(x_k,y_k) \le d(x_k,z_k) + d(z_k,y_k) $$
+			Applying limit $k \to \infty$ on either sides, we get
+			$$ \hat{d}(\hat{x},\hat{y}) = \lim_{k \to \infty} d(x_k,y_k) \le \lim_{k \to \infty} d(x_k,z_k) + \lim_{k \to \infty} d(z_k,y_k)  = \hat{d}(\hat{x},\hat{z}) + \hat{d}(\hat{z},\hat{y})$$
+	\end{enumerate}
+	\textbf{Step 2: Construction of Isometry $T : X \to W,\ W \subset \hat{X}$.}\\
+	---yet to update---
+	\textbf{Step 3: $\hat{X}$ is complete}\\
+	\textbf{Step 4: Uniqueness of $\hat{X}$}\\
 \end{proof}
 %\chapter 2
 \section{Banach Spaces}
