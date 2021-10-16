@@ -355,12 +355,13 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 			$$ d(x_k,y_k) \le d(x_k,x_k') + d(x_k',y_k') + d(y_k',y_k) $$
 			$$ \implies d(x_k,y_k) - d(x_k',y_k') \le d(x_k,x_k') + d(y_k,y_k')$$
 			Similarly,
-			$$ d(x_k',y_k') - d(x_k,y_k) \le d(x_k,x_k') + d(y_k,y_k')$$
+			$$ d(x_k',y_k') \le d(x_k',x_k) + d(x_k,y_k) + d(y_k,y_k') $$
+			$$ \implies d(x_k',y_k') - d(x_k,y_k) \le d(x_k,x_k') + d(y_k,y_k')$$
 			Therefore, 
 			$$ | d(x_k,y_k) - d(x_k',y_k')| \le d(x_k,x_k') + d(y_k,y_k')$$
 			Apply the limit $k \to \infty$ on either sides, we get
 			$$ \lim_{k\to \infty} |d(x_k,y_k)-d(x_k',y_k')| \le \lim_{k \to \infty} d(x_k,x_k') + \lim_{k \to \infty} d(y_k,y_k') = 0 $$
-			Thus, $\hat{d}(x_k,y_k)$ depends only on the equivalent class $\hat{x},\hat{y}$ to which $x_k,y_k$ belongs and is independent of the representative from these equivalent classes.
+			Thus, $\hat{d}(\hat{x},\hat{y})$ depends only on the equivalent class $\hat{x},\hat{y}$ to which $x_k,y_k$ belongs and is independent of the representative from these equivalent classes.
 			Therefore, $\hat{d} : \hat{X} \times \hat{X} \to \mathbb{R}$ is well-defined.
 		\item $\hat{d}(\hat{x},\hat{y}) = 0 \iff \hat{x} = \hat{y}$
 			$$ \hat{d}(\hat{x},\hat{y}) = 0 \iff \forall x_k \in \hat{x}, \forall y_k \in \hat{y},\ \lim_{k \to \infty} d(x_k,y_k) = 0 \iff x_k \sim y_k $$
@@ -370,10 +371,70 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 			Applying limit $k \to \infty$ on either sides, we get
 			$$ \hat{d}(\hat{x},\hat{y}) = \lim_{k \to \infty} d(x_k,y_k) \le \lim_{k \to \infty} d(x_k,z_k) + \lim_{k \to \infty} d(z_k,y_k)  = \hat{d}(\hat{x},\hat{z}) + \hat{d}(\hat{z},\hat{y})$$
 	\end{enumerate}
+
 	\textbf{Step 2: Construction of Isometry $T : X \to W,\ W \subset \hat{X}$.}\\
-	---yet to update---
-	\textbf{Step 3: $\hat{X}$ is complete}\\
-	\textbf{Step 4: Uniqueness of $\hat{X}$}\\
+	Let $b \in X$.
+	Then $b,b,\dots$ is a Cauchy sequence in $\hat{X}$.
+	Let $\hat{b} \in \hat{X}$ be the equivalent class of Cauchy sequences containing the constant sequence $\sequence{b}$.
+	Define $T : X \to \hat{X}$ given by $T(b) = \hat{b}$.\\
+	Let $a,b \in X$, then
+	\begin{align*}
+		Ta=Tb & \implies \sequence{a} \sim \sequence{b} \\
+		& \implies \lim_{k \to \infty} d(a,b) = 0\\
+		& \implies d(a,b) = 0 \implies a =b 
+	\end{align*}
+	Thus $T : X \to T(X)$ is a bijection.
+	Also $T$ is an isometry since 
+	$$\displaystyle \hat{d}(\hat{a},\hat{b}) = \hat{d}(Ta,Tb) = \lim_{k \to \infty} d(a,b) = d(a,b)$$
+
+	\textbf{Step 3: $W = T(X)$ is dense in $\hat{X}$}\\
+	Let $\hat{x} \in \hat{X}$, then $\sequence{x_k} \in \hat{x}$.
+	Then, $\sequence{x_k}$ is a Cauchy sequence.\\
+	Let $\varepsilon > 0$.
+	Then there exists $N \in \mathbb{N}$ such that $\forall m,n \ge N,\ d(x_n,x_m) < \frac{\varepsilon}{2}$.\\
+	Thus,
+	$$ \forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } d(x_n,x_N) < \frac{\varepsilon}{2} $$
+	Clearly, $x_N \in X$ and the constant sequence $\sequence{x_N} \in \hat{x_N} \in T(X) = W$.\\
+	Thus,
+	$$\hat{d}(\hat{x},\hat{x_N}) = \lim_{k \to \infty} d(x_k,x_N) \le \frac{\varepsilon}{2} < \varepsilon $$
+	Therefore, $W$ is dense in $\hat{X}$.\\
+
+	\textbf{Step 4: $\hat{X}$ is complete}\\
+	Let $\sequence{\hat{x}_n}$ be any Cauchy sequence in $\hat{X}$.
+	Since $W$ is dense in $\hat{X}$, for each $\hat{x}_n$ there exists $\hat{z}_n \in W$ such that $\hat{d}(\hat{x}_n,\hat{z}_n) < \frac{1}{n}$.
+	Then, $\sequence{\hat{z}_n}$ is a Cauchy sequence since,
+	$$ \hat{d}(\hat{z}_m,\hat{z}_n) \le \hat{d}(\hat{z}_m,\hat{x}_m) + \hat{d}(\hat{x}_m,\hat{x}_n)+\hat{d}(\hat{x}_n,\hat{z}_n) \le \frac{1}{m} + \hat{d}(\hat{x}_m,\hat{x}_n) + \frac{1}{n} $$
+
+	We have, $T : X \to W$ defined by $T(z_n) = \hat{z}_n$ is a bijective, isometry.
+	Thus, sequence $\sequence{z_n}$ is a Cauchy sequence in $X$, since $\hat{d}(\hat{z}_n,\hat{z}_m) = d(z_n,z_m)$.
+	Let $\hat{x} \in \hat{X}$ be the equivalent class of Cauchy sequences containing $\sequence{z_n}$.
+	Then,
+	$$ \hat{d}(\hat{x}_n,\hat{x}) \le \hat{d}(\hat{x}_n,\hat{z}_n) + \hat{d}(\hat{z}_n,\hat{x}) = \frac{1}{n} + \hat{d}(\hat{z}_n,\hat{x}) $$
+	Apply limit $n \to \infty$ on either sides, we get
+	$$ \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{x}) \le \lim_{n \to \infty} \frac{1}{n} + \lim_{n \to \infty} \hat{d}(\hat{z}_n,\hat{x}) = 0 $$
+	Thus, $\hat{x}_n \to \hat{x}$ as $n \to \infty$.
+	Therefore $\hat{X}$ is complete, since every Cauchy sequence in $\hat{X}$ converges.\\
+
+	\textbf{Step 5: Uniqueness of $\hat{X}$}\\
+	Suppose $(\tilde{X},\tilde{d})$ is a complete metric space with dense subset $\tilde{W}$ which is isometric with $X$.
+	Let $\tilde{x},\tilde{y} \in \tilde{X}$.
+	Since $\tilde{W}$ is dense in $\tilde{X}$, there exists sequences $\sequence{\tilde{x}_n},\sequence{\tilde{y}_n}$ in $\tilde{W}$ such that $\tilde{x}_n \to \tilde{x}$ and $\tilde{y}_n \to \tilde{y}$.\\
+	We have,
+	$$ \tilde{d}(\tilde{x},\tilde{y}) \le \tilde{d}(\tilde{x},\tilde{x}_n) + \tilde{d}(\tilde{x}_n,\tilde{y}_n) + \tilde{d}(\tilde{y}_n,\tilde{y}) $$
+	$$ \tilde{d}(\tilde{x}_n,\tilde{y}_n) \le \tilde{d}(\tilde{x}_n,\tilde{x}) + \tilde{d}(\tilde{x},\tilde{y}) + \tilde{d}(\tilde{y},\tilde{y}_n) $$
+	Thus,
+	$$ | \tilde{d}(\tilde{x}_n,\tilde{y}_n) - \tilde{d}(\tilde{x},\tilde{y}) | \le \tilde{d}(\tilde{x},\tilde{x}_n) + \tilde{d}(\tilde{y},\tilde{y}_n) $$
+	Applying limit $n \to \infty$ on either sides, we get
+	$$ \lim_{n \to \infty} | \tilde{d}(\tilde{x}_n,\tilde{y}_n) - \tilde{d}(\tilde{x},\tilde{y}) | \le \lim_{n \to \infty} \tilde{d}(\tilde{x},\tilde{x}_n) + \lim_{n \to \infty} \tilde{d}(\tilde{y},\tilde{y}_n) = 0 $$
+	$$ \implies \tilde{d}(\tilde{x},\tilde{y}) = \lim_{n \to \infty} \tilde{d}(\tilde{x}_n,\tilde{y}_n) $$
+	We have, $\tilde{W}$ is isometric\dag\footnote{
+		Suppose $\tilde{W}$ is isometric with $X$.
+		Then there exists an isometry $S : \tilde{W} \to X$ such that $\tilde{d}(\tilde{x}_n,\tilde{y}_n)) = d(S(\tilde{x}_n),S(\tilde{y}_n))$.
+		Since $T : X \to W$ is also an isometry, $T^{-1} \circ S : \tilde{W} \to W$ is an isometry where $\tilde{d}(\tilde{x}_n,\tilde{y}_n) = \hat{d}(T^{-1}\circ S(\tilde{x}_n), T^{-1}\circ S(\tilde{y}_n)).$}
+		with $W$.
+	Also $\tilde{W},W$ are dense in $\tilde{X},\hat{X}$ respectively.
+	Therefore, $\hat{X}$ and $\tilde{X}$ are isometric.
+	In other words, the completion of $X$ is unique except for isometries.
 \end{proof}
 %\chapter 2
 \section{Banach Spaces}
