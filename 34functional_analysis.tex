@@ -588,7 +588,7 @@ Then $d(x,y) = \| x -y\|$ is a metric induced by the norm.
 
 	Therefore, above metric cannot be induced from any norm defined on the sequence space $s$.
 	
-\subsubsection{Completiion of incomplete normed space}
+\subsubsection{Completion of incomplete normed space}
 	Consider the set of all continuous functions defined on closed interval $[a,b]$ together with the norm $\| \cdot \| : C[a,b] \to \mathbb{R}$ defined by
 	$$ \|x\| = \left( \int_a^b |x(t)|^2\ dt \right)^\frac{1}{2}$$
 	is an incomplete normed space.
@@ -646,7 +646,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 \subsubsection{Completion of normed spaces}
 \begin{theorem}[completion]
 	Let $(X,\|\cdot\|)$ be a normed space.
-	Then there exists a Banach space $\hat{X}$ with a dense subset $W$ and an isometry from $W$ onto $X$.
+	Then there exists a Banach space $\hat{X}$ with a dense subset $W$ and an isometry $A$ from $W$ onto $X$.
 	And $\hat{X}$ is unique except for isometries.
 \end{theorem}
 \begin{proof}
@@ -686,7 +686,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 			We need to prove that $\hat{x}+\hat{y}$ is also an equivalent class of Cauchy sequences.
 			Let $N = \max\{ N_1,N_2 \}$.
 			Then $\forall \varepsilon > 0,\ \forall n,m \ge N$ we have,
-			$$ \| x_n+y_n - (x_m+y_m) \| \le \| x_n - x_m \| + \| y_n - y_m \| = \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon $$
+			$$ \| x_n+y_n - (x_m+y_m) \| \le \| x_n - x_m \| + \| y_n - y_m \| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon $$
 		\item Scalar multiplication $\times : K \times \hat{X} \to \hat{X}$ defined by $\alpha \hat{x}$ is the collection of Cauchy sequences equivalent to $\sequence{\alpha x_n}$ where $\sequence{x_n} \in \hat{x}$ and $\alpha \in K$.\\
 
 			We need to prove that scalar product is well-defined and is closed.\\
@@ -704,24 +704,151 @@ But there exists separable, Banach spaces without a Schauder basis.
 			We have, $\sequence{x_n}$ is a Cauchy sequence.
 			Then, 
 			$$\forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } \forall n,m \ge N,\ \| x_n - x_m \| < \frac{\varepsilon}{|\alpha|} $$
-			Clearly,
+			Clearly, $\forall n,m > N$
 			$$ \| \alpha x_n - \alpha x_m \| = |\alpha|\ \| x_n - x_m \| < \varepsilon $$
 			Therefore, $\alpha\hat{x}$ is an equivalent class of Cauchy sequences.
 	\end{enumerate}
+	Therefore, $\hat{X}$ is vector space.\\
 
 	\textbf{Step 2 : Construction of norm}\\
 
-	We introduce a norm on $\hat{X}$ such that the metric $\hat{d}$ coincides with the induced metric.
-	%Let $A : W \to X$ be the bijective, isometry suggested by the completion theorem of metric spaces.
-	%Let $\hat{x} \in W$ and $A(\hat{x}) = x \in X$.
-	%Define $\| \cdot \| : W \to \mathbb{R}$ defined by $\| \hat{x} \| = \| x \|$.
-	Define $\| \cdot \| : \hat{X} \to \mathbb{R}$ by $\| \hat{x} \| = \hat{d}(\hat{x},\hat{0})$.
-	Clearly, for each $\hat{x} \in W,\ \| \hat{x} \| = \hat{d}(\hat{x},\hat{0}) = \hat{d}(A^{-1}x,A^{-1}0) = d(x,0) = \| x \|$ where $x \in X$.
+	We introduce a norm on $\hat{X}$ such that the metric $\hat{d}$ coincides with the induced metric.\\
+	
+	Define $\| \cdot \| : W \to \mathbb{R}$ as $\| \hat{x} \| = \hat{d}(\hat{x},\hat{0})$ for every $\hat{x} \in W$.
+	We know that $A : W \to X$ is an isometry.
+	Therefore, $\hat{d}(\hat{x},\hat{y}) = d(x,y)$ for every $\hat{x},\hat{y} \in W$ where $A(\hat{x}) = x$ and the constant sequence $\sequence{x} \in \hat{x}$.
+	Clearly, for each $\hat{x} \in W,\ \| \hat{x} \| = \hat{d}(\hat{x},\hat{0}) = d(x,0) = \| x \|$ where $x \in X$.\\
+
+	Let $\hat{x} \in \hat{X}$. 
+	We know that, $W$ is dense in $\hat{X}$, there exists a Cauchy sequence $\sequence{\hat{x}_n}$ in $W$ such that $\hat{d}(\hat{x}_n,\hat{x}) < \frac{1}{n}$.
+	\begin{commentary}
+	Thus, there exists a sequence $\sequence{\hat{x}_n}$ in $W$ such that $\hat{x}_n \to \hat{x}$.
+	\end{commentary}
+	Now we may extend the norm function to $\hat{X}$ 
+	\begin{equation}
+		\| \cdot \| : \hat{X} \to \mathbb{R} \text{ defined by } \| \hat{x} \| = \lim_{n \to \infty} \| \hat{x}_n \|
+	\end{equation} 
+	where $\sequence{\hat{x}_n} \in W$ and $\displaystyle \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{x}) = 0$.\\
+
+	%And there exists $x_n \in X$ such that the constant sequence $\sequence{x_n} \in \hat{x}_n$.
+	%Also $\| \hat{x}_n \| = \| x_n \|$.
+
+	Now, we show that $\| \cdot \|$ defined on $\hat{X}$ is a norm
 	\begin{enumerate}
-		\item 
-	%		We have $\| \cdot \|$ is continuous on $\hat{X}$ and $\forall \hat{x} \in W,\ \| \hat{x} \| = \| x \|$.
-	%		$\forall \hat{y} \in \hat{X}$, as $\hat{x} \to \hat{y}$, we have $\| \hat{x} \| \to \| \hat{y} \|$
+		\item We have, $\hat{d}$ is metric on $\hat{X}$. Thus, $\hat{d}(\hat{x},\hat{y}) \ge 0,\ \forall \hat{x},\hat{y} \in \hat{X}$.
+			$$ \| \hat{x} \| = \lim_{n \to \infty} \| \hat{x}_n \| = \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{0}) \ge 0 $$
+		\item Suppose $\hat{x} = \hat{0}$.
+			Then $\hat{x} \in W$ and $\|\hat{x}\| = \hat{d}(\hat{x},\hat{0}) = 0$.\\
+			Suppose $\|\hat{x}\| = 0$.
+			Then,
+			$$ \| \hat{x} \| = \lim_{n \to \infty} \| \hat{x}_n \| = \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{0}) = \lim_{n \to \infty} d(x_n,0) = 0 $$
+			Clearly, sequence $\sequence{x_n}$ is a Cauchy sequence in $X$ converging to $0 \in X$.
+			Therefore, $\sequence{x_n} \in \hat{0}$ and $\hat{x}_n \to \hat{0}$.
+			But, we know that $\hat{x}_n \to \hat{x}$.
+			Since $\hat{X}$ is a metric space, $\hat{x} = \hat{0}$.
+		\item We have,
+			$$ \| \alpha \hat{x} \| = \lim_{n \to \infty} \| \alpha \hat{x}_n \| = |\alpha|\lim_{n \to \infty} \| \hat{x}_n \| = |\alpha|\|\hat{x}\|$$
+		\item Suppose $\hat{y} \in \hat{X}$.
+			Since $W$ is dense in $\hat{X}$, there exists a Cauchy sequence $\sequence{\hat{y}_n}$ in $W$ such that $\hat{y}_n \to \hat{y}$.
+			Thus,
+			$$ \| \hat{x} + \hat{y} \| = \lim_{n \to \infty} \| \hat{x}_n + \hat{y}_n \| \le \lim_{n \to \infty} \| \hat{x}_n \| + \lim_{n \to \infty} \| \hat{y}_n \| = \| \hat{x} \| + \| \hat{y} \| $$
 	\end{enumerate}
+	Thus, $(\hat{X},\|\cdot\|)$ is complete, normed space in which $W$ is dense.\\
+
+	\textbf{Step 3 : $\hat{X}$ is unique}\\
+	Suppose $\tilde{X}$ is another Banach space with dense subset $\tilde{W}$ which has a isometry $\tilde{A}$ from $\tilde{W}$ onto $X$.
+	Then, the norm $\|\cdot\|$ defined on $\tilde{W}$,
+	$$ \| \tilde{x} \| = \tilde{d}(\tilde{x},\tilde{0}) = d(x,0),\ \forall \tilde{x} \in \tilde{W} $$
+	And we may extend this norm to $\tilde{X}$,
+	$$ \| \tilde{x} \| = \lim_{n \to \infty} \| \tilde{x}_n \| $$
+	where sequence $\sequence{\tilde{x}_n}$ is a Cauchy sequence in $\tilde{W}$ and $\tilde{x}_n \to \tilde{x}$.\\
+
+	Clearly, $\tilde{W}$ is isometric with $W$ and the topological closure of $\tilde{W}$ is isometric with the topological closure of $W$.
+	That is, $\tilde{X}$ is isometric with $\hat{X}$.
+\end{proof}
+
+\subsubsection{Exercise}
+\begin{definition}[seminorm]
+	A real-valued function $p$ on a vector space $X$, $p : X \to \mathbb{R}$ is a seminorm if it satisfies
+	\begin{enumerate}
+		\item $p(x) \ge 0,\quad \forall x \in X$
+		\item $x = 0 \implies p(x) = 0$
+		\item $p(\alpha x) = |\alpha| p(x),\quad \forall x \in X,\quad \forall \alpha \in K$
+		\item $p(x+y) \le p(x)+p(y),\quad \forall x,y \in X$
+	\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+	Let $(X,\| \cdot \|)$ be a normed space.
+	Then, the vector addition $+(x,y) = x+y$ and scalar multiplication $\times(\alpha,x)= \alpha x$ are continuous with respect to norm.
+\end{lemma}
+\begin{proof}
+	Let $x,y \in X$ and $\alpha \in K$.
+	Let sequences $\sequence{x_n},\sequence{y_n}$ converges to $x,y$ respectively.
+	Let sequence $\sequence{\alpha_n}$ converges to $\alpha \in K$.
+	Then, 
+	$$ \lim_{n \to \infty} \|x_n +y_n - (x+y) \| \le \lim_{n \to \infty} \| x_n - x \| + \lim_{n \to \infty} \| y_n - y \| = 0 $$
+	And,
+	\begin{align*}
+		\lim_{n \to \infty} \| \alpha_n x_n - \alpha x \| & = \lim_{n \to \infty} \| \alpha_n x_n - \alpha x_n + \alpha x_n - \alpha x \| \\
+		& \le \lim_{n \to \infty} \| (\alpha_n-\alpha)x_n \| + \lim_{n \to \infty} \| \alpha(x_n-x) \| \\
+		& = \lim_{n \to \infty}|\alpha_n-\alpha| \lim_{n \to \infty} \| x_n \| + |\alpha|\lim_{n \to \infty} \| x_n - x \| \\
+		& = 0
+	\end{align*}
+\end{proof}
+
+\begin{lemma}
+	Let $(X,\| \cdot \|)$ be a normed space.
+	Let sequence $\sequence{x_n}$ converges to $x \in X$ and sequences $\sequence{y_n}$ converges to $y \in X$.
+	Then, sequence $\sequence{x_n+y_n}$ converges to $x+y$.
+	Let sequence $\sequence{\alpha_n}$ converges to $\alpha$.
+	Then sequence $\sequence{\alpha_n x_n}$ converges to $\alpha x$.
+\end{lemma}
+\begin{proof}
+	Suppose $x_n \to x$, $y_n \to y$ and $\alpha_n \to \alpha$.
+	We have, vector addition and scalar multiplication are continuous with repsect to norm.
+	$$ \lim_{n \to \infty} \| x_n+y_n - (x+y) \| = 0 \text{ and } \lim_{n \to \infty} \| \alpha_n x_n - \alpha x \| = 0 $$
+	Therefore, $x_n+y_n \to x+y$ and $\alpha_n x_n \to \alpha x$.
+\end{proof}
+
+\begin{lemma}[separable]
+	Let $(X,\|\cdot\|)$ be normed space.
+	Suppose $X$ has a Schauder basis.
+	Then, $X$ is separable.
+\end{lemma}
+\begin{proof}
+\begin{important}
+	Seminar - Akashaya Peter\\
+	refer : Exercise 2.3.10\\
+	hint : Let $B = \{ e_1,e_2, \dots \}$ be a Scuader basis of normed space $(X,\|\cdot\|)$. Then $B$ is a dense subset of $X$.
+\end{important}
+\end{proof}
+
+\begin{lemma}[quotient space]
+	Let $(X,\| \cdot \|)$ be a normed space.
+	Let $Y$ be a closed subset of $X$.
+	Then $(X/Y,\|\cdot\|_0)$ is a normed space with norm defined by
+	$$\|\hat{x}\|_0 = \inf_{x \in \hat{x}} \| x \|, \quad \text{ for any coset } \hat{x} \in X/Y $$
+\end{lemma}
+\begin{proof}
+\begin{important}
+	Seminar - Amala Mathew\\
+	refer : Exercise 2.3.14\\
+	hint : You can skip algebraic details. N1,N2 are trivial. N3 - use $\alpha \hat{x} = \alpha x + Y$ where $\hat{x} = x+Y$.
+\end{important}
+\end{proof}
+\begin{lemma}[product of normed spaces]
+	Let $(X_1,\|\cdot\|_1)$, $(X_2,\|\cdot\|_2)$ be normed spaces.
+	Let $X = X_1 \times X_2$.
+	Then $(X,\|\cdot\|)$ is a normed space with norm defined by,
+	$$ \| x \| = \max \left\{ \|x_1\|_1,\|x_2\|_2 \right\} \text{ where } x = (x_1,x_2) $$
+\end{lemma}
+\begin{proof}
+\begin{important}
+	Seminar - Rinkum Susan Punnoose\\
+	refer : Exercise 2.3.15\\
+	hint : Let $x = (x_1,x_2)$. WLOG suppose $\|x_1\|_1 \ge \|x_2\|_2$. Then $\| x \| = \| x_1 \|_1$ and the rest is obvious.
+\end{important}
 \end{proof}
 
 \subsection{Finite dimensional normed spaces and subspaces}
