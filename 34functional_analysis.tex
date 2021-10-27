@@ -818,9 +818,9 @@ But there exists separable, Banach spaces without a Schauder basis.
 \end{lemma}
 \begin{proof}
 \begin{important}
-	Seminar - Akashaya Peter\\
+	Seminar - Akshaya Peter\\
 	refer : Exercise 2.3.10\\
-	hint : Let $B = \{ e_1,e_2, \dots \}$ be a Scuader basis of normed space $(X,\|\cdot\|)$. Then $B$ is a dense subset of $X$.
+	hint : Let $B = \{ e_1,e_2, \dots \}$ be a Schauder basis of normed space $(X,\|\cdot\|)$. Then $B$ is a dense subset of $X$.
 \end{important}
 \end{proof}
 
@@ -852,6 +852,134 @@ But there exists separable, Banach spaces without a Schauder basis.
 \end{proof}
 
 \subsection{Finite dimensional normed spaces and subspaces}
+\begin{lemma}
+	Let $(X,\|\cdot\|)$ be a normed space.
+	Let $\{ x_1,x_2,\dots,x_n \}$ be any linearly independent subset of $X$.
+	Then there exists a real-number $c > 0$ such that for any subset $\{ \alpha_1,\alpha_2,\dots,\alpha_n \}$ from field $K$
+	\begin{equation}
+		\left\| \sum_{j=1}^n \alpha_j x_j \right\| \ge c \sum_{j=1}^n |\alpha_j| 
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Let $\{ x_1,x_2,\dots,x_n \}$ be a linearly independent subset of a normed space $X$.
+	\begin{align*}
+		\left\| \sum_{j=1}^n \alpha_j x_j \right\|  & \ge c \sum_{j=1}^n |\alpha_j| 
+		\intertext{Let $\displaystyle s = \sum_{j=1}^n |\alpha_j|$. Suppose $s \ne 0$. Consider $\beta_j = \alpha_j/s$. Then,}
+		\left\| \sum_{j=1}^n \beta_j x_j \right\|  & \ge c \text{ where } \sum_{j=1}^n |\beta_j| = 1 
+	\end{align*}
+	It is sufficient to prove that for any real-number $c>0$, there does not exists an $n$-tuple of scalars violating the above inequality.\\
+
+	On the contrary, suppose that for every positive real number $c \in \mathbb{R}$ there exists a subset $\{ \beta_1,\beta_2,\dots,\beta_n \}$ such that $\| \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n \| < c$.
+	Then, for each $m \in \mathbb{N}$, there exist a subset of $n$ scalars $\{ \beta_{m,1}, \beta_{m,2},\dots,\beta_{m,n} \}$ such that
+	$$ \| \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dots + \beta_{m,n} x_n \| < \frac{1}{m} $$
+	Define, $y_m = \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dots + \beta_{m,n} x_n$.
+	Then, $\|y_m\| \to 0$ as $m \to \infty$.\\
+
+	Now, every $\beta_{j,k}$ is bounded since for each $m$, $|\beta_{m,1}| + |\beta_{m,2}| + \dots + |\beta_{m,n}| = 1$.
+	The sequence $\sequence{\beta_{m,1}}$ of first terms of the sequence $\sequence{y_m}$ is a bounded sequence.
+	By Bolzano-Weierstrass theroem, sequence $\sequence{\beta_{m,1}}$ has a convergent subsequence, say $\beta_{m,1} \to 1$ as $m \to \infty$.
+	Let sequence $\sequence{y_{1,m}}$ be subsequence of sequence $\sequence{y_m}$ such that the sequence of first terms is convergent.\\
+
+	Again, sequence $\sequence{\beta_{m,2}}$ of second terms of the sequence $\sequence{y_{1,m}}$ is a bounded sequence.
+	And $\sequence{y_{1,m}}$ has a subsequence $\sequence{y_{2,m}}$ such that both the sequence of first terms $\sequence{\beta_{m,1}}$ and $\sequence{\beta_{m,2}}$ are convergent, say $\beta_{2,m} \to \beta_2$ as $m \to \infty$.\\
+
+	Continuing like this $n$ times, we get sequence $\sequence{y_{n,m}}$ such that sequence corresponding each term is convergent.
+	That is, $\beta_{m,j} \to \beta_j$ for $j=1,2,\dots,n$.\\
+
+	Define $y = \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n$.
+	Clearly, the sequence $\sequence{y_{n,m}}$ is a convergent subsequence of $\sequence{y_m}$.
+	And $y_{n,m} \to y$ as $m \to \infty$.
+	Suppose $\sequence{y_{n,m}}$ is convergent, then $y_{n,m} \to y$ as the limit is unique.
+	By the continuity of norm, we have $\| y_m \| \to \| y \|$.\\
+
+	Since $\| y \| = 0$, we have $y = \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n = 0$.
+	We have $\{ x_1, x_2, \dots, x_n \}$ is linearly independent.
+	Then, $\beta_j = 0$ for each $j$.
+	And, for each $m$, sequence $\sequence{|\beta_{m,n} |}$ converges to $0$ and $|\beta_{m,1}|+|\beta_{m,2}|+\dots+|\beta_{m,n}| = 1$.
+	This is a contradition.
+	Therefore, there exists such a positive real-number $c$ satisfying the lemma.
+\end{proof}
+\begin{theorem}
+	Every finite dimensional subspace of a normed space is complete.
+\end{theorem}
+\begin{proof}
+	Let $Y$ be a finite dimensional subspace of a normed space $X$.
+	Let $dim\ Y = n$ and $B = \{ y_1, y_2, \dots, y_n \}$ be a basis for $Y$.
+	Let sequence $\sequence{y_m}$ be a Cauchy sequence in $Y$.
+	Then,
+	$$ y_m = \alpha_{m,1} y_1 + \alpha_{m,2} y_2 + \dots + \alpha_{m,n} y_n $$
+	Since $\sequence{y_m}$ is a Cauchy sequence, we have $N \in \mathbb{N}$ such that $\forall s,t > N$
+	$$ \| y_s - y_t \| = \left\| \sum_{j=1}^n \alpha_{s,j} y_j - \sum_{j=1}^n \alpha_{t,j} y_j \right\| < \varepsilon $$
+	Since basis of $Y$ is a linearly independent subset of $X$, applying lemma we get
+	$$ c \sum_{j=1}^n \left|\alpha_{s,j} - \alpha_{t,j} \right| \le \left \| \sum_{j=1}^n (\alpha_{s,j}-\alpha_{t,j}) y_j \right\| < \varepsilon $$
+	Therefore, for each $j \in \mathbb{N}$, sequence $\sequence{\alpha_{m,j}}$ are Cauchy sequences in $K$.
+	Suppose $\alpha_{m,j} \to \alpha_j$.
+	Define $y = \alpha_1 y_1 + \alpha_2 y_2 + \alpha_n y_n$.
+	Then, $y_m \to y$ as $m \to \infty$.
+	Therefore, $Y$ is complete.
+\end{proof}
+
+\begin{theorem}
+	Every finite dimensional subspace $Y$ of a normed space $X$ is closed in $X$.
+\end{theorem}
+\begin{proof}
+	Let $Y$ be a finite dimensional subspace of a normed space $X$.
+	Then $Y$ is complete.
+	Let $\hat{X}$ be the completion of $X$.
+	Now, $Y$ is complete subspace of a Banach space $\hat{X}$.
+	Then, $Y$ is closed $\hat{X}$.
+	And $Y \subset X \subset \hat{X}$.
+	Therefore, $Y$ is closed in $X$.
+\end{proof}
+
+\subsubsection{Equivalent Norm}
+	\par Consider normed space $(X,\|\cdot\|)$.
+	Then $(X,d)$ is a metric space with induced metric $d(x,y) = \| x-y \|$.
+	Since every metric space is a topological space, there exists a unique topology $(X,\mathcal{T})$ with respect to its norm.
+	Let $\|\cdot\|_0,\|\cdot\|_1$ be two different norms defined a vector space $X$.
+	Then, the norms are equivalent if their topologies coincide.\\
+
+	Alternatively, we have the following inequality to characterise the equivalent of norms,
+
+\begin{definition}
+	Let $X$ be a vector space.
+	Let $\|\cdot\|_0$, $\|\cdot\|_1$ be two normed defined on $X$.
+	These norms are equivalent if there exists positive, real numbers $a,b$ such that for any $x \in X$,
+	\begin{equation}
+		a\|x\|_0 \le \|x\|_1 \le b\|x\|_0
+	\end{equation}
+\end{definition}
+\begin{commentary}
+	For a topologist, it will interesting to prove that the topologies coincide if and only if the above inequality holds.
+\end{commentary}
+
+\begin{theorem}
+	Every norm on any finite dimensional normed spaces are equivalent.
+\end{theorem}
+\begin{commentary}
+	Let $(X,\|\cdot\|)$ be a finite dimensional normed space.
+	Then there exists a unique norm on $X$ upto equivalence.
+	That is, the topology induced by norm is independent of the norm for finite dimensional normed spaces.	
+\end{commentary}
+\begin{proof}
+	Let $X$ be a vector space with $dim\ X = n$ and basis $B = \{ x_1, x_2, \dots ,x_n \}$.
+	Let $\|\cdot\|_1$, $\|\cdot\|_2$ be two norms defined on $X$.
+	Let $x \in X$.
+	Then,
+	$$ x = \sum_{j=1}^n \alpha_j x_j $$
+	We know that, basis is a linearly independent subset of $X$ itself.
+	By the lemma for finite dimensional, normed spaces, there exists a positive, real number $c$ such that 
+	$$ \| x \|_1 = \left\| \sum_{j=1}^n \alpha_j x_j \right\|_1 \ge c \sum_{j=1}^n |\alpha_j | $$
+	By triangular inequality, we have
+	$$ \| x \|_1 = \left\| \sum_{j=1}^n \alpha_j x_j \right\| \le \sum_{j=1}^n \| \alpha_j x_j \| = \sum_{j=1}^n |\alpha_j| \|x_j\| \le k \sum_{j=1}^n |\alpha_j|$$
+	where $k = \max\{\|x_j\|\}$.\\
+
+	Let $a = \frac{c}{k}$.
+	Then $a\| x \|_1 \le \|x\|_2$.
+	Similarly, we can obtain a positive, real number $b$ such that $b\| x \|_2 \le \| x \|_1$.
+	Therefore, the norms are equivalent.
+\end{proof}
+
 \subsection{Compactness and Finite dimension}
 %Module 2
 \subsection{Linear Operators}
