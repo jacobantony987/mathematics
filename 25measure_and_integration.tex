@@ -42,7 +42,7 @@
 	\begin{enumerate}
 		\setcounter{enumi}{3}
 		\item $\mathcal{A}$ is closed under countable intersections (by de Morgan's laws).
-			$$\left( \bigcup_{k = 1}^\infty E_k^c \right)^c = \bigcap_{k=1}^\infty E_k \in \mathcal{A}$$
+			\[ \left( \bigcup_{k = 1}^\infty E_k^c \right)^c = \bigcap_{k=1}^\infty E_k \in \mathcal{A} \]
 		\item $E,F \in \mathcal{A} \implies E-F \in \mathcal{A}$ since $E-F = E \cap F^c$
 	\end{enumerate}
 \end{description}
@@ -317,12 +317,12 @@
 	Suppose $[0,1]$ is countable, then Lebesgue outer measure of any countable set is zero, $m^\ast([0,1]) = 0$.
 		But, $[0,1]$ is an interval and Lebesgue outer measure of an interval is its length, $m^\ast([0,1]) = l([0,1]) = 1$ which is a contradiction.
 \item $m^\ast([0,1] - \mathbb{Q}) = 1$
-	$$[0,1] = \left( [0,1] \cap \mathbb{Q} \right)\ \cup\ \left( [0,1]\cap \mathbb{Q}^c \right)$$
+	\[ [0,1] = \left( [0,1] \cap \mathbb{Q} \right)\ \cup\ \left( [0,1]\cap \mathbb{Q}^c \right) \]
 	Clearly, $m^\ast([0,1]) = 1$.
 		And $[0,1] \cap \mathbb{Q}$ is a countable set since $\mathbb{Q}$ is countable.
 		And thus has Lebesgue outer measure zero.
 		Thus by countable subadditivity, we have
-	$$1 = m^\ast([0,1]) \le m^\ast([0,1] \cap \mathbb{Q}^c) + 0$$
+		\[ 1 = m^\ast([0,1]) \le m^\ast([0,1] \cap \mathbb{Q}^c) + 0 \]
 		Thus, $m^\ast([0,1] \cap \mathbb{Q}^c) \ge 1$.
 		And $[0,1] \cap \mathbb{Q}^c\ \subset [0,1]$.
 		By monotonicity, $m^\ast([0,1] \cap \mathbb{Q}^c) \le m^\ast([0,1]) = 1$.
@@ -587,7 +587,7 @@ Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the follow
 		\item $m^\ast(E) = 0 \implies 0 = \inf\{\sum_{k=1}^\infty l(I_k)\} = \inf\{\sum_{k=1}^\infty l(I_k+y)\} \implies  m^\ast(E+y) = 0$
 	\end{itemize}
 	\item A subset $E$ has positive Lebesgue measure if and only if it has a bounded subset of positive Lebesgue measure.
-		$$m^\ast(E) > 0 \iff \exists \text{ bounded subset }F \subset E,\text{ such that } m^\ast(F) > 0$$
+		\[ m^\ast(E) > 0 \iff \exists \text{ bounded subset }F \subset E,\text{ such that } m^\ast(F) > 0 \]
 		\textbf{Sufficient Part :} By monotonicity, $F \subset E \implies m^\ast(F) \le m^\ast(E)$.
 		And $m^\ast(F) > 0 \implies 0 < m^\ast(F) \le m^\ast(E)$.\\
 		\textbf{Necessary Part :}
@@ -671,11 +671,11 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \subsubsection*{Open, Outer approximation $\iff$ Closed, Inner approximation}
 	By duality of Lebesgue measurability, $E$ is Lebesgue measurable if and only if $E^c$ is Lebesgue measurable.
 	And by de Morgan's Law, we have $E^c$ has an open set - outer approximation $\mathcal{O}$ if and only if $E$ has a closed set - inner approximation $\mathcal{O}^c$.
-	$$ m^\ast(\mathcal{O} \sim E^c) < \varepsilon \iff m^\ast(E \sim \mathcal{O}^c) < \varepsilon $$
+	\[ m^\ast(\mathcal{O} \sim E^c) < \varepsilon \iff m^\ast(E \sim \mathcal{O}^c) < \varepsilon \]
 
 \subsubsection*{$G_\delta$-Outer approximation $\iff F_\sigma$-Inner approximation}
 	Again, by duality of Lebesgue measurability and de Morgan's Law, we have $E^c$ has a $G_\delta$-outer approximation $G$ if and only if $E$ has an $F_\sigma$-inner approximation $F$.
-	$$ m^\ast(G \sim E^c) {\color{red}= 0} \iff m^\ast(E \sim F){\color{red} = 0} $$
+	\[ m^\ast(G \sim E^c) {\color{red}= 0} \iff m^\ast(E \sim F){\color{red} = 0} \]
 \end{proof}
 
 \begin{theorem}
@@ -895,7 +895,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	\end{equation*}
 	By de Morgan's law, we have $ B_1 - \cap_k B_k = \cup_k (B_1-B_k)$.
 	Since $B_1$ is of finite measure, by excision property we have,
-	$$ m \left( \bigcap_{k=1}^\infty B_k \right) = m \left(B_1 - \bigcup_{k=1}^\infty D_k \right) = \lim_{n \to \infty} m(B_n) $$
+	\[ m \left( \bigcap_{k=1}^\infty B_k \right) = m \left(B_1 - \bigcup_{k=1}^\infty D_k \right) = \lim_{n \to \infty} m(B_n) \]
 \end{proof}
 \subsubsection{Borel-Cantelli Lemma}
 \begin{definition}[ae]
@@ -910,7 +910,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \begin{proof}
 	We have $\sum_{k=1}^\infty m(E_k) < \infty$.
 	Then, by convergence of the series 
-	$$\lim_{n \to \infty} \sum_{k=n}^\infty m(E_k) = 0$$
+	\[ \lim_{n \to \infty} \sum_{k=n}^\infty m(E_k) = 0 \]
 	Also, $\displaystyle \left\{ \bigcup_{k=n}^\infty E_k \right\}_{n=1}^\infty$ is a descending collection of Lebesgue measurable sets.
 	By continuity of Lebesgue measure for descending collection of Lebesgue measurable sets, we have
 	\begin{equation*}
@@ -1092,7 +1092,7 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 	we have $m(C_k) = \left( \frac{2}{3} \right)^k$.
 	Clearly, $\{ C_k \}_{k=1}^\infty$ is a descending collection of measurable sets and $m(C_1) < \infty$.
 	Thus by continuity of Lebesgue measure, 
-	$$\displaystyle m(C) = m \left( \bigcap_{k=1}^\infty C_k \right) =  \lim_{k \to \infty} m(C_k) = \lim_{k \to \infty} \left( \frac{2}{3} \right)^k = 0$$
+	\[ m(C) = m \left( \bigcap_{k=1}^\infty C_k \right) =  \lim_{k \to \infty} m(C_k) = \lim_{k \to \infty} \left( \frac{2}{3} \right)^k = 0 \]
 
 	\textbf{Step 3 : $C$ is uncountable}\\
 	Suppose $C$ is countable.
@@ -1124,7 +1124,7 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 \begin{definition}[Cantor-Lebesgue function $\varphi$]
 	Let $C$ be the Cantor set.
 	Define open set, $\mathcal{O} = I \sim C$.
-	$$\mathcal{O} = I \sim C = I \sim \left( \bigcap_{k=1}^\infty C_k \right) = \bigcup_{k=1}^\infty \left( I \sim C_k \right) = \bigcup_{k=1}^\infty \mathcal{O}_k$$
+	\[ \mathcal{O} = I \sim C = I \sim \left( \bigcap_{k=1}^\infty C_k \right) = \bigcup_{k=1}^\infty \left( I \sim C_k \right) = \bigcup_{k=1}^\infty \mathcal{O}_k \]
 	We know that $\mathcal{O}_k$ has $2^{k-1}$ open intervals $I_{k,1}, I_{k,2},\dots,I_{k,2^{k-1}}$.
 	Define Cantor-Lebesgue function $\varphi$ on $\mathcal{O}$ by $\varphi(x) = \frac{m}{2^k}$ for every $x \in I_{k,m}$.
 	We may extend $\varphi$ to unit interval such that $\varphi(0) = 0$ and $\varphi(x) = \sup \left\{ \varphi(t) : t \in [0,x] \cap \mathcal{O} \right\}$.
@@ -1191,7 +1191,8 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	We know that $\psi$ is only translating open intervals in $\mathcal{O}$.
 	That is, $\psi(I_{k,m}) = I_{k,m} + \frac{m}{2^k}$.
 	In other words, $\psi$ translates every interval $I_k$ in $\mathcal{O}$ into an interval of same length since $\varphi$ is constant in each subinterval of $\mathcal{O}$.
-	Thus, $$\displaystyle m(\psi(\mathcal{O})) = \sum_{k=1}^\infty l(\psi(I_k)) = \sum_{k=1}^\infty l(I_k) = m(\mathcal{O}) = 1$$
+	Thus,
+	\[ \displaystyle m(\psi(\mathcal{O})) = \sum_{k=1}^\infty l(\psi(I_k)) = \sum_{k=1}^\infty l(I_k) = m(\mathcal{O}) = 1 \]
 	We know that $[0,2] = \psi(\mathcal{O}) \cup \psi(C)$.
 	Since $m(\psi(\mathcal{O})) = 1$, $m(\psi(C)) = 2-1 = 1$.\\
 
@@ -1247,12 +1248,12 @@ Clearly, by the construction $\phi$ is an increasing real-valued function.
 	Clearly, the sets $\{ x \in E : f(x) > c-\frac{1}{k} \}$ is measurable for every natural number $k$.
 	And countable intersection of measurable sets is measurable.
 	Thus,
-	$$\displaystyle \bigcap_{k=1}^\infty \left\{ x \in E : f(x) > c-\frac{1}{k} \right\} = \left\{ x \in E : f(x) \ge c \right\} \text{ is measurable}$$
+	\[ \bigcap_{k=1}^\infty \left\{ x \in E : f(x) > c-\frac{1}{k} \right\} = \left\{ x \in E : f(x) \ge c \right\} \text{ is measurable} \]
 	\textbf{Step 3 : $2 \implies 1$}
 	Suppose $\{ x \in E : f(x) \ge c \}$ is measurable for any real number $c$.
 	Clearly, the sets $\{ x \in E : f(x) \ge c+\frac{1}{k} \}$ is measurable for every natural number $k$.
 	Again, countable union of measurable sets is measurable. Thus,
-	$$\displaystyle \bigcup_{k=1}^\infty \left\{ x \in E : f(x) \ge c+\frac{1}{k} \right\} = \left\{ x \in E : f(x) > c \right\} \text{ is measurable}$$
+	\[ \bigcup_{k=1}^\infty \left\{ x \in E : f(x) \ge c+\frac{1}{k} \right\} = \left\{ x \in E : f(x) > c \right\} \text{ is measurable} \]
 	\textbf{Step 4 : $\forall c \in \mathbb{R},\ \{ x \in E : f(x) =c \}$ is measurable}\\
 	Suppose one of the statements is true.
 	Then other three statements are also true.
@@ -1463,11 +1464,11 @@ Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
 	\begin{proof}
 		Let $\{f_1,f_2,\dots,f_n\}$ be a finite family of measurable functions defined on a common measurable set $E$.
 		We have,
-		$$ \{ x \in E : max\{ f_1,f_2,\dots,f_n \}(x) > c \} = \bigcup_{k = 1}^n \{ x \in E : f_k(x) > c \}$$
+		\[ \{ x \in E : max\{ f_1,f_2,\dots,f_n \}(x) > c \} = \bigcup_{k = 1}^n \{ x \in E : f_k(x) > c \} \]
 		is a finite union of measurable sets since each $f_k$ is measurable.
 		Therefore, $max\{f_1,f_2,\dots,f_n\}$ is measurable.
 		Similary, we have,
-		$$ \{ x \in E : min\{ f_1,f_2,\dots,f_n \}(x) < c \} = \bigcup_{k = 1}^n \{ x \in E : f_k(x) < c \}$$
+		\[ \{ x \in E : min\{ f_1,f_2,\dots,f_n \}(x) < c \} = \bigcup_{k = 1}^n \{ x \in E : f_k(x) < c \} \]
 		Therefore, $min\{f_1,f_2,\dots,f_n\}$ is also measurable.
 		
 	\end{proof}
@@ -1475,26 +1476,26 @@ Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
 
 	Note : Let $f$ be a measurable function on a measurable set $E$.\\
 	Then $-f$ is measurable since
-	$$ \{ x \in E : -f(x) > c \} = \{ x \in E : f(x) < -c \} $$
+	\[ \{ x \in E : -f(x) > c \} = \{ x \in E : f(x) < -c \} \]
 	And  $|f|,f^+,f^-$ are also measurable since
-	$$|f| = max\{ f,-f \},\ f^+ = max\{ f,0 \},\ f^- = max\{ -f,0 \}$$
+	\[ |f| = max\{ f,-f \},\ f^+ = max\{ f,0 \},\ f^- = max\{ -f,0 \} \]
 	These function $f^+,f^-$ are quite important as we may write $f = f^+ - f^-$ where both the functions $f^+$ and $f^-$ are non-negative.
 	And Lebesgue integral for non-negative functions are sufficient to integrate any function $f$.
-	$$ \int_E f = \int_E f^+ - \int_E f^- $$
+	\[ \int_E f = \int_E f^+ - \int_E f^- \]
 
 \subsection{Sequential Pointwise Limits and Simple Approximation}
 \begin{definition}[pointwise convergence]
 	A sequence of functions $\{f_n\}$ on a common domain $E$ convergence pointwise to $f$ if 
-	$$\forall x \in E,\ \lim_{n \to \infty} f_n(x) = f(x)$$
+	\[ \forall x \in E,\ \lim_{n \to \infty} f_n(x) = f(x) \]
 \end{definition}
 \begin{definition}[pointwise convergence(a.e.)]
 	Let $E_0$ be a set of zero measure.
 	A sequence of functions $\{f_n\}$ on a common domain $E$ convergence pointwise a.e. on $E_0 \subset E$ to $f$ if 
-	$$\forall x \in E \sim E_0,\ \lim_{n \to \infty} f_n(x) = f(x)$$
+	\[ \forall x \in E \sim E_0,\ \lim_{n \to \infty} f_n(x) = f(x) \]
 \end{definition}
 \begin{definition}[uniform convergence]
 	A sequence of functions $\{f_n\}$ on a common domain $E$ convergence uniformly to $f$ if 
-	$$\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\text{ such that } \forall n \ge N,\ |f_n-f| < \varepsilon $$
+	\[\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\text{ such that } \forall n \ge N,\ |f_n-f| < \varepsilon \]
 \end{definition}
 
 \begin{theorem}[Pointwise Convergence(a.e.) preserves measurability]
@@ -1683,12 +1684,12 @@ Out of syllabus - But important for our understanding of the subject.
 
 \begin{definition}[step function]
 	A function $\psi$ is a step function if it assumes constant values in each subinterval of some partition of its domain.
-	$$ \psi(x) = \sum_{i = 1}^n c_i \cdot \chi_{(x_i,x_{i-1})} $$
+	\[ \psi(x) = \sum_{i = 1}^n c_i \cdot \chi_{(x_i,x_{i-1})} \]
 \end{definition}
 Note : $\displaystyle (R)\int_a^b \psi = \sum_{i=1}^n c_i (x_i-x_{i-1})$
 \begin{definition}[Dirchlet's function]
 	Dirchlet's function is given by,
-	$$ f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \notin \mathbb{Q} \end{cases} $$
+	\[ f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \notin \mathbb{Q} \end{cases} \]
 \end{definition}
 Note : Dirchlet's function is not Riemann integrable(why ?). But it is Lebesgue integrable since $\mathbb{Q}$ is Lebesgue measurable.
 
@@ -1901,7 +1902,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 		 = \int_{E_1} f
 	\end{align*}
 	Since integral has linearity, we have
-	$$ \int_{A \cup B} f = \int_E f \cdot \chi_{A \cup B} = \int_E \left( f \cdot \chi_A + f \cdot \chi_B \right) = \int_E f \cdot \chi_A + \int_E f \cdot \chi_B = \int_A f+ \int_B f$$
+	\[ \int_{A \cup B} f = \int_E f \cdot \chi_{A \cup B} = \int_E \left( f \cdot \chi_A + f \cdot \chi_B \right) = \int_E f \cdot \chi_A + \int_E f \cdot \chi_B = \int_A f+ \int_B f\]
 \end{proof}
 
 \begin{corollary}
@@ -1914,9 +1915,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \begin{proof}
 	We have, $-|f| \le f \le |f|$ on $E$.
 	Therefore by linearlity and monotonicity,
-	$$ -\int_E |f| = \int_E -|f| \le \int_E f \le \int_E |f| $$
+	\[ -\int_E |f| = \int_E -|f| \le \int_E f \le \int_E |f| \]
 	Therefore,
-	$$ \left| \int_E f \right| \le \int_E |f| $$
+	\[ \left| \int_E f \right| \le \int_E |f| \]
 \end{proof}
 
 \begin{theorem}[passage of limit under the integral sign]
@@ -1935,7 +1936,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Let $\varepsilon > 0$.
 	Choose an $N$ such that $|f - f_n | \le \varepsilon/m(E),\ \forall n \ge N$.(such an $N$ exists since the convergence is uniform)\\
 	By linearlity and monotonicity,
-	$$ \left| \int_E f - \int_E f_n \right| = \left| \int_E f - f_n \right| \le \int_E |f-f_n| \le \frac{\varepsilon}{m(E)} \cdot m(E) = \varepsilon $$
+	\[ \left| \int_E f - \int_E f_n \right| = \left| \int_E f - f_n \right| \le \int_E |f-f_n| \le \frac{\varepsilon}{m(E)} \cdot m(E) = \varepsilon \]
 	Clearly, $\displaystyle \left\{ \int_E f_n \right\}$ is sequence of functions converging pointwise to $\displaystyle \int_E f$.
 	Therefore we have, $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{proof}
@@ -1953,12 +1954,12 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 
 	\textbf{Note : } Pointwise convergence is not sufficient for passage of limit under integral sign.
 	In other words, there exists a sequence $\{ f_n \}$ of bounded, measurable functions such that
-	$$ \lim_{n \to \infty} \int_0^1 f_n \ne \int_0^1 f $$
+	\[ \lim_{n \to \infty} \int_0^1 f_n \ne \int_0^1 f \]
 	where $\{ f_n \}$ converges to limit function $f$ pointwise on $[0,1]$.
 
 \begin{proof}
 	Consider a family of functions defined by $f_n(\frac{1}{n}) = n$ and $f_n$ increases from $f_n(0) = 0$ to $f_n(\frac{1}{n}) = n$ linearly and decreases from $f_n(\frac{1}{n}) = n$ to $f_n(\frac{2}{n}) = 0$ linearly. And vanishes for any $x \ge \frac{2}{n}$ on $[0,1]$.
-	$$ f_n(x) = \begin{cases} 0 & x \in [\frac{2}{n},1] \\ nx(2-n) & x = [\frac{1}{n},\frac{2}{n}) \\ n^2 x & x \in [0,\frac{1}{n}) \end{cases}$$
+	\[ f_n(x) = \begin{cases} 0 & x \in [\frac{2}{n},1] \\ nx(2-n) & x = [\frac{1}{n},\frac{2}{n}) \\ n^2 x & x \in [0,\frac{1}{n}) \end{cases} \]
 
 	We know that these functions are bounded by their construction as $0 \le f_n \le \frac{1}{n}$ for every $n \in \mathbb{N}$.
 	Each $f_n$ is continuous, and thus measurable.
@@ -1980,7 +1981,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 
 	Let $A$ be a measurable subset of $E$ and $n \in \mathbb{N}$.
 	By linearlity and monotonicity,
-	$$ \int_E f_n - \int_E f = \int_E f_n - f = \int_A f_n - f + \int_{E \sim A} f_n + \int_{E \sim A}-f$$
+	\[ \int_E f_n - \int_E f = \int_E f_n - f = \int_A f_n - f + \int_{E \sim A} f_n + \int_{E \sim A}-f \]
 	By monotonicity of integral,
 	\begin{equation}
 	 	\left| \int_E f_n - \int_E f \right| \le \int_A |f_n - f| + 2M \cdot m(E \sim A)
@@ -1990,9 +1991,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Since $E$ a set of finte measure and $f$ is a real-valued function.
 	By Egoroff's theorem, there exists a measurable subset $A \subset E$ on which $\{ f_n \}$ converges to $f$ uniformly and $m(E \sim A ) < \varepsilon/4M$.
 	By uniform convergence on $A$, there exists $N \in \mathbb{N}$ such that
-	$$ |f_n - f| < \frac{\varepsilon}{2 \cdot m(E)} \text{ on } A,\ \forall n \ge N$$
+	\[ |f_n - f| < \frac{\varepsilon}{2 \cdot m(E)} \text{ on } A,\ \forall n \ge N \]
 	Thus, by monotonicity of integration we have,
-	$$ \left| \int_E f_n - \int_E f \right| \le \frac{\varepsilon}{2 \cdot m(E)} m(A) + 2M \cdot m(E \sim A) < \varepsilon $$
+	\[ \left| \int_E f_n - \int_E f \right| \le \frac{\varepsilon}{2 \cdot m(E)} m(A) + 2M \cdot m(E \sim A) < \varepsilon \]
 	Therefore, $\displaystyle \lim_{n \to \infty} \int_E f_n = \int_E f$.
 \end{proof}
 
@@ -2064,19 +2065,19 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Let $n \in \mathbb{N}$.
 	Define $E_{\lambda,n} = E_\lambda \cap [-n,n]$ and $\psi_n = \lambda \cdot \chi_{E_{\lambda,n}}$.
 	Clearly, $\psi_n$ is a bounded, measurable function of finite support.
-	$$\lambda\cdot m(E_{\lambda,n}) = \int_E \psi_n \text{ and } 0 \le \psi_n \le f \text{ on $E$ for every $n$}$$
+	\[ \lambda\cdot m(E_{\lambda,n}) = \int_E \psi_n \text{ and } 0 \le \psi_n \le f \text{ on $E$ for every $n$} \]
 	By continuity of measure we have,
-	$$ \infty = \lambda \cdot m(E_\lambda) = \lambda \lim_{n \to \infty} m(E_{\lambda,n}) = \lim_{n \to \infty} \int_E \psi_n \le \int_E f $$
+	\[ \infty = \lambda \cdot m(E_\lambda) = \lambda \lim_{n \to \infty} m(E_{\lambda,n}) = \lim_{n \to \infty} \int_E \psi_n \le \int_E f \]
 	Therefore,
-	$$\lambda \cdot m(E_\lambda) = \int_E f$$
+	\[ \lambda \cdot m(E_\lambda) = \int_E f \]
 
 	\textbf{Case 2 : $m(E_\lambda) <\infty$}\\
 	Define $h = \lambda \cdot \chi_{E_\lambda}$.
 	Clearly, $h$ is a bounded, measurable function of finite support and $0 \le h \le f$ on $E$.
 	By definition of integral,
-	$$ \lambda \cdot m(E_\lambda) = \int_E h \le \int_E f$$
+	\[ \lambda \cdot m(E_\lambda) = \int_E h \le \int_E f \]
 	Therefore,
-	$$ m(E_\lambda) = \frac{1}{\lambda} \int_E h \le \frac{1}{\lambda} \int_E f$$
+	\[ m(E_\lambda) = \frac{1}{\lambda} \int_E h \le \frac{1}{\lambda} \int_E f \]
 \end{proof}
 
 \begin{theorem}
@@ -2090,9 +2091,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\textbf{Part 1}\\
 	Suppose $\displaystyle \int_E f = 0$.
 	Then by Chebychev's inequality,
-	$$\forall n \in \mathbb{N},\  m\left(\left\{x \in E : f(x) \ge \frac{1}{n} \right\}\right) \le n\int_E f = 0$$
+	\[ \forall n \in \mathbb{N},\  m\left(\left\{x \in E : f(x) \ge \frac{1}{n} \right\}\right) \le n\int_E f = 0 \]
 	We have,
-	$$ \{ x \in E : f(x) > 0 \} = \bigcup_{n \in \mathbb{N}} \left\{ x \in E : f(x) \ge \frac{1}{n} \right\} = 0$$
+	\[ \{ x \in E : f(x) > 0 \} = \bigcup_{n \in \mathbb{N}} \left\{ x \in E : f(x) \ge \frac{1}{n} \right\} = 0 \]
 
 	\textbf{Part 2}\\
 	Suppose $f = 0$ (a.e.) on $E$.
@@ -2121,9 +2122,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\textbf{Step 1 : $\displaystyle \int_E \alpha f = \alpha \int_E f$}\\
 	Suppose $\alpha > 0$.
 	For any bounded, measurable function $h$ with finite support, dominated by $f$, we have $\alpha h$ is also a bounded, measurable function with finite support such that $0 \le \alpha h \le \alpha f$ on $E$.
-	$$0 \le h \le f \iff 0 \le \alpha h \le \alpha f$$
+	\[ 0 \le h \le f \iff 0 \le \alpha h \le \alpha f \]
 	Thus by the definition of Lebesgue integral for non-negative, measurable functions,
-	$$0 \le \int_E \alpha h  = \alpha \int_E h \le \alpha \int_E f $$
+	\[ 0 \le \int_E \alpha h  = \alpha \int_E h \le \alpha \int_E f \]
 	Therefore, $\displaystyle \int_E \alpha f = \alpha \int_E f,\ \forall \alpha > 0$.\\
 
 	\textbf{Step 2 : $\displaystyle \int_E f+g = \int_E f + \int_E g$}\\
@@ -2134,7 +2135,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{equation}
 	Let $l$ be the supremum of all the bounded, measurable functions with finite support such that $0 \le l \le f+g$ on $E$.
 	Then, it is enough to prove that,
-	$$ \int_E f+g = \int_E l \le \int_E f + \int_E g$$
+	\[ \int_E f+g = \int_E l \le \int_E f + \int_E g \]
 	Define $h = min\{f,l\}$ and $k = l -h$ on $E$.
 	Let $x \in E$.\\
 	If $l(x) \le f(x)$, then $h(x) = l(x) \le f(x)$ and $k(x) = h(x) - l(x) = 0 \le g(x)$.\\
@@ -2149,14 +2150,14 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 		\int_E l = \int_E h + k = \int_E h + \int_E k \le \int_E f + \int_E g
 	\end{equation}
 	Therefore, by Step 1
-	$$\int_E \alpha f+ \beta g = \int_E \alpha f + \int_E \beta g = \alpha \int_E f + \beta \int_E g $$
+	\[ \int_E \alpha f+ \beta g = \int_E \alpha f + \int_E \beta g = \alpha \int_E f + \beta \int_E g \]
 
 	Suppose $f \le g$.
 	Let $h$ be any bounded, measurable function with finite support such that $0 \le h \le f$.
 	Then $h \le g$.
 	Thus, for any bounded, measurable function $h$ with finite support and $h \le f$, we have $\displaystyle \int_E h \le \int_E g$.
 	Therefore,
-	$$ \int_E f = \sup \left\{ \int_E h : \text{ bounded,measurable,finite support },h \le f \right\} \le \int_E g $$
+	\[ \int_E f = \sup \left\{ \int_E h : \text{ bounded,measurable,finite support },h \le f \right\} \le \int_E g \]
 \end{proof}
 
 \begin{theorem}[additivity over domain of integration of non-negative functions]
@@ -2176,7 +2177,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	We have $\displaystyle \int_E f \cdot \chi_A = \int_A f$ and $f \cdot \chi_{A \cup B} = f \cdot (\chi_{A} + \chi_B) = f \cdot \chi_A + f \cdot \chi_B$.
 	And if $f$ is a bounded, measurable function with finite support, then $f \cdot \chi_A$ is also a bounded, measurable function with finite support for any measurable subset $A \subset E$.
 	Therefore, by linearity of the Lebesgue integral of non-negative functions,
-	$$ \int_{A \cup B} f = \int_E f \cdot \chi_{A \cup B} = \int_E f \cdot \chi_A + f \cdot \chi_B = \int_E f \cdot \chi_A + \int_E f \cdot \chi_B = \int_A f + \int_B f$$
+	\[ \int_{A \cup B} f = \int_E f \cdot \chi_{A \cup B} = \int_E f \cdot \chi_A + f \cdot \chi_B = \int_E f \cdot \chi_A + \int_E f \cdot \chi_B = \int_A f + \int_B f \]
 
 	Suppose $E_0$ is a subset of $E$ of measure zero.
 	Then, we have the \textbf{excision formula} by the additivity of integral over domain
@@ -2190,7 +2191,8 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Fatou's Lemma is a important tool for establishing passage of limit under integral sign.
 \begin{lemma}[Fatou]
 	Let $\{ f_n \}$ be a sequence of non-negative, measurable functions on $E$.
-	If $\{ f_n \}$ converges to $f$ pointwise (a.e.) on $E$, then $$\int_E f \le \liminf \int_E f_n$$
+	If $\{ f_n \}$ converges to $f$ pointwise (a.e.) on $E$, then 
+	\[ \int_E f \le \liminf \int_E f_n \]
 \end{lemma}
 \begin{proof}
 	Let $\{ f_n \}$ be a sequence of functions converging to $f$ pointwise a.e. on $E$.
@@ -2206,7 +2208,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\textbf{Step 2 : Bounded Convergence Theorem}\\
 	For each $x \in E$, $\{ h_n(x) \}$ converges to $h(x)$ since $\{ f_n(x) \}$ converges to $f(x)$.
 	Since $h_n$ are uniformly bounded, by Bounded Convgerence thereom we have
-	$$ \lim_{n \to \infty} \int_E h_n = \lim_{n \to \infty} \int_{E_0} h_n = \int_{E_0} h $$
+	\[ \lim_{n \to \infty} \int_E h_n = \lim_{n \to \infty} \int_{E_0} h_n = \int_{E_0} h \]
 	However $h_n \le f_n$.
 	Therefore, $\displaystyle \int_E h_n \le \int_E f_n \le \liminf \int_E f_n$.
 \end{proof}
@@ -2239,7 +2241,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Define $f_n =\sum_{k = 1}^n u_k$.
 	Then $\{ f_n \}$ is an increasing sequence of non-negative, measurable functions.
 	And by linearity and monotone convergence theorem,
-	$$\lim_{n \to \infty} \sum_{k = 1}^n \int_E u_k = \lim_{n \to \infty} \int_E \sum_{k = 1}^n u_k = \lim_{n \to \infty} \int_E f_n = \int_E f$$
+	\[ \lim_{n \to \infty} \sum_{k = 1}^n \int_E u_k = \lim_{n \to \infty} \int_E \sum_{k = 1}^n u_k = \lim_{n \to \infty} \int_E f_n = \int_E f \]
 \end{proof}
 
 \begin{definition}[integrable function]
@@ -2254,9 +2256,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Suppose $f$ is a non-negative measurable function defined on a measurable set $E$.
 	And $f$ is integrable over $E$.
 	Then,
-	$$ \int_E f = M < \infty$$
+	\[ \int_E f = M < \infty \]
 	However by monotonicity and Chebychev's inequality,
-	$$ m\left\{ x \in E : f(x) = \infty \right\} \le m\left\{ x \in E : f(x) \ge n \right\} \le \frac{1}{n} \int_E f = \frac{M}{n}, \forall n \in \mathbb{N} $$
+	\[ m\left\{ x \in E : f(x) = \infty \right\} \le m\left\{ x \in E : f(x) \ge n \right\} \le \frac{1}{n} \int_E f = \frac{M}{n}, \forall n \in \mathbb{N} \]
 	As $n \to \infty$, we have $m\left\{ x \in E : f(x) = \infty \right\} \to 0$.\\
 	Therefore, $f$ is finite a.e. on $E$.
 \end{proof}
@@ -2264,7 +2266,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \begin{theorem}[Beppo Levi's Lemma]
 	Let $\{ f_n \}$ be an increasing sequence of non-negative, measurable functions on $E$.
 	If the sequence of integrals $\displaystyle \left\{ \int_E f_n \right\}$ are bounded, then $\{ f_n \}$ converges pointwise on $E$ to a measurable function $f$ which is finite a.e. on $E$ and 
-	$$ \lim_{n \to \infty} \int_E f_n = \int_E f < \infty $$
+	\[ \lim_{n \to \infty} \int_E f_n = \int_E f < \infty \]
 \end{theorem}
 \begin{proof}
 	Let $\{ f_n \}$ be an increasing, sequence of non-negative, measurable functions on $E$.
@@ -2384,7 +2386,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\end{align*}
 	\textbf{Step 2 : $\displaystyle \int_E f+g = \int_E f + \int_E g$}\\
 	We have,
-	$$ [f+g]^+ - [f+g]^- = f+g = (f^+ - f^-) + (g^+ - g^-)$$
+	\[ [f+g]^+ - [f+g]^- = f+g = (f^+ - f^-) + (g^+ - g^-) \]
 	Therefore,
 	\begin{equation}
 		[f+g]^+ + f^- + g^- = [f+g]^- + f^+ + g^+
@@ -2403,9 +2405,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Let $f,g$ be measurable functions such that $f \le g$ on $E$.
 	Then $h = g-f$ is a non-negative, measurable function.
 	And
-	$$\int_E h = \int_E g-f = \int_E g - \int_E f \ge 0 $$
+	\[ \int_E h = \int_E g-f = \int_E g - \int_E f \ge 0 \]
 	Therefore,
-	$$ \int_E f \le \int_E g $$
+	\[ \int_E f \le \int_E g \]
 \end{proof}
 
 \begin{theorem}[additivity over domain of integration]
@@ -2462,7 +2464,8 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 		\intertext{Then,}
 		\int_E f \le & \liminf \int_E f_n
 	\end{align*}
-	Therefore, $$ \int_E f = \lim_{n \to \infty} \int_E f_n $$
+	Therefore,
+	\[ \int_E f = \lim_{n \to \infty} \int_E f_n \]
 \end{proof}
 
 \begin{theorem}[General Lebesgue dominated convergence]
@@ -2495,7 +2498,8 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 		\intertext{Then,}
 		\int_E f \le & \liminf \int_E f_n
 	\end{align*}
-	Therefore, $$ \int_E f = \lim_{n \to \infty} \int_E f_n $$
+	Therefore,
+	\[ \int_E f = \lim_{n \to \infty} \int_E f_n \]
 \end{proof}
 \subsubsection{Exercise}
 \begin{enumerate}
@@ -2546,11 +2550,11 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 		A non-empty set $X$ together with its powerset $2^X$ and counting measure, $\eta : \mathcal{M} \to [0,\infty)$ given by $\eta(A) = |A|$ is a measure space.
 	\item $(X,\mathcal{M},\delta_{x_0})$\\
 		A non-empty set $X$ together with a $\sigma$-algebra $\mathcal{M}$ of subset of $X$ and Dirac measure concentrated about $x_0 \in X$, $\delta_{x_0} : \mathcal{M} \to \{ 0,1 \}$ given by
-		$$\delta_{x_0}(A) = \begin{cases}1 & x_0 \in A \\ 0 & x_0 \notin A \end{cases}$$
+		\[ \delta_{x_0}(A) = \begin{cases}1 & x_0 \in A \\ 0 & x_0 \notin A \end{cases} \]
 			is a measure space.
 	\item $(X,\mathcal{C},\mu)$ \\
 		A non-empty set $X$ together with the family of all countable subsets and their complements, $\mathcal{C}$ and measure $\mu : \mathcal{C} \to \{0,1\}$ given by 
-		$$\mu(A) = \begin{cases} 0 & A \text{ is countable} \\ 1 & A^c \text{ is countable} \end{cases}$$
+		\[ \mu(A) = \begin{cases} 0 & A \text{ is countable} \\ 1 & A^c \text{ is countable} \end{cases} \]
 			is a measure space.
 \end{enumerate}
 
@@ -2569,7 +2573,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \begin{enumerate}
 	\item Finite Additivity \\
 		For any finite, disjoint collection of measurable sets $\{ E_k \}_{k = 1}^n$, we have
-		$$ \mu\left(\bigcup_{k=1}^n E_k\right) = \sum_{k=1}^n \mu(E_k) $$
+		\[ \mu\left(\bigcup_{k=1}^n E_k\right) = \sum_{k=1}^n \mu(E_k) \]
 		\begin{proof}
 			Countably additive implies finitely additive.
 		\end{proof}
@@ -2597,9 +2601,9 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 \subsubsection{Properties : Continuity of Measure}
 \begin{enumerate}
 	\item If $\{ A_k \}_{k=1}^\infty$ is an ascending sequence of measurable sets, then
-		$$ \mu\left( \bigcup_{k=1}^\infty A_k \right) = \lim_{k \to \infty} \mu(A_k) $$
+		\[ \mu\left( \bigcup_{k=1}^\infty A_k \right) = \lim_{k \to \infty} \mu(A_k) \]
 	\item If $\{ B_k \}_{k=1}^\infty$ is a descending sequence of measurable sets and $\mu(B_1) < \infty$, then
-		$$ \mu \left( \bigcap_{k=1}^\infty B_k \right) = \lim_{k \to \infty} \mu(B_k) $$
+		\[ \mu \left( \bigcap_{k=1}^\infty B_k \right) = \lim_{k \to \infty} \mu(B_k) \]
 \end{enumerate}
 \begin{proof}
 	Refer proof on page \pageref{thm:continuityofmeasure}
@@ -2651,7 +2655,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	And $A = \cup_{k=1}^\infty A_k$ is a subset of $C$.
 	Also $B = \cup_{k=1}\infty B_k \in \mathcal{M}$ since $\mathcal{M}$ is a $\sigma$-algebra.
 	Therefore,
-	$$ E = \bigcup_{k=1}^\infty E_k = \bigcup_{k=1}^\infty (A_k \cup B_k) = \bigcup_{k=1}^\infty A_k \cup \bigcup_{k=1}^\infty B_k = A \cup B \in \mathcal{M}_0$$
+	\[ E = \bigcup_{k=1}^\infty E_k = \bigcup_{k=1}^\infty (A_k \cup B_k) = \bigcup_{k=1}^\infty A_k \cup \bigcup_{k=1}^\infty B_k = A \cup B \in \mathcal{M}_0 \]
 	Therefore, by de Morgan's law, $\mathcal{M}_0$ is a $\sigma$-algebra.\\
 
 	\textbf{Step 2 : $\mu_0$ is well-defined}\\
@@ -2738,7 +2742,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $\{ A_k \}_{k=1}^\infty$ be countable collection of postive sets.
 	Let $\displaystyle A = \bigcup_{k=1}^\infty A_k$ and $E$ be a measurable subset of $A$.
 	Consider the disjoint collection of countable subsets, $\{ E_k \}_{k=1}^\infty$ where
-	$$E_k = (E \cap A_k) \sim \bigcup_{k=1}^{n-1}E_k$$
+	\[ E_k = (E \cap A_k) \sim \bigcup_{k=1}^{n-1}E_k \]
 	Clearly $\displaystyle \bigcup_{k=1}^\infty E_k = E$ and $\displaystyle \nu(E) = \sum_{k=1}^\infty \nu(E_k) \ge 0$.
 	Since $E \subset A$ is arbitrary, every measurable subset of $A$ is of non-negative measure.
 	Therefore, union of positive sets is also a positive set.
@@ -2757,7 +2761,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $E_1 \subset E$ be a measurable subset with $\nu(E_1) < -\frac{1}{m_1}$.\\
 
 	Let $n$ be a natural number and  $m_1,m_2,\dots,m_n$ are natural numbers where $m_k$'s are the smallest natural numbers such that there exists a measurable subset $E_k$,
-	$$ E_k \subset E \sim \bigcup_{j=1}^{k-1} E_j \text{ and }\nu(E_k) < -\frac{1}{m_k}$$
+	\[ E_k \subset E \sim \bigcup_{j=1}^{k-1} E_j \text{ and }\nu(E_k) < -\frac{1}{m_k} \]
 
 	If this sequence terminates, then $\displaystyle E \sim \bigcup_{j=1}^n E_j$ is a positive set with positive measrue.
 	Suppose the sequence does not terminate.
@@ -2830,9 +2834,9 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 
 \begin{definition}[measurable set]
 	A set $E$ is measurable if for any subset $A$ of $X$, we have
-	$$ \mu^\ast(A) = \mu^\ast(A \cap E) + \mu^\ast(A \cap E^c)$$
+	\[ \mu^\ast(A) = \mu^\ast(A \cap E) + \mu^\ast(A \cap E^c) \]
 	Since $\mu^\ast$ is monotone, we can use simpler condition
-	$$ \mu^\ast(A) \ge \mu^\ast(A \cap E) + \mu^\ast(A \cap E^c)$$
+	\[ \mu^\ast(A) \ge \mu^\ast(A \cap E) + \mu^\ast(A \cap E^c) \]
 \end{definition}
 
 \begin{theorem}
@@ -2845,7 +2849,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \begin{theorem}
 	Let $A \subset X$ and $\{ E_k \}_{k=1}^n$ be a finite, disjoint collection of measurable sets.
 	Then
-	$$ \mu^\ast \left( A \cap \bigcup_{k=1}^n E_k \right) = \sum_{k=1}^n \mu^\ast (A \cap E_k) $$
+	\[ \mu^\ast \left( A \cap \bigcup_{k=1}^n E_k \right) = \sum_{k=1}^n \mu^\ast (A \cap E_k) \]
 	In particular, the restriction of $\mu^\ast$ to the finite collection of measurable sets is finitely additive.
 \end{theorem}
 \begin{proof}
@@ -3034,7 +3038,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $f$ be a non-negative measurable function on $X$.
 	Let $\lambda \in \mathbb{R}$.
-	$$\mu \{ x \in X : f(x) \ge \lambda \} \le \frac{1}{\lambda} \int_X f \ d\mu $$
+	\[ \mu \{ x \in X : f(x) \ge \lambda \} \le \frac{1}{\lambda} \int_X f \ d\mu \]
 \end{theorem}
 \begin{proof}
 	Refer proof on page \pageref{thm:chebychev}
@@ -3052,7 +3056,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $\{ f_n \}$ be a sequence of non-negative, measurable functions converging to $f$ pointwise a.e. on $X$.
 	If $f$ is measurable, then
-	$$ \int_X f\ d\mu \le \liminf \int_X f_n \ d\mu $$
+	\[ \int_X f\ d\mu \le \liminf \int_X f_n \ d\mu \]
 \end{lemma}
 \begin{proof}
 \end{proof}
@@ -3061,7 +3065,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	And $\{ f_n \}$ be an increasing sequence of non-negative measurable functions converging to $f$ pointwise on $X$.
 	Then
-	$$ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f\ d\mu $$
+	\[ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f\ d\mu \]
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3070,7 +3074,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $\{ f_n \}$ be an increasing sequence of non-negative measurable functions on $X$.
 	If the sequnce of integrals $\displaystyle \left\{ \int_X f_n \ d\mu \right\}$ is bounded, then $\{ f_n \}$ converges to a function $f$ pointwise on $X$ which is measurable, finite a.e. on $X$ and 
-	$$ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f \ d\mu < \infty $$
+	\[ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f \ d\mu < \infty \]
 \end{lemma}
 \begin{proof}
 \end{proof}
@@ -3079,7 +3083,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $f$ be a non-negative measurable function on $X$.
 	Then there exists an increasing sequence $\{ \psi_n \}$ of simple functions on $X$ that converges pointwise on $X$ and 
-	$$ \lim_{n \to \infty} \int_X \psi_n \ d\mu = \int_X f \ d\mu $$
+	\[ \lim_{n \to \infty} \int_X \psi_n \ d\mu = \int_X f \ d\mu \]
 \end{theorem}
 \begin{proof}
 	Refer proof on page \pageref{thm:simpleapproximation}
@@ -3089,7 +3093,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $f,g$ abe non-negative, measurable functions on $X$.
 	If $\alpha,\beta > 0$, then
-	$$ \int_X (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta\int_X g \ d\mu $$
+	\[ \int_X (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta\int_X g \ d\mu \]
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3098,7 +3102,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $f$ be a non-negative, measurable function on $X$.
 	Then there exists an increasing sequnce of simple functions $\{ \psi_n \}$ that converges to $f$ pointwise on $X$ and
-	$$ \lim_{n \to \infty} \int_X \psi_n \ d\mu = \int_X f \ d\mu $$
+	\[ \lim_{n \to \infty} \int_X \psi_n \ d\mu = \int_X f \ d\mu \]
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3107,7 +3111,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $(X,\mathcal{M},\mu)$ be  a measure space.
 	Let $f,g$ be non-negative measurable functions on $X$.
 	If $\alpha,\beta > 0$, then
-	$$ \int_E (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta \int_X g \ d\mu $$
+	\[ \int_E (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta \int_X g \ d\mu \]
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3138,7 +3142,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $f$ be a measurable function on $X$.
 	Then $f$ be an integrable function over $X$ with respect to $\mu$, if $|f|$ is integrable over $X$ with respect to $\mu$.
 	And
-	$$ \int_X f \ d\mu = \int_X f^+ \ d\mu - \int_X f^- \ d\mu $$
+	\[ \int_X f \ d\mu = \int_X f^+ \ d\mu - \int_X f^- \ d\mu \]
 \end{definition}
 
 \begin{theorem}[integral comparison test]
@@ -3146,7 +3150,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $f$ be a measurable function on $X$.
 	If $g$ is integrable over $X$ and $g$ dominates $f$ on $X$, ie, $|f| \le g$.
 	Then $f$ is integrable over $X$ and 
-	$$ \left| \int_X f \ d\mu \right| \le \int_X |f| \ d\mu \le \int_X g \ d\mu $$
+	\[ \left| \int_X f \ d\mu \right| \le \int_X |f| \ d\mu \le \int_X g \ d\mu \]
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3156,13 +3160,13 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $f,g$ be integrable over $X$ with respect to $\mu$.
 	\begin{enumerate}
 		\item Linearlity \\
-			$$ \int_X (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta \int_X f \ d\mu $$
+			\[ \int_X (\alpha f + \beta g) \ d\mu = \alpha \int_X f \ d\mu + \beta \int_X f \ d\mu \]
 		\item Monotonicity \\
 			If $f \le g$ a.e. on $X$, then
-			$$ \int_X f \ d\mu \le \int_X g \ d\mu $$
+			\[ \int_X f \ d\mu \le \int_X g \ d\mu \]
 		\item Additivity over domain of integration \\
 			Let $A,B$ be disjoint, measurable subsets of $X$. Then
-			$$ \int_{A \cup B} f \ d\mu = \int_A f \ d\mu + \int_B f \ d\mu $$
+			\[ \int_{A \cup B} f \ d\mu = \int_A f \ d\mu + \int_B f \ d\mu \]
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -3173,7 +3177,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $f$ be a function integrable over $X$ with respect to $\mu$.
 	Let $\{ X_n \}_{n = 1}^\infty $ be a disjoint, collection of measurable sets whose union is $X$.
 	Then
-	$$ \int_X f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f \ d\mu $$
+	\[ \int_X f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f \ d\mu \]
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3184,9 +3188,9 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	\begin{enumerate}
 		\item If $\{ X_n \}_{n=1}^\infty$ is an ascending collection of measurable sets whose union is $X$.
 			Then
-			$$ \int_X f \ d\mu = \lim_{n \to \infty} \int_{X_n} f \ d \mu $$
+			\[ \int_X f \ d\mu = \lim_{n \to \infty} \int_{X_n} f \ d \mu \]
 		\item If $\{ X_n \}_{n =1}^\infty$ is a descending collection of measurable sets, then
-			$$ \int_{\bigcap_{n = 1}^\infty X_n} f \ d\mu = \lim_{n \to \infty} \int_{X_n} f \ d\mu $$
+			\[ \int_{\bigcap_{n = 1}^\infty X_n} f \ d\mu = \lim_{n \to \infty} \int_{X_n} f \ d\mu \]
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -3213,7 +3217,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $\{ f_n \}$ be a sequence of measurable functions converging to a measurable function $f$ pointwise a.e. on $X$.
 	Let $g$ be an integrable, non-negative function dominating the sequence $\{ f_n \}$.
 	Then $f$ is integrable over $X$ and,
-	$$ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f \ d\mu $$
+	\[ \lim_{n \to \infty} \int_X f_n \ d\mu = \int_X f \ d\mu \]
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -3244,16 +3248,16 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Let $\varepsilon > 0$.
 	Since $f$ is integrable, $\int_X f \ d\mu $ is finite.
 	By the definition of integral of a non-negative functions, there exists a simple function $\psi$ on $X$ such that $0 \le \psi \le f$ on $X$ and
-	$$0 \le \int_X f \ d\mu - \int_X \psi \ d\mu < \varepsilon/2$$
+	\[ 0 \le \int_X f \ d\mu - \int_X \psi \ d\mu < \varepsilon/2 \]
 
 	Since $\psi$ assume only finite number of values, we can choose $M > 0$ such that $0 \le \psi < M$ on $X$.
-	$$ \int_E f \ d\mu = \int_E \psi \ d\mu + \int_E (f - \psi) \ d\mu \le M \cdot \mu(E) + \varepsilon/2 $$
+	\[ \int_E f \ d\mu = \int_E \psi \ d\mu + \int_E (f - \psi) \ d\mu \le M \cdot \mu(E) + \varepsilon/2 \]
 	Choose $\delta = \varepsilon/2M$, then $\mu(E) < \varepsilon/2M$ and $\int_E f \ d\mu < \varepsilon$.\\
 
 	Let $X_0 = \{ x \in X : f(x) > 0 \}$.
 	Then $f = f-\psi$ on $X \sim X_0$.
 	Thus,
-	$$ \int_{X \sim X_0} |f| \ d\mu = \int_{X \sim X_0} f \ d\mu = \int_{X \sim X_0} (f-\psi) \ d\mu \le \int_X (f-\psi) \ d\mu < \varepsilon $$
+	\[ \int_{X \sim X_0} |f| \ d\mu = \int_{X \sim X_0} f \ d\mu = \int_{X \sim X_0} (f-\psi) \ d\mu \le \int_X (f-\psi) \ d\mu < \varepsilon \]
 \end{proof}
 
 \begin{theorem}[Vitali Convergence theorem]
@@ -3296,11 +3300,11 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 \end{corollary}
 \begin{proof}
 	Since $\{ h_n \}$ is uniformly convergent to $0$ almost everywhere on $X$ and is tight, from theorem we have 
-	$$ \lim_{n \to \infty} \int_X h_n \ d\mu = 0$$
+	\[ \lim_{n \to \infty} \int_X h_n \ d\mu = 0 \]
 
 	Suppose $\displaystyle \lim_{n \to \infty} \int_X h_n \ d\mu = 0$.
 	Then by Fatou's lemma,
-	$$ \int_X \lim_{n \to \infty} h_n \ d\mu < \liminf \int_X h_n(x) \ d\mu = 0 $$
+	\[ \int_X \lim_{n \to \infty} h_n \ d\mu < \liminf \int_X h_n(x) \ d\mu = 0 \]
 \end{proof}
 
 \subsubsection{Exercises}
@@ -3378,7 +3382,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 
 	Suppose $\nu(E) \ne 0$ for some $E \in \mathcal{M}$.
 	First, we prove that there exists a non-negative function $f$ on $X$ such that
-	$$ \int_X f \ d\mu > 0 \text{ and } \int_E f \ d\mu \le \nu(E),\ \forall E \in \mathcal{M} $$
+	\[ \int_X f \ d\mu > 0 \text{ and } \int_E f \ d\mu \le \nu(E),\ \forall E \in \mathcal{M} \]
 	Then we prove that the supremum of all such function is the unique function satisfying our requirements.\\
 	
 	\textbf{Step 1 : Existence of $f$}\\
@@ -3405,7 +3409,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Define $f = \lambda_0 \cdot \chi_{P_{\lambda_0}}$.
 	Then, we have $\displaystyle \int_X f \ d\mu = \lambda_0 \cdot \mu(P_{\lambda_0}) > 0$.
 	And for any measurable subset $E \in \mathcal{M}$, we have
-	$$\int_E f \ d\mu = \lambda_0 \cdot \mu(P_{\lambda_0} \cap E) \le \nu(P_{\lambda_0} \cap E) \le \nu(E)$$
+	\[ \int_E f \ d\mu = \lambda_0 \cdot \mu(P_{\lambda_0} \cap E) \le \nu(P_{\lambda_0} \cap E) \le \nu(E) \]
 	And by construction, $f$ is a non-negative, measurable function on $X$.
 
 	\textbf{Step 2 : Construction of $f$}\\
@@ -3413,7 +3417,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Define $\displaystyle M = \sup_{f \in \mathcal{F}} \left\{ \int_X f \ d\mu \right\}$.
 	Suppose $g,h \in \mathcal{F}$, then $\max\{g,h\} \in \mathcal{F}$.
 	And,
-	$$\int_E \max \{g,h\} \ d\mu = \int_{E_1} h \ d\mu + \int_{E_2} g \ d\mu$$
+	\[ \int_E \max \{g,h\} \ d\mu = \int_{E_1} h \ d\mu + \int_{E_2} g \ d\mu \]
 	where $E_1 = \{ x \in X : h(x) > g(x) \}$ and $E_2 = \{ x \in X : h(x) \le g(x) \}$.\\
 
 	Consider a sequence $\{f_n\}$ in $\mathcal{F}$ such that $\displaystyle \lim_{n \to \infty} \int_X f_n \ d\mu = M$.
@@ -3429,7 +3433,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	We claim that $\eta = 0$ on $\mathcal{M}$.\\
 	Suppose $\eta \ne 0$.
 	Then by performing Step 1, 2 for $\eta$ instead of $\nu$, we get a non-negative measurable function $\hat{f}$ such that
-	$$ \int_X \hat{f} \ d\mu > 0 \text{ and } \int_E \hat{f} \ d\mu \le \eta(E) = \nu(E) - \int_E f \ d\mu $$
+	\[ \int_X \hat{f} \ d\mu > 0 \text{ and } \int_E \hat{f} \ d\mu \le \eta(E) = \nu(E) - \int_E f \ d\mu \]
 	Clearly $f + \hat{f} \in \mathcal{F}$ and $\displaystyle \int_X (f+\hat{f}) \ d\mu > \int_X f \ d\mu = M$ which is a contradiction.\\
 
 	\textbf{Step 3 : Uniqueness of $f$}\\
@@ -3445,9 +3449,9 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Now $\displaystyle \nu-\lambda\mu = \sum_{n=1}^\infty (\nu_n - \lambda\mu_n) \cdot \chi_{X_n}$ is a $\sigma$-finite signed measure.
 	From Step 1,2 and 3, we have a non-negative measurable function $f$ such that integral of $f$ is the supremum of integrals of all the non-negative functions dominated by $\nu$.
 	Then,
-	$$\int_{X} f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f \ d\mu_n > 0$$
+	\[ \int_{X} f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f \ d\mu_n > 0 \]
 	And
-	$$\int_{E} f \ d\mu = \sum_{n=1}^\infty \int_{E \cap X_n} f \ d\mu_n < \sum_{n=1}^\infty \nu_n(E \cap X_n) = \nu(E)$$
+	\[ \int_{E} f \ d\mu = \sum_{n=1}^\infty \int_{E \cap X_n} f \ d\mu_n < \sum_{n=1}^\infty \nu_n(E \cap X_n) = \nu(E) \]
 \end{proof}
 
 \begin{theorem}

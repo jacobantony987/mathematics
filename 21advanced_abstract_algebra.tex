@@ -232,7 +232,7 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 		Clearly, $f(x)$ is irreducible over $\mathbb{Z}_2$.
 		And $x-\alpha$ is a factor of $f(x)$ in $\mathbb{Z}_2(\alpha)$. We have, $f(x) = (x-a)g(x)$
 
-		$$\text{By long division, } g(x) = \frac{x^3+x^2+1}{x-\alpha} = x^2+(1+\alpha)x+(\alpha+\alpha^2)$$
+		\[\text{By long division, } g(x) = \frac{x^3+x^2+1}{x-\alpha} = x^2+(1+\alpha)x+(\alpha+\alpha^2)\]
 		Therefore, $x^3+x^2+1 = (x-\alpha)[x^2+(1+\alpha)x+\alpha(1+\alpha)]$.\\
 
 		The elements of $\mathbb{Z}_2(\alpha)$ are of the form $a_0+a_1\alpha+a_2\alpha^2$ where $a_0,a_1,a_2 \in \{0,1\}$.
@@ -245,7 +245,7 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 		And $g(\alpha) = \alpha^2 + 2\alpha(1+\alpha) = \alpha^2$.
 		However, $g(\alpha^2) = \alpha^4+\alpha^3+2\alpha^2+\alpha = \alpha(\alpha^2+1)+(\alpha^2+1) + 0\alpha^2 + \alpha = \alpha^3 + \alpha^2 + 2\alpha + 1 = \alpha^3+\alpha^2+1 = 0$.
 		Thus, $\alpha^2$ is a zero of $g(x)$ and $g(x) = (x-\alpha^2)h(x)$.
-	$$\text{By long division, } h(x) = \frac{x^2+(1+\alpha)x+(\alpha+\alpha^2)}{x-\alpha^2} = x+(1+\alpha+\alpha^2)$$
+		\[\text{By long division, } h(x) = \frac{x^2+(1+\alpha)x+(\alpha+\alpha^2)}{x-\alpha^2} = x+(1+\alpha+\alpha^2)\]
 		Therefore, we have the following linear factoriation for $f(x)$,\\ $f(x) = (x-\alpha)(x-\alpha^2)(x-1-\alpha-\alpha^2) = (x+\alpha)(x+\alpha^2)(x+1+\alpha+\alpha^2)$ since $-\alpha = 0-\alpha = 2\alpha-\alpha = \alpha$ in $\mathbb{Z}_2$.\\
 
 	Note : Students should be able to perform long division of polynomials over extended fields.
@@ -292,13 +292,13 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 	Then we have $b_1,b_2,\cdots,b_m \in E$ such that $\gamma = b_1\beta_1+b_2\beta_2+\cdots+b_m\beta_m$.
 	Again, for each $b_j \in E$, we have $a_{ij} \in F$ such that $b_j = a_{1j}\alpha_1+a_{2j}\alpha_2+\cdots+a_{nj}\alpha_n$.
 	Therefore, 
-	$$\gamma = \sum_{i=1}^n \sum_{j=1}^m a_{ij} \alpha_i \beta_j$$
+	\[\gamma = \sum_{i=1}^n \sum_{j=1}^m a_{ij} \alpha_i \beta_j\]
 
 	That is, $\{ \alpha_i \beta_j : i =1,2,\cdots,n,\ j=1,2,\cdots,m \}$ spans $K$.
 	It remains to prove that $\{\alpha_i \beta_j \}$ is linearly independent.
 	Suppose it is linearly dependent.
 	Then there exists scalars $c_{i,j} \in F$ (not all zero) such that
-	$$\sum_{i=1}^n \sum_{j=1}^m c_{i,j} \alpha_i \beta_j  = \sum_{j=1}^m \left( \sum_{i=1}^n c_{i,j} \alpha_i \right) \beta_j  = 0$$
+	\[\sum_{i=1}^n \sum_{j=1}^m c_{i,j} \alpha_i \beta_j  = \sum_{j=1}^m \left( \sum_{i=1}^n c_{i,j} \alpha_i \right) \beta_j  = 0\]
 	
 	Let $\sum_{i=1}^n c_{i,j}\alpha_i = b_j$.
 	We know that, $\{ \beta_j : j = 1,2,\cdots,m \}$ is linearly independent.
@@ -1153,7 +1153,7 @@ Remember that for any field $F$, $F[x]$ is a PID.
 	Let $r$ be the smallest integer such that $p\not\!|\ a_r$.
 	Similarly, let $s$ be the smallest integer such that $p\not|\ b_s$.
 	Now consider the coefficient $c_{r+s}$ of $h(x)$.
-	$$ c_{r+s} = a_0b_{r+s}+\dots+a_{r-1}b_{s+1}+a_rb_s+a_{r+1}b_{s-1}+\dots+a_{r+s}b_0$$
+	\[ c_{r+s} = a_0b_{r+s}+\dots+a_{r-1}b_{s+1}+a_rb_s+a_{r+1}b_{s-1}+\dots+a_{r+s}b_0 \]
 	By the selection of $r$, $p | a_j$ for every $j < r$.
 	Thus, $p | a_0b_s+\dots+a_{r-1}b_{s+1}$.
 	Similarly, by the selection of $s$, $p | b_k$ for every $k < s$.
@@ -1443,10 +1443,11 @@ Here, $\mathbb{Z}[i]$ is a simple extension of the integral domain $\mathbb{Z}$ 
 	Suppose $\rho \ne 0$.
 	If $\rho = 0$, then the proof is complete.
 	By definition of $\sigma$, $|q_1-r| \le 0.5$ and $|q_2-s| \le 0.5$.
-	And we have, $$N \left(\frac{\alpha}{\beta} - \sigma \right) = N((r-q_1)+i(s-q_2)) = |q_1-r|^2 + |q_2-s|^2 \le 0.5$$
+	And we have,
+	\[ N \left(\frac{\alpha}{\beta} - \sigma \right) = N((r-q_1)+i(s-q_2)) = |q_1-r|^2 + |q_2-s|^2 \le 0.5 \]
 	Since $\alpha = \beta\sigma + \rho$,
 	we have $\rho = \beta(\frac{\alpha}{\beta}-\sigma)$
-	$$N(\rho) = N \left( \beta \left(\frac{\alpha}{\beta}-\sigma \right) \right) = N(\beta) N \left(\frac{\alpha}{\beta}-\sigma\right) \le 0.5N(\beta)$$
+	\[N(\rho) = N \left( \beta \left(\frac{\alpha}{\beta}-\sigma \right) \right) = N(\beta) N \left(\frac{\alpha}{\beta}-\sigma\right) \le 0.5N(\beta)\]
 	Thus, $N(\rho) < N(\beta)$.
 	Therefore, Gaussian integers is a Euclidean domain.
 \end{proof}

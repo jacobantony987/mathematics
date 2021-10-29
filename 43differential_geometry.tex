@@ -555,8 +555,8 @@ Let $\mathbf{X},\mathbf{Y}$ be smooth vector fields along parametrised curve $\a
 		= & \sum_{k = 1}^{n+1} \dfrac{d}{dt}X_k(t)Y_k(t)\\
 		= & \sum_{k = 1}^{n+1} X_k'(t)Y_k(t) + X_k(t)Y_k'(t)
 	\end{align*}
-	$$\dot{\mathbf{X}}(t) \cdot \mathbf{Y}(t) =  \left( \alpha(t), \dfrac{d}{dt}X(t) \right) \cdot \left( \alpha(t), Y(t) \right) =  \sum_{k=1}^{n+1} X_k'(t)Y_k(t)$$
-		$$\mathbf{X}(t) \cdot \dot{\mathbf{Y}}(t) =  \left( \alpha(t), X(t) \right) \cdot \left( \alpha(t), \dfrac{d}{dt}Y(t) \right) =  \sum_{k=1}^{n+1} X_k(t)Y_k'(t)$$
+		\[ \dot{\mathbf{X}}(t) \cdot \mathbf{Y}(t) =  \left( \alpha(t), \dfrac{d}{dt}X(t) \right) \cdot \left( \alpha(t), Y(t) \right) =  \sum_{k=1}^{n+1} X_k'(t)Y_k(t) \]
+		\[ \mathbf{X}(t) \cdot \dot{\mathbf{Y}}(t) =  \left( \alpha(t), X(t) \right) \cdot \left( \alpha(t), \dfrac{d}{dt}Y(t) \right) =  \sum_{k=1}^{n+1} X_k(t)Y_k'(t) \]
 \end{itemize}
 
 \begin{definition}[geodesic]
@@ -756,14 +756,14 @@ Applying the properties of covariant derivative, we get
 		That is, $\|\mathbf{X}\|' = 0$.
 		$$\dfrac{d}{dt} \|\mathbf{X}\|^2 = \dfrac{d}{dt} \mathbf{X} \cdot \mathbf{X} = 2 \mathbf{X}' \cdot \mathbf{X} = 2(\mathbf{0} \cdot \mathbf{X}) = 0 $$ 
 	\item If $\mathbf{X},\mathbf{Y}$ are parallel along $\alpha$, then $\mathbf{X} \cdot \mathbf{Y}$  is constant along $\alpha$.
-		$$ (\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}' = \mathbf{0} \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{0} = 0$$
+		\[ (\mathbf{X} \cdot \mathbf{Y})' = \mathbf{X}' \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{Y}' = \mathbf{0} \cdot \mathbf{Y} + \mathbf{X} \cdot \mathbf{0} = 0 \]
 	\item If $\mathbf{X},\mathbf{Y}$ are parallel along $\alpha$, then angle between them is constant along $\alpha$.
-		$$\theta = \cos^{-1} \frac{\mathbf{X} \cdot \mathbf{Y}}{\|\mathbf{X}\|\ \|\mathbf{Y}\|} = \cos^{-1} \kappa, \text{ since } \|\mathbf{X} \|, \| \mathbf{Y}\|, \mathbf{X} \cdot \mathbf{Y} \text{ are constant} $$
+		\[ \theta = \cos^{-1} \frac{\mathbf{X} \cdot \mathbf{Y}}{\|\mathbf{X}\|\ \|\mathbf{Y}\|} = \cos^{-1} \kappa, \text{ since } \|\mathbf{X} \|, \| \mathbf{Y}\|, \mathbf{X} \cdot \mathbf{Y} \text{ are constant} \]
 	\item If $\mathbf{X}, \mathbf{Y}$ are parallel along $\alpha$, then $\mathbf{X}+\mathbf{Y}, c\mathbf{X}$ are parallel along $\alpha$.
-		$$(\mathbf{X}+\mathbf{Y})' = \mathbf{X}' + \mathbf{Y}' = \mathbf{0} + \mathbf{0} = \mathbf{0}$$
-		$$(c\mathbf{X})' = c\mathbf{X}' = c\mathbf{0} = \mathbf{0} $$
+		\[ (\mathbf{X}+\mathbf{Y})' = \mathbf{X}' + \mathbf{Y}' = \mathbf{0} + \mathbf{0} = \mathbf{0} \]
+		\[ (c\mathbf{X})' = c\mathbf{X}' = c\mathbf{0} = \mathbf{0} \]
 	\item The velocity vector field along a parametrised curve $\alpha$ in $S$ is parallel if and only if $\alpha$ is a geodesic.
-		$$(\dot{\boldsymbol{\alpha}})' = \ddot{\boldsymbol{\alpha}} - \left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \mathbf{0} \iff \ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$$
+		\[ (\dot{\boldsymbol{\alpha}})' = \ddot{\boldsymbol{\alpha}} - \left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \mathbf{0} \iff \ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp \]
 
 		Parametrised curve $\alpha$ is geodesic in $S$ if and only if covariant acceleration $(\dot{\boldsymbol{\alpha}})'$ is zero along $\alpha$ since $\ddot{\boldsymbol{\alpha}} \in S_{\alpha(t)}^\perp$ and  $\left[ \ddot{\boldsymbol{\alpha}} \cdot (\mathbf{N} \circ \alpha) \right] (\mathbf{N} \circ \alpha) = \ddot{\boldsymbol{\alpha}}$.
 \end{enumerate}
@@ -853,7 +853,7 @@ Applying the properties of covariant derivative, we get
 
 	$$ \cos \theta = \frac{\mathbf{X} \cdot \dot{\boldsymbol{\alpha}}}{\| \mathbf{X}\|\ \|\dot{\boldsymbol{\alpha}}\|} = \frac{(f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) \cdot \dot{\boldsymbol{\alpha}}}{\|\mathbf{X}\|\ \|\dot{\boldsymbol{\alpha}}\|} = \frac{f \|\dot{\boldsymbol{\alpha}}\|}{\|\mathbf{X}\|} \implies f \text{ is constant}$$ 
 
-	$$\|\mathbf{X}\|^2 = (f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) \cdot (f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) = f^2\|\dot{\boldsymbol{\alpha}} \| + g^2 \implies g \text{ is constant } $$
+	\[ \|\mathbf{X}\|^2 = (f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) \cdot (f\dot{\boldsymbol{\alpha}}+g\mathbf{V}) = f^2\|\dot{\boldsymbol{\alpha}} \| + g^2 \implies g \text{ is constant } \]
 
 	Since $\mathbf{V}$ and $\dot{\boldsymbol{\alpha}}$ are parallel along $\alpha$, their linear combination $\mathbf{X}$ is also parallel along $\alpha$ by linearity property (\#4) of Levi-Civita parallelism.
 \end{proof}
@@ -888,10 +888,10 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 \begin{enumerate}
 	\item $P_\alpha$ is linear, 
 		$P_\alpha(\mathbf{v}+\mathbf{w}) = P_\alpha(\mathbf{v}) + P_\alpha(\mathbf{w})$ and $P_\alpha(c\mathbf{v}) = cP_\alpha(\mathbf{v})$
-		$$P_\alpha(\mathbf{v}+\mathbf{w}) = \left( \mathbf{V}+\mathbf{W} \right)(b) = \mathbf{V}(b) + \mathbf{W}(b) = P_\alpha(\mathbf{v}) + P_\alpha(\mathbf{w})$$
-		$$P_\alpha(c\mathbf{v}) = \left( c\mathbf{V} \right)(b) = c\mathbf{V}(b) = cP_\alpha(\mathbf{v})$$
+		\[ P_\alpha(\mathbf{v}+\mathbf{w}) = \left( \mathbf{V}+\mathbf{W} \right)(b) = \mathbf{V}(b) + \mathbf{W}(b) = P_\alpha(\mathbf{v}) + P_\alpha(\mathbf{w}) \]
+		\[ P_\alpha(c\mathbf{v}) = \left( c\mathbf{V} \right)(b) = c\mathbf{V}(b) = cP_\alpha(\mathbf{v}) \]
 	\item $P_\alpha$ is bijective
-		$$\| P_\alpha(\mathbf{v}) \|= \|\mathbf{V}(b)\| = 0 \implies \| \mathbf{v} \| = 0 \implies \ker(P_\alpha) = \{ \mathbf{0} \}$$
+		\[ \| P_\alpha(\mathbf{v}) \|= \|\mathbf{V}(b)\| = 0 \implies \| \mathbf{v} \| = 0 \implies \ker(P_\alpha) = \{ \mathbf{0} \} \]
 	Thus $P_\alpha$ is a linear map from $n$-dimensional vector space $S_p$ into another $n$-dimensional vector space $S_q$.
 		Thus, $P_\alpha$ is onto.	
 	\item $P_\alpha$ preserves dot products, 
@@ -899,7 +899,7 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 		We have, $\mathbf{V}$ and $\mathbf{W}$ are parallel along $\alpha$.
 		Then $\mathbf{V} \cdot \mathbf{W}$ is constant.\\
 		That is, $\mathbf{V}(t) \cdot \mathbf{W}(t) = \kappa$ for every $t \in [a,b]$.
-		$$P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{V}(b) \cdot \mathbf{W}(b) = \kappa =  \mathbf{V}(a) \cdot \mathbf{W}(a) = \mathbf{v} \cdot \mathbf{w} $$
+		\[ P_\alpha(\mathbf{v}) \cdot P_\alpha(\mathbf{w}) = \mathbf{V}(b) \cdot \mathbf{W}(b) = \kappa =  \mathbf{V}(a) \cdot \mathbf{W}(a) = \mathbf{v} \cdot \mathbf{w} \]
 \end{enumerate}
 \end{proof}
 
@@ -909,7 +909,7 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 \begin{description}
 	\item[$\nabla_v f$] is the derivative of a function $f : U \to \mathbb{R}$ with respect to a vector tangent to $S$, say $\mathbf{v} = (p,v)$ where $U$ is an open subset of $\mathbb{R}^{n+1}$, $p \in U$ and $\alpha : I \to S$ is any parametrised curve in $S$ with $\dot{\boldsymbol{\alpha}}(t_0) = \mathbf{v}$ and $\alpha(t_0) = p$.
 		And $\nabla_v f$ is given by,
-	$$ \nabla_v f = (f \circ \alpha)'(t_0) = \nabla f(\alpha(t_0)) \cdot \dot{\boldsymbol{\alpha}}(t_0) = \nabla f(p) \cdot \mathbf{v}$$
+		\[ \nabla_v f = (f \circ \alpha)'(t_0) = \nabla f(\alpha(t_0)) \cdot \dot{\boldsymbol{\alpha}}(t_0) = \nabla f(p) \cdot \mathbf{v} \]
 	For example : if $f(x_1,x_2) = x_1^2 - x_2^2$ and $\mathbf{v} = (1,1,\cos \theta, \sin \theta)$ Then, $p = (1,1)$, $v = (\cos \theta, \sin \theta)$ and $\nabla f = (x_1,x_2,2x_1,-2x_2)$.
 		Therefore, $\nabla_v f = \nabla f(p) \cdot \mathbf{v} = (1,1,2,-2) \cdot (1,1,\cos \theta, \sin \theta) = 2\cos \theta -2 \sin \theta $.\\
 
@@ -917,7 +917,7 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 
 \item[$\nabla_v \mathbf{X}$] is the derivative of a smooth vector field $\mathbf{X}$ on open subset $U$ of $\mathbb{R}^{n+1}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$.
 	And $\nabla_v \mathbf{X}$ is given by
-	$$\nabla_v \mathbf{X} = \left(\alpha(t),\nabla_v X_1, \nabla_v X_2,\dots, \nabla_v X_{n+1} \right) $$
+		\[ \nabla_v \mathbf{X} = \left(\alpha(t),\nabla_v X_1, \nabla_v X_2,\dots, \nabla_v X_{n+1} \right) \]
 	For example, if $\mathbf{X}(x_1,x_2) = (x_1,x_2,x_1x_2,x_2^2)$ and $\mathbf{v} = (1,0,0,1)$.
 		Then $p = (1,0)$ and the component functions of the associated function $X$ are $X_1(x_1,x_2) = x_1x_2$ and $X_2(x_1,x_2) = x_2^2$.\\
 		
@@ -927,7 +927,7 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 
 \item[$D_v \mathbf{X}$] is the covariant derivative of the smooth vector field $\mathbf{X}$ with respect to $\mathbf{v} \in S_{\alpha(t)}$, where $\mathbf{X}$ is tangent to $S$ along $\alpha$.
 	And $D_v \mathbf{X}$ is given by,
-	$$D_v \mathbf{X} = \nabla_v \mathbf{X} - \left[ \nabla_v \mathbf{X} \cdot (\mathbf{N} \circ \alpha)\right] (\mathbf{N} \circ \alpha)$$
+		\[ D_v \mathbf{X} = \nabla_v \mathbf{X} - \left[ \nabla_v \mathbf{X} \cdot (\mathbf{N} \circ \alpha)\right] (\mathbf{N} \circ \alpha) \]
 	It is the component of the derivative $\nabla_v \mathbf{X}$ in the tangent space $S_p$.
 \end{description}
 
@@ -935,9 +935,9 @@ The following theorem says that, \textit{Parallel transports along piecewise smo
 We have, $\nabla_v f : \mathbb{R}^{n+1} \to \mathbb{R}$ is a linear map.
 \begin{enumerate}
 	\item $\nabla_{v+w} f = \nabla_v f + \nabla_w f$
-		$$ \nabla_{v+w} f = \nabla f(p) \cdot (\mathbf{v} + \mathbf{w}) = \nabla f(p) \cdot \mathbf{v} + \nabla f(p) \cdot \mathbf{w}$$
+		\[ \nabla_{v+w} f = \nabla f(p) \cdot (\mathbf{v} + \mathbf{w}) = \nabla f(p) \cdot \mathbf{v} + \nabla f(p) \cdot \mathbf{w} \]
 	\item $\nabla_{cv} f = c\nabla_v f$
-		$$ \nabla_{cv} f = \nabla f(p) \cdot c\mathbf{v} = c\left( \nabla f(p) \cdot \mathbf{v} \right) = c\nabla_v f$$
+		\[ \nabla_{cv} f = \nabla f(p) \cdot c\mathbf{v} = c\left( \nabla f(p) \cdot \mathbf{v} \right) = c\nabla_v f \]
 \end{enumerate}
 Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c\nabla_v f$.
 
@@ -1063,7 +1063,7 @@ Clearly, we have $\nabla_v (f+g) = \nabla_v f + \nabla_v g$ and $\nabla_v cf = c
 		The curvature of $C$ is the function $\kappa : \mathbb{R}^2 \to \mathbb{R}$ defined by $\kappa(p) = L_p(\mathbf{v}) \cdot \mathbf{v} /\|\mathbf{v}\|^2$\\
 
 	For a parametrised curve $\alpha$ in $C$ with $\dot{\boldsymbol{\alpha}} \ne \mathbf{0}$,
-		$$\kappa(\alpha(t)) = \frac{\ddot{\boldsymbol{\alpha}}(t) \cdot (\mathbf{N} \circ \alpha(t))}{\| \dot{\boldsymbol{\alpha}}(t)\|^2}$$
+		\[ \kappa(\alpha(t)) = \frac{\ddot{\boldsymbol{\alpha}}(t) \cdot (\mathbf{N} \circ \alpha(t))}{\| \dot{\boldsymbol{\alpha}}(t)\|^2} \]
 		For unit speed parametrised curve passing through $p$, curvature at $p$ is the normal component of acceleration at that point.
 	\item[local parametrisation of plane curve] Let $C$ be a plane curve in $\mathbb{R}^2$.
 		Then $C$ is an oriented $1$-surface.
@@ -1121,7 +1121,8 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	Then it is enough to prove that there exists a smooth function $h : \tilde{I} \to \mathbb{R}$ such that $h'(t) > 0$ and $\beta(t) = \alpha(h(t))$ for every $t \in \tilde{I}$.\\
 
 
-	Define $h : \tilde{I} \to \mathbb{R}$ defined by $$h(t) = \int_{t_0}^t \| \dot{\boldsymbol{\beta}}(u) \| du$$
+	Define $h : \tilde{I} \to \mathbb{R}$ defined by
+	\[ h(t) = \int_{t_0}^t \| \dot{\boldsymbol{\beta}}(u) \| du \]
 
 	
 	Clearly, $h$ is monotone, $h(t_0) = 0$ and $h'(t) = \| \dot{\boldsymbol{\beta}}(t) \|$.
@@ -1230,7 +1231,7 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	Let $u = (\frac{\partial f}{\partial x_2}(p_0),\frac{-\partial f}{\partial x_1}(p_0))$ and $v  = (\frac{\partial f}{\partial x_1}(p_0),\frac{\partial f}{\partial x_2}(p_0))$.
 	Clearly, $\mathbf{u} = (p_0,u) \in C_{p_0}$ and $\mathbf{v} = (p_0,v) \perp C_{p_0}$.
 	Consider the open rectangle $A$ given by,
-	$$A = \{p_0+ru+sv : |r| < \epsilon_1,\ |s| < \epsilon_2 \}$$
+	\[ A = \{p_0+ru+sv : |r| < \epsilon_1,\ |s| < \epsilon_2 \} \]
 	where $\epsilon_1, \epsilon_2$ are so chosen that $A$ is contained in the domain of $f$ and $\nabla f(q) \cdot (q,v) > 0$ for every $q \in A$.
 	Since $\nabla f(p_0) \cdot \mathbf{v} \ne 0$, by continuity of $\nabla f(q) \cdot (q,v)$ there exists a neighbourhood of $p_0$ in which this function is positive.\\
 
@@ -1327,7 +1328,7 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	\item[Cartesian Coordinate Function] Let $U \subset \mathbb{R}^{n+1}$.
 		Then $i$th cartesian coordinate function $x_i$ is given by $x_i : U \to \mathbb{R},\ x_i(a_1,a_2,\dots,a_{n+1}) = a_i$.
 	\item[$dx_i$] The differential of the cartesian coordinate function $x_i$ is given by $dx_i$ where $dx_i : U \times R^{n+1} \to \mathbb{R}$
-		$$dx_i = \nabla x_i(p) \cdot \mathbf{v} = (p,0,0,\dots,1,\dots,0) \cdot (p,v_1,v_2,\dots,v_{n+1}) = v_i$$
+		\[ dx_i = \nabla x_i(p) \cdot \mathbf{v} = (p,0,0,\dots,1,\dots,0) \cdot (p,v_1,v_2,\dots,v_{n+1}) = v_i \]
 \end{description}
 \subsection{$1$-form}
 \begin{description}
@@ -1360,7 +1361,7 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	Then, $dx_i(X_j) =\delta_{ij}$.
 	Suppose $\omega = \sum f_i dx_i$.
 	Then 
-	$$\omega(\mathbf{X}_j) = \sum_{i=1}^{n+1} (f_idx_i)\mathbf{X}_j = \sum_{i=1}^{n+1} f_i(p) dx_i(\mathbf{X}_j) = \sum_{i=1}^{n+1} f_i(p)\delta_{ij} = f_j(p)$$
+	\[ \omega(\mathbf{X}_j) = \sum_{i=1}^{n+1} (f_idx_i)\mathbf{X}_j = \sum_{i=1}^{n+1} f_i(p) dx_i(\mathbf{X}_j) = \sum_{i=1}^{n+1} f_i(p)\delta_{ij} = f_j(p) \]
 
 	Thus $f_j$ is unique for each $j$ if they exist.
 	And for each $1$-form $\omega$ there exist functions $f_i$ such that $\omega = \sum f_i dx_i$ exists where $f_i = \omega(X_i)$.
@@ -1375,7 +1376,7 @@ Local parametrisations of plane curves are unique upto reparametrisation.
 	\end{equation}
 \end{corollary}
 \begin{proof}
-	$$ df(\mathbf{X}_j) = \nabla f \cdot \mathbf{X}_j = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i}\delta_{ij} = \frac{\partial f}{\partial x_j} = f_j \implies df = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i} dx_i $$
+	\[ df(\mathbf{X}_j) = \nabla f \cdot \mathbf{X}_j = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i}\delta_{ij} = \frac{\partial f}{\partial x_j} = f_j \implies df = \sum_{i=1}^{n+1} \frac{\partial f}{\partial x_i} dx_i \]
 \end{proof}
 
 \subsection{Line Integral}
@@ -1400,9 +1401,9 @@ Then ,
 
 \begin{theorem}
 	Let $\eta$ be a $1$-form on $\mathbb{R}^2-\{0\}$ defined by
-	$$ \eta = \frac{-x_2}{x_1^2+x_2^2}dx_1 + \frac{x_1}{x_1^2+x_2^2}dx_2 $$
+	\[ \eta = \frac{-x_2}{x_1^2+x_2^2}dx_1 + \frac{x_1}{x_1^2+x_2^2}dx_2 \]
 	Then for any closed, piecewise smooth,  parametrised smooth curve $\alpha : [a,b] \to \mathbb{R}-\{0\}$, the line integral of $\eta$ over $\alpha$
-	$$\int_\alpha \eta = 2\pi k $$
+	\[\int_\alpha \eta = 2\pi k \]
 \end{theorem}
 \begin{proof}
 	Consider $\varphi : [a,b] \to \mathbb{R}$ defined by $\varphi(t) = \varphi(a) + \int_{\alpha_t}\eta$ where $\alpha_t$ is the restriction of $\alpha$ to $[a,t]$ and $\varphi(a)$ is so chosen that $\alpha(a)/\|\alpha(a)\| = (\cos \varphi(a),\sin \varphi(a))$.
@@ -1425,7 +1426,7 @@ Then ,
 
 	Consider a $\delta$ neighbourhood of $t_0$ such that $\alpha(t) \in V$ for every point $t$ in it.
 	Then, $\alpha$ is smooth in that neighbourhood.
-	$$\dfrac{d}{dt}\left(\varphi(t)-\theta_V(\alpha(t))\right) = \eta(\dot{\alpha}(t)) = d\theta_V(\dot{\alpha}(t)) = 0$$
+	\[ \dfrac{d}{dt}\left(\varphi(t)-\theta_V(\alpha(t))\right) = \eta(\dot{\alpha}(t)) = d\theta_V(\dot{\alpha}(t)) = 0 \]
 
 	Thus, $\varphi(t) - \theta_V(\alpha(t)) = 2\pi m$ for every $t \in (t_0-\delta,t_0+\delta)$.
 	Therefore, the claim is true.
@@ -1569,7 +1570,7 @@ Then ,
 \begin{proof}
 	We have $v \in V$ and $\{ \mathbf{v}_1,\mathbf{v}_2,\dots,\mathbf{v}_n \}$ is an orthonormal basis for $V$.
 	Then,
-	$$\mathbf{v} = \sum_{i=1}^n (\mathbf{v} \cdot \mathbf{v}_i)\mathbf{v}_i = \sum_{i=1}^n \cos \theta_i \mathbf{v}_i $$
+	\[\mathbf{v} = \sum_{i=1}^n (\mathbf{v} \cdot \mathbf{v}_i)\mathbf{v}_i = \sum_{i=1}^n \cos \theta_i \mathbf{v}_i \]
 	We have,
 	\begin{align*}
 		\kappa(\mathbf{v}) = & L_p(\mathbf{v}) \cdot v \\
@@ -1586,9 +1587,9 @@ Then ,
 	\item[Quadratic Form] Let $V$ be a finite dimensional vector space with dot product and $L : V \to V$ be a self-adjoint, linear transformation on $V$.
 		Then quadratic form associated with $L$ is a $\mathcal{L} : V \to \mathbb{R}$ defined by $\mathcal{L}(v) = L(v) \cdot v$.
 	\item[First Fundamental Form, $\mathscr{I}_p$] of surface $S$ is the quadratic form associated with the identity transformation on $S_p$.
-	$$\mathscr{I}_p(v) = id(v) \cdot v = v \cdot v = \|v\|^2$$
+		\[ \mathscr{I}_p(v) = id(v) \cdot v = v \cdot v = \|v\|^2 \]
 	\item[Second Fundamental Form $\mathscr{S}_p$] of surface $S$ is the quadratic form associated with the Weingarten Map. 
-	$$\mathscr{S}_p(v) = L_p(v) \cdot v$$
+		\[ \mathscr{S}_p(v) = L_p(v) \cdot v \]
 \end{description}
 A quadratic forms is
 \begin{description}

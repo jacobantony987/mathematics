@@ -693,7 +693,7 @@ Examples of Nets
 	For example, let $P \in \mathcal{P}$ is given by $P = \{\ 0,\ 0.3,\ 0.7,\ 1\ \}$ and $\eta = \{\ 0.2,\ 0.6,\ 0.9\ \}$. Then $(P,\eta) \in (\mathcal{P},\xi)$.\\
 
 	Let $f : \mathbb{R} \to \mathbb{R}$ be any function, then the function,
-	$$S : (\mathcal{P},\xi) \to \mathbb{R} \text{ defined by } S(P,\eta) = \sum_{j=1}^k f(\eta_k)(a_k-a_{k-1})$$
+		\[S : (\mathcal{P},\xi) \to \mathbb{R} \text{ defined by } S(P,\eta) = \sum_{j=1}^k f(\eta_k)(a_k-a_{k-1})\]
 	where $P = \{ a_0,\ a_1,\cdots,\ a_k \ \}$ is the Riemann Net with respect to the real function $f$.\\
 
 	For example, let $f(x) = x^2$ and $P,\eta$ are same as above example, then $S(P,\eta) = 0.2^2(0.3-0) + 0.6^2(0.7-0.3) + 0.9(1-0.7) = 3.99$
@@ -709,7 +709,7 @@ Examples of Nets
 \begin{remark}
 \begin{commentary}
 	The choice of $m$ depends on the choice of neighbourhood $U$
-	$$S: D \to X,\ S \to x \iff \left( \forall U \in \mathcal{N}_x,\ \exists m_U \in D,\text{ such that } n \ge m_U \implies S(n) \in U \right)$$
+	\[S: D \to X,\ S \to x \iff \left( \forall U \in \mathcal{N}_x,\ \exists m_U \in D,\text{ such that } n \ge m_U \implies S(n) \in U \right)\]
 \end{commentary}
 \end{remark}
 
@@ -1450,14 +1450,14 @@ We may assert the properties of countably compact, metric spaces on sequentially
 	Define $\mathcal{U} = \{X-C_1, X-C_2, \cdots \}$ is a family of open subsets of $X$.
 	By de Morgan's law, ($\star$\footnote{Complement of Intersection = Union of complements, $X - (C \cap D) = (X-C) \cup (X-D)$, })
 
-	$$\bigcap_{k = 1}^\infty C_k = \phi, \text{ then } X =  X - \left(\bigcap_{k = 1}^\infty C_k\right) = \bigcup_{k = 1}^\infty (X-C_k)$$
+	\[\bigcap_{k = 1}^\infty C_k = \phi, \text{ then } X =  X - \left(\bigcap_{k = 1}^\infty C_k\right) = \bigcup_{k = 1}^\infty (X-C_k)\]
 
 	We have $\mathcal{U}$ is a countable cover of $X$ and $X$ is countably compact space.
 	Thus $\mathcal{U}$ has a finite subcover $\mathcal{U}' = \{X-C_{n_1},X-C_{n_2},\cdots,X-C_{n_k}\}$.
 
-	$$ \mathcal{U}' \text{ is a cover of } X, \text{ then } X = \bigcup_{j = 1}^k \left( X-C_{n_j} \right)$$
+	\[ \mathcal{U}' \text{ is a cover of } X, \text{ then } X = \bigcup_{j = 1}^k \left( X-C_{n_j} \right)\]
 
-	$$X - \bigcup_{j = 1}^k \left( X-C_{n_j} \right) = \bigcap_{j = 1}^k \left( X - \left( X - C_{n_j} \right) \right) = \bigcap_{j = 1}^k C_{n_j} = \phi $$
+	\[X - \bigcup_{j = 1}^k \left( X-C_{n_j} \right) = \bigcap_{j = 1}^k \left( X - \left( X - C_{n_j} \right) \right) = \bigcap_{j = 1}^k C_{n_j} = \phi \]
 
 	Now $\mathcal{C}' = \{ C_{n_1},C_{n_2},\cdots,C_{n_k}\}$ has empty intersection.
 	This is a contradiction to the finite intersection property of $\mathcal{C}$.
@@ -1476,7 +1476,7 @@ We may assert the properties of countably compact, metric spaces on sequentially
 
 	Therefore by assumption, the countable family of closed subsets $\mathcal{C}$ has a non-empty intersection.
 
-	$$ \bigcap_{k=1}^\infty C_k \ne \phi, \text{ then } \bigcap_{k=1}^\infty C_k = \bigcap_{k=1}^\infty \left( X - U_k \right) = X - \left( \bigcup_{k=1}^\infty U_k \right) \ne \phi $$
+	\[ \bigcap_{k=1}^\infty C_k \ne \phi, \text{ then } \bigcap_{k=1}^\infty C_k = \bigcap_{k=1}^\infty \left( X - U_k \right) = X - \left( \bigcup_{k=1}^\infty U_k \right) \ne \phi \]
 
 	Then $\mathcal{U}$ is not a cover of $X$ as well.
 	This is a contradiction, therefore $X$ is countably compact.\\

@@ -930,14 +930,14 @@ Suppose $D_r f$ and $D_k f$ exists in an $n$-ball about $\bar{c}$ and are both d
 Then $D_{r,k} f = D_{k,r} f$.
 \end{theorem}
 \begin{proof}
-\begin{commentary}Step 1 : Real-valued function\end{commentary}
-
-It is sufficient to prove the theorem for real-valued functions.
-Let $f : \mathbb{R}^n \to \mathbb{R}^m$, then $f(\bar{c}) = \left( f_1(\bar{c}),f_2(\bar{c}),\cdots,f_m(\bar{c}) \right)$.
-And $$D_k f(\bar{c}) = \left( D_k f_1(\bar{c}), D_k f_2(\bar{c}), \cdots, D_k f_m(\bar{c}) \right)$$
-Thus it is sufficient to prove that $D_{r,k}f_j(\bar{c}) = D_{k,r}f_j(\bar{c}),\ j = 1,2,\cdots,m$.
-That is, it is sufficient to prove equality of mixed partial derivatives of a real-valued function $f_j : \mathbb{R}^n \to \mathbb{R}$.
-Also, we will prove it for $n = 2$ and $\bar{c} = (0,0)$.
+\begin{commentary}Step 1 : Real-valued function\end{commentary}\\
+	It is sufficient to prove the theorem for real-valued functions.
+	Let $f : \mathbb{R}^n \to \mathbb{R}^m$, then $f(\bar{c}) = \left( f_1(\bar{c}),f_2(\bar{c}),\cdots,f_m(\bar{c}) \right)$.
+	And
+	\[ D_k f(\bar{c}) = \left( D_k f_1(\bar{c}), D_k f_2(\bar{c}), \cdots, D_k f_m(\bar{c}) \right) \]
+	Thus it is sufficient to prove that $D_{r,k}f_j(\bar{c}) = D_{k,r}f_j(\bar{c}),\ j = 1,2,\cdots,m$.
+	That is, it is sufficient to prove equality of mixed partial derivatives of a real-valued function $f_j : \mathbb{R}^n \to \mathbb{R}$.
+	Also, we will prove it for $n = 2$ and $\bar{c} = (0,0)$.
 \begin{commentary}
 	Now, we will prove the theorem of a real-valued function $f : \mathbb{R}^n : \mathbb{R}$.\\
 \end{commentary}
@@ -975,19 +975,19 @@ There exists linear, total derivative function $(D_1f)'(0,0)$ where $(D_1f)'(0,0
 	D_1 f(x_1,h) = & D_1 f(0,0) + x_1 D_{1,1} f(0,0) + h D_{2,1} f(0,0) + \left|\sqrt{x_1^2+h^2}\right| E_1(h)
 \end{align*}
 
-Similarly,
+	Similarly,
 \begin{align*}
 	D_1 f((0,0) + (x_1,0)) = & D_1 f(0,0) + \nabla D_1 f(0,0) \cdot{} (x_1,0) + \|(x_1,0)\| E_2(h) \\
 	& \text{ where } E_2(h) \to 0 \text{ as } h  \to 0 \\
 	D_1 f(x_1,0) = & D_1 f(0,0) + x_1 D_{1,1} f(0,0) + |x_1| E_2(h)
 \end{align*}
-Therefore $\nabla(h) = h (D_1 f(x_1,h) - D_1 f(x_1,0)) = h^2 D_{2,1} f(0,0) + E(h)$ where $E(h) = h|\sqrt{x_1^2+h^2}| E_1(h) - h|x_1|E_2(h)$ and $E(h) \to 0$ as $h \to 0$.
+	Therefore $\nabla(h) = h (D_1 f(x_1,h) - D_1 f(x_1,0)) = h^2 D_{2,1} f(0,0) + E(h)$ where $E(h) = h|\sqrt{x_1^2+h^2}| E_1(h) - h|x_1|E_2(h)$ and $E(h) \to 0$ as $h \to 0$.
 
-Since $0 < x_1 < h$, we have
-$$ 0 \le E(h) \le h^2\left(\sqrt{2}E_1(h)-E_2(h)\right)$$
+	Since $0 < x_1 < h$, we have
+	\[ 0 \le E(h) \le h^2\left(\sqrt{2}E_1(h)-E_2(h)\right) \]
 
 Therefore,
-	$$\lim_{h \to 0} \frac{\nabla(h)}{h^2} \le \lim_{h \to 0} \frac{h^2 D_{2,1} f(0,0)}{h^2} + \lim_{h \to 0} \frac{h^2 (\sqrt{2}E_1(h) - E_2(h))}{h^2} = D_{2,1}f(0,0)$$
+	\[ \lim_{h \to 0} \frac{\nabla(h)}{h^2} \le \lim_{h \to 0} \frac{h^2 D_{2,1} f(0,0)}{h^2} + \lim_{h \to 0} \frac{h^2 (\sqrt{2}E_1(h) - E_2(h))}{h^2} = D_{2,1}f(0,0) \]
 \begin{equation}
 \lim_{h \to 0} \frac{\nabla(h)}{h^2} = D_{2,1} f(0,0)
 \end{equation}
@@ -1201,58 +1201,60 @@ Let components of $f$ has continuous partial derivatives on $S$, $D_jf_i$ and $J
 Then there is an $n$-ball $B$ about $\bar{a}$ on which $f$ is injective.
 \end{theorem}
 \begin{proof}
-Let $\bar{z} = (\bar{z}_1,\bar{z}_2,\cdots,\bar{z}_n)$ where $\bar{z}_i \in \mathbb{R}^n$.
-ie, $\bar{z} \in \mathbb{R}^{n^2}$.
-Define function $h : \mathbb{R}^{n^2} \to \mathbb{R}$ by $h(\bar{z}) = \det{[D_jf_i(\bar{z}_i)]}$.
-Since $f$ has continuous partial derivatives on $S$, each component of $f$ has continuous partial derivatives in $S$ and thus $h$ is continuous on $S^n$ \begin{commentary} which is a subset of $\mathbb{R}^{n^2}$ since $S$ is an open subset of $\mathbb{R}^n$.
+	Let $\bar{z} = (\bar{z}_1,\bar{z}_2,\cdots,\bar{z}_n)$ where $\bar{z}_i \in \mathbb{R}^n$.
+	ie, $\bar{z} \in \mathbb{R}^{n^2}$.
+	Define function $h : \mathbb{R}^{n^2} \to \mathbb{R}$ by $h(\bar{z}) = \det{[D_jf_i(\bar{z}_i)]}$.
+	Since $f$ has continuous partial derivatives on $S$, each component of $f$ has continuous partial derivatives in $S$ and thus $h$ is continuous on $S^n$ 
+\begin{commentary} 
+	which is a subset of $\mathbb{R}^{n^2}$ since $S$ is an open subset of $\mathbb{R}^n$.
 \end{commentary}
 
-Let $\bar{a} \in S$ such that $J_f(\bar{a}) \ne 0$.
+	Let $\bar{a} \in S$ such that $J_f(\bar{a}) \ne 0$.
 \begin{commentary}
-Existence of such a point in $S$ is assumed.
+	Existence of such a point in $S$ is assumed.
 \end{commentary}
-Consider,$\bar{z}_i = \bar{a},\ \forall i$.
-Then $\bar{z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
-And $h(\bar{z}) = \det{[D_jf_i(\bar{a})]} = J_f(\bar{a}) \ne 0$.
+	Consider,$\bar{z}_i = \bar{a},\ \forall i$.
+	Then $\bar{z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
+	And $h(\bar{z}) = \det{[D_jf_i(\bar{a})]} = J_f(\bar{a}) \ne 0$.
 
-Since $h$ is continous and $h(\bar{z}) \ne 0$.
-There exists an $n$-ball $B$ about $\bar{a}$ in $S$ such that $h(\bar{z}) \ne 0$ for $\bar{z}_i \in B$.
-We claim that $f$ is injective on $B$.
+	Since $h$ is continous and $h(\bar{z}) \ne 0$.
+	There exists an $n$-ball $B$ about $\bar{a}$ in $S$ such that $h(\bar{z}) \ne 0$ for $\bar{z}_i \in B$.
+	We claim that $f$ is injective on $B$.
 
-Suppose $f$ is not injective.
-ie, There exists $\bar{x},\bar{y} \in B(\bar{a})$ such that $\bar{x} \ne \bar{y}$ and $f(\bar{x}) = f(\bar{y)}$.
-Open ball $B(\bar{a})$ is a convex set.
-And the line segment $L(\bar{x},\bar{y}) \subset B(\bar{a})$.
-The function $f$ is differentiable on $S$.
-On applying mean-value theorem to each component of $f$, we get
-$$0 = f_i(\bar{y})-f_i(\bar{x}) = \nabla f_i(\bar{Z}_i)\cdot(\bar{y}-\bar{x}),\ i=1,2,\cdots$$
-where $\bar{Z}_i \in L(\bar{x},\bar{y}) \subset B(\bar{a})$.
-Therefore, We have
-$$ \sum_{k=1}^n D_kf_i(\bar{Z}_i)(y_k-x_k) = 0$$
-The determinant of this system of linear equations is nonzero, as the function $f$ has nonzero jacobian determinant at $\bar{Z}_i \in B(\bar{a})$ for $i = 1,2,\cdots$.
-Thus, $y_i = x_i$ for $i = 1,2,\cdots$. This contradicts $\bar{x} \ne \bar{y}$.
-Hence, the function $f$ is injective.
+	Suppose $f$ is not injective.
+	ie, There exists $\bar{x},\bar{y} \in B(\bar{a})$ such that $\bar{x} \ne \bar{y}$ and $f(\bar{x}) = f(\bar{y)}$.
+	Open ball $B(\bar{a})$ is a convex set.
+	And the line segment $L(\bar{x},\bar{y}) \subset B(\bar{a})$.
+	The function $f$ is differentiable on $S$.
+	On applying mean-value theorem to each component of $f$, we get
+	\[ 0 = f_i(\bar{y})-f_i(\bar{x}) = \nabla f_i(\bar{Z}_i)\cdot(\bar{y}-\bar{x}),\ i=1,2,\cdots \]
+	where $\bar{Z}_i \in L(\bar{x},\bar{y}) \subset B(\bar{a})$.
+	Therefore, We have
+	\[ \sum_{k=1}^n D_kf_i(\bar{Z}_i)(y_k-x_k) = 0 \]
+	The determinant of this system of linear equations is nonzero, as the function $f$ has nonzero jacobian determinant at $\bar{Z}_i \in B(\bar{a})$ for $i = 1,2,\cdots$.
+	Thus, $y_i = x_i$ for $i = 1,2,\cdots$. This contradicts $\bar{x} \ne \bar{y}$.
+	Hence, the function $f$ is injective.
 \end{proof}
 
 \begin{theorem}
-Let $A$ be an open subset of $\mathbb{R}^n$ and assume that $f : A \to \mathbb{R}^n$ has continuous partial derivatives $D_jf_i$ on $A$.
-If $J_f(\bar{x}) \ne 0$ for all $\bar{x} \in A$, then $f$ is an open mapping.
+	Let $A$ be an open subset of $\mathbb{R}^n$ and assume that $f : A \to \mathbb{R}^n$ has continuous partial derivatives $D_jf_i$ on $A$.
+	If $J_f(\bar{x}) \ne 0$ for all $\bar{x} \in A$, then $f$ is an open mapping.
 \end{theorem}
 \begin{proof}
-Let $S$ be an open subset of $A$.
-Let $\bar{x} \in S$.
-Clearly, $f$ has continuous partial derivatives on $S$ and $J_f(\bar{x}) \ne 0$ for all $\bar{x} \in S$.
-Thus, there is an $n$-ball $B(\bar{x})$ in which $f$ is injective.
-Therefore, $f(B(\bar{x})$ is open in $\mathbb{R}^n$.
-Since $\bar{x} \in S$ is arbitrary, $S = \cup_{\bar{x} \in S} B(\bar{x})$.
-And $f(S) = \cup_{\bar{x} \in S} f(B(\bar{x}))$.
-Therefore, $f(S)$ is open.
-Since open set $S$ is arbitrary, $f$ is an open mapping.
+	Let $S$ be an open subset of $A$.
+	Let $\bar{x} \in S$.
+	Clearly, $f$ has continuous partial derivatives on $S$ and $J_f(\bar{x}) \ne 0$ for all $\bar{x} \in S$.
+	Thus, there is an $n$-ball $B(\bar{x})$ in which $f$ is injective.
+	Therefore, $f(B(\bar{x})$ is open in $\mathbb{R}^n$.
+	Since $\bar{x} \in S$ is arbitrary, $S = \cup_{\bar{x} \in S} B(\bar{x})$.
+	And $f(S) = \cup_{\bar{x} \in S} f(B(\bar{x}))$.
+	Therefore, $f(S)$ is open.
+	Since open set $S$ is arbitrary, $f$ is an open mapping.
 \end{proof}
 
 \begin{commentary}
 \begin{remark}[Properties]
-Functions with non-zero Jacobian determinant has following properties :
+	Functions with non-zero Jacobian determinant has following properties :
 \begin{enumerate}
 	\item If $J_f \ne 0$ in $n$-ball $B$ about $\bar{a}$ which has different values at its boundaries, then $f(B)$ has an $n$-ball about $f(\bar{a})$.
 	\item If $J_f \ne 0$, $f$ has continuous partial derivatives in $S$, and $f$ is injective in an open set $A$, then $f(A)$ is open.
@@ -1328,13 +1330,13 @@ And $f(\bar{x}')-f(\bar{x}) = t\bar{u}_r$.
 Therefore $f_i(\bar{x})-f_i(\bar{x}') = 0$ when $i \ne r$.
 And $f_i(\bar{x}')-f_i(\bar{x}) = t$ when $i = r$.
 By mean-value theorem,
-$$\frac{f_i(\bar{x}') - f(\bar{x})}{t} = \nabla f_i(\bar{Z}_i) \cdot \frac{\bar{x}'-\bar{x}}{t}$$
+	\[ \frac{f_i(\bar{x}') - f(\bar{x})}{t} = \nabla f_i(\bar{Z}_i) \cdot \frac{\bar{x}'-\bar{x}}{t} \]
 where $\bar{Z}_i \in L(\bar{x},\bar{x}')$, the line segment joining $\bar{x}$ and $\bar{x}'$.
 Since $\det[D_jf_i(\bar{Z}_i)] = h(\bar{Z}) \ne 0$, this system of linear equations in $n$ unknowns, $\frac{x_j'-x_j}{t}$ has a unique solution.
 As $t \to 0$, $\bar{x}' \to \bar{x}$.
 And $\bar{Z}_i \to \bar{x}$.
 Since $J_f(\bar{x}) \ne 0$, the limit
-$$ \lim_{t \to 0} \frac{g_k(\bar{y}+t\bar{u}_r)-g_k(\bar{y})}{t}$$
+	\[ \lim_{t \to 0} \frac{g_k(\bar{y}+t\bar{u}_r)-g_k(\bar{y})}{t} \]
 exists.
 Thus, $D_rg_k(\bar{y})$ exists $\forall y \in Y$ and every $r$.	
 By Cramer's rule, this limit is a quotient of two determinants of partial derivatives of $f$, which are all continuous since $f \in C'$.
@@ -1361,10 +1363,10 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 	We have $f = (f_1,f_2,\cdots,f_m)$.
 	Also given that $f \in C'(S)$, $f(\bar{x}_0;\bar{t}_0) = 0$, and $J_f(\bar{x}_0;\bar{t}_0) \ne 0$.
 	Define a function $F : S \to \mathbb{R}^{n+k}$ defined by $F = (F_1,F_2,\cdots,F_{n+k})$.
-	$$ F_m(\bar{x};\bar{t}) = \begin{cases}
+	\[ F_m(\bar{x};\bar{t}) = \begin{cases}
 		f_m(\bar{x};\bar{t}) & 1 \le m \le n\\
 		t_{m-n} & n < m \le n+k
-	\end{cases} $$
+	\end{cases} \]
 	\begin{commentary}
 		For example, let $n = 3$, $k = 2$.
 		Let $\bar{x} = (1,2,3)$ and $\bar{t} = (4,5)$.
@@ -1373,7 +1375,7 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 	\end{commentary}
 
 	Then the Jacobian determinant of $F'(\bar{x};\bar{t})$ is given by
-	$$ J_F(\bar{x};\bar{t}) = \begin{vmatrix}
+	\[ J_F(\bar{x};\bar{t}) = \begin{vmatrix}
 		\begin{matrix}
 			D_1f_1 & D_2f_1 & \cdots & D_mf_1 \\
 			D_1f_2 & D_2f_2 & \cdots & D_mf_2 \\
@@ -1384,7 +1386,7 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 		0 & 1 & \cdots & 0 \\
 		\vdots & \vdots & \ddots & \vdots \\
 		0 & 0 & \cdots & 1 
-	\end{vmatrix} $$
+	\end{vmatrix} \]
 	Thus $J_F(\bar{x}_0;\bar{t}_0) = J_f(\bar{x}_0;\bar{t}_0) \ne 0$.
 	Also, $F(\bar{x}_0;\bar{t}_0) = (\bar{0};\bar{t}_0)$.
 	Therefore, by inverse function theorem, there exists open sets $X,Y$ containing $(\bar{x}_0;\bar{t}_0)$ and $(\bar{0};\bar{t}_0)$ such that $F$ is injective on $X$, $X = F^{-1}(Y)$ and there exists a unique local inverse function $G$ such that $G(F(\bar{x};\bar{t})) = (\bar{x};\bar{t})$ and $G \in C'(Y)$.
@@ -1442,7 +1444,8 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 	\end{equation}
 	where $x_1 \in L(x,c)$, the line connecting $x$ and $c$.
 	We have, $f^{(k)}(c) = 0$ for $k = 1,2,\cdots,n-1$.
-	Thus, $$f(x)-f(c) = \frac{f^{(n)}(x_1)}{n!} (x-c)^n$$
+	Thus,
+	\[ f(x)-f(c) = \frac{f^{(n)}(x_1)}{n!} (x-c)^n \]
 	Case 1 : $n$ is even.
 
 	If $n$ is even, then $(x-c)^n > 0$.
@@ -1518,7 +1521,8 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 	Therefore, $f(\bar{a}+\bar{t}) - f(\bar{a}) \ge m\|\bar{t}\|^2 + \|\bar{t}\|^2 E(\bar{t})$\\
 
 	Choose $n$-ball $B(\bar{0},r)$ such that $|E(\bar{t})| < \frac{m}{2}$ for every $\bar{t} \in B(\bar{0},r)$.
-	Thus, $$-\frac{m}{2}\|\bar{t}\|^2 \le -\|\bar{t}\|^2 |E(\bar{t})| \le 0$$
+	Thus,
+	\[ -\frac{m}{2}\|\bar{t}\|^2 \le -\|\bar{t}\|^2 |E(\bar{t})| \le 0 \]
 	Therefore, $f(\bar{a}+\bar{t}) - f(\bar{a}) \ge m\|\bar{t}\|^2 - \frac{m}{2}\|\bar{t}\|^2 = \frac{m}{2}\|t\|^2$ for every $\bar{t} \in B(\bar{0},r)$.
 	Clearly, $f$ has a local minimum at $\bar{a}$.\\
 	Case 2 : Suppose $Q(\bar{t}) < 0,\ \forall \bar{t} \ne \bar{0}$, then consider $-f$.
@@ -1588,15 +1592,15 @@ Then we have,
 \section{Integration on Differential Forms}
 \begin{definition}
 	A \textbf{$k$-cell} in $R^k$ is given by, 
-	$$I^k = \{ \bar{x} \in \mathbb{R}^k : a_i \le x_i \le b_i,\ \forall i \}$$
+	\[ I^k = \{ \bar{x} \in \mathbb{R}^k : a_i \le x_i \le b_i,\ \forall i \} \]
 	where $\bar{a},\bar{b} \in \mathbb{R}^k$.
 	Let $f$ be a continuous, real-valued function on $I^k$.
 	Then, the \textbf{integral} of $f$ over $I^k$ is given by,
-	$$\int_{I^k}f(\bar{x}) d\bar{x} = f_0 \text{ where } f_k = f \text{ and }$$
-	$$f_{r-1} = \int_{a_r}^{b_r} f_r(x_0,x_1,\cdots,x_r) dx_r,\ r = 1,2,\cdots,k$$
+	\[ \int_{I^k}f(\bar{x}) d\bar{x} = f_0 \text{ where } f_k = f \text{ and } \]
+	\[ f_{r-1} = \int_{a_r}^{b_r} f_r(x_0,x_1,\cdots,x_r) dx_r,\ r = 1,2,\cdots,k \]
 \begin{commentary}
 	In other words,
-	$$\int_{I^k} f(\bar{x})\ d\bar{x} = \idotsint_{a_k}^{b_k} \left[f(x_0,x_1,\cdots,x_k)\ dx_k\right]\ dx_{k-1}\cdots dx_1$$
+	\[ \int_{I^k} f(\bar{x})\ d\bar{x} = \idotsint_{a_k}^{b_k} \left[f(x_0,x_1,\cdots,x_k)\ dx_k\right]\ dx_{k-1}\cdots dx_1 \]
 \end{commentary}
 \end{definition}
 
@@ -1616,7 +1620,7 @@ Then we have,
 \end{commentary}
 
 Let $h(\bar{x}) = h_1(x_1)h_2(x_2)\cdots h_k(x_k)$ where $h_j \in [a_j,b_j]$.
-$$ L(h) = \int_{I^k} \left(\prod_{i = 1}^k h_i(x_i)\right) d\bar{x} = \prod_{i = 1}^k \int_{a_k}^{b_k} h_i(x_i)\ dx_i = L'(h)$$
+	\[ L(h) = \int_{I^k} \left(\prod_{i = 1}^k h_i(x_i)\right) d\bar{x} = \prod_{i = 1}^k \int_{a_k}^{b_k} h_i(x_i)\ dx_i = L'(h) \]
 \begin{commentary}Step 2 : Algebra of ``separable'' functions, $\mathscr{A}$.\end{commentary}
 
 Let $\mathscr{A}$ be all finite sums of functions such as $h$.
@@ -1693,11 +1697,11 @@ Therefore, $L(f) = L'(f)$.
 	\end{equation}
 	If $g$ is differentiable at $\bar{a}$, then $G$ is also differentiable at $\bar{a}$.
 	The matrix $[\alpha_{i,j}]$ of $G'(\bar{a})$ is given by 
-	$$\alpha_{i,j} = \begin{cases} 
+	\[ \alpha_{i,j} = \begin{cases} 
 		D_jg(\bar{a}) & i = m\\
 		1 & i \ne m, j = i \\
 		0 & i \ne m, j \ne i
-	\end{cases} $$
+	\end{cases} \]
 	The Jacobian of $G$ at $\bar{a}$ is given by,
 	$J_G(\bar{a}) = \det[G'(\bar{a})] = D_mg(\bar{a})$.
 
@@ -1749,7 +1753,7 @@ Suppose that for each $m = 1,2,\cdots,n-1$, there exists a neighbourhood of $\ba
 \end{align*}
 Since $F_m \in \mathscr{C}'(V_m)$, the functions $\alpha_i \in \mathscr{C}'(V_m)$.
 Taking $m$th partial derivative on either sides, we get
-$$D_mF_m(\bar{0}) = F_m'(\bar{0})\bar{e}_m  = \sum_{i = m}^n D_m \alpha_i (\bar{0})\bar{e}_i$$
+	\[ D_mF_m(\bar{0}) = F_m'(\bar{0})\bar{e}_m  = \sum_{i = m}^n D_m \alpha_i (\bar{0})\bar{e}_i \]
 We have, $F_m'(\bar{0})$ is invertible.
 Thus $F_m'(\bar{0})\bar{e}_m \ne 0$.
 Thus there exists some integer $k$ such that $m \le k \le n$ and $D_m\alpha_k(\bar{0})\bar{e}_k \ne 0$.

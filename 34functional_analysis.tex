@@ -139,7 +139,7 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 	Then there exists $N_j \in \mathbb{N}$ such that $\forall m > N,\ |\xi_{j,m} - \xi_j|  < \frac{\varepsilon}{n} $.
 	Let $N = \max \{ N_1,N_2,\dots,N_n\}$.
 	Then $\forall m > N$,
-	$$ d(x_m,x) = \left( \sum_{j=1}^n | \xi_{j,m} - \xi_j|^2 \right)^\frac{1}{2} = \left( \sum_{j=1}^n \frac{\varepsilon^2}{n^2} \right)^\frac{1}{2} = \frac{\varepsilon}{\sqrt{n}} < \varepsilon $$
+	\[ d(x_m,x) = \left( \sum_{j=1}^n | \xi_{j,m} - \xi_j|^2 \right)^\frac{1}{2} = \left( \sum_{j=1}^n \frac{\varepsilon^2}{n^2} \right)^\frac{1}{2} = \frac{\varepsilon}{\sqrt{n}} < \varepsilon \]
 	Therefore, $\sequence{x_n}$ converges to $x$ in $\mathbb{R}^n$.
 \end{proof}
 
@@ -158,16 +158,16 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 	\textbf{Step 1 : Construct $x$}\\
 	Let $\varepsilon > 0$.
 	Then there exists $N \in \mathbb{N}$ such that $\forall m,n > N$,
-	$$d(x_m,x_n) = \sup_{k \in \mathbb{N}} \left\{ \left|\xi_{m,k} - \xi_{n,k} \right| \right\} < \varepsilon $$
+	\[ d(x_m,x_n) = \sup_{k \in \mathbb{N}} \left\{ \left|\xi_{m,k} - \xi_{n,k} \right| \right\} < \varepsilon \]
 	From the metric, we have $\sequence{\xi_{j,k}}$'s are Cauchy sequences in $\mathbb{C}$ for each $k$.
 	\begin{figure}
-		$$\begin{matrix}
+		\[ \begin{matrix}
 			x_1 = & \xi_{1,1} & \xi_{1,2} & \xi_{1,3} & \dots \\
 			x_2 = & \xi_{2,1} & \xi_{2,2} & \xi_{2,3} & \dots \\
 			x_3 = & \xi_{3,1} & \xi_{3,2} & \xi_{3,3} & \dots \\
 			\vdots & \vdots & \vdots & \vdots & \vdots \\
 			x = & \xi_1 & \xi_2 & \xi_3 & \dots 
-		\end{matrix}$$
+		\end{matrix} \]
 		\caption{Construction of limit in Sequence spaces}
 	\end{figure}
 	Thus, $\xi_{j,k} \to \xi_k \in \mathbb{C}$.
@@ -176,11 +176,11 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 	\textbf{Step 2 : $x \in l^\infty$}\\
 	We have, $x_j \in l^\infty \implies |\xi_{m,j}| < c_j, \ \forall m \in \mathbb{N} $.
 	Therefore,
-	$$ |\xi_j| \le |\xi_j-\xi_{m,j}| + |\xi_{m,j}| \le \varepsilon + c_j, \quad \forall j \in \mathbb{N} $$
+	\[ |\xi_j| \le |\xi_j-\xi_{m,j}| + |\xi_{m,j}| \le \varepsilon + c_j, \quad \forall j \in \mathbb{N} \]
 	Thus, $x \in l^\infty$.\\
 	\textbf{Step 3 : $x_n \to x$}\\
 	Since $|\xi_{m,j}-\xi_j| < \varepsilon$ for $m \in \mathbb{N}$,
-	$$ d(x_m,x) = \sup_{j \in \mathbb{N}} |\xi_{m,j} - \xi_j| \le \varepsilon $$
+	\[ d(x_m,x) = \sup_{j \in \mathbb{N}} |\xi_{m,j} - \xi_j| \le \varepsilon \]
 \end{proof}
 
 \begin{theorem}
@@ -207,7 +207,7 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 		|\xi_{N,j} - \xi_{N,k}| < \frac{\varepsilon}{3}
 	\end{equation}
 	Therefore,
-	$$|\xi_j - \xi_k| \le |\xi_j - \xi_{N,j}| + |\xi_{N,j}-\xi_{N,k}| + |\xi_{N,k} - \xi_k| \le \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon $$
+	\[ |\xi_j - \xi_k| \le |\xi_j - \xi_{N,j}| + |\xi_{N,j}-\xi_{N,k}| + |\xi_{N,k} - \xi_k| \le \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon \]
 	Clearly, $x = \sequence{\xi_k}$ is a Cauchy sequence in $l^\infty$.
 	And since $l^\infty$ is complete, every Cauchy sequence in $l^\infty$ is convergent.
 	Therefore, $x$ is a convergent sequence and $x \in c$.
@@ -223,7 +223,7 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 \end{theorem}
 \begin{proof}
 	Let $\sequence{x_k}$ be a Cauchy sequence $l^p$ where $x_k = \sequence{\xi_{k,j}}$ and
-	$$ \sum_{j = 1}^\infty \left| \xi_{k,j} \right|^p < \infty,\ \forall k \in \mathbb{N} $$
+	\[ \sum_{j = 1}^\infty \left| \xi_{k,j} \right|^p < \infty,\ \forall k \in \mathbb{N} \]
 	Since $\sequence{x_k}$ is a Cauchy sequence, for $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that
 	\begin{equation}
 		\label{equ:lpcauchy}
@@ -260,7 +260,7 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 	Let $\sequence{x_k}$ be a Cauchy sequence in $C[a,b]$.\\
 	Let $\varepsilon > 0$.
 	Then there exists $N \in \mathbb{N}$ such that $m,n > N$, 
-	$$ d(x_m,x_n) = \max_{t \in [a,b]} \left\{ x_m(t) - x_n(t) \right\} < \varepsilon $$
+	\[ d(x_m,x_n) = \max_{t \in [a,b]} \left\{ x_m(t) - x_n(t) \right\} < \varepsilon \]
 	Thus, for each $t \in [a,b]$, sequence $\sequence{x_k(t)}$'s are Cauchy sequences.
 	We know that $\mathbb{C}$ is complete.
 	Thus every Cauchy sequence in $\mathbb{C}$ is convergent.\\
@@ -283,15 +283,15 @@ For example, the metric of $C[a,b]$ is a uniform metric.
 The following metric spaces are not complete,
 \begin{enumerate}
 	\item The space of rational numbers, $\mathbb{Q}$ with usual metric $d(x,y) = |x-y|$ is not complete since the rational approximations of $\pi$ is sequence in $\mathbb{Q}$ which doesn't converge in $\mathbb{Q}$.
-		$$ 3,\ 3.1,\ 3.14,\ 3.141,\ \dots \to \pi \notin \mathbb{Q}$$
+		\[ 3,\ 3.1,\ 3.14,\ 3.141,\ \dots \to \pi \notin \mathbb{Q} \]
 	\item The space of polynomial functions with metric $d(x,y) = \sup \{ x(t) - y(t)|$ is not complete since taylor approximations of $\sin x$ is a sequence of polynomial funcitons which doesn't converge to a polynomial function.
-		$$ x,\ x+\frac{-x^3}{3!},\ x+\frac{-x^3}{3!}+\frac{x^5}{5!},\ \dots \to \sin x \notin p $$
+		\[ x,\ x+\frac{-x^3}{3!},\ x+\frac{-x^3}{3!}+\frac{x^5}{5!},\ \dots \to \sin x \notin p \]
 	\item The space of continuous function on unit interval $[0,1]$ with a different\dag\footnote{Area under the graph of difference function is well-defined for integrable functions.} metric 
-		$$ d(x,y) = \int_0^1 \left| x(t)-y(t) \right| \ dt $$
+		\[ d(x,y) = \int_0^1 \left| x(t)-y(t) \right| \ dt \]
 		is not complete since $\sequence{x_k}$ where $x_k : [0,1] \to \mathbb{R}$ is defined by
-		$$x_k(t) = \begin{cases} 0 & t \in \left[0,\frac{1}{2}\right) \\
+		\[ x_k(t) = \begin{cases} 0 & t \in \left[0,\frac{1}{2}\right) \\
 			(t-\frac{1}{2})k & t \in \left[\frac{1}{2},\frac{1}{2}+\frac{1}{k}\right) \\
-		1 & t \in \left[\frac{1}{2}+\frac{1}{k},1\right] \end{cases} $$
+		1 & t \in \left[\frac{1}{2}+\frac{1}{k},1\right] \end{cases} \]
 		doesn't converge to a continuous polynomial function.
 \end{enumerate}
 \subsection{Completion of Metric Space}
@@ -306,7 +306,7 @@ For example, $\mathbb{Q}$ is not complete. However, $\mathbb{R}$ is a complete m
 \end{definition}
 
 For example, function $f : X \to Y$ is an isometry if
-$$ \forall x,y \in X,\quad \hat{d}(f(x),f(y)) = d(x,y)$$
+\[ \forall x,y \in X,\quad \hat{d}(f(x),f(y)) = d(x,y) \]
 where $d, \hat{d}$ are metrics in $X,Y$ respectively.
 And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 
@@ -352,27 +352,27 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 			In other words, $\displaystyle \lim_{k \to \infty} d(x_k,x_k') = 0$ and $\displaystyle \lim_{k \to \infty} d(y_k,y_k') = 0$.\\
 
 			By triangular inequality, we have
-			$$ d(x_k,y_k) \le d(x_k,x_k') + d(x_k',y_k') + d(y_k',y_k) $$
-			$$ \implies d(x_k,y_k) - d(x_k',y_k') \le d(x_k,x_k') + d(y_k,y_k')$$
+			\[ d(x_k,y_k) \le d(x_k,x_k') + d(x_k',y_k') + d(y_k',y_k) \]
+			\[ \implies d(x_k,y_k) - d(x_k',y_k') \le d(x_k,x_k') + d(y_k,y_k') \]
 			Similarly,
-			$$ d(x_k',y_k') \le d(x_k',x_k) + d(x_k,y_k) + d(y_k,y_k') $$
-			$$ \implies d(x_k',y_k') - d(x_k,y_k) \le d(x_k,x_k') + d(y_k,y_k')$$
+			\[ d(x_k',y_k') \le d(x_k',x_k) + d(x_k,y_k) + d(y_k,y_k') \]
+			\[ \implies d(x_k',y_k') - d(x_k,y_k) \le d(x_k,x_k') + d(y_k,y_k') \]
 			Therefore, 
-			$$ | d(x_k,y_k) - d(x_k',y_k')| \le d(x_k,x_k') + d(y_k,y_k')$$
+			\[ | d(x_k,y_k) - d(x_k',y_k')| \le d(x_k,x_k') + d(y_k,y_k')  \]
 			Apply the limit $k \to \infty$ on either sides, we get
-			$$ \lim_{k\to \infty} |d(x_k,y_k)-d(x_k',y_k')| \le \lim_{k \to \infty} d(x_k,x_k') + \lim_{k \to \infty} d(y_k,y_k') = 0 $$
+			\[ \lim_{k\to \infty} |d(x_k,y_k)-d(x_k',y_k')| \le \lim_{k \to \infty} d(x_k,x_k') + \lim_{k \to \infty} d(y_k,y_k') = 0 \]
 			Thus, $\hat{d}(\hat{x},\hat{y})$ depends only on the equivalent class $\hat{x},\hat{y}$ to which $x_k,y_k$ belongs and is independent of the representative from these equivalent classes.
 			Therefore, $\hat{d} : \hat{X} \times \hat{X} \to \mathbb{R}$ is well-defined.
 		\item $\hat{d}(\hat{x},\hat{y}) = 0 \iff \hat{x} = \hat{y}$
-			$$ \hat{d}(\hat{x},\hat{y}) = 0 \iff \forall \sequence{x_k} \in \hat{x}, \forall \sequence{y_k} \in \hat{y},\ \lim_{k \to \infty} d(x_k,y_k) = 0 \iff \sequence{x_k} \sim \sequence{y_k} $$
+			\[ \hat{d}(\hat{x},\hat{y}) = 0 \iff \forall \sequence{x_k} \in \hat{x}, \forall \sequence{y_k} \in \hat{y},\ \lim_{k \to \infty} d(x_k,y_k) = 0 \iff \sequence{x_k} \sim \sequence{y_k} \]
 		\item $\hat{d}(\hat{x},\hat{y}) = \hat{d}(\hat{y},\hat{x})$ is trivial since $d(x_k,y_k) = d(y_k,x_k)$.
 		\item $\hat{d}(\hat{x},\hat{y}) \le \hat{d}(\hat{x},\hat{z}) + \hat{d}(\hat{z},\hat{y})$\\
 
 			Let $\sequence{z_k}$ be a Cauchy sequence in $X$.
 			Then $\sequence{z_k} \in \hat{z}$ for some $\hat{z} \in \hat{X}$,
-			$$ d(x_k,y_k) \le d(x_k,z_k) + d(z_k,y_k) $$
+			\[ d(x_k,y_k) \le d(x_k,z_k) + d(z_k,y_k) \]
 			Applying limit $k \to \infty$ on either sides, we get
-			$$ \hat{d}(\hat{x},\hat{y}) = \lim_{k \to \infty} d(x_k,y_k) \le \lim_{k \to \infty} d(x_k,z_k) + \lim_{k \to \infty} d(z_k,y_k)  = \hat{d}(\hat{x},\hat{z}) + \hat{d}(\hat{z},\hat{y})$$
+			\[ \hat{d}(\hat{x},\hat{y}) = \lim_{k \to \infty} d(x_k,y_k) \le \lim_{k \to \infty} d(x_k,z_k) + \lim_{k \to \infty} d(z_k,y_k)  = \hat{d}(\hat{x},\hat{z}) + \hat{d}(\hat{z},\hat{y}) \]
 	\end{enumerate}
 
 	\textbf{Step 2: Construction of Isometry $T : X \to W,\ W \subset \hat{X}$.}\\
@@ -388,7 +388,7 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 	\end{align*}
 	Thus $T : X \to T(X)$ is a bijection.
 	Also $T$ is an isometry since 
-	$$\displaystyle \hat{d}(\hat{a},\hat{b}) = \hat{d}(Ta,Tb) = \lim_{k \to \infty} d(a,b) = d(a,b)$$
+	\[ \hat{d}(\hat{a},\hat{b}) = \hat{d}(Ta,Tb) = \lim_{k \to \infty} d(a,b) = d(a,b) \]
 
 	\textbf{Step 3: $W = T(X)$ is dense in $\hat{X}$}\\
 	Let $\hat{x} \in \hat{X}$, then $\sequence{x_k} \in \hat{x}$.
@@ -396,10 +396,10 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 	Let $\varepsilon > 0$.
 	Then there exists $N \in \mathbb{N}$ such that $\forall m,n \ge N,\ d(x_n,x_m) < \frac{\varepsilon}{2}$.\\
 	Thus,
-	$$ \forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } d(x_n,x_N) < \frac{\varepsilon}{2} $$
+	\[ \forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } d(x_n,x_N) < \frac{\varepsilon}{2} \]
 	Clearly, $x_N \in X$ and the constant sequence $\sequence{x_N} \in \hat{x_N} \in T(X) = W$.\\
 	Thus,
-	$$\hat{d}(\hat{x},\hat{x_N}) = \lim_{k \to \infty} d(x_k,x_N) \le \frac{\varepsilon}{2} < \varepsilon $$
+	\[ \hat{d}(\hat{x},\hat{x_N}) = \lim_{k \to \infty} d(x_k,x_N) \le \frac{\varepsilon}{2} < \varepsilon \]
 	For every $\varepsilon > 0$, there exists $\hat{x}_N \in W$ such that $\hat{d}(\hat{x},\hat{x}_N) < \varepsilon$.
 	Therefore, $W$ is dense in $\hat{X}$.\\
 
@@ -407,15 +407,15 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 	Let $\sequence{\hat{x}_n}$ be any Cauchy sequence in $\hat{X}$.
 	Since $W$ is dense in $\hat{X}$, for each $\hat{x}_n$ there exists $\hat{z}_n \in W$ such that $\hat{d}(\hat{x}_n,\hat{z}_n) < \frac{1}{n}$.
 	Then, $\sequence{\hat{z}_n}$ is a Cauchy sequence since,
-	$$ \hat{d}(\hat{z}_m,\hat{z}_n) \le \hat{d}(\hat{z}_m,\hat{x}_m) + \hat{d}(\hat{x}_m,\hat{x}_n)+\hat{d}(\hat{x}_n,\hat{z}_n) \le \frac{1}{m} + \hat{d}(\hat{x}_m,\hat{x}_n) + \frac{1}{n} $$
+	\[ \hat{d}(\hat{z}_m,\hat{z}_n) \le \hat{d}(\hat{z}_m,\hat{x}_m) + \hat{d}(\hat{x}_m,\hat{x}_n)+\hat{d}(\hat{x}_n,\hat{z}_n) \le \frac{1}{m} + \hat{d}(\hat{x}_m,\hat{x}_n) + \frac{1}{n} \]
 
 	We have, $T : X \to W$ defined by $T(z_n) = \hat{z}_n$ is a bijective, isometry.
 	Thus, sequence $\sequence{z_n}$ is a Cauchy sequence in $X$, since $\hat{d}(\hat{z}_n,\hat{z}_m) = d(z_n,z_m)$.
 	Let $\hat{x} \in \hat{X}$ be the equivalent class of Cauchy sequences containing $\sequence{z_n}$.
 	Then,
-	$$ \hat{d}(\hat{x}_n,\hat{x}) \le \hat{d}(\hat{x}_n,\hat{z}_n) + \hat{d}(\hat{z}_n,\hat{x}) = \frac{1}{n} + \hat{d}(\hat{z}_n,\hat{x}) $$
+	\[ \hat{d}(\hat{x}_n,\hat{x}) \le \hat{d}(\hat{x}_n,\hat{z}_n) + \hat{d}(\hat{z}_n,\hat{x}) = \frac{1}{n} + \hat{d}(\hat{z}_n,\hat{x}) \]
 	Apply limit $n \to \infty$ on either sides, we get
-	$$ \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{x}) \le \lim_{n \to \infty} \frac{1}{n} + \lim_{n \to \infty} \hat{d}(\hat{z}_n,\hat{x}) = 0 $$
+	\[ \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{x}) \le \lim_{n \to \infty} \frac{1}{n} + \lim_{n \to \infty} \hat{d}(\hat{z}_n,\hat{x}) = 0 \]
 	Thus, $\hat{x}_n \to \hat{x}$ as $n \to \infty$.
 	Therefore $\hat{X}$ is complete, since every Cauchy sequence in $\hat{X}$ converges.\\
 
@@ -424,13 +424,13 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 	Let $\tilde{x},\tilde{y} \in \tilde{X}$.
 	Since $\tilde{W}$ is dense in $\tilde{X}$, there exists sequences $\sequence{\tilde{x}_n},\sequence{\tilde{y}_n}$ in $\tilde{W}$ such that $\tilde{x}_n \to \tilde{x}$ and $\tilde{y}_n \to \tilde{y}$.\\
 	We have,
-	$$ \tilde{d}(\tilde{x},\tilde{y}) \le \tilde{d}(\tilde{x},\tilde{x}_n) + \tilde{d}(\tilde{x}_n,\tilde{y}_n) + \tilde{d}(\tilde{y}_n,\tilde{y}) $$
-	$$ \tilde{d}(\tilde{x}_n,\tilde{y}_n) \le \tilde{d}(\tilde{x}_n,\tilde{x}) + \tilde{d}(\tilde{x},\tilde{y}) + \tilde{d}(\tilde{y},\tilde{y}_n) $$
+	\[ \tilde{d}(\tilde{x},\tilde{y}) \le \tilde{d}(\tilde{x},\tilde{x}_n) + \tilde{d}(\tilde{x}_n,\tilde{y}_n) + \tilde{d}(\tilde{y}_n,\tilde{y}) \]
+	\[ \tilde{d}(\tilde{x}_n,\tilde{y}_n) \le \tilde{d}(\tilde{x}_n,\tilde{x}) + \tilde{d}(\tilde{x},\tilde{y}) + \tilde{d}(\tilde{y},\tilde{y}_n) \]
 	Thus,
-	$$ | \tilde{d}(\tilde{x}_n,\tilde{y}_n) - \tilde{d}(\tilde{x},\tilde{y}) | \le \tilde{d}(\tilde{x},\tilde{x}_n) + \tilde{d}(\tilde{y},\tilde{y}_n) $$
+	\[ | \tilde{d}(\tilde{x}_n,\tilde{y}_n) - \tilde{d}(\tilde{x},\tilde{y}) | \le \tilde{d}(\tilde{x},\tilde{x}_n) + \tilde{d}(\tilde{y},\tilde{y}_n) \]
 	Applying limit $n \to \infty$ on either sides, we get
-	$$ \lim_{n \to \infty} | \tilde{d}(\tilde{x}_n,\tilde{y}_n) - \tilde{d}(\tilde{x},\tilde{y}) | \le \lim_{n \to \infty} \tilde{d}(\tilde{x},\tilde{x}_n) + \lim_{n \to \infty} \tilde{d}(\tilde{y},\tilde{y}_n) = 0 $$
-	$$ \implies \tilde{d}(\tilde{x},\tilde{y}) = \lim_{n \to \infty} \tilde{d}(\tilde{x}_n,\tilde{y}_n) $$
+	\[ \lim_{n \to \infty} | \tilde{d}(\tilde{x}_n,\tilde{y}_n) - \tilde{d}(\tilde{x},\tilde{y}) | \le \lim_{n \to \infty} \tilde{d}(\tilde{x},\tilde{x}_n) + \lim_{n \to \infty} \tilde{d}(\tilde{y},\tilde{y}_n) = 0 \]
+	\[ \implies \tilde{d}(\tilde{x},\tilde{y}) = \lim_{n \to \infty} \tilde{d}(\tilde{x}_n,\tilde{y}_n) \]
 	We have, $\tilde{W}$ is isometric\dag\footnote{
 		Suppose $\tilde{W}$ is isometric with $X$.
 		Then there exists an isometry $S : \tilde{W} \to X$ such that $\tilde{d}(\tilde{x}_n,\tilde{y}_n)) = d(S(\tilde{x}_n),S(\tilde{y}_n))$.
@@ -463,9 +463,10 @@ For example, $\mathbb{R}^n, \mathbb{C}^n, C[a,b], l^p, l^\infty$ are vector spac
 
 \subsection{A few definitions}
 Unlike other texts\dag\footnote{
-	Usually, we define \textbf{space generated by a set} as the intersection of all spaces containing that set.}
-, the \textbf{subspace $Y$ generated a subset $M$} of a vector space $X$ is the set of all linear combinations of vectors in $M$.
-That is, $$ Y = \text{span } M $$
+	Usually, we define \textbf{space generated by a set} as the intersection of all spaces containing that set.}.
+	And the \textbf{subspace $Y$ generated a subset $M$} of a vector space $X$ is the set of all linear combinations of vectors in $M$.
+	That is,
+	\[ Y = \text{span } M \]
 
 A set $M$ is \textbf{linear independent} if there exists a non-zero $r$-tuple $(\alpha_1,\alpha_2,\dots,\alpha_r)$ such that $\alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_r x_r = 0$ where $x_1,x_2,\dots,x_r \in M$.\\
 
@@ -517,8 +518,8 @@ Then $d(x,y) = \| x -y\|$ is a metric induced by the norm.
 \begin{proof}
 	Let $X$ be a normed space.
 	We have,
-	$$ \lim_{h \to 0} \| x+hy \| \le \| x \| + \lim_{h \to 0} |h| \| y \| = \| x \|$$
-	$$ \| x \| \le \lim_{h \to 0} \|x+hy\| + \lim_{h \to 0}|-h| \|y\| = \lim_{h \to 0} \| x+hy \|$$
+	\[ \lim_{h \to 0} \| x+hy \| \le \| x \| + \lim_{h \to 0} |h| \| y \| = \| x \| \]
+	\[ \| x \| \le \lim_{h \to 0} \|x+hy\| + \lim_{h \to 0}|-h| \|y\| = \lim_{h \to 0} \| x+hy \| \]
 	Therefore, $\displaystyle \lim_{h \to 0} \|x +hy \| = \| x \|$.
 	And the norm is continuous.
 \end{proof}
@@ -581,21 +582,21 @@ Then $d(x,y) = \| x -y\|$ is a metric induced by the norm.
 	Then $d$ must have translational invariance which is a contradition.\\
 
 	For example, metric space of all sequence of complex numbers with metric
-	$$d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j-\eta_j|}{1+|\xi_j-\eta_j|}$$
+	\[ d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j-\eta_j|}{1+|\xi_j-\eta_j|} \]
 	where $x = \sequence{\xi_j} = \xi_1,\xi_2,\dots$ is not translationally invariant since,
 
-	$$ d(\alpha x, \alpha y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\alpha\xi_j-\alpha\eta_j|}{1+|\alpha\xi_j - \alpha\eta_j|} = \sum_{j=1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{\left|\frac{1}{\alpha}\right|+|\xi_j-\eta_j|} \ne |\alpha| d(x,y) $$
+	\[ d(\alpha x, \alpha y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\alpha\xi_j-\alpha\eta_j|}{1+|\alpha\xi_j - \alpha\eta_j|} = \sum_{j=1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{\left|\frac{1}{\alpha}\right|+|\xi_j-\eta_j|} \ne |\alpha| d(x,y) \]
 
 	Therefore, above metric cannot be induced from any norm defined on the sequence space $s$.
 	
 \subsubsection{Completion of incomplete normed space}
 	Consider the set of all continuous functions defined on closed interval $[a,b]$ together with the norm $\| \cdot \| : C[a,b] \to \mathbb{R}$ defined by
-	$$ \|x\| = \left( \int_a^b |x(t)|^2\ dt \right)^\frac{1}{2}$$
+	\[ \|x\| = \left( \int_a^b |x(t)|^2\ dt \right)^\frac{1}{2} \]
 	is an incomplete normed space.
 	The completion of this space is $L^2[a,b]$, the collection of all Lebesgue measurable function $x$ defined on closed interval $[a,b]$ such that $|x|^2$ is Lebesgue integrable .\\
 
 	Consider the collection of continuous functions defined on $[a,b]$ with norm,
-	$$\|x\| = \left( \int_a^b |x(t)|^p\ dt \right)^\frac{1}{p}$$
+	\[ \|x\| = \left( \int_a^b |x(t)|^p\ dt \right)^\frac{1}{p} \]
 	We have its completion $L^p[a,b]$, the collection of all Lebesgue measurable function $x$ defined on closed $[a,b]$ such that $|x|^p$ are Lebesgue integrable.
 
 \subsection{Further properties of normed spaces}
@@ -628,7 +629,7 @@ We have the notion of convergence defined for metric spaces.
 Now, we may extend that notion to normed spaces.
 \begin{definition}[convergence]
 	A sequence $\sequence{x_n}$ is a normed $X$ converges to $x \in X$ if
-	$$ \lim_{n \to \infty} \| x_n-x \| = 0 $$
+	\[ \lim_{n \to \infty} \| x_n-x \| = 0 \]
 \end{definition}
 
 A series in a normed space $(X,\|\cdot\|)$ is convergent if the sequence of partial sums converges.
@@ -637,7 +638,7 @@ And series is \textbf{absolutely convergent} if the series of norms converges.
 \subsubsection{Schauder basis}
 \begin{definition}[Schauder basis]
 	A sequence $\sequence{e_n}$ of normed space $(X,\|\cdot\|)$ is a Schauder basis of $X$ if for any $x  \in X$, there exists a unique sequence of scalars $\sequence{\alpha_n}$ such that the series $\displaystyle \sum_{n = 1}^\infty \alpha_n e_n$ converges to $x$.
-	$$ \lim_{n \to \infty} \left\| x - \sum_{k = 1}^n \alpha_k e_k \right\| = 0 $$
+	\[ \lim_{n \to \infty} \left\| x - \sum_{k = 1}^n \alpha_k e_k \right\| = 0 \]
 \end{definition}
 
 \textbf{Note} : Every normed space with a Schauder basis is separable.
@@ -672,21 +673,21 @@ But there exists separable, Banach spaces without a Schauder basis.
 			Let $\sequence{x_n},\sequence{x_n'} \in \hat{x}$ and $\sequence{y_n},\sequence{y_n'} \in \hat{y}$.
 			Then, $\sequence{x_n} \sim \sequence{x_n'}$ and $\sequence{y_n} \sim \sequence{y_n'}$.
 			By triangular inequality,
-			$$ \| x_n + y_n - (x_n' + y_n') \| \le \| x_n - x_n'\| + \| y_n - y_n' \| $$
+			\[ \| x_n + y_n - (x_n' + y_n') \| \le \| x_n - x_n'\| + \| y_n - y_n' \| \]
 			Applying limit $n \to \infty $ on either sides we get,
-			$$ \lim_{n \to \infty} \| x_n + y_n - (x_n'+y_n') \| \le \lim_{n \to \infty} \| x_n - x_n' \| + \lim_{n \to \infty} \| y_n - y_n' \| = 0 $$
+			\[ \lim_{n \to \infty} \| x_n + y_n - (x_n'+y_n') \| \le \lim_{n \to \infty} \| x_n - x_n' \| + \lim_{n \to \infty} \| y_n - y_n' \| = 0 \]
 			Clearly, $\sequence{x_n+y_n} \sim \sequence{x_n'+y_n'}$ and the vector sum $\hat{x}+\hat{y}$ is consistent, independent of the choice of the sequences.\\
 
 			\textbf{Step 1.3b: Vector addition is closed}\\
 			Let $\hat{x},\hat{y} \in \hat{X}$.
 			Then every sequence $\sequence{x_n} \in \hat{x}$ and every sequence $\sequence{y_n} \in \hat{y}$ are Cauchy sequences.
 			Then,
-			$$ \forall \varepsilon > 0,\ \exists N_1 \in \mathbb{N} \text{ such that } \forall n,m \ge N_1,\ \| x_n - x_m \| < \frac{\varepsilon}{2} $$
-			$$ \forall \varepsilon > 0,\ \exists N_2 \in \mathbb{N} \text{ such that } \forall n,m \ge N_2,\ \| y_n - y_m \| < \frac{\varepsilon}{2} $$
+			\[ \forall \varepsilon > 0,\ \exists N_1 \in \mathbb{N} \text{ such that } \forall n,m \ge N_1,\ \| x_n - x_m \| < \frac{\varepsilon}{2} \]
+			\[ \forall \varepsilon > 0,\ \exists N_2 \in \mathbb{N} \text{ such that } \forall n,m \ge N_2,\ \| y_n - y_m \| < \frac{\varepsilon}{2} \]
 			We need to prove that $\hat{x}+\hat{y}$ is also an equivalent class of Cauchy sequences.
 			Let $N = \max\{ N_1,N_2 \}$.
 			Then $\forall \varepsilon > 0,\ \forall n,m \ge N$ we have,
-			$$ \| x_n+y_n - (x_m+y_m) \| \le \| x_n - x_m \| + \| y_n - y_m \| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon $$
+			\[ \| x_n+y_n - (x_m+y_m) \| \le \| x_n - x_m \| + \| y_n - y_m \| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \]
 		\item Scalar multiplication $\times : K \times \hat{X} \to \hat{X}$ defined by $\alpha \hat{x}$ is the collection of Cauchy sequences equivalent to $\sequence{\alpha x_n}$ where $\sequence{x_n} \in \hat{x}$ and $\alpha \in K$.\\
 
 			We need to prove that scalar product is well-defined and is closed.\\
@@ -696,16 +697,16 @@ But there exists separable, Banach spaces without a Schauder basis.
 			Let $\sequence{x_n},\sequence{x_n'} \in \hat{x}$.
 			Then $\sequence{x_n} \sim \sequence{x_n'}$.
 			And both sequences are Cauchy sequences.
-			$$ \lim_{n \to \infty} \| \alpha x_n - \alpha x_n' \| = |\alpha| \lim_{n \to \infty} \| x_n - x_n' \| = 0 $$
+			\[ \lim_{n \to \infty} \| \alpha x_n - \alpha x_n' \| = |\alpha| \lim_{n \to \infty} \| x_n - x_n' \| = 0 \]
 			Therefore, $\alpha\hat{x}$ is the equivalent class of sequences which are equivalent to sequence $\sequence{\alpha x_n}$ where sequence $\sequence{x_n} \in \hat{x}$.
 			Clearly, $\alpha\hat{x}$ is independent of the choice of sequence $\sequence{x_n} \in \hat{x}$.\\
 
 			\textbf{Step 1.4b: Scalar product is closed}\\
 			We have, $\sequence{x_n}$ is a Cauchy sequence.
 			Then, 
-			$$\forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } \forall n,m \ge N,\ \| x_n - x_m \| < \frac{\varepsilon}{|\alpha|} $$
+			\[ \forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } \forall n,m \ge N,\ \| x_n - x_m \| < \frac{\varepsilon}{|\alpha|} \]
 			Clearly, $\forall n,m > N$
-			$$ \| \alpha x_n - \alpha x_m \| = |\alpha|\ \| x_n - x_m \| < \varepsilon $$
+			\[ \| \alpha x_n - \alpha x_m \| = |\alpha|\ \| x_n - x_m \| < \varepsilon \]
 			Therefore, $\alpha\hat{x}$ is an equivalent class of Cauchy sequences.
 	\end{enumerate}
 	Therefore, $\hat{X}$ is vector space.\\
@@ -736,31 +737,31 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Now, we show that $\| \cdot \|$ defined on $\hat{X}$ is a norm
 	\begin{enumerate}
 		\item We have, $\hat{d}$ is metric on $\hat{X}$. Thus, $\hat{d}(\hat{x},\hat{y}) \ge 0,\ \forall \hat{x},\hat{y} \in \hat{X}$.
-			$$ \| \hat{x} \| = \lim_{n \to \infty} \| \hat{x}_n \| = \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{0}) \ge 0 $$
+			\[ \| \hat{x} \| = \lim_{n \to \infty} \| \hat{x}_n \| = \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{0}) \ge 0 \]
 		\item Suppose $\hat{x} = \hat{0}$.
 			Then $\hat{x} \in W$ and $\|\hat{x}\| = \hat{d}(\hat{x},\hat{0}) = 0$.\\
 			Suppose $\|\hat{x}\| = 0$.
 			Then,
-			$$ \| \hat{x} \| = \lim_{n \to \infty} \| \hat{x}_n \| = \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{0}) = \lim_{n \to \infty} d(x_n,0) = 0 $$
+			\[ \| \hat{x} \| = \lim_{n \to \infty} \| \hat{x}_n \| = \lim_{n \to \infty} \hat{d}(\hat{x}_n,\hat{0}) = \lim_{n \to \infty} d(x_n,0) = 0 \]
 			Clearly, sequence $\sequence{x_n}$ is a Cauchy sequence in $X$ converging to $0 \in X$.
 			Therefore, $\sequence{x_n} \in \hat{0}$ and $\hat{x}_n \to \hat{0}$.
 			But, we know that $\hat{x}_n \to \hat{x}$.
 			Since $\hat{X}$ is a metric space, $\hat{x} = \hat{0}$.
 		\item We have,
-			$$ \| \alpha \hat{x} \| = \lim_{n \to \infty} \| \alpha \hat{x}_n \| = |\alpha|\lim_{n \to \infty} \| \hat{x}_n \| = |\alpha|\|\hat{x}\|$$
+			\[ \| \alpha \hat{x} \| = \lim_{n \to \infty} \| \alpha \hat{x}_n \| = |\alpha|\lim_{n \to \infty} \| \hat{x}_n \| = |\alpha|\|\hat{x}\| \]
 		\item Suppose $\hat{y} \in \hat{X}$.
 			Since $W$ is dense in $\hat{X}$, there exists a Cauchy sequence $\sequence{\hat{y}_n}$ in $W$ such that $\hat{y}_n \to \hat{y}$.
 			Thus,
-			$$ \| \hat{x} + \hat{y} \| = \lim_{n \to \infty} \| \hat{x}_n + \hat{y}_n \| \le \lim_{n \to \infty} \| \hat{x}_n \| + \lim_{n \to \infty} \| \hat{y}_n \| = \| \hat{x} \| + \| \hat{y} \| $$
+			\[ \| \hat{x} + \hat{y} \| = \lim_{n \to \infty} \| \hat{x}_n + \hat{y}_n \| \le \lim_{n \to \infty} \| \hat{x}_n \| + \lim_{n \to \infty} \| \hat{y}_n \| = \| \hat{x} \| + \| \hat{y} \| \]
 	\end{enumerate}
 	Thus, $(\hat{X},\|\cdot\|)$ is complete, normed space in which $W$ is dense.\\
 
 	\textbf{Step 3 : $\hat{X}$ is unique}\\
 	Suppose $\tilde{X}$ is another Banach space with dense subset $\tilde{W}$ which has a isometry $\tilde{A}$ from $\tilde{W}$ onto $X$.
 	Then, the norm $\|\cdot\|$ defined on $\tilde{W}$,
-	$$ \| \tilde{x} \| = \tilde{d}(\tilde{x},\tilde{0}) = d(x,0),\ \forall \tilde{x} \in \tilde{W} $$
+	\[ \| \tilde{x} \| = \tilde{d}(\tilde{x},\tilde{0}) = d(x,0),\ \forall \tilde{x} \in \tilde{W} \]
 	And we may extend this norm to $\tilde{X}$,
-	$$ \| \tilde{x} \| = \lim_{n \to \infty} \| \tilde{x}_n \| $$
+	\[ \| \tilde{x} \| = \lim_{n \to \infty} \| \tilde{x}_n \| \]
 	where sequence $\sequence{\tilde{x}_n}$ is a Cauchy sequence in $\tilde{W}$ and $\tilde{x}_n \to \tilde{x}$.\\
 
 	Clearly, $\tilde{W}$ is isometric with $W$ and the topological closure of $\tilde{W}$ is isometric with the topological closure of $W$.
@@ -787,7 +788,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Let sequences $\sequence{x_n},\sequence{y_n}$ converges to $x,y$ respectively.
 	Let sequence $\sequence{\alpha_n}$ converges to $\alpha \in K$.
 	Then, 
-	$$ \lim_{n \to \infty} \|x_n +y_n - (x+y) \| \le \lim_{n \to \infty} \| x_n - x \| + \lim_{n \to \infty} \| y_n - y \| = 0 $$
+	\[ \lim_{n \to \infty} \|x_n +y_n - (x+y) \| \le \lim_{n \to \infty} \| x_n - x \| + \lim_{n \to \infty} \| y_n - y \| = 0 \]
 	And,
 	\begin{align*}
 		\lim_{n \to \infty} \| \alpha_n x_n - \alpha x \| & = \lim_{n \to \infty} \| \alpha_n x_n - \alpha x_n + \alpha x_n - \alpha x \| \\
@@ -807,7 +808,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 \begin{proof}
 	Suppose $x_n \to x$, $y_n \to y$ and $\alpha_n \to \alpha$.
 	We have, vector addition and scalar multiplication are continuous with repsect to norm.
-	$$ \lim_{n \to \infty} \| x_n+y_n - (x+y) \| = 0 \text{ and } \lim_{n \to \infty} \| \alpha_n x_n - \alpha x \| = 0 $$
+	\[ \lim_{n \to \infty} \| x_n+y_n - (x+y) \| = 0 \text{ and } \lim_{n \to \infty} \| \alpha_n x_n - \alpha x \| = 0 \]
 	Therefore, $x_n+y_n \to x+y$ and $\alpha_n x_n \to \alpha x$.
 \end{proof}
 
@@ -828,7 +829,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Let $(X,\| \cdot \|)$ be a normed space.
 	Let $Y$ be a closed subset of $X$.
 	Then $(X/Y,\|\cdot\|_0)$ is a normed space with norm defined by
-	$$\|\hat{x}\|_0 = \inf_{x \in \hat{x}} \| x \|, \quad \text{ for any coset } \hat{x} \in X/Y $$
+	\[ \|\hat{x}\|_0 = \inf_{x \in \hat{x}} \| x \|, \quad \text{ for any coset } \hat{x} \in X/Y \]
 \end{lemma}
 \begin{proof}
 \begin{important}
@@ -841,7 +842,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Let $(X_1,\|\cdot\|_1)$, $(X_2,\|\cdot\|_2)$ be normed spaces.
 	Let $X = X_1 \times X_2$.
 	Then $(X,\|\cdot\|)$ is a normed space with norm defined by,
-	$$ \| x \| = \max \left\{ \|x_1\|_1,\|x_2\|_2 \right\} \text{ where } x = (x_1,x_2) $$
+	\[ \| x \| = \max \left\{ \|x_1\|_1,\|x_2\|_2 \right\} \text{ where } x = (x_1,x_2) \]
 \end{lemma}
 \begin{proof}
 \begin{important}
@@ -871,7 +872,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 
 	On the contrary, suppose that for every positive real number $c \in \mathbb{R}$ there exists a subset $\{ \beta_1,\beta_2,\dots,\beta_n \}$ such that $\| \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n \| < c$.
 	Then, for each $m \in \mathbb{N}$, there exist a subset of $n$ scalars $\{ \beta_{m,1}, \beta_{m,2},\dots,\beta_{m,n} \}$ such that
-	$$ \| \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dots + \beta_{m,n} x_n \| < \frac{1}{m} $$
+	\[ \| \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dots + \beta_{m,n} x_n \| < \frac{1}{m} \]
 	Define, $y_m = \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dots + \beta_{m,n} x_n$.
 	Then, $\|y_m\| \to 0$ as $m \to \infty$.\\
 
@@ -907,11 +908,11 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Let $dim\ Y = n$ and $B = \{ y_1, y_2, \dots, y_n \}$ be a basis for $Y$.
 	Let sequence $\sequence{y_m}$ be a Cauchy sequence in $Y$.
 	Then,
-	$$ y_m = \alpha_{m,1} y_1 + \alpha_{m,2} y_2 + \dots + \alpha_{m,n} y_n $$
+	\[ y_m = \alpha_{m,1} y_1 + \alpha_{m,2} y_2 + \dots + \alpha_{m,n} y_n \]
 	Since $\sequence{y_m}$ is a Cauchy sequence, we have $N \in \mathbb{N}$ such that $\forall s,t > N$
-	$$ \| y_s - y_t \| = \left\| \sum_{j=1}^n \alpha_{s,j} y_j - \sum_{j=1}^n \alpha_{t,j} y_j \right\| < \varepsilon $$
+	\[ \| y_s - y_t \| = \left\| \sum_{j=1}^n \alpha_{s,j} y_j - \sum_{j=1}^n \alpha_{t,j} y_j \right\| < \varepsilon \]
 	Since basis of $Y$ is a linearly independent subset of $X$, applying lemma we get
-	$$ c \sum_{j=1}^n \left|\alpha_{s,j} - \alpha_{t,j} \right| \le \left \| \sum_{j=1}^n (\alpha_{s,j}-\alpha_{t,j}) y_j \right\| < \varepsilon $$
+	\[ c \sum_{j=1}^n \left|\alpha_{s,j} - \alpha_{t,j} \right| \le \left \| \sum_{j=1}^n (\alpha_{s,j}-\alpha_{t,j}) y_j \right\| < \varepsilon \]
 	Therefore, for each $j \in \mathbb{N}$, sequence $\sequence{\alpha_{m,j}}$ are Cauchy sequences in $K$.
 	Suppose $\alpha_{m,j} \to \alpha_j$.
 	Define $y = \alpha_1 y_1 + \alpha_2 y_2 + \alpha_n y_n$.
@@ -966,12 +967,12 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Let $\|\cdot\|_1$, $\|\cdot\|_2$ be two norms defined on $X$.
 	Let $x \in X$.
 	Then,
-	$$ x = \sum_{j=1}^n \alpha_j x_j $$
+	\[ x = \sum_{j=1}^n \alpha_j x_j \]
 	We know that, basis is a linearly independent subset of $X$ itself.
 	By the lemma for finite dimensional, normed spaces, there exists a positive, real number $c$ such that 
-	$$ \| x \|_1 = \left\| \sum_{j=1}^n \alpha_j x_j \right\|_1 \ge c \sum_{j=1}^n |\alpha_j | $$
+	\[ \| x \|_1 = \left\| \sum_{j=1}^n \alpha_j x_j \right\|_1 \ge c \sum_{j=1}^n |\alpha_j | \]
 	By triangular inequality, we have
-	$$ \| x \|_1 = \left\| \sum_{j=1}^n \alpha_j x_j \right\| \le \sum_{j=1}^n \| \alpha_j x_j \| = \sum_{j=1}^n |\alpha_j| \|x_j\| \le k \sum_{j=1}^n |\alpha_j|$$
+	\[ \| x \|_1 = \left\| \sum_{j=1}^n \alpha_j x_j \right\| \le \sum_{j=1}^n \| \alpha_j x_j \| = \sum_{j=1}^n |\alpha_j| \|x_j\| \le k \sum_{j=1}^n |\alpha_j| \]
 	where $k = \max\{\|x_j\|\}$.\\
 
 	Let $a = \frac{c}{k}$.
@@ -981,8 +982,91 @@ But there exists separable, Banach spaces without a Schauder basis.
 \end{proof}
 
 \subsection{Compactness and Finite dimension}
+\begin{definition}[compact]
+	Let $X$ be a metric space.
+	The space $X$ is \textbf{compact} if every sequences in $X$ has a convergent subsequence.
+	A subset $M$ is a \textbf{compact subset} if every sequence in $M$ has a convergent subsequence.
+\end{definition}
+\begin{lemma}[compact]
+	Compact subsets of metric spaces are closed and bounded.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	In a finite dimensional metric space, a subset $M$ is compact if and only if $M$ is closed and bounded.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{lemma}[Riesz]
+	Let $Y,Z$ be subspaces of a normed space $X$.
+	Suppose $Y$ is closed and is a proper subset of $Z$.
+	Then for any real number $\theta \in (0,1)$, there exists $z \in Z$ such that
+	\[ \| z \| = 1 \text{ and } \| z-y \| \ge \theta,\ \forall y \in Y \]
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[compact set characterisation of finiteness]
+	Let $X$ be normed space in which closed unit ball is compact.
+	Then $X$ is a finite dimensional normed space.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $X,Y$ be metric spaces.
+	Let $T : X \to Y$ be a continuous function.
+	Then, the image of compact subset of $X$ under $T$ is a compact subset of $Y$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+\end{corollary}
+\begin{proof}
+\end{proof}
+
 %Module 2
 \subsection{Linear Operators}
+\begin{definition}[linear operator]
+	Let $X,Y$ be vector spaces with the same field $K$.
+	A function $T : X \to Y$ is a linear operator if it satisfies
+	\begin{enumerate}
+		\item $T(x+y) = Tx+Ty,\ \forall x,y \in X$
+		\item $T(\alpha x) = \alpha Tx,\ \forall x \in X,\forall \alpha \in K$
+	\end{enumerate}
+\end{definition}
+\begin{commentary}
+	Usually, we address a linear, function from a vector space into another as linear transformation.
+	And linear operators are functions from a vector space into itself.
+	Kreyszig uses linear operator for both.
+\end{commentary}
+\begin{enumerate}
+	\item $T(\alpha x + \beta y) = T(\alpha x) + T(\beta y) = \alpha Tx + \beta Ty$
+	\item $T0 = T(0x) = 0Tx = 0$
+	\item $T : X \to T(X)$ is a homomorphism of vector(linear) spaces
+\end{enumerate}
+\subsubsection{Examples of linear operators}
+\begin{enumerate}
+	\item Identity operator, $I : X \to X,\ Ix = x, \forall x \in X $
+		\[ I(\alpha x + \beta y) = \alpha Ix + \beta Iy = \alpha x + \beta y \]
+	\item Zero operator, $O : X \to X,\ Ox = 0, \forall x \in X$
+		\[ 0(\alpha x + \beta y) = \alpha 0(x) + \beta 0(y) = 0 \] 
+	\item Differentiation operator, $T : X \to X,\ Tx(t) = x'(t), \forall t \in [a,b]$ where $X$ is the set of all polynomials over $[a,b]$.
+		\[ T(\alpha x + \beta y) = \alpha T(x) + \beta T(y) = \alpha x' +\beta y'  \] 
+	\item Integration operator, $T : X \to X$, $\displaystyle Tx(t) = \int_a^b k(t,\tau) x(\tau) d\tau$ where $X = C[a,b]$.
+		\[ T(\alpha x + \beta y) = \alpha \left( \int_a^b k(t,\tau) x(\tau) d\tau \right) +\beta \left( \int_a^b k(t,\tau) y(\tau) d\tau \right)  \] 
+	\item Multiplication by parameter, $T : X \to X$, $Tx(t) = tx(t)$ where $X = C[a,b]$.
+		\[ T(\alpha x + \beta y) = \alpha T(x) + \beta T(y) = \alpha tx +\beta ty \] 
+	\item $T : \mathbb{R}^3 \to \mathbb{R}^3$, $T(x) = x \times a$ where $a \in \mathbb{R}^3$.
+		\[ T(\alpha x + \beta y) = \alpha T(x) + \beta T(y) = \alpha (x \times a) +\beta (y \times a)  \] 
+	\item $T : \mathbb{R}^3 \to \mathbb{R}$, $T(x) = x \cdot a$ where $a \in \mathbb{R}^3$.
+		\[ T(\alpha x + \beta y) = \alpha T(x) + \beta T(y) = \alpha (x \cdot a) +\beta (y \cdot a)  \] 
+	\item $T : \mathbb{R}^n \to \mathbb{R}^r$, $T(x) = Ax$ where $A \in \mathbb{R}^{n \times r}$ is an $n \times r$ matrix of real-numbers.
+		\[ T(\alpha x + \beta y) = \alpha T(x) + \beta T(y) = \alpha Ax +\beta Ay \] 
+\end{enumerate}
 \subsection{Bounded and Continuous Linear Operators}
 \subsection{Linear Functionals}
 \subsection{Linear Operators and Functionals on finite dimensional spaces}

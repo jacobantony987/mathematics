@@ -95,8 +95,10 @@
 			\sum_{y \in N^+(x)} f(x,y) = \sum_{y \in N^-(x)} f(y,x),\ \forall \text{vertex } x \in V(D)-\{s,t\}
 		\label{equ:conservation}
 		\end{equation}
-	\item[net flow out of $x$] $$\sum_{y \in N^+(x)} f(x,y) - \sum_{y \in N^-(x)} f(y,x)$$
-	\item[net flow into $x$] $$\sum_{y \in N^-(x)} f(y,x) - \sum_{y \in N^+(x)} f(x,y)$$
+	\item[net flow out of $x$]
+		\[ \sum_{y \in N^+(x)} f(x,y) - \sum_{y \in N^-(x)} f(y,x) \]
+	\item[net flow into $x$]
+		\[ \sum_{y \in N^-(x)} f(y,x) - \sum_{y \in N^+(x)} f(x,y) \]
 \end{description}
 
 \begin{definition}
@@ -229,16 +231,16 @@
 \end{synopsis}
 \begin{proof}
 	Let $f$ be a flow in a network $N$ with underlying digraph $D$ and $Q = s, a_1, u_1, a_2, u_2, \cdots, u_{n-1}, a_n, t$ be an $f$-augmenting semipath in $D$.
-	$$\text{define } \Delta_i = \begin{cases}
+	\[\text{define } \Delta_i = \begin{cases}
 		c(a_i) - f(a_i) \text{ for every forward arc } a_i \in Q, \\
 		f(a_i) \text{ for every reverse arc } a_i \in Q,
-	\end{cases}$$
+	\end{cases} \]
 	Define $\Delta = \min \{ \Delta_i \}$.
 	Also define $f^* : E(D) \to \mathbb{Z}$ such that 
-	$$f^*(a_i) = \begin{cases} f(a) + \Delta \text{, for every forward arc } a_i \in Q, \\
+	\[ f^*(a_i) = \begin{cases} f(a) + \Delta \text{, for every forward arc } a_i \in Q, \\
 	f(a) - \Delta \text{, for every reverse arc } a_i \in Q, \\
 	f(a_i) \text{, for every arc of } D \text{ which are not in }Q.
-	\end{cases}$$
+	\end{cases} \]
 		Since $Q$ is an $f$-augmenting semipath in $D$, $\Delta > 0$ and $f(N) + \Delta = f^*(N)$.\\
 
 	Clearly $f(N) < f^*(N)$, and it is enough to show that $f^*$ is a flow in $N$.
@@ -525,7 +527,8 @@ Suppose there is an $f$-augmenting semipath $Q$ in $D$, then there is either \be
 			For cycle $C_p$, any subgraph is disconnected if two non-adjacent vertices are deleted.
 			Therefore $c(C_p) \ge p-1$.
 			And $C_p$ remains connected even after deletion of any vertex, therefore $c(C_p) \le p-1$.
-		\item $$\delta(G) \ge \frac{p+(l-1)(n-2)}{l} \implies \kappa_l(G) \ge n$$
+		\item
+			\[ \delta(G) \ge \frac{p+(l-1)(n-2)}{l} \implies \kappa_l(G) \ge n \]
 	\end{enumerate}
 \end{remark}
 
@@ -779,7 +782,7 @@ Then the components of $H$ are either
 			\end{enumerate}
 		\item Compute $m_l \leftarrow \min\{l(v)+l(u)-w(vu) : v \in V_1 \cap V(T), u \in V_2-V(T) \}$.
 			Let
-			$$ l'(v) = \begin{cases} l(v) - m_l \text{ for } v \in V_1 \cap V(T) \\ l(v) + m_l \text{ for } v \in V_2 \cap V(T) \\ l(v) \text{ otherwise } \end{cases}$$
+			\[ l'(v) = \begin{cases} l(v) - m_l \text{ for } v \in V_1 \cap V(T) \\ l(v) + m_l \text{ for } v \in V_2 \cap V(T) \\ l(v) \text{ otherwise } \end{cases} \]
 		\item Let $l \leftarrow l'$, construct $G_l$ and return to Step 3.3.
 	\end{enumerate}
 	\label{alg:maxweightmatching}
