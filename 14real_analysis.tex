@@ -17,7 +17,256 @@
 %Module 3 - \cite{rudin} 7a
 %Module 4 - \cite{rudin} 7b
 
-%\chapter{Functions of Bounded Variation \& Recitifiable Curves}
+%Module 1
+%\chapter{Functions of Bounded Variation \& Rectifiable Curves}
+\section{Functions of Bounded Variation \& Rectifiable Curves}
+\subsection{Properties of Monotone Functions}
+\begin{theorem}
+	Let $f$ be an increasing function defined on closed interval $[a,b]$.
+	And let $x_0=a < x_1 < x_2 < \dots <x_{n-1} < x_n = b$.
+	Then,
+	\[ \sum_{k = 1}^{n-1} [f(x_k+)-f(x_k-)] \le f(b) - f(a) \]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $f$ be a monotonic function defined on closed interval $[a,b]$.
+	Then the set of discontinuities of $f$ is countable.
+\end{theorem}
+\begin{proof}
+	Without loss of generality, let $f$ be an increasing function on $[a,b]$.
+	Let $S_m$ be the set of all points on $[a,b]$ at which the jump exceeds $\frac{1}{m}$.\\
+
+	We know that, the sum of jumps of an increasing function is bounded above by $f(b)-f(a)$.	
+	Thus, cardinality of $S_m$ given by,
+	\[ |S_m| < m[f(b)-f(a)] \]
+	is finite for any positive integer $m$.\\
+
+	If $f$ is discontinuous at a pont $x \in [a,b]$, then there exists some integer $m'$ such that $0 < \frac{1}{m'} < x $ and $x \in S_{m'}$.
+	\[ \text{Number of discontinuities } = \left| \bigcup_{m=1}^\infty S_m \right| \le \sum_{m=1}^\infty |S_m| \text{ is countable.}\]
+	since countable sum of finite values is countable.
+	Therefore, the number of discontinuities of $f$ is countable.
+\end{proof}
+
+\subsection{Function of Bounded Variation}
+\begin{definition}[partition]
+	Let $[a,b]$ be a compact interval.
+	Let $x_0 = a$, $x_0 < x_1 < x_2 < \dots < x_n$ and $x_n = b$.
+	Then $P = \{ x_0,x_1,\dots,x_n \}$ is a \textbf{partition} of $[a,b]$.
+	And $(x_{k-1},x_k)$ is the \textbf{$k$th subinterval} of the partition.
+\end{definition}
+
+\begin{definition}[bounded variation]
+	Let $f$ be a function defined on closed interval $[a,b]$.
+	If there exists a positive real-number $M$ such that
+	\[ \sum_{k=1}^n |\Delta f_k| = \sum_{k=1}^n |f(x_k) - f(x_{k-1})| \le M \]
+	for any partition $P$ on $[a,b]$.
+	Then $f$ is a function of \textbf{bounded variation}, where $(x_{k-1},x_k)$ is the $k$th subinterval of the partition.\\
+
+\begin{commentary}
+	In other words, a function is of bounded variation on $[a,b]$ if the sum of variations is bounded for any (finite) partition of $[a,b]$.
+\end{commentary}
+\end{definition}
+
+\begin{theorem}
+	Let $f$ be a monotonic function on $[a,b]$.
+	Then $f$ is of bounded variation on $[a,b]$.
+\end{theorem}
+\begin{proof}
+	Without loss of generality, let $f$ be an increasing funciton.
+	Then for any partition $P = \{x_0,x_1,\dots,x_n\}$ of $[a,b]$, we have
+	\[ \sum_{k=1}^n \left[ f(x_k)-f(x_{k-1}) \right] \le f(b)-f(a) = M \]
+	Therefore, $f$ is of bounded variation on $[a,b]$.
+\end{proof}
+
+\begin{theorem}
+	Let $f$ be a continuous function on $[a,b]$ and its derivative $f'$ exists and $f'$ is bounded in $(a,b)$.
+	Then $f$ is of bounded variation.	
+\end{theorem}
+\begin{proof}
+	Let $f$ be a continuous function with derivative $f'$ on $(a,b)$.
+	Since $f$ is continuous and $f'$ exists, from intermediate value theorem we have
+	\[ \Delta f_k = f(x_k) - f(x_{k-1}) = f'(t_k) [x_k-x_{k-1}] \text{ where } t_k \in (x_{k-1},x_k) \]
+	Since $f'$ is bounded, $f'(t_k) \le M'$ for any $t_k \in (a,b)$.
+	Thus,
+	\[ \sum_{k=1}^n |\Delta f_k| = \sum_{k=1}^n |f'(t_k)| (x_k-x_{k-1}) \le M'\sum_{k=1}^n x_k-x_{k-1} = M'(b-a) = M \]
+	Therefore, $f$ is of bounded variation.
+\end{proof}
+
+\begin{theorem}
+	Let $f$ be a function on $[a,b]$.
+	If $f$ is of bounded variation, then $f$ is bounded.
+\end{theorem}
+\begin{proof}
+	Let $x \in (a,b)$.
+	Consider the partition $P = \{ a,x,b \}$.
+	Since $f$ is of bounded variation, there exists a positive real-number $M$ such that
+	\[ \sum_{k=1}^2 |\Delta f_k| = |f(x)-f(a)| + |f(b)-f(x)| \le M \]
+	Clearly, $|f(x)-f(a)| \le M$, since $|f(b)-f(x)| > 0$.
+	We have,
+	\[ |f(x)| = |f(x)-f(a)+f(a)| \le |f(x)-f(a)|+|f(a)| \le M+|f(a)| \]
+	Suppose $x = a$, then $|f(x)| = |f(a)|$.\\
+	Suppose $x = b$, then $|f(x)| = |f(b)| = M' + |f(a)|$ where $M' = |f(b)|-|f(a)|$.\\
+
+	Therefore, the function $f$ is bounded on $[a,b]$.
+\end{proof}
+
+\subsection{Total Variation}
+\begin{definition}[total variation]
+	Let $f$ be a function of bounded variation on $[a,b]$.
+	Let $\Sigma (P)$ be the sum of variations with respect to the partition $P$ of $[a,b]$.
+	Then the \textbf{total variation} of the function $f$ on $[a,b]$ is given by,
+	\[ V_f(a,b) = V_f = \sup \{ \Sigma (P) : P \in \mathscr{P}[a,b] \} \]
+\end{definition}
+\textbf{Note 1} : $V_f$ is finite, since $f$ is of boundned variation on $[a,b]$.\\
+
+\textbf{Note 2} : $V_f \ge 0$, since $|\Delta f_k| \ge 0$ for any subinterval of $[a,b]$.\\
+
+
+\textbf{Note 3} : $V_f = 0$ if only if $f$ is a constant function on $[a,b]$. (Why ?)
+
+\begin{theorem}
+	Let $f,g$ be functions of bounded variation on $[a,b]$.
+	Then their sum $f+g$, difference $f-g$, and product $fg$ are of bounded variation.
+	Also, 
+	\[ V_{f \pm g} \le V_f + V_g \quad \text{ and } \quad V_{fg} \le AV_f + BV_g \]
+	where $\displaystyle A = \sup \left\{ |g(x)| : x \in [a,b] \right\}$ and $\displaystyle B = \sup \left\{ |f(x)| : x \in [a,b] \right\}$.
+\end{theorem}
+\begin{proof}
+	Let $f,g$ be functions of bounded variation on $[a,b]$.
+	Then $f,g$ are bounded and $\sup |f(x)|$ and $\sup |g(x)|$ exists.\\
+
+	\textbf{Step 1 : $V_{f \pm g} \le V_f + V_g$}\\
+	We have,
+	\[ |(f+g)(x_k) - (f+g)(x_{k-1})| \le | f(x_k) - f(x_{k-1})| + |g(x_k) - g(x_{k-1})| \]
+	Then
+	\begin{align*}
+	V_{f+g}  & = \sup_{P \in \mathscr{P}} \sum_{k=1}^n |(f+g)(x_k) - (f+g)(x_{k-1})| \\
+	& \le \sup_{P \in \mathscr{P}} \sum_{k=1}^n |f(x_k) - f(x_{k-1})| + \sup_{P \in \mathscr{P}} \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \\
+	& = V_f + V_g 
+\end{align*}
+	Similarly, we have $V_{f-g} \le V_f + V_g$ since
+	\[ |(f-g)(x_k) - (f-g)(x_{k-1})| \le |f(x_k)-f(x_{k-1})| + |g(x_k)-g(x_{k-1})| \]
+
+	\textbf{Step 2 : $V_{fg} \le AV_f + BV_g$}\\
+	We have,
+	\begin{align*}
+		|fg(x_k)-fg(x_{k-1})| & = |f(x_k)g(x_k) - f(x_{k-1}g(x_{k-1})| \\
+		& = |f(x_k)g(x_k) - f(x_{k-1})g(x_k) + f(x_{k-1}g(x_k) - f(x_{k-1}g(x_{k-1}) | \\
+		& \le |g(x_k)|\ |f(x_k)-f(x_{k-1})| + |f(x_{k-1}|\ |g(x_k) - g(x_{k-1})| \\
+		& \le A |f(x_k)-f(x_{k-1})| + B |g(x_k)-g(x_{k-1})|
+	\end{align*}
+	where $A = \sup \{ |g(x)| : x \in [a,b] \}$ and $B = \sup \{ |f(x)| : x \in [a,b] \}$.\\
+
+	Therefore,
+	\begin{align*}
+		V_{fg} & \le A \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |f(x_k)-f(x_{k-1}| \right\} + B \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \right\} \\
+		& = AV_f + BV_g 
+	\end{align*}
+\end{proof}
+
+\begin{definition}[bounded away from zero]
+	A function $f$ is bounded away from zero on $[a,b]$ if there exists a real-number $m$ such that $0 < m \le f(x)$, $\forall x \in [a,b]$.
+\end{definition}
+
+\begin{commentary}
+	Let $f$ be a function of bounded variation.
+	Then $\frac{1}{f}$ is of bounded variation if and only if $f$ is bounded away from zero.(Why ?)
+\end{commentary}
+
+\begin{theorem}
+	Let $f$ be a function of bounded variation on $[a,b]$ and $f$ is bounded away from zero.
+	Then, $g = \frac{1}{f}$ is a function of bounded variation on $[a,b]$ and $V_g \le \frac{V_f}{m^2}$ whenever $0 < m \le |f(x)|$.
+\end{theorem}
+\begin{proof}
+	Suppose $f$ is of bounded variation on $[a,b]$ and $f$ is bounded away from zero.
+	That is, there exists positive real-number $m$ such that $0 < m \le |f(x)|$, $\forall x \in [a,b]$.
+	Then, $\frac{1}{|f(x)|} \le \frac{1}{m}$, $\forall x \in [a,b]$.\\
+
+	Define $g = \frac{1}{f}$.
+	Then, we have
+	\[ |\Delta g_k| = \left| \frac{1}{f(x_k)} - \frac{1}{f(x_{k-1})} \right| = \frac{|f(x_k)-f(x_{k-1})|}{|f(x_k)|\ |f(x_{k-1}|} \le \frac{|f(x_k)-f(x_{k-1})|}{m^2} \]
+	The total variation of $g$ on $[a,b]$ is given by,
+	\begin{align*}
+		V_g & = \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \right\} \\
+		& \le \frac{1}{m^2} \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |f(x_k)-f(x_{k-1})| \right\} \\
+		& \le \frac{V_f}{m^2} \text{ where } 0 < m \le |f(x)|,\ \forall x \in [a,b]
+	\end{align*}
+\end{proof}
+\begin{commentary}
+	In other words, if $h,f$ are functions of bounded variation of $[a,b]$.
+	And $f$ is bounded away from zero, then $g = \frac{1}{f}$ and $\frac{h}{f} = hg$ is a function of bounded variation and $V_{\frac{h}{f}} = V_{hg} \le AV_h + BV_f$.\\
+
+	Now, we have analyzed sum, difference, product and quotient of functions of bounded variation.
+	And we are not surprised about preservation of bounded variation under function composition. (Why ?)
+\end{commentary}
+\subsection{Additive Property of Total Variation}
+\begin{theorem}[additive property]
+	Let $f$ be a function of bounded variation on $[a,b]$.
+	Let $c \in (a,b)$.
+	Then $f$ is of bounded variation on both $[a,c]$ and $[c,b]$.
+	And, $V_f(a,b) = V_f(a,c)+V_f(c,b)$.
+\end{theorem}
+\begin{proof}
+	Let $f$ be a function of bounded variation on $[a,b]$.
+	Let $P_1,P_2$ be partitions of $[a,c]$ and $[c,b]$ respectively.
+	Then $P_0 = P_1 \cup P_2$ is a partition of $[a,b]$.
+	Thus,
+	\[ \sum (P_1) + \sum (P_2) = \sum (P_0) \le V_f(a,b) \]
+	Taking supremums on the left side, we get
+	\[ V_f(a,c) + V_f(c,b) \le V_f(a,b) \]	
+	Clearly, $V_f(a,c) \le V_f(a,b)$ and $V_f(c,b) \le V_f(a,b)$.
+	Therefore, function $f$ is of bounded variation on both $[a,c]$ and $[c,b]$.\\
+
+	Let $P$ be a paritition of $[a,b]$.
+	Then $P_0 = P\cup\{c\}$ is refinement of $P$.
+	Now, we have two partitions $P_1, P_2$ of $[a,c]$ and $[c,b]$ such that $P_0 = P_1 \cup P_2$.
+	Thus,
+	\[ \sum (P) \le \sum (P_0) = \sum (P_1) + \sum (P_2) \le V_f(a,c) + V_f(c,b) \]
+	Taking supremum on the left side, we get
+	\[ V_f(a,b) \le V_f(a,c) + V_f(c,b) \]
+	Therefore,
+	\[ V_f(a,b) = V_f(a,c) + V_f(c,b),\quad \forall c \in (a,b) \]
+\end{proof}
+
+\subsection{Total Variation on $[a,x]$ as a function of $x$}
+\begin{commentary}
+	By additive property, we have existence of $V_f(a,x)$ for every $x \in (a,b]$.
+	Assigning $V(x) = V_f(a,x)$, we have a well-defined function on $(a,b]$.
+\end{commentary}
+
+\begin{theorem}
+	Let $f$ be a function of bounded variation on $[a,b]$.
+	Define $V : [a,b] \to \mathbb{R}$ given by,
+	\[ V(x) = \begin{cases} V_f(a,x) & x \in (a,b] \\ 0 & x = a \end{cases} \]
+	Then,
+	\begin{enumerate}
+		\item $V$ is an increasing function on $[a,b]$.
+		\item $V-f$ is an increasing function of $[a,b]$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Suppose $x = a$.
+	Then $V(x) = 0$ and $V(y) = V_f(a,y) \ge 0 = V(x)$.\\
+	Suppose $x \ne a$.
+	Then, $a < x < y \le b$.
+	By additive property of total variation, we have $V(y) = V_f(a,y) = V_f(a,x)+V_f(x,y) = V(x) + V_f(x,y)$.
+	Since $V_f(x,y) \ge 0$, we have $V(x) \le V(y)$.
+	Therefore, $V$ is an increasing function on $[a,b]$.\\
+
+	Define $D : [a,b] \to \mathbb{R}$ given by $D(x)  = (V-f)(x) = V(x) - f(x)$.
+	Suppose $a \le x < y \le b$.
+	Then, $D(y)-D(x) = V(y)-f(y)-V(x)+f(x) = [V(y)-V(x)] - [f(y)-f(x)]$.
+	We have, $V(y) = V_f(a,y) = V_f(a,x)+V_f(x,y)$.
+	Thus, $V(y)-V(x) = V_f(x,y)$.
+	Also we have, $f$ is of bounded variation on $[x,y]$.
+	Consider the trivial partition $P = \{ x,y\}$ of $[x,y]$.
+	Then, we have $f(y) - f(x) = \sum (P) \le V_f(x,y)$.
+	Thus, $D(y)-D(x) = V_f(x,y) - [f(y)-f(x)] \ge 0$.
+	Therefore, $D = V-f$ is an increasing function on $[a,b]$.
+\end{proof}
+%\chapter{The Riemann Stieltjes Integral}
 %\chapter{The Riemann Stieltjes Integral}
 %\chapter{Sequence \& Series of Functions}
 %\chapter{Weierstrass Approximation \& Some Special Functions}
