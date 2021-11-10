@@ -20,6 +20,8 @@
 %Module 1
 %\chapter{Functions of Bounded Variation \& Rectifiable Curves}
 \section{Functions of Bounded Variation \& Rectifiable Curves}
+%\subsection{Introduction}
+\setcounter{subsection}{1}
 \subsection{Properties of Monotone Functions}
 \begin{theorem}
 	Let $f$ be an increasing function defined on closed interval $[a,b]$.
@@ -28,7 +30,16 @@
 	\[ \sum_{k = 1}^{n-1} [f(x_k+)-f(x_k-)] \le f(b) - f(a) \]
 \end{theorem}
 \begin{proof}
+	Let $f$ be an increasing function on $[a,b]$.
+	Let $\{x_0=a,\ x_1, \dots,\ x_n=b\}$ be a partition of $[a,b]$.
+	Let $y_k \in (x_{k-1},x_k),\ \forall k$.
+	Then, $f(y_k) \le f(x_k+)$ and $f(x_k-) \le f(y_{k-1})$.
+	Therefore,
+	\[ \sum_{k=1}^{n-1} [f(x_k+) - f(x_k-)] \le \sum_{k=1}^{n-1} [f(y_k) - f(y_{k-1})] \le f(b) - f(a) \]
 \end{proof}
+\begin{commentary}
+	In other words, for monotonic functions the sum of jumps is bounded.
+\end{commentary}
 
 \begin{theorem}
 	Let $f$ be a monotonic function defined on closed interval $[a,b]$.
@@ -266,6 +277,52 @@
 	Thus, $D(y)-D(x) = V_f(x,y) - [f(y)-f(x)] \ge 0$.
 	Therefore, $D = V-f$ is an increasing function on $[a,b]$.
 \end{proof}
+
+\subsection{Function of bounded variation expressed as the difference of increasing functions}
+\begin{theorem}
+	Let $f$ be a function on $[a,b]$.
+	Function $f$ is of bounded variation on $[a,b]$ if and only if $f$ can be expressed as difference of two increasing functions.
+\end{theorem}
+\begin{proof}
+	Let $f$ be a function of bounded variation, then $f = V-D$ where total variation $V$ and $D = V-f$ are both increasing.\\
+
+	Let $f$ be function on $[a,b]$.
+	Let $f = V-D$ where $V,D$ are increasing functions. 
+	Then $V,D$ are of bounded variation, since monotonic functions on $[a,b]$ are of bounded variation.
+	Also, we have $V-D$ is of bounded variation, since for any two functions of bounded variation their difference is also of bounded variation.
+\end{proof}
+
+\subsection{Continuous functions of bounded variation}
+\begin{theorem}
+	Let $f$ be a function of bounded variation on $[a,b]$. %Why it has to be of bounded variation ? For the existence of $V$ ?
+	Let $V$ be the total variation function of $f$ defined on $[a,b]$.
+	$f$ is continuous at a point if and only if $V$ is continuous at that point.
+\end{theorem}
+\begin{proof}
+	---yet to be update---
+\end{proof}
+\begin{theorem}
+	Let $f$ be a continuous function on $[a,b]$.
+	Function $f$ is of bounded variation on $[a,b]$ if and only if $f$ can be expressed as difference of two increasing continuous functions.
+\end{theorem}
+\begin{proof}
+	Let $f$ be a continuous function on $[a,b]$.
+	Then total variation $V$ is a continuous increasing function on $[a,b]$.
+	Clearly, $D = V-f$ is also a continuous, increasing function on $[a,b]$.
+	Therefore, $f = V - D$ where $V,D$ are continuous, increasing functions.\\
+
+	Let $V,D$ be continuous, increasing functions on $[a,b]$.
+	Then $f = V-D$ is also a continuous function on $[a,b]$.
+	We have, $V,D$ are increasing functions, therefore both $V,D$ are of bounded variation and their difference $f$ is also of bounded variation.
+\end{proof}
+
+\begin{commentary}
+	Suppose $f$ is of bounded variation on $[a,b]$.
+	Let $id : [a,b] \to [a,b]$ where $id(x) = x$.
+	Then $V+id$ is a strictly increasing function and $D = V+id-f$ is also strictly increasing.
+	Thus, any function of bounded variation on $[a,b]$ can be characterised as difference of two strictly increasing continuous functions on $[a,b]$.
+\end{commentary}
+\subsection{Curves and Paths}
 %\chapter{The Riemann Stieltjes Integral}
 %\chapter{The Riemann Stieltjes Integral}
 %\chapter{Sequence \& Series of Functions}
