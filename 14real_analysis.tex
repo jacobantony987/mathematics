@@ -299,7 +299,55 @@
 	$f$ is continuous at a point if and only if $V$ is continuous at that point.
 \end{theorem}
 \begin{proof}
-	---yet to be update---
+	Let $f$ be a function of bounded variation on $[a,b]$.
+	Let $V$ be the total variation of $f$.
+	Let $x,y \in [a,b]$, such that $x<y$.
+	We have $V$ is an increasing function on $[a,b]$.
+	And $f$ is difference of two increasing functions on $[a,b]$.
+	Thus, $f(x+),\ f(x-),\ V(x+),\ V(x-)$ exists for any $x \in (a,b)$.
+	It remains to prove that $V,f$ are continuous at $x \in (a,b)$.\\
+
+	\textbf{Part 1 : $V$ continuous $\implies$ $f$ continuous}\\
+	Suppose $x \ne a$, then $a<x<y\le b$.
+	Let $P$ be any partition on $[a,x]$.
+	Then there exists a partition $P'$ on $[a,y]$ such that $P \subset P'$.
+	Consider, $P' = P\cup\{y\}$.
+	Then, $V(y) > V(x)$ and $V(y)-V(x) \ge |f(y)-f(x)|$.
+	Thus,
+	\[ 0 \le |f(y)-f(x)| \le V(y)-V(x) \]
+	The inequality is true for any $y>x$.
+	Therefore,
+	\[ 0 \le |f(x+)-f(x)| \le V(x+)-V(x) \text{ as } y \to x+ \]
+	Similarly, let $a<z<x$.
+	Then,
+	\[ 0 \le |f(x)-f(x-)| \le V(x)-V(x-) \text{ as } z \to x- \]
+	Clearly, if $V$ is continuous at $x$ then $f$ is continuous $x$.\\
+
+	\textbf{Part 2 : $f$ continuous $\implies$ $V$ continuous}\\
+	Suppose $f$ is continuous at $c \in (a,b)$.
+	Let $\varepsilon > 0$.
+	We have,
+	\[ V_f(c,b) = \sup_{P \in \mathscr{P}} \sum (P) \]
+	Thus, there exists a partition $P_1 \in \mathscr{P}[c,b]$ such that $V_f(c,b) - \frac{\varepsilon}{2} < \sum (P_1)$.
+	Since $f$ is continuous at $c$, there exists $x_1 \in (c,b)$ such that $|f(x_1)-f(c)| < \frac{\varepsilon}{2}$.
+	Then,
+	\[ V_f(c,b) - \frac{\varepsilon}{2} < \frac{\varepsilon}{2} + V_f(x_1,b) \]
+	We have,
+	\begin{align*}
+		V(x_1)-V(c) & = V_f(a,x_1) - V_f(a,c) = V_f(c,x_1) \\
+		& = V_f(c,b) - V_f(x_1,b) < \varepsilon
+	\end{align*}
+	Clearly, $V(c+h) \to V(c)$ as $h \to 0$.
+	That is, $V(c+) = V(c),\ \forall c \in [a,b)$.
+	Similarly we have,
+	\[ V_f(a,c) = \sup_{P \in \mathscr{P}} \sum (P) \]
+	And there exists $P_2 \in \mathscr{P}[a,c]$ such that
+	\[ V_f(a,c) - \frac{\varepsilon}{2} < \sum (P_2) \]
+	And there exists $x_2 \in (a,c)$ such that $|f(c)-f(x_2)| < \frac{\varepsilon}{2}$, since $f$ is continuous at $c$.
+	Therefore,
+	\[ V(c)-V(x_2) = V_f(a,c) - V_f(a,x_2) = V(x_2,c) < \varepsilon \]
+	Thus, $V(c-) = V(c),\ \forall c \in (a,b]$.
+	Therefore, $V$ is continuous at $c$.
 \end{proof}
 \begin{theorem}
 	Let $f$ be a continuous function on $[a,b]$.
@@ -323,6 +371,127 @@
 	Thus, any function of bounded variation on $[a,b]$ can be characterised as difference of two strictly increasing continuous functions on $[a,b]$.
 \end{commentary}
 \subsection{Curves and Paths}
+\begin{definition}[path]
+	Let $f : [a,b] \to \mathbb{R}^n$ be a continuous, vector-valued function.
+	Then $f$ is a path in $\mathbb{R}^n$.
+	And $f$ is a motion if $[a,b]$ is a time interval.
+\end{definition}
+\subsection{Rectifiable paths and Arc length}
+\begin{definition}[rectifiable path]
+	Let $f : [a,b] \to \mathbb{R}^n$ be a path in $\mathbb{R}^n$.
+	Let $P = \{ t_0,t_1,\dots,t_m \}$ be a partition of $[a,b]$.
+	\[ \Lambda_f (P) = \sum_{k=1}^m \| f(t_k) - f(t_{k-1}) \| = \sum_{k=1}^m \| \Delta f_k \| \]
+	If $\Lambda_f (P)$ is bounded for any partition $P \in \mathscr{P}[a,b]$, then path $f$ is \textbf{rectifiable}.
+	If $\Lambda_f (P)$ is unbounded, then $f$ is \textbf{nonrectifiable}.\\
+\end{definition}
+\begin{definition}[arc length]
+	Let $f : [a,b] \to \mathbb{R}^n$ be a rectifiable path.
+	Then \textbf{arc length} of path $f$ is given by,
+	\[ \Lambda_f(a,b) = \sup_{P \in \mathscr{P}} \Lambda_f (P) \]
+\end{definition}
+
+\begin{theorem}
+	A path $f : [a,b] \to \mathbb{R}^n$ is rectifiable if and only if each component $f_k$ of $f$ is of bounded variation on $[a,b]$.
+	Let $V_k(a,b)$ be the total variation of $f_k$ on $[a,b]$.
+	Then,
+	\[ V_k(a,b) \le \Lambda_f(a,b) \le V_1(a,b) + V_2(a,b) + \dots + V_n(a,b) \]
+\end{theorem}
+\begin{proof}
+	Let $x_j \in \mathbb{R}^n$ for $j = 1,2,\dots,m$.
+	Then,
+	\[ |x_r| \le \sqrt{\sum_{j=1}^n |x_j|^2} \le \sum_{j=1}^n |x_j| \text{ since } \sum_{j=1}^n x_j^2 \le \left(\sum_{j=1}^n x_j\right)^2 \]
+	Let $f : [a,b] \to \mathbb{R}^n$ be a path in $\mathbb{R}^n$.
+	Then $f = (f_1,f_2,\dots,f_n)$ where $f_k$'s are components of the path $f$.
+	Let $P = \{ t_0,t_1,\dots,t_m \}$ be a partition of $[a,b]$.
+	Now $f_r(t_j)-f_r(t_{j-1}) \in \mathbb{R}^n$ for each subinterval of $[a,b]$ and each component of $f$.
+	Thus for each subinterval $(t_j,t_{j-1})$ we have,
+	\[ |f_r(t_j)-f_r(t_{j-1})| \le \| f(t_j)-f(t_{j-1}) \| \le \sum_{j=1}^n |f_k(t_j)-f_k(t_{j-1})| \] 
+	Adding inequalities for every subinterval of the partition, we get
+	\[ \sum_{k=1}^m |f_k(t_j)-f_k(t_{j-1})| \le \sum_{k=1}^m \| f(t_j)-f(t_{j-1}) \| \le \sum_{k=1}^m \sum_{j=1}^n |f_k(t_j)-f_k(t_{j-1})| \] 
+	Therefore,
+	\[ V_k(a,b) \le \Lambda_f(a,b) \le \sum_{k=1}^n V_k(a,b) \]
+	Suppose $f$ is a rectifiable path.
+	Then for each $k$, $f_k$ is of bounded variation since $V_k(a,b) \le \Lambda_f(a,b)$ is bounded.
+	Suppose $f_k$'s are of bounded variation.
+	Then $f$ is a rectifiable path, since $\Lambda_f(a,b) \le V_1(a,b)+V_2(a,b)+\dots+V_n(a,b)$ is bounded.
+\end{proof}
+\subsection{Additive and Continuity Properties of Arc length}
+\begin{theorem}[additive]
+	Let $f : [a,b] \to \mathbb{R}^n$ be a rectifiable path.	
+	Let $c \in (a,b)$.
+	Then,
+	\[ \Lambda_f(a,b) = \Lambda_f(a,c) + \Lambda_f(c,b) \]
+\end{theorem}
+\begin{proof}
+	Let $P$ be a partition of $[a,b]$.
+	Then $P' = P \cup \{c\}$ is a refinement of $P$ such that $P' = P_1 \cup P_2$ where $P_1,P_2$ are partition of $[a,c]$ and $[c,b]$ respectively.
+	We have,
+	\[ \Lambda_f(P) \le \Lambda_f(P') = \Lambda_f(P_1) + \Lambda_f(P_2) \]
+	This inequality if true for any partition of $[a,b]$.
+	Thus,
+	\[ \Lambda_f(a,b) \le \Lambda_f(a,c) + \Lambda_f(c,b) \]
+	Let $P_1,P_2$ be partition of $[a,c]$ and $[c,b]$ respectively.
+	Then,
+	\[ \Lambda_f(P_1) + \Lambda_f(P_2) \le \Lambda_f(P) \le \Lambda_f(a,b) \]
+	This inequality if true for any paritions on $[a,c]$ and $[c,b]$.
+	Thus,
+	\[ \Lambda_f(a,c) + \Lambda_f(c,b) \le \Lambda_f(a,b) \]
+\end{proof}
+\begin{theorem}[continuity]
+	Let $f : [a,b] \to \mathbb{R}^n$ be  rectifiable path.
+	Let function $s : [a,b] \to \mathbb{R}$ defined by
+	\[ s(x) = \begin{cases} 0 & x = a \\ \Lambda_f(a,x) & x \in (a,b] \end{cases} \]
+	Then,
+	\begin{enumerate}
+		\item function $s$ is continuous and increasing on $[a,b]$.
+		\item if there is no subinterval of $[a,b]$ in which $f$ is constant, then $s$ is strictly increasing.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Let $a \le x < y \le b$.
+	Then, $s(y)-s(x) = \Lambda_f(x,y) = \Lambda(a,y) - \Lambda(a,x) \ge 0$.
+	Therefore, $s$ in increasing.\\
+	
+	Suppose $f$ is not constant in any subinterval $[x,y]$ of $[a,b]$.
+	Suppose $s$ is not strictly increasing.
+	Then, $x < y$ such that $s(y)-s(x) = 0$.
+	\[ \Lambda_f(a,y) - \Lambda(a,x) = \Lambda_f(x,y) = 0 \]
+	Thus, $V_k(x,y) = 0,\ \forall k$ which is a contradition since $f$ is not constant in $[x,y]$.
+	Therefore, $s$ is strictly increasing.
+\end{proof}
+\subsection{Equivalence of path, Change of parameter}
+\begin{definition}[change of parameter]
+	Let $f:[a,b] \to \mathbb{R}^n$ be a path.
+	Let $u : [c,d] \to [a,b]$ be a continuous, real-valued function.
+	Let $g : [c,d] \to \mathbb{R}^n$ be another path.
+	Then $f,g$ are \textbf{equivalent} if $g(t) = f(u(t)),\ \forall t \in [c,d]$.
+	Also $f,g$ are different parametric representation of a common graph.\\
+
+	Function $u$ defines a change of parameter.
+	If $u$ is strictly increasing, then $f,g$ are in the same direction.
+	And $u$ is an orientation-preserving change of parameter.
+	If $u$ is strictly decreasing, then $f,g$ are in opposite directions.
+	And $u$ is an orientation-reversing change of parameter.
+\end{definition}
+
+\begin{theorem}[change of parameter]
+	Let $f:[a,b] \to \mathbb{R}^n$ and $g : [a,b] \to \mathbb{R}^n$ be two paths.
+	Let $f,g$ be both injective functions.
+	Then $f$ and $g$ are equivalent if they have the same graph.
+\end{theorem}
+\begin{proof}
+	Let $f : [a,b] \to \mathbb{R}^n$ and $g : [c,d] \to \mathbb{R}^n$ be continuous, injective, vector-valued functions.
+	Suppose $f,g$ are equivalent paths, then $f,g$ have the same graph.\\
+
+	Suppose $f,g$ have the same graph.
+	Since $f$ is injective and continuous on its domain $[a,b]$, function $f^{-1}$ exists and is continuous on its graph.
+	\[ \text{Define } u:[c,d] \to [a,b],\ u(t) = f^{-1}(g(t)) \]
+	Then $u$ is continuous and $g(t) = f(u(t))$.
+	Suppose $u$ is not a strictly monotonic function. 
+	Since $u$ is continuous, there exists $t_1,t_2 \in [c,d]$ such that $u(t_1) = u(t_2)$.
+	Then $f(u(t_1)) = f(u(t_2)) \implies g(t_1) = g(t_2)$ which is a contradiction since $g$ is injective on $[c,d]$.
+\end{proof}
+
 %\chapter{The Riemann Stieltjes Integral}
 %\chapter{The Riemann Stieltjes Integral}
 %\chapter{Sequence \& Series of Functions}
