@@ -17,6 +17,16 @@
 %Module 3 - \cite{rudin} 7a
 %Module 4 - \cite{rudin} 7b
 
+%The commands to Riemann upper/lower integrals are defined by Leo Liu in tex-stack-exchange.
+%Leo Liu - https://tex.stackexchange.com/a/44245 
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
 %Module 1
 %\chapter{Functions of Bounded Variation \& Rectifiable Curves}
 \section{Functions of Bounded Variation \& Rectifiable Curves}
@@ -454,7 +464,8 @@
 	
 	Suppose $f$ is not constant in any subinterval $[x,y]$ of $[a,b]$.
 	Suppose $s$ is not strictly increasing.
-	Then, $x < y$ such that $s(y)-s(x) = 0$.
+	Then, there exists $x,y \in (a,b)$ such that $x < y$ and $s(y)-s(x) = 0$.
+	Thus,
 	\[ \Lambda_f(a,y) - \Lambda(a,x) = \Lambda_f(x,y) = 0 \]
 	Thus, $V_k(x,y) = 0,\ \forall k$ which is a contradition since $f$ is not constant in $[x,y]$.
 	Therefore, $s$ is strictly increasing.
@@ -462,16 +473,16 @@
 \subsection{Equivalence of path, Change of parameter}
 \begin{definition}[change of parameter]
 	Let $f:[a,b] \to \mathbb{R}^n$ be a path.
-	Let $u : [c,d] \to [a,b]$ be a continuous, real-valued function.
 	Let $g : [c,d] \to \mathbb{R}^n$ be another path.
-	Then $f,g$ are \textbf{equivalent} if $g(t) = f(u(t)),\ \forall t \in [c,d]$.
-	Also $f,g$ are different parametric representation of a common graph.\\
+	Then $f,g$ are \textbf{equivalent} if there exists a continuous, real-valued function, $u : [c,d] \to [a,b]$ such that $g = f \circ u$.
+	That is, $g(t) = f(u(t)),\ \forall t \in [c,d]$.
+	In other words, $f,g$ are different parametric representations of a common graph.\\
 
 	Function $u$ defines a change of parameter.
 	If $u$ is strictly increasing, then $f,g$ are in the same direction.
-	And $u$ is an orientation-preserving change of parameter.
+	And $u$ is an orientation preserving change of parameter.
 	If $u$ is strictly decreasing, then $f,g$ are in opposite directions.
-	And $u$ is an orientation-reversing change of parameter.
+	And $u$ is an orientation reversing change of parameter.
 \end{definition}
 
 \begin{theorem}[change of parameter]
@@ -492,7 +503,162 @@
 	Then $f(u(t_1)) = f(u(t_2)) \implies g(t_1) = g(t_2)$ which is a contradiction since $g$ is injective on $[c,d]$.
 \end{proof}
 
-%\chapter{The Riemann Stieltjes Integral}
-%\chapter{The Riemann Stieltjes Integral}
+%Module 2
+%\chapter{The Riemann Stieltjes Integral} %Rudin chapter 6$
+\pagebreak
+\section{The Riemann-Stieltjes Integral}
+\begin{definition}[unti step]
+	The unit step function $I : \mathbb{R} \to \mathbb{R}$ is defined by
+	\[ I(x) = \begin{cases} 0 & x \le 0 \\ 1 & x > 0 \end{cases} \] 
+\end{definition}
+\begin{definition}[Riemann Integral]
+	Let $f$ be a bounded real function defined on $[a,b]$.
+	Let $P = \{x_0,x_1,\dots,x_n\}$ be a partition of $[a,b]$.
+	Let $M_k = \sup \{ f(x) : x \in [x_{k-1},x_k] \}$ and $m_k = \inf \{ f(x) : x \in [x_{k-1},x_k]$.\\
+
+	Then Riemann upper sum of function $f$ with respect to parition $P$,
+	\[ U(P,f) = \sum_P M_k \Delta x_k = \sum_{k=1}^n M_k (x_k-x_{k-1}) \]
+	And Riemann lower sum of $f$ with respect to $P$,
+	\[ L(P,f) = \sum_{k=1}^n m_k (x_k-x_{k-1}) \]
+	Now, Riemann upper integral of $f$ over $[a,b]$,
+	\[ \upint_a^b f\ dx = inf \{ U(P,f) : P \in \mathscr{P}[a,b] \} \]
+	And, Riemann lower integral of $f$ over $[a,b]$,
+	\[ \lowint_a^b f\ dx = sup \{ L(P,f) : P \in \mathscr{P}[a,b] \} \]
+	A function $f$ is Riemann integrable over $[a,b]$ if Riemann lower and upper integrals of $f$ over $[a,b]$ are the same.
+	Then Riemann integral of $f$ over $[a,b]$,
+	\[ \int_a^b f\ dx = \upint_a^b f\ dx = \lowint_a^b f\ dx \]
+\end{definition}
+\begin{definition}[Riemann-Stieltjes Integral]
+	Let $f$ be a bounded function on $[a,b]$.
+	Let $\alpha$ be an increasing function on $[a,b]$.
+	Let $P = \{ x_0,x_1,\dots,x_n\}$ be a partition of $[a,b]$.
+	Then, the Riemann-Stieltjes upper sum of $f$ with respect to partition $P$ and increasing function $\alpha$,
+	\[ U(P,f,\alpha) = \sum_{k=1}^n M_k \Delta \alpha_k \]
+	where $M_k = \sup \{ f(x) : x \in [x_{k-1},x_k] \}$ and $\Delta \alpha_k = \alpha(x_k) - \alpha(x_{k-1})$.
+	Similarly, Riemann-Stieltjes lower sum,
+	\[ L(P,f,\alpha) = \sum_{k=1}^n m_k \Delta \alpha_k \]
+	where $m_k = \inf \{ f(x) : x \in [x_{k-1},x_k] \}$.
+	And function $f$ is Riemann-Stieltjes integrable if Riemann Stieltjes upper and lower integrals are the same.
+	\[ \int_a^b f\ d\alpha = \upint_a^b f\ d\alpha = \lowint_a^b f\ d\alpha \]
+	where $\displaystyle \upint_a^b f\ d\alpha = \upint_a^b f\ d\alpha(x) = \inf \left\{ U(P,f,\alpha) : P \in \mathscr{P}[a,b] \right\}$ and\\
+	$\displaystyle \lowint_a^b f\ d\alpha = \sup \left\{ L(P,f,\alpha) : P \in \mathscr{P}[a,b] \right\}$.\\
+
+	We write $f \in \mathscr{R}(\alpha)$ on $[a,b]$, which means that a bounded, real function $f$ is Riemann-Stieltjes integrable on $[a,b]$ with respect to the increasing function $\alpha$.
+\end{definition}
+
+\textbf{Note : } function $\alpha : [a,b] \to \mathbb{R}$ is monotonic (increasing), but not necessarily continuous.\\
+
+\textbf{Remark : } With $\alpha = id$ identity function, Riemann-Stieltjes integral is Riemann integral itself.
+	That is, Riemann integral is a special case of Riemann-Stieltjes integral.
+
+\begin{theorem}
+	Let $P^\ast$ be a refinement of a parition $P$ of $[a,b]$.
+	Then, $L(P,f,\alpha) \le L(P^\ast,f,\alpha)$ and $U(P^\ast,f,\alpha) \le U(P,f,\alpha)$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $f$ be a bounded, real function on $[a,b]$ and $\alpha$ increasing function on $[a,b]$.
+	Then,
+	\[ \lowint_a^b f\ d\alpha \le \upint_a^b f\ d\alpha \]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[criteria for integrability]
+	Let $f$ be  a bounded, real function on $[a,b]$.
+	Let $\alpha$ be an increasing function on $[a,b]$.
+	Then, $f$ is Riemann-Stieltjes integrable on $[a,b]$ with repesct to $\alpha$ if and only if for every $\varepsilon > 0$ there exists a partition $P$ of $[a,b]$ such that $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$.
+\end{theorem}
+\begin{commentary}
+	In other words, $f \in \mathscr{R}(\alpha)$ on $[a,b]$ if and only if 
+	\[ \forall \varepsilon > 0, \exists P \in \mathscr{P}[a,b] \text{ such that }U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon \]
+\end{commentary}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Suppose $\varepsilon > 0$ and $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$ for some partition $P$ of $[a,b]$.
+	\begin{enumerate}
+		\item The inequaility is true for any refinement of $P$.
+		\item Let $s_i,t_i \in [x_{i-1},x_i]$ for each subinterval of the partition $P$.
+			\[ \sum_{i=1}^n \left| f_(s_i)-f(t_i) \right|\ \Delta\alpha_i < \varepsilon \]
+		\item If $f \in \mathscr{R}(\alpha)$ and $t_i \in [x_{i-1},x_i]$ for each subinterval of the partition $P$, then
+			\[ \left| \sum_{i=1}^n f(t_i) \Delta \alpha_i - \int_a^b f \ d\alpha \right| < \varepsilon \]
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+\begin{theorem}
+	If $f$ is continuous on $[a,b]$, then $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	If $f$ is monotonic on $[a,b]$ and $\alpha$ is continuous on $[a,b]$, then $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	If $f$ bounded on $[a,b]$, $f$ has only finitely many points of discontinuities on $[a,b]$ and $\alpha$ is continuous at every point at which $f$ is discontinuous.
+	Then $f \in \mathscr{R}(\alpha)$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Suppose $f \in \mathscr{R}(\alpha)$, $m \le f \le M$ on $[a,b]$, $\phi$ is continuous on $[m,M]$ and $h(x) = \phi(f(x))$.
+	Then $h \in \mathscr{R}(\alpha)$ on $[a,b]$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Properties of the Riemann-Stieltjes Integral}
+\begin{theorem}
+	Let $f,f_1,f_2$ be bounded real functions on $[a,b]$.
+	Let $\alpha,\alpha_1,\alpha_2$ be increasing functions on $[a,b]$.
+	\begin{enumerate}
+		\item If $f_1,f_2,f \in \mathscr{R}(\alpha)$ on $[a,b]$, then $f_1+f_2 \in \mathscr{R}(\alpha)$ on $[a,b]$.
+			And,
+			\[ \int_a^b \left( f_1 + f_2 \right)\ d\alpha = \int_a^b f_1\ d\alpha + \int_a^b f_2\ d\alpha \]
+			If $c \in \mathbb{R}$, then $cf \in \mathscr{R}(\alpha)$ on $[a,b]$.
+			And,
+			\[ \int_a^b cf\ d\alpha = c\int_a^b f\ d\alpha \]
+		\item If $f_1(x) \le f_2(x)$ on $[a,b]$, then
+			\[ \int_a^b f_1\ d\alpha \le \int_a^b f_2\ d\alpha \]
+		\item If $c \in (a,b)$, then $f \in \mathscr{R}(\alpha)$ on $[a,c]$ and $[c,b]$, then
+			\[ \int_a^c f\ d\alpha + \int_c^b f\ d\alpha = \int_a^b f\ d\alpha \]
+		\item If $|f(x)| \le M$ on $[a,b]$, then 
+			\[ \left| \int_a^b f\ d\alpha \right| \le M[\alpha(b)-\alpha(a)] \]
+		\item If $f \in \mathscr{R}(\alpha_1)$ and $f \in \mathscr{R}(\alpha_2)$ on $[a,b]$, then $f \in \mathscr{R}(\alpha_1+\alpha_2)$.
+			And,
+			\[ \int_a^b f\ d(\alpha_1+\alpha_2) = \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+			If $f \in \mathscr{R}(\alpha)$ on $[a,b]$, and $c \in \mathbb{R}$, then $f \in \mathscr{R}(c\alpha)$ on $[a,b]$.
+			And,
+			\[ \int_a^b f\ d(c\alpha) = c\int_a^b f\ d\alpha \]
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	If $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, then
+	\begin{enumerate}
+		\item $fg \in \mathscr{R}(\alpha)$ on $[a,b]$
+		\item $|f| \in \mathscr{R}(\alpha)$ on $[a,b]$.
+			And,
+			\[ \left| \int_a^b f\ d\alpha \right| \le \int_a^b |f|\ d\alpha \]
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
 %\chapter{Sequence \& Series of Functions}
 %\chapter{Weierstrass Approximation \& Some Special Functions}
