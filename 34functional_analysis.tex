@@ -991,12 +991,46 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Compact subsets of metric spaces are closed and bounded.
 \end{lemma}
 \begin{proof}
+	Let $C$ be a compact subset of metric space $X$.
+	Let $\tilde{X}$ be the completion of $X$.
+	Let $\sequence{x_n}$ be a Cauchy sequence in $C$.
+	Since, $C$ is compact $\sequence{x_n}$ has a convergent subsequence which converges to $x \in C$.
+	Clearly, $\sequence{x_n}$ is a Cauchy sequence in $\tilde{X}$.
+	Then, $\sequence{x_n} \to x \in \tilde{X}$.
+	Thus, every Cauchy seqeuence in $C$ converges.
+	Therefore, $C$ is closed, since every complete space is closed.\\
+
+	Let $y \in C$.
+	Suppose $C$ is unbounded.
+	Then, there exists a sequence $\sequence{y_n}$ in $C$ such that $B(y_n,y) > n$.
+	Clearly, $\sequence{y_n}$ doesn't have any convergent subsequence which is a contradiction.
+	Therefore, $C$ is bounded.
 \end{proof}
 
 \begin{theorem}
 	In a finite dimensional metric space, a subset $M$ is compact if and only if $M$ is closed and bounded.
 \end{theorem}
 \begin{proof}
+	Let $X$ be a metric space with $\dim X = n$.
+	Let $C \subset X$.
+	Suppose $C$ is compact.
+	Then, $C$ is closed and bounded.\\
+
+	Suppose $C$ is closed and bounded.
+	Let $\sequence{y_n}$ be a sequence in $C$.
+	Let $\{x_1,x_2,\dots,x_n\}$ be a basis for $X$.
+	Then $y_j = \sum_{k=1}^n \xi_{j,k} x_k$.
+	By lemma of linear combinations, we have
+	\[ \|y_j\| = \| \sum_{k=1}^n \xi_{j,k} x_k \| \ge c \sum_{k=1}^n |\xi_{j,k}| \]
+	Clearly, for each $j$, sequences $\sequence{\xi_{j,k}}$'s are bounded.
+	By Bolzano-Weierstrass theorem, there exists a convergent subsequence converging to $\xi_j$.
+	Define, $y = \sum_{k=1}^n \xi_k x_k$.
+	Then $\sequence{y_n}$ has a subsequence which converges to $y$ (obtained by successive construction of subsequences.)
+	Since $C$ is closed, $y \in C$.
+	Let $\tilde{X}$ be the completion of $X$.
+	Then $\sequence{y_n}$ has a subsequence converging to $y \in \tilde{X}$.
+	Thus, every sequence in $C$ has a convergent subseqeunce.
+	Therefore, $C$ is compact.
 \end{proof}
 
 \begin{lemma}[Riesz]
@@ -1006,6 +1040,21 @@ But there exists separable, Banach spaces without a Schauder basis.
 	\[ \| z \| = 1 \text{ and } \| z-y \| \ge \theta,\ \forall y \in Y \]
 \end{lemma}
 \begin{proof}
+	Let $X$ be a normed space.
+	Let $Y$ be a closed subspace of $X$.
+	And $Z$ is a subspace of $X$ properly containing $Y$.
+	Thus, $Z-Y$ is non-empty.
+	Let $v \in Z-y$.
+	Define $a = \inf \{ \|v-y\| : y \in Y\}$.
+	\dag\footnote{Simply, $a = \|v-Y\|$ where $v \in Z-Y$}
+	Let $\theta \in (0,1)$.
+	Then, $a < \frac{a}{\theta}$.
+	And there exists $y_0 \in Y$ such that $a < \|v-y_0\| < \frac{a}{\theta}$.
+	Define $z = \frac{v-y_0}{\|v-y_0\|}$.
+	Then $\|z\|=1$.
+	And $\|z-y\| = c\|v-y_0-c^{-1}y\|$ where $c^{-1} = \|v-y_0\|$.
+	Clearly, $y_0+c^{-1}y \in Y$ since $Y$ is subspace and $y,y_0 \in Y$.
+	Thus, $\|z-y\| = c\|v-(y_0+c^{-1}y)\| \ge ca \ge \theta$ since $c^{-1} = \|v-y_0\| \le \frac{a}{\theta}$.
 \end{proof}
 
 \begin{theorem}[compact set characterisation of finiteness]
