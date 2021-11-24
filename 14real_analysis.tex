@@ -418,12 +418,24 @@
 	\[ |f_r(t_j)-f_r(t_{j-1})| \le \| f(t_j)-f(t_{j-1}) \| \le \sum_{j=1}^n |f_k(t_j)-f_k(t_{j-1})| \] 
 	Adding inequalities for every subinterval of the partition, we get
 	\[ \sum_{k=1}^m |f_k(t_j)-f_k(t_{j-1})| \le \sum_{k=1}^m \| f(t_j)-f(t_{j-1}) \| \le \sum_{k=1}^m \sum_{j=1}^n |f_k(t_j)-f_k(t_{j-1})| \] 
-	Therefore,
-	\[ V_k(a,b) \le \Lambda_f(a,b) \le \sum_{k=1}^n V_k(a,b) \]
+	Rearranging summation, we get
+	\[ \sum (P) \le \Lambda_f (P) \le \sum_{j=1}^n \left( \sum (P)_{f_j} \right) \] 
 	Suppose $f$ is a rectifiable path.
-	Then for each $k$, $f_k$ is of bounded variation since $V_k(a,b) \le \Lambda_f(a,b)$ is bounded.
+	Then $f$ has finite arc length $\Lambda_f (a,b)$.
+	Let $f_k$ be a component function of $f$.
+	Let $P$ be a partition of $[a,b]$.
+	Then,
+	\[ \sum (P) \le \Lambda_f(P) \le \Lambda_f (a,b) \]
+	Thus, $\sum (P)$ is bounded for any partition $P$.
+	Therefore, total variation $V_k(a,b)$ exists for each component function $f_k$.
+	And $V_k(a,b) \le \Lambda_f(a,b)$.\\
+
 	Suppose $f_k$'s are of bounded variation.
-	Then $f$ is a rectifiable path, since $\Lambda_f(a,b) \le V_1(a,b)+V_2(a,b)+\dots+V_n(a,b)$ is bounded.
+	Then \[ \Lambda_f(P) \le \sum_{j=1}^n \sum (P) \le \sum_{j=1}^n V_j(a,b) \] is bounded for any partition $P$.
+	Thus, $f$ is rectifiable.
+	And, arc length $\displaystyle \Lambda_f(a,b) \le \sum_{k=1}^n V_k (a,b)$.
+	Combining the inequalities, we get
+	\[ V_k(a,b) \le \Lambda_f(a,b) \le \sum_{j=1}^n V_j (a,b) \]
 \end{proof}
 \subsection{Additive and Continuity Properties of Arc length}
 \begin{theorem}[additive]
