@@ -568,6 +568,26 @@
 	Then, $L(P,f,\alpha) \le L(P^\ast,f,\alpha)$ and $U(P^\ast,f,\alpha) \le U(P,f,\alpha)$.
 \end{theorem}
 \begin{proof}
+	Let $P^\ast = P \cup \{ x \}$ where $x$ belongs to the $i$th subinterval $(x_{j-1},x_j)$.
+	Define $w_1 = \min \{ f(x) : x \in (x_{j-1},x) \}$ and $w_2 = \min \{ f(x) : x \in (x,x_j) \}$.
+	Clearly, $w_1,w_2 \ge \min \{ f(x) : x \in (x_{j-1},x_j) \} = m_i$.
+	\begin{align*}
+		L(P,f,\alpha) - L(P^\ast,f,\alpha) & = m_i \Delta \alpha_j - w_1 (\alpha(x)-\alpha(x_{j-1})) - w_2 (\alpha(x_j) - \alpha(x)) \\
+		& = (m_i - w_1)(\alpha(x)-\alpha(x_{j-1})) + (m_i - w_2)(\alpha(x_j)-\alpha(x))\\
+		& \ge 0
+	\end{align*}
+	By mathematical induction the inequality is true for any refinement $P^\ast$ of $P$.
+	Therefore, $L(P,f,\alpha) \ge L(P^\ast,f,\alpha)$.\\
+
+	Similarly, define $W_1 = \max \{f(x) : x \in (x_{j-1},x) \}$ and $W_2 = \max \{ f(x) : x \in (x,x_j) \}$
+	where $W_1,W_2 \le \max \{ f(x) : x \in (x_{j-1},x_j) \} = M_i$.
+	\begin{align*}
+		U(P,f,\alpha) - U(P^\ast,f,\alpha) & = M_i \Delta \alpha_j - W_1 (\alpha(x)-\alpha(x_{j-1})) - W_2 (\alpha(x_j) - \alpha(x)) \\
+		& = (M_i - W_1)(\alpha(x)-\alpha(x_{j-1})) + (M_i - W_2)(\alpha(x_j)-\alpha(x))\\
+		& \le 0
+	\end{align*}
+	Again, the result is true for any refinement $P$ and we have
+	\[ U(P,f,\alpha) \le U(P^\ast,f,\alpha) \]
 \end{proof}
 
 \begin{theorem}
@@ -576,9 +596,20 @@
 	\[ \lowint_a^b f\ d\alpha \le \upint_a^b f\ d\alpha \]
 \end{theorem}
 \begin{proof}
+	Let $P_1,P_2$ be any two partition of $[a,b]$.
+	Let $P^\ast = P_1 \cup P_2$ be a refinement of both partitions.
+	Then, we have $L(P^\ast,f,\alpha) \le U(P^\ast,f,\alpha)$.
+	And,
+	\[ \lowint_a^b f\ d\alpha \le L(P_1,f,\alpha) \text{ and } U(P_2,f,\alpha) \le \upint_a^b f\ d\alpha \]
+	Therefore, \[ L(P_1,f,\alpha) \le L(P^\ast,f,\alpha) \le U(P^\ast,f,\alpha) \le U(P_2,f,\alpha) \]
+	Clearly, the inequality holds independent of the choice of the partition.\\
+	Taking supremum on right and infimum on left, we get
+	\[ \sup_{P \in \mathscr{P}} L(P,f,\alpha) \le \inf_{ P \in \mathscr{P}} U(P,f,\alpha) \]
+	Therefore,
+	\[ \lowint_a^b f\ d\alpha \le \upint_a^b f\ d\alpha \]
 \end{proof}
 
-\begin{theorem}[criteria for integrability]
+\begin{theorem}[criterion for integrability]
 	Let $f$ be  a bounded, real function on $[a,b]$.
 	Let $\alpha$ be an increasing function on $[a,b]$.
 	Then, $f$ is Riemann-Stieltjes integrable on $[a,b]$ with repesct to $\alpha$ if and only if for every $\varepsilon > 0$ there exists a partition $P$ of $[a,b]$ such that $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$.
@@ -588,6 +619,27 @@
 	\[ \forall \varepsilon > 0, \exists P \in \mathscr{P}[a,b] \text{ such that }U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon \]
 \end{commentary}
 \begin{proof}
+	Let $\varepsilon > 0$.
+	Suppose there exists a partition $P$ of $[a,b]$ such that $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$.
+	We have,
+	\[ L(P,f,\alpha) \le \lowint_a^b f\ d\alpha \le \upint_a^b f\ d\alpha \le U(P,f,\alpha) \]
+	\[ \upint_a^b f\ d\alpha - \lowint_a^b f\ d\alpha \le U(P,f,\alpha)-L(P,f,\alpha) < \varepsilon \]
+	Clearly, $\lowint_a^b f\ d\alpha = \upint_a^b f\ d\alpha$.
+	Therefore, $f \in \mathscr{R}(\alpha)$.\\
+
+	Suppose $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Then by the definition of infimum there exists a partition $P_1$ of $[a,b]$ such that 
+	\[ U(P_1,f,\alpha) - \upint_a^b f\ d\alpha < \frac{\varepsilon}{2} \]
+	Similarly, there exists a partition $P_2$ of $[a,b]$ such that
+	\[ \lowint_a^b f\ d\alpha - L(P_2,f,\alpha) < \frac{\varepsilon}{2} \]
+	Consider $P^\ast = P_1 \cup P_2$.
+	Clearly, $P^\ast$ is a refinement for both $P_1$ and $P_2$.
+	Thus, \[ U(P^\ast,f,\alpha) - \upint_a^b f\ d\alpha < \frac{\varepsilon}{2} \]
+	And,
+	\[ \lowint_a^b f\ d\alpha - L(P^\ast,f,\alpha) < \frac{\varepsilon}{2} \]
+	Thus, \[ U(P^\ast,f,\alpha) - \upint_a^b f\ d\alpha + \lowint_a^b f\ d\alpha - L(P^\ast,f,\alpha) < \varepsilon \]
+	Given, $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Therefore, $U(P^\ast,f,\alpha) - L(P^\ast,f,\alpha) < \varepsilon$.
 \end{proof}
 
 \begin{theorem}
@@ -601,11 +653,57 @@
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
+\begin{enumerate}
+	\item Let $\varepsilon > 0$.
+		Suppose $U(P,f,\alpha)-L(P,f,\alpha) < \varepsilon$.
+		Let $P^\ast$ be a refinement of $P$.
+		We have $U(P,f,\alpha) \ge U(P^\ast,f,\alpha)$ and $L(P,f,\alpha) \le L(P^\ast,f,\alpha)$.
+		Thus,
+		\[ U(P^\ast,f,\alpha)-L(P^\ast,f,\alpha) \le U(P,f,\alpha)-L(P,f,\alpha) < \varepsilon \]
+	\item Let $s_i,t_i \in (x_{i-1},x_i)$.
+		Clearly, for each subinterval $(x_{i-1},x_i)$, we have $m_i \le f(s_i) \le M_i$ and $m_i \le f(t_i) \le M_i$.
+		Thus,
+		\[ |f(t_i) - f(s_i)| \le  M_i - m_i \]
+		\[ \sum_{i=1}^n |f(t_i) - f(s_i)| \Delta \alpha_i \le \sum_{i=1}^n (M_i - m_i) \Delta \alpha_i \le U(P,f,\alpha)-L(P,f,\alpha) \le \varepsilon \]
+	\item Let $\varepsilon > 0$.
+		Let $P$ be a partition of $[a,b]$ such that $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$.
+		We have,
+		\[ L(P,f,\alpha) \le \lowint_a^b f\ d\alpha \le \upint_a^b f\ d\alpha \le U(P,f,\alpha) \]
+		Suppose $f \in \mathscr{R}(\alpha)$ over $[a,b]$.
+		Then, 
+		\[ L(P,f,\alpha) \le \int_a^b f\ d\alpha \le U(P,f,\alpha) \] 
+
+		Let $t_i \in (x_{i-1},x_i)$ for each subinterval of the partition $P$.
+		Clearly, $m_i \le f(t_i) \le M_i$.
+		Thus, we also have
+		\[ L(P,f,\alpha) \le \sum_{i=1}^n f(t_i) \Delta \alpha_i \le U(P,f,\alpha) \]
+		Therefore, 
+		\[ \left| \sum_{i=1}^n f(t_i) \ \Delta \alpha_i - \int_a^b f\ d\alpha \right| \le U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon \]
+\end{enumerate}
 \end{proof}
 \begin{theorem}
 	If $f$ is continuous on $[a,b]$, then $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
 \end{theorem}
 \begin{proof}
+	Let $f$ be a continuous function on $[a,b]$.
+	Since continuous functions defined on compact subsets metric spaces are uniformly continuous, we have $f$ is uniformly continuous.\\
+
+	Let $\varepsilon > 0$.
+	Choose $\eta > 0$ such that $[\alpha(b)-\alpha(a)]\eta < \varepsilon$.
+	Since $f$ is uniformly continuous, there exists $\delta > 0$ such that $|f(x)-f(t)| < \eta$ whenever $|x-t| < \delta$.	
+	Consider the partition $P$ such that each subinterval is of length less than $\delta$.
+	For any $s_i,t_i \in (x_{i-1},x_i)$, we have
+	\begin{align*}
+		\sum_{i=1}^n [f(t_i) - f(s_i)] \ [\alpha(x_i)-\alpha(x_{i-1})] 
+		& \le \sum_{i=1}^n \eta [\alpha(x_i)-\alpha(x_{i-1})] \\
+		& \le \eta \sum_{i=1}^n [\alpha(x_i)-\alpha(x_{i-1})] \\
+		&	\le \eta[\alpha(b)-\alpha(a)] \\
+		& < \varepsilon 
+	\end{align*}
+	Clearly, the result is true for minimum and maximum values of $f$ in each subinterval of $P$.
+	Therefore, we have
+	\[ U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon \]
+	Thus, $f \in \mathscr{R}(\alpha)$ over $[a,b]$.
 \end{proof}
 
 \begin{theorem}
@@ -673,4 +771,4 @@
 \begin{proof}
 \end{proof}
 %\chapter{Sequence \& Series of Functions}
-%\chapter{Weierstrass Approximation \& Some Special Functions}
+%\chapter{Weierstrass Approximation \& Some Special Functions
