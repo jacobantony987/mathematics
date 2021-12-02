@@ -710,6 +710,24 @@
 	If $f$ is monotonic on $[a,b]$ and $\alpha$ is continuous on $[a,b]$, then $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
 \end{theorem}
 \begin{proof}
+	Let $f$ be increasing on $[a,b]$.
+	Let $\alpha$ is continuous on $[a,b]$.
+	Let $n$ be any integer.
+	We can construct a partition $P$ of $[a,b]$ such that each the variation of $\alpha$ in each subinterval is fixed.
+	That is, $\Delta \alpha_i = \frac{\alpha(b)-\alpha(a)}{n}$.
+	Since $f$ is increasing, in each subinterval $[x_{i-1},x_i]$, we have $M_i = f(x_i)$ and $m_i = f(x_{i-1})$.
+	Now we have,
+	\begin{align*}
+		U(P,f,\alpha) - L(P,f,\alpha) & = \sum_{i=1}^n M_i \Delta \alpha_i - \sum_{i=1}^n m_i \Delta \alpha_i \\
+		& = \sum_{i=1}^n (M_i-m_i) \Delta \alpha_i \\
+		& = \frac{\alpha(b)-\alpha(a)}{n} \sum_{i=1}^n (f(x_i) - f(x_{i-1})) \\
+		& = \frac{\alpha(b)-\alpha(a)}{n} (f(b)-f(a))
+	\end{align*}
+	Thus, given $\varepsilon > 0$, there exists an integer $n$ such that $ (\alpha(b)-\alpha(a))(f(b)-f(a)) < n\varepsilon $.
+	And, we get a partition $P$ by fixing $\Delta \alpha_i = \frac{\alpha(b)-\alpha(a)}{n}$ such that $ U(P,f,\alpha)-L(P,f,\alpha) < \varepsilon $.\\
+
+	In other words, $U(P,f,\alpha)-L(P,f,\alpha)$ depends on $n$ and can be reduced to a value less than $\varepsilon$ by increasing the value of $n$.
+	Therefore, $f \in \mathscr{R}(\alpha)$ over $[a,b]$.
 \end{proof}
 
 \begin{theorem}
@@ -717,6 +735,32 @@
 	Then $f \in \mathscr{R}(\alpha)$.
 \end{theorem}
 \begin{proof}
+	Suppose $f$ is bounded and has only finitely many discontinuities on $[a,b]$.
+	Since $f$ is bounded, we have $-M < f(x) < M$ for some real number $M$.
+	Also, suppose that $\alpha$ is continuous at those points where $f$ is discontinuous on $[a,b]$.\\
+
+	Let $E$ be the set of all discontinuitites of $f$ on $[a,b]$.
+	Clearly, $|E|$ is finite.\\
+
+	Let $\varepsilon > 0$.
+	Since, $\alpha$ is continuous at each point $e_j$ of $E$, \textcolor{blue}{there exists open intervals $(u_j,v_j)$ such that $\alpha$ is continuous on those intervals, $e_j$ belongs to the interior of these intervals and the sum of variation of $\alpha$ in those intervals is less than $\varepsilon$.}\\
+
+	Removing these open intervals from $[a,b]$, we get a compact subset $K$ in which $f$ is continuous.
+	Since $K$ is compact and $f$ is continuous on $K$, we have $f$ is uniformly continuous on $K$.\\
+
+	Given $\varepsilon > 0$, there exists $\delta > 0$ such that $|f(x)-f(t)| < \varepsilon$ whenever $|x-t|<\delta$.
+	Define a partition $P$ such that $u_j,\ v_j \in P$, $P$ doesn't have any point in the interior of any $(u_j,v_j)$.
+	And if $x_{i-1} \ne u_j$, then $x_i$ is so choosen that $x_i-x_{i-1} < \delta$, dividing $K$ into subintervals of length less than $\delta$.
+	Now, we have
+	\begin{align*}
+		U(P,f,\alpha) & - L(P,f,\alpha)
+		 = \sum_{i=1}^n (M_i-m_i) \Delta \alpha_i  \\
+		& \le \varepsilon \sum_{x_{i-1} \ne u_j} \Delta\alpha_i + 2M\sum_{x_{i-1} = u_j} \Delta\alpha_i \\
+		& = \varepsilon \sum_{x_{i-1} \ne u_j} \left(\alpha(x_i)-\alpha(x_{i-1}) \right) + 2M\varepsilon \\
+		& \le \varepsilon (\alpha(b)-\alpha(a)) + 2M\varepsilon
+	\end{align*}
+	Clearly, $U(P,f,\alpha)-L(P,f,\alpha)$ is a function of $\varepsilon$ which can reduced below any real number greater than zero by reducing the value of $\varepsilon$.
+	Therefore, $f \in \mathscr{R}(\alpha)$ over $[a,b]$.
 \end{proof}
 
 \begin{theorem}
@@ -724,6 +768,38 @@
 	Then $h \in \mathscr{R}(\alpha)$ on $[a,b]$.
 \end{theorem}
 \begin{proof}
+	Let $f$ be a function on $[a,b]$ such that $m \le f(x) \le M$ and $f \in \mathscr{R}(\alpha)$ over $[a,b]$.
+	Let $\phi$ be  continuous function on $[m,M]$.
+	Then $\phi$ is uniformly continuous on $[m,M]$, since $[m,M]$ is compact.
+	Thus, given $\varepsilon > 0$ there exists $\delta > 0$ such that $|\phi(x)-\phi(t)| < \varepsilon$ whenever $|x-t|<\delta$.
+	Without loss of generality, we may assume that $\delta < \varepsilon$.
+	Otherwise choose a value less than $\varepsilon$ as $\delta$.\\
+
+	Since $f \in \mathscr{R}(\alpha)$ over $[a,b]$, there exists a partition $P$ of $[a,b]$ such that
+	\[ U(P,f,\alpha) - L(P,f,\alpha) < \delta^2 \]
+	Consider the $i$th subinterval $[x_{i-1},x_i]$ of the partition $P$.
+	Let $M_i$, $m_i$ be the maximum and minimum values of the function $f$ in $i$th subinterval of $P$.
+	Now, we divided the collection of subintervals into two sets depending on the value of $M_i-m_i$ in comparison with $\delta$.
+	Define $A$ as the set of all subintervals of $P$ such that $M_i-m_i < \delta$.
+	And $B$ as the set of all subintervals of $P$ such that $M_i - m_i \ge \delta$.
+	We know that,
+	\[ \delta \sum_B \Delta \alpha_i \le \sum_B (M_i-m_i) \Delta \alpha_i < U(P,f,\alpha)-L(P,f,\alpha) < \delta^2 \]
+	Thus, $\displaystyle \sum_B \Delta \alpha_i < \delta$.\\
+
+	Define $M_i^\ast$, $m_i^\ast$ as the maximum and minimum of the function $\phi \circ f$ each subinterval $[x_{i-1},x_i]$ of the partition $P$.
+	Now, we have
+	\begin{align*}
+		U(P,\phi \circ f,\alpha) - L(P,\phi \circ f, \alpha) & = \sum_{i=1}^n (M_i^\ast - m_i^\ast) \Delta \alpha_i \\
+		& = \sum_A (M_i^\ast - m_i^\ast) \Delta \alpha_i + \sum_B (M_i^\ast - m_i^\ast) \Delta \alpha_i 
+		\intertext{Since $\phi$ is uniformly continuous,}
+		& \le \varepsilon \sum_A \Delta \alpha_i + \sum_B (M_i^\ast-m_i^\ast)\Delta \alpha_i 
+		\intertext{Since, continuous functions defined on compact subset attains extrema. We have, $K = \sup \{ |\phi(x)| : x \in [m,M] \}$. And $M_i^\ast - m_i^\ast < 2K$.}
+		& \le \varepsilon (\alpha(b)-\alpha(a)) + 2K \sum_B \Delta \alpha_i \\
+		& \le \varepsilon (\alpha(b)-\alpha(a)) + 2K\delta \\
+		& \le \varepsilon (\alpha(b) - \alpha(a)) + 2K\varepsilon
+	\end{align*}
+	Since $U(P,\phi \circ f,\alpha)-L(P,\phi \circ f, \alpha)$ is function of $\varepsilon$, it can be reduced to any sufficiently small real number of our choice.
+	Therefore, $\phi \circ f \in \mathscr{R}(\alpha)$ over $[a,b]$.
 \end{proof}
 
 \subsection{Properties of the Riemann-Stieltjes Integral}
@@ -752,6 +828,40 @@
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
+	\begin{enumerate}
+		\item Let $\varepsilon > 0$.
+		Let $f_1,f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$. \\
+		Let $P_1$ be a partition of $[a,b]$ such that $U(P_1,f_1,\alpha) - L(P_1,f_1,\alpha) < \frac{\varepsilon}{2}$.\\
+		Let $P_2$ be a partition of $[a,b]$ such that $U(P_2,f_2,\alpha) - L(P_2,f_2,\alpha) < \frac{\varepsilon}{2}$.\\
+		Let $P = P_1 \cup P_2$ be the refinedment of both the partitions.
+		Then the above inequalities are true of the partition $P$ as well.\\
+
+		We have,
+		\begin{align*}
+			L(P,f_1,\alpha) + L(P,f_2,\alpha) & \le L(P,f_1+f_2,\alpha) \le U(P,f_1+f_2,\alpha) \\
+			&\le U(P,f_1,\alpha)+U(P,f_2,\alpha) 
+		\end{align*}
+		Thus,
+		\begin{align*}
+			U(P,f_1+f_2,\alpha) & - L(P,f_1+f_2,\alpha)\\
+			& \le U(P,f_1,\alpha) - L(P,f_1,\alpha) + U(P,f_2,\alpha) - L(P,f_2,\alpha) \\
+			& \le \varepsilon
+		\end{align*}
+		Therefore, $f_1+f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$.\\
+
+		Let $c$ be any real number greater than zero.
+		We have,
+		\[ M_i' = \max \{ cf(x) : x \in [x_{i-1},x_i] \} = c \max \{ f(x) : x \in [x_{i-1},x_i] \} = cM_i \]
+		Similarly, $m_i' = cm_i$.
+		Thus,
+		\begin{align*}
+			\sum_{i=1}^n M_i'\Delta\alpha_i & = c\sum_{i=1}^n M_i\Delta \alpha_i \text{ and } \sum_{i=1}^n m_i' \Delta\alpha_i = c\sum_{i=1}^n m_i \Delta\alpha_i 
+			\intertext{Therefore, given $\varepsilon > 0$ we have}
+			& L(P,cf,\alpha) \le cL(P,f,\alpha) \le cU(P,f,\alpha) \le U(P,cf,\alpha \\
+			\implies & U(P,cf,\alpha)-L(P,cf,\alpha) \le c\left( U(P,f,\alpha)-L(P,f,\alpha)\right) < \varepsilon 
+		\end{align*}
+			Therefore, $cf \in \mathscr{R}(\alpha)$ over $[a,b]$.
+	\end{enumerate}
 \end{proof}
 
 \begin{theorem}
