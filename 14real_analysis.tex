@@ -828,50 +828,175 @@
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	\begin{enumerate}
-		\item Let $\varepsilon > 0$.
-		Let $f_1,f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$. \\
-		Let $P_1$ be a partition of $[a,b]$ such that $U(P_1,f_1,\alpha) - L(P_1,f_1,\alpha) < \frac{\varepsilon}{2}$.\\
-		Let $P_2$ be a partition of $[a,b]$ such that $U(P_2,f_2,\alpha) - L(P_2,f_2,\alpha) < \frac{\varepsilon}{2}$.\\
-		Let $P = P_1 \cup P_2$ be the refinedment of both the partitions.
-		Then the above inequalities are true of the partition $P$ as well.\\
+\begin{enumerate}
+	\item Let $\varepsilon > 0$.
+	Let $f_1,f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$. \\
+	Let $P_1$ be a partition of $[a,b]$ such that $U(P_1,f_1,\alpha) - L(P_1,f_1,\alpha) < \frac{\varepsilon}{2}$.\\
+	Let $P_2$ be a partition of $[a,b]$ such that $U(P_2,f_2,\alpha) - L(P_2,f_2,\alpha) < \frac{\varepsilon}{2}$.\\
+	Let $P = P_1 \cup P_2$ be the refinedment of both the partitions.
+	Then the above inequalities are true of the partition $P$ as well.\\
 
-		We have,
-		\begin{align*}
-			L(P,f_1,\alpha) + L(P,f_2,\alpha) & \le L(P,f_1+f_2,\alpha) \le U(P,f_1+f_2,\alpha) \\
-			&\le U(P,f_1,\alpha)+U(P,f_2,\alpha) 
-		\end{align*}
+	We have,
+	\begin{align*}
+		L(P,f_1,\alpha) + L(P,f_2,\alpha) & \le L(P,f_1+f_2,\alpha) \le U(P,f_1+f_2,\alpha) \\
+		&\le U(P,f_1,\alpha)+U(P,f_2,\alpha) 
+	\end{align*}
+	Thus,
+	\begin{align*}
+		U(P,f_1+f_2,\alpha) & - L(P,f_1+f_2,\alpha)\\
+		& \le U(P,f_1,\alpha) - L(P,f_1,\alpha) + U(P,f_2,\alpha) - L(P,f_2,\alpha) \\
+		& \le \varepsilon
+	\end{align*}
+	Therefore, $f_1+f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$.
+	\hrule
+	Let $c$ be any real number greater than zero.
+	We have,
+	\[ M_i' = \max \{ cf(x) : x \in [x_{i-1},x_i] \} = c \max \{ f(x) : x \in [x_{i-1},x_i] \} = cM_i \]
+	Similarly, $m_i' = cm_i$.
+	Thus,
+	\[ \sum_{i=1}^n M_i'\Delta\alpha_i = c\sum_{i=1}^n M_i\Delta \alpha_i \text{ and } \sum_{i=1}^n m_i' \Delta\alpha_i = c\sum_{i=1}^n m_i \Delta\alpha_i \] 
+	Therefore, given $\varepsilon > 0$ we have,
+	\begin{align*}
+		L(P,cf,\alpha) &= cL(P,f,\alpha) \\
+		U(P,cf,\alpha) &= cU(P,f,\alpha)
+	\end{align*}
+	Since, $f \in \mathscr{R}(\alpha)$, there exists partition $P$ such that $U(P,f,\alpha)-L(P,f,\alpha) < \varepsilon$. Thus,
+	\[ U(P,cf,\alpha)-L(P,cf,\alpha) = cU(P,f,\alpha)-cL(P,f,\alpha) < c\varepsilon \]
+	Therefore, $cf \in \mathscr{R}(\alpha)$ over $[a,b]$.
+	\begin{align*}
+		\int_a^b cf\ d\alpha & \le U(P,cf,\alpha) \\
+		& \le cU(P,f,\alpha) \\
+		& \le c \int_a^b f\ d\alpha + c\varepsilon\\
+		& \le c\int_a^b f\ d\alpha
+		\intertext{Similarly, considering $-f$ and $-cf$ we get}
+		\int_a^b cf\ d\alpha & \ge c\int_a^b f\ d\alpha
+	\end{align*}
+	Therefore, without loss of generality for any real number $c$, 
+		\[ \int_a^b cf\ d\alpha = c\int_a^b f\ d\alpha \]
+	\hrule
+	\item 
+	Let $\varepsilon > 0$.
+	Suppose $f_1,f_2 \in \mathscr{R}(\alpha)$ and $f_1 \le f_2$.
+	Let $P_1,P_2$ be the partitions such that $U(P_1,f_1,\alpha) - L(P_1,f_1,\alpha) < \varepsilon$ and $U(P_2,f_2,\alpha) - L(P_2,f_2,\alpha) < \varepsilon$.
+	Consider the common refinement $P = P_1 \cup P_2$.
+	Then, for each subinterval of the partition $P$, we have
+	\[ \min_{x \in [x_{i-1},x_i]} f_1(x) \le \min_{x \in [x_{i-1},x_i]} f_2(x) \text{ and } \max_{x \in [x_{i-1},x_i]} f_1(x) \le \max_{x \in [x_{i-1},x_i]} f_2(x) \]
+	Thus, $L(P,f_1,\alpha) \le L(P,f_2,\alpha)$ and $U(P,f_1,\alpha) \le U(P,f_2,\alpha)$.
+	\begin{align*}
+		\int_a^b f_1\ d\alpha & \le U(P,f_1,\alpha) \\
+		& \le U(P,f_2,\alpha) \\
+		& \le \int_a^b f_2\ d\alpha + \varepsilon
+	\end{align*}
+	Therefore,
+	\[ \int_a^b f_1\ d\alpha \le \int_a^b f_2\ d\alpha \]
+	\hrule
+	\item 
+	Let $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Let $\varepsilon > 0$.
+	Then, there exists a parition $P$ of $[a,b]$ such that $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$.
+	Let $c \in (a,b)$.
+	Then $P^\ast = P \cup \{c\} = P_1 \cup P_2$ is refinement of $P$ such that $P_1,P_2$ are partition of $[a,c]$ and $[c,b]$ respectively.
+	Clearly, $U(P_1,f,\alpha) - L(P_1,f,\alpha) < \varepsilon$ and $U(P_2,f,\alpha) - L(P_2,f,\alpha) < \varepsilon$.
+	Therefore, $f \in \mathscr{R}(\alpha)$ on both $[a,c]$ and $[c,b]$.\\
+
+	For any two partitions $P_1,P_2$ of $[a,c]$ and $[c,b]$, there exists partition $P^\ast = P_1 \cup P_2$ of $[a,b]$.
+	Thus,
+	\begin{align*}
+		\int_a^b f\ d\alpha & \le U(P^\ast,f,\alpha) \\
+		& \le U(P_1,f,\alpha) + U(P_2,f,\alpha) \\
+		& \le \int_a^c f\ d\alpha + \int_c^b f\ d\alpha + 2\varepsilon
+	\end{align*}
+	Since $\varepsilon$ is arbitrary, we have
+	\[ \int_a^b f\ d\alpha \le \int_a^c f\ d\alpha + \int_c^b f\ d\alpha \]
+	And considering $-f$ instead of $f$, we get
+	\[ \int_a^b -f\ d\alpha \le \int_a^c -f\ d\alpha + \int_c^b -f\ d\alpha \]
+	Thus,
+	\[ \int_a^b f\ d\alpha \ge \int_a^c f\ d\alpha + \int_c^b f\ d\alpha \]
+	Therefore,
+	\[ \int_a^b f\ d\alpha = \int_a^c f\ d\alpha + \int_c^b f\ d\alpha \]
+	\hrule
+	\item
+		Let function $f \in \mathscr{R}(\alpha)$ on $[a,b]$ and $|f| \le M$.
+		Let $P$ be any partition of $[a,b]$.
+		We have, 
+		\[ L(P,f,\alpha) \le \int_a^b f\ d\alpha \le U(P,f,\alpha)\]
+		And,
+		\[ L(P,f,\alpha) = \sum_{i=1}^n m_i \Delta \alpha_i \ge -M\Delta \alpha_i = -M \sum_{i=1}^n \Delta \alpha_i = -M[\alpha(b)-\alpha(a)] \]
+		Similarly,
+		\[ U(P,f,\alpha) = \sum_{i=1}^n M_i \Delta \alpha_i \le M\Delta \alpha_i = M \sum_{i=1}^n \Delta \alpha_i = M[\alpha(b)-\alpha(a)] \]
+		Therefore,
+		\[ \left| \int_a^b f\ d\alpha \right| \le M[\alpha(b)-\alpha(a)] \]
+		\hrule
+	\item
+		Let $\alpha_1,\alpha_2$ be monotonic functions on $[a,b]$.
+		Then $|\alpha_1 + \alpha_2 | \le |\alpha_1| + |\alpha_2|$.
+		Let $f \in \mathscr{R}(\alpha_1)$ on $[a,b]$ and $f \in \mathscr{R}(\alpha_2)$ on $[a,b]$.
+		Let $\varepsilon > 0$.
+		Then there exists partitions $P_1,P_2$ of $[a,b]$ such that
+		\[ U(P_1,f,\alpha_1) - L(P_1,f,\alpha_1) < \varepsilon \]
+		\[ U(P_2,f,\alpha_2) - L(P_2,f,\alpha_2) < \varepsilon \]
+		Consider the common refinement $P = P_1 \cup P_2$.
+		Then, the inequalities are true for $P$ as well.
+		And for each subinterval $[x_{i-1},x_i]$ of $P$, we have $\Delta(\alpha_1+\alpha_2)_i \le \Delta (\alpha_1)_i + \Delta (\alpha_2)_i$.
 		Thus,
 		\begin{align*}
-			U(P,f_1+f_2,\alpha) & - L(P,f_1+f_2,\alpha)\\
-			& \le U(P,f_1,\alpha) - L(P,f_1,\alpha) + U(P,f_2,\alpha) - L(P,f_2,\alpha) \\
-			& \le \varepsilon
+			U(P,f,\alpha_1+\alpha_2) - L(P,f,\alpha_1+\alpha_2) & = \sum_{i=1}^n (M_i-m_i) \Delta (\alpha_1+\alpha_2)_i \\
+		& \le \sum_{i=1}^n (M_i - m_i) \Delta \alpha_{1,i} + \sum_{i=1}^n (M_i-m_i) \Delta \alpha_{2,i} \\
+		& \le 2\varepsilon
 		\end{align*}
-		Therefore, $f_1+f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$.\\
-
-		Let $c$ be any real number greater than zero.
-		We have,
-		\[ M_i' = \max \{ cf(x) : x \in [x_{i-1},x_i] \} = c \max \{ f(x) : x \in [x_{i-1},x_i] \} = cM_i \]
-		Similarly, $m_i' = cm_i$.
-		Thus,
+		Therefore, $f \in \mathscr{R}(\alpha_1+\alpha_2)$ on $[a,b]$.
 		\begin{align*}
-			\sum_{i=1}^n M_i'\Delta\alpha_i & = c\sum_{i=1}^n M_i\Delta \alpha_i \text{ and } \sum_{i=1}^n m_i' \Delta\alpha_i = c\sum_{i=1}^n m_i \Delta\alpha_i 
-			\intertext{Therefore, given $\varepsilon > 0$ we have}
-			& L(P,cf,\alpha) \le cL(P,f,\alpha) \le cU(P,f,\alpha) \le U(P,cf,\alpha \\
-			\implies & U(P,cf,\alpha)-L(P,cf,\alpha) \le c\left( U(P,f,\alpha)-L(P,f,\alpha)\right) < \varepsilon 
+			\int_a^b f\ d(\alpha_1+\alpha_2) & \le U(P,f,\alpha_1+\alpha_2) \\
+			& \le U(P,f,\alpha_1) + U(P,f,\alpha_2) \\
+			& \le \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 + 2\varepsilon
 		\end{align*}
-			Therefore, $cf \in \mathscr{R}(\alpha)$ over $[a,b]$.
-	\end{enumerate}
+		Thus,
+		\[ \int_a^b f\ d(\alpha_1+\alpha_2) \le \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+		Considering $-f$ instead of $f$,we get
+		\[ \int_a^b f\ d(\alpha_1+\alpha_2) \ge \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+		Therefore,
+		\[ \int_a^b f\ d(\alpha_1+\alpha_2) = \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+\end{enumerate}
 \end{proof}
 
 \begin{theorem}
-	If $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, then
-	\begin{enumerate}
-		\item $fg \in \mathscr{R}(\alpha)$ on $[a,b]$
-		\item $|f| \in \mathscr{R}(\alpha)$ on $[a,b]$.
-			And,
-			\[ \left| \int_a^b f\ d\alpha \right| \le \int_a^b |f|\ d\alpha \]
-	\end{enumerate}
+If $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, then
+\begin{enumerate}
+	\item $fg \in \mathscr{R}(\alpha)$ on $[a,b]$
+	\item $|f| \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	And,
+	\[ \left| \int_a^b f\ d\alpha \right| \le \int_a^b |f|\ d\alpha \]
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+	\item Let $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$.
+		Since $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, from linearity of the integral we have $f+g \in \mathscr{R}(\alpha)$ on $[a,b]$.
+		Let $\phi(t) = t^2$.
+		Then $\phi$ is continuous.
+		Since $f \in \mathscr{R}(\alpha)$ and $\phi$ is continuous, we have $\phi \circ f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+		Also we have, $\phi \circ f = f^2$, $\phi \circ g = g^2$ and $\phi \circ (f+g) = (f+g)^2$.
+		Thus, $f^2,g^2,(f+g)^2 \in \mathscr{R}(\alpha)$ on $[a,b]$.
+		Now, $4fg = (f+g)^2 - f^2 - g^2$.
+		Therefore, $4fg \in \mathscr{R}(\alpha)$ on $[a,b]$, from linearity of the integral.
+		Take $c = \frac{1}{4}$, we get $fg \in \mathscr{R}(\alpha)$ on $[a,b]$ from linearlity of the integral.
+		\hrule
+	\item Let $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+		Let $\phi(t) = |t|$.
+		Then $\phi$ is continuous.
+		Therefore, $\phi \circ f = |f| \in \mathscr{R}(\alpha)$ on $[a,b]$.\\
+		Let $c = \pm 1$ such that $c \int f\ d\alpha \ge 0$.
+		Then from linearity of the integral,
+		\[ \left| \int f d\alpha \right| \le c \int f d\alpha = \int cf d\alpha = \int |f| d\alpha \]
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[step]
+	The unit step function, $I : \mathbb{R} \to [0,1]$ is defined by
+	\[ I(x) = \begin{cases} 0 & x \le 0 \\ 1 & x > 0 \end{cases} \]
+\end{definition}
+
+\begin{theorem}
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -880,5 +1005,47 @@
 \end{theorem}
 \begin{proof}
 \end{proof}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[change of variable]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Integration and Differentiation}
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[fundamental theorem of calculus]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[integration by parts]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Integration of Vector-valued Functions}
+\begin{definition}[integrable]
+\end{definition}
+
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 %\chapter{Sequence \& Series of Functions}
 %\chapter{Weierstrass Approximation \& Some Special Functions
