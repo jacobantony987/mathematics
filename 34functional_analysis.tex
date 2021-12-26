@@ -17,7 +17,9 @@
 %Module 3 - \cite{kreyszig} 3
 %Module 4 - \cite{kreyszig} 3, 4
 
+%Module 1 - Erwin Kreyszig 1.5-1.6, 2.1-2.5
 %\chapter 1
+{\Large Module 1 - Banach Space}
 \section{Metric Spaces}
 The following are a few metric spaces and their distance functions,
 \begin{enumerate}
@@ -600,12 +602,15 @@ Then $d(x,y) = \| x -y\|$ is a metric induced by the norm.
 	We have its completion $L^p[a,b]$, the collection of all Lebesgue measurable function $x$ defined on closed $[a,b]$ such that $|x|^p$ are Lebesgue integrable.
 
 \subsection{Further properties of normed spaces}
+\begin{important}
 \begin{enumerate}
 	\item Let $X$ be a Banach space.
 		And $Y$ is a subset of $X$.
 		The subspace $Y$ is Banach if and only if $Y$ is closed in $X$.
 	\item Every normed space $X$ has a Banach space $\hat{X}$ in which $X$ is dense.
 \end{enumerate}
+\end{important}
+
 \begin{theorem}
 	Let $X$ be a Banach space.
 	And $Y$ is a subset of $X$.
@@ -1062,6 +1067,19 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Then $X$ is a finite dimensional normed space.
 \end{theorem}
 \begin{proof}
+	Let $X$ be normed space.
+	Let $M = \{ x : \| x \| = 1 \}$ be a compact subset of $X$.
+	Suppose $\dim X =\infty$.
+	Choose $x_1 \in X$ such that $\|x_1\| = 1$.
+	For any $x \in X$, if $x \ne 0$, then there exists $x/\|x\| \in X$ has norm $1$.\\
+
+	The subspace $X_1$ spanned by $x_1$ is a proper, closed subspace of $X$.
+	Since $X$ is infinite dimensional, from Riesz's lemma there exists $x_2 \in X$ such that $\| x_2 \| = 1$ and $\|x_2-x_1\| \ge \frac{1}{2}$.
+	Again, the subspace $X_2$ spanned by $\{x_1,x_2\}$ is a proper, closed subspace of $X$.
+	Continuing like this, we get a sequence $\{x_n\}$ in $M$ such that $\|x_n-x_m\| \ge \frac{1}{2}$ for any $n \ne m$.
+	Since $\|x_n-x_m\| \ge \frac{1}{2}$, the sequence doesn't have a convergent subsequence.
+	This is a contradiction since $M$ is compact.
+	Therefore, $X$ is finite dimensional.
 \end{proof}
 
 \begin{theorem}
@@ -1070,15 +1088,35 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Then, the image of compact subset of $X$ under $T$ is a compact subset of $Y$.
 \end{theorem}
 \begin{proof}
+	Let $T : X \to Y$ be a continuous function where $X,Y$ are metric spaces.
+	Let $M$ be a compact subset of $X$.
+	Let sequence $\sequence{y_n}$ be a sequence in $T(M)$.
+	Then $y_n = Tx_n$ for some $x_n \in M$.
+	Thus, we have a sequence $\{ x_n \}$ in $M$ corresponding to each sequence $\{ y_n \}$ in $T(M)$.
+	Since $M$ is compact, every sequence in $M$ has a convergent subsequence, say $\sequence{x_{n_k}} \to x$.
+	Then, the corresponding sequence $\sequence{Tx_{n_k}}$ is subsequence of sequence $\sequence{y_n}$.\\
+
+	Since $T$ is continuous, $\sequence{Tx_{n_k}}$ converges to $Tx$ in $T(M)$.
+	Thus, every sequence in $T(M)$ has a convergent subsequence.
+	That is, $M$ is compact.
 \end{proof}
 
 \begin{corollary}
+	A continuous mapping $T$ of a compact subset $M$ ofa metric space $X$ into $\mathbb{R}$ assumes a maximum and a minimum value at some points of $M$.
 \end{corollary}
 \begin{proof}
+	Let $X$ be a metric space and $M$ be a compact subset of $X$.
+	Let $T : X \to \mathbb{R}$ be a continuous function.
+	Then, $T(M)$ is compact.
+	Since $T(M)$ is a compact subset of $\mathbb{R}$, $T(M)$ is a closed and bounded subset of $\mathbb{R}$.
+	Thus, $\inf T(M), \sup T(M) \in T(M)$.
+	Therefore, there exists $x,y \in M$ such that $Tx=\inf T(M) = \min T(M)$ and $Ty = \sup T(M) = \max T(M)$.
 \end{proof}
 
-%Module 2
-\subsection{Linear Operators}
+%Module 2 Erwin Kreyszig 2.6 - 2.10
+\pagebreak
+{\Large Module 2 - Linear Operators}
+\subsection{Linear Operators}%2.6.1
 \begin{definition}[linear operator]
 	Let $X,Y$ be vector spaces with the same field $K$.
 	A function $T : X \to Y$ is a linear operator if it satisfies
@@ -1116,6 +1154,96 @@ But there exists separable, Banach spaces without a Schauder basis.
 	\item $T : \mathbb{R}^n \to \mathbb{R}^r$, $T(x) = Ax$ where $A \in \mathbb{R}^{n \times r}$ is an $n \times r$ matrix of real-numbers.
 		\[ T(\alpha x + \beta y) = \alpha T(x) + \beta T(y) = \alpha Ax +\beta Ay \] 
 \end{enumerate}
+
+\begin{theorem}[Range,Null space]
+	Let $T$ be a linear operator. Then
+	\begin{enumerate}
+		\item Range, $\mathscr{R}(T)$ is a vector space.
+		\item If $\dim X = n < \infty$, then $\dim \mathscr{R}(T) \le n$.
+		\item Null space, $\mathscr{N}(T)$ is a vector space.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Let $T : X \to Y$ be a linear operator where $X,Y$ are vector spaces over the same field $K$.
+	Let $y_1,y_2 \in \mathscr{R}(T)$.
+	Then $y_1 = Tx_1$ and $y_2 = Tx_2$ for some $x_1,x_2 \in X$.
+	Let $\alpha,\beta \in K$.
+	Since $X$ is a vector space, $\alpha x_1 + \beta x_2 \in X$.
+	We have, $T$ is a linear operator. Thus,
+	\[ \alpha y_1 + \beta y_2 = \alpha Tx_1 + \beta Tx_2 = T(\alpha x_1 + \beta x_2) \]
+	Therefore, $\alpha y_1 + \beta y_2 \in \mathscr{R}(T)$.\\
+
+	\hrule \vspace{1em}
+
+	Let $\dim X = n$.
+	Let $\{ y_1,y_2,\dots,y_{n+1}\}$ be elements from $\mathscr{R}(T)$.
+	Then for each $j$, we have $y_j = Tx_j$.
+	Since $\dim X = n$, the set $\{x_1,x_2,\dots,x_{n+1}\}$ is linearly dependent.
+	That is, there exist $\alpha_j$'s in $K$ such that 
+	\[ \alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_{n+1} x_{n+1} = 0 \]
+	Therefore,
+	\[ T(\alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_{n+1} x_{n+1}) = \alpha_1 y_1 + \alpha_2 y_2 + \dots + \alpha_{n+1} y_{n+1} = 0 \]
+	Thus, any subset of $\mathscr{R}(T)$ having $n+1$ or more elements is linearly dependent.
+	Clearly, the dimension of $\mathscr{R}(T) \le n = \dim X$.\\
+	\begin{important}
+		In other words, ``linear operators preserves linear dependence''.
+	\end{important}
+
+	\hrule \vspace{1em}
+
+	Let $x_1,x_2 \in \mathscr{N}(T)$.
+	Then $Tx_1 = 0$ and $Tx_2 = 0$.
+	Let $\alpha, \beta \in K$.
+	Since $T$ is linear,
+	\[ T(\alpha x_1 +\beta x_2) = \alpha T(x_1) + \beta T(x_2) = 0 \]
+	Therefore, $\alpha x_1 + \beta x_2 \in \mathscr{N}(T)$ for any $\alpha, \beta \in K$.
+\end{proof}
+\begin{definition}[Inverse]
+	Let $X,Y$ be vector spaces over the same field $K$.
+	Let $T : X \to Y$ be an injective, linear operator.
+	Then, $T^{-1} : \mathscr{R}(T) \to X$ defined by $y = Tx \iff T^{-1}y = x$ is the image operator of $T$.
+\end{definition}
+\begin{theorem}[inverse]
+	Let $X,Y$ be vector spaces over the same field $K$.
+	Let $T: X \to Y$ be a linear operator.
+	Then,
+	\begin{enumerate}
+		\item $T^{-1}$ exists if and only if ($Tx = 0 \implies x = 0$).
+		\item If $T^{-1}$ exists, then it is a linear operator.
+		\item If $\dim \mathscr{D}(T) = n < \infty$, and $T^{-1}$ exists, then $\dim \mathscr{R}(T) = \dim \mathscr{D}(T)$.
+	\end{enumerate}
+	\begin{proof}
+		Suppose $Tx = 0 \implies x = 0$.
+		Let $Tx_1 = Tx_2$.
+		Then $Tx_1 - Tx_2 = T(x_1-x_2) = 0$
+		That is, $x_1-x_2 = 0$.
+		Therefore, $T$ is injective.
+		Suppose $T^{-1}$ exists, then $T$ is injective and $Tx_1 = Tx_2 \implies x_1 = x_2$.
+		Thus, $Tx = Tx_1 - Tx_2 = 0 \implies x = x_1 - x_2 = 0$.\\
+
+		\hrule \vspace{1em}
+
+		Let $T : X \to Y$ be a linear operator where $X,Y$ are vector spaces over the same field $K$.
+		Suppose $T^{-1}$ exists.
+		Let $y_1 = Tx_1$ and $y_2 = Tx_2$.
+		Then, $T^{-1}y_1 = x_1$ and $T^{-1}y_2 = x_2$.
+		Let $\alpha, \beta \in K$.
+		We have, 
+		\[ \alpha x_1 + \beta x_2 = \alpha T^{-1}(y_1) + \beta T^{-1}(y_2) \]
+		Also we have, 
+		\[ T(\alpha x_1 + \beta x_2) = \alpha Tx_1 + \beta Tx_2 = \alpha y_1 + \beta y_2 \]
+		\[ \implies \alpha x_1 + \beta x_2 = T^{-1}(\alpha y_1 + \beta y_2) = \alpha T^{-1}y_1 + \beta T^{-1}y_2 \]
+		Therefore, $T^{-1}$ is a linear operator.\\
+
+		\hrule \vspace{1em}
+
+		Since $T : X \to Y$ is a linear transformation.
+		If $\dim X < \infty$, then $\mathscr{R}(T) \le \dim \mathscr{D}(T)$.
+		Again, $T^{-1} : \mathscr{R}(T) \to X$ is a linear transformation.
+		Thus, $\dim \mathscr{D}(T) \le \dim \mathscr{R}(T)$.
+		Therefore, $\dim \mathscr{D}(T) = \dim \mathscr{R}(T)$.
+	\end{proof}
+\end{theorem}
 \subsection{Bounded and Continuous Linear Operators}
 \subsection{Linear Functionals}
 \subsection{Linear Operators and Functionals on finite dimensional spaces}
