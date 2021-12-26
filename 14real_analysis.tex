@@ -29,6 +29,7 @@
 
 %Module 1
 %\chapter{Functions of Bounded Variation \& Rectifiable Curves}
+{\Large Module 1 : Bounded Variation \& Rectifiable Curves}
 \section{Functions of Bounded Variation \& Rectifiable Curves}
 %\subsection{Introduction}
 \setcounter{subsection}{1}
@@ -163,9 +164,10 @@
 	\[ |(f+g)(x_k) - (f+g)(x_{k-1})| \le | f(x_k) - f(x_{k-1})| + |g(x_k) - g(x_{k-1})| \]
 	Then
 	\begin{align*}
-	V_{f+g}  & = \sup_{P \in \mathscr{P}} \sum_{k=1}^n |(f+g)(x_k) - (f+g)(x_{k-1})| \\
-	& \le \sup_{P \in \mathscr{P}} \sum_{k=1}^n |f(x_k) - f(x_{k-1})| + \sup_{P \in \mathscr{P}} \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \\
-	& = V_f + V_g 
+	V_{f+g}  
+		& = \sup_{P \in \mathscr{P}} \sum_{k=1}^n |(f+g)(x_k) - (f+g)(x_{k-1})| \\
+		& \le \sup_{P \in \mathscr{P}} \sum_{k=1}^n |f(x_k) - f(x_{k-1})| + \sup_{P \in \mathscr{P}} \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \\
+		& = V_f + V_g 
 \end{align*}
 	Similarly, we have $V_{f-g} \le V_f + V_g$ since
 	\[ |(f-g)(x_k) - (f-g)(x_{k-1})| \le |f(x_k)-f(x_{k-1})| + |g(x_k)-g(x_{k-1})| \]
@@ -173,7 +175,8 @@
 	\textbf{Step 2 : $V_{fg} \le AV_f + BV_g$}\\
 	We have,
 	\begin{align*}
-		|fg(x_k)-fg(x_{k-1})| & = |f(x_k)g(x_k) - f(x_{k-1}g(x_{k-1})| \\
+	|fg(x_k)-fg(x_{k-1})| 
+		& = |f(x_k)g(x_k) - f(x_{k-1}g(x_{k-1})| \\
 		& = |f(x_k)g(x_k) - f(x_{k-1})g(x_k) + f(x_{k-1}g(x_k) - f(x_{k-1}g(x_{k-1}) | \\
 		& \le |g(x_k)|\ |f(x_k)-f(x_{k-1})| + |f(x_{k-1}|\ |g(x_k) - g(x_{k-1})| \\
 		& \le A |f(x_k)-f(x_{k-1})| + B |g(x_k)-g(x_{k-1})|
@@ -182,7 +185,8 @@
 
 	Therefore,
 	\begin{align*}
-		V_{fg} & \le A \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |f(x_k)-f(x_{k-1}| \right\} + B \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \right\} \\
+	V_{fg} 
+		& \le A \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |f(x_k)-f(x_{k-1}| \right\} + B \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \right\} \\
 		& = AV_f + BV_g 
 	\end{align*}
 \end{proof}
@@ -210,7 +214,8 @@
 	\[ |\Delta g_k| = \left| \frac{1}{f(x_k)} - \frac{1}{f(x_{k-1})} \right| = \frac{|f(x_k)-f(x_{k-1})|}{|f(x_k)|\ |f(x_{k-1}|} \le \frac{|f(x_k)-f(x_{k-1})|}{m^2} \]
 	The total variation of $g$ on $[a,b]$ is given by,
 	\begin{align*}
-		V_g & = \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \right\} \\
+	V_g 
+		& = \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |g(x_k)-g(x_{k-1})| \right\} \\
 		& \le \frac{1}{m^2} \sup_{P \in \mathscr{P}} \left\{ \sum_{k=1}^n |f(x_k)-f(x_{k-1})| \right\} \\
 		& \le \frac{V_f}{m^2} \text{ where } 0 < m \le |f(x)|,\ \forall x \in [a,b]
 	\end{align*}
@@ -344,7 +349,8 @@
 	\[ V_f(c,b) - \frac{\varepsilon}{2} < \frac{\varepsilon}{2} + V_f(x_1,b) \]
 	We have,
 	\begin{align*}
-		V(x_1)-V(c) & = V_f(a,x_1) - V_f(a,c) = V_f(c,x_1) \\
+	V(x_1)-V(c) 
+		& = V_f(a,x_1) - V_f(a,c) = V_f(c,x_1) \\
 		& = V_f(c,b) - V_f(x_1,b) < \varepsilon
 	\end{align*}
 	Clearly, $V(c+h) \to V(c)$ as $h \to 0$.
@@ -518,6 +524,7 @@
 %Module 2
 %\chapter{The Riemann Stieltjes Integral} %Rudin chapter 6$
 \pagebreak
+{\Large Module 2 : Riemann-Stieltjes Integral}\\
 \section{The Riemann-Stieltjes Integral}
 \begin{definition}[unti step]
 	The unit step function $I : \mathbb{R} \to \mathbb{R}$ is defined by
@@ -572,7 +579,8 @@
 	Define $w_1 = \min \{ f(x) : x \in (x_{j-1},x) \}$ and $w_2 = \min \{ f(x) : x \in (x,x_j) \}$.
 	Clearly, $w_1,w_2 \ge \min \{ f(x) : x \in (x_{j-1},x_j) \} = m_i$.
 	\begin{align*}
-		L(P,f,\alpha) - L(P^\ast,f,\alpha) & = m_i \Delta \alpha_j - w_1 (\alpha(x)-\alpha(x_{j-1})) - w_2 (\alpha(x_j) - \alpha(x)) \\
+	L(P,f,\alpha) - L(P^\ast,f,\alpha) 
+		& = m_i \Delta \alpha_j - w_1 (\alpha(x)-\alpha(x_{j-1})) - w_2 (\alpha(x_j) - \alpha(x)) \\
 		& = (m_i - w_1)(\alpha(x)-\alpha(x_{j-1})) + (m_i - w_2)(\alpha(x_j)-\alpha(x))\\
 		& \ge 0
 	\end{align*}
@@ -582,7 +590,8 @@
 	Similarly, define $W_1 = \max \{f(x) : x \in (x_{j-1},x) \}$ and $W_2 = \max \{ f(x) : x \in (x,x_j) \}$
 	where $W_1,W_2 \le \max \{ f(x) : x \in (x_{j-1},x_j) \} = M_i$.
 	\begin{align*}
-		U(P,f,\alpha) - U(P^\ast,f,\alpha) & = M_i \Delta \alpha_j - W_1 (\alpha(x)-\alpha(x_{j-1})) - W_2 (\alpha(x_j) - \alpha(x)) \\
+	U(P,f,\alpha) - U(P^\ast,f,\alpha) 
+		& = M_i \Delta \alpha_j - W_1 (\alpha(x)-\alpha(x_{j-1})) - W_2 (\alpha(x_j) - \alpha(x)) \\
 		& = (M_i - W_1)(\alpha(x)-\alpha(x_{j-1})) + (M_i - W_2)(\alpha(x_j)-\alpha(x))\\
 		& \le 0
 	\end{align*}
@@ -694,7 +703,7 @@
 	Consider the partition $P$ such that each subinterval is of length less than $\delta$.
 	For any $s_i,t_i \in (x_{i-1},x_i)$, we have
 	\begin{align*}
-		\sum_{i=1}^n [f(t_i) - f(s_i)] \ [\alpha(x_i)-\alpha(x_{i-1})] 
+	\sum_{i=1}^n [f(t_i) - f(s_i)] \ [\alpha(x_i)-\alpha(x_{i-1})] 
 		& \le \sum_{i=1}^n \eta [\alpha(x_i)-\alpha(x_{i-1})] \\
 		& \le \eta \sum_{i=1}^n [\alpha(x_i)-\alpha(x_{i-1})] \\
 		&	\le \eta[\alpha(b)-\alpha(a)] \\
@@ -718,7 +727,8 @@
 	Since $f$ is increasing, in each subinterval $[x_{i-1},x_i]$, we have $M_i = f(x_i)$ and $m_i = f(x_{i-1})$.
 	Now we have,
 	\begin{align*}
-		U(P,f,\alpha) - L(P,f,\alpha) & = \sum_{i=1}^n M_i \Delta \alpha_i - \sum_{i=1}^n m_i \Delta \alpha_i \\
+	U(P,f,\alpha) - L(P,f,\alpha) 
+		& = \sum_{i=1}^n M_i \Delta \alpha_i - \sum_{i=1}^n m_i \Delta \alpha_i \\
 		& = \sum_{i=1}^n (M_i-m_i) \Delta \alpha_i \\
 		& = \frac{\alpha(b)-\alpha(a)}{n} \sum_{i=1}^n (f(x_i) - f(x_{i-1})) \\
 		& = \frac{\alpha(b)-\alpha(a)}{n} (f(b)-f(a))
@@ -753,7 +763,7 @@
 	And if $x_{i-1} \ne u_j$, then $x_i$ is so choosen that $x_i-x_{i-1} < \delta$, dividing $K$ into subintervals of length less than $\delta$.
 	Now, we have
 	\begin{align*}
-		U(P,f,\alpha) & - L(P,f,\alpha)
+	U(P,f,\alpha) & - L(P,f,\alpha)
 		 = \sum_{i=1}^n (M_i-m_i) \Delta \alpha_i  \\
 		& \le \varepsilon \sum_{x_{i-1} \ne u_j} \Delta\alpha_i + 2M\sum_{x_{i-1} = u_j} \Delta\alpha_i \\
 		& = \varepsilon \sum_{x_{i-1} \ne u_j} \left(\alpha(x_i)-\alpha(x_{i-1}) \right) + 2M\varepsilon \\
@@ -789,11 +799,12 @@
 	Define $M_i^\ast$, $m_i^\ast$ as the maximum and minimum of the function $\phi \circ f$ each subinterval $[x_{i-1},x_i]$ of the partition $P$.
 	Now, we have
 	\begin{align*}
-		U(P,\phi \circ f,\alpha) - L(P,\phi \circ f, \alpha) & = \sum_{i=1}^n (M_i^\ast - m_i^\ast) \Delta \alpha_i \\
+	U(P,\phi \circ f,\alpha) - L(P,\phi \circ f, \alpha)
+		& = \sum_{i=1}^n (M_i^\ast - m_i^\ast) \Delta \alpha_i \\
 		& = \sum_A (M_i^\ast - m_i^\ast) \Delta \alpha_i + \sum_B (M_i^\ast - m_i^\ast) \Delta \alpha_i 
 		\intertext{Since $\phi$ is uniformly continuous,}
 		& \le \varepsilon \sum_A \Delta \alpha_i + \sum_B (M_i^\ast-m_i^\ast)\Delta \alpha_i 
-		\intertext{Since, continuous functions defined on compact subset attains extrema. We have, $K = \sup \{ |\phi(x)| : x \in [m,M] \}$. And $M_i^\ast - m_i^\ast < 2K$.}
+	\intertext{Since, continuous functions defined on compact subset attains extrema. We have, $K = \sup \{ |\phi(x)| : x \in [m,M] \}$. And $M_i^\ast - m_i^\ast < 2K$.}
 		& \le \varepsilon (\alpha(b)-\alpha(a)) + 2K \sum_B \Delta \alpha_i \\
 		& \le \varepsilon (\alpha(b)-\alpha(a)) + 2K\delta \\
 		& \le \varepsilon (\alpha(b) - \alpha(a)) + 2K\varepsilon
@@ -838,17 +849,21 @@
 
 	We have,
 	\begin{align*}
-		L(P,f_1,\alpha) + L(P,f_2,\alpha) & \le L(P,f_1+f_2,\alpha) \le U(P,f_1+f_2,\alpha) \\
-		&\le U(P,f_1,\alpha)+U(P,f_2,\alpha) 
+	L(P,f_1,\alpha) + L(P,f_2,\alpha) 
+		& \le L(P,f_1+f_2,\alpha) \\
+		& \le U(P,f_1+f_2,\alpha) \\
+		& \le U(P,f_1,\alpha) + U(P,f_2,\alpha) 
 	\end{align*}
 	Thus,
 	\begin{align*}
-		U(P,f_1+f_2,\alpha) & - L(P,f_1+f_2,\alpha)\\
+	U(P,f_1+f_2,\alpha) & - L(P,f_1+f_2,\alpha)\\
 		& \le U(P,f_1,\alpha) - L(P,f_1,\alpha) + U(P,f_2,\alpha) - L(P,f_2,\alpha) \\
 		& \le \varepsilon
 	\end{align*}
-	Therefore, $f_1+f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$.
-	\hrule
+	Therefore, $f_1+f_2 \in \mathscr{R}(\alpha)$ over $[a,b]$.\\
+
+	\hrule \vspace{1em}
+	\item
 	Let $c$ be any real number greater than zero.
 	We have,
 	\[ M_i' = \max \{ cf(x) : x \in [x_{i-1},x_i] \} = c \max \{ f(x) : x \in [x_{i-1},x_i] \} = cM_i \]
@@ -864,16 +879,19 @@
 	\[ U(P,cf,\alpha)-L(P,cf,\alpha) = cU(P,f,\alpha)-cL(P,f,\alpha) < c\varepsilon \]
 	Therefore, $cf \in \mathscr{R}(\alpha)$ over $[a,b]$.
 	\begin{align*}
-		\int_a^b cf\ d\alpha & \le U(P,cf,\alpha) \\
+	\int_a^b cf\ d\alpha 
+		& \le U(P,cf,\alpha) \\
 		& \le cU(P,f,\alpha) \\
 		& \le c \int_a^b f\ d\alpha + c\varepsilon\\
 		& \le c\int_a^b f\ d\alpha
-		\intertext{Similarly, considering $-f$ and $-cf$ we get}
-		\int_a^b cf\ d\alpha & \ge c\int_a^b f\ d\alpha
+	\intertext{Similarly, considering $-f$ and $-cf$ we get}
+	\int_a^b cf\ d\alpha 
+		& \ge c\int_a^b f\ d\alpha
 	\end{align*}
 	Therefore, without loss of generality for any real number $c$, 
 		\[ \int_a^b cf\ d\alpha = c\int_a^b f\ d\alpha \]
-	\hrule
+
+	\hrule \vspace{1em}
 	\item 
 	Let $\varepsilon > 0$.
 	Suppose $f_1,f_2 \in \mathscr{R}(\alpha)$ and $f_1 \le f_2$.
@@ -883,13 +901,15 @@
 	\[ \min_{x \in [x_{i-1},x_i]} f_1(x) \le \min_{x \in [x_{i-1},x_i]} f_2(x) \text{ and } \max_{x \in [x_{i-1},x_i]} f_1(x) \le \max_{x \in [x_{i-1},x_i]} f_2(x) \]
 	Thus, $L(P,f_1,\alpha) \le L(P,f_2,\alpha)$ and $U(P,f_1,\alpha) \le U(P,f_2,\alpha)$.
 	\begin{align*}
-		\int_a^b f_1\ d\alpha & \le U(P,f_1,\alpha) \\
+	\int_a^b f_1\ d\alpha 
+		& \le U(P,f_1,\alpha) \\
 		& \le U(P,f_2,\alpha) \\
 		& \le \int_a^b f_2\ d\alpha + \varepsilon
 	\end{align*}
 	Therefore,
 	\[ \int_a^b f_1\ d\alpha \le \int_a^b f_2\ d\alpha \]
-	\hrule
+
+	\hrule \vspace{1em}
 	\item 
 	Let $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
 	Let $\varepsilon > 0$.
@@ -902,7 +922,8 @@
 	For any two partitions $P_1,P_2$ of $[a,c]$ and $[c,b]$, there exists partition $P^\ast = P_1 \cup P_2$ of $[a,b]$.
 	Thus,
 	\begin{align*}
-		\int_a^b f\ d\alpha & \le U(P^\ast,f,\alpha) \\
+	\int_a^b f\ d\alpha 
+		& \le U(P^\ast,f,\alpha) \\
 		& \le U(P_1,f,\alpha) + U(P_2,f,\alpha) \\
 		& \le \int_a^c f\ d\alpha + \int_c^b f\ d\alpha + 2\varepsilon
 	\end{align*}
@@ -914,48 +935,72 @@
 	\[ \int_a^b f\ d\alpha \ge \int_a^c f\ d\alpha + \int_c^b f\ d\alpha \]
 	Therefore,
 	\[ \int_a^b f\ d\alpha = \int_a^c f\ d\alpha + \int_c^b f\ d\alpha \]
-	\hrule
+
+	\hrule \vspace{1em}
 	\item
-		Let function $f \in \mathscr{R}(\alpha)$ on $[a,b]$ and $|f| \le M$.
-		Let $P$ be any partition of $[a,b]$.
-		We have, 
-		\[ L(P,f,\alpha) \le \int_a^b f\ d\alpha \le U(P,f,\alpha)\]
-		And,
-		\[ L(P,f,\alpha) = \sum_{i=1}^n m_i \Delta \alpha_i \ge -M\Delta \alpha_i = -M \sum_{i=1}^n \Delta \alpha_i = -M[\alpha(b)-\alpha(a)] \]
-		Similarly,
-		\[ U(P,f,\alpha) = \sum_{i=1}^n M_i \Delta \alpha_i \le M\Delta \alpha_i = M \sum_{i=1}^n \Delta \alpha_i = M[\alpha(b)-\alpha(a)] \]
-		Therefore,
-		\[ \left| \int_a^b f\ d\alpha \right| \le M[\alpha(b)-\alpha(a)] \]
-		\hrule
+	Let function $f \in \mathscr{R}(\alpha)$ on $[a,b]$ and $|f| \le M$.
+	Let $P$ be any partition of $[a,b]$.
+	We have, 
+	\[ L(P,f,\alpha) \le \int_a^b f\ d\alpha \le U(P,f,\alpha)\]
+	And,
+	\[ L(P,f,\alpha) = \sum_{i=1}^n m_i \Delta \alpha_i \ge -M\Delta \alpha_i = -M \sum_{i=1}^n \Delta \alpha_i = -M[\alpha(b)-\alpha(a)] \]
+	Similarly,
+	\[ U(P,f,\alpha) = \sum_{i=1}^n M_i \Delta \alpha_i \le M\Delta \alpha_i = M \sum_{i=1}^n \Delta \alpha_i = M[\alpha(b)-\alpha(a)] \]
+	Therefore,
+	\[ \left| \int_a^b f\ d\alpha \right| \le M[\alpha(b)-\alpha(a)] \]
+		
+	\hrule \vspace{1em}
 	\item
-		Let $\alpha_1,\alpha_2$ be monotonic functions on $[a,b]$.
-		Then $|\alpha_1 + \alpha_2 | \le |\alpha_1| + |\alpha_2|$.
-		Let $f \in \mathscr{R}(\alpha_1)$ on $[a,b]$ and $f \in \mathscr{R}(\alpha_2)$ on $[a,b]$.
-		Let $\varepsilon > 0$.
-		Then there exists partitions $P_1,P_2$ of $[a,b]$ such that
-		\[ U(P_1,f,\alpha_1) - L(P_1,f,\alpha_1) < \varepsilon \]
-		\[ U(P_2,f,\alpha_2) - L(P_2,f,\alpha_2) < \varepsilon \]
-		Consider the common refinement $P = P_1 \cup P_2$.
-		Then, the inequalities are true for $P$ as well.
-		And for each subinterval $[x_{i-1},x_i]$ of $P$, we have $\Delta(\alpha_1+\alpha_2)_i \le \Delta (\alpha_1)_i + \Delta (\alpha_2)_i$.
-		Thus,
-		\begin{align*}
-			U(P,f,\alpha_1+\alpha_2) - L(P,f,\alpha_1+\alpha_2) & = \sum_{i=1}^n (M_i-m_i) \Delta (\alpha_1+\alpha_2)_i \\
+	Let $\alpha_1,\alpha_2$ be monotonic functions on $[a,b]$.
+	Then $|\alpha_1 + \alpha_2 | \le |\alpha_1| + |\alpha_2|$.
+	Let $f \in \mathscr{R}(\alpha_1)$ on $[a,b]$ and $f \in \mathscr{R}(\alpha_2)$ on $[a,b]$.
+	Let $\varepsilon > 0$.
+	Then there exists partitions $P_1,P_2$ of $[a,b]$ such that
+	\[ U(P_1,f,\alpha_1) - L(P_1,f,\alpha_1) < \varepsilon \]
+	\[ U(P_2,f,\alpha_2) - L(P_2,f,\alpha_2) < \varepsilon \]
+	Consider the common refinement $P = P_1 \cup P_2$.
+	Then, the inequalities are true for $P$ as well.
+	And for each subinterval $[x_{i-1},x_i]$ of $P$, we have $\Delta(\alpha_1+\alpha_2)_i \le \Delta (\alpha_1)_i + \Delta (\alpha_2)_i$.
+	Thus,
+	\begin{align*}
+	U(P,f,\alpha_1+\alpha_2) - L(P,f,\alpha_1+\alpha_2)
+		& = \sum_{i=1}^n (M_i-m_i) \Delta (\alpha_1+\alpha_2)_i \\
 		& \le \sum_{i=1}^n (M_i - m_i) \Delta \alpha_{1,i} + \sum_{i=1}^n (M_i-m_i) \Delta \alpha_{2,i} \\
 		& \le 2\varepsilon
-		\end{align*}
-		Therefore, $f \in \mathscr{R}(\alpha_1+\alpha_2)$ on $[a,b]$.
-		\begin{align*}
-			\int_a^b f\ d(\alpha_1+\alpha_2) & \le U(P,f,\alpha_1+\alpha_2) \\
-			& \le U(P,f,\alpha_1) + U(P,f,\alpha_2) \\
-			& \le \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 + 2\varepsilon
-		\end{align*}
-		Thus,
-		\[ \int_a^b f\ d(\alpha_1+\alpha_2) \le \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
-		Considering $-f$ instead of $f$,we get
-		\[ \int_a^b f\ d(\alpha_1+\alpha_2) \ge \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
-		Therefore,
-		\[ \int_a^b f\ d(\alpha_1+\alpha_2) = \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+	\end{align*}
+	Therefore, $f \in \mathscr{R}(\alpha_1+\alpha_2)$ on $[a,b]$.
+	\begin{align*}
+	\int_a^b f\ d(\alpha_1+\alpha_2) 
+		& \le U(P,f,\alpha_1+\alpha_2) \\
+		& \le U(P,f,\alpha_1) + U(P,f,\alpha_2) \\
+		& \le \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 + 2\varepsilon
+	\end{align*}
+	Thus,
+	\[ \int_a^b f\ d(\alpha_1+\alpha_2) \le \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+	Considering $-f$ instead of $f$,we get
+	\[ \int_a^b f\ d(\alpha_1+\alpha_2) \ge \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+	Therefore,
+	\[ \int_a^b f\ d(\alpha_1+\alpha_2) = \int_a^b f\ d\alpha_1 + \int_a^b f\ d\alpha_2 \]
+
+	\hrule \vspace{1em}
+
+	Let $c>0$ and $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Let $\varepsilon > 0$.
+	Then there exists a partition $P$ of $[a,b]$ such that $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$.
+	Clearly, $U(P,f,c\alpha) - L(P,f,c\alpha) < c\epsilon$.
+	Therefore, $f \in \mathscr{R}(c\alpha)$ on $[a,b]$.
+	\begin{align*}
+	\int f d(c\alpha) 
+		& \le U(P,f,c\alpha) \\
+		& \le cU(P,f,\alpha) \\
+		& \le c\int f d\alpha + c\varepsilon
+	\end{align*}
+	Thus,
+	\[ \int f d(c\alpha) \le c \int f d\alpha \]
+	Taking $-f$ instead of $f$, we get
+	\[ \int f d(c\alpha) \ge c \int f d\alpha \]
+	Therefore,
+	\[ \int f d(c\alpha) = c \int f d\alpha \]
 \end{enumerate}
 \end{proof}
 
@@ -970,82 +1015,478 @@ If $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, then
 \end{theorem}
 \begin{proof}
 \begin{enumerate}
-	\item Let $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$.
-		Since $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, from linearity of the integral we have $f+g \in \mathscr{R}(\alpha)$ on $[a,b]$.
-		Let $\phi(t) = t^2$.
-		Then $\phi$ is continuous.
-		Since $f \in \mathscr{R}(\alpha)$ and $\phi$ is continuous, we have $\phi \circ f \in \mathscr{R}(\alpha)$ on $[a,b]$.
-		Also we have, $\phi \circ f = f^2$, $\phi \circ g = g^2$ and $\phi \circ (f+g) = (f+g)^2$.
-		Thus, $f^2,g^2,(f+g)^2 \in \mathscr{R}(\alpha)$ on $[a,b]$.
-		Now, $4fg = (f+g)^2 - f^2 - g^2$.
-		Therefore, $4fg \in \mathscr{R}(\alpha)$ on $[a,b]$, from linearity of the integral.
-		Take $c = \frac{1}{4}$, we get $fg \in \mathscr{R}(\alpha)$ on $[a,b]$ from linearlity of the integral.
-		\hrule
-	\item Let $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
-		Let $\phi(t) = |t|$.
-		Then $\phi$ is continuous.
-		Therefore, $\phi \circ f = |f| \in \mathscr{R}(\alpha)$ on $[a,b]$.\\
-		Let $c = \pm 1$ such that $c \int f\ d\alpha \ge 0$.
-		Then from linearity of the integral,
-		\[ \left| \int f d\alpha \right| \le c \int f d\alpha = \int cf d\alpha = \int |f| d\alpha \]
+	\item
+	Let $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	By linearity of the integral we have $f+g \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Let $\phi(t) = t^2$.
+	Then $\phi$ is continuous.
+	Thus, $\phi \circ f$ is continuous on $[a,b]$.
+	Therefore, $\phi \circ f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	{\color{blue}Also we have, $\phi \circ (f+g) = (f+g)^2$ and $\phi \circ (f-g) = (f-g)^2$.
+	Thus, $(f+g)^2,(f-g)^2 \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Now, $4fg = (f+g)^2 - (f-g)^2$.}
+	Therefore, $4fg \in \mathscr{R}(\alpha)$ on $[a,b]$, from linearity of the integral.
+	Take $c = \frac{1}{4}$, we get $fg \in \mathscr{R}(\alpha)$ on $[a,b]$ from linearlity of the integral.\\
+
+	\hrule \vspace{1em}
+	\item
+	Let $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Let $\phi(t) = |t|$.
+	Then $\phi$ is continuous.
+	Therefore, $\phi \circ f = |f| \in \mathscr{R}(\alpha)$ on $[a,b]$.\\
+
+	{\color{blue}Let $c = \pm 1$ such that
+	\[ c\int f d\alpha \ge 0 \]
+	Then, 
+	\[ \left|\int f d\alpha \right| = c\int f d\alpha = \int cf d\alpha \le \int |f| d\alpha \]
+	since $cf \le |f|$. }
 \end{enumerate}
 \end{proof}
 
 \begin{definition}[step]
 	The unit step function, $I : \mathbb{R} \to [0,1]$ is defined by
-	\[ I(x) = \begin{cases} 0 & x \le 0 \\ 1 & x > 0 \end{cases} \]
+		\[ I(x) = \begin{cases} 0 & x \le 0 \\ 1 & x > 0 \end{cases} \]
 \end{definition}
 
 \begin{theorem}
+	Let $f$ be bounded on $[a,b]$ and continuous at $s \in (a,b)$.
+	Let $\alpha = I(t-s)$.
+	Then,
+		\[ \int_a^b f d\alpha = f(s) \]
 \end{theorem}
 \begin{proof}
+	Let $P = \{ a,s,x_2,b \}$ be a partition of $[a,b]$.
+	Since $f$ is bounded, 
+		\[ U(P,f,\alpha) = M_1 \Delta\alpha_1 + M_2 \Delta \alpha_2+ M_3 \Delta\alpha_3 = M_2 \]
+	since $\Delta\alpha_1 = 0$, we have $\Delta\alpha_2 = \alpha(x_2) - \alpha(s) = I(x_2-s) - I(0) = 1-0$ and $\Delta \alpha_3 = 0$.
+	Similarly, $L(P,f,\alpha) = m_1\Delta\alpha_1 + m_2\Delta\alpha_2 + m_3\Delta\alpha_3 = m_2$.
+	We have,
+		\[ m_2 = L(P,f,\alpha) \le \lowint_a^b f d\alpha \le \upint_a^b f d\alpha \le U(P,f,\alpha) = M_2 \]
+	We know that, $M_2$ is the maximum value of $f$ in the subinteval $[s,x_2]$.
+	The lower sum and upper sum remains the same as we reduce the length of the second subinterval.
+	We also know that, $f$ is continuous at $s$.
+	As $x_2 \to s$, the maximum value of $f$ tends to the value of $f$ at $s$, say $f(s)$.
+	Similarly,  $m_2 \to f(s)$ as $x_2 \to s$.
+	Thus,
+		\[ f(s) \le \lowint_a^b f d\alpha \le \upint_a^b f d\alpha \le f(s) \]
+	Therefore, $f \in \mathscr{R}(\alpha)$ on $[a,b]$ and
+		\[ \int_a^b f d\alpha = f(s) \]
 \end{proof}
 
 \begin{theorem}
+	Suppose $\displaystyle \sum_{i=1}^\infty c_n$ converges and $c_n \ge 0$.
+	Let $f$ be continuous on $[a,b]$.
+	Let sequence $\sequence{s_n}$ be a strictly increasing sequence in $(a,b)$.
+	Let $\displaystyle \alpha = \sum_{i=1}^\infty c_n I(t-s_n)$.
+	Then,
+	\[ \int_a^b f\ d\alpha = \sum_{i=1}^\infty c_n f(s_n) \]
 \end{theorem}
 \begin{proof}
+	Let $\sum_{n=1}^\infty c_n$ be a convergent series.
+	Given $\varepsilon > 0$, there exists a natural number $N$ such that 
+	\[ \sum_{n=N+1}^\infty c_n < \varepsilon \]
+	Let $s_1,s_2,s_3,\dots$ be distinct points in $(a,b)$.
+	Without loss of generality, sequence $\sequence{s_n}$ is a striclty increasing sequence in $[a,b]$.
+	Let $\alpha = \sum_{n = 1}^\infty c_n I(t-s_n)$.
+	Then, $\alpha(a) = 0$ and $\alpha(b) = \sum_{n=1}^\infty c_n$.
+	\[ 0 \le \alpha(x) \le \sum_{n=1}^\infty c_n, \quad \forall x \in [a,b] \]
+	By comparison test, $\alpha$ is convergent in $[a,b]$.
+	We have,
+	\[ \int_a^b f(t)\ d(c_1 I(t-s_1)) = c_1 \int_a^b f(t)\ d(I(t-s_1)) =  c_1 f(s_1) \]
+	Let $\alpha = \alpha_1 + \alpha_2$ where $\displaystyle \alpha_1 = \sum_{n=1}^N c_n I(t-s_n)$ and $\displaystyle\alpha_2 = \sum_{n=N+1}^\infty c_n I(t-s_n)$.
+	And from mathematical induction, we have
+	\begin{align*}
+	\int_a^b f(t) d(\alpha_1) 
+		& = \int_a^b f(t)\ d\left( \sum_{n=1}^N c_n I(t-s_n) \right)\\
+		& = \sum_{n=1}^N \int_a^b f(t)\ d(c_nI(t-s_n)) \\
+		& = \sum_{n=1}^N c_n \int_a^b f dI(t-s_n) \\
+		& = \sum_{n=1}^N c_n f(s_n) 
+	\end{align*}
+	We have,
+	\[ \left| \int_a^b f(t) d\alpha_2 \right| \le M (\alpha_2(b) - \alpha_2(a)) = M \sum_{n=N+1}^\infty < M\varepsilon \]
+	where $M = \sup |f(x)|$.
+	Thus,
+	\begin{align*}
+	\left| \int_a^b fd\alpha_2 \right| 
+		& = \left| \int_a^b f d(\alpha_1+\alpha_2) - \int_a^b fd\alpha_1 \right| \\
+		& = \left| \int_a^b fd\alpha - \sum_{n=1}^N c_n f(s_n) \right| \\
+		& < M\varepsilon 
+	\end{align*}
+	The inequality is true as $N \to \infty$. 
+	In other words, the sequence of partial sums converges to the value of integral of $f$.
+	Therefore,
+	\[ \sum_{n=1}^\infty c_n f(s_n) = \int_a^b f d\alpha \]
 \end{proof}
 
 \begin{theorem}
+	Let $\alpha$ be increasing function on $[a,b]$ and $\alpha' \in \mathscr{R}$.
+	Let $f$ be bounded real-valued function on $[a,b]$.
+	Then $f \in \mathscr{R}(\alpha)$ if and only if $f\alpha' \in \mathscr{R}$.
+	And
+	\[ \int_a^b f d\alpha = \int_a^b f(x)\alpha'(x) dx \]
 \end{theorem}
 \begin{proof}
+	Since $\alpha' \in \mathscr{R}$ on $[a,b]$, for any $\varepsilon > 0$, there exists a partition $P$ of $[a,b]$ such that $U(P,\alpha')-L(P,\alpha') < \varepsilon$.
+	We have, $\alpha$ is continuous on $[a,b]$, as it is differentiable on $[a,b]$.
+	Then by intermediate value theorem, we have
+	\[ \Delta \alpha_i = \alpha(x_i) - \alpha(x_{i-1}) = \alpha'(t_i) (x_i-x_{i-1}) \]
+	where $t_i \in [x_{i-1},x_i]$.
+	Let $s_i \in [x_{i-1},x_i]$.
+	Then,
+	\[ \sum_{i=1}^n |\alpha'(s_i) - \alpha'(t_i)|\Delta x_i \le U(P,\alpha') - L(P,\alpha') < \varepsilon \]
+	Let $M = \sup |f|$.
+	\textcolor{blue}{Let $u_i \in [x_{i-1},x_i]$.}
+	\footnote{In my opinion, using $u_i$ instead of $s_i$ in the first sum makes it simpler.}
+	Consider,
+	\begin{align*}
+	\left| \sum_{i=1}^n f(u_i) \Delta \alpha_i - \sum_{i=1}^n f(s_i) \alpha'(s_i) \Delta x_i \right| 
+		& \le M \left| \sum_{i=1}^n \Delta \alpha_i - \alpha'(s_i) \Delta x_i \right| \\
+		& \le M \left| \sum_{i=1}^n \alpha'(t_i) \Delta x_i - \alpha'(s_i) \Delta x_i \right| \\
+		& \le M  \sum_{i=1}^n |\alpha'(t_i) - \alpha'(s_i)| \Delta x_i \\
+		& < M \varepsilon 
+	\end{align*}
+	Clearly, the inequality is true independent of the choice of $u_i,s_i \in [x_{i-1},x_i]$.
+	Thus, selecting $u_i$ such that $f(u_i) = M_i$, we get
+	\[ \left| U(P,f,\alpha) - \sum_{i=1}^n \alpha'(s_i)\Delta x_i \right| < M\varepsilon \]
+	Therefore,
+	\[ \sum_{i=1}^n f(s_i) \alpha'(s_i) \Delta x_i < U(P,f,\alpha) + M\varepsilon \]
+	Selecting $s_i$ such that $f\alpha'$ attains maximum at $s_i$, we get
+	\[ U(P,f\alpha') < U(P,f,\alpha) + M\varepsilon \]
+	Now, first we select $s_i$ such that $f\alpha(s_i)$ is maximum in $i$th subinterval of $P$.
+	Then,
+	\[ \left| \sum_{i=1}^n f(u_i) \Delta \alpha_i - U(P,f\alpha') \right| < M\varepsilon \]
+	Therefore,
+	\[ U(P,f\alpha') < \sum_{i=1}^n f(u_i) \Delta \alpha_i + M\varepsilon \]
+	And, now selecting $u_i$ such that $f(u_i) = M_i$.
+	\[ U(P,f\alpha') < U(P,f,\alpha) + M\varepsilon \]
+	Therefore, we have $U(P,f\alpha') = U(P,f,\alpha)$.
+	Clearly, it is true for any refinement of $P$.
+	Therefore,
+	\[ \upint_a^b f\alpha' dx = \upint_a^b f d\alpha \]
+	Similary, by selecting $u_i$ and $s_i$ such that $f(u_i)$, $f\alpha'(s_i)$ is minimum in each subinterval of $P$, we get
+	\[ \lowint_a^b f\alpha' dx = \lowint_a^b f d\alpha \]
+	Cleary, $f \in \mathscr{R}(\alpha) \iff f\alpha' \in \mathscr{R}$. And,
+	\[ \int_a^b f\alpha' dx = \int_a^b f d\alpha \]
 \end{proof}
 
 \begin{theorem}[change of variable]
+	Let $\varphi : [A,B] \to [a,b]$ be a strictly increasing, continuous function onto $[a,b]$.
+	Let $\alpha : [a,b] \to \mathbb{R}$ be an increasing function and $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Define $\beta = \alpha \circ \varphi$ and $g = f \circ \varphi$.
+	Then $g \in \mathscr{R}(\beta)$ on $[A,B]$ and 
+	\[ \int_A^B g d\beta = \int_a^b f d\alpha \]
 \end{theorem}
 \begin{proof}
+	Let $P = \{x_0,x_1,\dots,x_n\}$ be any partition of $[a,b]$.
+	Then there exists a partition $Q = \{ y_0,y_1,\dots,y_n\}$ of $[A,B]$ such that $x_j = \varphi(y_j)$ since $\varphi$ is a continuous, bijection.
+	\dag\footnote{Strictly increasing functions are always injective.}
+	Similarly, for any partition $Q = \{ y_0,y_1,\dots,y_n\}$ of $[A,B]$, there exists a partition $P = \{ x_0,x_1,\dots,x_n\}$ of $[a,b]$ where $x_j= \varphi(y_j)$.
+	Clearly, minimum/maximum of $g$ in $i$th subinterval of $Q$ is same as the minimum/maximum of $f$ in $i$th subinterval of $P$.
+	And 
+	\[ \Delta \beta_i = \beta(y_i) - \beta(y_{i-1}) = \alpha(\varphi(y_i)) - \alpha(\varphi(y_{i-1})) = \alpha(x_i) - \alpha(x_{i-1}) = \Delta \alpha_i \]
+	\begin{align*}
+	\min \{ g(y) : y \in [y_{i-1},y_i] \}
+		& = \min \{ f(\varphi(y)) : y \in [y_{i-1},y_i] \} \\
+		& = \min \{ f(x) : x \in [x_{i-1},x_i] \} \\
+	\implies L(Q,g,\beta) 
+		& = L(P,f,\alpha) \\
+	\max \{ g(y) : y \in [y_{i-1},y_i] \}
+		& = \max \{ f(\varphi(y)) : y \in [y_{i-1},y_i] \} \\
+		& = \max \{ f(x) : x \in [x_{i-1},x_i] \} \\
+		\implies U(Q,g,\beta) & = U(P,f,\alpha) \\
+	\end{align*}
+	Since $f \in \mathscr{R}(\alpha)$ on $[a,b]$, there exists a partition $P$ of $[a,b]$ such that $U(P,f,\alpha) - L(P,f,\alpha) < \varepsilon$.
+	Therefore, there exists a partition $Q$ of $[A,B]$ such that $U(Q,g,\beta) - L(Q,g,\beta) < \varepsilon$.
+	Thus, $g \in \mathscr{R}(\beta)$.
+	And
+	\[ \int_A^B g d\beta = \int_a^b f d\alpha \]
 \end{proof}
 
 \subsection{Integration and Differentiation}
 \begin{theorem}
+	Let $f \in \mathscr{R}$ on $[a,b]$.
+	Let $a \le x \le b$.
+	Define
+	\[ F(x) = \int_a^x f(t)dt \]
+	Then $F$ is continuous on $[a,b]$.
+	Furthermore, if $f$ is continuous at $x_0$, then $F$ is differentiable at $x_0$.
+	And $F'(x_0) = f(x_0)$.
 \end{theorem}
 \begin{proof}
+	Let $a\le x < y \le b$.
+	Let $M = \sup |f|$.
+	We have,
+	\begin{align*}
+	|F(y)-F(x)| 
+		& = \left| \int_a^y f(t) dt - \int_a^x f(t) dt \right| \\
+		& = \left| \int_a^x f(t) dt + \int_x^y f(t) dt - \int_a^x f(t) dt \right| \\
+		& = \left| \int_x^y f(t) dt \right| \\
+		& \le M(y-x)
+	\end{align*}
+	Thus, given $\varepsilon > 0$, there exists $\delta > 0$ such that $|F(y)-F(x)| < \varepsilon$ whenever $|y-x| < \delta \le \frac{\varepsilon}{M}$.
+	Therefore, $F$ is continuous on $[a,b]$.\\
+
+	Let $f$ be continuous at $x_0 \in [a,b]$.
+	Given $\varepsilon > 0$, there exists $\delta > 0$ such that $|f(t)-f(x_0)| < \varepsilon$ whenever $|t-x_0| < \delta$ and $t \in [a,b]$.\\
+
+	Let $x-\delta < s \le x_0 \le t < x+\delta$.
+	Clearly, $|f(u)-f(x_0)| < \varepsilon$ whenever $u \in [s,t]$.
+	Consider,
+	\begin{align*}
+	\left| \frac{F(t) - F(s)}{t-s} - f(x_0) \right| 
+		& = \left| \frac{1}{t-s} \left( \int_a^t f(u) du - \int_a^s f(u) du \right) - \frac{1}{t-s} f(x_0)(t-s) \right| \\
+		& = \left| \frac{1}{t-s} \int_s^t f(u) du  - \frac{1}{t-s} \int_s^t f(x_0)du \right| \\
+		& = \left| \frac{1}{t-s} \left( \int_s^t (f(u)-f(x_0)) du \right) \right| \\
+		& < \frac{\varepsilon}{t-s} \int_s^t du \quad \text{ since } |f(u)-f(x_0)| < \varepsilon  \\
+		& < \varepsilon
+	\end{align*}
+	Clearly, as $\varepsilon \to 0$, $\delta \to 0$.
+	Then, $s,t \to x_0$.
+	Therefore, $F$ differentiable at $x_0$ and
+	\[ F'(x_0) = \lim_{s,t \to x_0} \frac{F(t)-F(s)}{t-s} =  f(x_0) \]
 \end{proof}
 
 \begin{theorem}[fundamental theorem of calculus]
+	Let $f \in\mathscr{R}$ on $[a,b]$.
+	Let $F$ be a differentiable function on $[a,b]$ such that $F'=f$.
+	Then,
+	\[ \int_a^b f(x)dx = F(b)-F(a) \]
 \end{theorem}
 \begin{proof}
+	Let $\varepsilon > 0$.
+	Let $f \in \mathscr{R}$ on $[a,b]$.
+	Then, there exists a partition $P = \{ x_0,x_1,\dots,x_n\}$ of $[a,b]$ such that $U(P,f)-L(P,f) < \varepsilon$.\\
+
+	Let $F$ be differentiable function such that $F'=f$.
+	Then, $F$ is continuous.
+	By intermediate value theorem, there exists $t_i \in [x_{i-1},x_i]$ such that 
+	\[ F(x_i) - F(x_{i-1}) = F'(t_i) (x_i-x_{i-1}) = f(t_i)\Delta x_i \]
+	Clearly,
+	\[ F(b) - F(a) = \sum_{i=1}^n \left( F(x_i) - F(x_{i-1}) \right) = \sum_{i=1}^n f(t_i) \Delta x_i \]
+	Since $t_i \in [x_{i-1},x_i]$, we have $m_i \le f(t_i) \le M_i$.
+	Thus,
+	\[ \left| \int_a^b f(x) dx - \left(F(b)-F(a)\right) \right| = \left| \int_a^b f(x) dx - \sum_{i=1}^n f(t_i) \Delta x_i \right| < \varepsilon \]
+	Therefore, 
+	\[ \int_a^b f(x) dx = F(b) - F(a) \]
 \end{proof}
 
 \begin{theorem}[integration by parts]
+	Let $F,G$ be differentiable $[a,b]$.
+	Let $F' = f \in \mathscr{R}$ and $G' = g \in \mathscr{R}$.
+	Then,
+	\[ \int_a^b F(x)g(x) dx = F(b)G(b) - F(a)G(a) - \int_a^b f(x)G(x) dx \]
 \end{theorem}
 \begin{proof}
+	Let $F,G$ be differentiable functions on $[a,b]$ and $F'=f \in \mathscr{R}$ and $G'=g \in \mathscr{R}$.
+	Let $H = FG$. 
+	Then, $H' = FG' + F'G = Fg + fG$.
+	\[ \int_a^b H'(x) dx = \int_a^b F(x)g(x) dx + \int_a^b f(x)G(x) dx \]
+	By fundamental theorem of calculus, we also have
+	\[ \int_a^b H'(x) = H(b) - H(a) = FG(b) - FG(a) = F(b)G(b) - F(a)G(a) \]
+	Rearranging the terms, we get
+	\[ \int_a^b F(x)g(x) dx = F(b)G(b) - F(a)G(a) - \int_a^b f(x)G(x) dx \]
 \end{proof}
 
 \subsection{Integration of Vector-valued Functions}
 \begin{definition}[integrable]
+	Let $\bar{f} : [a,b] \to \mathbb{R}^k$ be a vector-valued function.
+	Let $\alpha$ be a monotonic function on $[a,b]$.
+	Let $f_1,f_2,\dots,f_k$ be the component functions of $\bar{f}$.
+	That is, $\bar{f}(x) = \left( f_1(x),f_2(x),\dots,f_k(x) \right)$.
+	Then $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$ if and only if every component function $f_j \in \mathscr{R}(\alpha)$.
 \end{definition}
+\begin{important}
+	In other words, vector-valued function $\bar{f}$ is integrable if and only if every component function of $\bar{f}$ is integrable.
+\end{important}
 
-
-\begin{theorem}
+\begin{commentary}
+\begin{theorem}[properties]
+	Suppose $\bar{f},\bar{g}$ be vector-valued functions from $[a,b]$ into $\mathbb{R}^k$.
+\begin{enumerate}
+	\item Let $\bar{f},\bar{g} \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Then $\bar{f} + \bar{g} \in \mathscr{R}(\alpha)$.
+	And,
+	\[ \int_a^b \bar{f} + \bar{g} d\alpha = \int_a^b \bar{f} d\alpha + \int_a^b \bar{g} d \alpha \]
+	If $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$ and $c \in \mathbb{R}$, then $c\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	And,
+	\[ \int_a^b c\bar{f} d\alpha = c \int_a^b \bar{f} d\alpha \]
+	\item Let $c \in (a,b)$.
+	Let $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Then $\bar{f} \in \mathscr{R}(\alpha)$ on both $[a,c]$ and $[c,b]$.
+	And,
+	\[ \int_a^b \bar{f} d\alpha = \int_a^c \bar{f} d\alpha + \int_c^b \bar{f} d\alpha \]
+	\item Let $\alpha_1,\alpha_2$ be monotonic functions on $[a,b]$.
+	Let $\bar{f} \in \mathscr{R}(\alpha_1)$ on $[a,b]$ and $\bar{f} \in \mathscr{R}(\alpha_2)$ on $[a,b]$.
+	Then, $\bar{f} \in \mathscr{R}(\alpha_1+\alpha_2)$ on $[a,b]$.
+	And,
+	\[ \int_a^b \bar{f}d(\alpha_1+\alpha_2) = \int_a^b \bar{f} d\alpha_1 + \int_a^b \bar{f} d\alpha_2 \]
+\end{enumerate}
 \end{theorem}
 \begin{proof}
+\begin{enumerate}
+	\item
+	Let $\bar{f},\bar{g} \in \mathscr{R}(\alpha)$ on $[a,b]$ where $\bar{f} = (f_1,f_2,\dots, f_k)$ and $\bar{g} = (g_1,g_2,\dots, g_k)$.
+	By definition of integrability of vector-valued functions, the component functions $f_j,g_j \in \mathscr{R}(\alpha)$ on $[a,b]$ for $1 \le j \le k$.\\
+
+	We also know that, if $f_j, g_j \in \mathscr{R}(\alpha)$ on $[a,b]$, then $f_j + g_j \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Thus, $f_1+g_1, f_2+g_2,\dots, f_k + g_k \in \mathscr{R}(\alpha)$ on $[a,b]$ for $1 \le j \le k$.
+	Therefore, $\bar{f}+\bar{g} = (f_1+g_1,f_2+g_2,\dots, f_k+g_k) \in \mathscr{R}(\alpha)$ on $[a,b]$.\\
+
+	\hrule \vspace{1em}
+
+	Let $c \in \mathbb{R}$.
+	Let $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Then, $f_1,f_2,\dots,f_k \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	We know that, $cf_1 \in \mathscr{R}(\alpha)$ on $[a,b]$, since $f_1 \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Thus, $cf_1,cf_2,\dots,cf_k \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Therefore, $c\bar{f} = (cf_1,cf_2,\dots,cf_k) \in \mathscr{R}(\alpha)$ on $[a,b]$.\\
+
+	\hrule \vspace{1em}
+	\item
+	Let $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Then, $f_1,f_2,\dots,f_k \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Let $c \in (a,b)$.
+	We know that, if $f_j \in \mathscr{R}(\alpha)$ on $[a,b]$, then $f_j \in \mathscr{R}(\alpha)$ on both $[a,c]$ and $[c,b]$.
+	Thus, $f_1,f_2,\dots,f_k \in \mathscr{R}(\alpha)$ on both $[a,c]$ and $[c,b]$.
+	Therefore, $\bar{f} \in \mathscr{R}(\alpha)$ on both $[a,c]$ and $[c,b]$.\\
+
+	\hrule \vspace{1em}
+	\item
+	Let $\bar{f} \in \mathscr{R}(\alpha_1)$ and $\bar{f} \in \mathscr{R}(\alpha_2)$ on $[a,b]$.
+	Then $f_1,f_2,\dots,f_k \in \mathscr{R}(\alpha_1)$ and $f_1,f_2,\dots,f_k \in \mathscr{R}(\alpha_2)$ on $[a,b]$.
+	We know that, if $f_j \in \mathscr{R}(\alpha_1)$ and $f_j \in \mathscr{R}(\alpha_2)$ on $[a,b]$, then $f_j \in \mathscr{R}(\alpha_1+\alpha_2)$ on $[a,b]$.
+\end{enumerate}
+\end{proof}
+\end{commentary}
+\begin{challenge}
+	Let $\bar{f},\bar{g} \in \mathscr{R}(\alpha)$ on $[a,b]$ where $\bar{f},\bar{g} : [a,b] \to \mathbb{R}^k$.
+	Define $\bar{f} \cdot \bar{g} : [a,b] \to \mathbb{R}$ by $(\bar{f} \cdot \bar{g})(x) = f_1(x)g_1(x) + f_2(x)g_2(x) + \dots + f_k(x)g_k(x)$.
+	Then, $\bar{f} \cdot \bar{g} \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	And,
+	\[ \int_a^b \bar{f} \cdot \bar{g} d\alpha = \left( \int_a^b \bar{f} d\alpha \right) \cdot \left( \int_a^b \bar{g} d\alpha \right) \]
+\end{challenge}
+
+\begin{commentary}
+\begin{theorem}
+	Let $\alpha$ be a monotonic function such that $\alpha' \in \mathscr{R}$ on $[a,b]$.
+	Let $\bar{f}$ be a bounded function on $[a,b]$.
+	Then $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$ if and only if $f\alpha' \in \mathscr{R}$ on $[a,b]$.
+	And,
+		\[ \int_a^b \bar{f} d\alpha = \int_a^b \bar{f}\alpha' dx \]
+\end{theorem}
+\begin{proof}
+	Let $\bar{f} = (f_1,f_2,\dots,f_k)$.
+	Then, $\bar{f}\alpha' = (f_1\alpha', f_2\alpha',\dots,f_k\alpha')$.\\
+	We already know that, $f_j \in \mathscr{R}(\alpha) \iff f_j\alpha' \in \mathscr{R}$.\\
+	Therefore,
+	\begin{align*}
+	\bar{f} \in \mathscr{R}(\alpha) 
+		& \iff f_1,f_2,\dots,f_k \in \mathscr{R}(\alpha) \\
+		& \iff f_1\alpha', f_2\alpha', \dots, f_k\alpha' \in \mathscr{R} \\
+		& \iff \bar{f}\alpha' \in \mathscr{R}
+	\end{align*}
+	Thus, $\bar{f} \in \mathscr{R}(\alpha) \iff \bar{f}\alpha' \in \mathscr{R}$.\\
+
+	\hrule \vspace{1em}
+	We also know that,
+		\[ \int_a^b f_j d\alpha = \int_a^b f_j\alpha' dx \]
+	Thus,
+	\begin{align*}
+	\int_a^b \bar{f} d\alpha 
+		& = \left( \int_a^b f_1 d\alpha, \int_a^b f_2 d\alpha, \dots,\int_a^b f_k d\alpha \right) \\
+		& = \left( \int_a^b f_1\alpha' dx, \int_a^b f_2\alpha' dx,\dots, \int_a^b f_k\alpha' dx \right)\\
+		& = \int_a^b \bar{f}\alpha' dx
+	\end{align*}
+\end{proof}
+\end{commentary}
+
+\begin{commentary}
+\begin{theorem}
+	Let $\bar{f} \in \mathscr{R}$ on $[a,b]$ where $\bar{f} : [a,b] \to \mathbb{R}^k$.
+	Define $\bar{F} : [a,b] \to \mathbb{R}^k$ defined by
+		\[ \bar{F}(x) = \int_a^x \bar{f}(t) dt \]
+	Then $F$ is continuous on $[a,b]$.
+	Furthermore, if $\bar{f}$ is continuous at $x_0 \in [a,b]$, then $\bar{F}$ is differentiable at $x_0$ and $\bar{F}'(x_0) = \bar{f}(x_0)$.
+\end{theorem}
+\begin{proof}
+	We know that, $\bar{f} = (f_1,f_2,\dots,f_k)$.
+	And from the definition of integral, we have
+		\[ \int_a^b \bar{f}(t) dt = \left( \int_a^b f_1(t) dt, \int_a^b f_2(t) dt,\dots, \int_a^b f_k(t) dt \right) \]
+	We know that, for $1 \le j \le k$, the function $F_j : [a,b] \to \mathbb{R}$ defined by 
+		\[ F_j(x) = \int_a^x f_j(t) dt \]
+	is continuous.
+	And if $f_j$ is continuous at $x_0$, then $F_j$ is differentiable at $x_0$ and $F_j'(x_0) = f_j(x_0)$.
+	Clearly, $\bar{F} = (F_1,F_2,\dots,F_k)$ is continuous, since each component function is continuous.
+	And, $\bar{F}$ is differentiable at $x_0$ and
+		\[ \bar{F}'(x_0) = \left( F_1'(x_0),F_2'(x_0),\dots,F_k'(x_0) \right) = (f_1(x_0),f_2(x_0),\dots,f_k(x_0)) = \bar{f}(x_0) \]
+\end{proof}
+\end{commentary}
+
+\begin{theorem}[fundamental theorem of calculus for vector-valued functions]
+	Let $\bar{f} : [a,b] \to \mathbb{R}^k$.
+	Let $\bar{F} : [a,b] \to \mathbb{R}^k$.
+	If $\bar{f} \in \mathscr{R}$ on $[a,b]$ and $\bar{F}' = \bar{f}$, then
+		\[ \int_a^b \bar{f}(t) dt = \bar{F}(b) - \bar{F}(a) \]
+\end{theorem}
+\begin{proof}
+By fundamental theorem of calculus, we have
+	\[ \int_a^b f_j(t) dt = F_j(b) - F_j(a) \]
+ 	for $1 \le j \le k$.
+Therefore,
+\begin{align*}
+	\int_a^b \bar{f}(t) dt
+		& = \left( \int_a^b f_1(t) dt, \int_a^b f_2(t) dt, \dots, \int_a^b f_k(t) dt \right) \\
+		& = \left( F_1(b)-F_1(a), F_2(b) - F_2(a), \dots, F_k(b) - F_k(a) \right) \\
+		& = \left( F_1(b),F_2(b),\dots,F_k(b)\right) - \left(F_1(a), F_2(a),\dots,F_k(a)\right) \\
+		& = \bar{F}(b) - \bar{F}(a)
+\end{align*}
 \end{proof}
 
 \begin{theorem}
+	Let $\bar{f} : [a,b] \to \mathbb{R}^k$.
+	If $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$, then $|\bar{f}| \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	And
+	\[ \left| \int_a^b \bar{f} d\alpha \right| \le \int_a^b |\bar{f}| d\alpha \]
 \end{theorem}
 \begin{proof}
+	Let $\bar{f} : [a,b] \to \mathbb{R}^k$.
+	Then, we have $\bar{f} = (f_1,f_2,\dots,f_k)$.\\
+	Suppose $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Then, $f_j \in \mathscr{R}(\alpha)$ on $[a,b]$ for $1 \le j \le k$.
+	We have, $|\bar{f}| = \left( f_1^2+f_2^2+\dots+f_k^2 \right)^\frac{1}{2}$.
+	We know that if $f_j \in \mathscr{R}(\alpha)$, then $f_j^2 \in \mathscr{R}(\alpha)$.
+	Again, $\sum f_j^2 \in \mathscr{R}(\alpha)$.\\
+
+	Consider $g : [a,b] \to \mathbb{R}$ given by $g(x) = \sum_{j=1}^k f_j^2(x)$.
+	We have, $g$ is continous on $[a,b]$, since $f_j$ are continuous on $[a,b]$.
+	Thus $g$ is bounded and there exists $m,M$ such that $m \le g \le M$.
+	Clearly, $g \ge 0$.\\
+
+	Consider, the function $\phi : [m,M] \to \mathbb{R}$ given by $\phi(x) = \sqrt{x}$.
+	Clearly, $\phi$ is well-defined on $[m,M]$ since $0 \le m$.
+	And, $\phi$ is continuous on $[m,M]$.
+	Thus, $|\bar{f}| = \phi \circ g = \sqrt{\sum f_j^2} \in \mathscr{R}(\alpha)$ on $[a,b]$.\\
+
+	\hrule \vspace{1em}
+	
+	Let $\displaystyle \bar{y} = \int_a^b \bar{f} d\alpha$.
+	Then, $\bar{y} = (y_1,y_2,\dots,y_k)$ and $\displaystyle y_j = \int_a^b f_j d\alpha$.
+	\begin{align*}
+	|\bar{y}|^2 
+		& = y_1^2 + y_2^2 + \dots + y_k^2\\
+		& = y_1 \int_a^b f_1 d\alpha + y_2 \int_a^b f_2 d\alpha + \dots + y_k \int_a^b f_k d\alpha \\
+		& = \int_a^b (y_1f_1 + y_2f_2 + \dots + y_kf_k) d\alpha
+	\end{align*}
+	By Schwarz inequality,
+		\[ \sum_{j=1}^n y_j f_j \le \left( \sum_{j=1}^n y_j^2 \right)^\frac{1}{2} \left( \sum_{j=1}^n f_j^2 \right)^\frac{1}{2} = |\bar{y}| \ |\bar{f}| \]
+	Thus,
+		\[ \bar{y}^2 = \int_a^b \left( \sum_{j=1}^k y_jf_j \right) d\alpha \le \int_a^b |\bar{y}|\ |\bar{f}| d\alpha = |\bar{y}| \int_a^b |\bar{f}| d\alpha \]
+	Therefore,
+		\[ \left| \int_a^b \bar{f} d\alpha \right| = |\bar{y}| \le \int_a^b |\bar{f}| d\alpha \]
+
 \end{proof}
+
+\pagebreak
 
 %\chapter{Sequence \& Series of Functions}
 %\chapter{Weierstrass Approximation \& Some Special Functions
