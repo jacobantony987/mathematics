@@ -28,8 +28,9 @@
 %	12, 13, 15, 18, 19, 25, 28, 30, 35, 38, 39, 40, 41, 42, 43, 44
 
 %Module 1
+{\Large Module 1 Field Extensions}
 \section{Extension Fields \S29}
-\subsubsection*{Previous Results}
+\subsubsection*{Context}
 \begin{itemize}
 	\item Let $R$ be a commutative ring with unity.
 		If $M$ is a maximal ideal in $R$, then $R/M$ is a field.
@@ -68,15 +69,12 @@
 	If $f(x)$ is irreducible over $F$, then $f(x) = cp(x)$.
 	It is enough to construct an extension field $E$ containing both $F$ and $\alpha$ such that ${\color{red}p}(\alpha) = 0$.\\
 
-
 	If $p(x)$ is irreducible over $F$, then $\generator{p(x)}$ is maximal ideal in $F[x]$.
-	Therefore, $F[x]/\\generator{p(x)}$ is a field, say $E$.\\
-
+	Therefore, $F[x]/\generator{p(x)}$ is a field, say $E$.\\
 
 	Consider the function $\psi : F \to F[x]/\generator{p(x)}$ defined by $\psi(a) = a+\generator{p(x)}$.
 	We claim that $\psi : F \to \psi[F]$ is a field isomorphism.
 	$\psi$ is a canonical homomorphism with trivial kernel. Thus, $\psi$ is one-to-one.\\
-
 
 	Let $a,b \in F$.
 	And suppose $\psi(a) = \psi(b)$.
@@ -86,7 +84,6 @@
 	Then $a-b \ne 0$ and $degree(a-b) = 0$.
 	Then, $\generator{p(x)} = F[x]$ which is a contradiction since $\generator{p(x)}$ is maximal ideal.
 	Therefore, $\psi$ is one-to-one.\\
-
 	
 	We have $p(x)$ is a factor of $f(x)$.
 	Thus $p(\alpha) = 0 \implies f(\alpha) = 0$.
@@ -110,13 +107,13 @@
 	\item[transcendental number] A complex number $\alpha \in \mathbb{C}$ is transcendental if it is not an algebraic number.
 		Example : $\pi,e$ (proof excluded)
 \end{description}
-
+\hrule \vspace{1em}
 \textbf{Note 1} : A polynomial $f(x) \in F[x]$ is reducible/irreducible depending upon the choice of the field $F$.
 For example : $x^2-2$ is irreducible over $\mathbb{Q}$, but is reducible over $\mathbb{R}$.
 
 \textbf{Note 2} : An element $\alpha \in E$ is algebraic/transcendental depending on the choice of the field $F$.
 For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^2-2 \in \mathbb{Q}[x]$.
-
+\hrule \vspace{1em}
 \begin{theorem}
 	Let $E$ be an extension field of $F$, and $\alpha \in E$.
 	Let function $\phi_\alpha : F[x] \to E$ be an evaluation homomoprhism.
@@ -422,7 +419,6 @@ Then every irreducible polynomial in $F[x]$ are linear since every non-constant 
 \begin{description}
 	\item[POSET] Partial Ordered Set - A set together with partial order (reflexive, antisymmetric, transitive relation).\\
 		
-
 	For example $(\mathbb{R},<)$, the set of all real numbers together with less than relation is a poset.
 		However, in a poset it is not necessary that two arbitrary elements are comparable.
 		$(\mathbb{C},R)$ defined by $aRb$ if $\Re(a) = \Re(b)$ and $Im(a) < Im(b)$ is a poset in which $2+3i$ and $3+3i$ are not comparable.
@@ -591,15 +587,14 @@ Then every irreducible polynomial in $F[x]$ are linear since every non-constant 
 
 	Therefore, real numbers obtained from rational numbers through finite number of additions/subtractions, multplications/divisions, and square root are constructible.
 \end{proof}
-
+\hrule\vspace{1em}
 \textbf{Note : } For example $\sqrt[4]{5\sqrt[8]{3}-2}$ is constructible, but $\sqrt[6]{2}$ and $\pi$ are not constructible.
 We skip the proof that a real number which can't be obtained from rationals by a finite number of these operations is not constructible.
 And assume that these three operations define the entire field of constructible numbers.
-
+\hrule\vspace{1em}
 \begin{corollary}
 	Let $\gamma$ be constructible number which is not rational.
 	Then there exists a sequence of real numbers $\alpha_1,\alpha_2,\dots,\alpha_n = \gamma$ such that for every $i = 2,\dots,n$, the extension field $\mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_i)$ is an extension of $\mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_{i-1})$ of degree two.\\
-
 
 	In other words, for any constructible number $\gamma$, $[\mathbb{Q}(\gamma) : \mathbb{Q}] = 2^n$ for some positive integer $n$.
 \end{corollary}
@@ -608,11 +603,11 @@ And assume that these three operations define the entire field of constructible 
 	Then, we have a sequence of constructible numbers $\alpha_1, \alpha_2,\dots, \alpha_n$ such that $[\mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_i) : \mathbb{Q}(\alpha_1,\alpha_2,\dots,\alpha_{i-1})] = 2$.
 	Therefore, $[\mathbb{Q}(\gamma) : \mathbb{Q}] = 2^n$.
 \end{proof}
-
+\hrule\vspace{1em}
 	For example, $\gamma = \sqrt[4]{5\sqrt[8]{3}-2}$.
 	Then $\alpha_1 = \sqrt{3}$, $\alpha_2 = \sqrt[4]{3}$, $\alpha_3= \sqrt[8]{3}$, $\alpha_4 = \sqrt{5\sqrt[8]{3}-2}$ and $\alpha_5 = \gamma$.
 	Clearly, the geometric construction of $\gamma$ contains five instances of square root operation.
-
+\hrule\vspace{1em}
 \subsection{Impossible Problems from Ancient Times}
 \subsubsection{Doubling the cube}
 \begin{theorem}
@@ -857,6 +852,8 @@ And assume that these three operations define the entire field of constructible 
 \end{enumerate}
 
 %Module 2
+\pagebreak
+{\Large Module  2 : Unique Factorisation Domains}
 \section{Unique Factorisation Domains \S45}
 \begin{definition}[divides]
 	An element $a \in R$ divides $b$ if there exists an element $c \in R$ such that $b = ac$.
@@ -873,15 +870,14 @@ And assume that these three operations define the entire field of constructible 
 		\item The above factorisation is unique except for order and associates.
 	\end{enumerate}
 \end{definition}
-
+\hrule\vspace{1em}
 For example, In $\mathbb{Z}$, $24 = 2 \times 2 \times 2 \times 3 = -2 \times -3 \times 2 \times 2$.
 Here $2$ and $-2$ are associates.
 And $2$ and $3$ are not units, since $2^{-1}, 3^{-1} \notin \mathbb{Z}$.
-
+\hrule\vspace{1em}
 \begin{definition}[PID]
 	An integral domain is $D$ is a \textbf{Principal Ideal Domain} if every ideal in $D$ is a principal ideal.
 \end{definition}
-
 %\subsection{Construction of UFD}
 There are two important results on UFDs.
 \begin{enumerate}
@@ -954,9 +950,9 @@ There are two important results on UFDs.
 
 	\textbf{Step 1 : $a$ has an irreducible factor}\\
 	By the definition of irreducibility, $a$ has a factorisation $a = a_1b_1$ where $a_1,b_1$ are non-units.
-	And every element $ar \in \generator{a}$ can be expressed as $ar = a_1b_1r = a_1r' \in \\generator{a_1}$.
+	And every element $ar \in \generator{a}$ can be expressed as $ar = a_1b_1r = a_1r' \in \generator{a_1}$.
 	Thus, the ideal generated by $a$, $\generator{a}$ is contained in the ideal generated by $a_1$, $\generator{a_1}$.
-	That is, $\generator{a} \subset \\generator{a_1}$.\\
+	That is, $\generator{a} \subset \generator{a_1}$.\\
 
 	If $a_1$ is an irreducible, then the proof is complete.
 	Suppose $a_1$ is not an irreducible.
@@ -1135,10 +1131,11 @@ Remember that for any field $F$, $F[x]$ is a PID.
 	Then $f(x) = cg(x)$ for some primitive $g(x) \in D[x]$ and $c \in D$.
 	The element $c$ which is unique upto units, is the content of $f(x)$.
 \end{definition}
+\hrule\vspace{1em}
 	For example, Let $f(x) = 8x^3+6x^2+4 \in \mathbb{Z}[x]$.
 	Then $f(x) = 2(4x^3+3x^2+2)$ where $4x^3+3x^2+2 \in \mathbb{Z}[x]$ is a primitive and $2 \in \mathbb{Z}$.
 	Thus, $content(f) = 2$.
-
+\hrule\vspace{1em}
 \begin{lemma}[Gauss]
 	If $D$ is a UFD, then product of two primitive polynomials in $D[x]$ is again primitive.
 \end{lemma}
@@ -1243,9 +1240,9 @@ Remember that for any field $F$, $F[x]$ is a PID.
 	We know that, $h_k(x) | f(x) \implies h_k(x) | H_1(x)H_2(x)\dots H_r(x) \implies h_k(x) | H_k(x)$ (WLOG).
 	Therefore, the factorisation is unique.
 \end{proof}
-
+\hrule\vspace{1em}
 For example, let $x,y$ be two indeterminates, then an element $f(x) \in F[x,y]$ is of the form $\displaystyle\sum_{i,j = 0}^{n,m} a_{ij}x^i y^j$.
-
+\hrule\vspace{1em}
 \begin{corollary}
 	If $F$ is a field of quotients and $x_1,x_2,\dots,x_n$ are indeterminates, then $F[x_1,x_2,\dots,x_n]$ is a UFD.
 \end{corollary}
@@ -1273,8 +1270,9 @@ For example, let $x,y$ be two indeterminates, then an element $f(x) \in F[x,y]$ 
 \begin{definition}[Euclidean Domain]
 	An integral domain $D$ is a Euclidean Domain if there exists a Euclidean Norm in $D$.
 \end{definition}
+\hrule\vspace{1em}
 For example, $v(n) = |n|$ is a Euclidean norm on Euclidean domain $\mathbb{Z}$. And $v(f(x)) = deg(f(x))$ is a Euclidean norm on Euclidean domain $F[x]$.
-
+\hrule\vspace{1em}
 \begin{theorem}
 	Every Euclidean domain is a PID.
 \end{theorem}
@@ -1581,12 +1579,775 @@ Therefore, $\mathbb{Z}[\sqrt{-5}]$ is not a UFD.
 		Clearly, $6 = (1-\sqrt{-5})(1+\sqrt{-5})$ is another factorisation.
 \end{enumerate}
 %Module 3
+\pagebreak
+{\Large Module 3 Field Automorphisms}
 \section{Automorphism and Fields \S48}
+\subsubsection*{Context}
+\begin{enumerate}
+	\item Let $F$ be a field.
+		Then there exists a unique field $\bar{F}$ which is algebraically closed.
+	\item Let $F$ be a field.
+		Let $\alpha$ be algebraic over $F$.
+		Then there exists a unique, monic, irreducible, minimal polynomial $irr(\alpha,F) = p(x) \in F[x]$ such that $p(\alpha) = 0$.
+	\item $F(\alpha)$ is a vector space of dimension $[F(\alpha) : F] = \deg (\alpha,F)$ over $F$.
+\end{enumerate}
+
+\subsection{Conjugation Isomorphisms}
+\begin{definition}[conjugates]
+	Let $E$ be an algebraic extension of $F$.
+	Let $\alpha,\beta \in E$.
+	Then $\alpha$ and $\beta$ are \textbf{conjugates over $F$} if $irr(\alpha,F) = irr(\beta,F)$.
+\end{definition}
+\hrule\vspace{1em}
+For example, $i,-i$ are conjugates over $\mathbb{R}$.
+$irr(i,\mathbb{R}) = x^2+1 = irr(-i,\mathbb{R})$.
+\hrule\vspace{1em}
+\begin{theorem}[conjugation isomorphism]
+	Let $F$ be a field.
+	Let $\alpha,\beta$ be algebraic over $F$ with $\deg(\alpha,F) = n$.
+	The map $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$ defined by 
+	\[ \psi_{\alpha,\beta} \left( c_0 + c_1\alpha + \dots + c_{n-1}\alpha^{n-1} \right) = c_0 + c_1\beta + \dots + c_{n-1}\beta^{n-1} \]
+	where $c_j \in F$ is an isomorphism from $F(\alpha)$ onto $F(\beta)$ if and only if $\alpha,\beta$ are conjugates over $F$.
+\end{theorem}
+\begin{proof} 
+	Let $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$ be an isomorphism.
+	Let $\deg(\alpha,F) = n$ and $irr(\alpha,F) = q(x)$ given by
+	\[ irr(\alpha,F) = q(x) = a_0 + a_1 x + \dots + a_n x^n \]
+	Then 
+	\[ a_0 + a_1 \alpha + \dots + a_n \alpha^n = 0 \]
+	Thus,
+	\[ \psi_{\alpha,\beta}(0) = \psi_{\alpha,\beta} (a_0 + a_1 \alpha + \dots + a_n \alpha^n) = a_0 + a_1 \beta + \dots + a_n \beta^n = 0 \]
+	Let $irr(\beta,F) = p(x) \in F[x]$.
+	Then, $p(\beta) = 0$.
+	We already have, $q(\beta) = 0$.
+	Let $\phi_\beta : F[x] \to F(\beta)$ be evaluation homomorphism.
+	Then, $\phi_\beta(q(x)) = q(\beta)$.
+	Therefore, $q(x) \in \ker(\phi_\beta)$
+	However, $\ker(\phi_\beta)$ is the ideal generated by $p(x)$.
+	Therefore, $p(x)$ must divide $q(x)$ in $F[x]$.
+	Thus, $irr(\beta,F)$ divides $irr(\alpha,F)$.\\
+
+	Similarly, $\psi_{\alpha,\beta}^{-1} : F(\beta) \to F(\alpha)$ is an isomorphism and $irr(\alpha,F)$ divides $irr(\beta,F)$.
+	We know that, both the polynomials are monic polynomials.
+	Therefore, $irr(\alpha,F) = irr(\beta,F)$.
+	That is, $\alpha,\beta$ are conjugates over $F$.\\
+
+	\hrule\vspace{1em}
+
+	Let $irr(\alpha,F) = irr(\beta,F) = p(x)$.
+	Let $\phi_\alpha : F[x] \to F(\alpha)$ and $\phi_\beta : F[x] \to F(\beta)$ be evaluation homomorphisms.
+	We know that for any polynomial $f(x) \in F[x]$ with $f(\alpha) = 0$, $p(x)$ divides $f(x)$.
+	Thus, $\ker(\phi_\alpha) = \generator{p(x)}$.
+	Similarly, $\ker(\phi_\beta) = \generator{p(x)}$.\\
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\draw (2,3) node {$F[x]$};
+		\draw (2,0) node {$F[x]/\generator{p(x)}$};
+		\draw (-2,0) node {$F(\alpha)$};
+		\draw (6,0) node {$F(\beta)$};
+		\draw[-latex] (2,2.8) -- node(e1)[label=right:$\gamma$]{} (2,0.2);
+		\draw[-latex] (1.8,2.8) -- node(e2)[label=left:$\phi_\alpha$]{} (-1.6,0.4);
+		\draw[-latex] (2.2,2.8) -- node(e3)[label=right:$\phi_\beta$]{} (5.6,0.4);
+		\draw[-latex] (0.8,0) -- node(e4)[label=above:$\psi_\alpha$]{} (-1.4,0);
+		\draw[-latex] (3.2,0) -- node(e5)[label=above:$\psi_\beta$]{} (5.4,0);
+	\end{tikzpicture}
+	\caption{$\psi_{\alpha,\beta} = \psi_\beta \circ \psi_\alpha^{-1}$}
+\end{figure}
+
+	By fundamental homomorphism theorem, there exists a canonical isomorphism 
+	\[ \psi_\alpha : F[x]/\generator{p(x)} \to \phi_\alpha[F[x]],\quad \psi_\alpha(r(x) + \generator{p(x)}) = \phi_\alpha(r(x)) = r(\alpha) \]
+	Similary, there exists another canonical isomorphism
+	\[ \psi_\beta : F[x]/\generator{p(x)} \to \phi_\beta[F[x]],\quad \psi_\beta(r(x) + \generator{p(x)} = \phi_\beta(r(x)) = r(\beta) \]
+	Therefore, $\psi_{\alpha,\beta} = \psi_\beta \circ \psi_\alpha^{-1} : F(\alpha) \to F(\beta)$ is an isomorphism such that
+	\[ \psi_\beta \circ \psi_\alpha^{-1} (c_0 + c_1 \alpha + \dots +c_{n-1}\alpha^{n-1}) = c_0 + c_1 \beta + \dots + c_{n-1} \beta^{n-1} \]
+\end{proof}
+
+\begin{commentary}
+\begin{challenge}
+	No algebraic number over $\mathbb{R}$ has multiple conjugates.(proved later)
+	However, there exists fields over which there exists algebraic numbers with multiple conjugates.
+\end{challenge}
+\begin{proof}
+	Let $F = \mathbb{Z}_2$.
+	Polynomial $x^3+x+1$ is an irreducible over $\mathbb{Z}_2$ since $\phi_0(x^3+x+1) = 0^3+0+1 \ne 0$ and $\phi_1(x^3+x+1) = 1^3+1+1 \ne 0$.
+	Let $\alpha$ be a zero of $x^3+x+1$.
+	Then $\alpha$ is algebraic over $\mathbb{Z}_2$.
+	And $\phi_\alpha(x^3+x+1) = \alpha^3+\alpha+1 = 0$.
+	Then $\alpha$ has two conjugates $\beta,\gamma$.\\
+
+	We have, $[\mathbb{Z}(\alpha):\mathbb{Z}_2] = 3$.
+	Thus, $|\mathbb{Z}(\alpha)| = 8$.
+	And $\mathbb{Z}_2(\alpha) = \{ 0,1,\alpha,\alpha^2,\alpha+\alpha^2,1+\alpha,1+\alpha^2,1+\alpha+\alpha^2 \}$.
+	Clearly, $\alpha^3 = \alpha+1$.
+	We can test each element of $\mathbb{Z}_2(\alpha)$ to find other zeroes of the polynomial $x^3+x+1$.
+	Thus, $\phi_{\alpha^2} = 0$ and $\phi_{\alpha+\alpha^2} = 0$.
+	Let $\beta = \alpha^2$ and $\gamma = \alpha+\beta$.\\
+
+	Now the we have conjugate isomorphisms $\psi_{\alpha,\beta} : \mathbb{Z}_2(\alpha) \to \mathbb{Z}_2(\beta)$ and $\psi_{\alpha,\gamma} : \mathbb{Z}_2(\alpha) \to \mathbb{Z}_2(\gamma)$ defined by
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+		\draw (-2,0) node {$0$};
+		\draw (-2,1) node {$1$};
+		\draw (-2,2) node {$\alpha$};
+		\draw (-2,3) node {$\alpha^2$};
+		\draw (-2,4) node {$\alpha+1$};
+		\draw (-2,5) node {$\alpha^2+1$};
+		\draw (-2,6) node {$\alpha^2+\alpha$};
+		\draw (-2,7) node {$\alpha^2+\alpha+1$};
+		\draw (2,0) node {$0$};
+		\draw (2,1) node {$1$};
+		\draw (2,2) node {$\beta^2+\beta$};
+		\draw (2,3) node {$\beta$};
+		\draw (2,4) node {$\beta^2+\beta+1$};
+		\draw (2,5) node {$\beta+1$};
+		\draw (2,6) node {$\beta^2$};
+		\draw (2,7) node {$\beta^2+1$};
+		\draw[-latex,black] (-2,8) -- node(e1)[label=above:$\psi_{\alpha,\beta}$]{} (2,8);
+		\draw[-latex,black] (-1.5,0) -- (1.5,0);
+		\draw[-latex,black] (-1.5,1) -- (1.5,1);
+		\draw[-latex,black] (-1.5,2) -- (1.5,3);
+		\draw[-latex,black] (-1.5,3) -- (1.5,6);
+		\draw[-latex,black] (-1.3,4) -- (1.3,5);
+		\draw[-latex,black] (-1.3,5) -- (1.3,7);
+		\draw[-latex,black] (-1.3,6) -- (1.3,2);
+		\draw[-latex,black] (-1,7) -- (1,4);
+		\draw[-latex,blue] (2,8) -- node(e2)[label=above:$\psi_{\beta,\gamma}$]{} (6,8);
+		\draw[-latex,blue] (2.5,0) -- (5.5,0);
+		\draw[-latex,blue] (2.5,1) -- (5.5,1);
+		\draw[-latex,blue] (2.8,2) -- (5.3,3);
+		\draw[-latex,blue] (2.5,3) -- (5.5,6);
+		\draw[-latex,blue] (3,4) -- (5,5);
+		\draw[-latex,blue] (2.8,5) -- (5.5,7);
+		\draw[-latex,blue] (2.5,6) -- (5.5,2);
+		\draw[-latex,blue] (3,7) -- (5.3,4);
+		\draw (6,0) node {$0$};
+		\draw (6,1) node {$1$};
+		\draw (6,2) node {$\gamma^2$};
+		\draw (6,3) node {$\gamma^2+\gamma$};
+		\draw (6,4) node {$\gamma^2+1$};
+		\draw (6,5) node {$\gamma^2+\gamma+1$};
+		\draw (6,6) node {$\gamma$};
+		\draw (6,7) node {$\gamma+1$};
+		\draw (10,0) node {$0$};
+		\draw (10,1) node {$1$};
+		\draw (10,2) node {$\alpha$};
+		\draw (10,3) node {$\alpha^2$};
+		\draw (10,4) node {$\alpha+1$};
+		\draw (10,5) node {$\alpha^2+1$};
+		\draw (10,6) node {$\alpha^2+\alpha$};
+		\draw (10,7) node {$\alpha^2+\alpha+1$};
+		\draw[-latex,black] (6,8) -- node(e3)[label=above:$\psi_{\gamma,\alpha}$]{} (10,8);
+		\draw[-latex,black] (6.5,0) -- (9.5,0);
+		\draw[-latex,black] (6.5,1) -- (9.5,1);
+		\draw[-latex,black] (6.5,2) -- (9.5,3);
+		\draw[-latex,black] (6.8,3) -- (9.3,6);
+		\draw[-latex,black] (6.8,4) -- (9.3,5);
+		\draw[-latex,black] (7,5) -- (9,7);
+		\draw[-latex,black] (6.5,6) -- (9.5,2);
+		\draw[-latex,black] (6.8,7) -- (9.3,4);
+	\end{tikzpicture}
+	\caption{$\psi_{\alpha,\beta} : \mathbb{Z}_2(\alpha) \to \mathbb{Z}_2(\beta)$, $\psi_{\beta,\gamma} : \mathbb{Z}_2(\beta) \to \mathbb{Z}_2(\gamma)$, $\psi_{\gamma,\alpha} : \mathbb{Z}_2(\gamma) : \mathbb{Z}_2(\alpha)$.}
+\end{figure}
+Clearly, there are 6 conjugate isomorphisms on $\mathbb{Z}_2(\alpha)$.
+However, only two of them are distinct.
+\end{proof}
+\end{commentary}
+
+\begin{corollary}
+	Let $\alpha$ be algebraic over $F$.
+	Let $E \le \bar{F}$.
+	Then every isomorphism $\psi : F(\alpha) \to E$ with $\psi(a) = a,\ \forall a \in F$ maps $\alpha$ into its conjugate over $F$.
+	And for any conjugate $\beta$ of $\alpha$ over $F$, there exists a unique isomorphism $\psi_{\alpha,\beta} : F(\alpha) \to \bar{F}$ such that $\psi_{\alpha,\beta}(\alpha) = \beta$ and $\forall a \in F,\ \psi_{\alpha,\beta}(a) = a$.
+\end{corollary}
+\begin{proof} 
+	Let $\psi : F(\alpha) \to E$ be an isomorphism such that $\psi(a) = a,\ \forall a \in F$.
+	Let $irr(\alpha,F) = p(x) = a_0 + a_1x + \dots + a_nx^n$.
+	Then $\phi_\alpha(p(x)) = p(\alpha) = a_0 + a_1\alpha + \dots + a_n \alpha^n = 0$.
+	And, $\psi(0) = \psi(p(\alpha)) = a_0 + a_1 \psi(\alpha) + \dots + a_n \psi(\alpha)^n = 0$.
+	That is, $\psi(\alpha)$ is a zero of the polynomial $p(x)$.
+	Thus, $\alpha,\psi(\alpha)$ are conjugates over $F$.\\
+
+	\hrule\vspace{1em}
+
+	Let $\alpha,\beta$ be conjugates over $F$.
+	Then, the conjugation isomorphism $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$ defined by
+	\[ \psi_{\alpha,\beta}(a_0 + a_1\alpha + \dots + a_{n-1} \alpha^{n-1}) = a_0 + a_1 \beta + \dots + a_{n-1} \beta^{n-1} \]
+	is an isomorphism which maps $a \to a,\ \forall a \in F$ and $\alpha \to \beta$.
+	Since every element in $F(\alpha)$ is of the form $a_0 + a_1 \alpha + \dots + a_{n-1}\alpha^{n-1}$.
+	And the definition $a \to a,\ \alpha \to \beta$ compltelely determines the isomorphism.
+	Therefore, there exists a unique conjugate isomorphism which maps $\alpha$ to its conjugate $\beta$.
+\end{proof} 
+
+\begin{corollary}
+	Let $f(x) \in \mathbb{R}[x]$.
+	Let $a+ib \in \mathbb{C}$.
+	If $f(a+ib) = 0$, then $f(a-ib) = 0$.
+	Also, complex zeroes of polynomials with real-coefficients occur in conjugate pairs.
+\end{corollary}
+\begin{important}
+	In other words, complex conjugates are conjugates over $\mathbb{R}$.
+\end{important}
+\begin{proof} 
+	We have $\mathbb{C} = \mathbb{R}(i)$ where $i$ is algebraic over $\mathbb{R}$, $irr(i,\mathbb{R}) = x^2+1$.
+	Clearly, $i,-i$ are conjugates over $\mathbb{R}$.
+	And $\psi_{i,-i} : \mathbb{C} \to \mathbb{C}$ is a conjugate isomorphism which maps $a+ib \to a-ib$.\\
+
+	Let $a+ib \in \mathbb{C}$.
+	Let $f(x) \in \mathbb{R}[x]$ such that $irr(a+ib,\mathbb{R}) = f(x)$.\\
+	Since $f(x) \in \mathbb{R}[x]$,
+	\[ f(x) = c_0 + c_1x+ \dots c_nx^n \]
+	Since $irr(a+ib,\mathbb{R}) = f(x)$,
+	\[ \phi_{a+ib}(f(x)) = f(a+ib) = c_0 + c_1(a+ib) + \dots + c_n(a+ib)^n = 0 \]
+	Field $\mathbb{R}$ is fixed under the conjugate isomorphism, $\psi_{i,-i}$.
+	Thus, $\psi_{i,-i}(0) = 0$,
+	\[ \psi_{i,-i}(0) = \psi_{i,-i}(f(a+ib)) = f(a-ib) = c_0 + c_1(a-ib) + \dots + c_n(a-ib)^n = 0 \]
+	Therefore, $(a-ib)$ is a zero of $f(x)$.
+	Let $irr(a-ib,\mathbb{R}) = p(x)$.
+	Then $f(x) \in \generator{p(x)}$.
+	That is, $p(x)$ divides $f(x)$.
+	Similarly, $\psi_{-i,i}(p(a-ib)) = p(a+ib) = 0$.
+	And $f(x)$ divides $p(x)$.
+	Therefore, $irr(a-ib,\mathbb{R}) = p(x) = f(x) = irr(a+ib,\mathbb{R})$.
+	Clearly, $a+ib,a-ib$ are conjugates over $\mathbb{R}$.\\
+	
+	Let $w = c+id \in \mathbb{C}$ be another conjugate of $z=a+ib$ where $a,b,c,d \in \mathbb{R}$.
+	Suppose $\psi_{z,w} : \mathbb{C} \to \mathbb{C}$ is a conjugation isomorphism.
+	If $a+ib$ is a zero of some $g(x) \in \mathbb{R}[x]$.
+	Then $c+id$ is also a zero of $g(x)$ by conjugation isomorphism.
+	We have, $\psi_{z,w}(a) = a, \psi_{z,w}(b) = b$ since $a,b \in \mathbb{R}$.
+	Thus, $\psi_{z,w}(a+ib) = \psi_{z,w}(a) + \psi_{z,w}(i)\psi_{z,w}(b) = a+\psi_{z,w}(i)b = c+id$.
+	Clearly, $\psi_{z,w}(i) = \frac{c-a}{b} + i\frac{d}{b}$.
+	Thus, $a=c$ and $d = \pm b$ since $i,-i$ are the only zero of $x^2+1$.
+	Therefore, conjuates over $\mathbb{R}$ occur in pairs.
+\end{proof} 
+
+\begin{commentary}
+\begin{remark}
+	The notion of complex conjugates
+	\begin{enumerate}
+		\item Complex conjugates $z,\bar{z}$ are conjugates over the real field $\mathbb{R}$ with irreducible, monic polynomial $irr(z,\mathbb{R}) = (x-\Re{(z)})^2+\Im{(z)}^2$.
+		\item Any non-real number, $z \notin \mathbb{R}$ which is algebraic over $\mathbb{R}$ has a unique conjugate $\bar{z}$ over $\mathbb{R}$.
+	\end{enumerate}
+\end{remark}
+\end{commentary}
+
+\begin{remark}
+	$\sqrt{2},-\sqrt{2}$ are conjugates over $\mathbb{Q}$ with $irr(\sqrt{2},\mathbb{Q}) = x^2-2$.
+	Thus, $\psi_{\sqrt{2},-\sqrt{2}} : \mathbb{Q}(\sqrt{2}) \to \mathbb{Q}(\sqrt{2})$ is a conjugation isomorphism.
+	Elements of $\mathbb{Q}(\sqrt{2})$ are of the form $a+\sqrt{2}b$ where $a,b \in \mathbb{Q}$.
+	Clearly, $\psi_{\sqrt{2},-\sqrt{2}}(a+\sqrt{2}b) = a-\sqrt{2}b$.
+\end{remark}
+\begin{commentary}
+	Result : 
+	If $\sqrt{2}$ is a zero of a polynomial with rational coefficients, then $-\sqrt{2}$ is also a zero of it.
+	Therefore, $\sqrt{2}$ is an eigen value of a rational matrix, if and only if $-\sqrt{2}$ is also an eigen value of it.
+	Similarly, $a+ib$ is an eigen value of a real matrix, if and only if $a-ib$ is also an eigen value of it.
+\end{commentary}
+\subsection{Automorphism and Fixed Fields}
+\begin{definition}[automorphism]
+	Automorphism of a field is an isomorphism of a field onto itself.
+\end{definition}
+\begin{definition}[fixed]
+	Let $\sigma : F \to F$ be a field automorphism.
+	The set $S = \{ a \in F : \sigma(a) = a \}$ of elements invariant under $\sigma$ is fixed under $\sigma$.
+	Let $E$ be  a subfield of $F$ such that $\forall a \in E, \sigma(a) = a$.
+	Then $E$ is left fixed by $\sigma$.
+\end{definition}
+\hrule \vspace{1em}
+For example, the conjugation map $\psi_{\sqrt{3},-\sqrt{3}} : \mathbb{Q}(\sqrt{2},\sqrt{3}) \to \mathbb{Q}(\sqrt{2},\sqrt{3})$ leaves $\mathbb{Q}(\sqrt{2})$ fixed.\\
+
+\begin{commentary}
+	We have, $irr(\sqrt{2},\mathbb{Q}) = x^2-2$.
+	Elements of $\mathbb{Q}(\sqrt{2})$ are of the form $a+b\sqrt{2}$ where $a,b \in \mathbb{Q}$.
+	\[ \mathbb{Q}(\sqrt{2},\sqrt{3}) = \mathbb{Q}(\sqrt{2})(\sqrt{3}) \]
+	And $irr(\sqrt{3},\mathbb{Q}(\sqrt{2})) = x^2 -3$.
+	Thus, elements of $\mathbb{Q}(\sqrt{2})(\sqrt{3})$ are of the form $x+y\sqrt{3}$ where $x,y \in \mathbb{Q}(\sqrt{2})$.
+	\[ \left( a+b\sqrt{2} \right) + \left( c+d\sqrt{2} \right)\sqrt{3} = a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6} \]
+\end{commentary}
+Elements of $\mathbb{Q}(\sqrt{2},\sqrt{3})$ are of the form $a+b\sqrt{2} + c\sqrt{3}+ d\sqrt{6}$ where $a,b,c,d \in \mathbb{Q}$.
+\[ \psi_{\sqrt{3},-\sqrt{3}} \left( a+b\sqrt{2}+c\sqrt{3}+d\sqrt{6} \right) = a+b\sqrt{2}-c\sqrt{3}-d\sqrt{2}\sqrt{3} \]
+Thus, an element of $\mathbb{Q}(\sqrt{2},\sqrt{3})$ is left fixed by $\psi_{\sqrt{3},-\sqrt{3}}$ if and only if $c,d = 0$.
+\hrule \vspace{1em}
+\begin{theorem}
+	Let $\{ \sigma_i : i \in I \}$ be a collection of automorphisms of field $E$.
+	Then, the $\displaystyle E_{\{\sigma_i\}} = \left\{ a \in E : \sigma_i(a) = a, \forall i \in I \right\}$ is a subfield of $E$.
+\end{theorem}
+\begin{important}
+	The set fixed by an automorphism of a field is a \textbf{subfield}.\\
+\end{important}
+\begin{commentary}
+	Quick Revision : How to test whehter $F$ is a subfield of field $E$ ?
+	\begin{enumerate}
+		\item Preservation of identitites, $0,1 \in F$ (usually trivial)
+		\item Closure of binary operations, $\forall a,b \in F,\ a\pm b, ab \in F$ (hard to prove)
+		\item Existence of inverses (easy to prove)
+			\begin{enumerate}
+				\item $\forall a \in F,\ -a \in F$
+				\item $\forall a \in F,\ (a \ne 0), a^{-1} \in F$.
+			\end{enumerate}
+	\end{enumerate}
+\end{commentary}
+\begin{proof} 
+	Let $a,b \in E_{\{\sigma_i\}}$.
+	Then $\sigma_i(a) = a,\ \forall i \in I$ and $\sigma_i(b) = b,\ \forall i \in I$.
+	Since $\sigma_i$'s are homomorpisms on $E$,
+	\[ \sigma_i(a \pm b) = \sigma_i(a) \pm \sigma_i(b) = a \pm b \]
+	\[ \sigma_i(ab) = \sigma_i(a)\sigma_i(b) = ab \]
+	Thus, $a,b \in E_{\{\sigma_i\}} \implies a \pm b, ab \in E_{\{\sigma_i\}}$.\\
+
+	We have, $\sigma_i$'s are automorphisms.
+	Thus, $\sigma_i(0) = 0$ and $\sigma_i(1) = 1$ for every $i \in I$.
+	We have, $\sigma_i(0) = 0$.
+	\[ 0 = \sigma_i(0) = \sigma_i(a+(-a)) = \sigma_i(a) + \sigma_i(-a) = a -\sigma_i(a) \]
+	Thus, $\sigma_i(-a) = -a,\ \forall i \in I$.
+	And, $\forall a \in E_{\{\sigma_i\}},\ -a \in E_{\{\sigma_i\}}$.	\\
+	Similarly, $\sigma_i(1) =1$.
+	Let $a \ne 0$.
+	\[ 1 = \sigma_i(1) = \sigma_i(aa^{-1}) = \sigma_i(a) \sigma_i(a^{-1}) = a\sigma_i(a^{-1}) \]
+	Thus, $\sigma_i(a^{-1}) = a^{-1},\ \forall i \in I$.
+	And,  $\forall a \in E_{\{\sigma_i\}},\ (a \ne 0),\ a^{-1} \in E_{\{\sigma_i\}}$.
+	Therefore, $E_{\{\sigma_i\}}$ is a subfield of $E$.
+\end{proof} 
+
+\begin{definition}
+	Let $\sigma$ be an automorphism on field $E$.
+	Then $E_{\{\sigma\}}$ is the subfield left fixed by $\sigma$.
+\end{definition}
+\hrule \vspace{1em}
+For example, we have seen earlier that the subfield left fixed by the conjugation isomorphism 
+\[ \psi_{\sqrt{3},-\sqrt{3}} : \mathbb{Q}\left(\sqrt{2},\sqrt{3}\right) \to \mathbb{Q}\left(\sqrt{2},\sqrt{3}\right)\]
+is $\mathbb{Q}\left(\sqrt{2}\right)$.
+Therefore,
+\[ \mathbb{Q} \left( \sqrt{2},\sqrt{3} \right)_{\left\{ \psi_{\sqrt{3},-\sqrt{3})}\right\}} = \mathbb{Q}\left(\sqrt{2}\right) \]
+
+\begin{commentary}
+	Here, $E = \mathbb{Q}\left(\sqrt{2},\sqrt{3}\right)$ and $\sigma = \psi_{\sqrt{3},-\sqrt{3}}$ and $E_{\{\sigma\}} = \mathbb{Q}\left( \sqrt{2} \right)$.
+\end{commentary}
+\hrule \vspace{1em}
+\begin{theorem}
+	The set of all automorphisms of a field $E$ is a group under function composition.
+\end{theorem}
+\begin{proof} 
+	Let $E$ be a field.
+	Let $S_E$ be the set of all permutations on the field $E$.
+	Clearly, the field permuations are associative under function composition.\\
+
+	We have, identity permutation $i : E \to E$ is an automorphism of $E$.
+	Let $\sigma$ be any automorphisms of $E$.
+	Then, we have 
+	\[ i \circ \sigma = \sigma = \sigma \circ i \]
+	We have $\sigma$ is a permutation on $E$.
+	Let $\sigma^{-1}$ be the inverse permutation of $\sigma$.
+	Clearly, $\sigma^{-1} : E \to E$ is also an automorphism.
+	And,
+	\[ \sigma \circ \sigma^{-1} = i = \sigma^{-1} \circ \sigma \]
+	Let $\tau$ be an automorphism on $E$.
+	Then $\sigma \circ \tau$ is an automorphism on $E$.
+	Thus, set of all automorphisms on $E$ is a subgroup of permuation group $S_E$.
+\end{proof} 
+
+\begin{theorem}
+	Let $E$ be a field and $F$ be a subfield of $E$.
+	Then the set of all automorphisms of $E$ leaving $F$ fixed, say $G(E/F)$ is a subgroup of the set of all automorphisms on $E$.
+	Furthermore, $F \le E_{G(E/F)}$.
+\end{theorem}
+\begin{proof} 
+	Let $\sigma,\tau \in G(E/F)$.
+	We have $\sigma(a) = a$ and $\tau(a) = a$ for every $a \in F$.
+	Thus, $(\sigma \circ \tau)(a) = \sigma(\tau(a)) = \sigma(a) = a$.
+	Therefore, $\sigma \circ \tau \in G(E/F)$.\\
+
+	We have, $\sigma(a) = a \implies a = \sigma^{-1}(a),\ \forall a \in F$.
+	Thus, $\sigma^{-1} \in G(E/F)$.	
+	Therefore, $G(E/F)$ is a subgroup of all automorphisms on $E$.\\
+
+	The subfield $E_{G(E/F)}$ is the set of all automorphims on $E$ leaving $F$ fixed.
+	Let $\sigma \in G(E/F)$.
+	Then, 
+	\[ a \in F \implies \sigma(a) = a \implies a \in E_{\{\sigma\}} \implies a \in E_{G(E/F)} \]
+	Thus, subfield $F$ is contained in $E_{G(E/F)}$.
+\end{proof} 
+
+\begin{definition}
+	Let $F$ be a subfield of a field $E$.
+	The group of $E$ over $F$, $G(E/F)$ is the set of all automorphisms on $E$ leaving $F$ fixed.
+\end{definition}
+
+\begin{important}
+	Any automorphism on field $E$ leaves the prime field $\mathbb{Q}$ or $\mathbb{Z}_p$ fixed.
+\end{important}
+\hrule \vspace{1em}
+For example, consider the set of all automorphisms on $\mathbb{Q}\left(\sqrt{2},\sqrt{3}\right)$ (leaving $\mathbb{Q}$ fixed.)
+We have, 
+\[ i,\quad \psi_{\sqrt{2},-\sqrt{2}},\quad \psi_{\sqrt{3},-\sqrt{3}},\quad \psi_{\sqrt{2},-\sqrt{2}} \circ \psi_{\sqrt{3},-\sqrt{3}} \]
+are the only automorphisms on $\mathbb{Q}\left(\sqrt{2},\sqrt{3}\right)$.
+Therefore, we have 
+\[ G\left(\mathbb{Q}(\sqrt{2},\sqrt{3})/\mathbb{Q}\right) \simeq V \simeq \mathbb{Z}_2 \times \mathbb{Z}_2 \]
+since each automorphism is an inverse of itself.
+Also we have, $[\mathbb{Q}(\sqrt{2},\sqrt{3}) : \mathbb{Q}] = 4$ is the order of the group $G(\mathbb{Q}(\sqrt{2},\sqrt{3})/\mathbb{Q})$.\\
+
+\begin{commentary}
+	Earlier we have seen, $\mathbb{Z}_2(\alpha)$ where $irr(\alpha,\mathbb{Z}_2) = x^3+x+1$.
+	The conjugates of $\alpha$ over $\mathbb{Z}_2$ are $\beta, \gamma$.
+	However, the distinct automorphisms are,
+	\[ i,\quad \psi_{\alpha,\beta},\quad \psi_{\beta,\alpha} \]
+	Therefore,
+	\[ G\left( \mathbb{Z}_2(\alpha),\mathbb{Z}_2 \right) \simeq \mathbb{Z}_3 \qquad \text{ since } \psi_{\alpha,\beta} \circ \psi_{\beta,\alpha} = i \]
+	Once again, $[\mathbb{Z}_2(\alpha) : \mathbb{Z}_2] = 3 = |G(\mathbb{Z}_2(\alpha)/\mathbb{Z}_2)|$ makes our task much easier.
+\end{commentary}
+\hrule \vspace{1em}
+\subsection{Frobenius Automorphism}
+\begin{theorem}[Frobeinus Automorphism]
+	Let $F$ be a finite field of characteristic $p$.
+	Then the map $\sigma_p : F \to F$ defined by $\sigma_p(a) = a^p,\ \forall a\in F$ is an automorphism on $F$.
+	Also $F_{\{\sigma_p\}} \simeq \mathbb{Z}_p$.
+\end{theorem}
+\begin{proof} 
+	Let $a,b \in F$.
+	Then
+	\[ \sigma_p(a+b) = (a+b)^p = a^p + b^p = \sigma_p(a) + \sigma_p(b)\]
+	\[ \sigma_p(ab) = (ab)^p = a^p b^p = \sigma_p(a) \sigma_p(b) \]
+	Thus, $\sigma_p$ is a homomorphism.\\
+
+	We have,
+	\[ \sigma_p(a) = 0 \implies a^p = 0 \implies a = 0 \]
+	Thus, $\ker(\sigma_p) = \{ 0 \}$.
+	Therefore, $\sigma_p$ is injective.\\
+
+	Since $F$ is finite and $\sigma_p : F \to F$, $\sigma_p$ is surjective.
+	Therefore, $\sigma_p$ is an automorphism on $F$.\\
+
+	We have, $F$ is of characteristics $p$.
+	And $\sigma_p(1) = 1^p = 1$.
+	Let $\mathbb{Z}_p$ be the prime field contained in $F$.
+	Then, $\forall c \in \mathbb{Z}_p,\ \sigma_p(c) = c^p = c$.
+	Therefore, $\mathbb{Z}_p$ is fixed by $\sigma_p$.\\
+
+	The polynomial $x^p-x$ has at most $p$ zeroes.
+	Thus, it doesn't have any zero other than elements of the prime subfield of $F$.
+	\[ a \in F_{\{\sigma_p\}} \iff \sigma_p(a) = a \iff a^p = a \iff a^p - a = 0  \iff \phi_a(x^p-x) = 0 \]
+	Therefore, $F_{\{\sigma_p\}} \simeq \mathbb{Z}_p$.
+\end{proof} 
+\subsection{Exercises \S48}
+\begin{enumerate}
+	\item
+	%\setcounter{enumi}{27}
+	%\item Consider $\sigma_p : \bar{\mathbb{Z}}_p \to \bar{\mathbb{Z}}_p$ defined by $\sigma_p(a) = a^p$.
+	%	Let $\alpha$ be a zero of $x^p-x-1 \in \mathbb{Z}_p[x]$.
+	%	Then $\alpha^p = \alpha + 1$.
+	%	And $(\alpha^p)^p = (\alpha+1)^p = \alpha^p + 1 = \alpha + 2$.
+	%	Continuing like this we get, $\alpha \to \alpha+1 \to \alpha+2 \to \dots $,
+\end{enumerate}
+
 \section{The Isomorphism Extension Theorem \S49}
+\subsection{Extension Theorem}
+\begin{theorem}[isomorphism extension]
+	Let $E$ be an algebraic extension of field $F$.
+	Let $\sigma$ be an isomorphism on $F$ onto $F'$.
+	Let $\bar{F}'$ be an algebraic closure of $F'$.
+	Then $\sigma$ can be extended to an isomorphism $\tau$ of $E$ onto $\bar{F}'$ such that $\tau(a) = \sigma(a),\ \forall a \in F$.
+\end{theorem}
+\begin{proof}
+	\textbf{Step 1 : Poset $S$}\\
+	Let $E$ be an algebraic extension of $F$.
+	Let $\sigma : F \to F'$ be an isomorphism.
+	Let $S$ be the set of all pairs $(L,\lambda)$ such that $F \le L \le E$ and $\lambda$ is an extension of $\sigma$ onto a subfield of $\bar{F}$.
+	$S$ is non-empty, since $(F,\sigma) \in S$.\\
+
+	Consider the relation $\le$ on $S$ defined by $(L_1,\lambda_1) \le (L_2,\lambda_2)$ if $L_1 \le L_2$ and $\lambda_1(a) = \lambda_2(a),\ \forall a \in L_1$.
+	Then $\le$ is a partial order on $S$ since $\le$ is reflexive, antisymmetric and transitive.
+	\begin{commentary}
+	\begin{enumerate}
+		\item Reflexive\\
+		Let $(L,\lambda) \in S$.
+		Then $L \le L$ and $\lambda(a) = \lambda(a),\ \forall a \in L$.
+		\item Anti-symmetric\\
+		Let $(L_1,\lambda_1), (L_2,\lambda_2) \in S$.
+		Suppose $(L_1,\lambda_1) \le (L_2,\lambda_2)$ where $L_1 \not\simeq L_2$.
+		Then, $F \le L_1 < L_2 \le E$.
+		Thus, $(L_2,\lambda_2) \not\le (L_1,\lambda_1)$.
+		\item Transitive\\
+		Let $(L_1,\lambda_1) \le (L_2,\lambda_2)$ and $(L_2,\lambda_2) \le (L_3,\lambda_3)$.
+		Then, $F \le L_1 \le L_2 \le L_3 \le E$.
+		And $\lambda_3(a) = \lambda_2(a) = \lambda_1(a), \forall a \in L_1 \subseteq L_2$.\\
+		Thus, $(L_1,\lambda_1) \le (L_3,\lambda_3)$.
+	\end{enumerate}
+	\end{commentary}
+
+	\textbf{Step 2 : Every chain in $S$ has an upper bound $(H,\lambda)$}\\
+	Let $\{ (H_i,\lambda_i) : i \in I \}$ be a chain in $S$.
+	Define $\displaystyle H = \cup \{H_i : i \in I\}$.
+	We know that, if $c \in H$, then $c \in H_i$ for some $i \in I$.
+	Define $\lambda$ from $H$ onto a subfield of $\bar{F}'$ such that $\lambda(c) = \lambda_i(c)$ where $ c \in H_i$.\\
+
+	We need to prove that$\lambda$ is an isomorphism.
+	Let $a,b \in H$.
+	Then $a \in H_i$ and $b \in H_j$ for some $i,j \in I$.
+	Then $H_i \le H_j$ or $H_j \le H_i$ since $H_i,H_j$ belongs to a chain.
+	Suppose $H_j \le H_i$, then $a,b \in H_i$.
+	Thus, $a+b,ab \in H_i$.
+	And, $\lambda_i$ is an isomorphism on $H_i$.
+	Thus,
+	\[ \lambda(a+b) = \lambda_i(a + b) = \lambda_i(a) + \lambda_i(b) = \lambda(a) + \lambda(b) \]
+	Similarly,
+	\[ \lambda(ab) = \lambda_i(ab) = \lambda_i(a)\lambda_i(b) = \lambda(a)\lambda(b) \]
+	If $\lambda(c) = 0$, then $\lambda_i(c) = 0$ for some $i \in I$.
+	Since $\lambda_i$ is an isomorphism on $H_i$, $c = 0$.
+	Therefore, $\lambda(c) = 0 \iff c = 0$.
+	Clearly, $\lambda$ is an isomorphism.\\
+
+	From the defintion of $H$ and $\lambda$, $(H,\lambda)$ is an upper bounded for the chain since $H_i \le H$ and $\lambda(c) = \lambda_i(c),\ \forall c \in H_i$.\\
+
+	\textbf{Step 3 : $(K,\tau)$ is maximal, but $K \ne E$}\\
+	We have shown that, every chain in $S$ has an upper bouned.
+	By Zorn's lemma, $S$ must have a maximal element, say $(K,\tau)$.\\
+
+	Suppose $K \ne E$.
+	Let $\alpha \in E$ such that $\alpha \notin K$.
+	Then $\alpha$ is algebraic over $K$ with $p(x) = irr(\alpha,K)$.
+	Let $\psi_\alpha$ be the canonical isomorphism corresponding to the evaluation homomorphism $\phi_\alpha$.
+	\[ \psi_\alpha : K[x]/\generator{p(x)} \to K(\alpha),\quad \phi_\alpha : K[x] \to K(\alpha) \]
+	Consider the isomorphism $\tau : K \to K'$.
+	Let $p(x) = a_0 + a_1 x + \dots + a_nx^n$.
+	Then, $q(x) = \tau(p)(x) = \tau(a_0) + \tau(a_1) x + \dots + \tau(a_n)x^n$ is an irreducible polynomial over $K'$.\\
+
+	Let $\alpha'$ be a zero of $q(x) \in K'[x]$.
+	Consider $\psi_{\alpha'} : K'[x]/\generator{q(x)} \to K'(\alpha')$ which is analogous to $\psi_\alpha$.
+	Let $\bar{\tau} : K[x]/\generator{p(x)} \to K'[x]/\generator{q(x)}$ be an extension of $\tau$ such that $x+\generator{p(x)} \to x+\generator{q(x)}$.
+	Then $\psi_{\alpha'} \circ \bar{\tau} \circ \psi_\alpha^{-1} : K(\alpha) \to K'(\alpha')$ is an isomorphism.
+	Clearly, $(K,\tau) \leq \left(K(\alpha),\psi_{\alpha'} \circ \bar{\tau} \circ \psi_{\alpha}^{-1}\right)$ which contradicts $(K,\tau)$ being a maximal element of $S$.
+	Therefore, $K = E$ and $\tau : K \to K'$ is an extension of $\sigma : F \to F'$ where $F' \le K' \le \bar{F}'$.
+\end{proof}
+
+\begin{corollary}
+	If $E \le \bar{F}$ is an algebraic extension of $F$ and $\alpha,\beta \in E$ are conjugates over $F$.
+	Then the conjugate isomorphism $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$ can be extended to an isomorphism of $E$ onto $\bar{F}$.
+\end{corollary}
+\begin{proof}
+	Consider the conjugate isomorphism $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$.
+	Let $E$ be an algebraic extension of $F(\alpha)$.
+	Then, by isomorphims extension theorem $\psi_{\alpha,\beta}$ can be extended to an isomorphism from $E$ onto a subfield of $\bar{F}'$.
+\end{proof}
+
+\begin{corollary}
+	Let $\bar{F}$ and $\bar{F}'$ be two algebraic closure of $F$.
+	Then $\bar{F}$ is isomorphic to $\bar{F}'$ under an isomorphism leaving each element of $F$ fixed.
+\end{corollary}
+\begin{proof}
+	Let $i : F \to F$ be the identity isomorphism.
+	Let $\bar{F}, \bar{F}'$, both be algebraic closures of $F$.
+	By isomorphism extension theorem, $i$ can be extended to an isomorphism $\tau$ from the algebraic extension $\bar{F}$ onto a subfield of $\bar{F}'$ leaving $F$ fixed since $i(a) = a,\ \forall a \in F$.\\
+
+	Since, $\tau$ is an isomorphism the range of $\tau$, $\tau[\bar{F}]$ is a subfield of $\bar{F}'$.
+	We have, $\tau^{-1} : \tau[\bar{F}] \to \bar{F}$ is also an isomorphism onto $\bar{F}$.
+	Again by isomorphism extension theorem, $\tau$ can be extended to an algebraic extension $\bar{F}'$ onto $\bar{F}$.
+	However, $\tau^{-1}$ is already onto $\bar{F}$.
+	Thus, $\tau : \bar{F} \to \bar{F}'$ is an isomorphism leaving $F$ fixed.
+\end{proof}
+\begin{important}
+	In other words, for any field $F$, its algebraic closure $\bar{F}$ is unique upto an isomorphism leaving $F$ fixed.
+\end{important}
+
+\subsection{Index of field extension}
+\begin{theorem}
+	Let $E$ be a finite extension of $F$.
+	Let $\sigma$ be an isomorphism of $F$ onto $F'$.
+	Let $\bar{F}'$ be an algebraic closure of $F'$.
+	Then, the number of extensions of $\sigma$ to an isomorphism of $E$ onto a subfield of $\bar{F}'$ is finite and is independent of $F',\bar{F}',\sigma$.
+\end{theorem}
+\begin{important}
+	In other words, the number of extensions depends only on $F$ and $E$.
+\end{important}
+\begin{proof}
+	\textbf{Step 1 : Index of extension of $F$ is independent of $F_1$}\\
+	Let $\sigma_1 : F \to F_1$ and $\sigma_2 : F \to F_2$ be two isomorphisms.
+	Let $E$ be an algebraic extension of $F$.
+	And $\tau_1 : E \to \tau_1[E]$ and $\tau_2 : E \to \tau_2[E]$ be the extensions of $\sigma_1,\sigma_2$ from $E$ to subfields $\tau_1[E] \le \bar{F}_1$ and $\tau_2[E] \le \bar{F}_2$ respectively.
+	Then $\tau_2 \circ \tau_1^{-1} : \tau_1[E] \to \tau_2[E]$ is an isomorphism.\\
+
+	Let $\lambda$ be the extension of $\tau_2 \circ \tau_1^{-1}$ where $\lambda : \bar{F}_1 \to \bar{F}_2$.
+	Now, we have $\lambda : \bar{F}_1 \to \bar{F}_2$ such that for any isomorphism extension $\tau_1$ from $E$ onto a subfield of $\bar{F}_1$, we have an isomorphism extension $\tau_2$ from $E$ on to $\bar{F}_2$ is given by $\tau_2 = \lambda\tau_1$.
+	Thus, the number of extensions of $\sigma : F \to F'$ is independent of the choice of $\sigma$ and $F'$ (and $\bar{F}'$).\\
+
+	\textbf{Step 2 : Number of possible extensions is finite}\\
+	Let $\sigma : F \to F'$ be an isomorphism.
+	Let $E$ be an algebraic extension of $F$.
+	Let $\tau$ be an isomorphism extension of $\sigma$ to $E$ leaving $F$ fixed.
+	Then, $E = F(\alpha_1,\alpha_2,\dots,\alpha_n)$ since every algebraic extensions is a finite extension.\\
+
+	We know that, isomorphisms preserve irreducibility.
+	\dag\footnote{Let $p(x)$ be irreducible over $F$.
+	Let $\sigma : F \to F'$ be an isomorphism.
+	Then there exists a polynomial $q(x)$ which is irreducible over $F'$.
+	And if $p(x) = a_0 + a_1 x + \dots +a_nx^n$, then $q(x) = \sigma(a_0) + \sigma(a_1)x +\dots + \sigma(a_n)x^n$.
+	We may write $q = \sigma_x(p)$ where $\sigma_x : F[x] \to F'[x]$.}\\
+	Let $irr(\alpha_j,F) = p(x) \in F[x]$ with $\deg(\alpha_j,F) = k$.
+	Then, 
+	\[ p(x) = a_0 + a_1 x + \dots + a_k x^k \]
+	We have, $\phi_{\alpha_j}(p(x)) = p(\alpha_j) = 0$.
+	Let $q(x) \in F'[x]$ such that 
+	\[ q(x) = \sigma_x(p)(x) = \sigma(a_0) + \sigma(a_1) x + \dots + \sigma(a_k) x^k \]
+	Then, $\tau$ must map $\alpha_j$ to a zero of $q(x)$, say $\alpha_j'$ such that $\sigma(p(\alpha_j)) = 0 = q(\alpha_j')$.\\
+
+	That is, for any isomorphism extension $\tau : E \to \bar{F}'$, we have $\tau(\alpha_j)$ is a zero of $q(x) \in F'[x]$.
+	Clearly, any extension of $\sigma$ will have to map $\alpha_j$ to a zero of $q(x) \in F'[x]$.
+	However, $q(x)$ has at most $k$ zeroes in $\bar{F}'$.\\
+
+	Therefore, the number of extension of $\sigma$ is finite as $E$ is a finite extension ( number of $\alpha_j$s is finite ) and for each $\alpha_j$ the number of possible candidates $\tau(\alpha_j)$ in $\bar{F}'$ is finite.
+	Thus, the number of possible extensions of an isomorphism $\sigma$ to an algebraic extension $E$ leaving $F$ fixed, is finite.
+\end{proof}
+
+\begin{definition}[index]
+	Let $E$ be an extension of $F$.
+	The index of $E$ over $F$, $\{E:F\}$ is the number of isomorphisms of $E$ onto a subfield of $\bar{F}$ leaving $F$ fixed.
+\end{definition}
+
+\begin{corollary}
+	If $F \le E \le K$, where $K$ is a finite extension of $F$.
+	Then $\{ K : F \} = \{ K : E \} \{ E : F \}$.
+\end{corollary}
+\begin{proof}
+	Let $E$ be an algebraic extension of $F$ and $K$ be an algebraic extension of $E$.
+	Then $K$ is an algebraic extension of $F$.\\
+
+	We know that, the number of isomorphisms from $E$ onto a subfield of $\bar{F}$ leaving $F$ fixed, $\{ E : F \}$ is finite.
+	Now, each of those isomorphisms have $\{ K : E \}$ extensions, since there are $\{ K : E \}$ different isomorphisms from $K$ onto a subfield of $\bar{F}$ leaving $E$ fixed.
+	Therefore, there are $\{ K : E \}\{ E : F\}$ isomorphisms from $K$ onto a subfield of $\bar{F}$ leaving $F$ fixed.
+	That is,
+	\[ \{ K : F \} = \{ K : E \} \{ E : F \} \]
+\end{proof}
+For example, $\mathbb{Q}(\sqrt{2},\sqrt{3})$ has $4$ different isomorphisms onto a subfield of $\mathbb{C}$.
+\[ \left\{ \mathbb{Q}(\sqrt{2},\sqrt{3}) : \mathbb{Q} \right\} = \left\{ \mathbb{Q}(\sqrt{2})(\sqrt{3}) : \mathbb{Q}(\sqrt{2}) \right\} \left\{ \mathbb{Q}(\sqrt{2}) : \mathbb{Q}\right\} \]
+We have, $\mathbb{Q}(\sqrt{2},\sqrt{3}) = \mathbb{Q}(\sqrt{2})(\sqrt{3})$ and 
+\[ \left\{\mathbb{Q}(\sqrt{2})(\sqrt{3}) : \mathbb{Q}(\sqrt{2}) \right\} = \left[ \mathbb{Q}(\sqrt{2})(\sqrt{3}) : \mathbb{Q}(\sqrt{2})\right] = \deg\left(\sqrt{3},\mathbb{Q}(\sqrt{2})\right) = 2 \]
+\[ \left\{\mathbb{Q}(\sqrt{2}) : \mathbb{Q} \right\} = \left[ \mathbb{Q}(\sqrt{2}) : \mathbb{Q} \right] = \deg\left(\sqrt{2},\mathbb{Q}\right) = 2 \]
+
+\subsection{Exercise \S49}
+\begin{enumerate}
+	\item
+\end{enumerate}
+
 \section{Splitting Fields \S50}
+\begin{definition}[splitting field]
+	Let $F$ be a field with algebraic closure $\bar{F}$.
+	Let $\mathscr{F} = \{ f_i(x) \in F[x] : i \in I \}$ be a collection of polynomials over $F$.
+	Then $E \le \bar{F}$ is a splitting field of $\mathscr{F}$ over $F$ if $E$ is the smallest subfield of $\bar{F}$ containing $F$ and all the zeroes of polynomials in $\mathscr{F}$.
+\end{definition}
+For example, $\mathbb{Q}(\sqrt{2},\sqrt{3})$ is the splitting field of $\{ x^2-2,x^2-3 \}$ over $\mathbb{Q}$.
+
+\begin{theorem}
+	Let $F \le E \le \bar{F}$.
+	Then $E$ is a splitting field of $F$ if and only if every automorphism of $\bar{F}$ leaving $F$ fixed maps $E$ onto itself.
+	And thus induces an automorphism of $E$ leaving $F$ fixed.
+\end{theorem}
+\begin{proof}
+	Let $E$ be a splitting field of $F$ in $\bar{F}$ of $\{ f_i(x) : i \in I \}$.
+	Let $\sigma$ be an automorphism of $\bar{F}$ leaving $F$ fixed.\\
+
+	\textbf{Step 1 : $\{ \alpha_j : j \in J \}$ generates $E$}\\
+	Let $\{ \alpha_j : j \in J\}$ be the set of all zeroes of $\mathscr{F} = \{ f_i(x) : i \in I\}$.
+	We know that, the elements of  $F(\alpha_j)$ are of the form
+	\[ \phi_{\alpha_j} g(x) = g(\alpha_j) =  a_0 + a_1 \alpha_j + \dots + a_{n_j-1}\alpha^{n_j-1} \]
+	where $a_k \in F$, $\deg(\alpha_j,F) = n_j$.
+	Clearly, $g(x)$ is some polynomial in $F[x]$ of degree less than $n_j$.\\
+
+	Let $S$ be the set of all finite sums of finite products of elemenets of the form $g(\alpha_j)$.
+	Clearly, $S \subset E$ and $S$ is closed under addition, closed under multiplication, contains identities ($0, 1 \in S$) and additive inverses of its elements.\\
+
+	Let $\beta \in S$.
+	Then $\beta$ is a finite sum of finite products of elements of the form $g(\alpha_{j_k})$.
+	Then, an element $\beta \in S$ belongs to some $F(\alpha_{j_1},\alpha_{j_2},\dots,\alpha_{j_r}) \subset S$.
+	Thus, $S$ has multiplicative inverse of each of its non-zero elements.
+	Clearly, $S$ is a subfield of $E$ containing $F$ and $\alpha_j$s.
+	That is, $S$ is the splitting field of $F$ containing all zeroes of $\mathscr{F}$.
+	Therefore, $S = E$.
+	In other words, $\{ \alpha_j : j \in J \}$ generates $E$ over $F$.
+	\dag\footnote{$E$ is a vector space over the field $F$ spanned by $\{ \alpha_j : j \in J \}$. 
+	Let $\beta \in E$.
+	Then, $\beta = a_0 \alpha_0 + a_1 \alpha_1 + \dots + a_r \alpha_r$ where $a_k \in F$.}\\
+
+	\textbf{Step 2 : $\sigma$ is an automorphism of $E$}\\
+	Since $\{ \alpha_j : j \in J \}$ spans $E$ over $F$, $\sigma : \bar{F} \to \bar{F}$ is completely determined on $E$ by the images of $\alpha_j$s, say $\sigma(\alpha_j)$.
+	And $\sigma(\alpha_j)$ is a zero of $irr(\alpha_j,F)$.
+	If $f_i(\alpha_j) = 0$, then $irr(\alpha_j,F)$ divides $f_i(x)$.
+	Similarly $irr(\sigma(\alpha_j),F)$ divides $f_i(x)$.
+	Thus, $\sigma$ maps $E$ onto a subfield of $E$ isomorphically.
+	Similarly, $\sigma^{-1}$ maps $E$ onto a subfield of $E$ isomorphically.
+	Therefore, $\sigma$ is an automorphism on $E$.\\
+
+	\textbf{Converse Part}\\
+
+\end{proof}
+
+\begin{definition}
+	Let $E$ be an extension field of $F$.
+	A polynomial $f(x) \in F[x]$ splits in $E[x]$ if it factors into linear components in $E[x]$.
+\end{definition}
+For example, $x^4-5x^2+6 \in \mathbb{Q}$ splits in $\mathbb{Q}(\sqrt{2},\sqrt{3})$ since 
+\[ x^4-5x^2+6 = (x-\sqrt{2})(x+\sqrt{2})(x-\sqrt{3})(x+\sqrt{3}) \]
+
+\begin{corollary}
+	If $E \le \bar{F}$ is a splitting field over $F$, then every irreducible polynomial in $F[x]$ having a zero in $E$ splits in $E$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	If $E \le \bar{F}$ is a splitting field over $F$, then every isomorphic mapping of $E$ onto a subfield of $\bar{F}$ leaving $F$ fixed is an automorphism of $E$.
+	In particular, if $E$ is splitting field of finite degree over $F$, then
+	\[ \{ E : F \} = |G(E/F)| \]
+\end{corollary}
+\begin{proof}
+\end{proof}
+\subsection{Exercise \S50}
+\begin{enumerate}
+	\item
+\end{enumerate}
 
 %Module 4
+\pagebreak
+{\Large Module 4 Galois Theory}
 \section{Separable Extensions \S51}
+\subsection{Multplicities of zeroes of a polynomial}
+\subsection{Separable extensions}
+\subsection{Perfect fields}
+\subsection{The primitive element theorem}
+\subsection{Exercise \S51}
+\begin{enumerate}
+	\item
+\end{enumerate}
+
+%\section{Automorphisms and Galois Theory \S52}
 \section{Galois Theory \S53}
+\subsection{Context}
+\subsection{Normal extensions}
+\subsection{The main theorem}
+\subsection{Galois groups over finite fields}
+\subsection{Exercise \S53}
+\begin{enumerate}
+	\item
+\end{enumerate}
+
 \section{Illustrations of Galois Theory \S54}
+\subsection{Symmetric functions}
+\subsection{Exercise \S54}
+\begin{enumerate}
+	\item
+\end{enumerate}
+
 \section{Cyclotomic Extensions \S55}
+\subsection{The Galois group of a cyclotomic extension}
+\subsection{Constructible polygons}
+\subsection{Exercise \S54}
+\begin{enumerate}
+	\item
+\end{enumerate}
+
+\section{Insolvability of the quintic}
+\begin{important}
+	There exists polynomials of degree $5$ in $\mathbb{Q}[x]$ that are not solvable by radicals in $\mathbb{Q}$.
+\end{important}
