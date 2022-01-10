@@ -1458,7 +1458,7 @@ Therefore,
 	Again, $\sum f_j^2 \in \mathscr{R}(\alpha)$.\\
 
 	Consider $g : [a,b] \to \mathbb{R}$ given by $g(x) = \sum_{j=1}^k f_j^2(x)$.
-	We have, $g$ is continous on $[a,b]$, since $f_j$ are continuous on $[a,b]$.
+	\textcolor{blue}{We have $g \in \mathscr{R}(\alpha)$ on $[a,b]$.}
 	Thus $g$ is bounded and there exists $m,M$ such that $m \le g \le M$.
 	Clearly, $g \ge 0$.\\
 
@@ -1480,7 +1480,7 @@ Therefore,
 	By Schwarz inequality,
 		\[ \sum_{j=1}^n y_j f_j \le \left( \sum_{j=1}^n y_j^2 \right)^\frac{1}{2} \left( \sum_{j=1}^n f_j^2 \right)^\frac{1}{2} = |\bar{y}| \ |\bar{f}| \]
 	Thus,
-		\[ \bar{y}^2 = \int_a^b \left( \sum_{j=1}^k y_jf_j \right) d\alpha \le \int_a^b |\bar{y}|\ |\bar{f}| d\alpha = |\bar{y}| \int_a^b |\bar{f}| d\alpha \]
+		\[ {\color{blue}|\bar{y}|^2} = \int_a^b \left( \sum_{j=1}^k y_jf_j \right) d\alpha \le \int_a^b |\bar{y}|\ |\bar{f}| d\alpha = |\bar{y}| \int_a^b |\bar{f}| d\alpha \]
 	Therefore,
 		\[ \left| \int_a^b \bar{f} d\alpha \right| = |\bar{y}| \le \int_a^b |\bar{f}| d\alpha \]
 
@@ -1489,4 +1489,150 @@ Therefore,
 \pagebreak
 
 %\chapter{Sequence \& Series of Functions}
+{\Large Module 3}
+\section{Sequence and Series of functions}
+\begin{definition}
+	Let sequence $\sequence{f_n}$ be a sequence of functions defined on $E$.
+	Suppose sequence $\sequence{f_n(x)}$ converges forevery $x \in E$.
+	Then, sequence $\sequence{f_n}$ converges.
+	And \textbf{limit function} $f : E \to \mathbb{R}$ is defined by
+	\[ f(x) = \lim_{n \to \infty} f_n(x) \]
+\end{definition}
+\begin{definition}
+	Let $f_n : E \to \mathbb{R},\ \forall n \in \mathbb{N}$.
+	Suppose $\sum f_n(x)$ converges for every $x \in E$.
+	Then, series $\sum f_n$ converges.
+	And \textbf{sum} $f : E \to \mathbb{R}$ is defined by
+	\[ f(x) = \sum_{n=1}^\infty f_n(x) \]
+\end{definition}
+
+\subsection{Counter Examples - Illustrating Main problem}
+\textbf{Main Problem} : Can we obtain the sufficient conditions for preserving desirable properties under convergence ?
+\subsubsection*{Interchanging limits}
+\[ \text{Generally,}\quad \lim_{n \to \infty} \lim_{m \to \infty} S_{n,m} \ne \lim_{m \to \infty} \lim_{n \to \infty} S_{n,m} \]
+\begin{proof}
+Consider, $S_{n,m} = \frac{m}{m+n}$.
+\begin{align*}
+	\lim_{m \to \infty} \lim_{n \to \infty} S_{n,m} & = \lim_{m \to \infty } 0 = 0 \\
+	\lim_{n \to \infty} \lim_{m \to \infty} S_{n,m} & = \lim_{n \to \infty } 1 = 1 
+\end{align*}
+\end{proof}
+\subsubsection{Continuity}
+\[ \sequence{f_n} \to f,\ f_n \text{ continuous } \not\!\!\!\implies f \text{ continuous} \]
+\begin{proof}
+Consider $f_n(x) = \frac{x^2}{(1+x^2)^n}$.
+	Clearly, $f_n : \mathbb{R} \to \mathbb{R}$ is continuous for every natural number $n$.\\
+
+\textbf{Case 1 : $x = 0$}\\
+Suppose $x = 0$.
+Then, $f_n(0) = 0$ and therefore $\displaystyle\lim_{n \to \infty} f_n(0) = 0$. \\
+
+\textbf{Case 2 : $x \ne 0$}\\
+	Suppose $x \ne 0$.
+	Then $\frac{1}{1+x^2} < 1,\ \forall x \in \mathbb{R},\ (x \ne 0)$.\\
+Therefore,
+\[ f(x) = \lim_{n \to \infty} f_n(x) = x^2 \lim_{n \to \infty} \left(\frac{1}{1+x^2}\right)^n = x^2 \frac{1}{1-\frac{1}{1+x^2}} = x^2 \frac{1+x^2}{x^2} = 1+x^2 \]
+	Clearly from cases $1$ and $2$,\\
+	\[ f : \mathbb{R} \to \mathbb{R},\ f(x)= \begin{cases} 0 & x = 0 \\ 1+x^2 & x \ne 0 \end{cases} \quad \text{ is not continuous at } 0 \]
+\end{proof}
+\subsubsection{integrability} 
+\[ \sequence{f_n} \to f, f_n \in \mathscr{R} \not\!\!\!\implies f \in \mathscr{R} \]
+\begin{proof}
+Consider, $\displaystyle f_m(x) = \lim_{n \to \infty} (\cos m!\pi x)^{2n}$.\\
+
+Suppose $m!x$ is not an integer.
+Then $\displaystyle f_m(x) = \lim_{n \to \infty} (y^2)^n = 0$ since $-1<y = \cos m! \pi x <1$.
+Suppose $m!x$ is an integer.
+Then $\cos m! \pi x = \pm 1$ and $\displaystyle f_m(x) = \lim_{n \to \infty} ((\pm 1)^2)^n = 1$.\\
+
+We know that, if $x \in \mathbb{Q}$, then $x = \pm \frac{p}{q}$ where $p,q \in \mathbb{N}$.
+Clearly, for any $m > q$, $m! x$ is an integer and $f_m(x) =1 $ for any $m > q$.
+Therefore, $\displaystyle \lim_{m \to \infty} f_m(x) = 1$ if $x \in \mathbb{Q}$.
+And $\displaystyle \lim_{m \to \infty} f_m(x) = 0$ if $x \notin \mathbb{Q}$ since $m! x$ is not an integer for any $m \in \mathbb{N}$ and $f_m(x) = 0,\ \forall m \in \mathbb{N}$.\\
+
+Now, $f : \mathbb{R} \to \mathbb{R}$ defined by $\displaystyle f(x) = \lim_{m \to \infty} f_m(x)$ is given by,
+	\[ f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \notin \mathbb{Q} \end{cases} \text{ which is \textbf{everywhere discontinuous.}} \]
+Clearly, $f$ is not Riemann integrable.\\
+
+\begin{important}
+Let $m \in \mathbb{N}$.
+Then there exists finitely many rational numbers $x$ such that $m!x$ is an integer.
+Thus, $f_m(x)$ has at most finitely many discontinuities  (at most $2m!$ points).
+\end{important}
+\begin{commentary}
+$f_m(x) = \cos m! \pi x$ is discontinuous at $S = \{ \frac{k}{m!} : k \in \mathbb{Z} \}$.
+For example, suppose $m = 3$.
+Then $S = \left\{ 0,\pm\frac{1}{6},\pm\frac{2}{6},\pm\frac{3}{6},\pm\frac{4}{6},\pm\frac{5}{6} \right\}$.
+\end{commentary}
+Let $\alpha$ be the identity funciton.
+Then $\alpha$ is continuous at those finite points where $f_m$ is discontinuous.
+And $f_m$ are bounded functions, say $|f_m| \le 1$.
+Therefore, $f_m$ is Riemann integrable for each $m$.
+However, $f$ is not Riemann integrable.
+\end{proof}
+\subsubsection{Derivative}
+\[ \sequence{f_n} \to f \not\!\!\!\implies \sequence{f_n'} \to f' \]
+\begin{proof}
+	Consider $f_n(x) = \frac{\sin nx}{\sqrt{n}}$.
+	\[ f(x) = \lim_{n \to \infty} f_n(x) = 0,\ \forall x \]
+	However, $f_n'(x) = \sqrt{n} \cos nx$.
+	And $f'(x) = 0$.
+	\[ \lim_{n \to \infty} \frac{d}{dx} f_n(x) = \infty \ne f'(x) = \frac{d}{dx} \lim_{n \to \infty} f_n(x),\ \forall x \]
+	Clearly, convergence doesn't preserve derivatives.
+\end{proof}
+\subsubsection{Integral}
+\[ \sequence{f_n} \to f \not\!\!\!\implies \sequence{ \int f_n} \to \int f \]
+\begin{proof}
+	Consider $f_n : [0,1] \to \mathbb{R}$ defined by $f_n(x) = n^2 x (1-x^2)^n$.\\
+
+	We have,
+	\[ \lim_{n \to \infty} \frac{n^\alpha}{(1+p)^n} = 0 \]
+	Let $\frac{1}{1+p} = 1-x^2$, then $1+p = \frac{1}{1-x^2}$ and $p = \frac{x^2}{1-x^2} > 0$.\\
+	Now, we have
+	\[ f(x) = \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} n^2 x(1-x^2)^n = x \lim_{n \to \infty} \frac{n^2}{\left(1+\frac{x^2}{1-x^2}\right)^n} = 0 \]
+	And, we have
+	\[ \int_0^1 f(x)\ dx = 0 \]
+	However,
+	\[ \int_0^1 f_n(x)\ dx = n^2 \int_0^1 x(1-x^2)^n\ dx = n^2 \int_0^1 \frac{u^n}{2}\ du = n^2 \left[ \frac{u^{n+1}}{2(n+1)} \right]_0^1 = \frac{n^2}{2n+2} \]
+	Clearly, 
+	\[ \lim_{n \to \infty} \int_0^1 f_n(x)\ dx = \lim_{n \to \infty} \frac{n^2}{2n+2} = \infty \ne 0 = \int_0^1 f(x)\ dx = \int_0^1 \lim_{n \to \infty} f_n(x)\ dx \]
+\end{proof}
+\subsection{Uniform Convergence}
+Uniform convergence is a partial solution to our main problem.
+\begin{definition}
+	Let sequence $\sequence{f_n}$ be a sequence of functions on $E$.
+	Then $\sequence{f_n}$ converges uniformly to limit function $f$ if for any $\varepsilon > 0$, there exists a natural number $N$ such that for any $n > N$ and $x \in E$, $|f_n(x) - f(x)| \le \varepsilon$.
+\end{definition}
+\begin{important}
+	\[ \forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n > N,\ \forall x \in E,\ |f_n(x) - f(x)| \le \varepsilon \]
+\end{important}
+\begin{commentary}
+	The difference between pointwise convergence and uniform convergence is that the choice of natrual number $N$ is independent of the choice of $x$ in the case of uniform convergence.
+\end{commentary}
+\subsubsection{Cauchy criterion}
+\begin{theorem}[Cauchy criterion]
+	The sequence of functions $\sequence{f_n}$ defined on $E$ converges uniformly on $E$ if and only if for any $\varepsilon > 0$, there exists a natural number $N$ such that for any $m,n \ge N$ and $x \in E$, $|f_n(x)-f_m(x)| \le \varepsilon$.
+\end{theorem}
+\begin{proof}
+	Suppose $\sequence{f_n} \to f$ uniformly on $E$.
+	Let $\varepsilon > 0$.
+	Then there exists $N \in \mathbb{N}$ such that $\forall n,m > N$ and $\forall x \in E$, $|f_n(x) - f(x)| \le \frac{\varepsilon}{2}$ and $|f_m(x)-f(x)| \le \frac{\varepsilon}{2}$.
+	Therefore, $\forall \varepsilon > 0$ we have, $N \in \mathbb{N}$ such that $\forall n,m > N$ and $\forall x \in E$,
+	\[ |f_n(x) - f_m(x)| \le |f_n(x)-f(x)| + |f_m(x)-f(x)| \le \varepsilon \]
+
+	Let $\varepsilon > 0$.
+	Suppose there exists $N \in \mathbb{N}$ such that $\forall n,m > N$ and $\forall x \in E$,
+	\[ |f_n(x) - f_m(x)| \le |f_n(x)-f(x)| + |f_m(x)-f(x)| \le \varepsilon \]
+	By Cauchy criterion, $\sequence{f_n} \to f$ pointwise on $E$.
+	It remains to prove that this convergence is uniform on $E$.
+	Clearly, above inequality is true for any value of $m$ greater than $N$.
+	As $m \to \infty$ we have,
+	\begin{align*}
+		\lim_{m \to \infty} |f_n(x) - f_m(x)|  \le \varepsilon \\
+		\implies \left|f_n(x) - \lim_{m \to \infty} f_m(x)\right| = |f_n(x) - f(x) | & \le \varepsilon
+	\end{align*}
+	Clearly, the convergence is uniform.
+	That is, $\sequence{f_n} \to f$ uniformly on $E$.
+\end{proof}
 %\chapter{Weierstrass Approximation \& Some Special Functions
+
