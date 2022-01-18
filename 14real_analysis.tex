@@ -1,4 +1,4 @@
-%Text Books: \cite{apostol}, \cite{rudin}
+Text Books: \cite{apostol}, \cite{rudin}
 %Module 1: Functions of bounded variation and rectifiable curves
 %Introduction, properties of monotonic functions, functions of bounded variation, total variation, additive property of total variation, total variation on $(a,x)$ as a functions of $x$, functions of bounded variation expressed as the difference of increasing functions, continuous functions of bounded variation, curves and paths, rectifiable path and arc length, additive and continuity properties of arc length, equivalence of paths, change of parameter.
 %(Chapter 6, Section: 6.1 - 6.12. of \cite{apostol}) (20 hours.)
@@ -96,7 +96,7 @@
 	Then $f$ is of bounded variation on $[a,b]$.
 \end{theorem}
 \begin{proof}
-	Without loss of generality, let $f$ be an increasing funciton.
+	Without loss of generality, let $f$ be an increasing function.
 	Then for any partition $P = \{x_0,x_1,\dots,x_n\}$ of $[a,b]$, we have
 	\[ \sum_{k=1}^n \left[ f(x_k)-f(x_{k-1}) \right] \le f(b)-f(a) = M \]
 	Therefore, $f$ is of bounded variation on $[a,b]$.
@@ -1552,22 +1552,25 @@ And $\displaystyle \lim_{m \to \infty} f_m(x) = 0$ if $x \notin \mathbb{Q}$ sinc
 
 Now, $f : \mathbb{R} \to \mathbb{R}$ defined by $\displaystyle f(x) = \lim_{m \to \infty} f_m(x)$ is given by,
 	\[ f(x) = \begin{cases} 1 & x \in \mathbb{Q} \\ 0 & x \notin \mathbb{Q} \end{cases} \text{ which is \textbf{everywhere discontinuous.}} \]
-Clearly, $f$ is not Riemann integrable.\\
+	Clearly, $f$ is not Riemann integrable since $\mathbb{Q}, \mathbb{R}-\mathbb{Q}$ are dense in any subinterval.
+	Thus, $m_i = 0$ and $M_i = 1$ in any subinterval of any partition $P$.
+	\[ \lowint_0^1 f(x)\ dx = 0 \ne 1 = \upint_0^1 f(x)\ dx \]
 
 \begin{important}
 Let $m \in \mathbb{N}$.
-Then there exists finitely many rational numbers $x$ such that $m!x$ is an integer.
-Thus, $f_m(x)$ has at most finitely many discontinuities  (at most $2m!$ points).
+Consider closed interval $E = [-1,1]$.
+Then there exists finitely many rational numbers $x$ on $E$ such that $m!x$ is an integer.
+Thus, $f_m(x)$ has at most finitely many discontinuities in any bounded interval. 
 \end{important}
 \begin{commentary}
-$f_m(x) = \cos m! \pi x$ is discontinuous at $S = \{ \frac{k}{m!} : k \in \mathbb{Z} \}$.
+$f_m(x) = \cos m! \pi x$ is discontinuous at $S = \left\{ \frac{k}{m!} \in E : k \in \mathbb{Z} \right\}$.
 For example, suppose $m = 3$.
-Then $S = \left\{ 0,\pm\frac{1}{6},\pm\frac{2}{6},\pm\frac{3}{6},\pm\frac{4}{6},\pm\frac{5}{6} \right\}$.
+Then $S = \left\{ 0,\pm\frac{1}{6},\pm\frac{2}{6},\pm\frac{3}{6},\pm\frac{4}{6},\pm\frac{5}{6},\pm 1 \right\}$.
 \end{commentary}
-Let $\alpha$ be the identity funciton.
+Let $\alpha$ be the identity function.
 Then $\alpha$ is continuous at those finite points where $f_m$ is discontinuous.
-And $f_m$ are bounded functions, say $|f_m| \le 1$.
-Therefore, $f_m$ is Riemann integrable for each $m$.
+And $f_m$ are bounded functions, since $|f_m| \le 1$.
+Therefore, for any bounded interval $E$, $f_m$ is Riemann integrable on $E$ for each $m$.
 However, $f$ is not Riemann integrable.
 \end{proof}
 \subsubsection{Derivative}
@@ -1609,7 +1612,7 @@ Uniform convergence is a partial solution to our main problem.
 \begin{commentary}
 	The difference between pointwise convergence and uniform convergence is that the choice of natrual number $N$ is independent of the choice of $x$ in the case of uniform convergence.
 \end{commentary}
-\subsubsection{Cauchy criterion}
+\subsubsection{Criterion for Uniform Convergence}
 \begin{theorem}[Cauchy criterion]
 	The sequence of functions $\sequence{f_n}$ defined on $E$ converges uniformly on $E$ if and only if for any $\varepsilon > 0$, there exists a natural number $N$ such that for any $m,n \ge N$ and $x \in E$, $|f_n(x)-f_m(x)| \le \varepsilon$.
 \end{theorem}
@@ -1634,5 +1637,323 @@ Uniform convergence is a partial solution to our main problem.
 	Clearly, the convergence is uniform.
 	That is, $\sequence{f_n} \to f$ uniformly on $E$.
 \end{proof}
+
+\begin{theorem}[Supremum Test]
+	Suppose sequence of function $\sequence{f_n} \to f$ pointwise on $E$.
+	Suppose $\displaystyle M_n = \sup_{x \in E} \left|f_n(x) - f(x)\right|$.
+	Then $\sequence{f_n} \to f$ uniformly on $E$, if and only if sequence $\sequence{M_n} \to 0$.
+\end{theorem}
+\begin{proof}
+	Define $\displaystyle M_n = \sup_{x \in X} |f_n(x) - f(x)|$.
+	Clearly, $M_n \ge 0$.
+	Suppose $\sequence{M_n} \to 0$ on $E$.
+	Let $\varepsilon > 0$.
+	Then there exists $N \in \mathbb{N}$ such that for every $n > N$,  we have $|M_n - 0| = M_n \le \varepsilon$.
+	Thus for any $n \ge N$ and $x \in E$,
+	\[ |f_n(x) - f(x)| \le \sup |f_n(x) - f(x)| = M_n \le \varepsilon \]
+	Therefore, $\sequence{f_n} \to f$ uniformly on $E$.\\
+
+	Suppose $\sequence{f_n} \to f$ uniformly on $E$.
+	Let $\varepsilon > 0$.
+	Then, there exists $N \in \mathbb{N}$ such that for every $n \ge N$ and $x \in E$, $|f_n(x) -f(x)| \le \varepsilon$.
+	This inequality is true for every $x \in E$.
+	Thus,
+	\[ \sup_{x \in E} \left| f_n(x) - f(x) \right| = M_n \le \varepsilon,\quad \forall n \ge N \]
+	Therefore, $\sequence{M_n} \to 0$ on $E$.
+\end{proof}
+
+\begin{theorem}[Weierstrass M-test]
+	Suppose $\sequence{f_n}$ is a sequence of functions on $E$.
+	Suppose $|f_n(x)| \le M_n$.
+	Then $\sum f_n$ converges on $E$ if $\sum M_n$ converges.
+\end{theorem}
+\begin{proof}
+	Suppose $|f_n| \le M_n$.
+	Then $M_n \ge 0$.
+	Suppose $\sum M_n$ converges.
+	Let $\sequence{s_n}$ be the sequence of partial sums.
+	Let $\varepsilon > 0$.
+	By Cauchy criterion, there exists $N \in \mathbb{N}$ such that $\forall n,m \ge N$, $|s_n - s_m| \le \varepsilon$.
+	Thus,
+	\[ |s_n - s_m| = \left| \sum_{j = 1}^n M_j - \sum_{j = 1}^m M_j \right| =  \sum_{j = n+1}^m M_j \le \varepsilon,\quad ( m > n )\]
+	Let $\sequence{S_n}$ be the sequence of partial sums for $\sum f_n$.
+	Clearly, $\forall n,m \ge N$ and $\forall x \in E$, we have $|S_n-S_m| \le \varepsilon$ since
+	\[ |S_n - S_m| = \left|\sum_{j = 1}^n f_j(x) - \sum_{j = 1}^m f_j(x) \right| = \left| \sum_{j = n+1}^m f_j(x) \right| \le \sum_{j = n+1}^m M_j \le \varepsilon \]
+	By Cauchy criterion for uniform convergence, the sequence of partial sums, $\sequence{S_n}$ converges uniformly on $E$.
+	Therefore, the series of functions, $\sum f_n$ converges uniformly on $E$.
+\end{proof}
+
+\subsection{Uniform Convergence and Continuity}
+\begin{theorem} %7.11
+	Suppose $\sequence{f_n} \to f$ uniformly on $E$.
+	Let $x$ be a limit point of $E$.
+	Suppose $\displaystyle \lim_{t \to x} f_n(t) = A_n$.
+	Then $\sequence{A_n}$ converges, and 
+	$\displaystyle \lim_{t \to x} f(t) = \lim_{n \to \infty} A_n$.
+	In other words,
+	\[ \lim_{t \to x} \lim_{n \to \infty} f_n(t) = \lim_{n \to \infty} \lim_{t \to x} f_n(t) \]
+\end{theorem}
+\begin{proof}
+	Suppose $\sequence{f_n} \to f$ uniformly on $E$.
+	Suppose $\displaystyle \lim_{t \to x} f_n(t)  = A_n$ on $E$.
+	Let $\varepsilon > 0$.
+	By Cauchy criterion for uniform convergence, there exists $N \in \mathbb{N}$ such that for every $n \ge N$ and every $t \in E$, $|f_n(t)-f_m(t)| \le \varepsilon/3$.
+	As $t \to x$, we have $|A_n - A_m| \le \varepsilon/3$.
+	Clearly, $\sequence{A_n}$ is Cauchy and $\sequence{A_n} \to A$.\\
+
+	Now fix a natural number $N$ such that for every $n \ge N$ and $t \in E$, $|f_n(t) - f(t) | < \varepsilon /3$ and $|A_n-A| \le \varepsilon/3$.
+	Also, choose a neighbourhood $V$ of $x$ such that $|f_n(t) - A_n | \le \varepsilon/3$.
+	Then, $\forall x \in V \cap E$ we have
+	\[ |f(t) - A| \le |f(t) -f_n(t)| + |f_n(t)-A_n| + |A_n - A| \le \varepsilon \]
+	Therefore, $\displaystyle \lim_{t \to x} f(t) = A$.
+	\[ \lim_{t \to x} \lim_{n \to \infty} f_n(t) = \lim_{t \to x} f(t)  = \lim_{n \to \infty} A_n = \lim_{n \to \infty} \lim_{t \to x} f_n(t) \]
+\end{proof}
+
+\begin{theorem} %7.12
+	If $\sequence{f_n}$ is a sequence of continuous functions on $E$, and if $f_n \to f$ uniformly on $E$, then $f$ is continuous on $E$.
+\end{theorem}
+\begin{important}
+	Uniform convergence preserves continuity.
+\end{important}
+\begin{proof}
+	Suppose the sequence of continuous functions, $\sequence{f_n} \to f$ uniformly on $E$.
+	Since $f_n$ is continuous $\lim_{t \to x} f_n(t) = f_n(x),\ \forall x \in E$.
+	Since the convergence is uniform, the order of limits can be interchanged.
+	\[ f(x) = \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \lim_{t \to x} f_n(t) = \lim_{t \to x} \lim_{n \to \infty} f_n(t) = \lim_{t \to x} f(t) \]
+	Therefore, the limit function $f$ is continuous.
+\end{proof}
+\begin{remark}
+	Suppose a sequence of continuous functions $\sequence{f_n}$ converges to a function $f$.
+	Function $f$ being continuous doesn't imply that the convergence is uniform.
+\end{remark}
+\begin{proof}
+	Consider $f_n : (0,1) \to \mathbb{R}$ defined by $f_n(x) = \frac{1}{nx+1}$.
+	Then, $\sequence{f_n} \to 0$.
+	Clearly, $f_n,0$ are continuous functions on $(0,1)$.
+	However, the convergence is not uniform.
+\end{proof}
+
+\begin{theorem} %7.13
+	Suppose $K$ is compact, and
+	\begin{enumerate}
+		\item $\sequence{f_n}$ is sequence of continuous functions on $K$
+		\item $\sequence{f_n}$ converges pointwise to a continuous function $f$ on $K$.
+		\item $f_n(x) \ge f_{n+1}(x),\ \forall x \in K$
+	\end{enumerate}
+	Then, $\sequence{f_n} \to f$ uniformly on $K$.
+\end{theorem}
+\begin{proof}
+	Suppose $\sequence{f_n} \to f$ pointwise on $K$.
+	Let function $g_n = f_n - f$.
+	Then, $g_n$ is continuous, $\sequence{g_n} \to 0$ pointwise and $g_n \ge g_{n+1}$.
+  	If sequence $\sequence{g_n} \to 0$ uniformly, then sequence $\sequence{f_n} \to f$ uniformly.\\
+
+	Let $\varepsilon > 0$.
+	Let $K_n$ be the set of all points $x \in K$ such that $g_n(x) \ge \varepsilon$.
+	Then $K_n$ is closed, since $g_n$ is continuous.
+	And $K_n$ is compact since $K_n$ is a closed subset of a compact set $K$.\\
+
+	Suppose $x \in K_{n+1}$.
+	Then $g_{n+1}(x) \ge \varepsilon$.
+	We have, $g(x) \ge g_{n+1}(x)$.
+	Thus, $g(x) \ge \varepsilon$.
+	Therefore, $K_n \supset K_{n+1} \supset \dots$.\\
+
+	Let $x \in K$.
+	We have $\sequence{g_n(x)} \to 0$ pointwise.
+	Then there exists $N \in \mathbb{N}$ such that $\forall n > N$, $g_n(x) < \varepsilon$.
+	Thus, $x \notin K_n,\ \forall n \ge N$.
+	Therefore $\cap K_n$ is empty.\\
+
+	Clearly, $K_N$ is empty for some $N \in \mathbb{N}$.
+	Thus, $\forall n \ge N$ and $\forall x \in K$ we have, $0 \le g_n(x) < \varepsilon$.
+	In other words, $\sequence{g_n}$ converges to $0$ uniformly on $K$.
+	Therefore, $\sequence{f_n}$ converges to $f$ uniformly on $K$.
+\end{proof}
+
+\begin{definition} %7.14
+	Let $X$ be a metric space.
+	Let $\mathscr{C}(X)$ be the set of all complex valued, continuous, bounded functions on $X$.
+	Let $f \in \mathscr{C}(X)$.
+	Then \textbf{supremum norm} on $\mathscr{C}(X)$ is defined by
+	\[ \| f \| = \sup_{x \in X} |f(x)| \]
+	And, $\mathscr{C}(X)$ together with \textbf{distance function} $d : \mathscr{C}(X) \times \mathscr{C}(X) \to \mathbb{R}$ defined by $d(f,g) = \| f-g \|$ is a metric space.
+\end{definition}
+
+\begin{commentary}
+	Let $\mathscr{C}(X)$ be the set of all complex valued, continuous, bounded functions on metric space $X$.
+	Let $f \in \mathscr{C}(X)$.
+	Then $f$ is bounded, $|f| < \infty$.
+	Thus, $\sup |f(x)|$ exists.
+	Therefore, $\| f \|$ is well-defined.\\
+
+	And, $\| f \| = \sup |f(x)| \ge 0$ since $|f(x)| \ge 0$.
+	Let $f,g \in \mathscr{C}(X)$.
+	Then $h = f+g \in \mathscr{C}(X)$ since sum of continuous functions is functions and sum of bounded functions is bounded.
+	Also, we have
+	\[ \| h \| = \sup_{x \in X} |(f+g)(x)| \le \sup_{x \in X} |f(x)| + \sup_{x \in X} |g(x)| = \| f \| + \| g \| \]
+	Therefore, $\| . \| : \mathscr{C}(X) \to \mathbb{R}$ is a norm on $\mathscr{C}(X)$.\\
+
+	Consider the function $d : \mathscr{C}(X) \times \mathscr{C}(X) \to \mathbb{R}$ defined by $d(f,g) = \| f-g \|$.
+	Clearly, $d(f,g) \ge 0$ since $|(f-g)(x)| \ge 0$.
+	And,
+	\[ d(f,g) = 0 \iff |(f-g)(x)| = 0, \forall x \in X \iff f =g  \]
+	Also we have,
+	\[ d(f,g) \le \| (f-h)+(h-g) \| \le \| f-h \| + \| h-g \| =  d(f,h) + d(h,g) \]
+	Therefore, the function $d$ is a distance function/metric on $\mathscr{C}(X)$.
+\end{commentary}
+\begin{remark}
+\begin{important}
+	A sequence $\sequence{f_n}$ converges to $f$ in metric space $\mathscr{C}(X)$ if and only if $\sequence{f_n}$ converges to $f$ uniformly on $X$.
+\end{important}
+\end{remark}
+\begin{proof}
+	\begin{align*}
+		\sequence{f_n} \to f \text{ in } \mathscr{C}(X) & \iff \forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n > N, d(f_n,f) \le \varepsilon\\
+		& \iff \forall n > N, \| f_n - f \| \le \varepsilon \\
+		& \iff \forall n > N, \sup |f_n(x)-f(x)| \le \varepsilon \\
+		& \iff \forall n > N, \forall x \in X,\ |f_n(x)-f(x)| \le \varepsilon \\
+		& \iff \sequence{f_n} \to f \text{ uniformly on } X
+	\end{align*}
+\end{proof}
+
+\begin{definition}[uniformly closed]
+	Closed subset of $\mathscr{C}(X)$ is \textbf{uniformly closed} since every convergent sequence in it corresponds to a uniform convergent sequence in $X$.
+\end{definition}
+
+\begin{definition}[uniform closure]
+	Let $\mathscr{A} \subset \mathscr{C}(X)$.
+	Then its closure, $\bar{\mathscr{A}}$ is the \textbf{uniform closure} of $\mathscr{A}$.
+\end{definition}
+
+\begin{definition}[complete metric space]
+	A metric space is \textbf{complete} if every Cauchy sequence in it converges.
+\end{definition}
+
+For example, $\mathbb{R}$ is complete.
+But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging to $\pi$ in $\mathbb{R}$ is Cauchy sequence in $\mathbb{Q}$ which doesn't converge to any point in $\mathbb{Q}$.
+
+\begin{theorem} %7.15
+	Let $X$ be a metric space.
+	Let $\mathscr{C}(X)$ be the set of all complex valued, continuous, bounded functions on $X$.
+	Let $f,g \in \mathscr{C}(X)$.
+	Define norm $\| f \| = \sup_{x \in X} |f(x)|$ and metric $d(f,g) = \| f-g \|$.
+	Then metric space $\entity{\mathscr{C}(X),d}$ is a complete metric space.
+\end{theorem}
+\begin{proof}
+	Let sequence of functions $\sequence{f_n}$ be a Cauchy sequence in $\mathscr{C}(X)$.
+	Let $\varepsilon > 0$.
+	Then there exists a natural number $N$ such that for any $n,m > N$, $d(f_n,f_m) < \varepsilon$.
+	That is, 
+	\[ d(f_n,f_m) = \sup_{x \in X} |f_n(x) - f_m(x)| < \varepsilon \]
+	%Thus, the  inequality is true for any $x \in X$.
+	%\[ \forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n,m > N, \forall x \in X, |f_n(x)-f_m(x)| <\varepsilon \]
+	%Thus, $\sequence{f_n} \to f$ uniformly on $X$.
+	Define $M_n = \sup_{x \in X} |f_n(x)|$.
+	Then,
+	\[ |M_n - M_m| = \left| \sup_{x \in X} |f_n(x)| - \sup_{x \in X}|f_m(x)| \right| \le \sup_{x \in X} |f_n(x) - f_m(x) | < \varepsilon \]
+	We have, $\sequence{M_n}$ is a Cauchy sequence in $\mathbb{R}$.
+	We know that, every Cauchy sequence in $\mathbb{R}$ is convergent in $\mathbb{R}$ since $\mathbb{R}$ is complete.
+	Thus, $\sequence{M_n}$ converges.\\
+
+	We have, corresponding  sequence $\sequence{f_n}$ in $X$ such that sequence $\sequence{M_n}$ defined by $M_n = \sup_{x \in X} |f_n(x)|$ converges.
+	Therefore, $\sequence{f_n}$ converges to $f$ uniformly on $X$ by criterion of uniform convergence.\\
+
+	We have, $f_n$ are continuous, bounded functions on $X$.
+	And $\sequence{f_n} \to f$ uniformly on $X$.
+	\[ \forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n > N, \forall x \in X, |f_n(x) - f_m(x)| < \varepsilon \]
+	Since, the convergence is uniform, the limit function $f$ is continuous and \begin{important}bounded\end{important}.
+	Therefore, $\sequence{f_n}$ in $\mathscr{C}(X)$ converges to $f \in \mathscr{C}(X)$.\\
+
+	The Cauchy sequence $\sequence{f_n}$ is chosen arbitrarily.
+	Thus, every Cauchy sequence in $\mathscr{C}(X)$ is convergent.
+	Therefore, $\mathscr{C}(X)$ is complete.
+\end{proof}
+
+\hrule
+\begin{remark}\cite[Exercise 7.1]{rudin}
+	Let $\sequence{f_n}$ be a sequence of bounded functions on a metric space $X$.
+	Suppose $\sequence{f_n} \to f$ uniformly on $X$.
+	Then $f$ is bounded.
+\end{remark}
+\begin{proof}
+	Suppose the sequence of bounded functions, $\sequence{f_n}$ converges to $f$ uniformly on $X$.
+	Consider $\sequence{g_n}$ where $g_n = |f_n - f|$
+	Then, $\sequence{g_n}$ converges to $0$ uniformly.
+	Suppose $f$ is unbounded.
+	Then $g_n$ is an unbounded sequence which doesn't converge.
+	This is a contradiction.
+	Therefore, $f$ is bounded.
+\end{proof}
+\hrule
+
+\subsection{Uniform Convergence and Integration}
+\begin{theorem} %7.16
+	Let $\alpha$ be monotonically increasing on $[a,b]$.
+	Suppose $f_n \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Suppose $\sequence{f_n} \to f$ uniformly on $[a,b]$.
+	Then $f \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	And,
+	\[ \int_a^b f\ d\alpha = \lim_{n \to \infty} \int_a^b f_n \ d\alpha \]
+\end{theorem}
+\begin{proof}
+	Let $f_n \in \mathscr{R}(\alpha)$ on $[a,b]$.
+	Suppose sequence $\sequence{f_n} \to f$ uniformly on $[a,b]$.
+	Define
+	\[ \varepsilon_n = \sup_{x \in [a,b]} |f_n(x) - f(x)| \]
+	Then, $ -\varepsilon_n \le f - f_n \le \varepsilon_n,\quad \forall x \in [a,b] $. 
+	And,
+	\[ f_n - \varepsilon_n \le f \le f_n + \varepsilon_n \]
+	Since $f_n \in \mathscr{R}(\alpha)$, we have $f_n+\varepsilon, f_n - \varepsilon \in \mathscr{R}(\alpha)$.
+	From the definition of lower and upper integrals,
+	\[ \int_a^b (f_n - \varepsilon_n)\ d\alpha \le \lowint_a^b f\ d\alpha \le \upint_a^b f\ d\alpha \le \int_a^b (f_n + \varepsilon_n)\ d\alpha  \]
+	Thus,
+	\[ 0 \le \upint_a^b f\ d\alpha - \lowint_a^b f\ d\alpha \le \int_a^b 2\varepsilon_n\ d\alpha = 2\varepsilon_n \left[ \alpha(b)-\alpha(a) \right] \]
+	Clearly, $\varepsilon_n \to 0$ as $n \to \infty$.
+	Then, $f \in \mathscr{R}(\alpha)$ on $[a,b]$ since the lower and upper integrals of $f$ with respect to $\alpha$ are equal.\\
+	
+	Also we have, $ 0 \le |f-f_n| \le \varepsilon_n $ for every $x \in [a,b]$.\\
+	Therefore,
+	\[ 0 \le \left| \int_a^b f\ d\alpha - \int_a^b f_n\ d\alpha \right| \le \int_a^b |f-f_n|\ d\alpha \le \int_a^b \varepsilon_n\ d\alpha = \varepsilon_n \left[ \alpha(b) - \alpha(a) \right] \]
+	As $n \to \infty$, we have $\varepsilon_n \to 0$.
+	Thus,
+	\[ \int_a^b f\ d\alpha = \lim_{n \to \infty} \int_a^b f_n\ d\ \alpha \]
+\end{proof} 
+
+\begin{corollary}
+	If $f_n \in \mathscr{R}(\alpha)$ on $[a,b]$ and if
+	\[ f(x) = \sum_{n = 1}^\infty f_n(x) \]
+	the series converging uniformly on $[a,b]$, then
+	\[ \int_a^b f\ d\alpha = \sum_{n=1}^\infty \int_a^b f_n \ d\alpha \]
+	In other words, the series may be integrated term by term.
+\end{corollary}
+\begin{proof}
+	Suppose $f_n \in \mathscr{R}(\alpha)$ and $\sum f_n$ converges to $f$ uniformly on $[a,b]$.
+	Let $\sequence{S_n}$ be the sequence of partial sums converging to $f$ uniformly on $[a,b]$.
+	We have, $S_n \in \mathscr{R}(\alpha)$ on $[a,b]$ by linearity of the integral and mathematical induction.
+	\[ \sum_{j = 1}^n \int_a^b f_n\ d\alpha = \int_a^b \sum_{j = 1}^n f_j\ d\alpha = \int_a^b S_n\ d\alpha \]
+	Since the uniform limit function of integrable functions is integrable,
+	\[ \sum_{n = 1}^\infty f_n = \lim_{n \to \infty} S_n  = f \in \mathscr{R}(\alpha) \text{ and } \lim_{n \to \infty} \int_a^b S_n\ d\alpha = \int_a^b f\ d\alpha \]
+	By the definition of sum of series,
+	\[ \sum_{n = 1}^\infty \int_a^b f_n\ d\alpha = \lim_{n \to \infty} \sum_{j = 1}^n \int_a^b f_j\ d\alpha = \lim_{n \to \infty} \int_a^b S_n\ d\alpha = \int_a^b f\ d\alpha = \int_a^b \sum_{n = 1}^\infty f_n\ d\alpha \]
+	Thus, the series may be integrated term by term.
+\end{proof}
+
+\subsection{Uniform Convergence and Differentiation}
+\begin{theorem} %7.17
+	Suppose $\sequence{f_n}$ is a sequence of functions, differentiable on $[a,b]$ and $\sequence{f_n(x_0)}$ converges for some $x_0 \in [a,b]$.
+	If $\sequence{f_n'}$ converges uniformly on $[a,b]$, then $\sequence{f_n}$ converges uniformly on $[a,b]$ to a function $f$.
+	And,
+	\[ f'(x) = \lim_{n \to \infty} f_n'(x) \]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem} %7.18
+	There exists a real continuous function on the real line which is nowhere differentiable.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 %\chapter{Weierstrass Approximation \& Some Special Functions
 
