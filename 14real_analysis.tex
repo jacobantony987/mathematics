@@ -2067,5 +2067,87 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 	Since the choice of $x$ is arbitrary, the function $f$ is nowhere differentiable.
 \end{proof}
 
+\pagebreak
+
+{\Large Module 4 : Equicontinuous functions}
+\section{Equicontinuous Family of Functions}
+\begin{definition}
+	Let $\sequence{f_n}$ be a sequence of functions defined on $E$.\\
+	Sequence $\sequence{f_n}$ is \textbf{pointwise bounded} if $\sequence{f_n(x)}$ is bounded for every $x \in E$.
+	\[ \forall x \in E, \exists M \in \mathbb{R} \text{ such that } \forall n \in \mathbb{N}, |f_n(x)| < M \]
+	Sequence $\sequence{f_n}$ is \textbf{uniformly bounded} if there exists a real number $M$ such that $|f_n(x)| < M$ for every $x \in E$ and $n \in \mathbb{N}$.
+	\[ \exists M \in \mathbb{R} \text{ such that } \forall x \in E, \forall n \in \mathbb{N}, |f_n(x)| < M \]
+\end{definition}
+\subsection{Two Problems}
+\begin{enumerate}
+	\item Whether uniform bounded sequence of uniformly bounded functions have a convergent subsequence ?\\
+		\textbf{NO}.
+		Sequence $\sequence{f_n}$ where $f_n(x) = \sin nx$ is uniformly bounded.
+		But it doesn't have a convergent subseqeunce.
+	\item Whether every convergent sequence contain a  uniformly convergent subsequence ?\\
+		\textbf{NO}.
+		Sequence $\sequence{f_n}$ where $\displaystyle f_n(x) = \frac{x^2}{x^2+(1-nx)^2}$.
+\end{enumerate}
+
+\begin{definition}
+	Let $E$ be a subset of a metric space $X$.
+	A family $\mathscr{F}$ of complex functions on $E$ is \textbf{equicontinuous} if for any $\varepsilon > 0$, there exists $\delta > 0$ such that $|f(x)-f(y)| < \varepsilon$ whenever $|x-y| < \delta$ for any $x,y \in E$ and $f \in \mathscr{F}$.
+	\[ \forall \varepsilon > 0, \exists \delta > 0 \text{ such that } \forall f \in \mathscr{F}, |f(x)-f(y)| < \varepsilon \text{ whenever } d(x,y) < \delta \]
+	\begin{commentary}
+		The choice of $\delta$ is independent of thechoice of $f$.
+	\end{commentary}
+\end{definition}
+
+\begin{theorem}
+	If $\sequence{f_n}$ is a sequence of pointwise bounded, complex functions on countable set $E$, then it has a subsequence $\sequence{f_{n_k}}$ such that $\sequence{f_{n_k}(x)}$ converges for every $x \in E$.
+\end{theorem}
+\begin{proof}
+	Let $E$ be a countable set.
+	Let $\sequence{f_n}$ be a sequence of pointwise bounded, complex functions.
+	Let $\sequence{x_i}$ be a sequence in $E$.
+	Then $\sequence{f_1(x_i)}$ is a bounded sequence of complex numbers.
+	By Bolzano-Weierstrass theorem,  $\sequence{f_1(x_i)}$ has a convergent subsequence $S_1$, say $\sequence{f_{1,k}(x_i)}$.
+	\[ S_1 : f_{1,1}\ f_{1,2}\ f_{1,3} \dots \]
+
+	Consider, the subsequence $\sequence{f_{2,k}(x_i)}$ with the same values for $k$ as in subsequence $\sequence{f_{1,k}(x_i)}$.
+	Again, $\sequence{f_{2,k}(x_i)}$ is bounded complex sequence.
+	And by Bolzano-Weierstrass theorem, $\sequence{f_{2,k}(x_i)}$ has a convergent subsequence $S_2$, say $\sequence{f_{2,k'}(x_i)}$ which is a subsequence of $\sequence{f_2(x_i)}$ as well.
+	And more importantly, $S_2$ is a subsequence of $S_1$.
+	And $S_2$ converges for $x_1,x_2 \in E$.
+	\[ S_2 : f_{2,1}\ f_{2,2}\ f_{2,3} \dots \]
+
+	Continuing like this, we get a sequence of subsequences
+	\[ S_n : f_{n,1}\ f_{n,2}\ f_{n,3} \dots \]
+	such that $S_n$ converges at $x_1,x_2,\dots,x_n \in E$.\\
+
+	Consider the diagonal sequence, $S : f_{1,1}\ f_{2,2}\ f_{3,3} \dots $.
+	We know that discarding finitely many first terms won't affect convergence of sequences.
+	And for any natural number $n$, we have can obtain a subsequence of $S_n$ by discarding a finite number of first terms from $S$.
+	Since $S_n$ converges for any natural number $n$, sequence $S$ converges for $x_1,x_2,\dots,x_n \in E$.\\
+
+	As $n \to \infty$, we have sequence $S$ converges for any $x \in E$.
+	Therefore, we have a subsequence $S$ of $\sequence{f_n(x_i)}$ which converges for any $x \in E$.
+\end{proof}
+
+\begin{theorem}
+	Let $K$ be a compact metric space.
+	If $\sequence{f_n}$ is a sequence of pointwise bounded, continuous, complex valued functions on $K$ converges uniformly on $K$, then $\sequence{f_n}$ is equicontinuous on $K$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $K$ a compact.
+	If $\sequence{f_n}$ be a sequence of pointwise bounded, equicontinuous, complex functions on $K$, then
+	\begin{enumerate}
+		\item $\sequence{f_n}$ is uniformly bounded on $K$.
+		\item $\sequence{f_n}$ has a uniformly convergent subsequence.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 %\chapter{Weierstrass Approximation \& Some Special Functions
+\subsection{Some special functions}
+
 
