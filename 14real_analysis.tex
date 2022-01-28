@@ -2080,13 +2080,36 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 \end{definition}
 \subsection{Two Problems}
 \begin{enumerate}
-	\item Whether uniform bounded sequence of uniformly bounded functions have a convergent subsequence ?\\
-		\textbf{NO}.
+	\item Whether uniform bounded sequence of uniformly bounded functions have a convergent subsequence ?
+		\textbf{NO}.\\
 		Sequence $\sequence{f_n}$ where $f_n(x) = \sin nx$ is uniformly bounded.
 		But it doesn't have a convergent subseqeunce.
-	\item Whether every convergent sequence contain a  uniformly convergent subsequence ?\\
-		\textbf{NO}.
-		Sequence $\sequence{f_n}$ where $\displaystyle f_n(x) = \frac{x^2}{x^2+(1-nx)^2}$.
+		\begin{proof}
+			Suppose $\sequence{\sin nx}$ has a convergent subsequence, say $\sequence{\sin n_kx}$.
+			Then by Cauchy criterion, $(\sin n_k x - \sin n_{k+1}x) \to 0$ as $n_k \to \infty$.
+			\[ \lim_{n \to \infty} \sin n_k x - \sin n_{k+1}x = 0 \]
+			\[ \lim_{n \to \infty} (\sin n_k x - \sin n_{k+1}x)^2 = 0 \]
+			By Lebesgue dominated convergence theorem,
+			\[ \lim_{n \to \infty} \int_0^{2\pi} (\sin n_kx - \sin n_{k+1}x)^2 dx = \int_0^{2\pi} \lim_{n \to \infty} (\sin n_kx - \sin n_{k+1}x)^2 dx = 0 \]
+			However, the integral on the left evaluates $2\pi$ which is a contradiction.
+			Clearly, the uniformly bounded sequence $\sequence{\sin nx}$ of continuous functions on compact interval $[0,2\pi]$ does not even imply existence of a subsequence which converges pointwise.
+		\end{proof}
+	\item Whether every uniformly bounded, convergent sequence has a  uniformly convergent subsequence ?
+		\textbf{NO}.\\
+		Consider,
+		\[ f_n(x) = \frac{x^2}{x^2+(1-nx)^2} \]
+		Sequence $\sequence{f_n}$ is a uniformly bounded sequence of functions on compact interval $[0,1]$.
+		doesn't have a convergent subsequence.
+		\begin{proof}
+			Suppose $\sequence{f_n}$ has a convergent subsequence $\sequence{f_{n_k}} \to f$.
+			Then $\displaystyle \lim_{n \to \infty} f_{n_k}(x) = f(x)$.
+			We have,
+			\[ \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} \frac{x^2}{x^2+(1-nx)^2} = 0 \]
+			However,
+			\[ \lim_{n \to \infty} f_n \left(\frac{1}{n}\right) = \lim_{n \to \infty} \frac{\left(\frac{1}{n}\right)^2}{\left(\frac{1}{n}\right)^2+0} = 1 \ne 0 = \left(\lim_{n \to \infty} f_n\right)(x) \] 
+			Clearly, the sequence of functions $\{ f_n\}$ is a uniformly bounded sequence of continuous functions on a compact interval $[0,1]$.
+			Therefore, uniformly bounded, convergent sequence on compact set doesn't necessarily have a uniformly convergenct subsequence.
+		\end{proof}
 \end{enumerate}
 
 \begin{definition}
@@ -2105,28 +2128,29 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 	Let $E$ be a countable set.
 	Let $\sequence{f_n}$ be a sequence of pointwise bounded, complex functions.
 	Let $\sequence{x_i}$ be a sequence in $E$.
-	Then $\sequence{f_1(x_i)}$ is a bounded sequence of complex numbers.
-	By Bolzano-Weierstrass theorem,  $\sequence{f_1(x_i)}$ has a convergent subsequence $S_1$, say $\sequence{f_{1,k}(x_i)}$.
+	Then $\sequence{f_n(x_1)}$ is a bounded sequence of complex numbers.
+	By Bolzano-Weierstrass theorem,  $\sequence{f_n(x_1)}$ has a subsequence $S_1$, say $\sequence{f_{1,k}(x_1)}$ which converges at $x_1 \in E$.
 	\[ S_1 : f_{1,1}\ f_{1,2}\ f_{1,3} \dots \]
 
-	Consider, the subsequence $\sequence{f_{2,k}(x_i)}$ with the same values for $k$ as in subsequence $\sequence{f_{1,k}(x_i)}$.
-	Again, $\sequence{f_{2,k}(x_i)}$ is bounded complex sequence.
-	And by Bolzano-Weierstrass theorem, $\sequence{f_{2,k}(x_i)}$ has a convergent subsequence $S_2$, say $\sequence{f_{2,k'}(x_i)}$ which is a subsequence of $\sequence{f_2(x_i)}$ as well.
-	And more importantly, $S_2$ is a subsequence of $S_1$.
-	And $S_2$ converges for $x_1,x_2 \in E$.
+	Consider, the subsequence $\sequence{f_{2,k}(x_2)}$ of the sequence $\sequence{f_n(x_2)}$ with the same values for $k$ as in subsequence $\sequence{f_{1,k}(x_2)}$.
+	Again, $\sequence{f_{2,k}(x_2)}$ is a bounded complex sequence.
+	And by Bolzano-Weierstrass theorem, $\sequence{f_{2,k}(x_2)}$ has a convergent subsequence $S_2$, say $\sequence{f_{2,k'}(x_2)}$ which is a subsequence of $\sequence{f_2(x_2)}$.
+	And more importantly, $S_2$ is a subsequence of $S_1$ such that $S_2$ converges for both $x_1,x_2 \in E$.
 	\[ S_2 : f_{2,1}\ f_{2,2}\ f_{2,3} \dots \]
 
 	Continuing like this, we get a sequence of subsequences
-	\[ S_n : f_{n,1}\ f_{n,2}\ f_{n,3} \dots \]
-	such that $S_n$ converges at $x_1,x_2,\dots,x_n \in E$.\\
+	\begin{align*}
+		S_1 \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \dots \\
+		S_2 \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \dots \\
+		 & \dots \\
+		S_n \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \dots
+	\end{align*}
 
 	Consider the diagonal sequence, $S : f_{1,1}\ f_{2,2}\ f_{3,3} \dots $.
 	We know that discarding finitely many first terms won't affect convergence of sequences.
 	And for any natural number $n$, we have can obtain a subsequence of $S_n$ by discarding a finite number of first terms from $S$.
-	Since $S_n$ converges for any natural number $n$, sequence $S$ converges for $x_1,x_2,\dots,x_n \in E$.\\
-
-	As $n \to \infty$, we have sequence $S$ converges for any $x \in E$.
-	Therefore, we have a subsequence $S$ of $\sequence{f_n(x_i)}$ which converges for any $x \in E$.
+	Thus, we have sequence $S$ which converges for $x_1,x_2,\dots,x_n \in E$ since $S_n$ converges.
+	Therefore, as $n \to \infty$ we have a convergent subsequence $S$ of $\sequence{f_n}$ which converges for every $x \in E$.
 \end{proof}
 
 \begin{theorem}
@@ -2134,6 +2158,18 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 	If $\sequence{f_n}$ is a sequence of pointwise bounded, continuous, complex valued functions on $K$ converges uniformly on $K$, then $\sequence{f_n}$ is equicontinuous on $K$.
 \end{theorem}
 \begin{proof}
+	Let $K$ be a compact metric space.
+	Let $\varepsilon > 0$.
+	Let $\sequence{f_n}$ converges uniformly on $K$.
+	Then,
+	\[ \forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } \forall n > N,\ \| f_n-f_N \| < \varepsilon \]
+	We have continous functions on compact sets are uniformly continuous.
+	Thus there exists a natrual number $N$ such that for every natural numbers $n,m$ greater than $N$, we have $|f_n(x) - f_m(x)| < \varepsilon$.
+	Let $x \in K$.
+	Then,
+	\[ |f_n(x)-f_m(x)| \le |f_n(x)-f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f_n(y)| < 3\varepsilon \]
+	Since $x$ is arbitrary, we have $\sequence{f_n}$ satisfied the inequailty.
+	Therefore, $\sequence{f_n}$ is equicontinuous on $K$.
 \end{proof}
 
 \begin{theorem}
