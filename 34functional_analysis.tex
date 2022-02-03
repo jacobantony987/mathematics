@@ -1244,7 +1244,311 @@ But there exists separable, Banach spaces without a Schauder basis.
 		Therefore, $\dim \mathscr{D}(T) = \dim \mathscr{R}(T)$.
 	\end{proof}
 \end{theorem}
+
+\begin{theorem}[Invese of Product]
+	Let $T : X \to Y$ and $S : Y \to Z$ be bijective linear operators, where $X,Y,Z$ are vector spaces.
+	Then the inverse $(ST)^{-1} :Z \to X$ exists and $(ST)^{-1} = T^{-1}S^{-1}$.
+\end{theorem}
+\begin{proof}
+	The operator $ST : X \to Z$ is bijective since $S,T$ are bijective.
+	Therefore, $(ST)^{-1} : Z \to X$ exists and $ST(ST)^{-1} = I_Z$.
+	\begin{align*}
+		S^{-1}ST(ST)^{-1} & = T(ST)^{-1} = S^{-1}I_Z = S^{-1} \text{ and} \\
+		T^{-1}S^{-1}ST(ST)^{-1} & = T^{-1}T(ST)^{-1} = (ST)^{-1} = T^{-1}S^{-1}
+	\end{align*}
+\end{proof}
+
 \subsection{Bounded and Continuous Linear Operators}
+\begin{definition}[bounded operator]
+	Let $X,Y$ be normed spaces and $T:X \to Y$ be a linear operator.
+	Then $T$ is bounded if there exists a real number $c$ such that $\|Tx\| \le c\|x\|$.
+\end{definition}
+
+	Suppose $T : X \to Y$ be a bounded linear operator.
+	Then $\|T\| : B(X,Y) \to \mathbb{R}$ is well-defined.
+		\[ \|T\| = \sup_{\substack{x \in \mathscr{D}(T) \\ x \ne 0}} \frac{\|Tx\|}{\|x\|} \]
+\begin{lemma}
+	Let $T : X \to Y$ be a bounded linear operator.
+	Then,
+	\begin{enumerate}
+		\item We have an alternate formula, \[ \|T\| = \sup_{\substack{x \in \mathscr{D}(T) \\ \|x\| = 1}} \|Tx\| \]
+		\item $\|T\|$ satisfies norm axioms
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	Suppose $x \ne 0$ and $\|x\| = a$.
+	Then $a \ne 0$ since $X$ is a normed space.
+	Define $y = \frac{1}{a}x$.
+	Then $\|y\| = 1$.
+	Also we have,
+	\[ \|T\| = \sup_{\substack{x \in \mathscr{D}(T)\\ x \ne 0}} \frac{1}{a} \|Tx\| = \sup_{\substack{x \in \mathscr{D}(T)\\ x \ne 0}} \left\| T\left(\frac{1}{a}x\right)\right\| = \sup_{\substack{y \in \mathscr{D}(T) \\ \|y\| = 1}} \| Ty\| \]
+
+	\hrule \vspace{1em}
+
+	\begin{enumerate}
+		\item We have 
+			\[ \|T\| = \sup_{\substack{x \in \mathscr{D}(T) \\ x \ne 0}} \frac{\|Tx\|}{\|x\|} \]
+			Since $X,Y$ are normed spaces $\|Tx\|, \|x\| \ge 0$ and $\|T\| \ge 0$.
+		\item
+			Also we have, $Y$ is normed space and $Tx \in Y$.
+			Thus, $\|Tx\| = 0$ if and only if $Tx = 0$.
+			And, $\| T \| = 0$ if and only if $Tx = 0,\ \forall x \in \mathscr{D}(T)$.
+			Therefore, $T = 0$.
+			That is, $Tx = 0x = 0,\ \forall x \in \mathscr{D}(T)$.
+		\item 
+			Let $X,Y$ be normed spaces over the field $K$.
+			Let $\alpha \in K$ and $T$ be a linear operator from $X$ into $Y$.
+			Then,
+		\begin{align*}
+			\| (\alpha T) \|
+			& = \sup_{\substack{x \in \mathscr{D}(\alpha T)\\ \|x\| = 1}} \|(\alpha T)(x)\| \\
+			& = \sup_{\substack{x \in \mathscr{D}(T)\\ \| x \| = 1}} || \alpha T(x) \| \\
+			& = |\alpha| \sup_{\substack{x \in \mathscr{D}(T) \\ \|x\| = 1}} \| Tx \| \\
+			& = |\alpha| \|T\|
+		\end{align*}
+		\item 
+			Let $X,Y$ be normed spaces and $T_1,T_2$ are linear operators from $X$ to $Y$.
+			Then,
+		\begin{align*}
+			\| T_1+T_2 \| 
+			& = \sup_{\substack{x \in \mathscr{D}(T_1+T_2) \\ \|x\|=1}} \|(T_1+T_2)(x)\| \\
+			& = \sup_{\substack{x \in \mathscr{D}(T_1+T_2) \\ \|x\|=1}} \|T_1(x) + T_2(x)\| \\
+			& \le \sup_{\substack{x \in \mathscr{D}(T_1)\\ \|x\|=1}} \|T_1(x)\| + \sup_{\substack{x \in\mathscr{D}(T_2)\\ \|x\|=1}} \|T_2(x)\| \\
+			& \le \|T_1\| + \|T_2\|
+		\end{align*}
+
+	\end{enumerate}
+\end{proof}
+
+\subsubsection{Norm of a few Linear operators}
+\begin{enumerate}
+	\item 
+		Identity Operator $I_X : X \to X$ defined by $I(x) = x$.
+		\[ \|I\| = \sup_{\substack{x \in \mathscr{D}(I)\\ \|x\| = 1}} \|Ix\| = 1 \]
+	\item 
+		Zero Operator $0 : X \to Y$ defined by $0x = 0$.
+		\[ \|0\| = \sup_{\substack{x \in \mathscr{D}(0) \\ \|x\|=1}} \|0x\| = 0 \]
+	\item 
+		Differential Operator $D : K[t] \to K[t]$ defined by $D(x(t)) = x'(t)$ where $K[t]$ is the vector space of all polynomial functions defined on $[0,1]$ together with norm $\displaystyle \|x\| = \sup_{t \in [0,1]} |x(t)|$.\\
+
+		The differential operator is not bounded.
+		Consider $x(t) = t^n$ where $n \in \mathbb{N}$.
+		Then $D(x) = x'(t) = nt^{n-1}$.
+		Thus, $\|x\| = 1$ and $\|D(x)\| = n$.
+		Clearly, differential operator $D$ is not bounded.	
+		Therefore, $\|D\|$ is not defined.
+	\item Integral Operator $T:C[0,1] \to C[0,1]$ defined by \[ T(x) = \int_0^1 k(t,\tau)x(\tau) d\tau \]
+		where $k(t,\tau)$ is the kernel of the integral operator.
+		Clearly, the integral of any continuous function is zero if only if $k(t,\tau) = 0$ for any $\tau \in [0,1]$.\\
+
+		\begin{align*}
+			\|T(x)\| 
+			& = \left\| \int_0^1 k(t,\tau)\ x(\tau)\ d\tau \right\| \\
+			& \le \int_0^1 \|k(t,\tau)\| \|x(\tau)\| d\tau 
+			\intertext{Let $\displaystyle k_0 = \max_{\tau \in [0,1]} \{ \|k(t,\tau)\} \}$. Replacing $\|k(t,\tau)\|$ with $k_0$, we get}
+			\|T(x)\| & \le k_0 \|x\| \int_0^1 d\tau = k_0\|x\|
+		\end{align*}
+		Therefore, integral operator is bounded and $\|T\| \le k_0$.
+	\item Matrix multiplication $T : \mathbb{R}^n \to \mathbb{R}^r$ defined by $y = Ax$ where $A = (\alpha_{jk})$ where $\alpha_{jk} \in K$.
+		Let $x=(\xi_k)$ and $y = (\eta_j)$ where $\xi_k,\eta_j \in K$.
+		Then
+		\[ \eta_j = \sum_{k = 1}^n \alpha_{jk}\xi_k \]
+		Therefore,
+		\begin{align*}
+			\|Tx\|^2 & = \sum_{j=1}^r \eta_j^2 \\
+			& = \sum_{j=1}^r \left( \sum_{k = 1}^n \alpha_{jk}\xi_k \right)^2 
+			\intertext{ By Cauchy-Schwarz inequality}
+			\|T(x)\|^2 & \le {\color{red}\sum_{j=1}^r \left( \sum_{k = 1}^n \alpha_{jk}^2 \sum_{k = 1}^n \xi_k^2 \right)} \\
+			& \le {\color{red}\sum_{j=1}^r \sum_{k = 1}^n \alpha_{jk}^2 \ \sum_{j=1}^r \sum_{k = 1}^n \xi_k^2 }\\
+			& \le c^2 \|x\|^2 \\
+			\|Tx\| & \le c \|x\|
+		\end{align*}
+		where $\displaystyle c = \left( \sum_{j=1}^r \sum_{k=1}^n \alpha_{jk}^2 \right)^\frac{1}{2}$.
+		Clearly, matrix multiplication is bounded.
+\end{enumerate}
+
+\begin{theorem}[finite dimension]
+	Every linear operator on finite dimensional normed space is bounded.
+\end{theorem}
+\begin{proof}
+	Let $X$ be normed space with $\dim(X) = n < \infty$.
+	Let $T : X \to X$ be a linear operator on $X$.
+	Then,
+	\begin{align*}
+		\|Tx\| 
+		& = \left\| T\left( \sum_{j=1}^n \xi_j e_j \right) \right\| \\
+		& = \left\| \sum_{j=1}^n \xi_j T(e_j) \right\| \text{ since $T$ is linear} \\
+		& \le \sum_{j=1}^n |\xi_j| \ \|T(e_j)\| 
+		\intertext{ Let $e_k$ is an element of the standard basis of $X$ such that $\|T(e_k)\|$ is maximum. Then,}
+		\|T(x)\| & \le \|T(e_k)\| \sum_{j=1}^n |\xi_j| 
+		\intertext{We have, the standard basis of $X$, $\{e_1,e_2,\dots,e_n\}$ is a linearly independent set of vectors. We have $\displaystyle x = \sum_{j=1}^n \xi_j e_j$. Thus, by linear combination lemma, there exists a positive real number $c$ such that $\displaystyle \sum_{j=1}^n |\xi_j| \le \frac{1}{c} \left\| \sum_{j=1}^n \xi_j e_j \right\| = \frac{1}{c} \|x\|$. Thus,}
+		\|T(x)\| & \le \frac{\|T(e_k)\|}{c} \|x\|
+	\end{align*}
+	Therefore, linear operators on finite dimensional spaces are bounded.
+\end{proof}
+
+\begin{theorem}
+	Let $X,Y$ be normed spaces and $T : X \to Y$ be a linear operator.
+	Then
+	\begin{enumerate}
+		\item $T$ is continuous if and only if $T$ is bounded.
+		\item $T$ is continuous at a point, then it is continuous.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Suppose $T \ne 0$.
+	If $T = 0$, then the results are trivial as zero operator is always continuous and bounded.
+	Since $T \ne 0$, $\|T\| \ne 0$.\\
+
+	Suppose $T$ is bounded.
+	Let $\varepsilon > 0$.
+	Define $\delta = \frac{\varepsilon}{\|T\|}$.\\
+	Let $x_0 \in \mathscr{D}(T)$.
+	Let $x \in \mathscr{D}(T)$ such that $\| x - x_0 \| < \delta = \frac{\varepsilon}{\|T\|}$.
+	Now, we have
+	\[ \| Tx - Tx_0 \| = \| T(x-x_0) \| \le \|T\| \ \|x-x_0\| \le \delta \|T\| \le \varepsilon \]
+	Therefore, $T$ is continuous. \\
+
+	\hrule \vspace{1em}
+
+	Let $T$ be continuous at $x_0 \in \mathscr{D}(T)$.
+	Then, for any $\varepsilon > 0$, there exists $\delta > 0$ such that if $\|x-x_0\| \le \delta$, then $\|T(x) - T(x_0)\| \le \varepsilon$.\\
+
+	Let $y \ne 0$.
+	Define $x \in X$ such that $x = x_0 + \frac{\delta}{\|y\|}y$.
+	Then $\| x-x_0 \| = \delta $.
+	Therefore,
+	\[ \varepsilon \ge \|Tx - Tx_0\| = \| T(x-x_0) \| = \frac{\delta}{\|y\|} \|Ty\| \]
+	And $\|Ty\| \le {\color{red}\frac{\varepsilon}{\delta}} \|y\|$.
+	Therefore, $T$ is bounded.\\
+
+	\hrule \vspace{1em}
+
+	Suppose $T$ is continuous at a point $x_0$.
+	Then $T$ is bounded and therefore $T$ is continuous on $\mathscr{D}(T)$.
+\end{proof}
+
+\begin{corollary}
+	Let $T$ be a bounded linear operator.
+	\begin{enumerate}
+		\item $x_n \to x \implies Tx_n \to Tx$
+		\item Null space $\mathcal{N}(T)$ is closed.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	Let $T : X \to Y$ be a bounded linear operator.
+	Suppose $x_n \to x$.
+	\[ \lim_{n \to \infty} \|Tx_n - Tx\| = \lim_{n \to \infty} \|T(x_n-x)\| \le \|T\| \ \|x_n-x\| = 0 \]
+	Clearly, $Tx_n \to Tx$.\\
+
+	\hrule \vspace{1em}
+
+	Suppose $x \in \overline{\mathcal{N}(T)}$.
+	\dag\footnote{
+		To prove $X$ is closed, we often choose $x \in \overline{X}$ which is limit of an arbitrary sequence $x_n$ in $X$.
+		Then it is enough to show that the limit $x \in X$.}
+	Then there exists a sequence $\sequence{x_n} \in \mathcal{N}(T)$ such that $x_n \to x$.
+	Then, $Tx_n \to Tx$.
+	However, $Tx_n = 0$ since $x_n \in \mathcal{N}(T)$.
+	Therefore, $Tx = 0$ and $x \in \mathcal{N}(T)$.
+	Clearly, $\mathcal{N}(T)$ is closed.
+\end{proof}
+
+\begin{remark}
+	Range of a bounded linear operator is not necessarily closed.
+\end{remark}
+\begin{proof}
+	Consider $T : l^\infty \to l^\infty$ defined by $Tx = y$ where $x = (\xi_j)$, $y = (\eta_j)$ and $\eta_j = \xi_j/j$.
+	Since $l^\infty$ is not complete, there exists a sequence $\sequence{x_n}$ in $l^\infty$ which coverges to an unboudned sequence $x \notin l^\infty$.\\
+
+	For example, consider $x_n = (\xi_{n,j})$ where\dag
+	\footnote{
+		We know that $l^\infty$ is the set of all bounded sequences.
+		We may use simpler sequence $x_n = (\xi_{n,j})$ where $\xi_{n,j} = j,\ j \le n$ and vanishes for $j >n$.
+		That is, $x_1 = 1,0,0,\dots$, $x_2 = 1,2,0,0,\dots$ and $x_n = 1,2,\dots,n,0,0,\dots$.
+		Then $Tx_n = 1,1,\dots,1,0,0,\dots$.
+		Clearly, $x_n \to y$ where $y = 1,2,3,\dots$ is unbounded and $Tx_n \to Ty$ where $Ty = 1,1,1,\dots$ is bounded.}
+	\[\xi_{n,j} = \begin{cases} j-\frac{1}{n} & j \le n \\ 0 & j > n \end{cases} \]
+	Clearly, $x_n \in l^\infty$ since $x_n$ is bounded by $n$.
+	And $\sequence{Tx_n} = (\eta_{n,j})$ defined by $\eta_{n,j} =\frac{\xi_{n,j}}{j}$ is a sequence of bounded functions which converges to $y= (\eta_j)$ where $\eta_j = 1$.
+	However, there doesn't exist a bounded sequence $x$ such that $Tx = y$.
+	Therefore, the range of $T$ is not closed.
+\end{proof}
+
+\begin{remark}
+	Let $T_2 : X \to Y$ and $T_1 : Y \to Z$ be bounded linear opertors where $X,Y,Z$ are normed spaces.
+	Then $\|T_1T_2\| = \|T_1\| \ \|T_2\|$.
+\end{remark}
+\begin{proof}
+	Suppose $T_1,T_2$ are bounded, linear opertors.
+	Then $T_1T_2$ is linear since $T_1(T_2(\alpha x + \beta y)) = T_1(\alpha T_2x + \beta T_2y) = \alpha T_1T_2x + \beta T_1T_2y$.\\
+
+	And $T_1T_2$ is bounde since
+	\begin{align*}
+		\|T_1T_2(x)\| 
+		& \le \|T_1\| \ \|T_2(x)\| \text{ since $T_1$ is bounded} \\
+		& \le \|T_1\| \ \|T_2\| \ \|x\| \text{ since $T_2$ is bounded} \\
+		& \le c \|x\| \text{ where $c = \|T_1\|\ \|T_2\|$}
+	\end{align*}
+	Now we have,
+	\begin{align*}
+		\|T_1T_2\|
+		& = \sup_{\substack{x \in \mathscr{D}(T_2) \\ \|x\| = 1}} \|T_1T_2x\| \\
+		& \le \sup_{\substack{x \in \mathscr{D}(T_2) \\ \|x\| = 1}} \|T_1\| \ \|T_2\| \ \|x\| \\
+		& \le \|T_1\| \ \|T_2\|
+	\end{align*}
+\end{proof}
+
+\begin{remark}
+	Let $T : X \to X$ be a bounded, linear operator.
+	Then $\|T^2\| \le \|T\|^2$.
+	And by mathematical induction, $\forall n \in \mathbb{N},\ \|T^n\| \le \|T\|^n$.
+\end{remark}
+
+\begin{definition}[equal operator]
+	Two linear operators $T_1,T_2$ are equal if $\mathscr{D}(T_1) = \mathscr{D}(T_2)$ and $\forall x \in \mathscr{D}(T_1),\ T_1x = T_2x$.
+\end{definition}
+
+\begin{theorem}[bounded linear extension]
+	Let $T : X \to Y$ be a bounded, linear operator from a normed space into a Banach space.
+	Then $T$ has a bounded, linear extension $\tilde{T} : \overline{\mathscr{D}(T)} \to Y$ such that $\|\tilde{T}\| = \|T\|$.
+\end{theorem}
+\begin{proof}
+	Suppose $x \in \overline{\mathscr{D}(T)}$.
+	Then there exists a sequence $\sequence{x_n}$ in $\mathscr{D}(T)$ such that $x_n \to x$.
+	By Cauchy-criterion, there exists $N \in \mathbb{N}$ such that $\forall n,m > N,\ \|x_n - x_m\| \le \varepsilon$.
+	Since $T$ is a bounded linear operator, for every $n,m > N$ we have
+	\[ \|Tx_n - Tx_m\| = \|T(x_n-x_m)\| \le \|T\| \ \|x_n-x_m\| \le \varepsilon \|T\| \]
+	Therefore, sequence $\sequence{Tx_n}$ in $Y$ converges to a point, say $y \in Y$ since $Y$ is complete.
+	Define $\tilde{T} : \overline{\mathscr{D}(T)} \to Y$ such that $\tilde{T}(x) = y$.\\
+
+	Now, we show that the function $\tilde{T}$ is defined independent of the choice of the sequence $\sequence{x_n}$.
+	Let $x_n \to x$ and $z_n \to x$.
+	Consider $\sequence{v_n} : x_1,z_1,x_2,z_2,\dots$.
+	Then $v_n \to x$.
+	And $\sequence{Tv_n}$ converges.
+	Then, the subsequences $\sequence{Tx_n}$ and $\sequence{Tzn}$ converges and they must have the same limit.
+	Thus, $\tilde{T}$ is uniquely defined (well defined).\\
+
+	Suppose $x_n \to x$ and $z_n \to z$.
+	Then $\tilde{T}$ is linear since 
+	\[ T(\alpha x_n + \beta z_n) = \alpha Tx_n + \beta Tz_n \to \alpha \tilde{T}x + \beta \tilde{T}z = \tilde{T}(\alpha x + \beta z) \]
+
+	Since $\tilde{T}$ is an extension of $T$, $\tilde{T}x = Tx$ in the domain of $T$.
+	Also we have, $\|Tx_n\| \le \|T\|\ \|x_n\|$.
+	Suppose $Tx_n \to y = \tilde{T}x$.
+	We have, the norm function which maps $x \to \|x\|$ is continuous.
+	As $n \to \infty$ we have, $\| \tilde{T}x \| \le \|T\|\ \|x\|$.
+	Thus, $\tilde{T}$ is bounded and $\|\tilde{T}\| \le \|T\|$.
+	Since $\tilde{T}$ is an extension of $T$, we also have $\|T\| \le \| \tilde{T}\|$.
+	Therefore, $\|\tilde{T}\| = \|T\|$.
+\end{proof}
+
+\begin{challenge}
+	Any linear operator on $X$ has a linear extension into $\overline{X}$ preserving norm.
+	Whether this extension is unique on $\overline{X}$ ?
+\end{challenge}
+
 \subsection{Linear Functionals}
 \subsection{Linear Operators and Functionals on finite dimensional spaces}
 \subsection{Normed spaces of Operators, Dual space}
