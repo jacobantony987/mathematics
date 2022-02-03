@@ -2073,9 +2073,16 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 \section{Equicontinuous Family of Functions}
 \begin{definition}
 	Let $\sequence{f_n}$ be a sequence of functions defined on $E$.\\
-	Sequence $\sequence{f_n}$ is \textbf{pointwise bounded} if $\sequence{f_n(x)}$ is bounded for every $x \in E$.
+	{\color{red}
+	Sequence $\sequence{f_n}$ is a \textbf{bounded} sequence if every functions in the sequence is bounded.
+	\[ \forall n \in N, \exists M \in \mathbb{R} \text{ such that } \forall x \in E, |f_n(x)|<M \]
+
+	Sequence $\sequence{f_n}$ is a \textbf{pointwise bounded} sequence if there exists a function $\phi(x)$ such that $|f_n(x)| < \phi(x)$.
+	In other words, sequence $\sequence{f_n}$ is a pointwise bounded sequence if $\sequence{f_n(x)}$ is bounded for every $x \in E$
 	\[ \forall x \in E, \exists M \in \mathbb{R} \text{ such that } \forall n \in \mathbb{N}, |f_n(x)| < M \]
-	Sequence $\sequence{f_n}$ is \textbf{uniformly bounded} if there exists a real number $M$ such that $|f_n(x)| < M$ for every $x \in E$ and $n \in \mathbb{N}$.
+	}
+
+	Sequence $\sequence{f_n}$ is a \textbf{uniformly bounded} sequence if there exists a real number $M$ such that $|f_n(x)| < M$ for every $x \in E$ and $n \in \mathbb{N}$.
 	\[ \exists M \in \mathbb{R} \text{ such that } \forall x \in E, \forall n \in \mathbb{N}, |f_n(x)| < M \]
 \end{definition}
 \subsection{Two Problems}
@@ -2114,10 +2121,10 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 
 \begin{definition}
 	Let $E$ be a subset of a metric space $X$.
-	A family $\mathscr{F}$ of complex functions on $E$ is \textbf{equicontinuous} if for any $\varepsilon > 0$, there exists $\delta > 0$ such that $|f(x)-f(y)| < \varepsilon$ whenever $|x-y| < \delta$ for any $x,y \in E$ and $f \in \mathscr{F}$.
+	A family $\mathscr{F}$ of complex functions on $E$ is \textbf{equicontinuous} if for any $\varepsilon > 0$, there exists $\delta > 0$ such that $|f(x)-f(y)| < \varepsilon$ whenever $d(x,y) < \delta$ for any $x,y \in E$ and $f \in \mathscr{F}$.
 	\[ \forall \varepsilon > 0, \exists \delta > 0 \text{ such that } \forall f \in \mathscr{F}, |f(x)-f(y)| < \varepsilon \text{ whenever } d(x,y) < \delta \]
 	\begin{commentary}
-		The choice of $\delta$ is independent of thechoice of $f$.
+		In equicontinuity, the choice of $\delta$ is independent of the choice of $f$.
 	\end{commentary}
 \end{definition}
 
@@ -2162,14 +2169,24 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 	Let $\varepsilon > 0$.
 	Let $\sequence{f_n}$ converges uniformly on $K$.
 	Then,
-	\[ \forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } \forall n > N,\ \| f_n-f_N \| < \varepsilon \]
-	We have continous functions on compact sets are uniformly continuous.
-	Thus there exists a natrual number $N$ such that for every natural numbers $n,m$ greater than $N$, we have $|f_n(x) - f_m(x)| < \varepsilon$.
-	Let $x \in K$.
+	\[ \forall \varepsilon > 0,\ \exists N \in \mathbb{N} \text{ such that } \forall n > N,\ \forall x \in K,\ \| f_n(x)-f_N(x) \| < \varepsilon \]
+
+	We have continuous functions on compact sets are uniformly continuous.
+	Thus for any $\varepsilon > 0$ there exist $\delta > 0$ such that $|f_j(x) - f_j(y)| < \varepsilon$ whenever $d(x,y) < \delta$.
+	Thus, $|f_N(x) - f_N(y)| \le \varepsilon$.\\
+
+	Let $1 \le j \le N$.
+	Since the continuity is uniform, there exists $\delta > 0$ such that $|f_j(x) - f_j(y)| < \varepsilon$.\dag\footnote{
+		For each functions $f_j$, given $\varepsilon > 0$, there exists $\delta_j > 0$ satisfying the $\varepsilon$-$\delta$ condition for uniform continuity.
+		Define $\delta = \min \{ \delta_j : j = 1,2,\dots,N \}$, then for this $\delta$ the condition is satified by functions $f_1,f_2,\dots,f_N$.}\\
+
+	Let $n > N$ and $d(x,y) < \delta$.
 	Then,
-	\[ |f_n(x)-f_m(x)| \le |f_n(x)-f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f_n(y)| < 3\varepsilon \]
-	Since $x$ is arbitrary, we have $\sequence{f_n}$ satisfied the inequailty.
-	Therefore, $\sequence{f_n}$ is equicontinuous on $K$.
+	\[ |f_n(x)-f_n(y)| \le |f_n(x)-f_N(x)| + |f_N(x) - f_N(y)| + |f_N(y) - f_n(y)| < 3\varepsilon \]
+
+	Therefore, for any $\varepsilon > 0$ there exists $\delta > 0$ such that $\forall n \in \mathbb{N},\ |f_n(x) - f_m(x)| < \varepsilon$ whenever $d(x,y)< \delta$.
+	\[ \forall \varepsilon > 0,\ \exists \delta > 0,\ \forall n \in \mathbb{N},\!\! \underset{d(x,y) < \delta}{\forall} \!\!\!\! y \in K,\ |f_n(x)-f_n(y)| < \varepsilon \]
+	That is, the sequence $\sequence{f_n}$ is equicontinuous on $K$.
 \end{proof}
 
 \begin{theorem}
@@ -2181,6 +2198,43 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
+	Let $\sequence{f_n}$ be sequence of point-wise bounded, equicontinuous, complex functions on compact set $K$.
+	Since $f_n$ are equicontinuous, given $\varepsilon > 0$, there exists $\delta > 0$ such that $\forall n \in \mathbb{N},\ |f_n(x)-f_n(y)| < \varepsilon$ whenever $d(x,y) < \delta$.\\
+
+	Let $\mathcal{C}$ be a cover of $K$ of open balls of radius $\delta$.
+	Since, $K$ is compact this cover has a finite subcover, say open balls with center $p_j,\ j = 1,2,\dots,r$.
+	Thus there exists finitely many points, $p_j$ such that every point in $K$ is sufficiently close one of them.
+	Then for any $x \in K$, there exists some $p_j$ such that $d(x,p_j) < \delta$.\\
+
+	Since $\sequence{f_n}$ is point-wise bounded, there exists $M_j$ such that $|f_n(p_j)| < M_j$.
+	Define $M = \max \{ M_1, M_2, \dots, M_r\}$. 
+	Then 
+	\begin{align*}
+		|f_n(x)| & = |f_n(x)-f_n(p_j)+f_n(p_j)| \\
+		& \le |f_n(x) - f_n(p_j)| + |f_n(p_j)| \\
+		& \le \varepsilon + M
+	\end{align*}
+	Therefore, $\sequence{f_n}$ is uniformly bounded.\\
+
+	\hrule \vspace{1em}
+
+	Let $\varepsilon > 0$.
+	Choose $\delta > 0$ such that $|f_n(x)-f_n(y)| < \varepsilon$ whenever $d(x,y) < \delta$.
+	Since $K$ is compact, $K$ has a countable dense subset, say $E = \{x_1,x_2,\dots\}$.
+	That is, given $\delta > 0$, for any $x \in K$, there exists $x_j \in E$ such that $d(x,x_j) < \delta$.
+	Clearly, $K$ has a cover of open balls with center $x_j$s and radius $\delta$.
+	Since $K$ is compact, there exists finitely many points $x_1,x_2,\dots,x_m \in E$ such that $d(x,x_m) < \delta$.\\
+
+	Since $E$ is countable and $\sequence{f_n}$ is point-wise bounded, $\sequence{f_n}$ on $E$ has a subsequence, say diagonal sequence $f_{n_i} = g_i$ which converges for any $x_j \in E$.
+	Thus, by Cauchy criterion there exists integer $N$ such that 
+	\[ \forall i,j \ge N,\ |g_i(x_s) - g_j(x_s)| < \varepsilon,\quad s = 1,2,\dots,m \]
+
+	Let $x \in K$.
+	Let $x_s \in E$ such that $d(x,x_s) < \delta$.
+	Then,
+	\[ |g_i(x) - g_j(x)| \le |g_i(x)-g_i(x_s)| + |g_i(x_s) - g_j(x_s)| + |g_j(x_s) - g_j(x)| \le 3\varepsilon \]
+	That is, $\sequence{g_i}$ is uniformly convergent on $K$.
+	Therefore, $\sequence{f_n}$ has a uniformly convergent subseqeunce $\sequence{f_{n_k}}$.
 \end{proof}
 
 %\chapter{Weierstrass Approximation \& Some Special Functions
