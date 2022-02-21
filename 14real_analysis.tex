@@ -1,4 +1,4 @@
-Text Books: \cite{apostol}, \cite{rudin}
+%Text Books: \cite{apostol}, \cite{rudin}
 %Module 1: Functions of bounded variation and rectifiable curves
 %Introduction, properties of monotonic functions, functions of bounded variation, total variation, additive property of total variation, total variation on $(a,x)$ as a functions of $x$, functions of bounded variation expressed as the difference of increasing functions, continuous functions of bounded variation, curves and paths, rectifiable path and arc length, additive and continuity properties of arc length, equivalence of paths, change of parameter.
 %(Chapter 6, Section: 6.1 - 6.12. of \cite{apostol}) (20 hours.)
@@ -2068,8 +2068,7 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 \end{proof}
 
 \pagebreak
-
-{\Large Module 4 : Equicontinuous functions}
+{\Large Module 4 : Weierstrass Approximation \& Some Special Functions}
 \section{Equicontinuous Family of Functions}
 \begin{definition}
 	Let $\sequence{f_n}$ be a sequence of functions defined on $E$.\\
@@ -2237,7 +2236,306 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 	Therefore, $\sequence{f_n}$ has a uniformly convergent subseqeunce $\sequence{f_{n_k}}$.
 \end{proof}
 
+\begin{theorem}[Weierstrass' Theorem]
+	If $f$ is a continuous, complex function on $[a,b]$, there exists a sequence of polynomials $P_n$ such that
+	\[ \lim_{n \to \infty} P_n(x) = f(x) \]
+	uniformly on $[a,b]$.
+	If $f$ is real, the $P_n$ may be taken real.
+\end{theorem}
+\begin{important}
+In other words, any continuous function has a polynomial approximation.
+\end{important}
+\begin{proof}
+	Without loss of generality, suppose $[a,b] = [0,1]$ and $f(0) = f(1) = 0$.\\
+
+	\textbf{Step 1 : WLoG $f(0) = f(1) = 0$}
+	\begin{commentary}
+	If theorem is true for continuous functions satisfying $f(0) = f(1) = 0$, then it is true for any continuous function.\\
+	\end{commentary}
+
+	Let $f$ be any continuous function on $[0,1]$.
+	Then there exists a function $g : [0,1] \to \mathbb{R}$ be defined by,
+	\[ g(x) = f(x)-f(0) - x[f(1) - f(0)] \]
+	such that $g(0) = g(1) = 0$.
+	Suppose $g$ can be expressed as limit function of a uniformly convergent sequence of polynomials, say $P_n$.
+	We have,
+	\[ (f-g)(x) = x[f(1) - f(0)] + f(0) \]
+	is a polynomial, say $P(x)$.
+	Then $P_n+P \to f$ uniformly as $n \to \infty$, since $P_n \to g$ uniformly and $P$ is a constant polynomial independent of $n$.
+	\[ \lim_{n \to \infty} (P_n+P)(x) = \lim_{n \to \infty} P_n(x) + P(x) = g(x) + (f-g)(x) = f(x) \]
+	Therefore, it is enough to prove the theorem is true for any continuous function $f$ satisfying $f(0) =f(1) = 0$.\\
+
+	\hrule \vspace{1em}
+
+	\textbf{Step 2 : Construction of $P_n(x)$}\\
+	Since $f$ is continous in $[0,1]$, $f$ is uniformly continuous in $[0,1]$.
+	Extend $f$ such that $f(x) = 0, \ \forall x \notin [0,1]$.
+	Then,  $f$ is uniformly continuous on $\mathbb{R}$.
+	Define $Q_n(x) = c_n(1-x^2)^n$ such that
+	\[ \int_{-1}^1 Q_n(x) \ dx = 1 \]
+	Then we have,
+	\begin{align*}
+		\int_{-1}^1 (1-x^2)^n \ dx 
+		& = 2\int_0^1 (1-x^2)^n \ dx \ \text{ since } (1-x^2)^n \text{ is even} 
+		\intertext{We have, Bernouli's inequality. $(1+x)^r \ge (1+rx),\ \forall x \ge -1,\ \forall r \ge 0$}
+		\int_{-1}^1 (1-x^2)^n \ dx 
+		& \ge 2\int_0^{1/\sqrt{n}} (1-nx^2) \ dx \\
+		& \ge 2 \left(\frac{1}{\sqrt{n}} - \frac{n}{3n\sqrt{n}} \right) = \frac{4}{3\sqrt{n}} > \frac{1}{\sqrt{n}}
+	\end{align*}
+	Clearly, $c_n < \sqrt{n}$. \\
+
+	For $\delta > 0$, $Q_n(x) \le \sqrt{n}(1-\delta^2)^n$ for $\delta \le |x| \le 1$.	
+	Then $Q_n \to Q$ uniformly for all such that $\delta \le |x| \le 1$.
+	Define $P_n : [0,1] \to \mathbb{R}$ defined by 
+	\[ P_n(x) = \int_{-1}^1 f(x+t) \ Q_n(t) \ dt \]
+	Then,
+	\begin{align*}
+		P_n(x) & = \int_{-1}^1 f(x+t) \ Q_n(t) \ dt \\
+		& = \int_{-x}^{1-x} f(x+t) \ Q_n(t) \ dt \\
+		& = \int_0^{1} f(t) \ Q_n(t-x) \ dt  \\
+		& = f(t) Q_n^{(1)}(t-x) - \int_0^1 f(t) Q_n^{(1)}(t-x)\ dt \text{ by product rule}\\
+		& = f(t)\ Q_n^{(1)}(t-x) -f(t)\ Q_n^{(2)}(t-x) + \dots - (-1)^m\ f(t)\ Q_n^{(m)}(t-x)
+	\end{align*}
+	Thus, $\sequence{P_n}$ is a sequence of polynomials.
+	And $P_n$ are real, if $f$ is real.\\
+
+	\hrule \vspace{1em}
+
+	\textbf{Step 3 : $P_n \to f$ uniformly}\\
+	Let $\varepsilon > 0$.
+	Since extended $f$ is uniformly continuous on real line, there exists $\delta > 0$ such that $|f(y)-f(x)| < \frac{\varepsilon}{2}$ whenever $|y-x| < \delta$.
+	\begin{align*}
+		|P_n(x)-f(x)| 
+		& = \left| \int_{-1}^1 f(x+t)Q_n(t)\ dt - f(x)\int_{-1}^1 Q_n(t)\ dt \right| \\
+		& \le \int_{-1}^1 |f(x+t)-f(x)| Q_n(t)\ dt 
+		\intertext{Let $M =\sup f(x)$. Then $|f(x+t)-f(x)| \le 2M$. And we have an upper bound for the value $Q_n(x)$ for $\delta \le |x| \le 1$. Therefore, we split the domain of integral into three parts so that we may apply uniform continuity on the middle part and bound of $Q_n$ on other two parts.}
+		|P_n(x)-f(x)| 
+		& \le 2M \int_{-1}^{-\delta} Q_n(t)dt + \frac{\varepsilon}{2} \int_{-\delta}^{\delta} Q_n(t)dt+2M\int_{\delta}^1 Q_n(t)dt 
+		\intertext{We have an upper bound for $Q_n$, say $Q_n(x) \le \sqrt{n}(1-\delta^2)^n$ for $\delta \le |x| \le 1$.}
+		|P_n(x)-f(x)| 
+		& \le 2M\sqrt{n}(1-\delta^2)^n \int_{-1}^{-\delta} dt + \frac{\varepsilon}{2} \int_{-\delta}^{\delta} Q_n(t)dt+2M \sqrt{n} (1-\delta^2)^n \int_{\delta}^1 dt \\
+		& \le 4M\sqrt{n}(1-\delta^2)^n + \frac{\varepsilon}{2} \quad \text{ since } 2(1-\delta) < 2 \\
+		& \le \varepsilon \text{ for sufficiently large n}
+	\end{align*}
+	Therefore, there exists $N \in \mathbb{N}$ such that $\forall n > N,\ |P_n(x) - f(x)| < \varepsilon$.
+	In other words, $P_n \to f$ uniformly on $[0,1]$. 
+\end{proof}
+
+\begin{corollary}
+	For every interval $[-a,a]$ there is a sequence of real polynomials $P_n$ such that $P_n(0) = 0$ and
+	\[ \lim_{n \to \infty} P_n(x) = |x| \]
+	uniformly on $[-a,a]$.
+\end{corollary}
+\begin{proof}
+	By Weierstrass theorem, there exists a sequence $\sequence{P_n^\ast(x)}$ of real polynomials which converges to $|x|$ uniformly on $[-a,a]$.
+	Thus, $P_n^\ast(0) \to 0$ as $n \to \infty$.
+	Define $P_n(x) = P_n^\ast(x) - P_n^\ast(0)$.
+	Clearly, $P_n(0) = 0$ and the sequence $\sequence{P_n(x)}$ converges uniformly on $[-a,a]$.
+	And,
+	\[ \lim_{n \to \infty} P_n(x) = \lim_{n \to \infty} P_n^\ast(x) - \lim_{n \to \infty}P_n^\ast(0) = |x| \]	
+	Therefore, $P_n(0) = 0$ and $P_n(x) \to |x|$ as $n \to \infty$.
+\end{proof}
+
+\begin{remark}[Out of Syllabus]
+	On the other side of this corollary, we have Stone-Weierstrass theorem which study functions that doesn't vanish anywhere.\\
+
+	Let $\mathscr{A}$ be an algebra of functions defined on compact set $K$ that separates points and vanishes nowhere.
+	By Stone-Weierstrass theorem,\dag\footnote{
+		\cite[\S7.32]{rudin} Let $\mathscr{A}$ be a family of functions defined on compact set $K$.\\
+		$\mathscr{A}$ separates points if $\forall x \in K,\ \exists f,g \in \mathscr{A}$ such that $f(x) \ne g(x)$.\\
+		$\mathscr{A}$ vanishes at a point $x \in K$ if $\forall x \in K,\ \exists f \in \mathscr{A}$ such that $f(x) \ne 0$ }
+	any continuous function $f$ on $K$  has a sequence of functions in $\mathscr{A}$ which converges to $f$ uniformly on $K$.
+	The algebra of even polynomials doesn't separate points since $P_n(x) = P_n(-x)$.
+\end{remark}
+
 %\chapter{Weierstrass Approximation \& Some Special Functions
 \subsection{Some special functions}
+\begin{definition}[analytic function]
+	A function $f$ is (real) analytic if it can be represented by a power series.
+	\[ f(x) = \sum_{j=1}^\infty c_n x^n \]
+\end{definition}
+
+\begin{remark}
+	The open interval in which a power series $\sum c_n x^n$ converges is the \textbf{interval of convergence}.
+\end{remark}
+
+\begin{theorem}
+	Suppose series $\sum c_n x^n$ converges for $|x| < R$.
+	Suppose function $f : (-R,R)$ is defined by \[ f(x) = \sum_{n = 0}^\infty c_n x^n,\ |x| < R \]
+	Then,for any $\varepsilon > 0$, the series $\sum c_n x^n$ converges uniformly on $[-R+\varepsilon,R-\varepsilon]$.
+	Also the function $f$ is continuous and differentiable in $(-R,R)$ and
+	\[ f'(x) = \sum_{n = 1}^\infty nc_n x^{n-1},\quad |x| < R \]
+\end{theorem}
+\begin{proof}
+	Let $\varepsilon > 0$.
+	Then for $|x| \le R - \varepsilon$ we have $|c_n x^n| \le |c_n (R-\varepsilon)^n|$.\\
+
+	We have, 
+	\[ \limsup_{n \to \infty} |R-\varepsilon| \sqrt[n]{|c_n|} = (R-\varepsilon) \limsup_{n \to\infty} \sqrt[n]{|c_n|} = 0 < 1 \]
+
+	By raio test, the series $\sum c_n (R-\varepsilon)^n$ converges absolutely.
+	By Weierstrass M test, series $\sum c_n x^n$ converges uniformly on $[-R+\varepsilon,R-\varepsilon]$.
+	In the same fashion, the series $\sum nc_n x^{n-1}$ converges uniformly on $[-R+\varepsilon,R-\varepsilon]$ since $\displaystyle \limsup_{n \to \infty} \sqrt[n]{n|c_n|} = 0$.\\
+
+	Let $x_0 \in (-R,R)$.
+	Then there exists $\varepsilon > 0$ such that $x_0 \in [-R+\varepsilon, R-\varepsilon]$.
+	The series $\sum n c_n x^{n-1}$ converges to $f'(x)$ uniformly on $[-R+\varepsilon,R-\varepsilon]$ and $f(x_0) = \sum c_n x_0^n$.
+	Thus, $f$ is differentiable on $[-R+\varepsilon,R-\varepsilon]$ and
+	\[ f'(x) = \lim_{n \to \infty} \sum_{k=1}^n k c_k x^{k-1} = \sum_{n = 1}^\infty n c_n x^{n-1} \]
+	We know that $f$ is continuous at a point if it is differentiable at that point.
+	Thus, $f$ is continuous on $[-R+\varepsilon,R-\varepsilon]$.
+\end{proof}
+
+\begin{corollary}
+	Suppose $\displaystyle \sum_{n = 0}^\infty c_n x^n$ converges for $|x| < R$ and function $f$ is defined by $f(x) = \displaystyle \sum_{n = 0}^\infty c_n x^n$.
+	Then $f$ has derivatives of all ordres, say $f^{(k)}(x)$ given by
+	\[ f^{(k)}(x) = \sum_{n=k}^\infty n(n-1)\dots(n-k+1)c_n x^{n-k} \]
+	In particulat,
+	\[ f^{(k)}(0) = k!\ c_k \]
+\end{corollary}
+\begin{proof}
+	Let $f(x) = \sum c_n x^n$.
+	Then, we have 
+	\[ f'(x) = \sum_{n = 1}^\infty n c_n x^n \]
+	By mathematical induction, we have
+	\[ f^{(k)}(x) = \sum_{n = k}^\infty n(n-1)\dots(n-k+1) c_n x^{n-k} \]
+	When $x = 0$, we get
+	\[ f^{(k)}(0) = \sum_{n = k}^\infty n(n-1)\dots(n-k+1) c_n 0^{n-k} = n! c_k \]
+\end{proof}
+
+\begin{theorem}
+	Suppose $\displaystyle \sum_{n = 0}^\infty c_n$ converges.
+	Define \[ f(x) = \sum c_n x^n,\quad -1<x<1 \]
+	Then,
+	\[ \lim_{x \to 1} f(x) = \sum_{n=0}^\infty c_n \]
+\end{theorem}
+\begin{proof}
+	Let $s_n = c_0 + c_1 + \dots + c_n$ and $s_{-1} = 0$.
+	Suppose $\sum c_n$ converges, then $s_n$ converges, say $s_n \to s$.
+	Let $\varepsilon > 0$.
+	Then there exists $N \in \mathbb{N}$ such that $\forall n > N,\ |s-s_n| < \frac{\varepsilon}{2}$.\\
+
+	Also we have,
+	\begin{align*}
+		\sum_{n=0}^m c_n x^n
+		& = \sum_{n=0}^m (s_n-s_{n-1})x^n \\
+		& = \sum_{n=0}^m s_n x^n - xs_{n-1}x^{n-1} \\
+		& = \sum_{n=0}^m s_nx^n - x\sum_{n=0}^{m}s_{n-1}x^{n-1} \\
+		& = \sum_{n=0}^m s_nx^n - x\sum_{n=-1}^{m-1}s_nx^n \\
+		& = \sum_{n=0}^{m-1} s_nx^n + s_mx^m - x\sum_{n=0}^{m-1}s_nx^n \text{ since $s_{-1} = 0$} \\
+		& = (1-x)\sum_{n=0}^{m-1} s_nx^n + s_mx^m \\
+		\lim_{m \to \infty} \sum_{n=0}^m c_n x_n
+		& = (1-x) \lim_{m \to \infty} \sum_{n=0}^{m-1} s_nx^n + \lim_{m \to \infty} s_m x^m  \\
+		f(x) & = (1-x) \sum_{n=0}^\infty s_nx^n \text{ since $s_m \to s$, $|x|<1$ and $x^m \to 0$}
+	\end{align*}
+	We know that,
+	\[ (1-x)\sum_{n=0}^\infty x^n = (1-x)(1+x+x^2+\dots) = 1 \]
+	Thus,
+	\begin{align*}
+		|f(x) - s| 
+		& = \left| (1-x)\sum_{n=0}^\infty s_nx^n - s(1-x)\sum_{n=0}^\infty x^n \right| \\
+		& = (1-x) \left| \sum_{n=0}^\infty (s_n-s)x^n \right| \\
+		& \le (1-x) \sum_{n=0}^\infty |(s_n-s)x^n| \\
+		& \le (1-x)\sum_{n=0}^\infty |s_n-s|\ |x|^n  \\
+		& \le \frac{\varepsilon}{2} (1-x) \sum_{n=0}^\infty x^n = \frac{\varepsilon}{2}
+	\end{align*}
+	
+	Since the convergence is uniform $f$ is continuous on $[-1,1]$.
+	And $f$ is uniformly continuous.
+	Thus, there exists $\delta > 0$ such that $\forall x, y$ with $|x-y| < \delta$.
+	$|f(x)-f(y)| < \frac{\varepsilon}{2}$ whenever $|x-y| < \delta$.
+	Choose $x > 1-\delta$ and $y = 1$.
+	Then, for any $x > 1-\delta$ we have
+	\[ | f(x) - s| \le |f(x) - f(y)| + |f(y) - s| \le \varepsilon \]
+	As $y \to 1$, we get
+	\[ \lim_{y \to 1} |f(x) - s| = 0 \]
+	Therefore, $f(1) = \lim_{x \to 1} f(x) = s = \sum_{n = 0}^\infty c_nx^n$.
+\end{proof}
+
+\begin{theorem}
+	Given a double sequence $\sequence{a_{ij}}$.
+	Suppose that,
+	\[ \sum_{j=1}^\infty |a_{ij}| = b_i \]
+	and $\sum b_i$ converges.
+	Then,
+	\[ \sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij} = \sum_{j=1}^\infty \sum_{i=1}^\infty a_{ij} \]
+\end{theorem}
+\begin{proof}
+	\textbf{Step 1 : Construction of $f_i$}\\
+	Given series $\displaystyle \sum_{j=1}^\infty |a_{ij}|$ converges to $b_i$.
+	Let $E = \{ x_0,x_1,x_2,\dots \}$ be a countable set such that $x_n \to x_0$ as $n \to \infty$.
+	Define sequence of functions $\sequence{f_i}$ on $E$ such that 
+	\[ f_i(x_n) = \sum_{j=1}^n a_{ij},\ \forall n \in \mathbb{N} \quad \text{ and } \quad f_i(x_0) = \sum_{j=1}^\infty a_{ij} \]
+	Clearly, $f_i(x_0) = b_i$ and $f_i(x_n) \to f_i(x_0)$ as $n \to \infty$.\\
+
+	\textbf{Step 2 : $f_i$ is continuous at $x_0$}\\
+	We have, $f_i(x_n) \to f_i(x_0)$.
+	Suppose $f_i$ is not continuous at $x_0$.
+	Then,
+	\[ \lim_{x_n \to x_0} f_i(x_n) \ne f_i(x_0) = f_i \left(\lim_{n \to \infty} x_n \right) = \lim_{n \to \infty} f_i(x_n) \]
+	which is a contradiction since $x_n \to x_0$ as $n \to \infty$.
+	Therefore, function $f_i$ is continuous at $x_0$.\\
+
+	\textbf{Step 3 : Construction of $g$}\\
+	Given $|f_i(x)| < b_i$ and $\sum b_i$ converges.
+	Thus, $\sum f_i(x)$ converges.
+	Define $g : E \to \mathbb{R}$ such that
+	\[ g(x) = \sum_{i = 1}^\infty f_i(x) \]
+	Since $f_i$ are continuous functions defined on a countable set $E$, the convergence is uniform and the sum $g$ is continuous.
+	And we have,
+	\[ \lim_{n \to \infty} \lim_{m \to \infty} \sum_{i=1}^m f_i(x_n) = \lim_{x_n \to x_0} g(x_n) = g(x_0) = \lim_{m \to \infty} \sum_{i=1}^m f_i(x_0) = \lim_{m \to \infty} \lim_{n \to \infty} \sum_{i = 1}^m f_i(x_n) \]
+\end{proof}
+
+\begin{theorem}[Taylor]
+	Suppose $f(x) = \sum c_n x^n$, the series converging in $|x| < R$.
+	If $-R < a < R$, then $f$ can be expanded in a power series about the point $x = a$ which converges in $|x-a| < R-|a|$.
+	And,
+	\[ f(x) = \sum_{n = 0}^\infty \frac{f^{(n)}(a)}{n!} (x-a)^n,\quad |x-a| < R-|a|\]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Suppose the series $\sum a_n x^n$ and $\sum b_n x^n$converge in the segment $S = (-R,R)$.
+	Let $E$ be the set of all $x \in S$ at which
+	\[ \sum_{n = 0}^\infty a_n x^n = \sum_{n = 0}^\infty b_n x^n \]
+	If $E$ has a limit point on $S$, then $a_n = b-n$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $e^x$ be defined on $\mathbb{R}$.
+	Then
+	\begin{enumerate}
+		\item $e^x$ is continuous and differentiable for all $x$.
+		\item $(e^x)' = e^x$
+		\item $e^x$ is a strictly increasing function
+		\item $e^{x+y} = e^x e^y$
+		\item $e^x \to +\infty$ as $x \to \infty$ an d $e^x \to 0$ as $x \to \infty$ and $e^x \to 0$ as $x \to -\infty$
+		\item $\displaystyle \lim_{x \to \infty} x^ne^{-x} = 0$ for every $n$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	\begin{enumerate}
+		\item The function $E$ is periodic with period $2\pi i$.
+		\item The functions $C$ and $S$ are periodic with period $2\pi i$.
+		\item If $0 < t < 2\pi$, then $E(it) \ne 1$.
+		\item If $z$ is a complex number with $|z| =1$, there is a unique $t \in [0,2\pi]$ such that $E(it) = z$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Suppose $a_0,a_1,\dots,a_n$ are complex numbers.
+	\[ P(z) = \sum_{n=0}^\infty a_k z^k \]
+	Then $P(z) = 0$ for some complex number $z$.
+\end{theorem}
+\begin{proof}
+\end{proof}
 
 

@@ -1550,8 +1550,367 @@ But there exists separable, Banach spaces without a Schauder basis.
 \end{challenge}
 
 \subsection{Linear Functionals}
+\begin{definition}[linear functional]
+	Let $X$ be a vector space over field $K$.
+	Then linear functional on $X$ is a linear operator $f : X \to K$.
+\end{definition}
+\begin{definition}[bounded linear functional]
+	A linear functional on $X$ is bounded if there exists a real number $c$ such that
+	\[ |f(x)| \le c\|x\|,\quad \forall x \in X \]
+\end{definition}
+
+\begin{theorem}
+	Linear functional on a normed space is continuous ifand only if bounded.
+\end{theorem}
+\begin{proof}
+	Let $f$ be a linear functional on a normed space $X$.
+	Then $f$ can be viewed as a linear operator from normed space $X$ into normed space $K$.
+	We know that, linear operators are continuous if and only if bounded.
+	Since $f$ is a linear operator, $f$ is continuous if and only if $f$ is bounded.
+\end{proof}
+
+\subsubsection{Norm} Let $X$ be a normed space. Then norm is a non-linear functional on $X$.\\
+
+		Let $X$ be a normed space.
+		Then $\|\cdot\| : X \to \mathbb{R}$ is a non-linear functional on $X$.
+		The functional $\|\cdot\|$ is non-linear due to triangular inequality.
+
+\subsubsection{Dot Product}
+The dot product is a bounded linear functional on any finite dimensional Euclidean space.\\
+
+		Let $a \in \mathbb{R}^3$.
+		Then $f : \mathbb{R}^3 \to \mathbb{R}$ defined by $f(x) = x \cdot a$ is a bounded, linear functional on $\mathbb{R}^3$.
+		We know that dot product is linear.
+		\[ (\alpha x+y) \cdot a = \alpha x \cdot a + y \cdot a \]
+		By Cauchy-Schwarz's inequality, we have 
+		\[ \|x \cdot a\| = \left\| \sum \xi_j a_j \right\| \le \left\| \left( \sum \xi_j^2 \right)\frac{1}{2} \ \left(\sum a_j^2 \right)^\frac{1}{2} \right\| \le \|x\| \ \|a\| \]
+		Thus $f$ is bounded and for any $x \in X$, we have
+		\[ |f(x)| = \|x \cdot a\| \le \|x\| \ \|a\| \]
+		This inequality is true for any $x \in X$ and the supremum as well.
+		\[ \|f\| = \sup_{\|x\| = 1} |f(x)| \le \sup_{\|x\| = 1 } \|x\| \ \|a\| = \|a\| \]
+		When $x = a$ we have,
+		\[ \|f\| = \sup_{x \ne 0} \frac{|f(x)|}{\|x\|} \ge \frac{|f(a)|}{\|a\|} = \frac{|a \cdot a|}{\|a\|} \le \frac{\|a\|^2}{\|a\|} = \| a \| \]
+		Thus norm of the dot product, $\|f\| = \|a\|$ where $f(x) = x \cdot a$.
+\subsubsection{Definite Integral}
+		Let $X = C[a,b]$, the set of all continuous functions on closed interval $[a,b]$ with norm $\|x\| = \sup_{x \in [a,b]} |x(t)|$.
+		Let $f(x) = \int_a^b x(t)\ dt$.\\
+
+		We know that, $f$ is linear, since 
+		\begin{align*}
+			f(\alpha x+\beta y) 
+			& = \int_a^b (\alpha x + \beta y)(t)\ dt \\ 
+			& = \int_a^b (\alpha x)(t) + (\beta y)(t)\ dt \\ 
+			& = \int_a^b \alpha x(t) \ dt + \int_a^b \beta y(t)\ dt \\
+			& = \alpha \int_a^b x(t) \ dt + \beta \int_a^b y(t)\ dt \\
+			& = \alpha f(x) + \beta f(y)
+		\end{align*}
+		And $f$ is bounded.
+		\[ |f(x)| = \left| \int_a^b x(t)\ dt \right| \le \int_a^b |x(t)|\ dt \le \|x\| \int_a^b dt \le (b-a)\|x\| \]
+		since $\|x\| = \sup |x(t)|$, we have $|x(t)| \le \|x\|$ for any $t \in [a,b]$.\\
+
+		Thus, $\|f\| \le (b-a)$.
+		And for constant function $x_0$ on $[a,b]$ where $x_0(t) = 1,\ \forall t \in [a,b]$, we know that $\|x_0\| = \sup |x_0(t)| = 1$.
+		And $f(x_0) = \int_a^b dt = (b-a)$.
+		\[ \|f\| = \sup_{x \ne 0} \frac{|f(x)|}{\|x\|} \le \frac{|f(x_0)|}{\|x_0\|} = (b-a) \]
+		Therefore, $\|f\| = (b-a)$ where $f(x) = \int_a^b f(x)\ dt$.
+
+\subsubsection{A linear functional on $l^2$ space}
+		Let $a \in l^2$. 
+		That is, $a = (\alpha_j)$ is a sequence such that $\sum |\alpha_j|^2 < \infty$.
+		Consider $\displaystyle f(x) = \sum_{j=1}^\infty \xi_j \alpha_j$ where $x = (\xi_j) \in l^2$.\\
+		We have $x,a \in l^2$.
+		Thus, $\sum \xi_j^2 < \infty$ and $\sum \alpha_j^2 < \infty$.\\
+
+		We have, $f(x)$ is absolutely convergent since
+		\[ \sum |\xi_j\alpha_j| \le \left(\sum \xi_j^2)\right)^\frac{1}{2} \ \left(\sum \alpha_j \right)^\frac{1}{2} < \infty \]
+
+		By Cauchy-Schwarz's inequality,
+		\[ \sum (\xi_j\alpha_j)^2 \le \sum |\xi_j\alpha_j|^2 \le \sum \xi_j^2\ \sum \alpha_j^2 < \infty \]
+		Therefore, $f(x) \in l^2$.
+		Clearly, $f(x)$ is well-defined.\\
+
+		Let $x,y \in l^2$, $x = (\xi_j)$ and $y = (\eta_j)$.
+		Then, $f$ is linear since,
+		\[ f(\alpha x + \beta y) =  \sum_{j = 1}^\infty (\alpha \xi_j+ \beta \eta_j) \alpha_j = \alpha \sum_{j =1}^\infty \xi_j \alpha_j + \beta \sum_{j=1}^\infty \eta_j \alpha_j = \alpha f(x) + \beta f(y) \]
+		By Cauchy-Schwarz's inequality, we have
+		\[ |f(x)| = \left|\sum_{j=1}^\infty \xi_j \alpha_j \right| \le \sum_{j=1}^\infty |\xi_j \alpha_j| \le \left( \sum_{j=1}^\infty \xi_j \right)^\frac{1}{2}\ \left(\sum_{j=1}^\infty \alpha_j \right)^\frac{1}{2} = \|x\| \ \|a\| \]
+		Thus, 
+		\[ \|f\| = \sup_{\|x\| = 1} |f(x)| \le \sup_{\|x\| = 1} \|x\|\|a\| = \|a\| \]
+		And when $x = a$, we get $\|f\| = \sup_{x \ne 0} |f(x)| \ge |f(a)| = \|a\|$.
+		Therefore, $\|f\| = \|a\|$.
+
+\begin{commentary}
+\begin{remark}
+	Let $X$ be a normed space over field $K$.
+	Then the set $X^\ast$ of all linear functional on $X$ is a vector space over the same field $K$.
+\end{remark}
+\begin{proof}
+	Let $X^\ast$ be the set of all linear functional on $X$.
+	Then $X^\ast$ is a vector space with vector addition $f+g$ defined as $(f+g)(x) = f(x) + g(x)$ and scalar multplicaton $(\alpha f)$ defined as $(\alpha f)(x) = \alpha f(x)$.\\
+
+	Let $f,g \in X^\ast$.
+	\begin{align*}
+		(f+g)(\alpha x + \beta y) 
+		& = f(\alpha x + \beta y) + g(\alpha x + \beta y) \\
+		& = \alpha f(x) + \beta f(y) + \alpha g(x) + \beta g(y) \\
+		& = \alpha (f+g)(x) + \beta (f+g)(y)
+	\end{align*}
+	\begin{align*}
+		(\gamma f)(\alpha x + \beta y) 
+		& = \gamma f(\alpha x + \beta y) \\
+		& = \gamma \alpha f(x) + \gamma \beta f(y) \\
+		& = \alpha (\gamma f)(x) + \beta (\gamma f)(y)
+	\end{align*}
+	Then $\alpha f+ \beta g \in X^\ast$.
+	Therefore, vector addition is closed.\\
+
+	Let $f,g \in X^\ast$.
+	Then $(f+g)(x) = f(x) + g(x) = g(x) + f(x) = (g+f)(x)$.
+	Thus, vector addition is commutative.\\
+
+	Consider $0 : X \to K$ defined by $0(x) = 0,\ \forall x \in X$.
+	Clearly $0 \in X^\ast$ since $0(\alpha x + \beta y) = 0 = \alpha 0(x) + \beta 0(x)$.
+	And $(f+0)(x) = f(x) + 0(x) = f(x)$.
+	Thus, $0 \in X^\ast$ is the additive identity.\\
+
+	Let $f \in X^\ast$.
+	Consider $-f : X \to K$ defined by $(-f)(x) = -f(x),\ \forall x \in X$.
+	Clearly, $-f \in X^\ast$ since $-f(\alpha x + \beta y) = \alpha (-f(x)) + \beta (-f(y))$.
+	Then, $(f + -f)(x) = f(x) + (-f)(x) = 0 = 0(x)$.
+	Thus, every linear functional $f$ in $X^\ast$ has a unique additive inverse in $X^\ast$.
+
+	$\vdots$
+\end{proof}
+\end{commentary}
+
+\begin{definition}[Algebraic Dual Space]
+	Let $X$ be a normed space.
+	The set $X^\ast$ of all linear functionals on $X$ is the algebraic dual space of $X$.
+\end{definition}
+
+\begin{definition}[Second Algebraic Dual Space]
+	Let $X$ be a normed space and $X^\ast$ be its algebraic dual space of all linear functionals on $X$.
+	Then the algebraic dual of $X^\ast$, $(X^\ast)^\ast$ is the second algebraic dual $X^{\ast\ast}$ of $X$.
+\end{definition}
+
+\begin{important}
+\begin{remark}
+	Let $g \in X^{\ast\ast}$ and $f \in X^\ast$.
+	Then $g(f) = f(x)$ for some fixed $x \in X$.
+\end{remark}
+\end{important}
+
+\begin{remark}
+	Let $g_x : X^\ast \to K$ defined by $g_x(f) = f(x)$.
+	Then $g_x$ is linear since
+	\begin{align*}
+		g_x(\alpha f_1 + \beta f_2) 
+		& = (\alpha f_1 + \beta f_2)(x) \\
+		& = (\alpha f_1)(x) + (\beta f_2)(x) \\
+		& = \alpha f_1(x) + \beta f_2(x) \\
+		& = \alpha g_x(f_1) + \beta g_x(f_2)
+	\end{align*}
+\end{remark}
+\begin{definition}[canonical mapping]
+	Let $C : X \to X^{\ast\ast}$ defined by $x \to g_x$ where $C(x) = g_x$ and $g_x(f) = f(x),\ \forall f \in X^\ast$.
+	Then $C$ is a canonical mapping on $X$.
+\end{definition}
+\begin{remark}
+	Canonical mapping on $X$ is an isomorphism of $X$ into a subset of $X^{\ast\ast}$.
+\end{remark}
+\begin{definition}[algebraic reflexivity]
+	Let $X$ be a normed space.
+	If the canonical mapping $C : X \to X^{\ast\ast}$ is surjective, then $X$ is isomorphic to $X^{\ast\ast}$.
+	Then, $X$ is \textbf{algebraically reflexive} since $X^{\ast\ast}$ is an algebraic reflection of $X$.
+\end{definition}
+
+\begin{definition}[isomorphism]
+	Isometry/Isomorphism of a metric space is a bijection that preserves metric/distance.
+	\[ T : X \to Y \text{ such that } \forall x,y \in X,\ \tilde{d}(Tx,Ty) = d(x,y) \]
+
+	Isomorphism of a vector space is a bijection that preserves both the binary operations, say vector addition and scalar multiplication.
+	\[ T : X \to Y \text{ such that } \forall x,y \in X, \forall \alpha,\beta \in K,\ T(\alpha x + \beta y) = \alpha Tx + \beta Ty \]
+
+	Isomorphism of a normed space is a vector space isomorphism that preserves norm.
+	\[ T : X \to Y \text{ such that } \forall x \in X,\ \| Tx \| = \| x \| \]
+\end{definition}
+
+\subsection{Exercise \S2.8}
+\begin{definition}[Null space of a set]
+	Let $X$ be a normed space and $X^\ast$ be its algebraic dual space.
+	Let $M^\ast \subset X^\ast$.
+	Then null space of $M^\ast$, $\mathcal{N}(M^\ast)$ is the set of all $x \in X$ such that $f(x) = 0,\ \forall f \in M^\ast$.
+	\[ \mathcal{N}(M^\ast) = \left\{ x \in X : f(x) = 0,\ \forall f \in M^\ast \right\} \]
+\end{definition}
+
+\begin{definition}[quotient space]
+	Let $Y$ be a subspace of a vector space $X$.
+	The quotient space $X/Y$ is set $\{ x+Y : x \in X \}$ together with vector addition $(x_1+Y)+(x_2+Y) = (x_1+x_2)+Y$ and $\alpha(x+Y) = (\alpha x + Y)$ where $x+Y = \{ x+y \in X : y \in Y \}$.
+\end{definition}
+\begin{definition}[codimension]
+	Let $Y$ be a subspace of vector space $X$.
+	The codimension of $Y$ is the dimension of the quotient space $X/Y$.
+\end{definition}
+
+\begin{definition}[hyperplane]
+	Let $Y$ be a subspace of vector space $X$ with codimension $1$.
+	Then the quotient space is a hyperplane parallel to $Y$.
+\end{definition}
+
+\begin{remark}[{\cite[\S2.8 Exercise 12]{rudin}}]
+	Let $f \in X^\ast$ and $f \ne 0$.
+	Then, constant functionals on $X$ forms a hyperplane parallel to the null space of $f$.
+\end{remark}
+
+\begin{definition}[half space]
+	Let $f \in X^\ast$ and $f \ne 0$ such that $f(x) = c,\ \forall x \in X$.
+	Then the hyperplane divides the vector space $X$ into two half spaces $X_1,X_2$ such that
+	\[ X_1 = \{ x \in X : f(x) \le c \} \quad \text{and} \quad X_2 = \{ x \in X : f(x) \ge c \} \]
+\end{definition}
+
+
 \subsection{Linear Operators and Functionals on finite dimensional spaces}
+\subsubsection{Matrix of Linear Operator}
+Let $X,Y$ be finite dimensional vector spaces over the same field $K$.
+Let $E = \{e_1,e_2,\dots,e_n\}$ be a basis for $X$ and $B = \{b_1,b_2,\dots,b_r\}$ be a basis for $Y$.
+Let $T : X \to Y$ be a linear operator uniquely defined by $y_k = Te_k$.
+Then, $y_k = \sum \tau_{j,k}b_k = Te_k$.
+And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ with respect to the bases $E$ and $B$.\\
+
+\begin{commentary}
+	For example\footnote{\cite[\S2.10 Exercise 2]{kreyszig}},
+	Let $T :\mathbb{R}^3 \to \mathbb{R}^3$ defined by $(\xi_1,\xi_2,\xi_3) \to (\xi_1,\xi_2,-\xi_1-\xi_2)$.
+	\begin{align*}
+		y_1 &= Te_1 = T(1,0,0) = (1,0-1) = 1(1,0,0)+0(0,1,0)-1(0,0,1) \\
+		y_2 &= Te_2 = T(0,1,0) = (0,1,-1) = 0(1,0,0)+1(0,1,0)-1(0,0,1) \\
+		y_3 &= Te_3 = T(0,0,1) = (0,0,0) = 0(1,0,0)+0(0,1,0)+0(0,0,1)
+	\end{align*}
+	Thus,
+	\[ T_{E,B} = \begin{pmatrix} 1 & 0 & 0\\ 0 & 1 & 0 \\ -1 & -1 & 0 \end{pmatrix} \]
+\end{commentary}
+
+\begin{important}
+	Linear operator $T$ determines a unique matrix representing $T$ with respect to the given bases.
+	Similarly, any $r \times n$ matrix determines a unique linear operator which it represents.
+\end{important}
+
+\begin{definition}[Dual basis]
+	Let $X$ be a finite dimensional vector space over $K$ with basis $E = \{e_1,e_2,\dots,e_n\}$.
+	Let $f_1,f_2,\dots,f_n$ be linear functionals $f_j : X \to K$ such that $f_j(e_k) = \delta_{j,k}$.
+	Then $\{f_1,f_2,\dots,f_n\}$ is the dual basis of the basis $E$.
+\end{definition}
+
+\begin{theorem}
+	Let $X$ be a finite dimensional vector space.
+	Let $E = \{ e_1,e_2,\dots,e_n \}$ be a basis for $X$ and $F = \{ f_1,f_2,\dots,f_n \}$ be the dual basis of $E$.
+	Then $F$ is a basis for the algebraic dual of $X$, $X^\ast$.
+	And $\dim X^\ast = \dim X$.
+\end{theorem}
+\begin{proof}
+	Let $\sum \beta_k f_k = 0$.
+	Then, for each $j = 1,2,\dots,n $
+	\[ 0 = 0(e_j) = \left( \sum_{k = 1}^n \beta_k f_k\right)(e_j) =\sum_{k = 1}^n \beta_k f_k(e_j) =\sum_{k = 1}^n \beta_k \delta_{j,k} = \beta_j \]
+	Clearly, $\beta_1f_1+\beta_2f_2+\dots+\beta_nf_n = 0$ if and only if $\beta_j = 0$ for all $j$.
+	Therefore, $F$ is linearly independent.\\
+
+	Let $f : X \to K$ such that $f(e_j) = \alpha_j$.
+	Let $x = \sum \xi_j e_j$ and $f_j(x) = \xi_j$.
+	Since $f$ is linear, 
+	\[ f(x) = \sum_{j=1}^n \xi_j f(e_j) = \sum_{j=1}^n \xi_j \alpha_j = \sum_{j=1}^n \alpha_j f_j(x) = \left( \sum_{j=1}^n \alpha_j f_j \right) (x) \]
+	Therefore, every linear functional on $X$ is a linear combination of $F$.\\
+	Clearly, $F$ is a basis for $X^\ast$ and $\dim X^\ast = n = \dim X$
+\end{proof}
+
+\begin{lemma}
+	Let $X$ be a finite dimensional vector space.
+	If $x_0 \in X$ such that $f(x_0) = 0$ for any $f \in X^\ast$, then $x_0 = 0$.
+\end{lemma}
+\begin{proof}
+	Let $x_0 = \sum \xi_j e_j$.
+	Then,
+	\[ f(x_0) = 0 = \sum_{j=1}^n \xi_j f(e_j) = \sum_{j=1}^n \xi_j \alpha_j \]
+	Thus, $\sum \xi_j \alpha_j = 0$ for any choice of $\alpha_1,\alpha_2,\dots,\alpha_n \in K$.
+	Therefore, for each $j$, we have $\xi_j = 0$.
+	Clearly, $x_0 = 0$.
+\end{proof}
+
+\begin{theorem}[algebraic reflexive]
+	A finite dimensional vector space is algebraically reflexive.
+\end{theorem}
+\begin{proof}
+	Let $C : X \to X^{\ast\ast}$ be the cannonical mapping such that \[ Cx(f) = g_x(f) = f(x) \]
+	where $x \in X$, $f \in X^\ast$ and $g \in X^{\ast\ast}$.\\
+
+	Isomorphism $C$ is injective, since $C_{x_0} = 0$ only if $x_0 = 0$.
+	\begin{align*}
+		C_{x_0}(f) & = g_{x_0}(f) = f(x_0) = 0,\ \forall f \in X^\ast \\
+		\implies & x_0 = 0 \text{ by lemma}
+	\end{align*}
+	Thus, there exists an inverse function $C^{-1} : \mathscr{R}(C) \to X$ and $\dim X \le \dim \mathscr{R}(C)$.
+	Thus, $\dim X^{\ast\ast} = \dim X^\ast = \dim X$ and $\dim \mathscr{R}(C) = \dim X^{\ast\ast}$. 
+	Therefore, $C$ is surjective and the vector space $X$ is algebraically reflexive.
+\end{proof}
+
 \subsection{Normed spaces of Operators, Dual space}
+\begin{definition}[$B(X,Y)$]
+	Let $X,Y$ be normed spaces.
+	The set $B(X,Y)$ of all bounded, linear functionals from $X$ into $Y$ is a vector space together with vector addition, $T_1 + T_2$ defined by,
+	\[ T_1+T_2(x) = T_1(x) + T_2(x) \]
+	and scalar multiplication $\alpha T$ defined by,
+	\[ (\alpha T)(x) = \alpha T(x) \]
+	In addition, $B(X,Y)$ is a normed space with norm
+	\[ \|T\| = \sup_{\substack{x \in X\\x \ne 0}} \frac{\|Tx\|}{\|x\|} = \sup_{\substack{x \in X\\ \|x\| = 1}} \| Tx\| \]
+\end{definition}
+\begin{proof}
+	Clearly, vector addition is closed, associative, and commutative.
+	The identity vector $0$ is defined by $0x = 0,\ \forall x \in X$.
+	And additive inverse $(-T)$ is defined by $(-T)(x) = -T(x)$ for each $T \in B(X,Y)$.
+	Also we have, $1T = T$, $\alpha(\beta T) = \alpha \beta T$, $\alpha(T_1+T_2)= \alpha T_1 + \alpha T_2$ and $(\alpha_1 + \alpha_2)T = \alpha_1  T + \alpha_2 T$.
+	Thus, $B(X,Y)$ is a vector space.
+\end{proof}
+\begin{theorem}
+	If $Y$ is a Banach space, then $B(X,Y)$ is a Banach space.
+\end{theorem}
+\begin{proof}
+	Let $\sequence{T_n}$ be a Cauchy sequence in $B(X,Y)$.
+	That is, $\forall \varepsilon > 0, \exists N \in \mathbb{N}$ such that $\forall n,m > N$ we have $\| T_n - T_m \| \le \varepsilon$.
+	Thus, for any $x \in X$ we have
+	\[ \|T_n(x) - T_m(x) \| \le \|T_n-T_m\| \  \|x\| \le \varepsilon \|x\| \]
+	
+	Fix $x \in X$ and $\varepsilon > 0$, then we have $\varepsilon_x > 0$ such that $\varepsilon_x \|x\| < \varepsilon$.
+	Then, there exists $N \in \mathbb{N}$ such that $\forall n,m > N$, $\|T_n(x) - T_m(x)\| < \varepsilon$.
+	Thus, $\sequence{T_n(x)}$ is Cauchy in $Y$.
+	Since, $Y$ is complete, $\sequence{T_n(x)}$ converges, say $T_n(x) \to y$.\\
+
+	Define $T : X \to Y$ such that $Tx = y$ where $T_n(x) \to y$ as $n \to \infty$.
+	Operator $T$ is linear since
+	\[ T(\alpha x + \beta z) = \lim_{n \to \infty} T_n(\alpha x + \beta z) = \lim_{n \to \infty} \alpha T_n(x) + \lim_{n \to \infty}\beta T_n(z)  = \alpha T(x) + \beta T(z) \]
+
+	We have,
+	\[ \| T_n(x) - T(x) \| = \left\| T_n(x) - \lim_{m \to \infty} T_m(x) \right\| \le \|T_n-T_m\| \ \|x\| \le \varepsilon \|x\| \]
+	Thus, $T_n-T$ is bounded and 
+	\[ \sup_{\substack{x \in X\\ \|x\| = 1}} \|(T_n-T)x\| = \sup_{\substack{x \in X\\ \|x\|=1}}\| T_n(x) - T(x) \| \le \varepsilon \]
+	Thus, $\|T_n-T\| \to 0$ as $n \to \infty$.
+	We have, $T = T_n - (T_n-T)$ and \[ \|T(x)\| \le \|T_n(x)\| + \|(T_n-T)(x)\| = \varepsilon \|x\| + \varepsilon \|x\|\]
+	Therefore, $T$ is bounded.
+\end{proof}
+
+\begin{definition}[Dual space $X'$]
+	Let $X$ be a normed space.
+	The set of $X'$ of all bounded, linear functionals $B(X,K)$ is the dual space of $X$.
+	The dual space $X'$ of $X$ is a normed space with norm
+	\[ \|f\| = \sup_{\substack{x \in X\\ x \ne 0}} \frac{|f(x)|}{\|x\|} = \sup_{\substack{x \in X \\ \|x\| =1 }} |f(x)| \]
+\end{definition}
+
+\begin{theorem}
+	The dual space $X'$ of any normed space $X$ is a Banach space.
+\end{theorem}
+\begin{proof}
+	We know that, $B(X,Y)$ is Banach space if $Y$ is a Banach space.
+	We have $K = \mathbb{R}$ or $K = \mathbb{C}$.
+	And $\mathbb{R}$ as well as $\mathbb{C}$ are complete normed spaces.
+	Therefore, $X' = B(X,K)$ is a Banach space.
+\end{proof}
 %Module 3
 %\chapter 3
 \section{Hilbert Spaces}
