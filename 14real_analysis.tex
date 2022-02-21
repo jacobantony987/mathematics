@@ -2291,12 +2291,13 @@ In other words, any continuous function has a polynomial approximation.
 	Then,
 	\begin{align*}
 		P_n(x) & = \int_{-1}^1 f(x+t) \ Q_n(t) \ dt \\
-		& = \int_{-x}^{1-x} f(x+t) \ Q_n(t) \ dt \\
-		& = \int_0^{1} f(t) \ Q_n(t-x) \ dt  \\
-		& = f(t) Q_n^{(1)}(t-x) - \int_0^1 f(t) Q_n^{(1)}(t-x)\ dt \text{ by product rule}\\
-		& = f(t)\ Q_n^{(1)}(t-x) -f(t)\ Q_n^{(2)}(t-x) + \dots - (-1)^m\ f(t)\ Q_n^{(m)}(t-x)
+		& = \int_{-x}^{1-x} f(x+t) \ Q_n(t) \ dt \text{ since } f \text{ vanishes outside } [0,1]\\
+		& = \int_0^{1} f(t) \ Q_n(t-x) \ dt 
 	\end{align*}
-	Thus, $\sequence{P_n}$ is a sequence of polynomials.
+	Continuous function $f$ is uniformly continuous on compact interval $[0,1]$.
+	Thus $f$ is Riemann integrable on $[0,1]$.
+	And $Q_n(t-x) = c_n [1-(t+x)^2]^n$.
+	Thus, from product rule of integration we know that $\sequence{P_n}$ is a sequence of polynomials.
 	And $P_n$ are real, if $f$ is real.\\
 
 	\hrule \vspace{1em}

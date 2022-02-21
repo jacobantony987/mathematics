@@ -1757,7 +1757,7 @@ The dot product is a bounded linear functional on any finite dimensional Euclide
 	Then the quotient space is a hyperplane parallel to $Y$.
 \end{definition}
 
-\begin{remark}[{\cite[\S2.8 Exercise 12]{rudin}}]
+\begin{remark}[{\cite[\S2.8 Exercise 12]{kreyszig}}]
 	Let $f \in X^\ast$ and $f \ne 0$.
 	Then, constant functionals on $X$ forms a hyperplane parallel to the null space of $f$.
 \end{remark}
@@ -1895,25 +1895,175 @@ And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ 
 	Therefore, $T$ is bounded.
 \end{proof}
 
-\begin{definition}[Dual space $X'$]
+\begin{definition}[Dual space $X^\prime$]
 	Let $X$ be a normed space.
-	The set of $X'$ of all bounded, linear functionals $B(X,K)$ is the dual space of $X$.
-	The dual space $X'$ of $X$ is a normed space with norm
+	The set of $X^\prime$ of all bounded, linear functionals $B(X,K)$ is the dual space of $X$.
+	The dual space $X^\prime$ of $X$ is a normed space with norm
 	\[ \|f\| = \sup_{\substack{x \in X\\ x \ne 0}} \frac{|f(x)|}{\|x\|} = \sup_{\substack{x \in X \\ \|x\| =1 }} |f(x)| \]
 \end{definition}
 
 \begin{theorem}
-	The dual space $X'$ of any normed space $X$ is a Banach space.
+	The dual space $X^\prime$ of any normed space $X$ is a Banach space.
 \end{theorem}
 \begin{proof}
 	We know that, $B(X,Y)$ is Banach space if $Y$ is a Banach space.
 	We have $K = \mathbb{R}$ or $K = \mathbb{C}$.
 	And $\mathbb{R}$ as well as $\mathbb{C}$ are complete normed spaces.
-	Therefore, $X' = B(X,K)$ is a Banach space.
+	Therefore, $X^\prime = B(X,K)$ is a Banach space.
 \end{proof}
+
+\subsection{Dual Spaces}
+\begin{important}
+\begin{remark}
+	Dual space of $\mathbb{R}^n$ is $\mathbb{R}^n$
+\end{remark}
+\end{important}
+\begin{proof}
+	For finite dimensional normed space $X$, every linear functional on $X$ is bounded.
+	Thus, ${\mathbb{R}^n}^\prime = {\mathbb{R}^n}^\ast$.
+	And every functional $f \in (\mathbb{R}^n)^\ast$ is of the form $f = \sum \xi_j \alpha_j$ where $\alpha_j = f(e_j)$.
+	By Cauchy-Schwarz's inequality, we have
+	\[ |f(x)| \le \sum |\xi_j \alpha_j| \le \left( \sum \xi_j^2 \right)^\frac{1}{2} \ \left( \sum \alpha_j^2 \right)^\frac{1}{2} = \| x \| \left(\sum \alpha_j \right)^\frac{1}{2} \]
+	Thus,
+	\[ \|f\| = \sup_{ \substack{x \in\mathbb{R}^n \\ \|x\|=1}} |f(x)| \le \left( \sum \alpha_j^2 \right)^\frac{1}{2} \]
+	Also for $x = (\alpha_j)$ we get,
+	\[ \|f\| = \left( \sum \alpha_j^2 \right)^\frac{1}{2} \]
+	Thus, we have Euclidean norm on $(\mathbb{R}^n)^\ast$ and $\dim (\mathbb{R}^n)^\ast = n$.
+	Therefore, $(\mathbb{R}^n)^\ast$ is isomorphic to $\mathbb{R}^n$.
+	And ${\mathbb{R}^n}^\ast = {\mathbb{R}^n}^\prime$.
+	In other words, the dual space of $\mathbb{R}^n$ is isomorphic to $\mathbb{R}^n$ itself.
+\end{proof}
+
+\begin{important}
+\begin{remark}
+	Dual space of $l^1$ is $l^\infty$
+\end{remark}
+\end{important}
+\begin{proof}
+	The Schauder basis for $l^1$ is $(e_k)$ where $e_k = (\delta_{k,j})$.
+	Then any $x \in l^1$ has the form
+	\[ x = (\xi_j) = \sum_{k=1}^\infty \xi_k \delta_{k,j} = \sum_{k =1}^\infty \xi_k e_k \]
+	Let $f \in {l^1}^\prime$.
+	Then,
+	\[ f(x) = f\left(\sum \xi_k e_k\right) = \sum \xi_k f(e_k) = \sum \xi_k \gamma_k \]
+	where $\gamma_k = f(e_k)$.
+	Since $f$ is bounded, we have $|f(x)| \le \|f\| \ \|x\|$.
+	Also we have, $\|e_k\| = 1$ since $e_k = (\delta_{k,j})$.
+	Thus,
+	\[ |\gamma_k| = |f(e_k)| \le \|f\| \ \|e_k\| = \|f\| \]
+	Therefore,
+	\[ \sup_k |\gamma_k| \le \|f\| \]
+	which is the norm on $l^\infty$.\\
+
+	And for each $b = (\beta_k) \in l^\infty$ there exists a functional $g \in {l^1}^\prime$ such that
+	\[ g(x) = \sum \xi_k \beta_k \]
+	where $x = (\xi_k) \in l^1$.
+	Clearly, $g$ is linear.
+	And,
+	\[ |g(x)| \le \sum |\xi_k \beta_k| \le \sup_j |\beta_j| \sum |\xi_j| = \|x\| \sup_j |\beta_j| \]
+	Thus, $g$ is bounded and $g \in {l^1}^\prime$.
+	And,
+	\[ |f(x)| = \left| \sum \xi_k \gamma_k \right| \le \sup_j |\gamma_j| \sum |\xi_k| = \|x\| \ \sup_j |\gamma_j| \]
+	Thus,
+	\[ \|f\| = \sup_{\substack{x \in l^1\\ \|x\| =1 }} |f(x)| \le \sup_j |\gamma_j| \]
+	Therefore, $\|f\| = \sup_j |\gamma_j|$ which is the norm on $l^\infty$.
+	Clearly, the mapping from ${l^1}^\prime$ into $l^\infty$ given by $f \to c$ where $c = \sum \gamma_j$ is an isomorphism preserving norm.
+	Thus, the dual space of $l^1$ is isomorphic to $l^\infty$.
+\end{proof}
+\begin{important}
+\begin{remark}
+	Dual space of $l^p$ is $l^q$ where $p,q$ are conjugate exponents.
+\end{remark}
+\end{important}
+\begin{proof}
+	Sequence $(e_k)$ is a Schauder basis for $l^p$ where $e_k = \delta_{k,j}$.
+	And every $x \in l^p$ is of the form
+	\[ x = (\xi_k) = \sum_{k=1}^\infty \xi_k e_k \]
+	Let $f \in {l^p}^\prime$.
+	Then $f$ is linear and
+	\[ f(x) = f\left( \sum_{k=1}^\infty \xi_k e_k \right) = \sum_{k=1}^\infty \xi_k f(e_k) = \sum_{k=1}^\infty \xi_k \gamma_k \]
+	where $\gamma_k = f(e_k)$.\\
+
+	Define sequence $\sequence{x_n}$ in $l^p$ such that $ x_n = (\xi_{k,n})$ where 
+	\[ \xi_{k,n} = \begin{cases} \frac{|\gamma_k|^q}{\gamma_k} & k \le n \text{ and } \gamma_k \ne 0 \\ 0 & k > n \text{ or } \gamma_k = 0 \end{cases} \]
+	
+	Then,
+	\[ f(x_n) = \sum \xi_{k,n} \gamma_k = \sum |\gamma_k|^q \]
+	Let $p,q$ be conjugate exponents.
+	Then $pq = p+q$.
+	And $|\xi_{k,n}| = |\gamma_k|^{(q-1)}$.
+	Thus,
+	\begin{align*}
+		|f(x_n)|
+		& \le \|f\| \ \|x_n\| \\
+		& = \|f\| \ \left( \sum |\xi_{k,n}|^p \right)^\frac{1}{p} \\
+		& = \|f\| \ \left( \sum |\gamma_k|^{(q-1)p} \right)^\frac{1}{p} \\
+		& = \|f\| \ \left(\sum |\gamma_k|^q \right)^\frac{1}{p} \text{ since } pq = p+q
+	\end{align*}
+	Therefore,
+	\[ |f(x_n)| = \sum |\gamma_k|^q \le \|f\| \ \left(\sum |\gamma_k|^q \right)^\frac{1}{p} \]
+	\[ \implies \left( \sum |\gamma_k|^q \right)^{\left(1-\frac{1}{p}\right)}  = \left( \sum |\gamma_k|^q \right)^\frac{1}{q} \le \|f\| \]
+
+	Let $b = (\beta_k) \in l^q$.
+	And there exists a functional $g$ on $l^p$ such that
+	\[ g(x) = \sum \xi_k \beta_k \]
+	where $x = (\xi_k) \in l^p$.
+	Clearly, $g$ is linear.
+	And,
+	\[ |g(x)| \le \left|\sum \xi_k \beta_k \right| \le \left( \sum |\xi_k|^p \right)^\frac{1}{p} \ \left( \sum |\beta_k|^q \right)^\frac{1}{q} = \|x\| \left( \sum |\beta_k|^q \right)^\frac{1}{q} \]
+	Therefore, $g$ is a bounded, linear functional on $l^p$.
+	That is, $g \in {l^p}^\prime$.\\
+
+	And we have,
+	\begin{align*}
+		|f(x)| & \le \left| \sum \xi_k \gamma_k \right| \\
+		& \le \left( \sum |\xi_k|^p \right)^\frac{1}{p} \ \left( \sum |\gamma_k|^q \right)^\frac{1}{q} \\
+		& \le \|x\| \ \left( \sum |\gamma_k|^q \right)^\frac{1}{q} \\
+		\|f\| & \le \sup_{\substack{x \in l^p\\ \|x\| = 1}} \left( \sum |\gamma_k|^q \right)^\frac{1}{q}
+	\end{align*}
+	Then,
+	\[  \|f\| = \left( \sum \gamma_k|^q \right)^\frac{1}{q} \]
+	which is the same norm on $l^q$.
+	Clearly, the mapping from ${l^p}^\prime$ into $l^q$ given by $f \to c$ where $c = \sum \gamma_k \in l^q$ is an isomorphism preserving norm.
+	Therefore, the dual space of $l^p$ is isomorphic to $l^q$ where $\frac{1}{p}+\frac{1}{q} = 1$.
+\end{proof}
+
 %Module 3
 %\chapter 3
+\pagebreak
+{\Large Module 3 - Hilbert Spaces}
 \section{Hilbert Spaces}
+\begin{definition}[inner product]
+	Let $X$ be a vector space over the field $K$.
+	Inner product is a function $<\cdot> : X \times X \to K$ which satisfyies
+	\begin{enumerate}
+		\item $<x+y,z> = <x,z> + <y,z>$
+		\item $<\alpha x,y> = \alpha <x,y>$
+		\item $<x,y> = \overline{<y,x>}$
+		\item $<x,x> \ge 0$ and \\
+			$<x,x> = 0 \iff x = 0$
+	\end{enumerate}
+\end{definition}
+\begin{definition}
+	A vector space $X$ on field $K$ together with an inner product function $<\cdot> : X \times X \to K$ is an inner product space.
+\end{definition}
+\begin{definition}[Hilbert]
+	Hilbert spaces are complete, inner product spaces.
+\end{definition}
+
+\begin{remark}
+	Inner product spaces are normed spaces with norm 
+	\[ \|x\| = \sqrt{<x,x>} \]
+\end{remark}
+
+\begin{remark}
+	Inner product spaces are metric spaces with metric 
+	\[ d(x,y) = \|x-y\| = \sqrt{<x-y,x-y>} \]
+\end{remark}
+\begin{remark}
+	Let $X$ be a real, inner product space.
+	Then, \[ <x,y> = <y,x> \]
+\end{remark}
 \subsection{Inner Product space, Hilbert space}
 \subsection{Further properties of inner product spaces}
 \subsection{Orthogonal complements and direct sums}
