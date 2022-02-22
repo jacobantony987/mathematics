@@ -2294,11 +2294,20 @@ In other words, any continuous function has a polynomial approximation.
 		& = \int_{-x}^{1-x} f(x+t) \ Q_n(t) \ dt \text{ since } f \text{ vanishes outside } [0,1]\\
 		& = \int_0^{1} f(t) \ Q_n(t-x) \ dt 
 	\end{align*}
+	{\color{red}
 	Continuous function $f$ is uniformly continuous on compact interval $[0,1]$.
 	Thus $f$ is Riemann integrable on $[0,1]$.
 	And $Q_n(t-x) = c_n [1-(t+x)^2]^n$.
-	Thus, from product rule of integration we know that $\sequence{P_n}$ is a sequence of polynomials.
-	And $P_n$ are real, if $f$ is real.\\
+	From integration by parts, we know that $\sequence{P_n}$ is a sequence of polynomials.
+	\begin{align*}
+		P_n(x) 
+		& = \int_0^1 f(t) Q_n(t+x) dt \\
+		& = \left[f(t)Q_n'(t+x)\right]_0^1 - \int_0^1 Q_n'(t+x) \int_0^1 f(t) dt\\
+		& = f(1)Q_n'(1+x) -f(0)Q_n'(x) - [F(1)-F(0)]\int_0^1 Q_n'(t+x) dt \\
+		& = f(1)Q_n'(1+x) - f(0)Q_n'(x) - [F(1)-F(0)] [Q_n(1+x) - Q_n(x)]
+	\end{align*}
+	}
+	And for each natural number $n$, we have $P_n(x)$ is real, if $f$ is real.\\
 
 	\hrule \vspace{1em}
 
@@ -2494,7 +2503,30 @@ In other words, any continuous function has a polynomial approximation.
 	\[ f(x) = \sum_{n = 0}^\infty \frac{f^{(n)}(a)}{n!} (x-a)^n,\quad |x-a| < R-|a|\]
 \end{theorem}
 \begin{proof}
+	Suppose 
+	\begin{align*}
+		f(x)
+		& = \sum_{n=0}^\infty c_n[(x-a)+a]^n \\
+		& = \sum_{n=0}^\infty c_n \sum_{m=0}^n  \binom{n}{m} a^{n-m}(x-a)^m 
+		%& = \lim_{k \to \infty} \sum_{n=0}^k c_n \sum_{m=0}^n  \binom{n}{m} a^{n-m}(x-a)^m 
+		\intertext{Changing the order of summation, we may combine coefficients of $(x-a)^m$.}
+		%& = \lim_{k \to \infty} \sum_{m=0}^k \sum_{n = m}^k \binom{n}{m} c_n a^{n-m} (x-a)^m \\
+		& = \sum_{m=0}^\infty \sum_{n = m}^\infty \binom{n}{m} c_n a^{n-m} (x-a)^m
+	\end{align*}
+
+	Therefore, it is enough to prove that the order of summation can be changed.
+	We know that the order of summation can be changed if,
+	\[ \sum_{n = 0}^\infty \sum_{m = 0}^n \left| c_n \binom{n}{m} a^{n-m} (x-a)^m \right| \text{ converges} \]
+	We know that,
+	\[ \sum_{n = 0}^\infty \sum_{m = 0}^n \left| c_n \binom{n}{m} a^{n-m} (x-a)^m \right| = \sum_{n = 0}^\infty |c_n|\ (|x-a|+|a|)^n \]
 \end{proof}
+	and it converges if $|x-a|+|a| < R-|a|$.\\
+
+	Also we know that, if $f(x) = \sum c_n x^n$ converges in $|x|<R$, then the convergence is uniform in $[-R+\varepsilon,R-\varepsilon]$ and it is differentiable in $(-R,R)$.
+	And the derivatives are given by,
+	\[ f^{(m)}(a) = \sum_{n=m}^\infty \frac{n!}{(n-m)!}c_n a^{n-m} = m! \sum_{n=m}^\infty \binom{n}{m} c_n a^{n-m} \]
+	Thus,
+	\[ f(x) = \sum_{m = 0}^\infty \sum_{n = m}^\infty c_n\binom{n}{m} a^{n-m} (x-a)^m = \sum_{m=0}^\infty \frac{f^{(m)}(a)}{m!}(x-a)^m \]
 
 \begin{theorem}
 	Suppose the series $\sum a_n x^n$ and $\sum b_n x^n$converge in the segment $S = (-R,R)$.
@@ -2502,8 +2534,15 @@ In other words, any continuous function has a polynomial approximation.
 	\[ \sum_{n = 0}^\infty a_n x^n = \sum_{n = 0}^\infty b_n x^n \]
 	If $E$ has a limit point on $S$, then $a_n = b-n$.
 \end{theorem}
+\begin{important}
+	In other words, If two power series coverges to the same function in $(-R,R)$, then the series are identical.
+\end{important}
 \begin{proof}
 \end{proof}
+
+\begin{doubt}
+Whether the power series representation is unique ?
+\end{doubt}
 
 \begin{theorem}
 	Let $e^x$ be defined on $\mathbb{R}$.
