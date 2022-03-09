@@ -61,9 +61,12 @@
 \SetCodeSection{Level2}{true} %change to false to hide challenge, ...
 \SetCodeSection{Level3}{true} %change to false to hide doubt, ...
 
-\newcommand{\sequence}[1]{\left\{#1\right\}}
-\newcommand{\generator}[1]{\left\langle #1\right\rangle}
-\newcommand{\entity}[1]{\left\langle #1 \right\rangle}
-\newcommand{\inner}[2]{\left\langle #1,#2 \right\rangle}
+\newcommand{\sequence}[1]{\ensuremath{\left\{#1\right\}}}
+\newcommand{\closure}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\conj}[1]{\ensuremath{\overline{#1}}}
+\newcommand{\generator}[1]{\ensuremath{\left\langle #1\right\rangle}}
+\newcommand{\entity}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\inner}[2]{\ensuremath{\left\langle #1,#2 \right\rangle}}
+\newcommand{\nimplies}{\ensuremath{\;\not\nobreak\!\!\!\!\implies}}
 
 \allowdisplaybreaks[1]

@@ -124,7 +124,7 @@
 		\begin{equation}
 		c(X,Y) = \sum_{(x,y) \in (X,Y)} c(x,y)
 		\end{equation}
-	\item[cut] Let $P \subset V(D)$ such that $s \in P$ and $t \not\in P$ and $\bar{P} = V(D)-P$, then $(P,\bar{P})$ is a cut.
+	\item[cut] Let $P \subset V(D)$ such that $s \in P$ and $t \notin P$ and $\bar{P} = V(D)-P$, then $(P,\bar{P})$ is a cut.
 	\item[flow from $P$ to $\bar{P}$] is the sum of flow on each arc in $(P,\bar{P})$.
 		\begin{equation}
 		f(P,\bar{P}) = \sum_{(x,y) \in (P,\bar{P})} f(x,y)
@@ -144,7 +144,7 @@
 \end{theorem}
 \begin{synopsis}
 	The net flow out of source $s$ is the flow $f(N)$ in the network $N$.
-	Let $(P,\bar{P})$ be a cut of $N$, then $s \in P$ and $t \not\in P$.
+	Let $(P,\bar{P})$ be a cut of $N$, then $s \in P$ and $t \notin P$.
 	Suppose $P = \{ s\}$, then the theorem is true.
 	Suppose $P$ is not singleton, then for each vertex $x \in P,\ x \ne s$, the net flow out of $x$ is zero by flow conservation equation.
 	And flow between vertices in $P$ cancels out each other.
@@ -245,14 +245,14 @@
 
 	Clearly $f(N) < f^*(N)$, and it is enough to show that $f^*$ is a flow in $N$.
 $f^*$ is a flow if it satisfies \begin{enumerate*} \item capacity constraint and \item conservation equation \end{enumerate*}.
-			For any arc $a_i \not\in Q$, $f^*(a_i) = f(a_i) \le c(a_i)$.
+			For any arc $a_i \notin Q$, $f^*(a_i) = f(a_i) \le c(a_i)$.
 			Suppose $a_i \in Q$.
 			If $a_i = (u_{i-1},u_i)$, $a_i$ is a forward arc and we have $f^*(a_i) = f(a_i) + \Delta \le f(a_i) + \Delta_i = f(a_i) + c(a_i) - f(a_i) = c(a_i)$.
 			If $a_i = (u_i,u_{i-1})$, then $a_i$ is a reverse arc and we have $f^*(a_i) = \Delta \le \min \{ \Delta_i \} = \Delta_i = c(a_i)$.
 			Thus $f^*$ satisfies capactity constraint on every arc of $D$.\\
 
 	Let $x \in V(D)-\{s,t\}$.
-	Suppose $x \not\in Q$,
+	Suppose $x \notin Q$,
 	\begin{align*}
 		\text{Net flow out of } x
 		& = \sum_{y \in N^+(x)} f^*(x,y) - \sum_{y \in N^-(x)} f^*(y,x) \\
@@ -316,7 +316,7 @@ $f^*$ is a flow if it satisfies \begin{enumerate*} \item capacity constraint and
 	Now, we construct a cut $(P,\bar{P})$ of $N$.
 	Let $P$ be the set of all vertices $x \in V(D)$ such that there is an $f$-unsaturated $s-x$ semipath in $D$.
 	Trivially, $s \in P$.
-	And $t \not\in P$ since there are no $f$-augmenting semipath in $D$.
+	And $t \notin P$ since there are no $f$-augmenting semipath in $D$.
 	\footnote{An $f$-augmenting semipath is an $f$-unsaturated $s-t$ semipath in $D$.}
 	Clearly, $(P,\bar{P})$ is a cut of the network $N$.\\
 
@@ -354,7 +354,7 @@ $f^*$ is a flow if it satisfies \begin{enumerate*} \item capacity constraint and
 	And $f(N) \le c(X,\bar{X})$ for any cut $(X,\bar{X})$ in $N$.
 	We can construct a cut $(P,\bar{P})$ in $N$ such that $f(N) = c(P,\bar{P})$.
 	Let $P$ be the set of all vertices $x$ in $D$ such that there is an $f$-unsaturated $s-x$ semipath in $D$.
-	Clearly $s \in P$ and $t \not\in P$.
+	Clearly $s \in P$ and $t \notin P$.
 	Also $f(P,\bar{P}) = c(P,\bar{P})$ and $f(\bar{P},P) = 0$.
 	Then the cut $(P,\bar{P})$ is minimum cut of $N$.
 	Suppose there is a cut $(X,\bar{X})$ such that $c(X,\bar{X}) < c(P,\bar{P})$.
@@ -562,7 +562,7 @@ Suppose there is an $f$-augmenting semipath $Q$ in $D$, then there is either \be
 			\begin{enumerate}[label=(\arabic*)]
 				\item If $j = p+1$, then return to step 5.
 					Otherwise continue.
-				\item If $v_iv_j \not\in E(G)$, construct network $N$ with digraph $D$ as follows : for each vertex $ v \in V(G)$, there are two vertices $v',v'' \in V(D)$ and an arc $(v',v'') \in E(D)$.
+				\item If $v_iv_j \notin E(G)$, construct network $N$ with digraph $D$ as follows : for each vertex $ v \in V(G)$, there are two vertices $v',v'' \in V(D)$ and an arc $(v',v'') \in E(D)$.
 					And for each edge $uv \in E(G)$, there are two arcs $(u'',v),(v'',u) \in E(D)$.
 					The capacity function is given by, $c(v',v'') = 1$ for every $v \in V(G)$ and $c(a) = \infty$ for every other arc in $D$.
 					Set source $s = v_i''$ and sink $t = v_j'$ and find maximum flow in $N$ using max-flow min-cut algorithm.

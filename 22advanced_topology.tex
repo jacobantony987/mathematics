@@ -258,13 +258,13 @@
 	Then $\{ U_x : x \in C \}$ and $\{ V_y : y \in D \}$ are open covers of $C$ and $D$ respectively.
 	$\dag$\footnote{Here, $U_x$, $V_y$ are unrelated.})\\
 	Let $\{ U_n : n = 1,2,\cdots \}$ and $\{ V_n : n = 1,2,\cdots \}$ be their countable subcovers.\\
-	Define $G_n = U_n - \cup_{i = 1}^n \overline{V_i}$ and $H_n = V_n - \cup_{i = 1}^n \overline{U_i}$.\\
+	Define $G_n = U_n - \cup_{i = 1}^n \closure{V_i}$ and $H_n = V_n - \cup_{i = 1}^n \closure{U_i}$.\\
 	Define $G = \cup_{i = 1}^\infty G_n$ and $H = \cup_{i = 1}^\infty H_n$.\\
 	\begin{important}
 	Claim : $C \subset G$ (similary $D \subset H$)\\
 	\end{important}
 	$ x \in C \implies x \in U_n \text{ for some } n$, since $\{ U_n : n \in \mathbb{N} \}$ is a cover of $C$\\
-	$\forall m,\ \overline{V_m} \subset X-C \implies \forall m,\ x \not\in \overline{V_m} \implies x \in G$\\
+	$\forall m,\ \closure{V_m} \subset X-C \implies \forall m,\ x \not\in \closure{V_m} \implies x \in G$\\
 	\begin{important}
 	Claim : $G \cap H = \phi$\\
 	\end{important}
@@ -402,21 +402,21 @@
 	Enumerate rationals in the unit interval.\\
 	$\mathbb{Q} \cap [0,1] = \{ 0, 1, \cdots \} = \{ q_0, q_1, q_2, \cdots \}$.\\
 	Define $F_1 = F_{q_1} = X-B$. \\
-	$A \subset X-B \implies\exists H \text{ such that } A \subset H \subset \overline{H} \subset X-B$.
+	$A \subset X-B \implies\exists H \text{ such that } A \subset H \subset \closure{H} \subset X-B$.
 	($\star$\footnote{Equivalent condition for normality : Let $A$ be closed subset and $G$ be an open subset containing $A$.
-	Then there exists open subset $H$ such that $A \subset H \subset \overline{H} \subset G$.
+	Then there exists open subset $H$ such that $A \subset H \subset \closure{H} \subset G$.
 	cite[7.1.16(3)]{joshi}})\\
 	Define $F_{q_0} = F_0 = H$.\\
 
-	$\overline{F_{q_0}} \subset F_{q_1} \implies $ true for $n = 1$.\\
-	Suppose : $\overline{F_{q_i}} \subset F_{q_j},\ \forall j > i$ is true for $j = 1,2,\cdots,n-1$.\\
+	$\closure{F_{q_0}} \subset F_{q_1} \implies $ true for $n = 1$.\\
+	Suppose : $\closure{F_{q_i}} \subset F_{q_j},\ \forall j > i$ is true for $j = 1,2,\cdots,n-1$.\\
 	Define $q_i = \sup \{ q_k : q_k < q_n, k < n \}$ and $q_j = \inf \{ q_k : q_k > q_n, k < n \}$ ($\dag$\footnote{ Let $\mathbb{Q}\cap[0,1] = \{ 0,1,0.3,0.7,0.8,\textbf{0.5},0.6,\cdots \}$.
 	Consider $n = 5$.
 	Then $q_n = q_5 = 0.5$ and in the respective induction step, $q_i = \sup\{0,0.3\} = 0.3$ and $q_j = \inf\{1,0.7,0.8\} = 0.7$}) \\
-	$\implies q_i < q_n < q_j$ and $\overline{F_{q_i}} \subset F_{q_j}$.\\
-	$\overline{F_{q_i}} \subset F_{q_j} \implies \exists H \text{ such that } \overline{F_{q_i}} \subset H \subset \overline{H} \subset F_{q_j}$.
+	$\implies q_i < q_n < q_j$ and $\closure{F_{q_i}} \subset F_{q_j}$.\\
+	$\closure{F_{q_i}} \subset F_{q_j} \implies \exists H \text{ such that } \closure{F_{q_i}} \subset H \subset \closure{H} \subset F_{q_j}$.
 	Define $F_{q_n} = H$.\\
-	Therefore, $\overline{F_{q_j}} \subset F_{q_i},\ \forall j > i$.\\
+	Therefore, $\closure{F_{q_j}} \subset F_{q_i},\ \forall j > i$.\\
 
 	Now, $\{ F_t : t \in \mathbb{Q}\}$ has the properties required in lemma 2.\\
 	By lemma 2, there exists a function $f$.
@@ -432,7 +432,7 @@
 		\item \( F_t \) is an open subset of \( X \) for each \( t \in \mathbb{R} \)
 		\item \( F_t = \phi \) for \( t < 0 \)
 		\item \( F_t = X \) for \( t > 1 \)
-		\item For any \( s,\ t \in \mathbb{R},\ s < t \implies \overline{F_s} \subset F_t \).
+		\item For any \( s,\ t \in \mathbb{R},\ s < t \implies \closure{F_s} \subset F_t \).
 	\end{enumerate}
 	Moreover, for each \( x \in X,\ f(x) = \inf \{t \in \mathbb{Q} : x \in F_t \} \).
 \end{lemma}
@@ -446,7 +446,7 @@
 		\item \( F_t \) is open in \( X \) for each \( t \in \mathbb{Q} \)
 		\item \( F_t = \phi \) for \( t \in \mathbb{Q},\ t < 0 \)
 		\item \( F_t = X \) for \( t \in \mathbb{Q},\ t > 1 \)
-		\item \( \overline{F_s} \subset F_t \) for \( s,\ t \in \mathbb{Q},\ s < t \)
+		\item \( \closure{F_s} \subset F_t \) for \( s,\ t \in \mathbb{Q},\ s < t \)
 	\end{enumerate}
 	For \( x \in X \), let \( f(x) = \inf \{ t \in \mathbb{Q} : x \in F_t \} \).
 	Then \( f \) is a continuous real-valued function on \( X \) and it takes values in the unit interval \( [0,1] \).
@@ -464,20 +464,20 @@
 	$x \in \cup\{F_t : t \in \mathbb{Q},\ t < s \} \implies \exists t \in \mathbb{Q}\ (t < s),\ x \in F_t \implies \inf G_x < s$\\
 	$\implies f(x) < s \implies x \in H \implies \cup\{F_t : t \in \mathbb{Q},\ t < s \} \subset H$.\\
 	\begin{important}
-	Claim : $X-K = \cap\{ \overline{F_t} : t \in \mathbb{Q}, t > s \}$.\\
+	Claim : $X-K = \cap\{ \closure{F_t} : t \in \mathbb{Q}, t > s \}$.\\
 	\end{important}
 	$x \in X-K \implies x \not\in K \implies f(x) \le s \implies \inf G_x \le s$\\
-	Let $t \in \mathbb{Q}\ (s < t) \implies \exists q \in G_x\ (s < q < t) \implies x \in \overline{F_q} \subset F_t \subset \overline{F_t}$.\\
-	$\forall t \in \mathbb{Q}\ (t > s),\ x \in \overline{F_t} \implies x \in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s \}$.\\
-	Thus, $ X-K \subset \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s \}$.\\
-	$ x \in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s \}$\\
+	Let $t \in \mathbb{Q}\ (s < t) \implies \exists q \in G_x\ (s < q < t) \implies x \in \closure{F_q} \subset F_t \subset \closure{F_t}$.\\
+	$\forall t \in \mathbb{Q}\ (t > s),\ x \in \closure{F_t} \implies x \in \cap\{\closure{F_t} : t \in \mathbb{Q},\ t > s \}$.\\
+	Thus, $ X-K \subset \cap\{\closure{F_t} : t \in \mathbb{Q},\ t > s \}$.\\
+	$ x \in \cap\{\closure{F_t} : t \in \mathbb{Q},\ t > s \}$\\
 	Suppose(1) $x \in K \implies s < f(x) \implies \exists q,t \in \mathbb{Q}\ (s < q < t),\ t < f(x)$\\
-	Suppose(2) $x \in \overline{F_q} \implies x \in \overline{F_q} \subset F_t \implies \inf G_x < t \implies f(x) < t$\\
+	Suppose(2) $x \in \closure{F_q} \implies x \in \closure{F_q} \subset F_t \implies \inf G_x < t \implies f(x) < t$\\
 	is a contradiction(2).
-	Thus $x \not\in \overline{F_q}$.\\
-	$x \not\in \overline{F_q} \implies x \not\in \cap\{\overline{F_t} : t \in \mathbb{Q},\ t > s\}$ is a contradition (1).
+	Thus $x \not\in \closure{F_q}$.\\
+	$x \not\in \closure{F_q} \implies x \not\in \cap\{\closure{F_t} : t \in \mathbb{Q},\ t > s\}$ is a contradition (1).
 	Thus $x \not\in K$\\
-	Thus, $\cap\{\overline{F_t} : t \in \mathbb{Q},\ s > t \} \subset X-K$.\\
+	Thus, $\cap\{\closure{F_t} : t \in \mathbb{Q},\ s > t \} \subset X-K$.\\
 	Inverse images of subbase elements are open.
 	Thus $f$ is continuous.
 \end{proof}
@@ -506,9 +506,9 @@
 \end{important}
 \begin{proposition}
 	Let \( A \) be a subset of a space \( X \) and let \( f : A \to \mathbb{R} \) be continuous.
-	Then any two extensions of \( f \) to \( X \) agree on \( \overline{A} \).
+	Then any two extensions of \( f \) to \( X \) agree on \( \closure{A} \).
 	\begin{commentary}
-		In other words, if at all an extension of \( f \) exists its values on \( \overline{A} \) are uniquely determined by values of \( f \) on \( A \).
+		In other words, if at all an extension of \( f \) exists its values on \( \closure{A} \) are uniquely determined by values of \( f \) on \( A \).
 	\end{commentary}
 \end{proposition}
 %\begin{proof}

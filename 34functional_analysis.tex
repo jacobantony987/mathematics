@@ -191,9 +191,9 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 \begin{proof}
 	Since every convergent sequence is bounded, $c \subset l^\infty$.
 	And the sequence space $c$ is complete if $c$ is a closed subset of the complete space $l^\infty$.
-	Therefore, it is sufficient to show that $c = \overline{c}$\\
+	Therefore, it is sufficient to show that $c = \closure{c}$\\
 
-	Let $x = \sequence{\xi_k} \in \overline{c}$.	
+	Let $x = \sequence{\xi_k} \in \closure{c}$.	
 	Then there exists a convergent sequence $\sequence{x_k} = \sequence{\xi_{k,j}}$ in $c$ converging to $x$.
 	That is, $\xi_{k,j} \to \xi_j$.\\
 
@@ -213,7 +213,7 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 	Clearly, $x = \sequence{\xi_k}$ is a Cauchy sequence in $l^\infty$.
 	And since $l^\infty$ is complete, every Cauchy sequence in $l^\infty$ is convergent.
 	Therefore, $x$ is a convergent sequence and $x \in c$.
-	Thus, $c = \overline{c}$ and the induced\dag\footnote{
+	Thus, $c = \closure{c}$ and the induced\dag\footnote{
 		Let $(X,d)$ be a complete metric space.
 		And $Y$ is a closed subset of $X$.
 		Then the induced metric space $(Y,d_{|_Y})$ is complete.}
@@ -1443,9 +1443,9 @@ But there exists separable, Banach spaces without a Schauder basis.
 
 	\hrule \vspace{1em}
 
-	Suppose $x \in \overline{\mathcal{N}(T)}$.
+	Suppose $x \in \closure{\mathcal{N}(T)}$.
 	\dag\footnote{
-		To prove $X$ is closed, we often choose $x \in \overline{X}$ which is limit of an arbitrary sequence $x_n$ in $X$.
+		To prove $X$ is closed, we often choose $x \in \closure{X}$ which is limit of an arbitrary sequence $x_n$ in $X$.
 		Then it is enough to show that the limit $x \in X$.}
 	Then there exists a sequence $\sequence{x_n} \in \mathcal{N}(T)$ such that $x_n \to x$.
 	Then, $Tx_n \to Tx$.
@@ -1511,16 +1511,16 @@ But there exists separable, Banach spaces without a Schauder basis.
 
 \begin{theorem}[bounded linear extension]
 	Let $T : X \to Y$ be a bounded, linear operator from a normed space into a Banach space.
-	Then $T$ has a bounded, linear extension $\tilde{T} : \overline{\mathscr{D}(T)} \to Y$ such that $\|\tilde{T}\| = \|T\|$.
+	Then $T$ has a bounded, linear extension $\tilde{T} : \closure{\mathscr{D}(T)} \to Y$ such that $\|\tilde{T}\| = \|T\|$.
 \end{theorem}
 \begin{proof}
-	Suppose $x \in \overline{\mathscr{D}(T)}$.
+	Suppose $x \in \closure{\mathscr{D}(T)}$.
 	Then there exists a sequence $\sequence{x_n}$ in $\mathscr{D}(T)$ such that $x_n \to x$.
 	By Cauchy-criterion, there exists $N \in \mathbb{N}$ such that $\forall n,m > N,\ \|x_n - x_m\| \le \varepsilon$.
 	Since $T$ is a bounded linear operator, for every $n,m > N$ we have
 	\[ \|Tx_n - Tx_m\| = \|T(x_n-x_m)\| \le \|T\| \ \|x_n-x_m\| \le \varepsilon \|T\| \]
 	Therefore, sequence $\sequence{Tx_n}$ in $Y$ converges to a point, say $y \in Y$ since $Y$ is complete.
-	Define $\tilde{T} : \overline{\mathscr{D}(T)} \to Y$ such that $\tilde{T}(x) = y$.\\
+	Define $\tilde{T} : \closure{\mathscr{D}(T)} \to Y$ such that $\tilde{T}(x) = y$.\\
 
 	Now, we show that the function $\tilde{T}$ is defined independent of the choice of the sequence $\sequence{x_n}$.
 	Let $x_n \to x$ and $z_n \to x$.
@@ -1545,8 +1545,8 @@ But there exists separable, Banach spaces without a Schauder basis.
 \end{proof}
 
 \begin{challenge}
-	Any linear operator on $X$ has a linear extension into $\overline{X}$ preserving norm.
-	Whether this extension is unique on $\overline{X}$ ?
+	Any linear operator on $X$ has a linear extension into $\closure{X}$ preserving norm.
+	Whether this extension is unique on $\closure{X}$ ?
 \end{challenge}
 
 \subsection{Linear Functionals}
@@ -2045,7 +2045,7 @@ And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ 
 	\begin{enumerate}
 		\item $\inner{x+y}{z} = \inner{x}{z} + \inner{y}{z}$
 		\item $\inner{\alpha x}{y} = \alpha \inner{x}{y}$
-		\item $\inner{x}{y} = \overline{\inner{y}{x}}$
+		\item $\inner{x}{y} = \conj{\inner{y}{x}}$
 		\item $\inner{x}{x} \ge 0$ and \\
 			$\inner{x}{x} = 0 \iff x = 0$
 	\end{enumerate}
@@ -2064,7 +2064,7 @@ And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ 
 
 \begin{definition}[sesquilinear]
 	An operator $T : X \to Y$ is sesquilinear if 
-	\[ T(\alpha x + \beta y) = \alpha T(x) + \bar{\beta}T(y) \]
+	\[ T(\alpha x + \beta y) = \alpha T(x) + \conj{\beta}T(y) \]
 \end{definition}
 
 \begin{important}
@@ -2082,7 +2082,7 @@ Inner product is a sesquilinear operator.
 \end{remark}
 \begin{remark}
 	Let $X$ be a complex, inner product space.
-	Then, $\inner{x}{y} = \overline{\inner{y}{x}}$.
+	Then, $\inner{x}{y} = \conj{\inner{y}{x}}$.
 \end{remark}
 \begin{proof}
 	Let $x = a+ib$ and $y = c+id$ where $a,b,c,d \in \mathbb{R}$.
@@ -2093,17 +2093,17 @@ Inner product is a sesquilinear operator.
 		& = \inner{c+id}{a+ib} \\
 		& = \inner{c}{a} -i\inner{c}{b} + i\inner{d}{a} + \inner{d}{b} \\
 		& = \inner{a}{c} -i\inner{b}{c} + i\inner{a}{d} + \inner{b}{d} \\
-		& = \overline{\inner{x}{y}}
+		& = \conj{\inner{x}{y}}
 	\end{align*}
 	Therefore,
-	\[ \inner{x}{y} = \overline{\inner{y}{x}} \]
+	\[ \inner{x}{y} = \conj{\inner{y}{x}} \]
 \end{proof}
 \begin{remark}
 	From the axiom of inner product, we have
 	\begin{enumerate}
 		\item $ \inner{\alpha x + \beta y}{z} = \alpha\inner{x}{z} + \beta\inner{y}{z}$
-		\item $\inner{x}{\alpha y} = \bar{\alpha} \inner{x}{y}$
-		\item $\inner{x}{\alpha y+\beta z} = \bar{\alpha}\inner{x}{y} + \bar{\beta}\inner{x}{z}$
+		\item $\inner{x}{\alpha y} = \conj{\alpha} \inner{x}{y}$
+		\item $\inner{x}{\alpha y+\beta z} = \conj{\alpha}\inner{x}{y} + \conj{\beta}\inner{x}{z}$
 	\end{enumerate}
 \end{remark}
 
@@ -2148,10 +2148,10 @@ Inner product is a sesquilinear operator.
 	\[ \inner{x}{y} = \sum_{j=1}^n \xi_j \eta_j \]
 \subsubsection{Unitary Space}
 	Banach space $\mathbb{C}^n$ is a Hilbert space with inner product,
-	\[ \inner{x}{y} = \sum_{j=1}^n \xi_j \bar{\eta_j} \]
+	\[ \inner{x}{y} = \sum_{j=1}^n \xi_j \conj{\eta_j} \]
 \subsubsection{$L^2$ Space}
 	Banach space of Lebesgue square integrable functions is a Hilbert space with inner product,
-	\[ \inner{x}{y} = \left(\int_a^b x(t)\overline{y(t)}\ dt \right)^\frac{1}{2} \]
+	\[ \inner{x}{y} = \left(\int_a^b x(t) \ \conj{y(t)} \ dt \right)^\frac{1}{2} \]
 
 	$L^2$ space is the completion of the incomplete normed space of all continuous complex-valued functions on $[a,b]$ with norm $\|x\| = \sqrt{\inner{x}{x}}$.\\
 
@@ -2165,7 +2165,7 @@ Inner product is a sesquilinear operator.
 	\end{commentary}
 \subsubsection{$l^2$ Space}
 	Banach space $l^2$ is a Hilbert space with inner product,
-	\[ \inner{x}{y} = \sum_{j=1}^\infty \xi_j \bar{\eta_j} \]
+	\[ \inner{x}{y} = \sum_{j=1}^\infty \xi_j \conj{\eta_j} \]
 \subsubsection{Counter-examples}
 \begin{remark}
 	Banach space $C[a,b]$ with norm $\|x\| = \max |x(t)|$ is not an inner product space.
@@ -2229,9 +2229,9 @@ Inner product is a sesquilinear operator.
 		& = 2(\inner{x}{y} + \inner{y}{x})
 	\end{align*}
 
-	We know that, $\inner{x}{y} = \overline{\inner{y}{x}}$.
+	We know that, $\inner{x}{y} = \conj{\inner{y}{x}}$.
 	Thus, 
-	\[ \|x+y\|^2 - \|x-y\|^2 = 2(\inner{x}{y}+\overline{\inner{x}{y}}) = 4\Re \inner{x}{y} \]
+	\[ \|x+y\|^2 - \|x-y\|^2 = 2(\inner{x}{y} + \conj{\inner{x}{y}}) = 4\Re \inner{x}{y} \]
 	Therefore, 
 	\[ \Re \inner{x}{y} = \frac{1}{4} \left( \|x+y\|^2-\|x-y\|^2 \right) \]
 	
@@ -2242,8 +2242,8 @@ Inner product is a sesquilinear operator.
 		& = 2\inner{x}{z}+2\inner{z}{x} \\
 		& = 2\inner{x}{iy}+2\inner{iy}{x}) \\
 		& = -2i\inner{x}{y} + 2i\inner{y}{x} \\
-		& = -2i(\inner{x}{y}-\inner{y}{x}) \\
-		& = -2i(\inner{x}{y}-\overline{\inner{x}{y}}) \\
+		& = -2i(\inner{x}{y} - \inner{y}{x}) \\
+		& = -2i(\inner{x}{y} - \conj{\inner{x}{y}}) \\
 		& = 4 \Im{\inner{x}{y}} 
 	\end{align*}
 	\[ \Im \inner{x}{y} = \frac{1}{4} \left( \|x+iy\|^2-\|x-iy\|^2 \right) \]
@@ -2268,7 +2268,7 @@ Inner product is a sesquilinear operator.
 \end{proof}
 
 \begin{remark}
-	\[ \|x+y\|^2 = \|x\|^2 + \|y\|^2 \not\!\!\!\implies x \perp y \]
+	\[ \|x+y\|^2 = \|x\|^2 + \|y\|^2 \nimplies x \perp y \]
 \end{remark}
 \begin{proof}
 	\begin{align*}
@@ -2279,8 +2279,8 @@ Inner product is a sesquilinear operator.
 	\end{align*}
 	Thus, if $\|x+y\|^2 = \|x\|^2 + \|y\|^2$, then $\inner{x}{y} + \inner{y}{x} = 0$.\\
 
-	We know that $\inner{x}{y} = \overline{\inner{y}{x}}$.
-	And, $\inner{x}{y} + \overline{\inner{x}{y}} = 0$ only if $\inner{x}{y}$ is purely imaginary.
+	We know that $\inner{x}{y} = \conj{\inner{y}{x}}$.
+	And, $\inner{x}{y} + \conj{\inner{x}{y}} = 0$ only if $\inner{x}{y}$ is purely imaginary.
 	Thus, the Pythagoran theorem is true if $\inner{x}{y}$ is purely imaginary.
 \end{proof}
 
@@ -2304,7 +2304,7 @@ Inner product is a sesquilinear operator.
 
 \subsection{Further properties of inner product spaces}
 \begin{remark}
-	\[ \|\alpha x \|^2 = \inner{\alpha x}{\alpha x} = \alpha \bar{\alpha} \inner{x}{x} = |\alpha|^2 \|x\|^2 \]
+	\[ \|\alpha x \|^2 = \inner{\alpha x}{\alpha x} = \alpha \conj{\alpha} \inner{x}{x} = |\alpha|^2 \|x\|^2 \]
 \end{remark}
 
 \begin{lemma}[Schwarz Inequality]
@@ -2326,8 +2326,8 @@ Inner product is a sesquilinear operator.
 	\begin{align*}
 		\|x-\alpha y\|^2
 		& = \inner{x-\alpha y}{x-\alpha y} \\
-		& = \inner{x}{x} - \bar{\alpha}\inner{x}{y} - \alpha \inner{y}{x} + \alpha\bar{\alpha} \inner{y}{y} 
-		\intertext{ Let $\bar{\alpha} = \frac{\inner{y}{x}}{\inner{y}{y}}$. Then}
+		& = \inner{x}{x} - \conj{\alpha}\inner{x}{y} - \alpha \inner{y}{x} + \alpha\conj{\alpha} \inner{y}{y} 
+		\intertext{ Let $\conj{\alpha} = \frac{\inner{y}{x}}{\inner{y}{y}}$. Then}
 		\|x-\alpha y\|^2
 		& = \inner{x}{x} - \frac{\inner{y}{x} \inner{x}{y}}{\inner{y}{y}}\\
 		& = \|x\|^2 - \frac{\|\inner{x}{y}\|^2}{\|y\|^2}  
@@ -2554,9 +2554,9 @@ Inner product is a sesquilinear operator.
 	\begin{align*}
 		\|z - \alpha y_1 \|^2
 		& = \inner{z-\alpha y_1}{z-\alpha y_1} \\
-		& = \inner{z}{z} - \bar{\alpha}\inner{z}{y_1} - \alpha\inner{y_1}{z} + \alpha\bar{\alpha}\inner{y_1}{y_1} 
+		& = \inner{z}{z} - \conj{\alpha}\inner{z}{y_1} - \alpha\inner{y_1}{z} + \alpha\conj{\alpha}\inner{y_1}{y_1} 
 		\intertext{ When $\alpha = \frac{\beta}{\inner{y_1}{y_1}} = \frac{\inner{z}{y_1}}{\inner{y_1}{y_1}}$.
-		Then $\bar{\alpha} \beta = \frac{\bar{\beta}\beta}{\inner{y_1}{y_1}} = \frac{|\beta|^2}{\|y_1\|^2}$.
+		Then $\conj{\alpha} \beta = \frac{\conj{\beta}\beta}{\inner{y_1}{y_1}} = \frac{|\beta|^2}{\|y_1\|^2}$.
 		Then,}
 		\|z - \alpha y_1 \|^2
 		& = \|z\|^2 - \frac{|\beta|^2}{\|y_1\|^2} < \delta^2 
@@ -2719,10 +2719,10 @@ Inner product is a sesquilinear operator.
 	Thus, $x \in M^\perp$ since $V = span\ M$.
 	Clearly, $x = 0$.
 	Therefore, $V^\perp = \{ 0 \}$.
-	Consider the closed subspace $\overline{V}$.
-	We know that $V \subset \overline{V}$.
-	Thus, $\overline{V}^\perp \subset V^\perp = \{ 0 \}$.
-	Thus, $H = \overline{V} \oplus \{ 0 \} = \overline{V}$.
+	Consider the closed subspace $\closure{V}$.
+	We know that $V \subset \closure{V}$.
+	Thus, $\closure{V}^\perp \subset V^\perp = \{ 0 \}$.
+	Thus, $H = \closure{V} \oplus \{ 0 \} = \closure{V}$.
 	Therefore, $V$ is dense in $H$.
 \end{proof}
 
@@ -2792,7 +2792,7 @@ Inner product is a sesquilinear operator.
 		& = \inner{x-y}{y} \\
 		& = \inner{x}{y} - \inner{y}{y} \\
 		& = \inner{x}{\sum_{k=1}^n \inner{x}{e_k}e_k} - \|y\|^2 \\
-		& = \sum_{k=1}^n \overline{\inner{x}{e_k}} \inner{x}{e_k} - \|y\|^2 \\
+		& = \sum_{k=1}^n \conj{\inner{x}{e_k}} \inner{x}{e_k} - \|y\|^2 \\
 		& = \sum_{k=1}^n \left|\inner{x}{e_k}\right|^2 - \sum_{k=1}^n \left|\inner{x}{e_k}\right|^2 = 0
 	\end{align*}
 	Thus, $z \perp y$.
@@ -2943,7 +2943,7 @@ Then,
 	\begin{align*}
 		\|x_1 - x_2 \|^2 
 		& = \inner{x_1-x_2}{\sum \alpha_n e_n - \sum \beta_k w_k} \\
-		& = \sum \bar{\alpha}_j \inner{x_1-x_2}{e_j} - \sum \bar{\beta}_k \inner{x_1-x_2}{w_k} = 0
+		& = \sum \conj{\alpha}_j \inner{x_1-x_2}{e_j} - \sum \conj{\beta}_k \inner{x_1-x_2}{w_k} = 0
 	\end{align*}
 	Clearly, $x_1 = x_2$.
 	Thus, the sum is the same for representation of $x$ with respect to any rearrangement of $\sequence{e_k}$.
@@ -3052,7 +3052,7 @@ Then,
 	\begin{align*}
 		\|x\|^2
 		& = \inner{\sum_k \inner{x}{e_k}e_k}{\sum_m \inner{x}{e_m} e_m}  \\
-		& = \sum_k \inner{x}{e_k} \overline{\inner{x}{e_k}} \\
+		& = \sum_k \inner{x}{e_k} \conj{\inner{x}{e_k}} \\
 		& = \sum_k |\inner{x}{e_k}|^2
 	\end{align*}
 	Thus, Parsevals relation is true for any $x \in H$.
@@ -3088,15 +3088,7 @@ Then,
 
 	\hrule \vspace{1em}
 
-	Let $\sequence{e_k}$ be a total, orthonormal sequence in $H$.
-	Define $A = span\ \{e_k\}$.
-	Since $\sequence{e_k}$ is total, $A$ is dense in $H$\dag\footnote{
-		Author have a different proof for dense.
-		I think above reason is sufficient}.
-	And every element in $A$ is a finite linear combination of elements in $\sequence{e_k}$.
-	Thus, $A$ is countable.
-	Therefore, $H$ has a countable, dense subset $A$.
-	Therefore, $H$ is separable.
+	---continue---
 \end{proof}
 
 \begin{definition}[isomorphism]
@@ -3156,7 +3148,7 @@ Then,
 		\inner{\tilde{x}}{\tilde{y}} 
 		& = \inner{Tx}{Ty} \\
 		& = \inner{\sum_{k \in I} \inner{x}{e_k} w_k}{\sum_{j \in I} \inner{y}{e_j} w_j} \\
-		& = \sum_{k \in I} <x,e_k>\overline{<y,e_k>} \\
+		& = \sum_{k \in I} <x,e_k>\conj{<y,e_k>} \\
 		& = \inner{\sum_{k \in I} \inner{x}{e_k} e_k}{\sum_{j \in I} \inner{y}{e_j} e_j} \\
 		& = \inner{x}{y}
 	\end{align*}
@@ -3248,7 +3240,7 @@ Then,
 		\item $h(x_1+x_2,y) = h(x_1,y)+h(x_2,y)$
 		\item $h(x,y_1,y_2) = h(x,y_1) + h(x,y_2)$
 		\item $h(\alpha x,y) = \alpha h(x,y)$
-		\item $h(x,\beta y) = \bar{\beta} h(x,y)$
+		\item $h(x,\beta y) = \conj{\beta} h(x,y)$
 	\end{enumerate}
 \end{definition}
 
@@ -3285,7 +3277,7 @@ Then,
 \begin{proof}
 	\textbf{Step 1 : Constructon of $S$}\\
 	Let $h : H_1 \times H_2 \to K$ be a bounded, sesquilinear form.
-	Then $f(y) = \overline{h(x,y)}$ is a bounded, linear functional on $H_2$.
+	Then $f(y) = \conj{h(x,y)}$ is a bounded, linear functional on $H_2$.
 	By Riesz's theorem for bounded functionals, $f$ has an inner product representation, $f(y) = \inner{y}{z}$.
 	Thus, $h(x,y) = \inner{z}{y}$.
 	Define an operator $S : H_1 \to H_2$ such that $S(x) = z$.
@@ -3393,7 +3385,7 @@ Then,
 	Then
 	\begin{align*}
 		0 & = \inner{Q(\alpha x + y}{\alpha x + y}\\
-		& = |\alpha|^2 \inner{Qx}{x} + \inner{Qy}{y} + \alpha \inner{Qx}{y} + \bar{\alpha}\inner{Qy}{x}
+		& = |\alpha|^2 \inner{Qx}{x} + \inner{Qy}{y} + \alpha \inner{Qx}{y} + \conj{\alpha}\inner{Qy}{x}
 	\end{align*}
 	Put $\alpha = 1$, we get $\inner{Qx}{y} + \inner{Qy}{x} = 0$.\\
 	Put $\alpha = i$, we get $\inner{Qx}{y} - \inner{Qy}{x} = 0$.
@@ -3409,7 +3401,7 @@ Then,
 	\begin{enumerate}
 	\item $\inner{T^\ast y}{x} = \inner{y}{Tx}$
 	\item $(S+T)^\ast = S^\ast + T^\ast$
-	\item $(\alpha T)^\ast = \bar{\alpha} T^\ast$
+	\item $(\alpha T)^\ast = \conj{\alpha} T^\ast$
 	\item $(T^\ast)^\ast = T$
 	\item $\|T^\ast T\| = \|T T^\ast\| = \|T\|^2$
 	\item $T^\ast T = 0 \iff T = 0$
@@ -3420,8 +3412,8 @@ Then,
 	\begin{enumerate}
 	\item $\inner{T^\ast y}{x} = \inner{y}{Tx}$
 		\begin{align*}
-			\inner{T^\ast y}{x} & = \overline{\inner{x}{T^\ast y}} \\
-			& = \overline{\inner{Tx}{y}} \\
+			\inner{T^\ast y}{x} & = \conj{\inner{x}{T^\ast y}} \\
+			& = \conj{\inner{Tx}{y}} \\
 			& = \inner{y}{Tx}
 		\end{align*}
 
@@ -3438,13 +3430,13 @@ Then,
 
 	\hrule \vspace{1em}
 
-	\item $(\alpha T)^\ast = \bar{\alpha} T^\ast$
+	\item $(\alpha T)^\ast = \conj{\alpha} T^\ast$
 		\begin{align*}
 			\inner{x}{(\alpha T)^\ast y}
-			& = \bar{\alpha} \inner{x}{T^\ast y} \\
-			& = \bar{\alpha} \inner{Tx}{y} \\
-			& = \inner{\bar{(\alpha}T)x}{y} \\
-			& = \inner{x}{(\bar{\alpha}T)^\ast y}
+			& = \conj{\alpha} \inner{x}{T^\ast y} \\
+			& = \conj{\alpha} \inner{Tx}{y} \\
+			& = \inner{\conj{(\alpha}T)x}{y} \\
+			& = \inner{x}{(\conj{\alpha}T)^\ast y}
 		\end{align*}
 
 	\hrule \vspace{1em}
@@ -3453,8 +3445,8 @@ Then,
 		\begin{align*}
 			\inner{x}{(T^\ast)^\ast y}
 			& = \inner{T^\ast x}{y}\\
-			& = \overline{\inner{y}{T^\ast x}} \\
-			& = \overline{\inner{Ty}{x}} \\
+			& = \conj{\inner{y}{T^\ast x}} \\
+			& = \conj{\inner{Ty}{x}} \\
 			& = \inner{x}{Ty}
 		\end{align*}
 
@@ -3499,12 +3491,255 @@ Then,
 \end{proof}
 
 \subsection{Self-Adjoint, Unitary and Normal Operators}
+\begin{definition}
+	Let $H$ be a Hilbert space.
+	Let $T : H \to H$ be a bounded, linear operator.
+	\begin{itemize}
+		\item Then $T$ is self-adjoint/Hermitian if $T^\ast = T$.
+		\item Then $T$ is unitary, if $T^\ast = T^{-1}$.
+		\item Then $T$ is normal, if $TT^\ast = T^\ast T$.
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	If $T$ is unitary, then $T^\ast T = T^{-1}T = T T^{-1} = TT^\ast$.
+	If $T$ is self-adjoint, then $T^\ast T = T^2$.
+	Therefore, if $T$ is self-adjoint or unitary, then $T$ is normal.
+	And $2iI$ is a normal operator which is neither self-adjoint or unitary.
+\end{remark}
+
+\begin{remark}
+	Let $T : \mathbb{C}^n \to \mathbb{C}^n$ be a linear operator.
+	Let $A,B$ be the matrices of transformations $T,T^\ast$ with respect to the standard basis on $\mathbb{C}^n$.
+	Then
+	\[ \inner{Tx}{y} = x^t A^t \conj{y} = \inner{x}{T^\ast y} = x^t \conj{B}\conj{y} \]
+	Thus, $B  = \conj{A}^t$.
+\end{remark}
+
+\begin{remark}
+	Suppose $T$ is self-adjoint/Hermitian, then $A = \conj{A}^t$.  ie, $A$ is Hermitian.
+	If $K$ is real then $A$ is symmetric since $A = A^t$.\\
+
+	Suppose $T$ is unitary, then $A^{-1} = \conj{A}^t$. ie, $A$ is unitary.
+	If $K$ is real, then $A$ is orthogonal since $A^{-1} = A^t$.\\
+
+	Suppose $T$ is normal, then $BA = AB$ where $B = \conj{A}^t$. ie, $A$ is normal since $A$ commutes with its conjugate transpose.
+\end{remark}
+
+\begin{theorem}[self-adjoint]
+	Let $T$ be a bounded, linear opeator on a Hilbert space $H$.
+	\begin{enumerate}
+		\item If $T$ is self-adjoint, $\inner{Tx}{x}$ is real for any $x \in H$.
+		\item If $H$ is complex and $\inner{Tx}{x}$ is real for all $x \in E$.
+		Then $T$ is self-adjoint.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Suppose $T$ is self-adjoint.
+	Then $<Tx,y> = <x,Ty>$.
+	\[ \inner{Tx}{x} = \inner{x}{Tx} = \conj{\inner{Tx}{x}} \]
+	Therefore, $\inner{Tx}{x}$ is real.\\
+
+	\hrule \vspace{1em}
+
+	Suppose $H$ is complex, Hilbert space.
+	Suppose $\inner{Tx}{x}$ is real for any $x \in H$.
+	Then,
+	\[ \inner{x}{Tx} = \inner{Tx}{x} = \inner{x}{T^\ast x} \]
+	Thus,
+	\[ \inner{x}{(T-T^\ast)x} = \inner{x}{0} = 0,\ \forall x \in H \]
+	Thus, $T-T^\ast = 0$.
+	Therefore, $T = T^\ast$.
+\end{proof}
+
+\begin{theorem}[self-adjoint product]
+	The product of two self-adjoint, bounded operators $S,T$ is self-adjoint if and only if $S,T$ commute.
+\end{theorem}
+\begin{proof}
+	We have, $(ST)^\ast = T^\ast S^\ast = TS$.
+	Thus,
+	\[ (ST)^\ast = ST \iff TS = ST \]
+\end{proof}
+
+\begin{theorem}
+	Let $T_n$ be a sequence of self-adjoint, bounded linear operators $T_n : H \to H$.
+	Suppose $\sequence{T_n}$ converges to $T$ with respect to the norm on $B(H,H)$.
+	Then the limit operator $T$ is a self-adjoint, bounded, linear operator on $H$.
+\end{theorem}
+\begin{proof}
+	Let $T_n : H \to H$ be self-adjoint, bounded, linear operator for each $n \in \mathbb{N}$ .
+	Suppose $T_n \to T$.
+	Since $T_n$ are bounded and linear, $T$ is also bounded and linear.\\
+
+	It remains to prove that $T$ is self-adjoint.
+	Let $(T_n-T)^\ast$ be the adjoint operator of $T_n-T$.
+	Then $\|(T_n-T)^\ast\| = \|T_n-T\|$.
+	Therefore,
+	\[ \|T_n^\ast - T^\ast\| = \|(T_n-T)^\ast\| = \|T_n-T\| \]
+	We have, $T_n^\ast = T_n$ and $\|T_n^\ast - T_n\| = 0 $.
+	Thus,
+	\begin{align*}
+		\|T-T^\ast\| & \le \|T-T_n\| + \|T_n - T_n^\ast\| + \|T_n^\ast - T^\ast\|\\
+		& \le 2\|T_n - T\|
+	\end{align*}
+	As $n \to \infty$, $\|T_n - T\| \to 0$ since $T_n \to T$.
+	Clearly the left side is independent of the limit, and $\|T-T^\ast\| = 0$.
+	Thus, $T-T^\ast = 0$.
+	In other words, $T = T^\ast$.
+\end{proof}
+
+\begin{theorem}
+	Let $H$ be a Hilbert space.
+	Let $U : H \to H$ and $V : H \to H$ are unitary.
+	Then
+	\begin{enumerate}
+		\item $U$ is isometric. ie, $\forall x \in H,\ \|Ux\| = \|x\|$
+		\item $\|U\| = 1$
+		\item $U^{-1}$ is unitary
+		\item $UV$ is unitary
+		\item $U$ is normal
+		\item A bounded, linear operator $T$ on a complex, Hilbert space $H$ is unitary if and only if $T$ is isometric and surjective.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Let $H$ be a Hilbert space.
+	Let $U,V$ be unitary operators.
+	Then $U^{-1} = U^\ast$ and $V^{-1} = V^\ast$.
+\begin{enumerate}
+	\item $U$ is isometric.
+		\[ \|Ux\|^2 = \inner{Ux}{Ux} = \inner{x}{U^\ast Ux} = \inner{x}{Ix} = \|x\|^2  \]
+		Therefore, $\|Ux\| = \|x\|$.
+		In other words, $U$ is isometric.\\
+
+	\hrule \vspace{1em}
+
+	\item $\|U\| = 1$\\
+		We have, $U$ is isometric.
+		That is, $\|Ux\| = \|x\|$.
+		Thus,
+		\[ \|U\| = \sup_{\substack{x \in H\\ x \ne 0}} \frac{\|Ux\|}{\|x\|} = 1 \]
+
+	\hrule \vspace{1em}
+
+	\item $U^{-1}$ is unitary 
+		\[ (U^{-1})^\ast = (U^\ast)^\ast = U = (U^{-1})^{-1} \]
+		If $U^{-1} = V$, then $V^\ast = V^{-1}$.
+		Therefore, $U^{-1}$ is unitary.\\
+
+	\hrule \vspace{1em}
+
+	\item $UV$ is unitary since
+		\[ (UV)^\ast = V^\ast U^\ast = V^{-1} U^{-1} = (UV)^{-1} \]
+
+	\hrule \vspace{1em}
+
+	\item $U$ is normal since
+		\[ UU^\ast = UU^{-1} = I = U^{-1}U = U^\ast U \]
+
+	\hrule \vspace{1em}
+
+	\item $T$ unitary iff $T$ is isometric and surjective. ($H$ complex)\\
+
+		Suppose $T$ is isometric and surjective.
+		Since $T$ is isometric, we have $\|Tx\| = \|x\|$.
+		Suppose $Tx = Ty$.
+		Then,
+		\[ \|Tx-Ty\| = \|T(x-y)\| = \|x-y\| = 0 \]
+		Thus, $Tx = Ty \implies x = y$
+		Therefore, $T$ is injective.
+		Thus,$T^{-1}$ exists.
+		\[ \inner{T^\ast Tx}{x} = \inner{Tx}{Tx} = \|Tx\|^2 = \|x\|^2 = \inner{x}{x} = \inner{T^{-1}T x}{x} \]
+		Therefore, $T^\ast = T^{-1}$.
+		In other words, $T$ is unitary.\\
+
+		Suppose $T$ is unitary.
+		Then $T$ is isometric by part (a).
+		We have, $T^\ast = T^{-1}$.
+		Thus $T$ is bijective, otherwise $T^{-1}$ won't even exist.
+	\end{enumerate}
+\end{proof}
+
+\subsubsection{Exercise \S3.10}
+\begin{definition}[unitarily equivalence]
+	Let $H$ be a Hilbert space.
+	Let $S : H \to H$ and $T : H \to H$ be linear operators.
+	Then $S$ is unitarily equivalent to $T$ if there exists a unitary operator $U : H \to H$ such that $S = UTU^{-1}$.
+\end{definition}
 
 %\chapter 4
 \section{Fundamental Theorems for Banach Spaces}
 \subsection{Zorn's Lemma}
+\begin{definition}[POSET]
+	A set $M$ is a POSET if it satisfyies
+	\begin{enumerate}
+		\item $a \le a,\ \forall a \in M$
+		\item $a \le b, b \le a \implies a = b$
+		\item $a \le b, b \le c \implies a \le c$
+	\end{enumerate}
+\end{definition}
+\begin{lemma}[Zorn]
+	LEt $M$ be a non-empty POSET.
+	Suppose every chain in $M$ has an upper bound.
+	Then $M$ has a maximal element.
+\end{lemma}
+
+\subsubsection{Applications : Zorn's Lemma}
+\begin{remark}
+	Every non-trivial vector space has a Hamel basis.
+\end{remark}
+\begin{proof}
+	---continue---
+\end{proof}
+
+\begin{remark}
+	Every nontrivial Hilbert space has a total, orthonormal set.
+\end{remark}
+\begin{proof}
+\end{proof}
+
 \subsection{Hahn-Banach Theorem}
+\begin{theorem}[Hahn-Banach - Linear Functional]
+	Let $X$ be a real vector space.
+	Let $p$ be a sublinear functional on $X$.
+	Let $f$ be a linear functional defined on a subspace $Z$ of $X$ such that $f(x) \le p(x),\ \forall x \in Z$.
+	Then, $f$ has a linear extension $\tilde{f}$ from $Z$ into $X$ satisfying $\tilde{f}(x) \le p(x),\ \forall x \in X$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 \subsection{Hahn-Banach Theorem for complex vector spaces and normed spaces}
+\begin{theorem}[Hahn-Banach : generalised]
+	Let $X$ be a real/complex vector space.
+	Let $p$ be a subadditive, real-valued functional on $X$ and $p(\alpha x) = |\alpha|p(x),\ \forall \alpha \in K$.
+	Let $f$ be a linear functional defined on a subspace $Z$ of $X$ such that $|f(x)| \le p(x)$.
+	Then, $f$ has a linear extension $\tilde{f}$ from $Z$ into $X$ satisfying $|\tilde{f}(x)| \le p(x),\ \forall x \in X$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Hahn-Banach : Normed space]
+	Let $f$ be a bounded, linear functional on a subspace $Z$ of normed space $X$.
+	Then there exists a bounded, linear functional $\tilde{f}$ on $X$ which is an extension to $f$ on $Z$ and has the same norm, $\|\tilde{f}\| = \|f\|$ where 
+	\[ \|\tilde{f}\| = \sup_{\substack{x \in X\\ \|x\|=1}} |\tilde{f}(x)| \qquad \|f\| = \sup_{\substack{x \in Z\\\|x\| = 1}} |f(x)| \]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $X$ be a normed space.
+	Let $x_0 \in X$.
+	Then there exists a bounded, linear functional $\tilde{f}$ on $X$ such that $\|\tilde{f}\| = 1$ and $\tilde{f}(x_0) = \|x_0\|$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	Let $X$ be a normed space.
+	Let $x \in X$.
+	\[ \|x\| = \sup_{\substack{f \in X'\\ f \ne 0}} \frac{|f(x)|}{\|f\|} \]
+	If $f(x_0) = 0,\ \forall f \in X'$, then $x_0 = 0$.
+\end{corollary}
+\begin{proof}
+\end{proof}
 %\subsection{Application to Bounded Linear Functionals on $C[a,b]$}
 \setcounter{subsection}{4}
 \subsection{Adjoint Operator}

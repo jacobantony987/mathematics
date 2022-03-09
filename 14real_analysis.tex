@@ -1518,7 +1518,7 @@ Consider, $S_{n,m} = \frac{m}{m+n}$.
 \end{align*}
 \end{proof}
 \subsubsection{Continuity}
-\[ \sequence{f_n} \to f,\ f_n \text{ continuous } \not\!\!\!\implies f \text{ continuous} \]
+\[ \sequence{f_n} \to f,\ f_n \text{ continuous } \nimplies f \text{ continuous} \]
 \begin{proof}
 Consider $f_n(x) = \frac{x^2}{(1+x^2)^n}$.
 	Clearly, $f_n : \mathbb{R} \to \mathbb{R}$ is continuous for every natural number $n$.\\
@@ -1536,7 +1536,7 @@ Therefore,
 	\[ f : \mathbb{R} \to \mathbb{R},\ f(x)= \begin{cases} 0 & x = 0 \\ 1+x^2 & x \ne 0 \end{cases} \quad \text{ is not continuous at } 0 \]
 \end{proof}
 \subsubsection{integrability} 
-\[ \sequence{f_n} \to f, f_n \in \mathscr{R} \not\!\!\!\implies f \in \mathscr{R} \]
+\[ \sequence{f_n} \to f, f_n \in \mathscr{R} \nimplies f \in \mathscr{R} \]
 \begin{proof}
 Consider, $\displaystyle f_m(x) = \lim_{n \to \infty} (\cos m!\pi x)^{2n}$.\\
 
@@ -1574,7 +1574,7 @@ Therefore, for any bounded interval $E$, $f_m$ is Riemann integrable on $E$ for 
 However, $f$ is not Riemann integrable.
 \end{proof}
 \subsubsection{Derivative}
-\[ \sequence{f_n} \to f \not\!\!\!\implies \sequence{f_n'} \to f' \]
+\[ \sequence{f_n} \to f \nimplies \sequence{f_n'} \to f' \]
 \begin{proof}
 	Consider $f_n(x) = \frac{\sin nx}{\sqrt{n}}$.
 	\[ f(x) = \lim_{n \to \infty} f_n(x) = 0,\ \forall x \]
@@ -1584,7 +1584,7 @@ However, $f$ is not Riemann integrable.
 	Clearly, convergence doesn't preserve derivatives.
 \end{proof}
 \subsubsection{Integral}
-\[ \sequence{f_n} \to f \not\!\!\!\implies \sequence{ \int f_n} \to \int f \]
+\[ \sequence{f_n} \to f \nimplies \sequence{ \int f_n} \to \int f \]
 \begin{proof}
 	Consider $f_n : [0,1] \to \mathbb{R}$ defined by $f_n(x) = n^2 x (1-x^2)^n$.\\
 
