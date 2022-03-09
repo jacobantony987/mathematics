@@ -2400,7 +2400,7 @@ In other words, any continuous function has a polynomial approximation.
 	Suppose $\displaystyle \sum_{n = 0}^\infty c_n x^n$ converges for $|x| < R$ and function $f$ is defined by $f(x) = \displaystyle \sum_{n = 0}^\infty c_n x^n$.
 	Then $f$ has derivatives of all ordres, say $f^{(k)}(x)$ given by
 	\[ f^{(k)}(x) = \sum_{n=k}^\infty n(n-1)\dots(n-k+1)c_n x^{n-k} \]
-	In particulat,
+	In particular,
 	\[ f^{(k)}(0) = k!\ c_k \]
 \end{corollary}
 \begin{proof}
@@ -2410,7 +2410,7 @@ In other words, any continuous function has a polynomial approximation.
 	By mathematical induction, we have
 	\[ f^{(k)}(x) = \sum_{n = k}^\infty n(n-1)\dots(n-k+1) c_n x^{n-k} \]
 	When $x = 0$, we get
-	\[ f^{(k)}(0) = \sum_{n = k}^\infty n(n-1)\dots(n-k+1) c_n 0^{n-k} = n! c_k \]
+	\[ f^{(k)}(0) = \sum_{n = k}^\infty n(n-1)\dots(n-k+1) c_n 0^{n-k} = {\color{red}k!\ c_k} \]
 \end{proof}
 
 \begin{theorem}
@@ -2438,8 +2438,13 @@ In other words, any continuous function has a polynomial approximation.
 		& = (1-x) \lim_{m \to \infty} \sum_{n=0}^{m-1} s_nx^n + \lim_{m \to \infty} s_m x^m  \\
 		f(x) & = (1-x) \sum_{n=0}^\infty s_nx^n \text{ since $s_m \to s$, $|x|<1$ and $x^m \to 0$}
 	\end{align*}
+
+	{\color{red}
 	We know that,
-	\[ (1-x)\sum_{n=0}^\infty x^n = (1-x)(1+x+x^2+\dots) = 1 \]
+	\[ (1-x)\sum_{n=0}^m x^n = (1-x)(1+x+x^2+\dots+x^m) = 1-x^{m+1} \]
+	Thus,
+	\[ \lim_{m \to \infty} (1-x)\sum_{n=0}^m x^n = \lim_{m \to \infty} 1-x^{m+1} = 1 \]
+	}
 	Thus,
 	\begin{align*}
 		|f(x) - s| 
@@ -2447,19 +2452,16 @@ In other words, any continuous function has a polynomial approximation.
 		& = (1-x) \left| \sum_{n=0}^\infty (s_n-s)x^n \right| \\
 		& \le (1-x) \sum_{n=0}^\infty |(s_n-s)x^n| \\
 		& \le (1-x)\sum_{n=0}^\infty |s_n-s|\ |x|^n  \\
-		& \le \frac{\varepsilon}{2} (1-x) \sum_{n=0}^\infty x^n = \frac{\varepsilon}{2}
+		& {\color{red}\le (1-x)\sum_{n=0}^N |s_n-s|\ |x|^n +  \frac{\varepsilon}{2} (1-x) \sum_{n=N+1}^\infty x^n} \\
 	\end{align*}
-	
-	Since the convergence is uniform $f$ is continuous on $[-1,1]$.
-	And $f$ is uniformly continuous.
-	Thus, there exists $\delta > 0$ such that $\forall x, y$ with $|x-y| < \delta$.
-	$|f(x)-f(y)| < \frac{\varepsilon}{2}$ whenever $|x-y| < \delta$.
-	Choose $x > 1-\delta$ and $y = 1$.
-	Then, for any $x > 1-\delta$ we have
-	\[ | f(x) - s| \le |f(x) - f(y)| + |f(y) - s| \le \varepsilon \]
-	As $y \to 1$, we get
-	\[ \lim_{y \to 1} |f(x) - s| = 0 \]
-	Therefore, $f(1) = \lim_{x \to 1} f(x) = s = \sum_{n = 0}^\infty c_nx^n$.
+	{ \color{red}
+	Let $1-x < \delta < 1$.\dag\footnote{
+		In earlier version, the term $|s_n-s|$ was neglected.
+		Corrected as per the seminar by Haripriya}
+	\[ \lim_{x \to 1} |f(x) - s| \le \lim_{\delta \to 0} \delta \sum_{n=0}^N |s_n -s| (1-\delta)^n + \frac{\varepsilon}{2} = 0 \]
+	}	
+	Therefore, 
+	\[ f(1) = \lim_{x \to 1} f(x) = s = \sum_{n = 0}^\infty c_nx^n \]
 \end{proof}
 
 \begin{theorem}
@@ -2480,10 +2482,11 @@ In other words, any continuous function has a polynomial approximation.
 
 	\textbf{Step 2 : $f_i$ is continuous at $x_0$}\\
 	We have, $f_i(x_n) \to f_i(x_0)$.
-	Suppose $f_i$ is not continuous at $x_0$.
-	Then,
-	\[ \lim_{x_n \to x_0} f_i(x_n) \ne f_i(x_0) = f_i \left(\lim_{n \to \infty} x_n \right) = \lim_{n \to \infty} f_i(x_n) \]
-	which is a contradiction since $x_n \to x_0$ as $n \to \infty$.
+	{\color{red}Then \dag\footnote{
+		The method of contradiction was an unnecessary complication.
+		Corrected as per the seminar by Mekha},
+	\[ \lim_{x_n \to x_0} f_i(x_n) = \lim_{n \to \infty} \sum_{i=1}^n a_{ij} = \sum_{i=1}^\infty a_{ij} = f_i(x_0) \]
+	}
 	Therefore, function $f_i$ is continuous at $x_0$.\\
 
 	\textbf{Step 3 : Construction of $g$}\\
@@ -2494,6 +2497,10 @@ In other words, any continuous function has a polynomial approximation.
 	Since $f_i$ are continuous functions defined on a countable set $E$, the convergence is uniform and the sum $g$ is continuous.
 	And we have,
 	\[ \lim_{n \to \infty} \lim_{m \to \infty} \sum_{i=1}^m f_i(x_n) = \lim_{x_n \to x_0} g(x_n) = g(x_0) = \lim_{m \to \infty} \sum_{i=1}^m f_i(x_0) = \lim_{m \to \infty} \lim_{n \to \infty} \sum_{i = 1}^m f_i(x_n) \]
+	{\color{red}
+	Therefore,
+	\[ \sum_{i=1}^\infty \sum_{j=1}^\infty a_{ij} = \sum_{j=1}^\infty \sum_{i=1}^\infty a_{ij} \]
+	}
 \end{proof}
 
 \begin{theorem}[Taylor]

@@ -2041,17 +2041,17 @@ And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ 
 \subsection{Inner Product space, Hilbert space}
 \begin{definition}[inner product]
 	Let $X$ be a vector space over the field $K$.
-	Inner product is a function $<\cdot> : X \times X \to K$ which satisfies
+	Inner product is a function $\inner{\cdot}{\cdot} : X \times X \to K$ which satisfies
 	\begin{enumerate}
-		\item $<x+y,z> = <x,z> + <y,z>$
-		\item $<\alpha x,y> = \alpha <x,y>$
-		\item $<x,y> = \overline{<y,x>}$
-		\item $<x,x> \ge 0$ and \\
-			$<x,x> = 0 \iff x = 0$
+		\item $\inner{x+y}{z} = \inner{x}{z} + \inner{y}{z}$
+		\item $\inner{\alpha x}{y} = \alpha \inner{x}{y}$
+		\item $\inner{x}{y} = \overline{\inner{y}{x}}$
+		\item $\inner{x}{x} \ge 0$ and \\
+			$\inner{x}{x} = 0 \iff x = 0$
 	\end{enumerate}
 \end{definition}
 \begin{definition}
-	A vector space $X$ on field $K$ together with an inner product function $<\cdot> : X \times X \to K$ is an inner product space.
+	A vector space $X$ on field $K$ together with an inner product function $\inner{\cdot}{\cdot} : X \times X \to K$ is an inner product space.
 \end{definition}
 \begin{definition}[Hilbert]
 	Hilbert spaces are complete, inner product spaces.
@@ -2059,7 +2059,7 @@ And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ 
 
 \begin{remark}
 	Inner product spaces are normed spaces with norm 
-	\[ \|x\| = \sqrt{<x,x>} \]
+	\[ \|x\| = \sqrt{\inner{x}{x}} \]
 \end{remark}
 
 \begin{definition}[sesquilinear]
@@ -2073,58 +2073,58 @@ Inner product is a sesquilinear operator.
 
 \begin{remark}
 	Inner product spaces are metric spaces with metric 
-	\[ d(x,y) = \|x-y\| = \sqrt{<x-y,x-y>} \]
+	\[ d(x,y) = \|x-y\| = \sqrt{\inner{x-y}{x-y}} \]
 \end{remark}
 \begin{remark}
 	Let $X$ be a real, inner product space.
 	Then, 
-	\[ <x,y> = <y,x> \]
+	\[ \inner{x}{y} = \inner{y}{x} \]
 \end{remark}
 \begin{remark}
 	Let $X$ be a complex, inner product space.
-	Then, $<x,y> = \overline{<y,x>}$.
+	Then, $\inner{x}{y} = \overline{\inner{y}{x}}$.
 \end{remark}
 \begin{proof}
 	Let $x = a+ib$ and $y = c+id$ where $a,b,c,d \in \mathbb{R}$.
 	Then,
-	\[<x,y> = <a+ib,c+id> = <a,c> -i<a,d> + i<b,c> + <b,d> \]
+	\[ \inner{x}{y} = \inner{a+ib}{c+id} = \inner{a}{c} -i\inner{a}{d} + i\inner{b}{c} + \inner{b}{d} \]
 	\begin{align*}
-		<y,x> 
-		& = <c+id,a+ib> \\
-		& = <c,a> -i<c,b> + i<d,a> + <d,b> \\
-		& = <a,c> -i<b,c> + i<a,d> + <b,d> \\
-		& = \overline{<x,y>}
+		\inner{y}{x} 
+		& = \inner{c+id}{a+ib} \\
+		& = \inner{c}{a} -i\inner{c}{b} + i\inner{d}{a} + \inner{d}{b} \\
+		& = \inner{a}{c} -i\inner{b}{c} + i\inner{a}{d} + \inner{b}{d} \\
+		& = \overline{\inner{x}{y}}
 	\end{align*}
 	Therefore,
-	\[ <x,y> = \overline{<y,x>} \]
+	\[ \inner{x}{y} = \overline{\inner{y}{x}} \]
 \end{proof}
 \begin{remark}
 	From the axiom of inner product, we have
 	\begin{enumerate}
-		\item $ <\alpha x + \beta y, z > = \alpha<x,z> + \beta<y,z>$
-		\item $<x,\alpha y> = \bar{\alpha}<x,y>$
-		\item $<x,\alpha y+\beta z> = \bar{\alpha}<x,y> + \bar{\beta}<x,z>$
+		\item $ \inner{\alpha x + \beta y}{z} = \alpha\inner{x}{z} + \beta\inner{y}{z}$
+		\item $\inner{x}{\alpha y} = \bar{\alpha} \inner{x}{y}$
+		\item $\inner{x}{\alpha y+\beta z} = \bar{\alpha}\inner{x}{y} + \bar{\beta}\inner{x}{z}$
 	\end{enumerate}
 \end{remark}
 
 \begin{lemma}[parallelogram equality]
 	Let $X$ be an inner product space.
 	Let $\|\cdot\|$ be a the norm induced by the inner product.
-	That is, $\|x\| = \sqrt{<x,x>}$.
+	That is, $\|x\| = \sqrt{\inner{x}{x}}$.
 	Then,
 	\[ \| x+y \|^2 + \| x-y \|^2 = 2(\|x\|^2+\|y\|^2) \]
 \end{lemma}
 \begin{proof}
 	Let $\|\cdot\|$ be a normed induced by inner product.
-	Then $\|x\|^2 = <x,x>$ and $\|y\|^2 = <y,y>$.
+	Then $\|x\|^2 = \inner{x}{x}$ and $\|y\|^2 = \inner{y}{y}$.
 	\begin{align*}
 		\|x+y\|^2+\|x-y\|^2 
-		& = <x+y,x+y> + <x-y,x-y> \\
-		& = <x,x> + <x,y> + <y,x> + <y,y> \\
-		& \qquad + <x,x> + <x,-y> + <-y,x> + <-y,-y> \\
-		& = <x,x> + <x,y> + <y,x> + <y,y> \\
-		& \qquad + <x,x> - <x,y> - <y,x> + <y,y> \\
-		& = 2<x,x> + 2<y,y> = 2(\|x\|^2+\|y\|^2)
+		& = \inner{x+y}{x+y} + \inner{x-y}{x-y} \\
+		& = \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} \\
+		& \qquad + \inner{x}{x} + \inner{x}{-y} + \inner{-y}{x} + \inner{-y}{-y} \\
+		& = \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} \\
+		& \qquad + \inner{x}{x} - \inner{x}{y} - \inner{y}{x} + \inner{y}{y} \\
+		& = 2\inner{x}{x} + 2\inner{y}{y} = 2(\|x\|^2+\|y\|^2)
 	\end{align*}
 \end{proof}
 
@@ -2136,24 +2136,24 @@ Inner product is a sesquilinear operator.
 
 \begin{definition}[orthogonality]
 	Let $X$ be an inner product space and  $x,y \in X$.
-	Then $x,y$ are orthogonal if $<x,y> = 0$, say $x \perp y$.\\
+	Then $x,y$ are orthogonal if $\inner{x}{y} = 0$, say $x \perp y$.\\
 
 	Let $A,B$ be subsets of $X$.
-	Then $A$ and $B$ are orthogonal if $\forall a \in A,\ \forall b \in B,\ <a,b> = 0$.
-	\[ A \perp B \iff \forall a \in A,\ \forall b \in B,\ a \perp b = 0 \iff \forall a \in A,\ \forall b \in B,\  <a,b> = 0 \]
+	Then $A$ and $B$ are orthogonal if $\forall a \in A,\ \forall b \in B,\ \inner{a}{b} = 0$.
+	\[ A \perp B \iff \forall a \in A,\ \forall b \in B,\ a \perp b = 0 \iff \forall a \in A,\ \forall b \in B,\  \inner{a}{b} = 0 \]
 \end{definition}
 \subsubsection{Examples}
 \subsubsection{Euclidean Space}
 	Banach space $\mathbb{R}^n$ is a Hilbert space with inner product,
-	\[ <x,y> = \sum_{j=1}^n \xi_j \eta_j \]
+	\[ \inner{x}{y} = \sum_{j=1}^n \xi_j \eta_j \]
 \subsubsection{Unitary Space}
 	Banach space $\mathbb{C}^n$ is a Hilbert space with inner product,
-	\[ <x,y> = \sum_{j=1}^n \xi_j \bar{\eta_j} \]
+	\[ \inner{x}{y} = \sum_{j=1}^n \xi_j \bar{\eta_j} \]
 \subsubsection{$L^2$ Space}
 	Banach space of Lebesgue square integrable functions is a Hilbert space with inner product,
-	\[ <x,y> = \left(\int_a^b x(t)\overline{y(t)}\ dt \right)^\frac{1}{2} \]
+	\[ \inner{x}{y} = \left(\int_a^b x(t)\overline{y(t)}\ dt \right)^\frac{1}{2} \]
 
-	$L^2$ space is the completion of the incomplete normed space of all continuous complex-valued functions on $[a,b]$ with norm $\|x\| = \sqrt{<x,x>}$.\\
+	$L^2$ space is the completion of the incomplete normed space of all continuous complex-valued functions on $[a,b]$ with norm $\|x\| = \sqrt{\inner{x}{x}}$.\\
 
 	\begin{commentary}
 		Remember that, the space of all continuous functions on $[a,b]$ is incomplete since the Cauchy sequence of continuous functions $x_n : [a,b] \to [0,1]$ defined by
@@ -2165,7 +2165,7 @@ Inner product is a sesquilinear operator.
 	\end{commentary}
 \subsubsection{$l^2$ Space}
 	Banach space $l^2$ is a Hilbert space with inner product,
-	\[ <x,y> = \sum_{j=1}^\infty \xi_j \bar{\eta_j} \]
+	\[ \inner{x}{y} = \sum_{j=1}^\infty \xi_j \bar{\eta_j} \]
 \subsubsection{Counter-examples}
 \begin{remark}
 	Banach space $C[a,b]$ with norm $\|x\| = \max |x(t)|$ is not an inner product space.
@@ -2207,13 +2207,13 @@ Inner product is a sesquilinear operator.
 \begin{remark}
 	Let $X$ be a real inner product space.
 	Then,
-	\[ <x,y> = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2 \right) \]
+	\[ \inner{x}{y} = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2 \right) \]
 \end{remark}
 \begin{theorem}[Polarization identity]
 	Let $X$ be a complex inner product space.
-	Then, the real and imaginary parts of $<x,y>$ are
-	\[ \Re(<x,y>) = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2 \right) \]
-	\[ \Im(<x,y>) = \frac{1}{4}\left(\|x+iy\|^2 - \|x-iy\|^2 \right) \]
+	Then, the real and imaginary parts of $\inner{x}{y}$ are
+	\[ \Re(\inner{x}{y}) = \frac{1}{4}\left(\|x+y\|^2 - \|x-y\|^2 \right) \]
+	\[ \Im(\inner{x}{y}) = \frac{1}{4}\left(\|x+iy\|^2 - \|x-iy\|^2 \right) \]
 \end{theorem}
 \begin{proof}
 	Let $X$ be a comples, inner product space.
@@ -2221,32 +2221,32 @@ Inner product is a sesquilinear operator.
 	Then,
 	\begin{align*}
 		\|x+y\|^2-\|x-y\|^2 
-		& = <x+y,x+y> - <x-y,x-y> \\
-		& = <x,x> + <x,y> + <y,x> + <y,y> \\
-		& \qquad - <x,x> - <x,-y> - <-y,x> - <-y,-y> \\
-		& = <x,x> + <x,y> + <y,x> + <y,y> \\
-		& \qquad - <x,x> + <x,y> + <y,x> - <y,y> \\
-		& = 2(<x,y> + <y,x>)
+		& = \inner{x+y}{x+y} - \inner{x-y}{x-y} \\
+		& = \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} \\
+		& \qquad - \inner{x}{x} - \inner{x}{-y} - \inner{-y}{x} - \inner{-y}{-y} \\
+		& = \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} \\
+		& \qquad - \inner{x}{x} + \inner{x}{y} + \inner{y}{x} - \inner{y}{y} \\
+		& = 2(\inner{x}{y} + \inner{y}{x})
 	\end{align*}
 
-	We know that, $<x,y> = \overline{<y,x>}$.
+	We know that, $\inner{x}{y} = \overline{\inner{y}{x}}$.
 	Thus, 
-	\[ \|x+y\|^2 - \|x-y\|^2 = 2(<x,y>+\overline{<x,y>}) = 4\Re <x,y> \]
+	\[ \|x+y\|^2 - \|x-y\|^2 = 2(\inner{x}{y}+\overline{\inner{x}{y}}) = 4\Re \inner{x}{y} \]
 	Therefore, 
-	\[ \Re <x,y> = \frac{1}{4} \left( \|x+y\|^2-\|x-y\|^2 \right) \]
+	\[ \Re \inner{x}{y} = \frac{1}{4} \left( \|x+y\|^2-\|x-y\|^2 \right) \]
 	
 	Let $z = iy$.
 	\begin{align*}
 		\|x+iy\|^2 - \|x-iy\|^2 
 		& = \|x+z\|^2 - \|x-z\|^2 \\
-		& = 2<x,z>+2<z,x> \\
-		& = 2<x,iy>+2<iy,x>) \\
-		& = -2i<x,y> + 2i<y,x> \\
-		& = -2i(<x,y>-<y,x>) \\
-		& = -2i(<x,y>-\overline{<x,y>}) \\
-		& = 4 \Im{<x,y>} 
+		& = 2\inner{x}{z}+2\inner{z}{x} \\
+		& = 2\inner{x}{iy}+2\inner{iy}{x}) \\
+		& = -2i\inner{x}{y} + 2i\inner{y}{x} \\
+		& = -2i(\inner{x}{y}-\inner{y}{x}) \\
+		& = -2i(\inner{x}{y}-\overline{\inner{x}{y}}) \\
+		& = 4 \Im{\inner{x}{y}} 
 	\end{align*}
-	\[ \Im <x,y> = \frac{1}{4} \left( \|x+iy\|^2-\|x-iy\|^2 \right) \]
+	\[ \Im \inner{x}{y} = \frac{1}{4} \left( \|x+iy\|^2-\|x-iy\|^2 \right) \]
 \end{proof}
 \subsubsection{Exercise \S3.1}
 \begin{theorem}[Pythagorean Identity]
@@ -2257,12 +2257,12 @@ Inner product is a sesquilinear operator.
 \end{theorem}
 \begin{proof}
 	Suppose $x \perp y$.
-	Then $<x,y> = <y,x> = 0$.
+	Then $\inner{x}{y} = \inner{y}{x} = 0$.
 	And,
 	\begin{align*}
 		\|x+y\|^2 
-		& = <x+y,x+y> \\
-		& = <x,x> + <x,y> + <y,x> + <y,y> \\
+		& = \inner{x+y}{x+y} \\
+		& = \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} \\
 		&  = \|x\|^2 + \|y\|^2
 	\end{align*}
 \end{proof}
@@ -2273,15 +2273,15 @@ Inner product is a sesquilinear operator.
 \begin{proof}
 	\begin{align*}
 		\|x+y\|^2 
-		& = <x+y,x+y> \\
-		& = <x,x> + <x,y> + <y,x> + <y,y> \\
-		& = \|x\|^2 + \|y\|^2 + <x,y> + <y,x>
+		& = \inner{x+y}{x+y} \\
+		& = \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y} \\
+		& = \|x\|^2 + \|y\|^2 + \inner{x}{y} + \inner{y}{x}
 	\end{align*}
-	Thus, if $\|x+y\|^2 = \|x\|^2 + \|y\|^2$, then $<x,y> +<y,x> = 0$.\\
+	Thus, if $\|x+y\|^2 = \|x\|^2 + \|y\|^2$, then $\inner{x}{y} + \inner{y}{x} = 0$.\\
 
-	We know that $<x,y> = \overline{<y,x>}$.
-	And, $<x+y>+\overline{<x,y>} = 0$ only if $<x,y>$ is purely imaginary.
-	Thus, the Pythagoran theorem is true if $<x,y>$ is purely imaginary.
+	We know that $\inner{x}{y} = \overline{\inner{y}{x}}$.
+	And, $\inner{x}{y} + \overline{\inner{x}{y}} = 0$ only if $\inner{x}{y}$ is purely imaginary.
+	Thus, the Pythagoran theorem is true if $\inner{x}{y}$ is purely imaginary.
 \end{proof}
 
 \begin{theorem}[Apollonius Identity]
@@ -2304,38 +2304,38 @@ Inner product is a sesquilinear operator.
 
 \subsection{Further properties of inner product spaces}
 \begin{remark}
-	\[ \|\alpha x \|^2 = <\alpha x, \alpha x> = \alpha \bar{\alpha} <x,x> = |\alpha|^2 \|x\|^2 \]
+	\[ \|\alpha x \|^2 = \inner{\alpha x}{\alpha x} = \alpha \bar{\alpha} \inner{x}{x} = |\alpha|^2 \|x\|^2 \]
 \end{remark}
 
 \begin{lemma}[Schwarz Inequality]
 	Let $X$ be an inner product space.
 	Let $x,y \in X$.
-	\[ |<x,y>| \le \|x\| \ \|y\| \]
+	\[ |\inner{x}{y}| \le \|x\| \ \|y\| \]
 	And equality holds if $\{x,y\}$ are linearly independent.
 	Also,\dag\footnote{Every inner product space is also a normed space. Then the induced norm should possess the triangular inequality property. I think it is too late to prove this !}
 	\[ \|x+y\| \le \|x\| + \|y\| \]
 	And equality holds if $y = 0$ or $x = cy$.
 \end{lemma}
 \begin{proof}
-	If $y = 0$, then $<x,y> = 0$ and $\|y\|=0$.
-	And $|<x,y>| = \|x\| \ \|y\| = 0$.
-	Similarly, if $x = 0$, then $\|<x,y>\| = \|x\| \ \|y\| = 0$. \\
+	If $y = 0$, then $\inner{x}{y} = 0$ and $\|y\|=0$.
+	And $|\inner{x}{y}| = \|x\| \ \|y\| = 0$.
+	Similarly, if $x = 0$, then $\|\inner{x}{y}\| = \|x\| \ \|y\| = 0$. \\
 
 	Suppose $x \ne 0$ and $y \ne 0$.
 	Then
 	\begin{align*}
 		\|x-\alpha y\|^2
-		& = <x-\alpha y,x-\alpha y> \\
-		& = <x,x> - \bar{\alpha}<x,y> - \alpha<y,x> + \alpha\bar{\alpha} <y,y> 
-		\intertext{ Let $\bar{\alpha} = \frac{<y,x>}{<y,y>}$. Then}
+		& = \inner{x-\alpha y}{x-\alpha y} \\
+		& = \inner{x}{x} - \bar{\alpha}\inner{x}{y} - \alpha \inner{y}{x} + \alpha\bar{\alpha} \inner{y}{y} 
+		\intertext{ Let $\bar{\alpha} = \frac{\inner{y}{x}}{\inner{y}{y}}$. Then}
 		\|x-\alpha y\|^2
-		& = <x,x> - \frac{<y,x><x,y>}{<y,y>}\\
-		& = \|x\|^2 - \frac{\|<x,y>\|^2}{\|y\|^2}  
+		& = \inner{x}{x} - \frac{\inner{y}{x} \inner{x}{y}}{\inner{y}{y}}\\
+		& = \|x\|^2 - \frac{\|\inner{x}{y}\|^2}{\|y\|^2}  
 	\end{align*}
 	We have 
-	\[ 0 \le \|x-\alpha y\|^2 \le \|x\|^2-\frac{\|<x,y>\|^2}{\|y\|^2} \]
+	\[ 0 \le \|x-\alpha y\|^2 \le \|x\|^2-\frac{\|\inner{x}{y}\|^2}{\|y\|^2} \]
 	Thus,
-	\[ \|<x,y>\| \le \|x\| \ \|y\| \]
+	\[ \|\inner{x}{y}\| \le \|x\| \ \|y\| \]
 	Clearly, equality holds if and only if $\|x-\alpha y\|^2 = 0$ or $x = 0$ or $y = 0$.
 	In other words, equality holds if and only if $x = \alpha y$ or $x = 0$ or $y = 0$.
 	Therefore, equality holds if and only if $x,y$ are linearly independent.\\
@@ -2343,23 +2343,23 @@ Inner product is a sesquilinear operator.
 	We have,
 	\begin{align*}
 		\|x+y\|^2 
-		& = <x+y,x+y> \\
-		& = \|x\|^2 + <x,y> + <y,x> + \|y\|^2 
+		& = \inner{x+y}{x+y} \\
+		& = \|x\|^2 + \inner{x}{y} + \inner{y}{x} + \|y\|^2 
 		\intertext{Applying modulus on either sides, we get}
 		\|x+y\|^2 
-		& \le \|x\|^2 + |<x,y>| + |<y,x>| + \|y\|^2 
+		& \le \|x\|^2 + |\inner{x}{y}| + |\inner{y}{x}| + \|y\|^2 
 		\intertext{By Schwarz inequality, we have}
 		\|x+y\|^2 
-		& \le \|x\|^2 + 2\|x\| \|y\| + \|y\|^2 = (\|x\|+\|y\|)^2
+		& \le \|x\|^2 + 2\|x\| \ \|y\| + \|y\|^2 = (\|x\|+\|y\|)^2
 	\end{align*}
 	Therefore,
 	\[ \|x+y\| \le \|x\| + \|y\| \]
 	And equality holds if and only if
-	\[ <x,y> + <y,x> = 2\|x\|\|y\| \]
+	\[ \inner{x}{y} + \inner{y}{x} = 2\|x\| \ \|y\| \]
 	That is,
-	\[ \Re <x,y> = \|x\|\|y\| \ge |<x,y>| \]
+	\[ \Re \inner{x}{y} = \|x\| \ \|y\| \ge |\inner{x}{y}| \]
 	We know that the real part of a complex number can never exceed its absolute value.
-	Therefore, $\|x\|\|y\| = |<x,y>|$.\\
+	Therefore, $\|x\| \ \|y\| = |\inner{x}{y}|$.\\
 
 	From Schwarz inequality, the equality holds if and only if $x,y$ are linearly independent.
 	Therefore, $\|x+y\| = \|x\|+\|y\|$ if and only if $x,y$ are linearly independent.
@@ -2369,7 +2369,7 @@ Inner product is a sesquilinear operator.
 	Let $X$ be an inner product space.
 	Let $\sequence{x_n}$, $\sequence{y_n}$ be sequences in $X$.
 	Suppose $x_n \to x$ and $y_n \to y$.
-	Then $<\!x_n,y_n\!> \to <\!x,y\!>$.
+	Then $\inner{x_n}{y_n} \to \inner{x}{y}$.
 \end{lemma}
 \begin{important}
 	In other words, Inner product is continuous.
@@ -2378,19 +2378,19 @@ Inner product is a sesquilinear operator.
 	We have $x_n \to x$ and $y_n \to y$ as $n \to \infty$.
 	Then, $\|x_n-x\| \to 0$ and $\|y_n-y\| \to 0$ as $n \to \infty$.
 	\begin{align*}
-		|<x_n,y_n> - <x,y>| 
-		& = |<x_n,y_n> - <x_n,y> + <x_n,y> -<x,y>| \\
-		& \le |<x_n,y_n-y>| + |<x_n-x,y>|
+		|\inner{x_n}{y_n} - \inner{x}{y}| 
+		& = |\inner{x_n}{y_n} - \inner{x_n}{y} + \inner{x_n}{y} -\inner{x}{y}| \\
+		& \le |\inner{x_n}{y_n-y}| + |\inner{x_n-x}{y}|
 		\intertext{By Schwarz inequality}
-		& \le \|x_n\| \|y_n-y\| + \|x_n-x\| \|y\| \\
+		& \le \|x_n\| \ \|y_n-y\| + \|x_n-x\| \ \|y\| \\
 	\end{align*}
-	Therefore, $|<x_n,y_n>-<x,y>| \to 0$ as $n \to \infty$.
-	In other words, $<x_n,y_n> \to <x,y>$ as $n \to \infty$.
+	Therefore, $|\inner{x_n}{y_n} - \inner{x}{y}| \to 0$ as $n \to \infty$.
+	In other words, $\inner{x_n}{y_n} \to \inner{x}{y}$ as $n \to \infty$.
 \end{proof}
 
 \begin{definition}[isomorphism]
 	Let $X,Z$ be inner product spaces.
-	If there exists a bijection $T : X \to Z$ such that $<Tx,Ty> = <x,y>$ for any $x,y \in X$.
+	If there exists a bijection $T : X \to Z$ such that $\inner{Tx}{Ty} = \inner{x}{y}$ for any $x,y \in X$.
 	Then $T$ is an isomorphism preserving inner product.
 \end{definition}
 
@@ -2399,7 +2399,7 @@ Inner product is a sesquilinear operator.
 \end{theorem}
 \begin{proof}
 	Let $X$ be an inner product space.
-	Then $X$ is a normed space with inner product induced norm $\|x\| = \sqrt{<x,x>}$.
+	Then $X$ is a normed space with inner product induced norm $\|x\| = \sqrt{\inner{x}{x}}$.
 	By completion theorem for normed spaces, there exists a unique\dag\footnote{
 		Unique upto isomorphism - 
 		If there exists two Banach spaces $H_1,H_2$ which contain a dense subset which is isomorphic to $X$, then $H_1,H_2$ are isomorphic normed spaces.} 
@@ -2409,28 +2409,28 @@ Inner product is a sesquilinear operator.
 	And $\hat{x}_n \sim \hat{w}$ if and only if $\|x_n - w\| \to 0$ as $n \to \infty$ for some $w \in W$.\\
 
 	Defining an inner product on $H$,
-	\[ <\hat{x},\hat{y}> = \lim_{n \to \infty} <x_n,y_n> \]
+	\[ \inner{\hat{x}}{\hat{y}} = \lim_{n \to \infty} \inner{x_n}{y_n} \]
 	By polarisation identity, 
 	\begin{align*}
-		<x_n,y_n> 
+		\inner{x_n}{y_n} 
 		& = \frac{1}{4} \left( \|x_n+y_n\|^2 - \|x_n-y_n\|^2 \right) + \frac{i}{4}\left( \|x_n+iy_n\|^2 - \|x_n-iy_n\|^2 \right) \\
-		& = \frac{1}{4} \left( <x_n+y_n,x_n+y_n> - <x_n-y_n,x_n-y_n> \right) \\
-		& \qquad + \frac{i}{4} \left( <x_n+iy_n,x_n+iy_n> - <x_n-iy_n,x_n-iy_n> \right) 
+		& = \frac{1}{4} \left( \inner{x_n+y_n}{x_n+y_n} - \inner{x_n-y_n}{x_n-y_n} \right) \\
+		& \qquad + \frac{i}{4} \left( \inner{x_n+iy_n}{x_n+iy_n} - \inner{x_n-iy_n}{x_n-iy_n} \right) 
 	\end{align*}
 	And,
 	\begin{align*}
-		<Tx,Ty> 
-		& = <\hat{x},\hat{y}>\\
-		& = \lim_{n \to \infty} <x_n,y_n> \\
-		& = \frac{1}{4} \left( <x+y,x+y>-<x-y,x-y> \right) \\
-		&\qquad + \frac{i}{4} \left( <x+iy,x+iy> - <x-iy,x-iy> \right)\\
-		& = <x,y>
+		\inner{Tx}{Ty} 
+		& = \inner{\hat{x}}{\hat{y}}\\
+		& = \lim_{n \to \infty} \inner{x_n}{y_n} \\
+		& = \frac{1}{4} \left( \inner{x+y}{x+y} - \inner{x-y}{x-y} \right) \\
+		&\qquad + \frac{i}{4} \left( \inner{x+iy}{x+iy} - \inner{x-iy}{x-iy} \right)\\
+		& = \inner{x}{y}
 	\end{align*}
 	Thus, $T : X \to W$ is an isomorphism preserving norms.\\
 
 	Let $H_1,H_2$ be two completions of $X$.
 	Then, we have normed space isomorphism $T : H_1 \to H_2$ such that $\|Tx\| = \|x\|$.
-	Clearly, $<Tx,Ty> = <x,y>$.
+	Clearly, $\inner{Tx}{Ty} = \inner{x}{y}$.
 	Therefore, completion of $X$ is unique upto an inner product isomorphism.
 \end{proof}
 
@@ -2445,7 +2445,7 @@ Inner product is a sesquilinear operator.
 \end{theorem}
 \begin{proof}
 	Let $H$ is a Hilbert space.
-	Then $H$ is a Banach space with induced norm $\|x\| = \sqrt{<x,x>}$.
+	Then $H$ is a Banach space with induced norm $\|x\| = \sqrt{\inner{x}{x}}$.
 	Then, any subset $Y$ of $H$ is complete if and only if$Y$ is closed in $H$.\\
 
 	\hrule \vspace{1em}
@@ -2469,14 +2469,1035 @@ Inner product is a sesquilinear operator.
 \end{important}
 
 \subsection{Orthogonal complements and direct sums}
+\begin{definition}[distance from a set]
+	Let $X$ be metric space.
+	Let $x \in X$ and $M \subset X$.
+	The distance of $x$ from $M$ is defined as
+	\[ d(x,M) = \inf_{y \in M} d(x,y) \]
+	If $X$ is normed space, then 
+	\[ d(x,M) = \inf_{y \in M}\|x-y\| \]
+\end{definition}
+
+\begin{definition}[convex]
+	Let $M$ be a subset of a vector space $X$.
+	Then $M$ is convex if for any two points $x,y \in M$, the segment $z = \alpha x + (1-\alpha)x$ is contained in $M$.
+	That is,
+	\[ \forall x,y \in M, \forall \alpha \in [0,1],\ \alpha x + (1-\alpha)y \ \in M \]
+\end{definition}
+
+\begin{theorem}[minimising vector]
+	Let $X$ be an inner product space and $M$ be a nonempty, convex, complete subset of $X$.
+	Then for any $x \in X$, there exists a unique $y \in M$ such that $d(x,M) = d(x,y)$.
+\end{theorem}
+\begin{proof}
+	Let $X$ be an inner product space with metric $d(x,y) = \sqrt{\inner{x-y}{x-y}}$.\\
+
+	\textbf{Step 1 : Existence of minimising vector}\\
+	Let $\displaystyle \delta = d(x,M) = \inf_{y \in M} d(x,y) = \inf_{y \in M} \|x-y\|$.
+	Let $\sequence{\delta_n}$ be a sequence converging to $\delta$.
+	Then, there exists $y_n \in M$ such that $\delta < d(x,y_n) < \delta_n$.
+
+	We have,
+	\begin{align*}
+		\|y_n - y_m\|^2 
+		& = \|y_n - x - y_m + x\|^2 
+		\intertext{Let $v_n = y_n - x$ and $v_m = y_m -x$.Then }
+		& = \|v_n - v_m \|^2 \\
+		& = 2\left(\|v_n\|^2 + \|v_m\|^2\right) - \|v_n+v_m\|^2 \\
+		& = 2\left(\|y_n - x\|^2 + \|y_m - x\|^2\right) - \|y_n + y_m - 2x\|^2\\
+		& \le 2(\delta_n^2 + \delta_m^2) - (2\delta)^2
+	\end{align*}
+	Thus, the sequence $\sequence{y_n}$ is Cauchy.
+	Since $M$ is complete and $\sequence{y_n}$ is Cauchy, $y_n \to y \in M$.
+	Therefore, there do exist $y \in M$ such that $d(x,M) = d(x,y) = \|x-y\| = \delta$.\\
+
+	\textbf{Step 2 : Uniqueness of minimising vector}\\
+	Let $y,y_0 \in M$ such that $\|x-y\| = \|x-y_0\| = \delta$.
+	\begin{align*}
+		\|y-y_0\|^2 
+		& = \|y-x - y_0 +x \|^2 
+		\intertext{ Let $v = y-x$ and $w = y_0 -x$}
+		\|y-y_0\|^2 
+		& = \|v - w\|^2 
+		\intertext{By parallelogram equality, we have}
+		\|y-y_0\|^2 
+		& = 2\|v\|^2 + 2\|w\|^2 - \|v+w\|^2 \\
+		& = 2\|y-x\|^2 + 2\|y_0 - x\|^2 - \|y+y_0-2x\|^2 \\
+		& \le 2\delta^2 + 2\delta^2 - 4\delta^2 = 0 
+		\qquad \text{ since } d\left(x,\frac{y+y_0}{2}\right) \ge \delta
+	\end{align*}
+	Thus, $y = y_0$.
+	Therefore, the (distance) minimising vector (in $M$) is unique for any $x \in X$.
+\end{proof}
+
+\begin{important}
+	In Banach spaces, there may not exist such a point or there may exist many points at minimal distance !
+\end{important}
+
+\begin{definition}[minimising vector]
+	Let $X$ be a Hilbert space.
+	Let $x \in X$ and $M \subset X$ be a complete, convex subset.
+	Then minimising vector of $M$ is a unique vector $y \in M$ such that distance from $x$ to $y$ is minimal among other points in $M$.
+\end{definition}
+
+\begin{lemma}[Orgonality of minimising vector]
+	Let $X$ be a Hilbert space.
+	Let $Y$ be a complete, convex subspace of $X$.
+	Let $x \in X$ and $y \in Y$ be its minimising vector.
+	Then $z=x-y$ is orthogonal to $Y$.
+\end{lemma}
+\begin{proof}
+	Suppose $z \perp Y$ is false.\\
+	Then there exists $y_1 \in Y$ such that $\inner{y_1}{z} = \beta \ne 0$.
+	Let $\alpha \in K$.
+	Then,
+	\begin{align*}
+		\|z - \alpha y_1 \|^2
+		& = \inner{z-\alpha y_1}{z-\alpha y_1} \\
+		& = \inner{z}{z} - \bar{\alpha}\inner{z}{y_1} - \alpha\inner{y_1}{z} + \alpha\bar{\alpha}\inner{y_1}{y_1} 
+		\intertext{ When $\alpha = \frac{\beta}{\inner{y_1}{y_1}} = \frac{\inner{z}{y_1}}{\inner{y_1}{y_1}}$.
+		Then $\bar{\alpha} \beta = \frac{\bar{\beta}\beta}{\inner{y_1}{y_1}} = \frac{|\beta|^2}{\|y_1\|^2}$.
+		Then,}
+		\|z - \alpha y_1 \|^2
+		& = \|z\|^2 - \frac{|\beta|^2}{\|y_1\|^2} < \delta^2 
+	\end{align*}
+	This is a contradiction, since $\|z-\alpha y_1\| = \|x-y-\alpha y_2\| = \|x - y_2\| \ge \delta$ where $y_2 = y+\alpha y_1 \in Y$.
+	Therefore, $z \perp Y$ is true.
+\end{proof}
+
+\begin{definition}[direct sum]
+	A vector space $X$ is a direct sum of two subspaces $Y,Z$ if each $x \in X$ has a unique representation of the form $x = y+z$ where $y \in Y$ and $z \in Z$.
+	And we write, $X = Y \oplus Z$.
+\end{definition}
+
+\begin{definition}[algebraic complement]
+	Let $X = Y \oplus Z$.
+	Then, $Y,Z$ are algebraic complements.
+\end{definition}
+
+\begin{definition}[orthogonal complement]
+	Let $X = Y \oplus Z$ where $Z =  Y^\perp = \{ x \in X : x \perp Y\}$.
+	Then $Y,Z$ are orthogonal complements.
+\end{definition}
+
+\begin{theorem}[direct sum]
+	Let $Y$ be any closed subspace of a Hilbert space $H$.
+	Then $H = Y \oplus Z$ where $Z = Y^\perp$.
+\end{theorem}
+\begin{proof}
+	Let $H$ be a Hilbert space.
+	Let $Y$ be a closed subspace of $H$.
+	Then $Y$ is complete.
+	And $Y$ is convex, since $Y$ is a subspace.\\
+
+	Since $Y$ is a complete, convex subset of an inner product space $H$, for each $x \in H$ there exists a unique minimising vector $y \in Y$ such that $x-y \perp Y$.
+	Define $Z = \{ x \in H : (x-y) \perp Y\}$.
+	If $z \in Z$, then there exists $x \in H$ and $y \in Y$ such that $z=x-y \in Y^\perp$.
+	Thus each $x \in H$ has a representation, $x = y+z$ where $y \in Y$ and $z = x-y \in Y^\perp$. \\
+
+	We know that $Y \cap Y^\perp = \{ 0 \}$, the zero subspace of $H$.
+	Suppose $x = y_1+z_1$ and $x = y_2+z_2$ where $y_1,y_2 \in Y$ and $z_1,z_2 \in Y^\perp$.
+	Then $y_1-y_2 = z_2-z_1$.
+	Since $Y$ is a subspace, $y_1-y_2 \in Y$ and $z_2-z_1 \in Y^\perp$.
+	Thus, $y_1-y_2 = z_2 - z_1 \in Y \cap Y^\perp = \{ 0 \}$.
+	That is, $y_1 - y_2 = 0$.
+	Therefore, the representation $x=y+z$ is unique.
+\end{proof}
+
+\begin{definition}[Projection]
+	Let $H$ be an inner product space.
+	Let $Y$ be a closed subspace of $H$.
+	We have, $H = Y \oplus Y^\perp$.
+	Then, the function $P : H \to Y$ defined by $P(x) = y$ is an orthogonal projection of $H$ onto $Y$.
+\end{definition}
+
+\subsubsection{Properties of Projection}
+\begin{enumerate}
+	\item $P$ is idempotent. That is, $P^2 = P$\\
+		Let $x \in H$ such that $x = y+z$.
+		We have, $P(x) = y$.
+		Then, $P^2(x) = P(y) = P(y+0) = y = P(x)$.
+	\item $P|_Y$ is the identity operator on $Y$.\\
+		Let $y \in Y \subset H$.
+		Then $y = y + 0$ and $P(y) = y$.
+\end{enumerate}
+
+\begin{lemma}[Null Space]
+	Let $H = Y \oplus Y^\perp$.
+	Let $P : H \to Y$ be the projection defined by $P(x) = y$.
+	Then $Y^\perp = \mathcal{N}(P)$.
+\end{lemma}
+\begin{proof}
+	Let $H = Y \oplus Y^\perp$.
+	Let $x \in H$.
+	Then $x = y+z$ where $y \in Y$ and $z \in Y^\perp$.
+	Let $P : H \to Y$ be the projection defined by $P(x) = y$.\\
+
+	Let $z \in Y^\perp$.
+	Then $z = 0+z$ and $P(z) = 0$.
+	Thus, $Y^\perp \subset \mathcal{N}(P)$.\\
+
+	Let $z \in \mathcal{N}(P)$.
+	Then, $P(z) = 0$.
+	That is, $z = 0+z$ where $z \in Y^\perp$.
+	Thus, $\mathcal{N}(P) \subset Y^\perp$.
+\end{proof}
+
+\begin{definition}[Annihilator]
+	Let $M$ be a nonempty subset of an inner product space $H$.
+	Annihilator of $M$ is given by, $M^\perp = \{ x \in H : x \perp M \}$.
+\end{definition}
+
+\begin{remark}
+	Let $M$ be a nonempty subset of an inner product space $H$.
+	Then, annihilator $M^\perp$ is a subspace of $H$.
+\end{remark}
+\begin{proof}
+	Let $v \in M$.
+	Let $x,y \in M^\perp$.
+	Then $\inner{x}{v} = 0$ and $\inner{y}{v} = 0$.\\
+	Let $\alpha,\beta \in K$.
+	Thus, $\inner{\alpha x +\beta y}{v} = \alpha \inner{x}{v} + \beta \inner{y}{v} = 0$.\\
+	Clearly, $\alpha x + \beta y \in M^\perp$.\\
+
+	Also, we know that $\inner{0}{v} = 0$.
+	Thus, $0 \in M^\perp$.
+	Therefore $M^\perp$ is a subspace of $H$.
+\end{proof}
+
+\begin{remark}
+	Let $M$ be a nonempty subset of an inner product space $H$.
+	Then,
+	\[ M \subset M^{\perp\perp} \]
+\end{remark}
+\begin{proof}
+	Let $v \in M$.
+	Then for any $x \in M^\perp$, we have $\inner{x}{v} = 0$.\\
+	Thus, $v \in (M^\perp)^\perp = M^{\perp\perp}$.
+	\[ v \in M \implies v \perp M^\perp \implies v \in M^{\perp\perp} \]
+	Therefore, $M \subset M^{\perp\perp}$.
+\end{proof}
+
+\begin{lemma}[closed subspace]
+	Let $Y$ be a closed subspace of a Hilbert space $H$.
+	Then, $Y = Y^{\perp\perp}$.
+\end{lemma}
+\begin{proof}
+	We know that $Y \subset Y^{\perp\perp}$.
+	It is enough to prove that $Y^{\perp\perp} \subset Y$.\\
+	Let $x \in Y^{\perp\perp}$.
+	Then $x \perp Y^\perp$.
+	If $x = y+z$ where $y \in Y$ and $z \in Y^\perp$.
+	Clearly, $y \in Y^{\perp\perp}$ and $z = x-y \in Y^{\perp\perp}$.
+	Then $z = 0$ since $z \in Y^\perp \cap Y^{\perp\perp} = \{ 0 \}$.
+	Therefore, $x = y + 0 = y \in Y$.
+	Thus, $Y = Y^{\perp\perp}$.
+\end{proof}
+
+\begin{remark}
+	Let $Y$ be a closed subspace of Hilbert space $H$.
+	Then, $H = Y \oplus Z$ where $Z = Y^\perp$.
+	And, $H = Z \oplus Z^\perp$ where $Z^\perp = Y^{\perp\perp} = Y$.
+	And $P_Z : H \to Z$ where $P_Z(x) = z$ where $x = y+z$ is another projection from $H$ onto $Z$.
+\end{remark}
+
+\begin{lemma}[dense]
+	Let $M$ be a nonempty subset of a Hilbert space $H$.
+	The span of $M$ is dense in $H$ if and only if $M^\perp = \{ 0 \}$.
+\end{lemma}
+\begin{proof}
+	Let $x \in M^\perp$.
+	Suppose $span\ M = V$ is dense in $H$.
+	Then $x \in V$ and there exists a sequence $\sequence{x_n}$ in $V$ such that $x_n \to x$.
+	Since $x \in M^\perp$ and $x_n \in span\ M$, we have $\inner{x_n}{x} = 0$.
+	We know that, inner product is continuous.
+	Thus, $\inner{x_n}{x} \to \inner{x}{x} = 0$.
+	Clearly, $x = 0$.\\
+
+	Suppose $M^\perp = \{ 0 \}$.
+	If $x \in V^\perp$, then $x \perp V$.
+	Thus, $x \in M^\perp$ since $V = span\ M$.
+	Clearly, $x = 0$.
+	Therefore, $V^\perp = \{ 0 \}$.
+	Consider the closed subspace $\overline{V}$.
+	We know that $V \subset \overline{V}$.
+	Thus, $\overline{V}^\perp \subset V^\perp = \{ 0 \}$.
+	Thus, $H = \overline{V} \oplus \{ 0 \} = \overline{V}$.
+	Therefore, $V$ is dense in $H$.
+\end{proof}
+
 \subsection{Orthonormal sets and sequences}
+\begin{definition}[orthogonal]
+	Let $H$ be an inner product space.
+	Subset $M$ of $H$ is an orthogonal set if its elements are pairwise orthogonal.
+	\[ \forall x,y \in M,\ x \perp y \qquad (x \ne y) \]
+\end{definition}
+\begin{definition}[orthonormal]
+	Let $H$ be an inner product space.
+	Subset $M$ of $H$ is orthonormal set if it is an orthogonal set with elements of unit norm.
+	\[ \inner{x}{y} = \begin{cases} 0 & x \ne y \\ 1 & x = y \end{cases} \]
+\end{definition}
+
+\begin{remark}
+	Let $M = \{ x_1,x_2,\dots,x_n\}$ be an orthogonal set.\\
+	Then by Pythagorean theorem,
+	\[ \|x_1 + x_2\|^2 = \|x_1\|^2 + \|x_2\|^2 \qquad \text{ since } x_1 \perp x_2 \]
+	By finite mathematical induction,
+	\[ \|x_1 + x_2 + \dots + x_n\|^2 = \|x_1\|^2 + \|x_2\|^2 + \dots + \|x_n\|^2 \]
+\end{remark}
+
+\begin{lemma}
+	Orthonormal sets are linearly independent.
+\end{lemma}
+\begin{proof}
+	Let $E = \{e_k : k \in I\}$ be an orthonormal set.
+	Let $S$ be a finite subset of the index set $I$.
+	Suppose $\displaystyle \sum_{k \in S} \alpha_k e_k = 0$ where $\alpha_k \in K$.
+	Fix $j \in S$.
+	Then,
+	\begin{align*}
+		\inner{\sum_{k \in S} \alpha_k e_k}{e_j} 
+		& = \sum_{k \in S} \alpha_k \inner{e_k}{e_j} \\
+		\inner{0}{e_j} & = \sum_{k \in S} \alpha_k \delta_{k,j} = \alpha_j
+	\end{align*}
+	Clearly, $\alpha_j = 0, \forall j \in S$.
+	Thus, zero vector can be expressed as a finite linear combination of vectors only if all the scalars are zero.
+	Therefore, $M$ is linearly independent.
+\end{proof}
+
+\subsubsection{Examples of Orthonormal Sets in different Hilbert Spaces}
+\begin{enumerate}
+	\item $\mathbb{R}^3,\ M = \{(1,0,0),(0,1,0),(0,0,1)\}$
+	\item $l^2,\ M = \{e_j\}$ where $e_j =\delta_{n,j}$
+	\item $C[0,2\pi],\ M = \{ \cos nt : n =0,1,2,\dots \}$
+	\item $C[0,2\pi],\ M = \{ \sin nt : n \in \mathbb{N} \}$
+\end{enumerate}
+
+\begin{theorem}[Bessel Inequality]
+	Let sequence $\sequence{e_k}$ be an orthonormal sequence in an inner product space $X$.
+	Let $x \in X$.
+	Then,
+	\[ \displaystyle \sum_{k=1}^\infty |\inner{x}{e_k}|^2 \le \|x\|^2 \]
+\end{theorem}
+\begin{proof}
+	Let $\sequence{e_k}$ be an orthonormal sequence in an inner product space $X$.
+	Let $x \in X$.
+	Let $Y_n = span\ \{e_1,e_2,\dots,e_n\}$.
+	Then, there exists $y \in Y_n$ such that 
+	\[ y = \sum_{k=1}^n \inner{x}{e_k}e_k \]
+	Define $z = x-y$.
+	Then,
+	\begin{align*}
+		\inner{z}{y}
+		& = \inner{x-y}{y} \\
+		& = \inner{x}{y} - \inner{y}{y} \\
+		& = \inner{x}{\sum_{k=1}^n \inner{x}{e_k}e_k} - \|y\|^2 \\
+		& = \sum_{k=1}^n \overline{\inner{x}{e_k}} \inner{x}{e_k} - \|y\|^2 \\
+		& = \sum_{k=1}^n \left|\inner{x}{e_k}\right|^2 - \sum_{k=1}^n \left|\inner{x}{e_k}\right|^2 = 0
+	\end{align*}
+	Thus, $z \perp y$.
+	Therefore, we have $x = y+z$ where $y \in Y_n$ and $z \perp y$.\\
+
+	By Pythagorean theorem,
+	\[ \|x\|^2 = \|y\|^2 + \|z\|^2 \]
+	Therefore,
+	\[ 0 \le \|z\|^2 = \|x\|^2 - \|y\|^2 = \|x\|^2 - \sum_{k=1}^n \left| \inner{x}{e_k} \right|^2 \]
+	Thus,
+	\[ \sum_{k=1}^n \left| \inner{x}{e_k} \right|^2 \le \|x\|^2 \]
+	The series is monotonic increasing and bounded by $\|x\|^2$.
+	Therefore, converges and the sum is bounded by $\|x\|^2$.
+	\[ \lim_{n \to \infty} \sum_{k=1}^n \left| \inner{x}{e_k} \right|^2 = \sum_{k=1}^\infty \left|\inner{x}{e_k}\right|^2 \le \|x\|^2 \]
+\end{proof}
+
+\begin{remark}[Gram-Schmidt Process]
+	Let $X$ be a finite dimensional inner product space.
+	Let set $\{x_1,x_2,\dots,x_n\}$ be a set of $n$ linearly independent vectors in $X$.
+	Then an orthonormal set of vectors can be obtained by the following process.\\
+
+	Define $e_1 = x_1/\|x_1\|$.
+	Then, $x_2 = \inner{x_2}{e_1}e_1 + v_2$.
+	Thus, $v_2 = x_2 - \inner{x_2}{e_1}e_1$ and $v_2 \perp e_1$.
+	Define $e_2 = v_2/\|v_2\|$.
+	Continuing like this, we get
+	\[ v_n = x_n - \sum_{k=1}^{n-1}\inner{x_n}{e_k}e_k \]
+	such that $v_n \perp span\ \{e_1,e_2,\dots,e_{n-1}\}$.
+	And $e_n = v_n/\|v_n\|$.
+\end{remark}
+
 \subsection{Series related to Orthonormal sequences and sets}
+\begin{commentary}
+\begin{remark}
+	Define $u_n(t) = \cos nt$ and $v_n(t) = \sin nt$.
+	Then
+	\[ \inner{u_j}{u_k} = \int_0^{2\pi} \cos jt \ \cos kt \ dt = \begin{cases} 0 & j \ne k \\ \pi & j=k \ne 0 \\ 2\pi & j = k = 0 \end{cases} \]
+		\[ \inner{v_j}{v_k} = \int_0^{2\pi} \sin jt \ \sin kt \ dt = \begin{cases} 0 & j \ne k \\ \pi & j=k \ne 0 \\ 2\pi & j = k = 0 \end{cases} \]
+			\[ \inner{u_j}{v_k} = \int_0^{2\pi} \cos jt \ \sin kt \ dt =  \frac{1}{2} \int_0^{2\pi} \sin (k+j)t + \sin (k-j)t \ dt = 0 \]
+		Clearly, $u_j \perp u_k\ (j \ne k)$, $v_j \perp v_k\ (j \ne k)$ and $\forall j,k,\ u_j \perp v_k$.
+\end{remark}
+
+\begin{theorem}[Fourier]
+	Any periodic, (reasonably) continuous function may be expressed as series of sine and cosine terms.
+\end{theorem}
+\begin{remark}
+	We may write $x \in C[0,2\pi]$ as $x = y+z$ where $y,z \in C[0,2\pi]$ such that
+	\[ y(t) 
+	= \sum_{k=0}^\infty \frac{\inner{x}{u_k}}{\pi} u_k
+	= \sum_{k=0}^\infty a_k \cos kt 
+	\text{ where } a_k = \frac{1}{\pi} \int_0^{2\pi} x(t) \cos kt\ dt \]
+	\[ z(t) 
+	= \sum_{k=0}^\infty \frac{\inner{x}{v_k}}{\pi} v_k 
+	= \sum_{k=0}^\infty b_k \sin kt 
+	\text{ where } b_k = \frac{1}{\pi} \int_0^{2\pi} x(t) \sin kt \ dt \]
+	The coefficients $a_k,b_k$'s are the \textbf{Fourier Coefficients} of $x(t)$.
+\end{remark}
+\end{commentary}
+
+\begin{challenge}
+	Find the orthonomal series that gives the Fourier representation of $x(t)$ ? \cite{apostol}
+\end{challenge}
+
+\begin{theorem}[convergence]
+Let $\sequence{e_k}$ be an orthonormal sequence in a Hilbert space $H$.
+Then,
+\begin{enumerate}
+	\item The series $\sum \alpha_k e_k$ converges
+	\dag\footnote{
+		The convergence in inner product space is defined in terms of the norm induced by the inner product.
+		That is, In an inner product space $x_n \to x$ if and only if $\| x_n -x \| \to 0$ where $\|x_n -x \| = (\inner{x_n-x}{x_n-x})^\frac{1}{2}$.}
+	if and only if $\sum |\alpha_k|^2$ converges.
+\item If $\sum \alpha_k e_k$ converges, then coefficients $\alpha_k$ are the Fourier coefficients $\inner{x}{e_k}$ of the sum $x$.
+	\[ x = \sum_{k=1}^\infty \inner{x}{e_k} e_k \]
+\item For any $x \in H$, the series $\sum \inner{x}{e_k} e_k$ converges.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Consider the series $\sum \alpha_k e_k$ and the sequence of partial sums $\sequence{s_n}$.
+	\[ s_n = \alpha_1 e_1 + \alpha_2 e_2 + \dots + \alpha_n e_n \]
+	Similarly, consider the series $\sum |\alpha_k|^2$ and the sequence of partial sums $\sequence{\sigma_n}$.
+	\[ \sigma_n = |\alpha_1|^2 + |\alpha_2|^2 + \dots + |\alpha_n|^2 \]
+	\begin{align*}
+		\|s_n - s_m\|^2 \
+		& = \| \alpha_{m+1}e_{m+1} + \alpha_{m+2} e_{m+2} + \dots + \alpha_n e_n \| \\
+		& = |\alpha_{m+1}|^2 + |\alpha_{m+2}|^2 + \dots + |\alpha_n|^2 \text{ since } \inner{e_n}{e_m} = \delta_{n,m} \\
+		& = |\sigma_n-\sigma_m|
+	\end{align*}
+	Clearly, $\sequence{s_n}$ is Cauchy if and only if $\sequence{\sigma_n}$ is Cauchy.
+	We know that, $\mathbb{R},H$ are complete spaces and every Cauchy sequence in these spaces converges.
+	Therefore, $\sum \alpha_k e_k$ converges if and only if $\sum |\alpha_k|^2$ converges.\\
+
+	\hrule \vspace{1em}
+
+	Suppose $\sum \alpha_k e_k$ converges to sum $x$.
+	Consider the sequence of partial sum $\sequence{s_n}$.
+	Then, $s_n \to x$.
+	Fix $e_k$,
+	\[ \inner{s_n}{e_k} = \inner{\sum_{j=1}^n \alpha_j e_j}{e_k} = \sum_{j=1}^n \inner{\alpha_j e_j}{e_k} = \sum_{j=1}^n \alpha_j \delta_{j,k} = \alpha_k \]
+	Since inner product is continuous $\inner{s_n}{e_j} \to \inner{x}{e_j}$ as $n \to \infty$.
+	Thus, $\alpha_j = \inner{x}{e_j}$.
+	Therefore, 
+	\[ x = \sum_{k=1}^\infty \alpha_k e_k = \sum_{k=1}^\infty \inner{x}{e_k} e_k \]
+
+	\hrule \vspace{1em}
+
+	Let $H$ be a Hilbert space.
+	Let $x \in H$ and $\sequence{e_k}$ be an orthonormal sequence in $H$.
+	Define $\alpha_k = \inner{x}{e_k}$.
+	By Bessel Inequality,
+	\[ \sum_{k=1}^\infty |\alpha_k|^2 = \sum_{k=1}^\infty |\inner{x}{e_k}|^2 \le \|x\|^2 \]
+	Therefore, $\sum |\alpha_k|^2$ converges.
+	We know that, if $\sum |\alpha_k|^2$ converges then $\sum \alpha_k e_k$ converges and the sum is given by
+	\[ x = \sum_{k=1}^\infty \alpha_k e_k \]
+\end{proof}
+
+\begin{lemma}[Fourier coefficients]
+	Any $x$ in an inner product space has at most countably many non-zero Fourier coefficients with respect to an orthonormal family $\{ e_k : k \in I\}$ in $X$.
+\end{lemma}
+\begin{proof}
+	\textbf{Step 1 : }\\
+	Let $x \in X$.
+	Suppose $x = \sum \alpha_x e_k$.
+	Without loss of generality, consider the rearrange of $\sequence{e_k}$ such that $x = \sum \inner{x}{e_k}e_k$.
+	Then,
+	\[ \sum_{k = 1}^n |\inner{x}{e_k}|^2 \le \|x\|^2,\ \forall n \]
+
+	Let $m \in \mathbb{N}$.
+	Then the number of $e_k$'s such that $|\inner{x}{e_k}| > \frac{1}{m}$ is less than $m\|x\|^2$.
+	Thus the number of $e_k$'s such that $|\inner{x}{e_k}| > 0$ is countable since it is a countable union of finite sets.\\
+
+	\textbf{Step 2 : Independent of rearrangements}\\
+	It remains to prove that, The series representation is independent of rearrangemet of elements in the orthonormal sequence $\sequence{e_k}$.\\
+
+	Let $\sequence{w_k}$ be a rearrangement of $\sequence{e_k}$.
+	Then, there exists a bijection $\phi : w \to e$ given by $\phi(w_j) = e_k$ where $j \to k$ is a bijection on $\mathbb{N}$.\\
+	
+	Define $\alpha_k = \inner{x}{e_k}$, $\beta_j = \inner{x}{w_j}$,
+	\[ x_1 = \sum_{n=1}^\infty \alpha_n e_n \quad \text{ and }\quad x_2 = \sum_{n=1}^\infty \beta_n w_n \]
+	Then,
+	\[ \alpha_j = \inner{x}{e_j} = \inner{x_1}{e_j} \quad and \quad \beta_k = \inner{x}{w_k} = \inner{x_2}{w_k} \]
+	\begin{align*}
+		\inner{x_1-x_2}{e_j} 
+		& = \inner{x_1}{e_j} - \inner{x_2}{e_j} \\
+		& = \inner{x}{e_j} - \inner{x_2}{e_j} = 0
+	\end{align*}
+	Similarly, $\inner{x_1-x_2}{w_k} = 0$.
+	\begin{align*}
+		\|x_1 - x_2 \|^2 
+		& = \inner{x_1-x_2}{\sum \alpha_n e_n - \sum \beta_k w_k} \\
+		& = \sum \bar{\alpha}_j \inner{x_1-x_2}{e_j} - \sum \bar{\beta}_k \inner{x_1-x_2}{w_k} = 0
+	\end{align*}
+	Clearly, $x_1 = x_2$.
+	Thus, the sum is the same for representation of $x$ with respect to any rearrangement of $\sequence{e_k}$.
+\end{proof}
+
 \subsection{Total Orthonormal sets and sequences}
+\begin{definition}[total orthonormal]
+	A subset $M$ in a vector $X$ is total if the span of $M$ is dense in $X$.
+	Total orthonormal is a subset which is total and orthonormal in inner product space $X$.
+\end{definition}
+
+\begin{important}
+	Every non-empty Hilbert space has a total orthonormal subset.
+\end{important}
+\begin{proof}
+	It is included in module IV.
+\end{proof}
+
+\begin{important}
+	In a Hilbert space $H$, total orthonormal subsets have same cardinality. 
+\end{important}
+\begin{proof}
+	It is out of our scope.
+	This cardinality is the Hilbert dimension or orthonormal dimension of $H$.
+\end{proof}
+
+\begin{theorem}[duality]
+	Let $M$ a subset of an inner product space $X$.
+	Then
+	\begin{enumerate}
+		\item If $M$ total in $X$, then there does not exists a non-zero $x \in X$ which is orthogonal to every element of $M$.
+			\[ x \perp M \implies x = 0 \]
+		\item If $X$ is complete and $X$ has no non-zero element orthogonal to $M$, then $M$ is total in $X$.
+	\end{enumerate}
+\end{theorem}
+\begin{important}
+	If $M$ is total in $X$, then $M^\perp = \{ 0 \}$.
+	Conversely, if $X$ is complete and $M^\perp = \{ 0 \}$, then $M$ is total in $X$.
+\end{important}
+\begin{proof}
+	Let $H$ be the completion of inner product space $X$.
+	Then, $X$ is dense in $H$.
+	And $span\ M$ is dense in $X$ since $M$ is total.	
+	Thus, $span\ M$ is dense in $H$.\\
+
+	Thus, orthogonal complement of $M$ in $H$ is $\{ 0 \}$.
+	Thus, if $x \in X$ and $x \perp M = 0$.
+	Then, $x \in H$ and $x = y+0 \in M \oplus M^\perp$ and $x \perp M = y = 0$.
+	Therefore, $x = 0$.\\
+
+	\hrule \vspace{1em}
+
+	Let $X$ be a Hilbert space.
+	Suppose $X$ has no non-zero element orthogonal to $M$.
+	Then, $M^\perp = \{ 0 \}$.
+	By lemma, $span\ M$ is dense in $X$ since $M^\perp = \{ 0 \}$.
+	Therefore, $M$ is total in $X$.
+\end{proof}
+
+\begin{theorem}
+	An orthonormal subset $M$ is total in a Hilbert space if and only if Parsevals relation is true for any $x \in H$.
+	\[ \sum_k |\inner{x}{e_k}|^2 = \|x\|^2 \]
+\end{theorem}
+\begin{proof}
+	Suppose Parsevals relation is true for each $x \in H$.
+	Suppose $M$ is not total in Hilbert space $H$.
+	Then, there exist $x \in H$ such that $x \perp M$ and $x \ne 0$.
+	Since $x \in M^\perp$, we have $\forall k,\ \inner{x}{e_k} = 0$, then $\|x\|^2 = 0$ by Parsevals relation.
+	And $x = 0$ since $\|x\| = 0$.
+	This is a contradiction.
+	Therefore, $M$ is total in $H$.\\
+
+	\hrule \vspace{1em}
+	
+	Suppose $M$ is total in $H$.
+	Then $M^\perp = \{ 0 \}$.
+	Let $x \in H$.
+	We know that, there are at most countably many non-zero Fourier coefficients for any $x \in H$.
+	Arrange non-zero Fourier coefficients of $x$ in a (finite) sequence $\sequence{\inner{x}{e_k}}$.\\
+
+	Define
+	\[ y = \sum_k \inner{x}{e_k}e_k \]
+
+	\textbf{Case 1 : $e_k \in M$ such that $\inner{x}{e_k} \ne 0$}\\
+	Fix an $e_j$ such that $\inner{x}{e_j} \ne 0$.
+	Then,
+	\begin{align*}
+		\inner{x-y}{e_j} 
+		& = \inner{x}{e_j} - \inner{y}{e_j} \\
+		& = \inner{x}{e_j} - \inner{\sum_k \inner{x}{e_k}e_k}{e_j} \\
+		& = \inner{x}{e_j} - \sum_k \inner{x}{e_k} \ \inner{e_k}{e_j} \\
+		& = \inner{x}{e_j} - \sum_k \inner{x}{e_k} \delta_{j,k} \\
+		& = \inner{x}{e_j} - \inner{x}{e_j} = 0
+	\end{align*}
+	Thus, if $\inner{x}{e_j} \ne 0$, then $x-y \perp e_j$.\\
+
+	\textbf{Case 2 : $v \in M$ such that $\inner{x}{v} = 0$}\\
+	Fix $v \in M$ such that $\inner{x}{v} = 0$.
+	Then, 
+	\[ \inner{x-y}{v} = \inner{x}{v} - \inner{y}{v} = \inner{x}{v} - \sum_k \inner{x}{e_k} \inner{e_k}{v} = 0 \]
+	since $\inner{x}{v} = 0$ and $\forall k,\ \inner{e_k}{v} = 0$.\\
+
+	Clearly, from cases 1 \& 2, we have $x-y \perp M$.
+	Thus, $x - y \in M^\perp = \{ 0 \}$.
+	Therefore, $x = y$.
+	\begin{align*}
+		\|x\|^2
+		& = \inner{\sum_k \inner{x}{e_k}e_k}{\sum_m \inner{x}{e_m} e_m}  \\
+		& = \sum_k \inner{x}{e_k} \overline{\inner{x}{e_k}} \\
+		& = \sum_k |\inner{x}{e_k}|^2
+	\end{align*}
+	Thus, Parsevals relation is true for any $x \in H$.
+\end{proof}
+
+\begin{theorem}
+	Let $H$ be a Hilbert space.
+	Then,
+	\begin{enumerate}
+		\item If $H$ is separable, then every orthonormal subset in $H$ is countable.
+		\item If $H$ contains an orthonormal sequence which is total in $H$, then $H$ is separable.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Let $H$ be a Hilbert space.
+	Suppose $H$ is separable.
+	Then, $H$ has a dense subset, say $B$.
+	And $H$ has an orthonormal subset which may be obtained from a Hamel basis by Gram-Schimdt process, say $M$.\\
+	
+	Let $x,y \in M$.
+	Then,
+	\[ \|x-y\|^2 = \inner{x-y}{x-y} = \inner{x}{x} + \inner{y}{y} = 2 \]
+	Thus, $d(x,y) = \sqrt{2}$ for any $x,y \in M$.
+	Thus, $x,y$ have disjoint neighbourhoods $N_x,N_y$ respectively.
+	We know that, the dense set $B$ intersects with any neighbourhood in $H$.
+	Let $b \in N_x \cap B$ and $\tilde{b} \in N_y \cap B$.
+	Clearly, $b \ne \tilde{b}$ since $N_x \cap N_y = \phi$.\\
+
+	Suppose $M$ is uncountable.
+	Then there exists uncountably many such pair $(b,\tilde{b})$ of elements in $B$ for each pair $(x,y)$ of elements in $M$.
+	This is a contradiction since $B$ is countable.
+	Therefore, $M$ is countable.\\
+
+	\hrule \vspace{1em}
+
+	Let $\sequence{e_k}$ be a total, orthonormal sequence in $H$.
+	Define $A = span\ \{e_k\}$.
+	Since $\sequence{e_k}$ is total, $A$ is dense in $H$\dag\footnote{
+		Author have a different proof for dense.
+		I think above reason is sufficient}.
+	And every element in $A$ is a finite linear combination of elements in $\sequence{e_k}$.
+	Thus, $A$ is countable.
+	Therefore, $H$ has a countable, dense subset $A$.
+	Therefore, $H$ is separable.
+\end{proof}
+
+\begin{definition}[isomorphism]
+	Let $H,\tilde{H}$ be Hilbert spaces.
+	A bijection $T : H \to \tilde{H}$ preserving inner product is an isomorphism.
+	That is, 
+	\[ \inner{Tx}{Ty} = \inner{x}{y} \]
+\end{definition}
+
+\begin{theorem}
+	Two Hilbert space over the same field are isomorphic if and only if they have the same Hilbert dimension.
+\end{theorem}
+\begin{proof}
+	Let $T : H \to \tilde{H}$ be an isomorphism.
+	Let $M$ be a total, orthonormal subset of $H$.
+	Then $T(M)$ is a total, orthonormal subset of $\tilde{H}$.
+	Thus, these sets have same cardinality.
+	That is, they have same Hilbert dimension. \\
+
+	Suppose $H,\tilde{H}$ are two Hilbert spaces over the same field $K$.
+	Suppose they have same Hilbert dimension.
+	Then they have total, orthonormal subsets $M_1 = \{ e_k \}$ and $M_2 = \{ w_j \}$ respectively.
+	Let $x \in H$.
+	Then,
+	\[ x = \sum_{k \in I} \inner{x}{e_k} e_k \]
+	where $\inner{x}{e_k} \ne 0$ for at most countably many $e_k$'s.
+	And from Bessel inequality, we know that this series converges.
+	Define $T : H \to \tilde{H}$ such that $e_k \to w_k$ by rearranging $\sequence{w_j}$ if necessary.\dag\footnote{
+		We know that, for Hilbert spaces the representation exists against any rearrangement of orthonormal sequence.}
+	Consider,
+	\begin{align*}
+		T(x) 
+		& = T\left( \sum_{k \in I} \inner{x}{e_k} e_k \right) \\
+		& = \sum_{k \in I} \inner{x}{e_k} \ T(e_k) \\
+		& = \sum_{k \in I} \inner{x}{e_k} \ w_k 
+	\end{align*}
+	This series converges, thus $T(x) = \tilde{x} \in \tilde{H}$.\\
+
+	And $T$ preserves norms since,
+	\begin{align*}
+		\|\tilde{x}\|^2
+		& = \|T(x)\|^2 \\
+		& = \sum_{k \in I} \inner{x}{e_k} w_k \\
+		& = \sum_{k \in I} |\inner{x}{e_k}|^2 = \|x\|^2
+	\end{align*}
+	Thus, $\|x-y\| = \|T(x-y)\| = \|Tx-Ty\| = 0$.
+	Therefore, $T$ is injective.\\
+
+	Suppose $\displaystyle \tilde{x} = \sum_{k \in I} \alpha_k w_k$.
+	Then $\sum |\alpha_k|^2 < \infty$ by Bessel inequality.
+	Thus, $\displaystyle x = \sum_{k \in I} \alpha_k e_k \in H$.
+	Therefore, $T$ is surjective.\\
+
+	\begin{commentary}
+	And $T$ preserves inner product since,
+	\begin{align*}
+		\inner{\tilde{x}}{\tilde{y}} 
+		& = \inner{Tx}{Ty} \\
+		& = \inner{\sum_{k \in I} \inner{x}{e_k} w_k}{\sum_{j \in I} \inner{y}{e_j} w_j} \\
+		& = \sum_{k \in I} <x,e_k>\overline{<y,e_k>} \\
+		& = \inner{\sum_{k \in I} \inner{x}{e_k} e_k}{\sum_{j \in I} \inner{y}{e_j} e_j} \\
+		& = \inner{x}{y}
+	\end{align*}
+	\end{commentary}
+\end{proof}
+
 %\subsection{Legendre, Hermite and Laguerre Polynomials}
+
 \setcounter{subsection}{7}
+
 \subsection{Representation of Functionals on Hilbert spaces}
+
+\begin{theorem}[Riesz]
+	Every bounded linear functional $f$ on a Hilbert space $H$ can be represented in terms of inner product,
+	\[ f(x) = \inner{x}{z} \]
+	where $z$ is uniquely determined by $f$ and $\|z\| = \|f\|$.
+\end{theorem}
+\begin{proof}
+	Let $f$ be a bounded, linear functional on $H$.
+	If $f = 0$ or $x = 0$, then the resutl is trivial.\\
+
+	\textbf{Step 1 : $f$ has a representation}\\
+	Suppose $f \ne 0$.
+	If $\mathcal{N}(f) = H$.
+	Then $f(x) = <x,z> = 0$ for any $x \in H$ which is a contradiction since $f \ne 0$.
+	Thus, $\mathcal{N}(f) \ne H$ and $\mathcal{N}(f)^\perp \ne \phi$.\\
+
+	Let $z_0 \in \mathcal{N}(f)^\perp$.
+	Let $x \in H$.
+	Define $v = f(x)z_0 - f(z_0)x$.
+	Then $f(v) = f(x)f(z_0) - f(z_0)f(x) = 0$.
+	Thus, $v \in \mathcal{N}(f)$.\\
+
+	\begin{align*}
+		0
+		& = \inner{v}{z_0} \\
+		& = \inner{f(x)z_0-f(z_0)x}{z_0} \\
+		& = f(x)\inner{z_0}{z_0} - f(z_0)\inner{x}{z_0} 
+	\end{align*}
+	Then,
+	\[ f(x) = \frac{f(z_0)}{\inner{z_0}{z_0}} \inner{x}{z_0} = \inner{x}{z_0} \]
+	Therefore, $f$ has a represenation, $f(x) = \inner{x}{z}$ for any $x \in H$ where $z_0$ is a non-vanishing point of $f$ and
+	\[ z = \frac{f(z_0)}{\inner{z_0}{z_0}} z_0 \]
+
+	\textbf{Step 2 : $z$ is unique}\\
+	Suppose $f(x) = \inner{x}{z_1} = \inner{x}{z_2}$ for all $x \in H$.
+	Then $\inner{x}{z_1-z_2} = \inner{x}{z_1} - \inner{x}{z_2} = 0$.
+	Put $x = z_1 - z_2$.
+	Then $\inner{z_1-z_2}{z_1-z_2} = \|z_1-z_2\|^2 = 0$.
+	Thus, $z_1=z_2$.
+	And the representation $f(x) = \inner{x}{z}$ is unique.\\
+
+	\textbf{Step 3 : norm of $f$}\\
+	Since $f$ is bounded,
+	\[ \|z\|^2 = \inner{z,z} = f(z) \le \|f\| \ \|z\| \]
+	Thus, $\|z\| \le \|f\|$.\\
+
+	Also we have,
+	\[ |f(x)| \le |\inner{x}{z}| \le \|x\| \ \|z\| \]
+	The inequality if true for any $x \in H$.
+	Thus,
+	\[ \|f\| = \sup_{x \in H} \frac{|f(x)|}{\|x\|} \le \|z\| \]
+	Therefore, $\|f\| = \|z\|$
+\end{proof}
+
+\begin{lemma}[equality]
+	Let $\inner{v_1}{w} = \inner{v_2}{w}$ for each $w$ in an inner product space $X$.
+	Then $v_1 = v_2$.
+	In particular, if $\inner{v_1}{w} = 0$ for every $w \in X$, then $v_1 = 0$.
+\end{lemma}
+\begin{proof}
+	Let $v_1,v_2$ be vectors in an inner product space $X$.
+	Suppose $\inner{v_1,w} = \inner{v_2}{w}$ for each $w \in X$.
+	Then,
+	\[ \inner{v_1-v_2}{w} = \inner{v_1}{w} - \inner{v_2}{w} = 0 \]
+	Let $w= v_1-v_2$.
+	Then $\|v_1-v_2\|^2 = \inner{v_1-v_2}{v_1-v_2} = 0$.
+	Thus, $v_1 = v_2$.\\
+
+	Suppose $\inner{v_1}{w} = 0$ for each $w \in X$.
+	Then $\|v_1\|^2 = \inner{v_1}{v_1} = 0$.
+	Therefore, $v_1 = 0$.
+\end{proof}
+
+\begin{definition}[sesquilinear form]
+	Let $X,Y$ be vector spaces over the same field $K$.
+	Then a sesequilinear form is a mapping $h : X \times Y \to K$ such that
+	\begin{enumerate}
+		\item $h(x_1+x_2,y) = h(x_1,y)+h(x_2,y)$
+		\item $h(x,y_1,y_2) = h(x,y_1) + h(x,y_2)$
+		\item $h(\alpha x,y) = \alpha h(x,y)$
+		\item $h(x,\beta y) = \bar{\beta} h(x,y)$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[bilinear form]
+	Let $X,Y$ be vector spaces over the same field $K$.
+	Then a bilinear form is a mapping $h : X \times Y \to K$ such that
+	\begin{enumerate}
+		\item $h(x_1+x_2,y) = h(x_1,y)+h(x_2,y)$
+		\item $h(x,y_1,y_2) = h(x,y_1) + h(x,y_2)$
+		\item $h(\alpha x,y) = \alpha h(x,y)$
+		\item $h(x,\beta y) = \beta h(x,y)$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Let $X,Y$ be inner product spaces over the same field $K$.
+	A function $h : X \times Y \to K$ is bounded if
+	\[ |h(x,y)| \le c\|x\| \ \|y\| \]
+\end{definition}
+
+\begin{definition}
+	Suppose $h : X \times Y \to K$ is bounded.
+	Then,
+	\[ \|h\| = \sup_{\substack{x \ne 0\\ y \ne 0}} \frac{|h(x,y)|}{\|x\| \ \|y\|} \]
+\end{definition}
+
+\begin{theorem}[Riesz representation]
+	Let $H_1,H_2$ be Hilbert spaces over $K$.
+	And function $h : H_1 \times H_2 \to K$ be a bounded, sesequilinear form.
+	Then $h$ has representation,
+	\[ h(x,y) = \inner{Sx}{y} \]
+	where $S : H_1 \to H_2$ is a bounded, linear operator uniquely determined by $h$ and $\|h\| = \|S\|$.
+\end{theorem}
+\begin{proof}
+	\textbf{Step 1 : Constructon of $S$}\\
+	Let $h : H_1 \times H_2 \to K$ be a bounded, sesquilinear form.
+	Then $f(y) = \overline{h(x,y)}$ is a bounded, linear functional on $H_2$.
+	By Riesz's theorem for bounded functionals, $f$ has an inner product representation, $f(y) = \inner{y}{z}$.
+	Thus, $h(x,y) = \inner{z}{y}$.
+	Define an operator $S : H_1 \to H_2$ such that $S(x) = z$.
+	Then $h(x,y) = \inner{Sx}{y}$.\\
+
+	\textbf{Step 2 : $S$ is linear}\\
+	Let $x_1,x_2 \in H_1$, $y \in H_2$ and $\alpha,\beta \in K$.
+	We have $\inner{Sx}{y} = h(x,y)$.
+	Thus,
+	\begin{align*}
+		\inner{S(\alpha x_1+\beta x_2)}{y} 
+		& = h(\alpha x_1 + \beta x_2,y) \\
+		& = \alpha h(x_1,y) + \beta h(x_2,y) \\
+		& = \alpha \inner{S(x_1)}{y} +\beta \inner{S(x_2)}{y} \\
+		& = \inner{\alpha S(x_1) + \beta S(x_2)}{y}
+	\end{align*}
+	Clearly, $S(\alpha x_1 + \beta x_2) = \alpha S(x_1) + \beta S(x_2)$.
+	Therefore, $S$ is linear.\\
+
+	\textbf{Step 3 : $S$ is bounded}\\
+	Since $h$ is a bounded sesquilinear form.
+	We have,
+	\begin{align*}
+		\|h\|
+		& = \sup_{\substack{x \ne 0 \\ y \ne 0}} \frac{|h(x,y)|}{\|x\| \ \|y\|} \\
+		& = \sup_{\substack{x \ne 0 \\ Sx \ne 0}} \frac{|\inner{Sx}{y}|}{\|x\| \ \|y\|} 
+		\intertext{Suppose $y = Sx$. Then,}
+		\|h\|
+		& \ge \sup_{\substack{x \ne 0 \\ Sx \ne 0}} \frac{|\inner{Sx}{Sx}|}{\|x\| \ \|Sx\|}  \\
+		& \ge \sup_{\substack{x \ne 0 \\ Sx \ne 0}} \frac{\|Sx\|}{\|x\|} = \|S\| \\
+	\end{align*}
+	Thus, $S$ is bounded and $\|S\| \le \|h\|$.\\
+
+	By Schwarz inequality, $|\inner{Sx}{y}| \le \|Sx\| \ \|y\|$.
+	Thus,
+	\[ \|h\| = \sup_{\substack{x \ne 0 \\ y \ne 0}} \frac{|\inner{Sx}{y}|}{\|x\| \ \|y\|} \le \sup_{\substack{x \ne 0\\ y \ne 0}} \frac{\|Sx\| \ \|y\|}{\|x\| \ \|y\|} = \sup_{x \ne 0} \frac{\|Sx\|}{\|x\|} = \|S\| \]
+	Therefore $\|S\| = \|h\|$.\\
+
+	Suppose $T : H_1 \to H_2$ be a bounded, linear operator.
+	Then
+	\[ h(x,y) = \inner{Sx}{y} = \inner{Tx}{y} \]
+	Clearly, $Sx = Tx$ for each $x \in H_1$.
+	Therefore, $S$ is unique.
+\end{proof}
+
+\pagebreak
+
 % Module 4
+{\Large Module 4 - Hilbert-Adjoint Operator \& Hahn-Banach Theorem}
+
+\section{Hilbert Spaces}
 \subsection{Hilbert-Adjoint Operator}
+\begin{theorem}[Hilbert-Adjoint operator]
+	Let $H_1,H_2$ be Hilbert spaces.
+	Let $T : H_1 \to H_2$ be any bounded, linear operator.
+	Then there exists a unique, bounded, linear operator $T^\ast : H_2 \to H_1$ such that $\inner{Tx}{y} = \inner{x}{T^\ast y}$ and $\|T^\ast\| = \|T\|$.
+\end{theorem}
+\begin{proof}
+	Let $T : H_1 \to H_2$ be a bounded, linear operator.
+	Then $h(y,x) = \inner{y}{Tx}$ is a sesquilinear form on $H_2 \times H_1$, by the linearity of $T$ and conjugate linearity of inner product.\\
+
+	By Schwarz inequality,
+	\[ |h(y,x)| = |\inner{y}{Tx}| \le \|y\| \ \|Tx\| \le \|T\| \ \|x\| \ \|y\| \]
+	Therefore, $h$ is bounded and $\|h\| \le \|T\|$.\\
+
+	Also we have,
+	\[ \|h\| = \sup_{\substack{x \ne 0 \\ y \ne 0}} \frac{|\inner{y}{Tx}|}{\|y\| \ \|x\|} \ge \sup_{\substack{x \ne 0\\ Tx \ne 0}} \frac{|\inner{Tx}{Tx}|}{\|Tx\| \ \|x\|} = \sup_{x \ne 0} \frac{\|Tx\|}{\|x\|} = \|T\| \]
+	Therefore, $\|h\| = \|T\|$.\\
+
+	By Riesz theorem, $h$ has an inner product representation using a unique linear operator $S = T^\ast$ given by,
+	\[ h(y,x) = \inner{T^\ast y}{x} \]
+	where $\|T^\ast\| = \|h\|$.
+	Therefore, $\inner{y}{Tx} = \inner{T^\ast y}{x}$ and $\|T\| = \|T^\ast\|$.
+\end{proof}
+
+\begin{definition}[Hilbert-Adjoint operator]
+	Let $H_1,H_2$ be Hilbert spaces.
+	Let $T : H_1 \to H_2$ be a bounded, linear operators.
+	Then Hilbert-Adjoint operator $T^\ast$ of $T$ is given by
+	\[ T^\ast : H_2 \to H_1 \text{ such that } \forall x \in H_1,y \in H_2,\  \inner{Tx}{y} = \inner{x}{T^\ast y} \]
+\end{definition}
+
+\begin{lemma}[zero vector]
+	Let $X,Y$ be inner product spaces.
+	Let $Q : X \to Y$ be a bounded, linear operator.
+	Then
+	\begin{enumerate}
+		\item $Q = 0$ if and only if $\inner{Qx}{y} = 0$ for all $x \in X$ and $y \in Y$.
+		\item If $Q : X \to X$, $X$ is complex, and $\forall x \in X,\ \inner{Qx}{x}= 0$, then $Q = 0$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	If $Q = 0$, then $Qx = 0$ and $\inner{Qx}{y} = \inner{0}{y} = 0$.\\
+
+	Suppose $\forall x \in X,\ \forall y \in Y,\ \inner{Qx}{y} = 0$.
+	Since $\inner{y}{y} = 0$ if and only if $y = 0$.
+	Thus, zero is the only vector in $Y$ which is orthogonal to entire $Y$.
+	Then $\forall x \in X,\ Qx = 0$.
+	That is, $Q = 0$.\\
+
+	\hrule \vspace{1em}
+
+	Suppose $Q : X \to X$ such that for any $x \in X,\ \inner{Qx}{x} = 0$.
+	Let $\alpha x + y \in X$.
+	Then
+	\begin{align*}
+		0 & = \inner{Q(\alpha x + y}{\alpha x + y}\\
+		& = |\alpha|^2 \inner{Qx}{x} + \inner{Qy}{y} + \alpha \inner{Qx}{y} + \bar{\alpha}\inner{Qy}{x}
+	\end{align*}
+	Put $\alpha = 1$, we get $\inner{Qx}{y} + \inner{Qy}{x} = 0$.\\
+	Put $\alpha = i$, we get $\inner{Qx}{y} - \inner{Qy}{x} = 0$.
+	Thus, $\inner{Qx}{y} = 0$ for any $y \in X$.
+	Therefore, $Qx = 0$ for any $x \in X$ and Thus $Q = 0$.
+\end{proof}
+
+\begin{theorem}[properties of Hilbert-Adjoint operators]
+	Let $H_1,H_2$ be Hilbert spaces.
+	Let $\alpha \in K$.
+	Let $S : H_1 \to H_2$ and $T : H_1 \to H_2$ be bounded linear operators.
+	Then,
+	\begin{enumerate}
+	\item $\inner{T^\ast y}{x} = \inner{y}{Tx}$
+	\item $(S+T)^\ast = S^\ast + T^\ast$
+	\item $(\alpha T)^\ast = \bar{\alpha} T^\ast$
+	\item $(T^\ast)^\ast = T$
+	\item $\|T^\ast T\| = \|T T^\ast\| = \|T\|^2$
+	\item $T^\ast T = 0 \iff T = 0$
+	\item $(ST)^\ast = T^\ast S^\ast$
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+	\item $\inner{T^\ast y}{x} = \inner{y}{Tx}$
+		\begin{align*}
+			\inner{T^\ast y}{x} & = \overline{\inner{x}{T^\ast y}} \\
+			& = \overline{\inner{Tx}{y}} \\
+			& = \inner{y}{Tx}
+		\end{align*}
+
+	\hrule \vspace{1em}
+
+	\item $(S+T)^\ast = S^\ast + T^\ast$
+		\begin{align*}
+			\inner{x}{(S+T)^\ast y}
+			& = \inner{(S+T)x}{y} \\
+			& = \inner{Sx}{y} + \inner{Tx}{y} \\
+			& = \inner{x}{S^\ast y} + \inner{x}{T^\ast y} \\
+			& = \inner{x}{(S^\ast+T^\ast)y}\\
+		\end{align*}
+
+	\hrule \vspace{1em}
+
+	\item $(\alpha T)^\ast = \bar{\alpha} T^\ast$
+		\begin{align*}
+			\inner{x}{(\alpha T)^\ast y}
+			& = \bar{\alpha} \inner{x}{T^\ast y} \\
+			& = \bar{\alpha} \inner{Tx}{y} \\
+			& = \inner{\bar{(\alpha}T)x}{y} \\
+			& = \inner{x}{(\bar{\alpha}T)^\ast y}
+		\end{align*}
+
+	\hrule \vspace{1em}
+
+	\item $(T^\ast)^\ast = T$
+		\begin{align*}
+			\inner{x}{(T^\ast)^\ast y}
+			& = \inner{T^\ast x}{y}\\
+			& = \overline{\inner{y}{T^\ast x}} \\
+			& = \overline{\inner{Ty}{x}} \\
+			& = \inner{x}{Ty}
+		\end{align*}
+
+	\hrule \vspace{1em}
+
+	\item $\|T^\ast T\| = \|T T^\ast\| = \|T\|^2$
+		\begin{align*}
+			\|Tx\|^2
+			& = \inner{Tx}{Tx} \\
+			& = \inner{Tx}{(T^\ast)^\ast x} \\
+			& = \inner{T^\ast T x}{x} 
+			\intertext{By Schwarz inequality, $\inner{T^\ast T x}{x} \le \|T^\ast Tx\| \ \|x\|$.}
+			\|Tx\|^2
+			& \le \|T^\ast T x\| \ \|x\| \\
+			& \le \|T^\ast T\| \ \|x\|^2
+		\end{align*}
+		Taking supremum of $\|x\|=1$, we get $\|T\|^2 \le \|T^\ast T\|$.
+		Since $T^\ast,T$ are bounded, linear operators, we have $\|T^\ast T\| \le \|T^\ast\| \ \|T\|$.
+		Also we have, $|T^\ast\| = \|T\|$.
+		Thus,
+		\[ \|T\|^2 \le \|T^\ast T\| \le \|T^\ast\| \ \|T\|  \le \|T\|^2 \]
+		Therefore, $\|T^\ast T\| = \|T\|^2$.\\
+
+		Replace $T$ by $T^\ast$ we get,
+		\[ \|T T^\ast\| = \|T^\ast\| = \|T\| \]
+
+	\hrule \vspace{1em}
+
+	\item $T^\ast T = 0 \iff T = 0$
+		\[ \|T^\ast T\| =  \|T\|^2 = 0 \iff \|T\| = 0 \]
+
+	\hrule \vspace{1em}
+
+	\item $(ST)^\ast = T^\ast S^\ast$
+		\begin{align*}
+			\inner{(ST)x}{y}
+			& = \inner{Tx}{S^\ast y} \\
+			\implies \inner{x}{(ST)^\ast y}
+			& = \inner{x}{(T^\ast S^\ast) y}
+		\end{align*}
+	\end{enumerate}
+\end{proof}
+
 \subsection{Self-Adjoint, Unitary and Normal Operators}
 
 %\chapter 4
