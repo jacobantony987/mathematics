@@ -1186,7 +1186,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Thus, any subset of $\mathscr{R}(T)$ having $n+1$ or more elements is linearly dependent.
 	Clearly, the dimension of $\mathscr{R}(T) \le n = \dim X$.\\
 	\begin{important}
-		In other words, ``linear operators preserves linear dependence''.
+		In other words, linear operators preserves linear dependence.
 	\end{important}
 
 	\hrule \vspace{1em}
@@ -3337,7 +3337,7 @@ Then,
 \end{theorem}
 \begin{proof}
 	Let $T : H_1 \to H_2$ be a bounded, linear operator.
-	Then $h(y,x) = \inner{y}{Tx}$ is a sesquilinear form on $H_2 \times H_1$, by the linearity of $T$ and conjugate linearity of inner product.\\
+	Then, we have $h(y,x) = \inner{y}{Tx}$ is a sesquilinear form on $H_2 \times H_1$, by the linearity of $T$ and conjugate linearity of inner product.\\
 
 	By Schwarz inequality,
 	\[ |h(y,x)| = |\inner{y}{Tx}| \le \|y\| \ \|Tx\| \le \|T\| \ \|x\| \ \|y\| \]
@@ -3471,12 +3471,12 @@ Then,
 		Therefore, $\|T^\ast T\| = \|T\|^2$.\\
 
 		Replace $T$ by $T^\ast$ we get,
-		\[ \|T T^\ast\| = \|T^\ast\| = \|T\| \]
+		\[ \|(T^\ast)^\ast T^\ast\| = \|T^\ast\|^2 = \|T\|^2 \]
 
 	\hrule \vspace{1em}
 
 	\item $T^\ast T = 0 \iff T = 0$
-		\[ \|T^\ast T\| =  \|T\|^2 = 0 \iff \|T\| = 0 \]
+		\[ \|T\|^2 =  \|T^\ast T\| = 0 \iff \|T\| = 0 \]
 
 	\hrule \vspace{1em}
 
@@ -3544,10 +3544,12 @@ Then,
 	Suppose $H$ is complex, Hilbert space.
 	Suppose $\inner{Tx}{x}$ is real for any $x \in H$.
 	Then,
-	\[ \inner{x}{Tx} = \inner{Tx}{x} = \inner{x}{T^\ast x} \]
+	\[ \inner{Tx}{x} = \conj{\inner{x}{Tx}} = \inner{x}{Tx} \]
+	And,
+	\[ \inner{Tx}{x} = \inner{x}{T^\ast x} \]
 	Thus,
 	\[ \inner{x}{(T-T^\ast)x} = \inner{x}{0} = 0,\ \forall x \in H \]
-	Thus, $T-T^\ast = 0$.
+	Thus, $T-T^\ast = 0$( by zero vector lemma).
 	Therefore, $T = T^\ast$.
 \end{proof}
 
@@ -3687,16 +3689,68 @@ Then,
 	Every non-trivial vector space has a Hamel basis.
 \end{remark}
 \begin{proof}
-	---continue---
+	Let $X$ be a nontrivial vector space.
+	Let $M$ be the set of all linearly independent subsets of $X$.
+	Since $X$ has nonzero elemnts, $M$ is nonempty.
+	We know that, $M$ together with set inclusion in a POSET since subsets of linearly independent sets are also linearly independent.\\
+
+	Let $C$ be a chain in $M$.
+	Then the union of all subsets in $C$ is a bound for $C$.
+	Thus, every chain in $M$ is bounded above.
+	By Zorn's lemma, $M$ has a maximal element, say $B$.\\
+
+	Let $Y = span\ B$.
+	Suppose $Y \ne X$.
+	Then there exists $z \in X$ such that $z \in Y$.
+	Then $B \cup \{ z \}$ is a linearly independent subset of $X$.
+	This is a contradiction since $B$ is maximal.
+	Therefore, $Y = X$.
+	Thus, any element $x \in X$ belongs to $span\ M$.
+	In other words, $B$ is a Hamel basis for $X$.
 \end{proof}
 
 \begin{remark}
 	Every nontrivial Hilbert space has a total, orthonormal set.
 \end{remark}
 \begin{proof}
+	Let $M$ be the set of all orthonormal subset of Hilbert space $H$.
+	Set $M$ is nonempty since $H$ is nontrivial and for any $x \in H$, we have $\frac{x}{\|x\|} \in M$.
+	Set $M$ together with set inclustion is a POSET.
+	And any chain $C$ in $M$ is bounded above by the union of all subsets in $C$.
+	By Zorn's lemma, $M$ has a maximal element, say $F$.\\
+
+	Suppose $F$ is not total in $H$.
+	Then there exists $z \in H$ such that $z \perp F$.
+	Define $e = \frac{z}{\|z\|}$.
+	Then $F \cup {e}$ is an orthonormal subset of $H$ contradicting maximality of $F$.
+	Therefore, $F$ is total.
+	Clearly, every Hilbert space has a total, orthonormal subset.
 \end{proof}
 
 \subsection{Hahn-Banach Theorem}
+\begin{definition}[extension problem]
+	Let $X$ be any set.
+	Let $Z$ be any subset of $X$ and $G$ be an entity defined on $Z$.
+	The extension problem is the question whether there exists an extension of $G$ from $Z$ into $X$ such that basic properties of $G$ are preserved.
+\end{definition}
+
+%List of extension problems
+%\begin{enumerate}
+%	\item Hahn-Banach : Linear functional on a subspace be extended to a linear functional on a vector space.
+%	\item Caratheodory : Premeasure on a ring can be extended to measure on a $\sigma$-algebra.
+%\end{enumerate}
+
+\begin{definition}[sublinear]
+	A functional $p$ on a vector space $X$ is sublinear if
+	$p(x+y) \le p(x) + p(y),\ \forall x,y \in X$.
+\end{definition}
+
+\begin{definition}[positive homogenous]
+	A function $p$ on a vector space $X$ is positive homogenous if
+	$p(\alpha x) = \alpha p(x),\ \forall \alpha \ge 0,\ \alpha \in \mathbb{R}$.
+\end{definition}
+For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homogenous, sublinear functional on $X$.
+
 \begin{theorem}[Hahn-Banach - Linear Functional]
 	Let $X$ be a real vector space.
 	Let $p$ be a sublinear functional on $X$.
@@ -3704,6 +3758,85 @@ Then,
 	Then, $f$ has a linear extension $\tilde{f}$ from $Z$ into $X$ satisfying $\tilde{f}(x) \le p(x),\ \forall x \in X$.
 \end{theorem}
 \begin{proof}
+	Let $X$ be a real vector space and $Z$ be a subspace of $X$.
+	Let $p$ be a sublinear functional on $X$.
+	Let $f$ be linear functional on $Z$ such that $f(x) \le p(x)\ \forall x \in Z$.\\
+
+	\textbf{Step 1 : Construction of $\tilde{f}$, by Zorn's lemma}\\
+	Let $E$ be the set all linear extensions $g$ of $f$ such that $g(x) = f(x),\ \forall x \in Z$ and $g(x) \le p(x),\ \forall x \in \mathscr{D}(g)$.
+	Then $E$ is nonempty, since $f \in E$.
+	Define a partial order $\le$ on $E$ such that $g \le h$ if $\mathscr{D}(g) \subset \mathscr{D}(h)$ and $g(x) = h(x),\ \forall x \in \mathscr{D}(g)$.
+	Clearly $E$ is a POSET.\\
+
+	Let $C$ be a chain in $E$.
+	Now we can construct, an upper bound for any such chain in $E$ by considering the extension on the union of domains of all extension in $C$.
+	Define $\displaystyle \hat{Y} = \bigcup_{g \in C} \mathscr{D}(g)$.
+	Define $\hat{g} : \hat{Y} \to \mathbb{R}$ such that $\hat{g}(x) = g(x),\ x \in \mathscr{D}(g)$.
+	Clearly, every chain $C$ in $E$ is bounded above by such an extension $\hat{g}$.
+	By Zorn's lemma, $E$ has a maximal element, say $\tilde{f}$.
+	Since $\tilde{f} \in E$, we have $f(x) \le p(x),\ \forall x \in \mathscr{D}(f)$.\\
+
+	\textbf{Step 2 : $\mathscr{D}(\tilde{f}) = X$}\\
+	Suppose $\mathscr{D}(\tilde{f}) \ne X$.
+	Then there exists $y_1 \in X$ such that $y_1 \notin \mathscr{D}(\tilde{f})$.
+	Consider the subspace $Y_1$ of $X$ spanned by $\mathscr{D}(\tilde{f}) \cup \{ y_1 \}$.
+	Then any $x \in Y_1$ is of the form $x = y + \alpha y_1$ where $y \in \mathscr{D}(\tilde{f})$.\\
+
+	This representation is unique since $x = y + \alpha y_1 = \tilde{y} + \beta y_1 \implies y-\tilde{y} = (\beta-\alpha)y_1 \in \mathscr{D}(\tilde{f})$.
+	We know that $y_1 \notin \mathscr{D}(\tilde{f})$, thus $\alpha = \beta$.\\
+
+	Define $g_1 : Y_1 \to \mathbb{R}$ such that $g_1(x) = \tilde{f}(x) + \alpha c$ where $c \in \mathbb{R}$ is fixed.
+	Clearly $g_1$ is linear since $\tilde{f}$ is linear and
+	\[ g_1 (x + \tilde{x}) = g_1(y+\alpha y_1 + \tilde{y} + \beta y_1) = \tilde{f}(y+\tilde{y}) + c (\alpha+\beta) = g_1(x+\alpha y_1) + g_1(\tilde{x}+\beta y_1) \]
+	And $g_1 \le \tilde{f}$ since $\mathscr{D}(\tilde{f}) \subset \mathscr{D}(g_1)$ and $g_1(x) = \tilde{f}(x),\ \forall x \in \mathscr{D}(\tilde{f})$.
+	However, it remains to prove that $g_1(x) \le p(x)$.
+	We claim that $g_1(x) \le p(x),\ \forall x \in \mathscr{D}(g_1)$.\\
+
+	\textbf{Step 3 : Claim $g_1(x) \le p(x), \ \forall x \in \mathscr{D}(g_1)$ }\\
+	Suppose $y,z \in \mathscr{D}(\tilde{f})$.
+	\begin{align*}
+		\tilde{f}(y) - \tilde{f}(z) = \tilde{f}(y-z) & \le p(y-z) \\
+		& \le p(y+y_1-z-y_1)\\
+		& \le p(y+y_1) + p(-z-y_1)
+		\intertext{Rearranging terms, we get}
+		-\tilde{f}(z)-p(-z-y_1) & \le p(y+y_1) - \tilde{f}(y)
+	\end{align*}
+
+	Applying supremum over $z$ on the left and infimum over $y$ on the right, we get $m_0 \le m_1$ where
+	$\displaystyle m_0 = \sup_{z \in \mathscr{D}(\tilde{f})} -\tilde{f}(z)-p(-z-y_1)$ and \\ $\displaystyle m_1 = \inf_{y \in \mathscr{D}(\tilde{f})} p(y+y_1) - \tilde{f}(y)$.\\
+
+	Let $m_0 \le c \le m_1$.
+	Then, 
+	\[ -p(-z-y_1) - \tilde{f}(z) \le c \le p(y+y_1)-\tilde{f}(y),\quad \forall y,z \in \mathscr{D}(\tilde{f}) \]
+
+	\textbf{Case 1 : $\alpha < 0$}\\
+	Consider $z = \alpha^{-1}y$,
+	\begin{align*}
+		-p(-y_1-\frac{y}{\alpha}) - \tilde{f}(\frac{y}{\alpha}) \le m_0 & \le c 
+		\intertext{Multiplying with $-\alpha$}
+		\alpha p (-y_1-\frac{y}{\alpha}) + \tilde{f}(y) & \le -\alpha c \\
+		g_1(x) = \tilde{f}(y)+\alpha c & \le -\alpha p(-y_1-\frac{y}{\alpha}) \\
+		& \le p(\alpha y_1 + y) = p(x)
+	\end{align*}
+
+	\textbf{Case 2 : $\alpha > 0$}\\
+	Consider $y = \alpha^{-1}y$,
+	\begin{align*}
+		c \le m_1 & \le p(\frac{y}{\alpha}+y_1) - \tilde{f}(\frac{y}{\alpha})
+		\intertext{Multiplying with $\alpha$}
+		\alpha c & \le \alpha p(\frac{y}{\alpha}+y_1) - \alpha \tilde{f}(\frac{y}{\alpha}) \\
+		& \le p(y+\alpha y_1) - \tilde{f}(y) \\
+		g_1(x) = \tilde{f}(y) + \alpha c & \le p(y+\alpha y_1) = p(x)
+	\end{align*}
+
+	\textbf{Case 3 : $\alpha =0$}\\
+	Suppose $\alpha = 0$, then $x = y+0y_1 \in \mathscr{D}(g_1)$.
+	Thus, $g_1(x) = \tilde{f}(x) \le p(x)$.\\
+
+	Thus, the claim is true.
+	And we have a proper extension $g_1$ of $\tilde{f}$ which is a contradiction as $\tilde{f}$ is maximal in $E$.
+	Thus, there does not exist such a nonzero vector $y_1 \in X - \mathscr{D}(f)$.
+	Therefore, $\mathscr{D}(\tilde{f}) = X$.
 \end{proof}
 
 \subsection{Hahn-Banach Theorem for complex vector spaces and normed spaces}
@@ -3714,6 +3847,54 @@ Then,
 	Then, $f$ has a linear extension $\tilde{f}$ from $Z$ into $X$ satisfying $|\tilde{f}(x)| \le p(x),\ \forall x \in X$.
 \end{theorem}
 \begin{proof}
+	\textbf{Case 1 : Real Vector Space}\\
+	By Hahn-Banach theorem, we know that there exists an extension $\tilde{f}$ such that $\tilde{f} \le p$, in the case of real vector space $X$.\\
+
+	\textbf{Case 2 : Complex Vector Space}\\
+	Let $X$ be a complex vector space.
+	Then any functional $f$ on $Z$ is of the form $f = f_1 + if_2$ where both $f_1,f_2$ are real valued functionals .
+	And $f_1,f_2$ are linear functionals since $f$ is a linear functional on $X$.
+	Clearly, $f_1(x) \le p(x)$ and $f_2(x) \le p(x)$ since the real/imaginary parts are bounded above by the absolute value of $f$ and $f$ itself if bounded.
+	Therefore, $f_1,f_2$ are bounded funtionals.\\
+
+	By Hahn-Banach theorem $f_1(x)$ has an extension $\tilde{f}_1(x)$.
+	We have,	
+	\[ f(ix) = f_1(ix)+if_2(ix) = -f_2(x)+if_1(x) \]
+	Thus, $f_2(x) = -f_1(ix)$.
+	Define
+	\[ \tilde{f}(x) = \tilde{f}_1(x) - i \tilde{f}_1(ix) \]
+	Then, $\tilde{f}$ is an extension of $f$.
+	It remains to prove that $\tilde{f}$ is linear and $\tilde{f}(x) \le p(x),\ \forall x \in X$.\\
+
+	Clearly, $\tilde{f}$ is linear, since
+	\begin{align*}
+		\tilde{f}((a+ib)x) 
+		& = \tilde{f}_1(ax+ibx) - i\tilde{f}_1(iax-bx)\\
+		& = a\tilde{f}_1(x) + b\tilde{f}_1(ix) - ia\tilde{f}_1(ix) + ib \tilde{f}_1(x) \\
+		& = a \left(\tilde{f}_1(x)-i\tilde{f}_1(ix) \right) + ib \left(\tilde{f}_1(x)-i\tilde{f}_1(ix) \right) \\
+		& = (a+ib) \left(\tilde{f}_1(x) - \tilde{f}_1(ix) \right) \\
+		& = (a+ib)\tilde{f}(x)
+	\end{align*}
+
+	Let $x \in X$ such that $\tilde{f}(x) = 0$.
+	Suppose $p(x) < 0$, then $p(-x) < 0$ since $p(-x) = |-1|p(x) = p(x)$.
+	We know that $p$ is subadditive.
+	That is, $p(x+y) \le p(x)+p(y)$.
+	Thus, $p(0) = p(x-x) \le p(x) + p(-x) = 2p(x)$.
+	Therefore, 
+	\[ p(x) = p(x+0) \le p(x) + p(0) \le p(x) + 2p(x) = 3p(x) \]
+	which is a contradiction thus $p(x) \ge 0$.
+	Therefore, if $\tilde{f}(x) = 0$, then $\tilde{f}(x) \le p(x)$.\\
+
+	Let $x \in X$ such that $\tilde{f}(x) \ne 0$.
+	Then $\tilde{f}(x) = |\tilde{f}(x)|e^{i\theta}$.
+	Thus, $|\tilde{f}(x)| = e^{-i\theta}\tilde{f}(x) = \tilde{f}(xe^{-i\theta})$.
+	Since $|\tilde{f}(x)|$ is real, $\tilde{f}(xe^{-i\theta})$ is also real.
+	By Hahn-Banach theorem on linear functionals on real vector spaces, $\tilde{f}_1(x) \le p(x),\ \forall x \in X$.
+	Therefore,
+	\[ |\tilde{f}(x)| = \tilde{f}(xe^{-i\theta}) = \tilde{f}_1\left(xe^{-i\theta}\right) \le p\left(xe^{-i\theta}\right) = |e^{-i\theta}|p(x) = p(x) \]
+	Thus, if $\tilde{f}(x) \ne 0$, then $\tilde{f}(x) \le p(x)$.
+	Therefore, $\tilde{f}$ is a linear extension of $f$ such that $\tilde{f}(x) \le p(x),\ \forall x \in X$.
 \end{proof}
 
 \begin{theorem}[Hahn-Banach : Normed space]
@@ -3722,6 +3903,29 @@ Then,
 	\[ \|\tilde{f}\| = \sup_{\substack{x \in X\\ \|x\|=1}} |\tilde{f}(x)| \qquad \|f\| = \sup_{\substack{x \in Z\\\|x\| = 1}} |f(x)| \]
 \end{theorem}
 \begin{proof}
+	Without loss of generality suppose that $Z$ is non-trivial.
+	If $Z = \{ 0 \}$, then $f(x) = f(0) = 0$ since $f$ is linear.
+	Thus, $f$ has an extension $\tilde{f}$ defined by $\tilde{f}(x) = 0,\ \forall x \in X$ and $\|f\| = \|\tilde{f}\| = 0$.\\
+	
+	Suppose $Z$ is non-trivial.
+	Then $|f(x)| \le \|f\| \ \|x\|$ since $f$ is bounded\dag\footnote{
+		Author uses $\|f\|_Z$ to emphasis that the functional is defined only in $Z$.
+		Proper notation would be $\|f\|_{B(Z,K)}$ and $\| \tilde{f}\|_{B(X,K)}$ instead of $\|f\|_Z$ and $\|\tilde{f}\|_X$}.
+	Define functional $p$ where $p(x) = \|f\| \ \|x\|,\ \forall x \in X$.
+	Then,
+	\[ p(x+y) = \|f\| \ \|x+y\| \le \|f\| (\|x\|+\|y\|) = p(x) + p(y) \]
+	And,
+	\[ p(\alpha x) = \|f\| \ \|\alpha x\| = |\alpha| \ \|f\| \ \|x\| = |\alpha| p(x) \]
+	Clearly, $p$ is a sublinear functional on $X$ such that $f(x) \le p(x),\ \forall x \in Z$. \\
+
+	Given any functional $f$ on $Z$, there exists a sublinear functional $p$ such that $f(x) \le p(x)$.
+	Then, by Hahn-Banach theorem, there exists a bounded, linear functional $\tilde{f} : X \to K$ such that $\tilde{f}(x) \le p(x),\ \forall x \in X$ and $\tilde{f}$ is an extension of $f$.
+	That is, $\tilde{f}(x) = f(x),\ \forall x \in Z$.\\
+	
+	Since $\tilde{f}(x) \le p(x), \ \forall x \in X$.
+	We have, \[ \|\tilde{f}\| = \sup_{x \ne 0} \frac{|\tilde{f}(x)|}{\|x\|} = \sup_{x \ne 0} \frac{|p(x)|}{\|x\|} = \|f\| \]
+
+	Therefore, any bounded, linear functional on any subspace of any normed space has a bounded, linear extension preserving norm.
 \end{proof}
 
 \begin{theorem}
@@ -3730,6 +3934,13 @@ Then,
 	Then there exists a bounded, linear functional $\tilde{f}$ on $X$ such that $\|\tilde{f}\| = 1$ and $\tilde{f}(x_0) = \|x_0\|$.
 \end{theorem}
 \begin{proof}
+	Let $x_0 \in X$ and $x_0 \ne 0$.
+	Let $Z$ be the subspace spanned by $x_0$.
+	That is, $Z = \{ \alpha x_0 : \alpha \in K\}$.
+	Define $f : Z \to K$ where $f(x) = f(\alpha x_0) = \alpha \|x_0\|$.
+	Then $|f(x)| = |\alpha| \ \|x_0\| = \|x\|$.
+	Clearly, $f$ is bounded, linear functional with $\|f\|=1$.
+	By Hahn-Banach therorem for normed spaces $f$ has an extension $\tilde{f}$ on $X$ such that $\|\tilde{f}\| = \|f\|$ and $\tilde{f}(x_0) = f(x_0) = \|x_0\|$.
 \end{proof}
 
 \begin{corollary}
@@ -3739,9 +3950,337 @@ Then,
 	If $f(x_0) = 0,\ \forall f \in X'$, then $x_0 = 0$.
 \end{corollary}
 \begin{proof}
+	Suppose $x \in X$ such that $f(x) = 0$ for every bounded, linear functional $f$ on $X$.
+	Considering each $f$ as bounded, linear functional on the subspaces spanned by $x$, we get bounded linear extensions $\tilde{f}$ on $X$ by Hahn-Banach theorem for normed spaces.	\\
+
+	Then,
+	\[ \sup_{f \ne 0} \frac{|f(x)|}{\|f\|} \ge \sup_{f \ne 0} \frac{|\tilde{f}(x)|}{\|\tilde{f}\|} = \|x\| \]
+	Also,
+	\[ \sup_{f \ne 0} \frac{|f(x)|}{\|f\|} \le \sup_{f \ne 0} \frac{\|f\| \ \|x\|}{\|f\|} = \|x\| \]
+	Therefore, 
+	\[ \sup_{f \ne 0} \frac{|f(x)|}{\|f\|} = \|x\| \]
 \end{proof}
+
 %\subsection{Application to Bounded Linear Functionals on $C[a,b]$}
 \setcounter{subsection}{4}
 \subsection{Adjoint Operator}
+\begin{definition}[adjoint-operator]
+	Let $X,Y$ be normed spaces over the same field $K$.
+	Let $X',Y'$ be the dual spaces of $X,Y$.
+	Let $T : X \to Y$ be a bounded,linear operator.
+	Then the adjoint-operator is $T^\times : Y' \to X'$ defined by $f(x) = (T^\times g)(x) = g(Tx)$.
+\end{definition}
+\begin{commentary}
+	\begin{figure}
+	\centering
+\begin{tikzpicture}[scale=0.6]
+	\draw (-3,0) circle (1.5cm);
+	\draw (-3,1.8) node{$X$};
+	\draw (3,0) circle (1.5cm);
+	\draw (3,1.8) node{$Y$};
+	\draw (-3,5) circle (1.5cm);
+	\draw (-3,6.8) node{$X'$};
+	\draw (3,5) circle (1.5cm);
+	\draw (3,6.8) node{$Y'$};
+	\draw[olive] (0,2.0) circle (1.5cm);
+	\draw[olive] (0,3.8) node{$K$};
+
+	\draw (-3,-0.6) circle (0.05cm);
+	\draw (-3.3,-0.8) node{$x$};
+	\draw (3,-0.6) circle (0.05cm);
+	\draw (3.6,-0.8) node{$Tx$};
+	\draw[blue] (-3,4.6) circle (0.05cm);
+	\draw[blue] (-3.3,4.8) node{$f$};
+	\draw (3,4.6) circle (0.05cm);
+	\draw (3.3,4.8) node{$g$};
+	\draw[olive] (0,2.3) circle (0.05cm);
+	\draw[olive] (0.1,2.5) node{$\alpha$};
+
+	\draw[-latex] (3,-0.6) -- (0,2.3);
+	\draw (1,1.6) node{$g$};
+	\draw[-latex,blue] (-3,-0.6) -- (0,2.3);
+	\draw[blue] (-1,1.6) node{$f$};
+	\draw[-latex] (-3,-0.6) -- (3,-0.6);
+	\draw[blue] (0,5) node{$T^\times$};
+	\draw[-latex,blue] (3,4.6) -- (-3,4.6);
+	\draw (0,-1) node{$T$};
+	\draw (-2,-2.5) node{$\forall g \in Y',\ \exists f \in X'$, such that $g(Tx) = (T^\times g)(x) = f(x) = \alpha \in K$};
+\end{tikzpicture}
+		\caption{Adjoint-Operator}
+\end{figure}
+\end{commentary}
+
+\begin{theorem}[norm]
+	Let $T^\times$ be the adjoint operator of a bounded, linear operator $T$.
+	Then $T^\times$ is a bounded, linear operator.
+	And $\|T^\times\| = \|T\|$.
+\end{theorem}
+\begin{proof}
+	Let $g_1,g_2 \in Y'$ and $\alpha,\beta \in K$.
+	Then,
+	\begin{align*}
+		\left(T^\times (\alpha g_1 + \beta g_2) \right)(x)
+		& = (\alpha g_1 + \beta g_2) Tx \\
+		& = \alpha g_1(Tx) + \beta g_2(Tx) \\
+		& = \alpha (T^\times g_1)(x) + \beta (T^\times g_2)(x)
+	\end{align*}
+	Clearly, $T^\times$ is linear.\\
+
+	We have, $f = T^\times g$.
+	\begin{align*}
+		f(\alpha x_1 + \beta x_2)
+		& = (T^\times g)(\alpha x_1 + \beta x_2) \\
+		& = g(T(\alpha x_1 + \beta x_2)) \\
+		& = g(\alpha Tx_1 + \beta Tx_2) \\
+		& = \alpha g(Tx_1) + \beta g(Tx_2) \\
+		& = \alpha (T\times g)x_1 + \beta (T^\times g)x_2 \\
+		& = \alpha f(x_1) + \beta f(x_2)
+	\end{align*}
+	Thus, $f$ is linear.
+	We have $|g(Tx)| \le \|g\| \ \|T\| \ \|x\|$, since functional $g$ and operator $T$ are bounded.
+	Thus,
+	\[ \|T^\times g \| = \|f\| = \sup_{x \ne 0} \frac{|f(x)|}{\|x\|} = \sup_{x \ne 0} \frac{|g(Tx)|}{\|x\|} \le \sup_{x \ne 0} \frac{\|g\| \ \|T\| \ \|x\|}{\|x\|} \le \|g\| \ \|T\| \]
+	Taking supermum over all $g \in Y'$, we get
+	\[ \|T^\times\| \le \sup_{g \ne 0} \frac{\|T^\times g\|}{\|g\|} = \sup_{g \ne 0} \frac{\|g\| \ \|T\|}{\|g\|} = \|T\| \]
+	
+	We know that for any non-zero $x_0 \in X$ there exists a $g_0 \in Y'$ such that $\|g_0\| = 1$ and $g_0(Tx_0) = \|Tx_0\|$.
+	Let $f_0 = T^\times g_0$.
+	Then,
+	\[ \|Tx_0\| = g_0(Tx_0) = f_0(x_0) \le \|f_0\| \ \|x_0\| = \|T^\times g_0\| \ \|x_0\| \le \|T^\times\| \ \|g_0\| \ \|x_0\| \]
+	Thus, $\|Tx_0\| \le \|T^\times\| \ \|x_0\|$.
+	Taking supremum over $x_0$ we get, $\|T\| \le \|T^\times\|$.\\
+
+	We have $\|Tx_0\| \le \|T\|\ \|x_0\|$.
+	And $\|T\| = c$ is the smallest real number satisfying $\|Tx_0\| \le c\|x_0\|,\ \forall x_0 \in X$.
+	Thus, $\|T^\times\| \ge c$.
+	Therefore,
+	\[ \|T^\times\| \ge \|T\| \]
+	Therefore, $\|T^\times\| = \|T\|$.
+\end{proof}
+
+\begin{remark}[Properties of adjoint-operator]
+	Let $S : Y \to Z$ and $T : X \to Y$ be bounded, linear operators.
+	Let $\alpha \in K$.
+	Then,
+\begin{enumerate}
+	\item If $T_{E}$ is the matrix representation of $T$, then transpose of $T_{E}$ is the matrix representation of $T^\times$.
+	\begin{proof}
+		Let $T_E$ be the matrix representation of linear operator $T : \mathbb{R}^n \to \mathbb{R}^n$ with respect to standard basis $E = \{ e_1,\ e_2,\ \dots,\ e_n \}$.
+		Let $x = (\xi_j)$ and $y = (\eta_j)$.
+		Then $y = Tx$ implies $\displaystyle \eta_j = \sum_{k=1}^n \tau_{j,k} \xi_k$.
+		Define $T_E = (\tau_{j,k})$.
+		Then $y = T_E x$.
+		We know that $(\mathbb{R}^n)^\prime = \mathbb{R}^n$.
+		Let $g$ be a bounded, linear operator on $\mathbb{R}^n$.
+		Then $g \in \mathbb{R}^n$ and $\displaystyle g = \sum_{k = 1}^n \alpha_k f_k$ where $F = \{ f_1,\ f_2,\ \dots,\ f_n\}$ is the dual basis of $E$.
+		That is, $f_k(e_j) = \delta_{k,j}$.
+		\[ g(y) = g(T_E x) = \sum_{j = 1}^n \alpha_j \eta_j = \sum_{j = 1}^n \sum_{k=1}^n \alpha_j \tau_{j,k}\xi_k \]
+		Thus,
+		\[ g(T_E x) = \sum_{k=1}^n \beta_k \xi_k \text{ where } \beta_k = \sum_{j=1}^n \tau_{j,k} \alpha_j \]
+		Define $f : X \to K$ where $f(x) = g(Tx)$.
+		Then,
+		\[ f(x) = g(T_E x) = \sum_{k=1}^n \beta_k \xi_k \]
+		Suppose $f = T_E^\times g$.
+		Then matrix of $T_E^\times$ is given by $(\tau_{j,k})$ since $\displaystyle \beta_k = \sum_{j=1}^n \tau_{j,k} \alpha_j$.
+		Thus, matrix of $T^\times$ is the transpose of that of $T_E$.
+	\end{proof}
+	\item $(S+T)^\times = S^\times + T^\times$
+	\begin{proof}
+	\begin{align*}
+		((S+T)^\times g)(x)
+		& = g((S+T)x)  \\
+		& = g(Sx + Tx) \\
+		& = g(Sx) + g(Tx) \\
+		& = (S^\times g)(x) + (T^\times g)(x)
+	\end{align*}
+	\end{proof}
+	\item $(\alpha T)^\times = \alpha T^\times$
+	\begin{proof}
+	\begin{align*}
+		((\alpha T)^\times g)(x)
+		& = g((\alpha T)x) \\
+		& = g(\alpha Tx) \\
+		& = \alpha g(Tx) \\
+		& = \alpha (T^\times g)(x)
+	\end{align*}
+	\end{proof}
+	\item $(T^\times)^{-1} = (T^{-1})^\times$\\
+		Suppose $T : X \to Y$ is invertible and $T^{-1} : Y \to X$.
+		Then $(T^\times)^{-1}$ exists and $(T^\times)^{-1} = (T^{-1})^\times$.
+	\begin{proof}
+		We have $T \in B(X,Y)$ and $T^\times \in B(Y',X')$.
+		Define $S = T^{-1}$.
+		Then $S \in B(Y,X)$.
+		Thus $S^\times$ exists, since $S$ is a bounded, linear operator.
+		And $S^\times \in B(X',Y')$.\\
+
+		Let $g \in Y'$.
+		Then,
+		\[ g(y) = g(TSy) = (T^\times g)(Sy) = (S^\times T^\times g)(y),\ \forall g \in Y' \]
+		Clearly, $T^\times S^\times$ is an identity operator on $Y'$.\\
+
+		Let $f \in X'$.
+		Then,
+		\[ f(x) = f(STx) = (S^\times f)(Tx) = (T^\times S^\times f)(x),\ \forall f \in X' \]
+		Clearly, $S^\times T^\times$ is an identity operator on $X'$.\\
+
+		Therefore, $S^\times = (T^{-1})^\times = (T^\times)^{-1}$.
+	\end{proof}
+\end{enumerate}
+\end{remark}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=0.8]
+	\draw (-3,0) circle (1.5cm);
+	\draw (-3,1.8) node{$H_1$};
+	\draw (3,0) circle (1.5cm);
+	\draw (3,1.8) node{$H_2$};
+	\draw (-3,5) circle (1.5cm);
+	\draw (-3,6.8) node{$H_1'$};
+	\draw (3,5) circle (1.5cm);
+	\draw (3,6.8) node{$H_2'$};
+	\draw[olive] (0,2.2) circle (1.5cm);
+	\draw[olive] (0,4.0) node{$K$};
+
+	\draw (-3.4,-0.6) circle (0.05cm);
+	\draw (-3.8,-0.8) node{$x$};
+	\draw[olive] (-3.6,0.2) circle (0.05cm);
+	\draw[olive] (-4.0,0.4) node{$x_0$};
+	\draw (3,-0.6) circle (0.05cm);
+	\draw (3.6,-0.8) node{$Tx$};
+	\draw (-3,0.4) circle (0.05cm);
+	\draw (-2.2,0.8) node{$T^\ast y$};
+	\draw (3.4,0.4) circle (0.05cm);
+	\draw (3.8,0.6) node{$y$};
+	\draw[olive] (3.6,-0.2) circle (0.05cm);
+	\draw[olive] (4.0,-0.4) node{$y_0$};
+	\draw[olive] (-3.4,4.6) circle (0.05cm);
+	\draw[olive] (-3.6,4.8) node{$f$};
+	\draw[olive] (3.4,4.6) circle (0.05cm);
+	\draw[olive] (3.8,4.8) node{$g$};
+
+	\draw[-latex,blue] (3.4,4.6) -- (-3.4,4.6);
+	\draw[blue] (0,5) node{$T^\times$};
+	\draw[-latex] (-3.4,-0.6) -- (3,-0.6);
+	\draw (0,-1) node{$T$};
+	\draw[-latex,blue] (3.4,0.4) -- (-3,0.4);
+	\draw (0,0) node{$T^\ast$};
+	\draw[-latex,purple] (3.4,4.6) -- (3.4,0.4);
+	\draw[purple] (-3.7,2) node{$A_1$};
+	\draw[-latex,purple] (-3.4,4.6) -- (-3.4,-0.6);
+	\draw[purple] (3.7,2) node{$A_2$};
+
+	\draw[-latex,olive] (3.4,0.4) -- (0,3);
+	\draw[olive] (2,2) node{$g$};
+	\draw[olive] (0,3) circle (0.05cm);
+	\draw[olive] (0,2.5) node{$\inner{y}{y_0}$};
+	\draw[-latex,olive] (-3.4,-0.6) -- (0,1);
+	\draw[olive] (-1,0) node{$f$};
+	\draw[olive] (0,1) circle (0.05cm);
+	\draw[olive] (0,1.5) node{$\inner{x}{x_0}$};
+\end{tikzpicture}
+\caption{Adjoint-Operator vs Hilbert-Adjoint-Operator}
+\end{figure}
+
+\begin{remark}[$T^\times$ vs $T^\ast$]
+	Let $T : H_1 \to H_2$.
+	Let $T^\times$ be the adjoint-operator of $T$.
+	That is, $T^\times : H_2' \to H_1'$.
+	Let $T^\ast : H_2 \to H_1$ be the Hilbert-adjoint operator of $T$.
+	That is, $\inner{Tx}{y} = \inner{x}{T^\ast y}$.
+	Then,
+	\[ T^\ast = A_1 T^\times A_2^{-1} \]
+	where $A_1 : H_1' \to H_1$ defined by $A_1(f) = x_0$ such that $f(x) = \inner{x}{x_0}$ and $A_2 : H_2' \to H_2$ defined by $A_2(g) = y_0$ such that $g(y) = \inner{y}{y_0}$.
+
+\end{remark}
+\begin{proof}
+	Let $H_1,H_2$ be normed spaces.
+	Let $T : H_1 \to H_2$ be a bounded, linear operator.
+	Then there exists unique adjoint operator $T^\times : H_2' \to H_1'$ defined by $(T^\times g)(x) = g(Tx),\ \forall g \in Y',\ \forall x \in H_1$.
+	And there exists unique Hilbert adjoint operator $T^\ast : H_2 \to H_1$ defined by $\inner{Tx}{y} = \inner{x}{T^\ast y},\ \forall x \in H_1,\ \forall y \in H_2$.\\
+
+	Let $f \in H_1'$.
+	By Riesz theorem, $\forall f \in H_1'$ there exists unique $x_0 \in H_1$ such that $f(x) = \inner{x}{x_0}$.
+	Define $A_1 : H_1' \to H_1$ defined by $A_1(f) = x_0$ where $f(x) = \inner{x}{x_0},\ \forall x \in H_1$.
+	Clearly, $A_1$ is bijective by its construction.
+	Let $g \in H_2'$.
+	By Riesz theorem, $\forall g \in H_2'$, there exists unique $y_0 \in H_2$ such that $g(y) = \inner{y}{y_0}$.
+	Define $A_2 : H_2' \to H_2$ defined by $A_2(g) = y_0$ where $g(y) = \inner{y}{y_0},\ \forall y \in H_2$.
+	Clearly, $A_2$ is bijective by its construction.\\
+
+	Let $A_1(f_1) = x_1$ and $A_1(f_2) = x_2$.
+	Then, we have $f_1(x) = \inner{x}{x_1}$ and $f_2(x) = \inner{x}{x_2}$.
+	Thus,
+	\begin{align*}
+		(\alpha f_1 + \beta f_2))(x)
+		& = \alpha f_1(x) + \beta f_2(x) \\
+		& = \alpha \inner{x}{x_1} + \beta \inner{x}{x_2} \\
+		& = \inner{x}{\conj{\alpha}x_1} + \inner{x}{\conj{\beta}x_2} \\
+		& = \inner{x}{\conj{\alpha}x_1+\conj{\beta}x_2}\\
+		A_1(\alpha f_1+\beta f_2) & = \conj{\alpha} x_1 + \conj{\beta}x_2 \\
+		& = \conj{\alpha}A_1(f_1) + \conj{\beta}A_1(f_2)
+	\end{align*}
+	Thus, $A_1$ is conjugate linear.
+	Similarly, $A_2$ is also conjugate linear.\\
+
+	Let $S = A_1 T^\times A_2^{-1}$.
+	Let $A_1(f) = x_0$ and $A_2(g) = y_0$.
+	Then $S : H_2 \to H_1$ defined by $S(y_0) = (A_1 T^\times A_2^{-1})(y_0) = (A_1 T^\times) (g)  = A_1(f) = x_0$.
+	And $S$ is linear since $A_1$ and $A_2^{-1}$ are conjugate linear.
+	Then,
+	\[ \inner{Tx}{y_0} = g(Tx) = f(x) = \inner{x}{x_0} =  \inner{x}{S y_0} \]
+	But, we have, $\inner{Tx}{y_0} = \inner{x}{T^\ast y_0}$.
+	And we know that, $w_1 = w_2$ if $\inner{v}{w_1} = \inner{v}{w_2}, \forall v$.
+	Thus, $S = T^\ast = A_1 T^\times A_2^{-1}$.
+\end{proof}
+
+\begin{remark}Comparison
+\begin{enumerate}
+	\item Matrix of adjoint operator is transpose. But, matrix of Hilbert adjoint operator is complex conjugate transpose.
+	\item Adjoint operator is linear, but Hilbert-adjoint operator is conjugate linear.
+\end{enumerate}
+\end{remark}
+
+\subsection{Exercises}
+\cite[\S 4.5 Exercise 6]{kreyszig}
+\begin{remark}
+	\[ (T^\times)^n = (T^n)^\times \]
+\end{remark}
+\begin{proof}
+	Let $T : X \to X$ be a bounded, linear operator.
+	\[ g(T^2 x) = g(T(Tx)) = (T^\times g)(Tx) = T^\times T^\times g(x) = (T^\times)^2 g(x) \]
+	Suppose $(T^\times)^{k-1} = (T^{k-1})^\times$ for some $k \in \mathbb{N}$.
+	Then,
+	\[ g(T^k x) = g(T(T^{k-1}x)) = (T^\times g)(T^{k-1}x) = T^\times (T^\times)^{k-1} g(x) = (T^\times)^k g(x) \]
+	Therefore, by finite mathematical induction the result is true.
+\end{proof}
+
+\begin{definition}[Annihilator in a normed space]
+	Let $X$ be a normed space and $M$ be a subset of $X$.
+	Then the annihilator of $M$ is given by,
+	\[ M^a = \left\{ f \in X^\prime : f(M) = \{ 0 \} \right\} \]
+\end{definition}
+
+\begin{definition}[Annihilator in a dual space]
+	Let $X$ be a normed space and $X^\prime$ be its dual space.
+	Let $B$ be a subset of $X^\prime$.
+	Then the annihilator of $B$ is given by,
+	\[ \hphantom{x}^aB = \{ x \in X : f(x) = 0,\ \forall f \in B \} \] %\sideset{^a}{}B$ not working
+\end{definition}
+
+\begin{remark}
+	\[ \mathscr{R}(T) \subset \hphantom{x}^a\mathcal{N}(T^\times) \]
+\end{remark}
+\begin{proof}
+	Let $T : X \to Y$ be a bounded, linear operator.
+	Let $f \in \mathcal{N}(T^\times)$.
+	Then $T^\times f = 0$.
+	Let $y = Tx \in \mathscr{R}(T)$.
+	Then,
+	\[ f(y) = f(Tx) = (T^\times f) (x) = 0,\ \forall y \in \mathscr{R}(T) \]
+	Thus, $y \in \mathscr{R}(T) \implies y \in \hphantom{x}^a\mathcal{N}(T^\times)$.
+\end{proof}
+
 %\subsection{Reflexive Spaces}
 %\subsection{Category Theory, Uniform boundedness Theorem}
