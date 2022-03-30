@@ -2729,7 +2729,61 @@ Whether the power series representation is unique ?
 	Then $P(z) = 0$ for some complex number $z$.
 \end{theorem}
 \begin{proof}
-	---continue---
+	Without loss of generality, suppose $a_n = 1$.
+	Put $\mu = \inf |P(z)|$, infimum exists since $|P(z)| > 0$.
+	It is enough to prove that $\mu = 0$.\\
+
+	Suppose $|z| = R$.
+	Then
+	\begin{align*}
+		|a_n z^n|
+		& = |P(z) - a_0 + a_1z + a_2R^2 + \dots + a_{n-1}R^{n-1}| \\
+		R^n
+		& \le |P(z)| + |a_0| + |a_1|R + \dots + |a_{n-1}R^{n-1} 
+	\end{align*}
+	Rearranging the terms, we get
+	\begin{align*}
+		|P(z)| 
+		& \ge R^n - |a_0| - |a_1|R - |a_2|R^2 - \dots - |a_{n-1}|R^{n-1} \\
+		& \ge R^n \left(1 - |a_{n-1}|R^{-1} - |a_{n-2}|R^{-2} - \dots - |a_0|R^{-n} \right)
+	\end{align*}
+	Thus $|P(z)| \to \infty$ as $R \to \infty$.
+	Hence, there exists $R_0$ such that $|P(z)| > \mu$ if $|z| > R_0$.
+	Since $P(z)$ is continuous, $|P(z)|$ is also continuous.
+	And the continuous function $|P(z)|$ on closed disc centered at origin with radius $R_0$ attains minima, say $\mu$, since closed disc is compact.
+	Thus, $|P(z_0)| = \mu$ for some $z_0$ such that $|z_0| \le R_0$.\\
+
+	Suppose $\mu > 0$.
+	Then $P(z_0) \ne 0$.
+	Define $Q(z) = P(z+z_0)/P(z_0)$.
+	Then, $Q$ is a nonconstant polynomial with $Q(0) = 1$ and $|Q(z)| \ge 1,\ \forall z$.
+	Clearly, $Q(z)$ is a polynomial of at most $n$ degrees.
+	\[ Q(z) = b_0 + b_1z + b_2z^2 + \dots + b_n z^n \]
+	where $b_0 = 1$ since $Q(0) = 1$.
+	Let $k$ be the smallest positive integer such that $b_k \ne 0$.
+	That is, $1 \le k \le n$.
+	We have $b_k = |b_k| e^{i\phi}$.
+	Choose $\theta$ such that $\phi = \pi-k\theta$.
+	Then $b_k = |b_k|e^{i(\pi-k\theta)} = -|b_k|e^{-ik\theta}$.
+	Then $e^{ik\theta}b_k = -|b_k|$.\\
+
+	Let $z = re^{i\theta}$ such that $r > 0$ and $r^k|b_k| < 1$.
+	Then,
+	\[ |1+b_kr^ke^{ik\theta}| = 1 - r^k|b_k| \]
+	Thus,
+	\[ Q(z) = Q(re^{i\theta})| \le 1 - r^k\left(|b_k|-r|b_{k+1}| - \dots - r^{n-k}|b_n| \right) \]
+	For sufficiently small $r$, $|Q(re^{i\theta})| < 1$ which is a contradiction.
+	Thus $\mu = 0$.
+	Therefore, there exists $|z_0| \le R_0$ such that $P(z_0) = 0$.
+\end{proof}
+
+\begin{important}
+	In other words, complex field $\mathbb{C}$ is algebraically complete.
+\end{important}
+\begin{proof}
+	Since every polynomial with complex coefficients has a zero, there is no irreducible polynomial of degree greater than or equal to two.
+	Thus, $\mathbb{C}$ doesn't have an algebraic field extension properly containing $\mathbb{C}$.
+	Therefore, $\mathbb{C}$ is complete.
 \end{proof}
 
 
