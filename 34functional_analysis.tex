@@ -3740,8 +3740,8 @@ Then,
 %	\item Caratheodory : Premeasure on a ring can be extended to measure on a $\sigma$-algebra.
 %\end{enumerate}
 
-\begin{definition}[sublinear]
-	A functional $p$ on a vector space $X$ is sublinear if
+\begin{definition}[subadditive]
+	A functional $p$ on a vector space $X$ is subadditive if
 	$p(x+y) \le p(x) + p(y),\ \forall x,y \in X$.
 \end{definition}
 
@@ -3749,7 +3749,8 @@ Then,
 	A function $p$ on a vector space $X$ is positive homogenous if
 	$p(\alpha x) = \alpha p(x),\ \forall \alpha \ge 0,\ \alpha \in \mathbb{R}$.
 \end{definition}
-For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homogenous, sublinear functional on $X$.
+For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homogenous, subadditive functional on $X$.
+In other words, norm is a sublinear functional on $X$.
 
 \begin{theorem}[Hahn-Banach - Linear Functional]
 	Let $X$ be a real vector space.
@@ -3774,7 +3775,7 @@ For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homog
 	Define $\hat{g} : \hat{Y} \to \mathbb{R}$ such that $\hat{g}(x) = g(x),\ x \in \mathscr{D}(g)$.
 	Clearly, every chain $C$ in $E$ is bounded above by such an extension $\hat{g}$.
 	By Zorn's lemma, $E$ has a maximal element, say $\tilde{f}$.
-	Since $\tilde{f} \in E$, we have $f(x) \le p(x),\ \forall x \in \mathscr{D}(f)$.\\
+	{\color{red}Since $\tilde{f} \in E$, we have $\tilde{f}(x) \le p(x),\ \forall x \in \mathscr{D}(\tilde{f})$.}\\
 
 	\textbf{Step 2 : $\mathscr{D}(\tilde{f}) = X$}\\
 	Suppose $\mathscr{D}(\tilde{f}) \ne X$.
@@ -3853,9 +3854,10 @@ For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homog
 	\textbf{Case 2 : Complex Vector Space}\\
 	Let $X$ be a complex vector space.
 	Then any functional $f$ on $Z$ is of the form $f = f_1 + if_2$ where both $f_1,f_2$ are real valued functionals .
-	And $f_1,f_2$ are linear functionals since $f$ is a linear functional on $X$.
-	Clearly, $f_1(x) \le p(x)$ and $f_2(x) \le p(x)$ since the real/imaginary parts are bounded above by the absolute value of $f$ and $f$ itself if bounded.
-	Therefore, $f_1,f_2$ are bounded funtionals.\\
+	And $f_1,f_2$ are linear functionals since $f$ is a linear functional on {\color{red}$Z$}.
+	{\color{blue}
+	Clearly, $f_1(x) \le p(x)$ and $f_2(x) \le p(x)$ since the real/imaginary parts are bounded above by the absolute value of $f$ and $f$ itself is bounded.
+	Therefore, $f_1,f_2$ are bounded funtionals on $Z$.}\\
 
 	By Hahn-Banach theorem $f_1(x)$ has an extension $\tilde{f}_1(x)$.
 	We have,	
@@ -3880,10 +3882,10 @@ For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homog
 	Suppose $p(x) < 0$, then $p(-x) < 0$ since $p(-x) = |-1|p(x) = p(x)$.
 	We know that $p$ is subadditive.
 	That is, $p(x+y) \le p(x)+p(y)$.
-	Thus, $p(0) = p(x-x) \le p(x) + p(-x) = 2p(x)$.
-	Therefore, 
-	\[ p(x) = p(x+0) \le p(x) + p(0) \le p(x) + 2p(x) = 3p(x) \]
-	which is a contradiction thus $p(x) \ge 0$.
+	Thus, $p(0) = p(x-x) \le p(x) + p(-x) = 2p(x) < 0$.
+	{\color{red}
+	But $p(0) = p(0x) = 0p(x) = 0$.}
+	This is a contradiction thus $p(x) \ge 0$.
 	Therefore, if $\tilde{f}(x) = 0$, then $\tilde{f}(x) \le p(x)$.\\
 
 	Let $x \in X$ such that $\tilde{f}(x) \ne 0$.
@@ -3894,6 +3896,8 @@ For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homog
 	Therefore,
 	\[ |\tilde{f}(x)| = \tilde{f}(xe^{-i\theta}) = \tilde{f}_1\left(xe^{-i\theta}\right) \le p\left(xe^{-i\theta}\right) = |e^{-i\theta}|p(x) = p(x) \]
 	Thus, if $\tilde{f}(x) \ne 0$, then $\tilde{f}(x) \le p(x)$.
+	{\color{red}
+	Clearly, $\tilde{f}$ is a bounded functional on $X$.}
 	Therefore, $\tilde{f}$ is a linear extension of $f$ such that $\tilde{f}(x) \le p(x),\ \forall x \in X$.
 \end{proof}
 
@@ -3923,7 +3927,7 @@ For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homog
 	That is, $\tilde{f}(x) = f(x),\ \forall x \in Z$.\\
 	
 	Since $\tilde{f}(x) \le p(x), \ \forall x \in X$.
-	We have, \[ \|\tilde{f}\| = \sup_{x \ne 0} \frac{|\tilde{f}(x)|}{\|x\|} = \sup_{x \ne 0} \frac{|p(x)|}{\|x\|} = \|f\| \]
+	We have, \[ \|\tilde{f}\| = \sup_{x \ne 0} \frac{|\tilde{f}(x)|}{\|x\|} {\color{red}\le} \sup_{x \ne 0} \frac{|p(x)|}{\|x\|} = \|f\| \]
 
 	Therefore, any bounded, linear functional on any subspace of any normed space has a bounded, linear extension preserving norm.
 \end{proof}
@@ -4145,16 +4149,12 @@ For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homog
 
 	\draw (-3.4,-0.6) circle (0.05cm);
 	\draw (-3.8,-0.8) node{$x$};
-	\draw[olive] (-3.6,0.2) circle (0.05cm);
-	\draw[olive] (-4.0,0.4) node{$x_0$};
 	\draw (3,-0.6) circle (0.05cm);
 	\draw (3.6,-0.8) node{$Tx$};
-	\draw (-3,0.4) circle (0.05cm);
-	\draw (-2.2,0.8) node{$T^\ast y$};
+	\draw (-3.4,0.4) circle (0.05cm);
+	\draw (-3.8,0.1) node{$x_0$};
 	\draw (3.4,0.4) circle (0.05cm);
-	\draw (3.8,0.6) node{$y$};
-	\draw[olive] (3.6,-0.2) circle (0.05cm);
-	\draw[olive] (4.0,-0.4) node{$y_0$};
+	\draw (3.8,0.6) node{$y_0$};
 	\draw[olive] (-3.4,4.6) circle (0.05cm);
 	\draw[olive] (-3.6,4.8) node{$f$};
 	\draw[olive] (3.4,4.6) circle (0.05cm);
@@ -4164,21 +4164,19 @@ For example, Let $X$ be a normed space. Then the norm on $X$ is a positive homog
 	\draw[blue] (0,5) node{$T^\times$};
 	\draw[-latex] (-3.4,-0.6) -- (3,-0.6);
 	\draw (0,-1) node{$T$};
-	\draw[-latex,blue] (3.4,0.4) -- (-3,0.4);
+	\draw[-latex,blue] (3.4,0.4) -- (-3.4,0.4);
 	\draw (0,0) node{$T^\ast$};
 	\draw[-latex,purple] (3.4,4.6) -- (3.4,0.4);
-	\draw[purple] (-3.7,2) node{$A_1$};
-	\draw[-latex,purple] (-3.4,4.6) -- (-3.4,-0.6);
-	\draw[purple] (3.7,2) node{$A_2$};
+	\draw[purple] (-3.7,3) node{$A_1$};
+	\draw[-latex,purple] (-3.4,4.6) -- (-3.4,0.4);
+	\draw[purple] (3.7,3) node{$A_2$};
 
-	\draw[-latex,olive] (3.4,0.4) -- (0,3);
-	\draw[olive] (2,2) node{$g$};
-	\draw[olive] (0,3) circle (0.05cm);
+	\draw[-latex,olive] (3,-0.6) -- (0,2);
+	\draw[olive] (1.5,1) node{$g$};
+	\draw[olive] (0,2) circle (0.05cm);
 	\draw[olive] (0,2.5) node{$\inner{y}{y_0}$};
-	\draw[-latex,olive] (-3.4,-0.6) -- (0,1);
-	\draw[olive] (-1,0) node{$f$};
-	\draw[olive] (0,1) circle (0.05cm);
-	\draw[olive] (0,1.5) node{$\inner{x}{x_0}$};
+	\draw[-latex,olive] (-3.4,-0.6) -- (0,2);
+	\draw[olive] (-1.5,1) node{$f$};
 \end{tikzpicture}
 \caption{Adjoint-Operator vs Hilbert-Adjoint-Operator}
 \end{figure}
