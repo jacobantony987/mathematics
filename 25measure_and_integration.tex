@@ -289,18 +289,22 @@
 	Therefore, $m^\ast(A) = m^\ast(A+y)$.
 	\end{proof}
 	\item Outer Measure is countably subadditive
-	\begin{proof}
-	Let $\{E_k\}_{k=1}^\infty$ be a countable collection of sets.
-	It is enough to prove that
 		\begin{equation}
 			m^\ast \left( \bigcup_{k=1}^\infty E_k \right) \le \sum_{k=1}^\infty m^\ast(E_k)
 		\end{equation}
-		For each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that $\displaystyle \sum_{i=1}^\infty l(I_{k,i}) < m^\ast(E_k) + \frac{\varepsilon}{2^k}$.
-		Suppose that, for some $\varepsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\varepsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
+	\begin{proof}
+	Let $\{E_k\}_{k=1}^\infty$ be a countable collection of sets.
+	Without loss of generality $m^\ast(E_k) < \infty$ for any $k$.
+	Suppose $m^\ast(E_k) = \infty$ for some $k$. Then the result is trivial.
+	Since the outer measure is finite, for each natural number $k$, we have a cover of $E_k$, say $\{ I_{k,i} \}_{i = 1}^\infty$ such that 
+	\[ \sum_{i=1}^\infty l(I_{k,i}) < m^\ast(E_k) + \frac{\varepsilon}{2^k} \]
+	Suppose that, for some $\varepsilon > 0$, $E_k$ doesn't have such a cover, then $m^\ast(E_k) + \frac{\varepsilon}{2^k}$ is an upper bound contradicting the assumption that $m^\ast(E_k)$ is the least upper bound.\\
 
-	Clearly,
+	The union of all such open intervals $I_{k,i}$ is a countable cover of $\bigcup E_k$.
+	Thus,
 `	\begin{align*}
-	m^\ast \left( \bigcup_{i,k = 0}^\infty I_{k,i} \right)
+	m^\ast \left( {\color{red}\bigcup_{k = 0}^\infty E_k }\right)
+	\le & \sum_{k,i=1}^\infty l(I_{k,i}) \\
 	\le & \sum_{k=1}^\infty \sum_{i=1}^\infty l(I_{k,i}) \\
 	= & \sum_{k=1}^\infty \left( m^\ast(E_k) + \frac{\varepsilon}{2^k} \right) \\
 	= & \sum_{k=1}^\infty  m^\ast(E_k) + \varepsilon
@@ -327,9 +331,29 @@
 		And $[0,1] \cap \mathbb{Q}^c\ \subset [0,1]$.
 		By monotonicity, $m^\ast([0,1] \cap \mathbb{Q}^c) \le m^\ast([0,1]) = 1$.
 		Therefore, $m^\ast([0,1] \cap \mathbb{Q}^c) = 1$.
-	\item Construction of a $G_\delta$ set containing $E$ % hint : $G_\delta = \cup_{k=1}^\infty F_k$ where
-	\item hint : if sum of interval is less than 1.
-		Then it is not a cover of $[0,1]$.
+	\item Construction of a $G_\delta$ set containing $E$
+		\begin{proof}
+			Let $E$ be a bounded subset of $\mathbb{R}$.
+			Then there exists a bounded, open interval $A$ containing $E$ since $E$ is bounded.
+			And,
+			\[ m^\ast(E) \le m^\ast(A) = l(A) < \infty \]
+			Since, $E$ is of finite outer measure for any $n \in \mathbb{N}$ there exists an open cover $I_{n,k}$ such that
+			\[ m^\ast(E) \le \sum_{k=1}^\infty l(I_{n,k}) + \frac{1}{n} \]
+			Define
+			\[ G = \bigcap_{n \in \mathbb{N}} \bigcup_{k=1}^\infty I_{n,k} \]
+			Clearly, $E \subset G$ and $G$ is a $G_\delta$ set.
+			And $m^\ast(G) \le m^\ast(E) + \frac{1}{n}$ for any $n \in \mathbb{N}$.
+			Therefore, $m^\ast(G) = m^\ast(E)$.
+		\end{proof}
+	\item 
+		Let $B = [0,1]\cap \mathbb{Q}$.
+		Let $\{I_k\}_{k=1}^n$ be any finite cover of $B$.
+		Let $(a_1,b_1)$ be the open interval containing $0$.
+		If $b_1 < 1$, let $(a_2,b_2)$ be the open interval containing $b_1$.
+		Since rational numbers are dense, even if $b_1$ is irrational there must exists an open interval containing $b_1$ as the number of open intervals covering $B$ is finite.
+		Continuing like this we get open intervals $(a_1,b_1),(a_2,b_2),\dots,(a_n,b_n)$ such that $1 \in (a_n,b_n)$ and
+		\[ \sum_{k=1}^n l(a_k,b_k) \le l(a_1,b_n) = b_n-a_1 > 1 \]
+		Thus, for any finite cover of $B$, the length of cover is greater than $1$.
 	\item hint : $A \cup B = A \cup (B-A) = A \cup (B \cap A^c)$
 	\item hint : $A$ and $B$ are separated by distance $\alpha$, thus are disjont.
 \end{enumerate}
@@ -615,7 +639,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \begin{enumerate}
 	\item $\forall \varepsilon > 0$, there is an open set $\mathcal{O}$ containing $E$ for which $m^\ast(\mathcal{O}\sim E) < \varepsilon$.
 	\item There is a $G_\delta$ set $G$ containining $E$ such that $m^\ast(G \sim E) = 0$.
-	\item $\forall \varepsilon > 0$, there is a closed set $F$ contained in $E$ such that $m^\ast(E\sim F) {\color{red}<} 0$.
+	\item $\forall \varepsilon > 0$, there is a closed set $F$ contained in $E$ such that $m^\ast(E\sim F) < 0$.
 	\item There is an $F_\sigma$ set $F$ contained in $E$ sucht hat $m^\ast(E \sim F) = 0$.
 \end{enumerate}
 \end{theorem}
@@ -675,7 +699,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 
 \subsubsection*{$G_\delta$-Outer approximation $\iff F_\sigma$-Inner approximation}
 	Again, by duality of Lebesgue measurability and de Morgan's Law, we have $E^c$ has a $G_\delta$-outer approximation $G$ if and only if $E$ has an $F_\sigma$-inner approximation $F$.
-	\[ m^\ast(G \sim E^c) {\color{red}= 0} \iff m^\ast(E \sim F){\color{red} = 0} \]
+	\[ m^\ast(G \sim E^c) = 0 \iff m^\ast(E \sim F) = 0 \]
 \end{proof}
 
 \begin{theorem}
@@ -703,7 +727,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 		By definition, \textbf{Open sets} are countable union of disjoint, open intervals}
 	union of a disjoint collection of open intervals, say $\{ I_k \}_{k=1}^\infty$. Clearly,
 	\begin{align*}
-		\sum_{k=1}^n l(I_k) & \le \sum_{k=1}^\infty {\color{red}l(I_k)} \le m^\ast(U) < \infty 
+		\sum_{k=1}^n l(I_k) & \le \sum_{k=1}^\infty l(I_k) \le m^\ast(U) < \infty 
 		%\sum_{k=1}^\infty l(I_k) & < \infty  %% not required
 		\intertext{ By characterisation of series convergence, there exists an integer $n$ such that,}
 		\sum_{k=n+1}^\infty l(I_k) & < \frac{\varepsilon}{2}
@@ -717,7 +741,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	Since $E \subset U$, we have $\displaystyle E \sim \mathcal{O} \subset U \sim \mathcal{O} = \bigcup_{k=1}^n I_k$.
 	And clearly, 
 	\begin{equation*} 
-		U \sim \mathcal{O} = \bigcup_{k=1}^\infty I_k \sim \bigcup_{k=1}^n I_k\ {\color{red}\subseteq} \bigcup_{k=n+1}^\infty I_k
+		U \sim \mathcal{O} = \bigcup_{k=1}^\infty I_k \sim \bigcup_{k=1}^n I_k\ \subseteq \bigcup_{k=n+1}^\infty I_k
 	\end{equation*}
 	\begin{align}
 		\text{Thus, } m^\ast(E \sim \mathcal{O}) \le & m^\ast(U \sim \mathcal{O}) \le \sum_{k=n+1}^\infty l(I_k) < \frac{\varepsilon}{2} 
@@ -751,8 +775,8 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	Suppose $E$ is not Lebesgue measurable.
 	And $\mathcal{O}$ be an open set containing $E$.
 	Then $\mathcal{O} = (\mathcal{O} \sim E) \cup E$.
-		By monotonicity, $m^\ast(\mathcal{O}) \textcolor{red}{ \le } m^\ast(\mathcal{O} \sim E) + m^\ast(E)$
-		\dag\footnote{\textcolor{red}{I am not able to change $\le$ into $<$} as non-measurability doesn't mean that for this particular $\mathcal{O}$ the sum of Lebesgue outer measures should be greater. There may be a better proof.}.
+		By monotonicity, $m^\ast(\mathcal{O}) \le m^\ast(\mathcal{O} \sim E) + m^\ast(E)$.
+		%\dag\footnote{I am not able to change $\le$ into $<$ as non-measurability doesn't mean that for this particular $\mathcal{O}$ the sum of Lebesgue outer measures should be greater. There may be a better proof.}
 	Since $m^\ast(E)$ is finite, we have $m^\ast(\mathcal{O}) - m^\ast(E) \le m^\ast(\mathcal{O} \sim E)$.
 \item  Let $E$ be a set of finite outer measure.
 	Suppose $E$ is Lebesgue measurable.
@@ -1115,10 +1139,10 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 
 \subsubsection{Cantor-Lebesgue Function, $\varphi$}
 \begin{definition}[increasing]
-	A real-valued function $f$ is increasing if $f(x) {\color{red}\ge} f(y)$ for every $x > y$.
+	A real-valued function $f$ is increasing if $f(x) \ge f(y)$ for every $x > y$.
 \end{definition}
 \begin{definition}[strictly increasing]
-	A real-valued function $f$ is strictly increasing if $f(x) {\color{red}>} f(y)$ for every $x > y$.
+	A real-valued function $f$ is strictly increasing if $f(x) > f(y)$ for every $x > y$.
 \end{definition}
 
 \begin{definition}[Cantor-Lebesgue function $\varphi$]
@@ -1323,10 +1347,10 @@ Note : If $f$ is a measurable function, then its domain is measurable and $f^{-1
 
                 Now, from the construction of $g_n$, we have $\displaystyle \lim_{n \to \infty} g_n = f$.
                 We have, $\{g_n\}$ is a sequence of measurable functions converging pointwise to the limit function $f$ (a.e.) on the interval $I$.
-		Therefore, $f$ is measurable.\dag\footnote{
+		Therefore, $f$ is measurable.
+		\dag\footnote{
 			Limit of measurable functions under pointwise convergence(a.e.) is measurable.
-
-			{\color{red} We will prove this result in the upcoming subsection
+			{\color{blue} We will prove this result in the upcoming subsection
 .}}
 	\end{proof}
 \item \textbf{$f$ measurable and $f = g$(a.e) $\implies$ $g$ measurable}
@@ -1420,7 +1444,7 @@ Suppose $f,g$ are measurable functions on $E$ and are finite a.e. on $E$.
 	\end{proof}
 \item \textbf{ Product : }$fg$ is measurable
 	\begin{proof}
-		Suppose $f,g$ are measurable functions {\color{red}which are finite (a.e.)} on a measurable set $E$.
+		Suppose $f,g$ are measurable functions which are finite (a.e.) on a measurable set $E$.
 		And we have,
 		\begin{equation}
 			fg = \frac{1}{2} \left[ (f+g)^2 - f^2 - g^2 \right]
@@ -2460,7 +2484,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Again by Fatou's lemma,
 	\begin{align*}
 		\int_E (g+f) \le & \liminf \int_E (g+f_n) \\
-		\int_E g \ {\color{red}+} \int_E f \le & \int_E g + \liminf \int_E f_n
+		\int_E g \ + \int_E f \le & \int_E g + \liminf \int_E f_n
 		\intertext{Then,}
 		\int_E f \le & \liminf \int_E f_n
 	\end{align*}
@@ -2486,7 +2510,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	By Fatou's lemma,
 	\begin{align*}
 		\int_E (g-f) \le & \liminf \int_E (g_n-f_n) \\
-		\int_E g - \int_E f {\color{red}\le} & \liminf \int_E g_n - \limsup \int_E f_n \dag\footnote{The logic I have applied here is $\min(A,B) = \min(A) - \max(B)$. But, need to confirm the logic formally.}
+		\int_E g - \int_E f \le & \liminf \int_E g_n - \limsup \int_E f_n \dag\footnote{The logic I have applied here is $\min(A,B) = \min(A) - \max(B)$. But, need to confirm the logic formally.}
 		\intertext{Then,}
 		\limsup \int_E f_n \le & \int_E f
 	\end{align*}
@@ -2494,7 +2518,8 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	Again, by Fatou's lemma,
 	\begin{align*}
 		\int_E (g+f) \le & \liminf \int_E (g_n+f_n) \\
-		\int_E g + \int_E f {\color{red}\le} & \liminf \int_E g_n + \liminf \int_E f_n \dag\footnote{I have some problem understanding this. Need to check the condition for linearlity of limit inferior.}
+		\int_E g + \int_E f \le & \liminf \int_E g_n + \liminf \int_E f_n
+		%\dag\footnote{I have some problem understanding this. Need to check the condition for linearlity of limit inferior.
 		\intertext{Then,}
 		\int_E f \le & \liminf \int_E f_n
 	\end{align*}
@@ -2560,7 +2585,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 
 	\textbf{Note : }  Lebesgue measure offers an addition property, that is measure of an interval is its length.\\
 
-\subsubsection{Measure {\color{red}Sub}space}
+\subsubsection{Measure Subspace}
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
 	Let $X_0 \in \mathcal{M}$.
 	Then $(X_0,\mathcal{M}_0,\mu_0)$ is also a measure space where $\mathcal{M}_0$ is $\mathcal{M}$ respectricted to $X_0$ and $\mu_0$ is $\mu$ restricted to $X_0$.\\

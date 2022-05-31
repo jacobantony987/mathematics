@@ -22,12 +22,486 @@
 %Module 3 - \cite{ahlfors} 4
 %Module 4 - \cite{ahlfors} 4
 
+%\chapter 1
+{\Large Module 1 }
+\section{Complex Numbers}
+\subsection{The Algebra of Complex Numbers}
+\setcounter{subsubsection}{3}
+\subsubsection{Conjugation,Absolute Value}
+\begin{commentary}
+	Usually, Ahlfors uses greek alphabets $\alpha,\beta,\dots$ for real numbers and english alphabets $a,b,\dots$ for complex numbers.
+	And rarely, he writes $ z= x+iy$.
+\end{commentary}
+\subsubsection{Inequalities}
+\paragraph{Lagrange's Identity}(complex form)
+\begin{equation}
+	\left| \sum_{i=1}^n a_ib_i \right|^2 = \sum_{i=1}^n|a_i|^2\sum_{i=1}^n |b_i|^2 - \sum_{1 \le i < j \le n} |a_i\conj{b_j} - a_j\conj{b_i}|^2
+\end{equation}
+\paragraph{Triangle Inequality}
+\begin{equation}
+	\left| \sum_{i=1}^n a_i \right| \le \sum_{i=1}^n |a_i|
+\end{equation}
+\paragraph{Cauchy's Inequality}
+\begin{equation}
+	\left| \sum_{i=1}^n a_ib_i \right|^2 \le \sum_{i=1}^n |a_i|^2 \sum_{i=1}^n |b_i|^2
+\end{equation}
+
+\subsection{The Geometric Representation of Complex Numbers}
+\subsubsection{Geometric Addition and Multiplcation}
+\begin{important}
+	Argument of $0$ is undefined.
+\end{important}
+\subsubsection{Binomial Theorem}
+\paragraph{de Moivre's formula}
+\begin{equation}
+	(\cos \phi+i\sin \phi)^n = \cos n\phi + i \sin n\phi
+\end{equation}
+\paragraph{nth root of $a = r(\cos \phi+i\sin \phi)$}
+\begin{equation}
+	z = \sqrt[n]{r} \left(\cos \left(\frac{\phi}{n}+k\frac{2\pi}{n}\right) + i\sin\left(\frac{\phi}{n} + k\frac{2\pi}{n}\right) \right)
+\end{equation}
+
+Let $\omega = \cos \frac{2\pi}{n} + i\sin \frac{2\pi}{n}$.
+Then, nth roots of unity are $1,\omega,\omega^2,\dots,\omega^{n-1}$.
+Then for any integer $h$ which is not a multiple of $n$, we have
+\begin{equation}
+	1+\omega^h + \omega^{2h} + \dots + \omega^{(n-1)h} = 0
+\end{equation}
+And,
+\begin{equation}
+	1-\omega^h + \omega^{2h} + \dots + (-1)^{n-1}\omega^{(n-1)h} = \begin{cases} 0 & n \text{ is odd } \\ 1+i\tan(\frac{\pi h}{n}) & n \text{ is even} \end{cases}
+\end{equation}
+\begin{commentary}
+	The proof for the even cases are bit complicated.
+	Refer \url{https://math.stackexchange.com/q/4362927} for the proof.
+\end{commentary}
+
+\subsubsection{Analytic Geometry}
+\paragraph{Circle} with center $a$ and radius $r$.
+\begin{equation}
+	|z-a| = r
+\end{equation}
+Also, $|z-a| < r$ and $|z-a| > r$ are inside and outside of the cirle.
+\paragraph{Straight Line} through $a,b$.
+\begin{equation}
+	z = a+bt
+\end{equation}
+Also, $\frac{\Im{(z-a)}}{b} < 0$ and $\frac{\Im{(z-a)}}{b} > 0$ are left and right half plane of the directed line from $a$ to $b$.
+\subsubsection{The Spherical Representation}
+\begin{definition}[extended complex plane]
+	Let $\mathbb{C}$ be the set of all complex numbers o f the form $z = x+iy$ where $x,y$ are real numbers.
+	And,
+	\[ z_1+z_2 = (x_1+iy_1) + (x_2+iy_2) = (x_1+x_2) + i (y_1+y_2) \]
+	\[ z_1 z_2 = (x_1+iy_1) (x_2+iy_2) = x_1x_2 + ix_1y_2 + iy_1x_2 + i^2y_1y_2 = (x_1x_2-y_1y_2) + i(x_1y_2+x_2y1) \]
+	We also have,
+	\[ z_1/z_2 = \frac{x_1+iy_1}{x_2+iy_2} = \frac{(x_1+iy_1)(x_2-iy_2)}{(x_2+iy_2)(x_2-iy_2)} = \frac{x_1x_2+y_1y_2}{x_2^2+y_2^2}+i\frac{x_2y_1-x_1y_2}{x_2^2+y_2^2},\ (z_2 \ne 0) \]
+	Define $\infty$ such that
+	\[ z/0 = \infty,\ \forall z \in \mathbb{C},\ (z \ne 0)\]
+	\[ z \pm \infty = \infty,\ \forall z \in \mathbb{C} \]
+	\[ z \infty = \infty,\ \forall z \in \mathbb{C}\ (z \ne 0) \]
+	\[ z / \infty = 0,\ \forall z \in \mathbb{C} \]
+	\[ \infty/z = \infty,\ \forall z \in \mathbb{C}\ (z \ne 0) \]
+	Then set $\mathbb{C}$ together with $\infty$ is the extended complex plane, $\mathbb{C}^\ast$.
+\end{definition}
+
+\begin{definition}[Riemann Sphere]
+	The function which maps $z \to (x_1,x_2,x_3)$ such that
+	\begin{equation}
+		z = \frac{x_1+ix_2}{1-x_3}
+		\label{eqn:projection}
+	\end{equation}
+	And maps $\infty \to (0,0,1)$.
+	Now we have a bijection from extended complex plane into the unit sphere in $\mathbb{R}^3$.
+	This spherical representation of extended complex plane is the Riemann sphere.
+\end{definition}
+
+\paragraph{Motivation} The significance of this projection is that on the unit sphere, point $(0,0,1)$ represents $\infty$, the point at infinity.
+
+\paragraph{Riemann Sphere : Justification}
+Let $S$ be the unit sphere in three dimensional space.
+\begin{equation}
+	 S : x_1^2 + x_2^2 + x_3^2 = 1 
+	 \label{eqn:sphere}
+\end{equation}
+Consider the map given by (eqn.\ref{eqn:projection}).
+Then,
+	\[ |z|^2  = \frac{x_1^2+x_2^2}{(1-x_3)^2} = \frac{1-x_3^2}{(1-x_3)^2} = \frac{1+x_3}{1-x_3}\quad (\because equ. \ref{eqn:sphere}) \]
+
+\begin{align*}
+	 (1-x_3)|z|^2 & = |z|^2 - x_3|z|^2 = 1+x_3 \\
+	 |z|^2 - 1 & = x_3 + x_3|z|^2 = x_3 (1+|z|^2) \\
+	 x_3 & = \frac{|z|^2-1}{|z|^2+1}\\
+	 1-x_3 & = \frac{|z|^2+1 - |z|^2+1}{|z|^2+1} = \frac{2}{|z|^2+1} 
+\end{align*}
+Therefore,
+\begin{align}
+	 x_1 & = \frac{(z+\conj{z})(1-x_3)}{2} = \frac{z+\conj{z}}{|z|^2+1}\quad (\because z + \conj{z} = \frac{2x_1}{1-x_3}) \\
+	 x_2 & = \frac{(z-\conj{z})(1-x_3)}{2i} = \frac{z-\conj{z}}{i(|z|^2+1)}\quad (\because z - \conj{z} = \frac{2ix_2}{1-x_3}) \\
+	x_3 & = \frac{|z|^2-1}{|z|^2+1}
+\end{align}
+
+Clearly, the map $z \to \displaystyle \frac{x_1+ix_2}{1-x_3}$ is a one-one correspondence.
+And when $x_3 = 0$, we have $|z| = 1$.
+Consider the hemisphere, $x_3 < 0$.
+Then $|z|<1$ since $|z|^2<1$.
+Similarly, when $x_3 > 0$ we have $|z|>1$.
+
+\paragraph{Riemann Sphere : Sterographic Projection}
+Let $z = x+iy$.
+Consider the map $z \to (x,y)$.
+Then,
+\[ x:y:-1 = \frac{x_1}{1-x_3} : \frac{x_2}{1-x_3} : -1 = x_1 : x_2 : x_3-1 \]
+Thus we have,
+\[ \begin{vmatrix} 0 & 0 & 1 \\ x & y & 0 \\ x_1 & x_2 & x_3 \end{vmatrix} = \begin{vmatrix} 0 & 0 & 1 \\ x & y & -1 \\ x_1 & x_2 & x_3-1\end{vmatrix} = 0 \]
+Clearly, the points $(x,y,0)$, $(0,0,1)$ and $(x_1,x_2,x_3)$ lies on a straight line.\\
+
+\begin{commentary}
+\begin{definition}[collinear]
+	Let $(x_1,x_2,x_3), (x'_1,x'_2,x'_3), (x''_1,x''_2,x''_3) \in \mathbb{R}^3$.
+	These points are collinear if
+	\[ \begin{vmatrix} x_1 & x_2 & x_3 \\ x'_1 & x'_2 & x'_3 \\ x''_1 & x''_2 & x''_3 \end{vmatrix} = 0\]
+\end{definition}
+\end{commentary}
+
+If you consider the complex plane as the plane $x_3 = 0$ in the three dimensional space, then the straight lines through $(0,0,1)$ will geometrically give you the image and preimage under the bijection given by (eqn.\ref{eqn:projection}).
+Therefore, this is a sterographic projection.\\
+
+\begin{commentary}
+	From $(0,0,1)$, you could draw a line which gives you the correspondence between the sphere and the complex plane.
+	This projection is sterographic in the sense that you could see points on the unit sphere projected on the plane as well as the points on the plane projected on the unit sphere using the same straight line.
+\end{commentary}
+
+\paragraph{Circles on the Riemann Sphere}
+\begin{remark}
+	The sterographic projection $z = \frac{x_1+ix_2}{1-x_3}$ transforms straight lines in the complex plane into a circle on the unit sphere $S$ through $(0,0,1)$.
+	And any circle on the unit sphere transforms into a circle or straight line in the complex plane.
+\end{remark}
+\begin{proof}
+	Any circle on the unit sphere is an intersection of 
+	the unit sphere $S : x_1^2+x_2^2+x_3^2=1$ and
+	a plane $P : \alpha_1x_1+\alpha_2x_2+ \alpha_3x_3 = \alpha_0$.\\
+
+	Without loss of generality, $\alpha_1^2+\alpha_2^2+\alpha_3^2 = 1$ and $0 \le \alpha_0 < 1$.
+	Suppose $P : \alpha'_1 x_1 + \alpha'_2 x_2 + \alpha'_3 x_3 = \alpha'_0$.
+	Suppose $\alpha'_0 > 0$.
+	If $\alpha'_0 < 0$, then consider $P : -\alpha'_1 x_1 - \alpha'_2 x_2 - \alpha'_3 x_3 = -\alpha'_0$.
+	And define
+	\[ 
+	\alpha_1 = \frac{\alpha'_1}{|\alpha'|} \qquad
+	\alpha_2 = \frac{\alpha'_2}{|\alpha'|} \qquad
+	\alpha_3 = \frac{\alpha'_3}{|\alpha'|} \qquad
+	\alpha_0 = \frac{\alpha'_0}{|\alpha'|}\] 
+
+	where $|\alpha'| = \sqrt{{\alpha'}_1^2 + {\alpha'}_2^2 + {\alpha'}_3^2}$.
+	Thus, $\alpha_1^2 + \alpha_2^2+\alpha_3^3 = 1$ and $0 \le \alpha_0 < 1$.\\
+
+\begin{commentary}
+	For any circle on the unit sphere, we have a plane intersecting the sphere at a positive distance $\alpha_0$ from the origin which is parallel to the tangent plane at the point $(\alpha_1,\alpha_2,\alpha_3)$ on the unit sphere.
+	Clearly, the plane won't touch the sphere if $\alpha_0 > 1$ and when $\alpha_0 = 1$ the plane is tangential to the sphere.
+	Thus, $0 \le \alpha_0 < 1$.\\
+\end{commentary}
+
+	\noindent Substituting the values of $x_1,x_2,x_3$, we get
+	\begin{align*}
+		\alpha_1 \frac{z+\conj{z}}{|z|^2+1} + \alpha_2 \frac{z - \conj{z}}{i(|z|^2+1)} + \alpha_3 \frac{|z|^2-1}{|z|^2+1} & = \alpha_0 \\
+		\alpha_1 (z+\conj{z}) - i\alpha_2 (z - \conj{z}) + \alpha_3 (|z|^2-1) & = \alpha_0 (|z|^2+1)
+	\end{align*}
+		We have, $z = x+iy$.
+		Then $|z|^2 = x^2+y^2$, $z+\conj{z} = 2x$ and $z - \conj{z} = 2iy$.
+	\begin{align*}
+		2x\alpha_1 + 2y\alpha_2 + x^2\alpha_3 + y^2\alpha_3-\alpha_3 & = x^2\alpha_0 + y^2 \alpha_0+\alpha_0 \\
+		x^2(\alpha_3-\alpha_0) + y^2(\alpha_3-\alpha_0) + 2x\alpha_1 + 2y\alpha_2-(\alpha_3+\alpha_0) &= 0
+	\end{align*}
+	
+	Suppose $\alpha_3 \ne \alpha_0$.
+	Then, we have 
+	\begin{equation}
+		x^2(\alpha_3-\alpha_0)+y^2(\alpha_3-\alpha_0) + 2x\alpha_1 + 2y\alpha_2 - (\alpha_3+\alpha_0) = 0
+		\label{eqn:circle}
+	\end{equation}
+	Clearly, (eqn.\ref{eqn:circle}) represents a circle in the complex plane.\\
+
+	\begin{commentary}
+	\begin{definition}[circle]
+		Circle with center $(h,k)$ and radius $r$ is given by
+		\[ (x-h)^2+(y-k)^2 = r^2 \]
+		\[ x^2+y^2-2xh-2ky+(h^2+k^2-r^2) = 0 \]
+	\end{definition}
+		\noindent In the above case, we have
+		\[ x^2+y^2+2x\frac{\alpha_1}{\alpha_3-\alpha_0}+2y\frac{\alpha_2}{\alpha_3-\alpha_0}-\frac{\alpha_3+\alpha_0}{\alpha_3-\alpha_0} = 0 \]
+		is a circle with center $\left(\frac{\alpha_1}{\alpha_0-\alpha_3},\frac{\alpha_2}{\alpha_0-\alpha_3}\right)$ and radius $\frac{\sqrt{1-\alpha_0^2}}{\alpha_0-\alpha_3}$.\\
+	\end{commentary}
+
+	Suppose $\alpha_3 = \alpha_0$.
+	Then (eqn.\ref{eqn:circle}) becomes $x\alpha_1+ y\alpha_2 - \alpha_0 = 0$.
+	Clearly, it represents a straight line in the complex plane.
+\end{proof}
+\begin{important}
+	Any straight line transforms into a circle through $(0,0,1)$ on the Riemann sphere.
+	Thus, straight lines are circles through the point at infinity.
+\end{important}
+
+\paragraph{Distance between two points on the Riemann Sphere}
+Let $z,z' \in \mathbb{C}$.
+Let $z \to (x_1,x_2,x_3)$ and $z' \to (x'_1,x'_2,x'_3)$.
+We have,
+\[ |z-z'|^2 = (z-z')(\conj{z}-\conj{z'})  = |z|^2+|{z'}|^2 - (z\conj{z'}+\conj{z}z') \]
+And,
+\[ (|z|^2+1)(|{z'}|^2+1)-(|z|^2-1)(|{z'}|^2-1) = 2(|z|^2+|{z'}|^2)  \]
+Thus,
+\begin{align*}
+	z\conj{z'}+\conj{z}z'  
+	& = |z|^2+|{z'}|^2 - |z-z'|^2 \\
+	2(z\conj{z'}+\conj{z}z')  
+	& = \left\{ (|z|^2+1)(|{z'}|^2+1) - (|z|^2-1)(|{z'}|^2-1)\right\} - 2|z-{z'}|^2
+\end{align*}
+
+\noindent Rearranging the terms, we get
+\begin{equation}
+	2z\conj{z'}+2\conj{z}z' + (|z|^2-1)(|{z'}|^2-1) = |z|^2+1)(|{z'}|^2+1) - 2|z-{z'}|^2
+	\label{eqn:distSub}
+\end{equation}
+
+\noindent Let $d(z,z')$ denote the distance between their images on the sphere.
+Then,
+\begin{align*}
+	\left( d(z,z') \right)^2
+	& = (x_1-x'_1)^2+(x_2-x'_2)^2+(x_3-x'_3)^2 \\
+	& = (x_1^2+x_2^2+x_3^2) + ({x'_1}^2+{x'_2}^2+{x'_3}^2) -2(x_1x'_1+x_2x'_2+x_3x'_3) \\
+	& = 2 - 2(x_1x'_1+x_2x'_2+x_3x'_3)
+\end{align*}
+
+\noindent Substituting the values, we get
+\begin{align*}
+	x_1x'_1+x_2x'_2+x_3x'_3
+	& = \frac{(z+\conj{z})(z'+\conj{z'}) + i^2(z-\conj{z})(z'-\conj{z'}) + (|z|^2-1)(|{z'}|^2-1) }{ (|z|^2+1)(|{z'}|^2+1) } \\
+	& = \frac{2z\conj{z'}+2\conj{z}z'+(|z|^2-1)(|{z'}|^2-1)}{ (|z|^2+1)(|{z'}|^2+1) } \\
+	& = \frac{(|z|^2+1)(|{z'}|^2+1)-2|{z-z'}|^2}{ (|z|^2+1)(|{z'}|^2+1) } \quad (\because eqn.\ref{eqn:distSub}) \\
+	& = 1-\frac{2|{z-z'}|^2}{ (|z|^2+1)(|{z'}|^2+1) } \\
+	\left( d(z,z') \right)^2
+	& = \frac{4|{z-z'}|^2}{ (|z|^2+1)(|{z'}|^2+1) } 
+\end{align*}
+
+\noindent Therefore, we have
+\begin{equation}
+	d(z,z')= \frac{2|z-z'|}{\sqrt{(1+|z|^2)(1+|z'|^2)}}
+	\label{eqn:distRiemann}
+\end{equation}
+
+Suppose $z' = \infty$.
+Then $\frac{|z-z'|}{\sqrt{1+|z'|^2}} \to 1$ as $z' \to \infty$.
+Therefore,
+\begin{equation}
+	d(z,\infty)= \frac{2}{\sqrt{1+|z|^2}}
+	\label{eqn:distRiemannInfinity}
+\end{equation}
+
+\paragraph{Exercises}
+\paragraph{Exercise 1}$z,z'$ are diametricall opposite points on the Riemann Sphere if and only if $z\conj{z'} = -1$.
+	\begin{proof}
+		Suppose $z\conj{z'} = -1$.
+		Then $z' = \frac{-z}{|z|^2}$.
+		\[ |z-z'| = \left| z + \frac{z}{|z|^2} \right| = \frac{|z|^2+1}{|z|} \]
+		\[ 1+|z'|^2 = 1+ \frac{1}{|z|^2} = \frac{|z|^2+1}{|z|^2}  \]
+		Then,
+		\[ d(z,z') = \frac{2|z-z'|}{\sqrt{(1+|z|^2)(1+|{z'}|)^2}} = \frac{2\frac{|z|^2+1}{|z|}}{\sqrt{(1+|z|^2)\frac{|z|^2+1}{|z|^2}}} = 2 \]
+		Clearly, the points are diametrically opposite on the unit sphere.\\
+
+		Suppose the points are diametrically opposite on the Riemann sphere.
+		Then
+		\[ |{z-z'}|^2 = (1+|z|^2)(1+|{z'}|^2) \]
+		\begin{align*}
+			|{z-z'}| ^2
+			& =  (z-z')(\conj{z}-\conj{z'}) \\
+			& = |z|^2+|{z'}|^2 - z\conj{z'} - \conj{z}z'  \\
+			& = 1+|z|^2+|{z'}|^2+|z|^2|{z'}|^2 \\
+			0 & = 1+z\conj{z'}+\conj{z}z'+|z|^2|{z'}|^2 \\
+			& = (1+z\conj{z'})(1+\conj{z}z')
+		\end{align*}
+		Then either $z\conj{z'}+1 = 0$ or $\conj{z}z'+1=0$.
+		In either case, we have $z\conj{z'} = -1$ since $z\conj{z'} = \conj{z}z'$ when there are purely real.
+	\end{proof}
+\paragraph{Exercise 2} Find vertices of the cube inscribed in the Reimann sphere with edges parallel to the coordinate axes.
+	\begin{proof}[Answer]
+		Let $a$ be the length of the sides of the cube inscribed in the Riemann sphere.
+		Then the main diagonal is of length $a\sqrt{3} = 2$, the diameter of the unit sphere.
+		Thus, $a = 2/\sqrt{3}$.
+		The vertices of the cube on the Riemann sphere are $(\pm a/2,\pm a/2,\pm a/2)$.
+		The corresponding images are given by 
+		\[ z = \frac{a}{(2 \pm a)}(\pm 1 \pm i) = \frac{\pm 1 \pm i}{\sqrt{3} \pm 1} \]
+		Therefore, the vertices are $\frac{1+i}{\sqrt{3} + 1}$, $\frac{1-i}{\sqrt{3} + 1}$, $\frac{-1+i}{\sqrt{3} + 1}$, $\frac{-(1+i)}{\sqrt{3} + 1}$, $\frac{1+i}{\sqrt{3} - 1}$, $\frac{1-i}{\sqrt{3} - 1}$, $\frac{-1+i}{\sqrt{3} - 1}$, and $\frac{-(1+i)}{\sqrt{3} - 1}$.
+
+	\end{proof}
+\paragraph{Exercise 3} Find the vertices of the regular tetrahedron inscribed in Riemann Sphere.
+	\begin{proof}[Answer]
+		Let $a$ be the length of the sides of the regular tetrahedron inscribed in the Riemann sphere.
+		Radius of circumsphere of regular tetrahedron is $\frac{\sqrt{6}}{4}a = 1$.
+		Thus, $a = 4/\sqrt{6}$.\\
+
+		One vertex at $(0,0,1)$ is the point at infinity.
+		The other three points are at a distance of $4/\sqrt{6}$ from $(0,0,1)$.
+		We have, 
+		\[d(z,\infty) = \frac{2}{\sqrt{1+|z|^2}} = \frac{4}{\sqrt{6}} = \frac{2}{\sqrt{\frac{6}{4}}} \]
+		Thus, $1+|z|^2 = 1+\frac{1}{4}$.
+		Therefore, $|z| = \frac{1}{2}$.\\
+
+		In its general position the projection of one of the base vertex on the regular tetrahedron is purely imaginary ($\frac{i}{2}$) and the other vertices makes $120^\circ$ with the imaginary axis.
+		Therefore, the vertices are $\infty$, $\frac{i}{2}$, $\frac{1}{4}\left(-\sqrt{3}-i\right)$, and $\frac{1}{4}\left(\sqrt{3}-i\right)$
+		\end{proof}
+\paragraph{Exercise 4} Find the radius of the spherical image of the circle $|z-a|=r$.
+	\begin{proof}[Answer]
+		The spherical image is the intersection of the unit sphere $x_1^2+x_2^2+x_3^2=1$ and $\alpha_1x_1 + \alpha_2x_2 + \alpha_3x_3 = \alpha_0$, where $\alpha_1^2+\alpha_2^2+\alpha_3^2 =1$ and $0 \le \alpha_0 < 1$.
+		The intersection is a circle with center $\left(\frac{\alpha_1}{\alpha_0-\alpha_3},\frac{\alpha_2}{\alpha_0-\alpha_3}\right)$ and radius $\frac{\sqrt{1-\alpha_0^2}}{\alpha_0-\alpha_3}$.
+		Clearly, the radius of the spherical image lies on this plane of intersection which is at $\alpha_0$ distance from origin.\\
+
+		Suppose $a = x+iy$.
+		Let $k = \alpha_0 - \alpha_3$.
+		Then,
+		\[ \alpha_1 = kx,\quad \alpha_2 = ky,\quad \alpha_3 = \sqrt{1-k^2|a|^2} \]
+		And,
+		\[ \alpha_0^2 = (k+\alpha_3)^2 = k^2+\alpha_3^2+2k\alpha_3 = k^2+(1-k^2|a|^2)+2k(\alpha_0-k) \]
+		\begin{equation}
+			\alpha_0^2-2k\alpha_0+k^2+k^2|a|^2-1 = 0 
+			\label{eqn:alpha0a}
+		\end{equation}
+		We have $r^2 = \frac{1-\alpha_0^2}{k^2}$.
+		Thus,
+		\begin{equation}
+			\alpha_0^2 + k^2r^2 - 1 = 0 
+			\label{eqn:alpha0b}
+		\end{equation}
+
+		From equations (\ref{eqn:alpha0a},\ref{eqn:alpha0b}), we have
+		\[ 2k\alpha_0-k^2|a|^2+k^2r^2-k^2 = 0 \]
+		\[ \alpha_0 = \frac{k(1+|a|^2-r^2)}{2} \]
+
+		Thus,
+		\[ \alpha_3^2 = 1-k^2|a|^2 = (\alpha_0-k)^2 = \frac{k^2(1+r^2-|a|^2)^2}{4} \]
+		Therefore,
+		\[ k = \frac{2}{\sqrt{(1+r^2-|a|^2)^2+4|a|^2}} \]
+		\[ \alpha_0 = \frac{1+|a|^2-r^2}{\sqrt{(1+r^2-|a|^2)^2+4|a|^2}} = \frac{\lambda+2}{\sqrt{\lambda^2+4|a|^2}} \]
+		where $\lambda = |a|^2-r^2-1$.
+		Now, we have right triangle with sides $\alpha_0$, $R$ and $1$.
+		Thus, the radius $R$ of the circle of intersection is given by 
+		\[ R = \sqrt{1-\alpha_0^2} = \frac{2\sqrt{|a|^2-\lambda-1}}{\sqrt{\lambda^2+4|a|^2}} = \frac{2r}{\sqrt{(|a|^2-r^2-1)^2+4|a|^2}} \]
+	\end{proof}
+\begin{commentary}
+	Exercise 4 is a bit complicated.
+	For $a = 3+4i$ and $r = 2$, I have substituted the value of $k = 0.04\sqrt{5}$ to find the equation for the plane.
+	I find the value of $|\alpha_0| = 0.44\sqrt{5} = 0.98 < 1$.
+	And $R = 0.18$. \\
+
+	There is an alternate solution for the radius of the spherical image of a circle at \url{https://math.stackexchange.com/q/190270}.
+	Let me know if you have an opinion different from mine.\\
+
+	Let $z = a+r$ and $z' = a-r$.
+	Then $|z-z'| = 2r$.
+	Let $R$ be the radius of the spherical image.
+	We claim that the points $z,z'$ are diametrically opposite on the spherical image.
+	Then,
+	\[ R = \frac{d(z,z')}{2} = \frac{|z-z'|}{\sqrt{(1+|z|^2)(1+|{z'}|^2)}} = \frac{2r}{\sqrt{(1+|a+r|^2)(1+|a-r|^2)}} \]
+
+	\textbf{However, I think that the claim doesn't stand when $a \ne 0$.}
+	That is, the projections of diametrically opposite points of a circle need not be diametrically opposite on the spherical image of it.\\
+
+	Suppose the claim is true.
+	Consider, $z = a+ir$ and $z'=a-ir$ are diamterically opposite points of the circle.
+	Then, by above relation the radius of the spherical image assumes a different value, which is not possible.
+	\end{commentary}
+
+\section{Complex Functions}
+\subsection{Analytic Function}
+\begin{definition}[analytic]
+	A function is analytic if it is differentiable everywhere in its domain.
+\end{definition}
+
+\begin{important}
+	``A real function of complex variable either has derivative zero or else the derivative does not exist.''
+\end{important}
+
+\begin{definition}[Cauchy-Riemann conditions]
+A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
+\begin{equation}
+	\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \qquad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+	\label{eqn:CR}
+\end{equation}
+\end{definition}
+
+\begin{important}
+	If $f$ is analytic then $f$ satisfies the C.R. conditions.
+\end{important}
+
+\begin{definition}[harmonic]
+	A real function $u$ of complex variable $z = x+iy$ is harmonic if
+\begin{equation}
+	\Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0
+	\label{eqn:laplace}
+\end{equation}
+\end{definition}
+
+\begin{definition}[conjugate harmonic]
+	Two real valued functions $u,v$ of complex variable $z = x+iy$ are conjugate harmonic if $f = \kappa u+iv$ is analyic.
+\end{definition}
+\begin{important}
+	If two harmonic functions, $u,v$ satisfy the C.R. conditions, then $u,v$ are conjugate harmonic.
+\end{important}
+
+\subsection{Elementary Theory of Power Series}
+\subsubsection{Sequences}
+\subsubsection{Series}
+\subsubsection{Uniform Convergence}
+\subsubsection{Power Series}
+\subsubsection{Abel's Limit Theorem}
+\section{Analytic Functions as Mappings}
+\setcounter{subsection}{1}
+\subsection{Conformality}
+\subsubsection{Arcs and Closed Curves}
+
 % Ms. Lis Sebastian Notes
-\section{Module 2}
-\subsection{Arcs \& Closed Curves}
+\begin{definition}[arc]
 	An arc $\gamma$ in a complex plane is defined as the set of points given by $\gamma = \{ z : z = z(t), a \le t \le b \}$ and $z(t)$ is a continuous function of the real variable $t$.
+\end{definition}
 	Thus, every arc in the complex plane is the continuous image of closed interval and $z \in \gamma$ means $z = z(t) = x(t) + iy(t)$.
-	That is, points on $\gamma$ are images of a complex function of a real variable.
+	That is, points on $\gamma$ are images of a complex function of a real variable.\\
+
+	This representation of an arc $z = z(t)$ is called a parameteric representation and $t$ is called the parameter and $[a,b]$ is called the parametric interval.
+	The point $z = z(a)$ is called origin or initial point of $\gamma$ and $z = z(b)$ is called the terminus or terminal point of $\gamma$.
+	If $z(a) = z(b)$, then $\gamma$ is called a closed curve, otherwise it is open.\\
+
+	If in $\gamma$, $z(t_1) = z(t_2) = z$ for $t_1 \ne t_2$, then $z$ is called a multiple point on $\gamma$.
+	Geometrically, a multiple point $z$ in $\gamma$ is a point where $\gamma$ crosses itself.
+
+	An arc having no multiple points is called a simple arc or Jordan arc.
+
+%	Consider the mapping, $w = f(z)$, then the arc $\gamma$ in the $z$-plane corresponds to an arc $\Gamma$ in the $w$-plane where --tikz--  That is, $\gamma$ in the $z$-plane and $\Gamma$ in the $w$-plane are different parameteric representations of the same parametric interval $[a,b]$.\\
+
+%	Let $\gamma$ be defined by $z = e^{it}$ where $0 \le t \le \frac{\pi}{2}$.
+%	Then, --tikz--  Now, consider the mapping $w = f(z) = z^4$ and $\gamma$ be mapped onto $\Gamma$.
+%	$z \in \gamma$ iff $w \in \Gamma$.
+%	That is, $z = e^{it} \implies w = (e^{it})^4 = e^{i4t}$ and $t : 0 \to 2\pi$.\\
+
+%	Again if we consider points on $\gamma$.
+%	That is, $z = z(t) = x(t) + iy(t)$.
+%	$z'(t) = x'(t) + iy'(t)$ If this exist and is not equal to zero, then $\gamma$ has a tangent and its direction is given by the $\arg z'(t)$.
+%	If $z'(t) = 0$, then tangent does not exist at that point because $\arg 0$ is not defined.
+
+\begin{description}
+	\item[differentiable] $z'(t)$ exist and is continuous at all points.
+	\item[regular] differentiable and $z'(t) \ne 0$ at points on $\gamma$.
+	\item[piecewise differentiable] differentiable except for finitely many points
+	\item[piecewise regular] regular except for finitely many points.
+	\item[opposite arc] set of points $z = z(-t),\ -b \le t \le -a$.
+\end{description}
+\subsubsection{Analytic Functions in Regions}
+\subsubsection{Conformal Mapping}
+\subsubsection{Length and Area}
+\subsection{Linear Transformations}
+\subsubsection{The Linear Group}
+\subsubsection{The Cross Ratio}
+\subsubsection{Symmetry}
+\subsubsection{Oriented Circles}
+\subsubsection{Family of Circles}
+
 
 %\begin{wraptable}{r}{3cm}
 %\begin{tabular}{|c|c|} \hline
@@ -54,71 +528,12 @@
 
 %	For example, $x^2 = y$, then $z = t + it^2$. \\
 
-	This representation of an arc $z = z(t)$ is called a parameteric representation and $t$ is called the parameter and $[a,b]$ is called the parametric interval.
-	The point $z = z(a)$ is called origin or initial point of $\gamma$ and $z = z(b)$ is called the terminus or terminal point of $\gamma$.
-	If $z(a) = z(b)$, then $\gamma$ is called a closed curve, otherwise it is open.\\
 
-
-	If in $\gamma$, $z(t_1) = z(t_2) = z$ for $t_1 \ne t_2$, then $z$ is called a multiple point on $\gamma$.
-	Geometrically, a multiple point $z$ in $\gamma$ is a point where $\gamma$ crosses itself.
-
-	An arc having no multiple points is called a simple arc or Jordan arc.
-
-%	Consider the mapping, $w = f(z)$, then the arc $\gamma$ in the $z$-plane corresponds to an arc $\Gamma$ in the $w$-plane where --tikz--  That is, $\gamma$ in the $z$-plane and $\Gamma$ in the $w$-plane are different parameteric representations of the same parametric interval $[a,b]$.
-
-\subsection{Differentiable Arc}
-%	Let $\gamma$ be defined by $z = e^{it}$ where $0 \le t \le \frac{\pi}{2}$.
-%	Then, --tikz--  Now, consider the mapping $w = f(z) = z^4$ and $\gamma$ be mapped onto $\Gamma$.
-%	$z \in \gamma$ iff $w \in \Gamma$.
-%	That is, $z = e^{it} \implies w = (e^{it})^4 = e^{i4t}$ and $t : 0 \to 2\pi$.
-
-%	Again if we consider points on $\gamma$.
-%	That is, $z = z(t) = x(t) + iy(t)$.
-%	$z'(t) = x'(t) + iy'(t)$ If this exist and is not equal to zero, then $\gamma$ has a tangent and its direction is given by the $\arg z'(t)$.
-%	If $z'(t) = 0$, then tangent does not exist at that point because $\arg 0$ is not defined.
-
-\begin{description}
-	\item[differentiable] $z'(t)$ exist and is continuous at all points.
-	\item[regular] differentiable and $z'(t) \ne 0$ at points on $\gamma$.
-	\item[piecewise differentiable] differentiable except for finitely many points
-	\item[piecewise regular] regular except for finitely many points.
-	\item[opposite arc] set of points $z = z(-t),\ -b \le t \le -a$.
-\end{description}
-
-%	Circle with center at the origin and radius $r$ is represented by the equation $|z| = r$ and points on the circle are written by $z = re^{i\theta},\ 0 \le \theta \le 2\pi$.
-%	Also circle with center at $a$ and radius $r$ is given by the equation $|z - a| = r$ and points on the circle are written by $a + re^{i\theta},\ 0 \le \theta \le 2\pi$.
-
-\subsection{Complex Integration}
-%	Integrals are of two types indefinite integral and definite integral.
-
-%\paragraph{Indefinite Integral}
-%	Consider $f(z)$ a complex function of a complex variable.
-%	Indefinite integral denoted by $\int f(z)\ dz$ is another function $F(z)$ such that $F'(z) = f(z)$.
-%	That is, $F(z) = \int f(z)\ dz \iff F'(z) = f(z)$.
-%	$F(z)$ is also called antiderivative.
-
-%	For example, $\int e^z\ dz = e^z + c$, $\int dz = z = c$ and $\int z^2\ dz = \frac{z^3}{3} + c$.
-
-%\paragraph{Definite Integrals}
-%	are of the form $\int_\gamma f(z)\ dz$ where $\gamma$ is an arc in the cmplex plane and $f(z)$ in defined and continuous on $\gamma$.
-%	Its value is a complex number and it may or may not depend on $\gamma$.
-\begin{enumerate}
-	\item If $f(z)$ has an antiderivative $F(z)$, then $\int_\gamma f(z)\ dz$ depends only on the end points and is independent of the path $\gamma$.
-	\item If $f(z)$ has an antiderivative, then $\int_\gamma f(z)\ dz = 0$ for all closed curves $\gamma$.
-	\item If $f(z)$ has no antiderivatives, $\int_\gamma f(z)\ dz$ depends on the path $\gamma$.
-\end{enumerate}
-
-	For different choices of $\gamma$, the integral may have different values even though the end points are the same.
-
-\subsection{Exercise}
-Evaluate $\int_c f(z)\ dz$ where $f(z) = y-x-i3x^2$ and contour is
-\begin{itemize*}
-	\item[$c_1$:]the line segment $0$ and $i+1$
-	\item[$c_2$:] the polygon joining $(0,0),\ (0,1),\ (1,1)$ 
-\end{itemize*}
-In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $c_1$ and $c_2$ have the same end points.
-
-\subsection{Evaluating Line Integral : Method 1}
+{\Large Module 2 }
+\section{Complex Integration}
+\subsection{Fundamental Theorems}
+\subsubsection{Line Integrals}
+\paragraph{Evaluating Line Integral : Method 1}
 	Integrals of the form $\int_a^b f(t)\ dt$ where $f(t)$ is a complex valued function of a real variable $t$.
 	Then, we can write $f(t) = u(t)+iv(t)$.
 
@@ -131,7 +546,7 @@ In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $
 
 \[ \int_0^{\frac{\pi}{2}} f(t)\ dt = \int_0^{\frac{\pi}{2}} \cos t\ dt + i \int_0^{\frac{\pi}{2}} \sin t\ dt = 1 + i \]
 
-\subsection{Evaluating Line Integral : Method 2}
+\paragraph{Evaluating Line Integral : Method 2}
 	Let $\gamma$ be a piecewise differentiable arc in the complex plane defined by the equation $z = z(t),\ a \le t \le b$ and $f(z)$ be defined and continuous in $\gamma$.
 	Then the line integral $\int_\gamma f(z)\ dz$ is defined by
 
@@ -147,7 +562,8 @@ In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $
 	That is, real valued functions of two real variables $x$ and $y$.
 \end{commentary}
 	Therefore, the study of line integral $\int_\gamma f(z)\ dz$ can be restricted to the study of line integrals of the form $\int_\gamma pdx+qdy$ and line integrals can be defined as $\int_\gamma pdx+qdy$ where $\gamma$ is a piecewise differentiable arc.
-\subsubsection{Properties}
+
+\paragraph{Properties}
 \begin{enumerate}
 	\item Scalar multiplication,
 		\[ \int_\gamma cf(z)\ dz = c\int_\gamma f(z)\ dz \]
@@ -161,7 +577,7 @@ In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $
 		\[ \int_\gamma f(z)\ dz = \int_{\gamma_1} f(z)\ dz + \int_{\gamma_2} f(z)\ dz+ \cdots + \int_{\gamma_n} f(z)\ dz \]
 \end{enumerate}
 
-\subsection{Line Integral : Type 3}
+\paragraph{Line Integral : Type 3}
 	Line integrals with respect to $\bar{z}$ are denoted by
 \[ \int_\gamma f(z)\ d\bar{z} = \overline{ \int_\gamma \bar{f}\ dz} \]
 
@@ -173,14 +589,68 @@ $x = \frac{z+\bar{z}}{2}$ and $y = \frac{z-\bar{z}}{2i}$.
 \[ \int_\gamma f(z)\ dx-idy = \int_\gamma f(z)\ d\bar{z} \] --more--
 \end{proof}
 
-\subsection{Line Integral : Type 4}
+\paragraph{Line Integral : Type 4}
  Line integrals with respect to arc length, $s$ is denoted by 
  \[ \int_\gamma f(z)\ ds  = \int_\gamma f(z)\ |dz| \text{ where } ds = \sqrt{1+\left(\frac{dy}{dx}\right)^2}\ dx \]
  
  	When $f = 1$, it gives the length of the arc.
-
-\subsection{Rectifiable Arc}
+\subsubsection{Rectifiable Arcs}
 	Length of an arc $\gamma$ is defined as $L(\gamma) = \int |dz|$.
 	If $L(\gamma) < \infty$, then $\gamma$ is a rectifiable arc and the process of determining the length of an arc is called rectification.
 
+\subsubsection{Line Integrals as Functions of Arcs}
+\subsubsection{Cauchy's Theorem for a Rectangle}
+\subsubsection{Cauchy's Theorem in a Disk}
+\subsection{Cauchy's Integral Formula}
+\subsubsection{The Index of a Point wrt a Closed Curve}
+\subsubsection{The Integral Formula}
+{\Large Module 3 }
+\subsubsection{Higher Derivatives}
+\subsection{Local Properties of Analytical Functions}
+\subsubsection{Removable Singularities, Taylor's Theorem}
+\subsubsection{Zeros and Poles}
+\subsubsection{The Local Mapping}
+\subsubsection{The Maximum Principle}
+{\Large Module 4 }
+\subsection{The General Form of Cauchy's Theorem}
+\subsubsection{Chains and Cycles}
+\subsubsection{Simple Connectivity}
+\subsubsection{Homology}
+\subsubsection{The General Statement of Cauchy's Theorem}
+\subsubsection{Proof of Cauchy's Theorem}
+\subsubsection{Locally Exact Differentials}
+\subsubsection{Multiply Connected Regions}
+\subsection{The Calculus of Residues}
+\subsubsection{The Residue Theorem}
+\subsubsection{The Argument Principle}
+\subsubsection{Evaluation of Definite Integrals}
+
+
+%\paragraph{Indefinite Integral}
+%	Consider $f(z)$ a complex function of a complex variable.
+%	Indefinite integral denoted by $\int f(z)\ dz$ is another function $F(z)$ such that $F'(z) = f(z)$.
+%	That is, $F(z) = \int f(z)\ dz \iff F'(z) = f(z)$.
+%	$F(z)$ is also called antiderivative.
+
+%	For example, $\int e^z\ dz = e^z + c$, $\int dz = z = c$ and $\int z^2\ dz = \frac{z^3}{3} + c$.
+
+%\paragraph{Definite Integrals}
+%	are of the form $\int_\gamma f(z)\ dz$ where $\gamma$ is an arc in the cmplex plane and $f(z)$ in defined and continuous on $\gamma$.
+%	Its value is a complex number and it may or may not depend on $\gamma$.
+
+\begin{enumerate}
+	\item If $f(z)$ has an antiderivative $F(z)$, then $\int_\gamma f(z)\ dz$ depends only on the end points and is independent of the path $\gamma$.
+	\item If $f(z)$ has an antiderivative, then $\int_\gamma f(z)\ dz = 0$ for all closed curves $\gamma$.
+	\item If $f(z)$ has no antiderivatives, $\int_\gamma f(z)\ dz$ depends on the path $\gamma$.
+\end{enumerate}
+
+	For different choices of $\gamma$, the integral may have different values even though the end points are the same.
+
+\subsection{Exercise}
+Evaluate $\int_c f(z)\ dz$ where $f(z) = y-x-i3x^2$ and contour is
+\begin{itemize*}
+	\item[$c_1$:]the line segment $0$ and $i+1$
+	\item[$c_2$:] the polygon joining $(0,0),\ (0,1),\ (1,1)$ 
+\end{itemize*}
+In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $c_1$ and $c_2$ have the same end points.
 
