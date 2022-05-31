@@ -19,19 +19,135 @@
 \section{Normed and Banach Spaces}
 \setcounter{subsection}{5}
 \subsection{Reflexive Spaces}
-\begin{definition}[reflexive]
-	A vector space $X$ is algebraically reflexive if the canoical mapping $C : X \to X^{\ast\ast}$ defined by $C(x) = g_x \in X^{\ast\ast}$ is surjective where $X^\ast, X^{\ast\ast}$ are the first and second algebraic dual spaces of $X$ and $\forall f \in X^\ast,\ g_x(f) = f(x)$.\\
+\begin{commentary}
+\begin{description}
+	\item[Algebraically Reflexive]
+		A vector space $X$ is algebraically reflexive if the canoical mapping $C : X \to X^{\ast\ast}$ defined by $C(x) = g_x \in X^{\ast\ast}$ is surjective where $X^\ast, X^{\ast\ast}$ are the first and second algebraic dual spaces of $X$ and $\forall f \in X^\ast,\ g_x(f) = f(x)$.\cite[\S2.8]{Kreyszig}\\
 
-	A normed space $X$ is reflexive if the canonical mapping $C : X \to X^{\prime\prime}$ defined by $C(x) = g_x \in X^{\prime\prime}$ is surjective where $X^\prime, X^{\prime\prime}$ are the first and second dual spaces of $X$ and $\forall f \in X^\prime,\ g_x(f) = f(x)$.
+	\item Finite dimensional vector spaces are algebraically reflexive.\cite[\S2.9.3]{Kreyszig}
+\end{description}
+\end{commentary}
+
+\begin{commentary}
+\paragraph{Summary}
+\begin{enumerate}
+	\item Reflexive $\implies$ Completeness
+	\item Completeness $\nimplies$ Reflexive
+	\item Finite Dimensional $\implies$ Reflexive
+	\item Hilbert Space $\implies$ Reflexive
+	\item Separable space with non-separable dual space is non-reflexive
+	\item $X^\prime$ separable $\implies X$ separable
+\end{enumerate}
+\end{commentary}
+
+\begin{lemma}
+	For every fixed $x \in X$, the funcitonal $g_x : X^\prime \to X$ defined by $g_x(f) = f(x)$ is a bounded linear functional on $X'$ so that $g_x \in X^{\prime\prime}$, and has the norm
+	\[ \|g_x\| = \|x\| \]
+\end{lemma}
+\begin{proof}
+	From Hahn-Banach theorem for normed spaces, we know that for any $x \in X$
+	\begin{equation}
+		\|x\|  = \sup_{\substack{f \in X'\\ f \ne 0}} \frac{|f(x)|}{\|f\|}  =  \sup_{\substack{f \in X' \\ f \ne 0}} \frac{|g_x(f)|}{\|f\|} = \|g_x\| 
+	\end{equation}
+	Clearly, $g_x$ is bounded, $g_x \in X^{\prime\prime}$ and $\|g_x\| = \|x\|$.
+\end{proof}
+
+\begin{lemma}
+	The Canonical mapping $C : X \to X^{\prime\prime}$ given by $C(x) = g_x$ such that $\forall f \in X^\prime,\ g_x(f) = f(x)$ is an isomorphism of $X$ onto $\mathscr{R}(C)$.
+\end{lemma}
+\begin{proof}
+	\textbf{Step 1 : $C$ is linear}
+	\begin{equation}
+	g_{\alpha x + \beta y} = f(\alpha x + \beta y) = \alpha f(x) + \beta f(y) = \alpha g_x(f) + \beta g_y(f)
+	\end{equation}
+	\indent Therefore, $C$ is linear.\\
+
+	\textbf{Step 2 : $C$ is injective}\\
+	\indent We have, $C$ is linear.
+	Thus, $g_{x-y} = g_x - g_y$.
+	Then,
+	\begin{equation}	
+		\| C(x) - C(y) \| = \| g_x - g_y \| = \|g_{x-y}\| = \|x-y\|
+	\end{equation}
+	\indent Thus, $C$ is an isometry.
+	Therefore, $C$ is injective.\\
+
+	Therefore, $C$ is an isomorphism from $X$ onto $\mathscr{R}(C)$.
+\end{proof}
+
+\begin{definition}[Reflexive]
+	A normed space $X$ is reflexive if the canonical mapping $C : X \to X^{\prime\prime}$ defined by $C(x) = g_x$ such that $\forall f \in X^\prime,\ g_x(f) = f(x)$ is surjective where $X^\prime, X^{\prime\prime}$ are the first and second dual spaces of $X$.
 \end{definition}
+
+Example, $\mathbb{R}^n$ is reflexive since ${\mathbb{R}^n}^{\prime\prime} = {\mathbb{R}^n}^\prime = \mathbb{R}^n$.
+
+\begin{theorem}
+	Reflexive $\implies$ Completeness
+\end{theorem}
+\begin{proof}
+	Let $X$ be a reflexive normed space.
+	Then $C : X \to X^{\prime\prime}$ is surjective and $X \simeq X^{\prime\prime}$.
+	We know that, $X^{\prime\prime}$ is a dual space of $X^\prime$.
+	Thus, $X^{\prime\prime}$ is complete since $B(X^\prime,K)$ is a Banach space.
+	Therefore, $X$ is complete.
+\end{proof}
+
+\begin{theorem}
+	Finite dimensional $\implies$ reflexive
+\end{theorem}
+\begin{proof}
+	Let $X$ be a finite dimensional normed space.
+	Then every linear operator $T : X \to K$ is bounded.
+	Thus, $X^\prime = X^\ast$ and $dim\ X = dim\ X^\ast$.
+	Thus, $X^{\prime\prime} = X^{\ast\ast}$.
+	We know that, finite dimensional normed spaces are algebraically reflexive.
+	Thus, $\mathscr{R}(C) = X^{\ast\ast} = X^{\prime\prime}$.
+	Therefore, $X$ is reflexive.
+\end{proof}
+\subsection{Category Theory}
+\subsection{Strong and Weak Convergence}
+\subsection{Convergence of Sequences of Operators and Functionals}
+%\subsection{Application to Summability of Sequences}
+%\subsection{Numerical Integration and Weak\ast Convergence}
+\setcounter{subsection}{11}
+\subsection{Open Mapping Theorem}
+\subsection{Closed Linear Operators}
+\pagebreak
 
 %Module 2 - \cite{kreyszig} 5.1, 7.1,2,3,4,5
 {\Large Module 2}
 \section{Linear Operators}
+\subsection{Bananch Fixed Point Theorem}
+%\subsection{Application of Bananch Theorem to Linear Equations}
+\setcounter{section}{6}
+\section{Spectral Theory of Linear Operators in Normed Spaces}
+\subsection{Spectral Theory in Finite Dimensional Normed Spaces}
+\subsection{Basic Concepts}
+\subsection{Spectral Properties of Bounded Linear Operators}
+\subsection{Further Properties of Resolvant and Spectrum}
+\subsection{Use of Complex Analysis in Spectral Theory}
+\pagebreak
+
 %Module 3 - \cite{kreyszig} 7.6,7, 8.1,2,3,4
 {\Large Module 3}
+\subsection{Banach Algebra}
+\subsection{Further Properties of Banach Algebra}
+
 \section{Compact Linear Operators}
+\subsection{Compact Linear Operators on Normed Spaces}
+\subsection{Further Properties of Compact Linear Operators}
+\subsection{Spectral Properties of Compact Linear Operators on Normed Spaces}
+\subsection{Further Spectral Properties of Compact Linear Operators}
+\pagebreak
+
 %Module 4 - \cite{kreyszig} 9.1,2,3,5,6
 {\Large Module 4}
 \section{Bounded, Self-Adjoint Linear Operators}
-%Missing - 6, 10?
+\subsection{Spectral Properties of Bounded Self-Adjoint Linear Operators}
+\subsection{Further Spectral Properties of Bounded Self-Adjoint Linear Operators}
+\subsection{Positive Operators}
+%\subsection{Square Roots of a Positive Operator}
+\setcounter{subsection}{4}
+\subsection{Projection Operators}
+\subsection{Further Properties of Projections}
+%Missing - Chapter 6, 10
