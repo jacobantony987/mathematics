@@ -17,8 +17,6 @@
 \setcounter{section}{3}
 {\Large Module 1}
 \section{Normed and Banach Spaces}
-\setcounter{subsection}{5}
-\subsection{Reflexive Spaces}
 \begin{commentary}
 \begin{description}
 	\item[Algebraically Reflexive]
@@ -28,15 +26,15 @@
 \end{description}
 \end{commentary}
 
+\setcounter{subsection}{5}
+\subsection{Reflexive Spaces}
 \begin{commentary}
-\paragraph{Summary}
+\paragraph{\S4.6 Summary}
 \begin{enumerate}
-	\item Reflexive $\implies$ Completeness
-	\item Completeness $\nimplies$ Reflexive
-	\item Finite Dimensional $\implies$ Reflexive
-	\item Hilbert Space $\implies$ Reflexive
+	\item reflexive $\implies$ completeness, However completeness $\nimplies$ reflexive
+	\item finite dimensional $\implies$ reflexive
+	\item Hilbert spaces are reflexive
 	\item Separable space with non-separable dual space is non-reflexive
-	\item $X^\prime$ separable $\implies X$ separable
 \end{enumerate}
 \end{commentary}
 
@@ -70,8 +68,9 @@
 		\| C(x) - C(y) \| = \| g_x - g_y \| = \|g_{x-y}\| = \|x-y\|
 	\end{equation}
 	\indent Thus, $C$ is an isometry.
-	Therefore, $C$ is injective.\\
-
+	If $C(x) = C(y)$, then $\|C(x) - C(y)\| = 0$.
+	Thus, $\|x-y\| = 0$ implies $x = y$.
+	Therefore, $C$ is injective.
 	Therefore, $C$ is an isomorphism from $X$ onto $\mathscr{R}(C)$.
 \end{proof}
 
@@ -104,6 +103,141 @@ Example, $\mathbb{R}^n$ is reflexive since ${\mathbb{R}^n}^{\prime\prime} = {\ma
 	Thus, $\mathscr{R}(C) = X^{\ast\ast} = X^{\prime\prime}$.
 	Therefore, $X$ is reflexive.
 \end{proof}
+
+\begin{theorem}
+	Every Hilbert space is reflexive.
+\end{theorem}
+\begin{proof}
+	Let $H$ be a Hilbert space.
+	Define $A : H^\prime \to H$, $A(f) = z$ such that $f(x) = \inner{x}{z}$.
+	By Riesz representation theorem, $A$ is well-defined, bijective and conjugate linear.
+	That is, $A(\alpha f) = \conj{\alpha}Af$.\\
+
+	\textbf{Claim} : $H^\prime$ is a Hilbert space with inner product,
+	\begin{equation}
+		\inner{f_1}{f_2} = \inner{Af_2}{Af_1} = \inner{z_2}{z_1} 
+	\end{equation}
+	\begin{enumerate}[label=IP\arabic*]
+		\item \begin{align*}
+			\inner{f_1+f_2}{f_3} & = \inner{Af_3}{A(f_1+f_2)} = \inner{Af_3}{Af_1+Af_2} \\
+			& = \inner{Af_3}{Af_1} + \inner{Af_3}{Af_2} = \inner{f_1}{f_3}+\inner{f_2}{f_3}
+		\end{align*}
+		\item $\inner{\alpha f_1}{f_2} = \inner{Af_2}{A(\alpha f_1)} = \inner{Af_2}{\conj{\alpha}Af_1} = \alpha \inner{Af_2}{Af_1}$
+		\item $\inner{f_1}{f_2} = \inner{Af_2}{Af_1} = \conj{\inner{Af_1}{Af_2}} = \conj{\inner{f_2}{f_1}}$
+		\item $\inner{f_1}{f_1} = \inner{Af_1}{Af_1}  \ge 0$ and \\
+		$\inner{f_1}{f_1} = 0 \iff \inner{Af_1}{Af_1} = 0 \iff Af_1 = 0 \iff f_1 = 0$\\
+	\end{enumerate}
+
+	Similarly, let $g \in H^{\prime\prime}$ and $g(f) = \inner{f}{f_0}$ be its Riesz representation.
+	Then,
+	\[ g(f) = \inner{f}{f_0} = \inner{Af_0}{Af} \] 
+	We have, $f(x) = \inner{x}{z}$.
+	Let $Af_0 = x$.
+	Then,
+	\[ f(x) = \inner{x}{z} = \inner{Af_0}{Af} \]
+	Thus, there exists $x \in H$ such that $g(f) = f(x)$.
+	Therefore, $C : H \to H^{\prime\prime}$ is surjective.
+	Thus, $\mathscr{R}(C) = H^{\prime\prime}$ and $H$ is reflexive.
+\end{proof}
+
+\begin{lemma}
+	Let $Y$ be a proper, closed subspace of a normed space $X$.\\
+	Let $x_0 \in X-Y$ and $\displaystyle \delta = \inf_{y \in Y} \| y-x_0\|$.
+	Then, there exists $f \in X^\prime$ such that 
+	\begin{equation}
+		\|f\| = 1,\qquad f(y) = 0,\ \forall y \in Y,\qquad f(x_0) = \delta
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Let $Y$ be a proper, closed subspace of $X$.
+	Let $x_0 \in X-Y$ and $\displaystyle \delta = d(x_0,Y) = \inf_{y \in Y} \|x_0-y\|$.
+	Consider the subspace $Z$ spanned by $Y$ and $x_0$.
+	Then, every element $z \in Z$ is of the form $z = y+\alpha x_0$ where $\alpha \in K$.\\
+
+	Consider $f : Z \to K$ be defined by $f(y+\alpha x_0) = \alpha \delta$.
+	Clearly, we have $f(y) = f(y+0x_0) = 0,\ \forall y \in Y$ and $f(x_0) = f(0+1x_0) = \delta$.\\
+
+	\textbf{Step 1} : $f$ is linear.\\
+	Let $z_1 = y_1 + \alpha_1 x_0$ and $z_2 = y_2 + \alpha_2 x_0$.
+	Then, $f(z_1) = \alpha_1 \delta$ and $f(z_2) = \alpha_2 \delta$.
+	\begin{align*}
+	f(\beta_1 z_1 + \beta_2 z_2) 
+		& = f(\beta_1 y+\beta_1 \alpha_1 x_0 + \beta_2 y + \beta_2 \alpha_2 x_0) \\
+		& = f((\beta_1 + \beta_2)y + (\beta_1\alpha_1 + \beta_2\alpha_2)x_0) \\
+		& = (\beta_1 \alpha_1 + \beta_2 \alpha_2 ) \delta
+		 = \beta_1 \alpha_1 \delta + \beta_2 \alpha_2 \delta 
+		 = \beta_1 f(z_1) + \beta_2 f(z_2)
+	\end{align*}
+	Thus, $f$ is linear.\\
+
+	\textbf{Step 2} : $f$ is bounded.\\
+	Suppose $z = y+\alpha x_0$.
+	\[ |f(z)| 	
+		 = |\alpha| \delta 
+		 = |\alpha| \inf_{y' \in Y} \|y'-x_0\|  \]
+	By the definition of infimum, we have
+	$ \displaystyle \inf_{y^\prime \in Y} \|y^\prime-x_0\| \le \|y-x_0\|,\ \forall y \in Y$.
+	Consider $-y/\alpha \in Y$. 
+	\[ |f(z)| 	
+		 \le |\alpha| \left\|\frac{-y}{\alpha}-x_0 \right\| 
+		 \le \|-y - \alpha x_0\| 
+		 \le \|z\| \]
+	Thus, $f$ is a bounded and $\|f\| \le 1$.\\
+
+	By the definition of infimum, there exists a sequence $\sequence{y_n}$ such that \\
+	$z_n = y_n - x_0$ and $\|z_n\| = \|y_n - x_0\| \to \delta$ as $n \to \infty$.
+	Clearly, $f(z_n) \to -\delta$ as $n \to \infty$.
+	Then,
+	\[ \|f\| = \sup_{z \in Z} \frac{f(z)}{\|z\|} \ge \frac{f(z_n)}{\|z_n\|} \]
+	Thus, $\|f\| \ge 1$ as $n \to \infty$.
+	Therefore, we have $\|f\| = 1$.	
+	By Hahn-Banach theorem, we can extended $f$ to $X$ without increasing the norm.
+\end{proof}
+
+\begin{theorem}
+	If $X^\prime$ is separable, then $X$ is separable.
+\end{theorem}
+\begin{proof}
+	Suppose $X^\prime$ is separable.
+	Consider the countable dense subset of the unit sphere, $\sequence{f_n}$.
+	Clearly, $\displaystyle \|f_n\| = \sup_{\|x\|=1}|f_n(x)| = 1$.
+	By the definition of supremum, there exists a sequence $\sequence{x_n}$ in $X$ such that $\|x_n\| = 1$ and $\|f_n(x_n)\| \ge \frac{1}{2}$.\\
+
+	Suppose $X$ is not separable.
+	Let $Y$ be the span of $\sequence{x_n}$.
+	Then $Y$ is a separable subspace of the non-separable space $X$.
+	Since $Y$ is closed, there exists bounded, linear functional $f \in X'$ such that $\|f\| = 1$, $f(y) = 0,\forall y \in Y$ and $f(x_n) = 0,\forall n$.
+	\begin{align*}
+	\frac{1}{2}
+		& \le \|f_n(x_n)\| 
+		 \le \|f_n(x_n) - f(x_n)\| \\
+		& \le \|(f_n-f)(x_n)\| 
+		 \le \|f_n-f\|\ \|x_n\| 
+		 \le \|f_n-f\|
+	\end{align*}
+	Then, $\sequence{f_n}$ is not dense in unit sphere of $X'$ which is a contradiction.
+	Therefore, $X$ is separable.
+\end{proof}
+
+\begin{remark}
+	Let $X$ be separable space with a non-separable dual space $X^\prime$.
+	Then $X$ is non-reflexive.
+\end{remark}
+\begin{proof}
+	Let $X$ be a separable space with non-separable dual space $X^\prime$.
+	Suppose $X$ is reflexive.
+	Then $X \simeq X^{\prime\prime}$ and $X^{\prime\prime}$ is separable.
+	However, $X^\prime$ is separable since $X^{\prime\prime}$ is separable, which is a contradiction.
+	Therefore, $X$ is not reflexive.
+\end{proof}
+\begin{important}
+	$l^1$ is non-reflexive.
+\end{important}
+\begin{proof}
+	$l^1$ is separable and ${l^1}^\prime = l^\infty$ is non-separable.
+	Thus, $l^1$ is non-reflexive.
+\end{proof}
+
 \subsection{Category Theory}
 \subsection{Strong and Weak Convergence}
 \subsection{Convergence of Sequences of Operators and Functionals}
