@@ -81,12 +81,53 @@ And,
 \begin{equation}
 	|z-a| = r
 \end{equation}
+\[ (z-a)(\conj z - \conj a) = r^2 \]
 Also, $|z-a| < r$ and $|z-a| > r$ are inside and outside of the cirle.
 \paragraph{Straight Line} through $a,b$.
 \begin{equation}
 	z = a+bt
 \end{equation}
-Also, $\frac{\Im{(z-a)}}{b} < 0$ and $\frac{\Im{(z-a)}}{b} > 0$ are left and right half plane of the directed line from $a$ to $b$.
+Direction of the line is given by $arg(b)$.
+\[ L1 : z = a+bt,\qquad L2 : z = a'+b't \]
+Angle between $L1,L2$ is given by $arg (b/b')$.
+$L1, L2$ are the same line if $a'-a,b'$ are (real) multiples of $b$.
+$L1,L2$ are orthogonal if $b/b'$ is purely imaginary.\\
+
+Also, $\Im\frac{(z-a)}{b} < 0$ and $\Im\frac{(z-a)}{b} > 0$ are left and right half plane of the directed line from $a$ to $b$.
+
+\paragraph{Exercise}
+\begin{enumerate}
+	\item When does $az+b\conj z+c = 0$ represent a line ?
+		\begin{proof}[Answer]
+			Let $z = x+iy$.
+			\[ a(x+iy) + b(x-iy) + c = 0 \iff (a+b)x+(a-b)iy + c = 0 \]
+			\[ y = \frac{c}{(b-a)i}+\frac{(a+b)}{(b-a)i}x \]
+			Thus, $az+b\conj z+c = 0$ is a straight line if $a+b,c$ are (real) multiples of $(a-b)i$.
+		\end{proof}
+	\item Write the equation of an ellipse, hyperbola, parabola in complex form.
+		\begin{proof}[Answer]
+		Ellipse : $|z-a|+|z-b|=k$ \\
+		Parabola : $||z-a|-|z-b|| = k$ \\
+		Hyperbola : $ $
+		\end{proof}
+	\item Prove that
+		\begin{enumerate}
+			\item the diagonals of a parallelogram bisect each other.
+			\begin{proof}[Answer]
+			\end{proof}
+
+			\item the diagonals of a rhombus are orthogonal.
+			\begin{proof}[Answer]
+			\end{proof}
+		\end{enumerate}
+	\item Prove analytically that the midpoints of parallel chords to a circle lie on a diameter perpendicular to the chords.
+	\begin{proof}[Answer]
+	\end{proof}
+
+	\item Show that all circles circles that pass through $a$ and $1/\conj a$ intersect the circle $|z|=1$ at right angles.
+	\begin{proof}[Answer]
+	\end{proof}
+\end{enumerate}
 \subsubsection{The Spherical Representation}
 \begin{definition}[extended complex plane]
 	Let $\mathbb{C}$ be the set of all complex numbers o f the form $z = x+iy$ where $x,y$ are real numbers.
@@ -127,12 +168,8 @@ Consider the map given by (eqn.\ref{eqn:projection}).
 Then,
 	\[ |z|^2  = \frac{x_1^2+x_2^2}{(1-x_3)^2} = \frac{1-x_3^2}{(1-x_3)^2} = \frac{1+x_3}{1-x_3}\quad (\because equ. \ref{eqn:sphere}) \]
 
-\begin{align*}
-	 (1-x_3)|z|^2 & = |z|^2 - x_3|z|^2 = 1+x_3 \\
-	 |z|^2 - 1 & = x_3 + x_3|z|^2 = x_3 (1+|z|^2) \\
-	 x_3 & = \frac{|z|^2-1}{|z|^2+1}\\
-	 1-x_3 & = \frac{|z|^2+1 - |z|^2+1}{|z|^2+1} = \frac{2}{|z|^2+1} 
-\end{align*}
+	\[ \frac{|z|^2-1}{|z|^2+1} = \frac{(1+x_3)-(1-x_3)}{(1+x_3)+(1-x_3)} = x_3  \]
+	\[ 1-x_3 = \frac{(|z|^2+1) - (|z|^2-1)}{|z|^2+1} = \frac{2}{|z|^2+1} \]
 Therefore,
 \begin{align}
 	 x_1 & = \frac{(z+\conj{z})(1-x_3)}{2} = \frac{z+\conj{z}}{|z|^2+1}\quad (\because z + \conj{z} = \frac{2x_1}{1-x_3}) \\
@@ -297,7 +334,8 @@ Therefore,
 \end{equation}
 
 \paragraph{Exercises}
-\paragraph{Exercise 1}$z,z'$ are diametricall opposite points on the Riemann Sphere if and only if $z\conj{z'} = -1$.
+\begin{enumerate}
+	\item $z,z'$ are diametricall opposite points on the Riemann Sphere if and only if $z\conj{z'} = -1$.
 	\begin{proof}
 		Suppose $z\conj{z'} = -1$.
 		Then $z' = \frac{-z}{|z|^2}$.
@@ -321,7 +359,8 @@ Therefore,
 		Then either $z\conj{z'}+1 = 0$ or $\conj{z}z'+1=0$.
 		In either case, we have $z\conj{z'} = -1$ since $z\conj{z'} = \conj{z}z'$ when there are purely real.
 	\end{proof}
-\paragraph{Exercise 2} Find vertices of the cube inscribed in the Reimann sphere with edges parallel to the coordinate axes.
+
+	\item Find vertices of the cube inscribed in the Reimann sphere with edges parallel to the coordinate axes.
 	\begin{proof}[Answer]
 		Let $a$ be the length of the sides of the cube inscribed in the Riemann sphere.
 		Then the main diagonal is of length $a\sqrt{3} = 2$, the diameter of the unit sphere.
@@ -332,7 +371,8 @@ Therefore,
 		Therefore, the vertices are $\frac{1+i}{\sqrt{3} + 1}$, $\frac{1-i}{\sqrt{3} + 1}$, $\frac{-1+i}{\sqrt{3} + 1}$, $\frac{-(1+i)}{\sqrt{3} + 1}$, $\frac{1+i}{\sqrt{3} - 1}$, $\frac{1-i}{\sqrt{3} - 1}$, $\frac{-1+i}{\sqrt{3} - 1}$, and $\frac{-(1+i)}{\sqrt{3} - 1}$.
 
 	\end{proof}
-\paragraph{Exercise 3} Find the vertices of the regular tetrahedron inscribed in Riemann Sphere.
+
+	\item Find the vertices of the regular tetrahedron inscribed in Riemann Sphere.
 	\begin{proof}[Answer]
 		Let $a$ be the length of the sides of the regular tetrahedron inscribed in the Riemann sphere.
 		Radius of circumsphere of regular tetrahedron is $\frac{\sqrt{6}}{4}a = 1$.
@@ -348,7 +388,8 @@ Therefore,
 		In its general position the projection of one of the base vertex on the regular tetrahedron is purely imaginary ($\frac{i}{2}$) and the other vertices makes $120^\circ$ with the imaginary axis.
 		Therefore, the vertices are $\infty$, $\frac{i}{2}$, $\frac{1}{4}\left(-\sqrt{3}-i\right)$, and $\frac{1}{4}\left(\sqrt{3}-i\right)$
 		\end{proof}
-\paragraph{Exercise 4} Find the radius of the spherical image of the circle $|z-a|=r$.
+
+	\item Find the radius of the spherical image of the circle $|z-a|=r$.
 	\begin{proof}[Answer]
 		The spherical image is the intersection of the unit sphere $x_1^2+x_2^2+x_3^2=1$ and $\alpha_1x_1 + \alpha_2x_2 + \alpha_3x_3 = \alpha_0$, where $\alpha_1^2+\alpha_2^2+\alpha_3^2 =1$ and $0 \le \alpha_0 < 1$.
 		The intersection is a circle with center $\left(\frac{\alpha_1}{\alpha_0-\alpha_3},\frac{\alpha_2}{\alpha_0-\alpha_3}\right)$ and radius $\frac{\sqrt{1-\alpha_0^2}}{\alpha_0-\alpha_3}$.
@@ -408,6 +449,7 @@ Therefore,
 	Consider, $z = a+ir$ and $z'=a-ir$ are diamterically opposite points of the circle.
 	Then, by above relation the radius of the spherical image assumes a different value, which is not possible.
 	\end{commentary}
+\end{enumerate}
 
 \section{Complex Functions}
 \subsection{Analytic Function}
@@ -432,7 +474,7 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 \end{important}
 
 \begin{definition}[harmonic]
-	A real function $u$ of complex variable $z = x+iy$ is harmonic if
+	A real function $u$ of complex variable $z = x+iy$ is harmonic if $u$ satisfies the Laplace equation,
 \begin{equation}
 	\Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0
 	\label{eqn:laplace}
@@ -440,14 +482,54 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 \end{definition}
 
 \begin{definition}[conjugate harmonic]
-	Two real valued functions $u,v$ of complex variable $z = x+iy$ are conjugate harmonic if $f = \kappa u+iv$ is analyic.
+	Two harmonic functions $u,v$ are conjugate harmonic if $u,v$ satisfy C.R. conditions.
 \end{definition}
-\begin{important}
-	If two harmonic functions, $u,v$ satisfy the C.R. conditions, then $u,v$ are conjugate harmonic.
-\end{important}
 
 \subsection{Elementary Theory of Power Series}
 \subsubsection{Sequences}
+\begin{definition}
+	A sequence of complex numbers $\sequence{a_n}$ converges to $A$ if \begin{equation}
+		\forall\varepsilon > 0, \exists N \in \mathbb{N} \text{ such that }\forall n > N,\ |a_n - A| < \varepsilon
+	\end{equation}
+\end{definition}
+
+\begin{remark}
+	Sequence diverges to infinity if $\displaystyle \lim_{n \to \infty} a_n = \infty$.
+\end{remark}
+\[ \text{ However, } |a_n - \infty| < \varepsilon \text{ is not possible !!} \]
+
+\begin{definition}[Cauchy]
+	A sequence $\sequence{a_n}$ is Cauchy/Fundamental if \begin{equation}
+		\forall \varepsilon > 0, \exists N \in \mathbb{N} \text{ such that } \forall m,n > N, |a_m-a_n| < \varepsilon
+\end{equation}
+\end{definition}
+
+\begin{theorem}
+	A sequence $\sequence{a_n}$ is convergent if and only if Cauchy.
+\end{theorem}
+\begin{proof}
+	Suppose $\sequence{a_n}$ converges to $A$.
+	Then \[\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall m,n > N,\ |a_n - A| < \varepsilon,\ |a_m - A| < \varepsilon \]
+	Consider,
+	\[ |a_m - a_n| = |a_m - A + A - a_n \le |a_m - A| + |a_n - A| < 2\varepsilon \]
+	Therefore, the sequence $\sequence{a_n}$ is Cauchy.\\
+
+	Suppose $\sequence{x_n}$ is Cauchy.
+	Consider the sequence of real parts,
+	\[\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall m,n > N,\ |\alpha_m-\alpha_n| < \varepsilon \]
+	where $x_n = \alpha_n + i \beta_n$.
+	Define $a_n = \max\{\alpha_1, \alpha_2, \dots, \alpha_n\}$.
+	Then the sequence $\sequence{a_n}$ is a bounded, monotone sequence.
+	Thus, the $\sequence{a_n}$ has a limit, say $A$
+	Therefore, $A = \overline{\lim \alpha_n}$.
+	Similarly, let $a_n = \min\{\alpha_1,\alpha_2,\dots,\alpha_n\}$.
+	Then, the $\sequence{a_n}$ has a limit, $a = \underline{\lim \alpha_n}$. \\
+	
+	Suppose $a \ne A$.
+	Let $\varepsilon = \frac{A-a}{3}$.
+	Then there exists $\alpha_n < A-\varepsilon$ and exists $\alpha_m > a + \varepsilon$.
+	Therefore, \[A-a = A - \alpha_m + \alpha_m - \alpha_n + \alpha_n - a < 3\varepsilon \]
+\end{proof}
 \subsubsection{Series}
 \subsubsection{Uniform Convergence}
 \subsubsection{Power Series}
@@ -456,22 +538,37 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 \setcounter{subsection}{1}
 \subsection{Conformality}
 \subsubsection{Arcs and Closed Curves}
-
-% Ms. Lis Sebastian Notes
-\begin{definition}[arc]
-	An arc $\gamma$ in a complex plane is defined as the set of points given by $\gamma = \{ z : z = z(t), a \le t \le b \}$ and $z(t)$ is a continuous function of the real variable $t$.
+\begin{definition}[Arc]
+	A continuous function $\gamma$ defined on a closed, finite interval $[\alpha,\beta]$.	
+	\begin{equation}
+		z = \gamma(t), \text{ where } \gamma : [\alpha,\beta] \to \mathbb{C},\ \alpha \le t \le \beta,\text{ and } \gamma \text{ continuous }
+	\end{equation}
 \end{definition}
-	Thus, every arc in the complex plane is the continuous image of closed interval and $z \in \gamma$ means $z = z(t) = x(t) + iy(t)$.
-	That is, points on $\gamma$ are images of a complex function of a real variable.\\
 
-	This representation of an arc $z = z(t)$ is called a parameteric representation and $t$ is called the parameter and $[a,b]$ is called the parametric interval.
-	The point $z = z(a)$ is called origin or initial point of $\gamma$ and $z = z(b)$ is called the terminus or terminal point of $\gamma$.
-	If $z(a) = z(b)$, then $\gamma$ is called a closed curve, otherwise it is open.\\
+\begin{remark}
+	Arc is not a point set, but a succession of points.
+\end{remark}
 
-	If in $\gamma$, $z(t_1) = z(t_2) = z$ for $t_1 \ne t_2$, then $z$ is called a multiple point on $\gamma$.
-	Geometrically, a multiple point $z$ in $\gamma$ is a point where $\gamma$ crosses itself.
+\begin{definition}[change of parameter]
+	Let $\gamma : [\alpha,\beta] \to \mathbb{C}$ be an arc.
+	Let $\varphi : [\alpha',\beta'] \to [\alpha,\beta]$ be a non-decreasing onto function.
+	Then $\gamma \circ \varphi$ defines the same sucession of points as the arc $\gamma$.
 
-	An arc having no multiple points is called a simple arc or Jordan arc.
+\end{definition}
+
+%	An arc $\gamma$ in a complex plane is defined as the set of points given by $\gamma = \{ z : z = z(t), a \le t \le b \}$ and $z(t)$ is a continuous function of the real variable $t$.
+
+%	Thus, every arc in the complex plane is the continuous image of closed interval and $z \in \gamma$ means $z = z(t) = x(t) + iy(t)$.
+%	That is, points on $\gamma$ are images of a complex function of a real variable.\\
+
+%	This representation of an arc $z = z(t)$ is called a parameteric representation and $t$ is called the parameter and $[a,b]$ is called the parametric interval.
+%	The point $z = z(a)$ is called origin or initial point of $\gamma$ and $z = z(b)$ is called the terminus or terminal point of $\gamma$.
+%	If $z(a) = z(b)$, then $\gamma$ is called a closed curve, otherwise it is open.\\
+
+%	If in $\gamma$, $z(t_1) = z(t_2) = z$ for $t_1 \ne t_2$, then $z$ is called a multiple point on $\gamma$.
+%	Geometrically, a multiple point $z$ in $\gamma$ is a point where $\gamma$ crosses itself.
+
+%	An arc having no multiple points is called a simple arc or Jordan arc.
 
 %	Consider the mapping, $w = f(z)$, then the arc $\gamma$ in the $z$-plane corresponds to an arc $\Gamma$ in the $w$-plane where --tikz--  That is, $\gamma$ in the $z$-plane and $\Gamma$ in the $w$-plane are different parameteric representations of the same parametric interval $[a,b]$.\\
 
@@ -647,10 +744,11 @@ $x = \frac{z+\bar{z}}{2}$ and $y = \frac{z-\bar{z}}{2i}$.
 	For different choices of $\gamma$, the integral may have different values even though the end points are the same.
 
 \subsection{Exercise}
-Evaluate $\int_c f(z)\ dz$ where $f(z) = y-x-i3x^2$ and contour is
-\begin{itemize*}
-	\item[$c_1$:]the line segment $0$ and $i+1$
-	\item[$c_2$:] the polygon joining $(0,0),\ (0,1),\ (1,1)$ 
-\end{itemize*}
-In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $c_1$ and $c_2$ have the same end points.
-
+\begin{enumerate}
+\item Evaluate $\int_c f(z)\ dz$ where $f(z) = y-x-i3x^2$ and contour is
+	\begin{itemize*}
+		\item[$c_1$:]the line segment $0$ and $i+1$
+		\item[$c_2$:] the polygon joining $(0,0),\ (0,1),\ (1,1)$ 
+	\end{itemize*}
+	In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $c_1$ and $c_2$ have the same end points.
+\end{enumerate}

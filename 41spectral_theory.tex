@@ -238,7 +238,114 @@ Example, $\mathbb{R}^n$ is reflexive since ${\mathbb{R}^n}^{\prime\prime} = {\ma
 	Thus, $l^1$ is non-reflexive.
 \end{proof}
 
-\subsection{Category Theory}
+\paragraph{Problems}
+\begin{enumerate}
+	\item What the functionals $f,g_x$ if $X = \mathbb{R}^n$.
+		\begin{proof}[Answer]
+			Every linear functional on finite dimensional space is bounded.
+			Let $x = (x_1,x_2,\dots,x_n)$.
+			A linear functional $f : \mathbb{R}^n \to \mathbb{R}$ is of the form,
+			\[ f(x) = a_0+a_1x_1+\dots+a_nx_n,\ a_k \in \mathbb{R} \]
+			Let $F = \{ f : \mathbb{R}^n \to \mathbb{R} : f \text{ is linear } \}$.
+			A linear functional $g_x : F \to \mathbb{R}$ is of the form
+			\[ g_x(f) = a_0 + a_1f_1(x)+a_2f_2(x)+\dots+a_nf_n(x) \text{ where } f_j(e_i) = \delta_{ij},\  \]
+		\end{proof}
+	\item Prove lemma 4.6-7 for Hilbert space $X$
+		\begin{proof}[Answer]
+		\end{proof}
+	\item If a normed space $X$ is reflexive, show that $X^\prime$ is reflexive
+		\begin{proof}[Answer]
+		\end{proof}
+	\item Show that a Banach space $X$ is reflexive if and only if its dual space $X^\prime$ is reflexive.
+		\begin{proof}[Answer]
+		\end{proof}
+	\item Let $Y$ be a proper, closed subspace of a normed space $X$.
+		Let $x_0 \in X-Y$.
+		Then there exists a bounded, linear functional $h$ on $X$ such that $\|h\| = \frac{1}{\delta}$, $h(y) = 0,\ \forall y \in Y$ and $h(x_0) = 1$.
+		\begin{proof}[Answer]
+		\end{proof}
+	\item Show that different closed subspaces $Y_1,Y_2$ of a normed space $X$ have different annihilators.
+		\begin{proof}[Answer]
+		\end{proof}
+	\item Let $Y$ be a closed subsapce of a normed space $X$ such that every $f \in X^\prime$ which is zero everywhere on $Y$ is zero everywhere on the whole space $X$.
+		Show that then $Y = X$.
+		\begin{proof}[Answer]
+		\end{proof}
+	\item Let $M$ be any subset of a normed space $X$.
+		Show that an $x_0 \in X$ is an element of $A = \underline{span\ M}$ if and only if $f(x_0) = 0,\ \forall f \in X^\prime$ such that $f|_M = 0$.
+		\begin{proof}[Answer]
+		\end{proof}
+	\item Show that a subset $M$ of a normed space $X$ is total in $X$ if and only if every $f \in X^\prime$ which is zero everywhere on $M$ is zero everywhere in $X$.
+		\begin{proof}[Answer]
+		\end{proof}
+	\item Show that if a normed space $X$ has a linearly independent subset of $n$ elements, so does the dual space $X^\prime$.
+		\begin{proof}[Answer]
+		\end{proof}
+\end{enumerate}
+\pagebreak
+
+\subsection{Category Theorem}
+\begin{description}
+	\item[rare] A subset $M$ in $X$ is rare if its closure has no interior points.
+	\item[meager] A subset $M$ is meager in $X$ if $M$ is union of countable family of rare subsets of $X$.
+	\item[non-meager] A subset $M$ is non-meager in $X$ if it is not meager in $X$.
+\end{description}
+
+\begin{theorem}[Blaire's Category Theorem]
+	Every complete, non-empty metric space is nonmeager in itself.
+\end{theorem}
+\begin{proof}
+	Let $X$ be a complete, non-empty metric space.
+	Suppose $X$ is meager in itself.
+	Then, there exists a countable family of rare sets $M_k$ such that 
+	\[ X = \bigcup_{k=1}^\infty M_k \]
+
+	We have, $M_1$ is rare in $X$ and $\bar{M_1} \ne X$.
+	Thus, $\bar{M_1}^c \ne \phi$ and $\bar{M_1}^c$ is an open set.
+	Let $p_1 \in \bar{M_1}^c$ such that 
+	\[ p_1 \in B_1 = B(p_1,\varepsilon_1) \subset \bar{M_1}^c \text{ where }\varepsilon_1 < \frac{1}{2} \]
+
+	We have, $M_2$ is rare in $X$.
+	Then $\bar{M_2}^c \cap B(p_1,\frac{\varepsilon_1}{2}) \ne \phi$.
+	Suppose $\bar{M_2}^c \cap B(p_1,\frac{\varepsilon_1}{2}) = \phi$.
+	Then $B(p_1,\frac{\varepsilon_1}{2}) \subset \bar{M_2}$ which is a contradiction.\\
+
+	Let $p_2 \in \bar{M_2}^c \cap B(p_1,\frac{\varepsilon_1}{2})$ such that 
+	\[p_2 \in B_2 = B(p_2,\varepsilon_2) \subset \bar{M_2}^c \cap B(p_1,\frac{\varepsilon_1}{2}) \text{ where }\varepsilon_2 < \frac{\varepsilon_1}{2} \]
+	Then, $\bar{M_3}^c \cap B(p_2,\frac{\varepsilon_2}{2}) \ne \phi$.
+	Let $p_3 \in \bar{M_3}^c \cap B(p_2,\frac{\varepsilon_2}{2})$ such that 
+	\[ p_3 \in B_3 = B(p_3,\varepsilon_3) \subset \bar{M_3}^c \cap B(p_2,\frac{\varepsilon_2}{2}) \text{ where }\varepsilon_3 <\frac{\varepsilon_2}{2} \]
+
+	Continuing like this, we get a sequence $\sequence{p_n}$ such that 
+	\[\forall k \in \mathbb{N},\ p_k \in B_k = B(p_k,\varepsilon_k) \subset \bar{M_k}^c \cap B(p_{k-1},\frac{\varepsilon_{k-1}}{2}) \text{ where }\varepsilon_k < \frac{\varepsilon_{k-1}}{2} \]
+	We have, \[B_{k+1} \subset B(p_k,\frac{\varepsilon_k}{2}) \subset B_k,\qquad \varepsilon_k < \frac{1}{2^k} \]
+	This sequence is Cauchy since the open ball $B_{k+1} \subset B_k \subset \dots B_3 \subset B_2 \subset B_1$ and the radius of the open balls, $\varepsilon_k < 2^{-k}$ reduces at least by half in each successive step.\\
+
+	Since $X$ is complete, the sequence $\sequence{p_n}$ converges to $p \in X$.
+\end{proof}
+
+\begin{theorem}[Uniform Boundedness]
+	Let $X$ be a Banach space and $Y$ be a normed space.
+	Let $\sequence{T_n}$ be sequence of bounded, linear operators $T_n : X \to Y$ such that $\sequence{\|T_n(x)\|}$ is bounded for every $x \in X$.
+	Then the sequence of norms $\sequence{\|T_n\|}$ is bounded.
+\end{theorem}
+\begin{proof}
+	Let $X$ be a Banach space.
+	Let $X$
+\end{proof}
+
+\begin{remark}
+	Space of polynomials $x(t) = \sum_j \alpha_j t^j$ with norm $\|x\| = \max_j |\alpha_j|$ is not complete.
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	There exist real-valued continuous functions whose Fourier series diverge at a given point $t_0$.
+\end{remark}
+\begin{proof}
+\end{proof}
+
 \subsection{Strong and Weak Convergence}
 \subsection{Convergence of Sequences of Operators and Functionals}
 %\subsection{Application to Summability of Sequences}
