@@ -366,8 +366,127 @@ Example, $\mathbb{R}^n$ is reflexive since ${\mathbb{R}^n}^{\prime\prime} = {\ma
 \subsection{Basic Concepts}
 \subsection{Spectral Properties of Bounded Linear Operators}
 \subsection{Further Properties of Resolvant and Spectrum}
-\subsection{Use of Complex Analysis in Spectral Theory}
+%Wednesday 13 July 2022 10:44:06 AM IST
+\subsubsection{Resolvant Equation}
+\begin{theorem}
+	Let $X$ be a complex Banach space.
+	Let $T \in B(X,X)$ and $\lambda,\mu \in \rho(T)$.
+	Then
+	\begin{enumerate}
+		\item $R_\mu - R_\lambda = (\mu - \lambda)R_\mu R_\lambda$ 
+		\item $R_\lambda$ commutes with any $S \in B(X,X)$ which commutes with $T$
+		\item $R_\mu R_\lambda = R_\lambda R_\mu$
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\textbf{ Part 1 : } Hilbert Relation/Resolvant Equation
+	\begin{align*}
+		R_\mu - R_\lambda 
+		& = R_\mu (T_\lambda R_\lambda) - (R_\mu T_\mu)R_\lambda \\
+		& = R_\mu (T_\lambda R_\lambda - T_\mu R_\lambda)\\
+		& = R_\mu (T_\lambda - T_\mu) R_\lambda \\
+		& = R_\mu (T-\lambda I - T+\mu I) R_\lambda \\
+		& = R_\mu (\mu - \lambda) R_\lambda
+	\end{align*}
+	\textbf{ Part 2 : } Commutativity Property 1\\
+		Suppose $T$ commutes with $S$, that is $TS = ST$.
+		Let $\lambda \in \rho(T)$.
+		Then 
+		\[ T_\lambda S = (T - \lambda I)S = TS - \lambda S = ST - \lambda S = S(T-\lambda I) = ST_\lambda \]
+	\begin{align*}
+		R_\lambda S 
+		& = R_\lambda S (T_\lambda R_\lambda)\qquad \because T_\lambda R_\lambda = I\\
+		& = R_\lambda T_\lambda S R_\lambda \qquad \because ST_\lambda = T_\lambda S\\
+		& = S R_\lambda
+	\end{align*}
+	That is, $T$ commutes with $R_\lambda$.\\
+	\textbf{ Part 3 : } Commutativity Property 2\\
+	$T$ commutes with $T \implies T$ commutes with $R_\mu$ by part 2.\\
+	$T$ commutes with $R_\mu \implies R_\mu$ commutes with $R_\lambda$ by part 2.
+	\end{proof}
+\subsubsection{Spectral Mapping Theorem - Polynomials}
+\begin{theorem}
+	Let $X$ be a complex Bananch space.
+	Let $T \in B(X,X)$ and $p$ be a complex polynomial given by
+	\[ p(\lambda) = \alpha_n \lambda^n + \alpha_{n-1} \lambda^{n-1} + \dots + \alpha_0,\ \alpha_j \in \mathbb{C},\ \alpha_n \ne 0 \]
+	Then,
+	\begin{equation}
+		p(\sigma(T)) = \sigma(p(T)) 
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	The result is trivial when $\sigma(T) = \phi$ or $n = 0$.
+	Suppose $\sigma(T) \ne \phi$ and $n > 0$.\\
+
+	\textbf{Part 1 :} $\sigma(p(T)) \subset p(\sigma(T))$ \\
+	Let $\mu \in \sigma(p(T))$.
+	Define $S = p(T)$.
+	Then $\mu \in \sigma(S)$ and $S_\mu = p(T) - \mu I$.
+	Define $s_\mu(\lambda) = p(\lambda)-\mu$.
+	Being a complex polynomial, $s_\mu(\lambda)$ must factorise into linear factors.
+	Thus,
+	\[ s_\mu(\lambda) = \alpha_n (\lambda-\gamma_1)(\lambda-\gamma_2)\dots(\lambda-\gamma_n) \]
+	And,
+	\[ S_\mu = \alpha_n (T-\gamma_1 I)(T-\gamma_2 I)\dots(T-\gamma_n I) \]
+	Suppose $\gamma_k \in \rho(T)$ for every $k$.
+	Then $(T-\gamma_k I)$ has bounded inverse and consequently $S_\mu$ will have a bounded inverse,
+	\[ S_\mu^{-1} = \frac{1}{\alpha_n} (T-\gamma_1 I)^{-1} (T-\gamma_2 I)^{-1} \dots (T-\gamma_n I)^{-1} \]
+	This is a contradiction, since $\mu \in \sigma(S)$.
+	Thus there exists some $\gamma_k \in \sigma(T)$.
+	\[ s_\mu(\gamma_k) = p(\gamma_k) - \mu = 0 \]
+	Thus, $\mu = p(\gamma_k)$ where $\gamma_k \in \sigma(T)$.
+	Therefore, $\mu \in p(\sigma(T))$.\\
+
+	\textbf{Part 2 :} $p(\sigma(T)) \subset \sigma(p(T))$\\
+	Let $\kappa \in p(\beta)$ where $\beta \in \sigma(T)$.
+	Now, there are two alternate cases.\\
+
+	\textbf{Part 2A :} $(T-\beta I)$ has no inverse\\
+	Suppose $(T-\beta I)$ has no inverse.
+	Define $s_\kappa(\lambda) = p(\lambda)-\kappa = (\lambda-\kappa)g(\lambda)$.
+	And $S_\kappa = (T-\beta I)g(T)$.
+	Clearly, $g(T)$ commutes with $(T-\beta I)$.
+	Thus, $S_\kappa = g(T)(T-\beta I)$.
+	If $S_\kappa$ has an inverse, then
+	\[ I = (T-\beta I)g(T)S_\kappa^{-1} = S_\kappa^{-1} g(T)(T-\beta I) \]
+	Then, $(T-\beta I)$ has an inverse which is a contradiction.
+	Therefore $S_\kappa$ does not have an inverse.
+	Thus, $\kappa \in \sigma(p(T))$.\\
+
+	\textbf{Part 2B :} $(T-\beta I)$ has an inverse\\
+	Suppose $(T-\beta I)$ has an inverse.
+	We have, $\mathscr{R}(T-\beta I) \ne X$.
+	If not, the map is surjective and by bounded inverse theorem, $(T-\beta I)^{-1}$ is bounded.
+	Then, $\beta$ is a regular point of $T$.
+	That is, $\beta \notin \sigma(T)$.
+	This is a contradiction.\\
+
+	We have $S_\kappa = (T-\beta I)g(T)$.
+	Thus $\mathscr{R}(S_\kappa) \ne X$.
+	And $\kappa \in \sigma(p(T))$.
+\end{proof}
+\subsubsection{Linear Independence}
+\begin{theorem}
+	Let $T$ be a linear operators and $\lambda_1,\lambda_2,\dots$ be its eigenvalues.
+	Then the eigenvectors $x_1,x_2,\dots,x_n$ corresponding to different eigenvalues $\lambda_1,\lambda_2,\dots,\lambda_n$ form a linearly independent set.
+\end{theorem}
+\begin{proof}
+	Suppose $\{x_1,x_2,\dots,x_n\}$ is linearly dependent.
+	Let $x_m$ be the first vector such that $\{ x_1,x_2,\dots,x_{m-1},x_m\}$ is linearly dependent.
+	\[ x_m = \alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_{m-1}x_{m-1} \]
+	Then,
+	\begin{align*}
+		(T-\lambda_m I)x_m 
+		= & \sum_{j=1}^{m-1} \alpha_j (T-\lambda_m I)x_j \\
+		0 = & \sum_{j=1}^{m-1} \alpha_j (\lambda_j-\lambda_m)x_j
+	\end{align*}
+	This is a contradiction to the assumption that $\{ x_1,x_2,\dots,x_{m-1} \}$ is linearly independent.
+	Thus, no such $m$ exists.
+	Therefore, $\{x_1,x_2,\dots,x_n\}$ is linearly independent.
+\end{proof}
 \pagebreak
+
+\subsection{Use of Complex Analysis in Spectral Theory}
 
 %Module 3 - \cite{kreyszig} 7.6,7, 8.1,2,3,4
 {\Large Module 3}
@@ -385,6 +504,126 @@ Example, $\mathbb{R}^n$ is reflexive since ${\mathbb{R}^n}^{\prime\prime} = {\ma
 {\Large Module 4}
 \section{Bounded, Self-Adjoint Linear Operators}
 \subsection{Spectral Properties of Bounded Self-Adjoint Linear Operators}
+\textbf{Note} : A bounded, self-adjoint operator may not have eigenvalues.
+\begin{theorem}
+	Let $H$ be a complex, Hilbert space.
+	Let $T : H \to H$ be a bounded, self-adjoint linear operator.
+	Then
+	\begin{enumerate}
+		\item All the eigenvalues(if they exist) are real.
+		\item Eigenvectors corresponding to different eigenvalues are orthogonal.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\textbf{Part 1} : Eigenvalues are real.\\
+	Let $\lambda$ be an eigenvalue of $T$ and $x \in H$ such that $Tx = \lambda x$, ($x \ne 0$).
+	Then,
+	\[ \lambda\inner{x}{x} = \inner{\lambda x}{x} = \inner{Tx}{x} = \inner{x}{Tx} = \inner{x}{\lambda x} = \conj{\lambda}\inner{x}{x} \]
+	Since $x \ne 0$, we have $\inner{x}{x} \ne 0$ and $\lambda \in \mathbb{R}$.\\
+
+	\textbf{Part 2} : Eigenvectors are orthogonal.\\
+	Let $\lambda,\mu$ be eigenvalues of $T$ and $x,y$ be corresponding eigenvectors.
+	That is, $Tx = \lambda x$ and $Ty = \mu y$.
+	\[ \lambda \inner{x}{y} = \inner{\lambda x}{y} = \inner{Tx}{y} = \inner{x}{Ty} = \inner{x}{\mu y} = \conj{\mu} \inner{x}{y} = \mu \inner{x}{y} \]
+	Since $\lambda \ne \mu$, we have $\inner{x}{y} = 0$.
+	That is, $x \perp y$.
+\end{proof}
+
+\begin{theorem}
+	Let $T : H \to H$ be a bounded, self-adjoint linear operator.
+	Then $\lambda \in \rho(T)$ if and only if there exists $c > 0$ such that $\|T_\lambda x\| \ge c\|x\|$.
+\end{theorem}
+\begin{proof}
+	Let $\lambda \in \rho(T)$.
+	Then $R_\lambda = T_\lambda^{-1} : H \to H$ exists and is bounded.
+	Since $R_\lambda \ne 0$, $\|R_\lambda\| = k > 0$.
+	\[ \|x\| = \| R_\lambda T_\lambda x\| \le \|R_\lambda\| \|T_\lambda x\| = k\|T_\lambda x\| \]
+	Thus,
+	\begin{equation}
+		\|T_\lambda x\| \ge c\|x\| \text{ where } c = \frac{1}{k} 
+	\end{equation}
+
+	\textbf{Converse Part}\\
+	Suppose $T_\lambda x_1 = T_\lambda x_2$.
+	Then,
+	\[ 0 = \|T_\lambda x_1 - T_\lambda x_2\| = \| T_\lambda (x_1-x_2) \| \ge c\|x_1-x_2\| \]
+	Since $c > 0$, we have $\|x_1 - x_2\| = 0$ and$x_1 = x_2$.
+	Therefore, $T_\lambda : H \to T_\lambda(H)$ is bijective.\\
+
+	Let $x_0 \perp \overline{T_\lambda(H)}$.
+	Then $x_0 \perp T_\lambda(H)$.
+	\[ 0 =  \inner{T_\lambda x}{x_0} = \inner{Tx}{x_0} - \inner{\lambda x}{x_0} = \inner{Tx}{x_0} - \lambda\inner{x}{x_0} \]
+	\[ \inner{x}{\conj{\lambda} x_0} = \lambda \inner{x}{x_0} = \inner{Tx}{x_0} = \inner{x}{Tx_0} \]
+	Thus, $Tx_0 = \conj{\lambda}x_0$.\\
+
+	Suppose $x_0 \ne 0$.
+	Then, $\conj{\lambda}$ is an eigenvalue of $T$.
+	We know that, the eigenvalues of bounded, self-adjoint linear operators are real.
+	Thus, $\lambda \in \mathbb{R}$.
+	That is, $Tx_0 = \lambda x_0$.
+	Then, $T_\lambda x_0 = Tx_0 - \lambda x_0 = 0$ which is a contradiction since $0 = \|T_\lambda x_0\| \ge c\|x_0\| > 0$.
+	Therefore, $x_0 = 0$.\\
+
+	By projection theorem, $H = Y \oplus Z$ where $Y = \overline{T_\lambda(H)},\ Z = Y^\perp = \{ 0 \}$.
+	Thus, $\overline{T_\lambda(H)} = H$.\\
+
+	Suppose $y \in \overline{T_\lambda(H)}$.
+	Then there exists a sequence $\sequence{y_n}$ in $T_\lambda(H)$ such that $y_n \to y$.
+	Since $y_n \in T_\lambda(H)$, there exists $x_n \in H$ such that $y_n = T_\lambda x_n$.
+	The sequence $\sequence{x_n}$ is Cauchy since
+	\[ \|x_n - x_m\| \le \frac{1}{c}\|T_\lambda(x_n-x_m)\| = \frac{1}{c}\|y_n-y_m\| \]
+	We know that, $\sequence{y_n}$ is convergent and thus Cauchy.
+	Thus, sequence $\sequence{x_n}$ is Cauchy in $H$.
+	Since $H$ is complete, $x_n \to x \in H$.
+	And $T$ is continuous.
+	Therefore, $y_n = T_\lambda x_n \to T_\lambda x$.
+	Since the limit is unique, $T_\lambda x = y$.
+	And $y \in T_\lambda(H)$.
+	Therefore, $T_\lambda(H)$ is closed.
+\end{proof}
+
+\begin{theorem}[Spectrum]
+	Let $T : H \to H$ be a bounded, self-adjoint linear operator on a complex Hilbert space $H$.
+	Then the spectrum $\sigma(T)$ of $T$ is real.
+\end{theorem}
+\begin{proof}
+	Let $\lambda \in \sigma(T)$ where $\lambda = \alpha + i\beta$.
+	\[ \inner{T_\lambda x}{x} = \inner{Tx}{x} - \lambda\inner{x}{x} \]
+	We know that $\inner{Tx}{x} \in \mathbb{R}$ since $T$ is self-adjoint.
+	Thus,
+	\[ \overline{\inner{T_\lambda x }{x}} = \overline{\inner{Tx}{x}} - \bar{\lambda}\overline{\inner{x}{x}} = \inner{Tx}{x} - \bar{\lambda}\inner{x}{x} \]
+	Then, the imaginary part of $\inner{T_\lambda x}{x}$ can be obtained as,
+	\[ -2i\ Im \inner{T_\lambda x}{x} = \overline{\inner{T_\lambda x}{x}} - \inner{T_\lambda x}{x} = (\lambda-\bar{\lambda})\inner{x}{x} = 2i\beta \|x\|^2 \]
+	The absolute value of imaginary part is always less than or equal to the absolute of the complex number.
+	And by Schwarz inequality,
+	\[ |\beta|\ \|x\|^2 = |Im\inner{T_\lambda x}{x}| \le |\inner{T_\lambda x}{x}| \le \|T_\lambda x\|\ \|x\| \]
+	Then, $|\beta|\ \|x\| \le \|T_\lambda x\|$.
+	Suppose $\beta \ne 0$.
+	Then we have $|\beta| = c > 0$ such that $\inner{T_\lambda x}{x} \| \ge c\|x\|$.
+	That is, $\lambda \in \rho(T)$ which is a contradiction.
+	Therefore, $\beta = 0$ and $\lambda \in \mathbb{R}$.
+\end{proof}
+
+\subsubsection{Exercise}
+\begin{enumerate}
+	\item 
+	\item
+	\item $R_\lambda$ is bounded since
+		\[ \|x\| = \|T_\lambda R_\lambda x\| \ge c\|R_\lambda x\| \]
+	\item $T : H \to H$ defined by $Tx = \lambda_0 x$.
+		Then $c \le |\lambda-\lambda_0|$.
+	\item $\inner{W^\ast TWx}{x} = \inner{TWx}{Wx} = \inner{Wx}{T^\ast Wx} = \inner{Wx}{TWx} = \inner{x}{W^\ast TWx}$ 
+	\item $T$ is bounded, but not self-adjoint.
+		And $S:l^2 \to l^2$ is defined by $(\xi_1,\xi_2,\xi_3,\dots) \to (0,\xi_1,\xi_2,\xi_3,\dots)$.
+	\item
+	\item closure or exterior ? (I don't get it)
+	\item Let $x,x' \in L^2[0,1]$ be real-valued functions which are Lebesgue square-integrable.
+		Then $\bar{x}(t) = x(t)$ and $\bar{x}'(t) = \bar{x}'(t)$.
+		\[ \|Tx(t)\| = \|y(t)\| = \|tx(t)\| \le \|x(t)\|\quad \because t \in [0,1] \]
+		\[ \inner{Tx(t)}{x'(t)} = \int_0^1 tx(t)\bar{x}'(t)\ dt = \inner{\bar{x}(t)}{T\bar{x}'(t)} = \inner{x(t)}{Tx'(t)} \]
+	\item
+\end{enumerate}
+
 \subsection{Further Spectral Properties of Bounded Self-Adjoint Linear Operators}
 \subsection{Positive Operators}
 %\subsection{Square Roots of a Positive Operator}
