@@ -441,17 +441,18 @@
 	These subsets are \textbf{Lebesgue Measurable}.
 	And we could show that the collection of all Lebesgue Measurable sets forms a $\sigma$-algebra.
 	Clearly, intervals allow countable additivity, thus the Borel Algebra is contained in this $\sigma$-algebra of Lebesgue measurable sets.
+
 \subsubsection{Simplified Condition for Lebesgue Measurability}
 
-We know that Lebesgue Outer Measure has countable subadditivity.
-\begin{equation*}
-	m^\ast(A) \le m^\ast(A \cap E) + m^\ast(A \cap E^c)
-\end{equation*}
-Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the following condition,
-\begin{equation}
-	m^\ast(A) \ge m^\ast(A \cap E) + m^\ast(A \cap E^c)
-	\label{eq:measurable2}
-\end{equation}
+	We know that Lebesgue Outer Measure has countable subadditivity.
+	\begin{equation*}
+		m^\ast(A) \le m^\ast(A \cap E) + m^\ast(A \cap E^c)
+	\end{equation*}
+	Thus, for condition (\ref{eq:measurable1}), it is sufficient to check the following condition,
+	\begin{equation}
+		m^\ast(A) \ge m^\ast(A \cap E) + m^\ast(A \cap E^c)
+		\label{eq:measurable2}
+	\end{equation}
 
 \subsubsection{Properties of Lebesgue Measure}
 \begin{enumerate}
@@ -3592,14 +3593,76 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	A rectangle is a subset of $X \times Y$ of the form $A \times B$ where $A \subset X$ and $B \subset Y$.
 	A measurable rectangle is a subset of $X \times Y$ of the form $A \times B$ where $A \in \mathcal{A}$ and $B \in \mathcal{B}$.
 \end{definition}
+
 \begin{lemma}
 	Let $\{ A_k \times B_k \}_{k=1}^\infty$ be a countable disjoint, collection of measurable rectangles such that $\displaystyle \bigcup_{k=1}^\infty \left( A_k \times B_k \right) = A \times B$ is also a meausurable rectangle.
 	Then
 	$\displaystyle \mu(A) \times \nu(B) = \sum_{k=1}^\infty \mu(A_k) \times \mu(B_k) $
 \end{lemma}
 \begin{proof}
+	Consider $A \times B$.
+	Fix $x \in A$.
+	Now for each $y \in B$, there exists exactly one $A_k \times B_k$ such that $(x,y) \in A_k \times B_k$.
+	Define $S = \{ k \in \mathbb{N} : (x,y) \in A_k \times B_k \}$
+	Thus, $\displaystyle B = \bigcup_{k \in S} B_k$.
+	By countable additivity of the measure $\nu$, $\displaystyle \nu(B) = \bigcup_{k \in S} \nu(B_k)$.\\
+
+	\begin{equation*}
+		\nu(B) \cdot \chi_A(x) = \sum_{k=1}^\infty \nu(B_k) \cdot \chi_{A_k}(x),\qquad \forall x \in A
+	\end{equation*}
+
+	For $x \in X-A$, we have $\chi_{A_k}(x) = 0,\ \forall k$ since $A_k \subset A$.
+	Thus,
+	\begin{equation}
+		\nu(B) \cdot \chi_A(x) = \sum_{k=1}^\infty \nu(B_k) \cdot \chi_{A_k}(x),\qquad \forall x \in X
+	\end{equation}
+
+	\begin{align*}
+		\mu(A) \times \nu(B) =
+		& \int_X \nu(B) \cdot \chi_A \ d\mu 
+		= \int_X \sum_{k=1}^\infty \nu(B_k) \cdot \chi_{A_k} \ d\mu \\
+		= & \int_X \lim_{n \to \infty} \sum_{k=1}^n \nu(B_k) \cdot \chi_{A_k} \ d\mu 
+		\intertext{By monotone convergence theorem,}
+		= & \lim_{n \to \infty} \int_X \sum_{k=1}^n \nu(B_k) \cdot \chi_{A_k} \ d\mu \\
+		= & \lim_{n \to \infty} \sum_{k=1}^n \int_X  \nu(B_k) \cdot \chi_{A_k} \ d\mu 
+		= \sum_{k=1}^\infty \int_X \nu(B_k) \cdot \chi_{A_k}\ d\mu \\
+		= & \sum_{k=1}^\infty \mu(A_k) \times \nu(B_k)
+	\end{align*}
 \end{proof}
 
+\begin{definition}[semiring]
+	A semiring $\entity{R,+,\times}$ satisfies
+	\begin{enumerate}
+		\item $\entity{R,+}$ is a commutative monoid
+			\begin{enumerate}
+				\item $\entity{R,+}$ is associative ie, $(a+b)+c = a+(b+c),\ \forall a,b,c \in R$
+				\item existence of additive identity ie, $\exists 0 \in R : 0+a = a = a+0,\ \forall a \in R$.
+				\item $\entity{R,+}$ is commutative ie, $a+b = b+a,\ \forall a,b \in R$
+			\end{enumerate}
+		\item $\entity{R,\times}$ is a monoid
+			\begin{enumerate}
+				\item $\entity{R,\times}$ is associative ie, $(a \times b) \times c = a \times (b \times c),\ \forall a,b,c \in R$
+				\item existence of multiplicative identity ie, $\exists 1 \in R : 1 \times a = a = a \times 1,\ \forall a \in R$.
+			\end{enumerate}
+		\item $\times$ is distributive over $+$
+			$$ a \times (b+c) = (a \times b) + (a \times c), \forall a,b,c \in R $$
+		\item $0 \times x = 0 = x \times 0,\ \forall x \in R$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[premeasure]
+	A premeasure $\mu$ on $X$ satisfies 
+	\begin{enumerate}
+		\item $\mu$ is set function which maps a non-negative (extended) real number to every subset of $X$
+			$$ \mu : \mathcal{P}(X) \to [0,\infty] $$
+		\item $\mu$ is finitely additive
+			$$ \mu \left( \bigcup_{k=1}^n A_k \right) = \sum_{k=1}^n \mu(A_k) $$
+		\item $\mu$ is countably monotone
+			$$ A \subset \bigcup_{k=1}^\infty A_k \implies \mu(A) \le \sum_{k=1}^\infty \mu(A_k) $$
+		\item $\mu(\phi) = 0$
+	\end{enumerate}
+\end{definition}
+For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 
 \begin{theorem}
 	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces.
