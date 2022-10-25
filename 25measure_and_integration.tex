@@ -2698,6 +2698,7 @@ And $\{ E_k \}_{k=1}^\infty$ a countable collection of measurable sets such tha 
 \begin{proof}
 	Refer proof on page \pageref{lem:borelcantelli}
 \end{proof}
+
 \subsubsection{$\sigma$-finite Measure}
 \begin{definition}[$\sigma$-finite]
 	Let $(X,\mathcal{M},\mu)$ be a measure space.
@@ -3603,52 +3604,52 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Consider $A \times B$.
 	Fix $x \in A$.
 	Now for each $y \in B$, there exists exactly one $A_k \times B_k$ such that $(x,y) \in A_k \times B_k$.
-	Define $S = \{ k \in \mathbb{N} : (x,y) \in A_k \times B_k \}$
-	Thus, $\displaystyle B = \bigcup_{k \in S} B_k$.
-	By countable additivity of the measure $\nu$, $\displaystyle \nu(B) = \bigcup_{k \in S} \nu(B_k)$.\\
-
+	Thus, $B = \cup\{B_k : x \in A_k\}$.
+	By countable additivity of the measure $\nu$, $\displaystyle \nu(B) = \bigcup_{k : x \in A_k} \nu(B_k)$.
 	\begin{equation*}
 		\nu(B) \cdot \chi_A(x) = \sum_{k=1}^\infty \nu(B_k) \cdot \chi_{A_k}(x),\qquad \forall x \in A
 	\end{equation*}
-
 	For $x \in X-A$, we have $\chi_{A_k}(x) = 0,\ \forall k$ since $A_k \subset A$.
 	Thus,
 	\begin{equation}
 		\nu(B) \cdot \chi_A(x) = \sum_{k=1}^\infty \nu(B_k) \cdot \chi_{A_k}(x),\qquad \forall x \in X
+		\label{eq:Bk}
 	\end{equation}
-
+	By monotone convergence theorem,\footnote{The sequence of partial sums  $\sequence{s_n},\ s_n = \sum_{k=1}^n \nu(B_k) \cdot \chi_{A_k}$ is an increasing sequence of non-negative measurable functions.} the passage of limit under integral sign is feasible.
+	Therefore,
 	\begin{align*}
-		\mu(A) \times \nu(B) =
-		& \int_X \nu(B) \cdot \chi_A \ d\mu 
-		= \int_X \sum_{k=1}^\infty \nu(B_k) \cdot \chi_{A_k} \ d\mu \\
-		= & \int_X \lim_{n \to \infty} \sum_{k=1}^n \nu(B_k) \cdot \chi_{A_k} \ d\mu 
-		\intertext{By monotone convergence theorem,}
-		= & \lim_{n \to \infty} \int_X \sum_{k=1}^n \nu(B_k) \cdot \chi_{A_k} \ d\mu \\
-		= & \lim_{n \to \infty} \sum_{k=1}^n \int_X  \nu(B_k) \cdot \chi_{A_k} \ d\mu 
-		= \sum_{k=1}^\infty \int_X \nu(B_k) \cdot \chi_{A_k}\ d\mu \\
-		= & \sum_{k=1}^\infty \mu(A_k) \times \nu(B_k)
+		\mu(A) \nu(B) 
+		= & \nu(B) \int_X \chi_A \ d\mu
+		= \int_X \nu(B) \cdot \chi_A \ d\mu \quad (\because \text{linearity of integral}) \\
+		= & \int_X \sum_{k=1}^\infty \nu(B_k) \cdot \chi_{A_k} \ d\mu \quad (\because eqn. \ref{eq:Bk}) \\
+		= & \int_X \lim_{n \to \infty} \sum_{k=1}^n \nu(B_k) \cdot \chi_{A_k} \ d\mu \\
+		= & \lim_{n \to \infty} \int_X \sum_{k=1}^n \nu(B_k) \cdot \chi_{A_k} \ d\mu \quad (\because \text{monotone convergence})\\
+		= & \lim_{n \to \infty} \sum_{k=1}^n \int_X  \nu(B_k) \cdot \chi_{A_k} \ d\mu \quad (\because \text{linearity of integral})\\
+		= & \sum_{k=1}^\infty \nu(B_k) \int_{A_k}\ d\mu 
+		= \sum_{k=1}^\infty \mu(A_k)\ \nu(B_k)
 	\end{align*}
 \end{proof}
 
-\begin{definition}[semiring]
-	A semiring $\entity{R,+,\times}$ satisfies
-	\begin{enumerate}
-		\item $\entity{R,+}$ is a commutative monoid
-			\begin{enumerate}
-				\item $\entity{R,+}$ is associative ie, $(a+b)+c = a+(b+c),\ \forall a,b,c \in R$
-				\item existence of additive identity ie, $\exists 0 \in R : 0+a = a = a+0,\ \forall a \in R$.
-				\item $\entity{R,+}$ is commutative ie, $a+b = b+a,\ \forall a,b \in R$
-			\end{enumerate}
-		\item $\entity{R,\times}$ is a monoid
-			\begin{enumerate}
-				\item $\entity{R,\times}$ is associative ie, $(a \times b) \times c = a \times (b \times c),\ \forall a,b,c \in R$
-				\item existence of multiplicative identity ie, $\exists 1 \in R : 1 \times a = a = a \times 1,\ \forall a \in R$.
-			\end{enumerate}
-		\item $\times$ is distributive over $+$
-			$$ a \times (b+c) = (a \times b) + (a \times c), \forall a,b,c \in R $$
-		\item $0 \times x = 0 = x \times 0,\ \forall x \in R$
-	\end{enumerate}
-\end{definition}
+\begin{commentary}
+%\begin{definition}[semiring]
+%	A semiring $\entity{R,+,\times}$ satisfies
+%	\begin{enumerate}
+%		\item $\entity{R,+}$ is a commutative monoid
+%			\begin{enumerate}
+%				\item $\entity{R,+}$ is associative ie, $(a+b)+c = a+(b+c),\ \forall a,b,c \in R$
+%				\item existence of additive identity ie, $\exists 0 \in R : 0+a = a = a+0,\ \forall a \in R$.
+%				\item $\entity{R,+}$ is commutative ie, $a+b = b+a,\ \forall a,b \in R$
+%			\end{enumerate}
+%		\item $\entity{R,\times}$ is a monoid
+%			\begin{enumerate}
+%				\item $\entity{R,\times}$ is associative ie, $(a \times b) \times c = a \times (b \times c),\ \forall a,b,c \in R$
+%				\item existence of multiplicative identity ie, $\exists 1 \in R : 1 \times a = a = a \times 1,\ \forall a \in R$.
+%			\end{enumerate}
+%		\item $\times$ is distributive over $+$
+%			$$ a \times (b+c) = (a \times b) + (a \times c), \forall a,b,c \in R $$
+%		\item $0 \times x = 0 = x \times 0,\ \forall x \in R$
+%	\end{enumerate}
+%\end{definition}
 
 \begin{definition}[premeasure]
 	A premeasure $\mu$ on $X$ satisfies 
@@ -3663,20 +3664,50 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	\end{enumerate}
 \end{definition}
 For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
+\end{commentary}
+
+\begin{definition}[semiring]
+	A collection sets $S$ is a semiring if it satisfies
+	\begin{enumerate}
+		\item $S$ is closed under intersection
+		\item For every pair $A,B \in S$, the relative complement, $A-B$ can be expressed as disjoint union of elements of $S$.
+	\end{enumerate}
+\end{definition}
 
 \begin{theorem}
 	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces.
 	Let $\mathcal{R}$ be the collection of all measurable renctangles in $X \times Y$.
-	Let $\lambda : \mathcal{R} \to [0,\infty]$ given by $\lambda(A \times B) = \mu(A) \cdot \nu(B)$.
-	Then $\langle \mathcal{R},\lambda \rangle$ is a semiring and $\lambda$ is a premeasure.
+	Define $\lambda : \mathcal{R} \to [0,\infty]$ as $\lambda(A \times B) = \mu(A) \cdot \nu(B)$.
+	Then $\mathcal{R}$ is a semiring and $\lambda : \mathcal{R} \to [0,\infty]$ is a premeasure.
 \end{theorem}
 \begin{proof}
+	\textbf{Step 1 : $\mathcal{R}$ is a semiring}\\
+	The intersection of two measurable rectangles is also a measurable rectangle.
+	$$ (A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D) $$
+	And, relative complement of two measurable rectangles is the disjoint union of two measurable rectangles.
+	$$ (A \times C) - (B \times D) = [(A-B) \times C] \cup [(A \cap B) \times (C-D)] $$
+	Thus, $\mathcal{R}$ is a semiring.\\
+
+	\textbf{Step 2 : $\lambda$ is a premeasure}\\
+	We have, $\lambda(\phi \times \phi) = \mu(\phi)\nu(\phi) = 0$.
+	Suppose $\displaystyle A \times B = \bigcup_{k=1}^\infty A_k \times B_k$.\\
+	By lemma, 
+	$$\lambda(A \times B) = \mu(A) \nu(B) = \sum_{k=1}^\infty \mu(A_k) \nu(B_k) = \sum_{k=1}^\infty \lambda(A_k \times B_k) $$
+	That is, $\lambda$ is countably additive.
+	Suppose $\displaystyle A \times B = \sum_{k=1}^n A_k \times B_k$.
+	Define $A_k = B_k = \phi,\ \forall k > n$.
+	Then, $\lambda$ is finitely additive.\\
+
+	Let $\displaystyle E \subset \bigcup_{k=1}^\infty E_k$ where $E_k$ are disjoint.\footnote{$E,E_k$ are measurable rectangles.}
+	Then, $\displaystyle E = \bigcup_{k=1}^\infty (E \cap E_k)$.
+	Thus, $\lambda$ is countably monotone since,
+	$$ \lambda(E) = \sum_{k=1}^\infty \lambda(E \cap E_k) \le \sum_{k=1}^\infty \lambda(E_k) \quad (\because E \cap E_k \subset E_k) $$
 \end{proof}
 
-\begin{definition}
+\begin{definition}[product measure]
 	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces.
-	Let $\mathcal{R}$ be the collection of measurable rectangles in $X \times Y$ and $\lambda$ is the premeasure defined by $\lambda : \mathbb{R} \to [0,\infty],\ \lambda(A \times B) = \mu(A) \cdot \nu(B)$.
-	The product measure $\lambda = \mu \times \nu$ is the Caratheodory extension of $\lambda : \mathbb{R} \to [0,\infty]$ defined by the $\sigma$-algebra of $(\mu \times \nu)^\ast$-measurable subsets of $X \times Y$.
+	Let $\mathcal{R}$ be the collection of measurable rectangles in $X \times Y$ and $\lambda$ is the premeasure defined by $\lambda : \mathcal{R} \to [0,\infty],\ \lambda(A \times B) = \mu(A) \cdot \nu(B)$.
+	The \textbf{product measure} $\lambda = \mu \times \nu$ is the Caratheodory extension of $\lambda : \mathcal{R} \to [0,\infty]$ defined by the $\sigma$-algebra of $(\mu \times \nu)^\ast$-measurable subsets of $X \times Y$.
 \end{definition}
 
 \begin{definition}[$x$-section]
@@ -3685,7 +3716,7 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 	Then the $x$-section of $f$, $E_x = \{ y \in Y : (x,y) \in E \}$.
 \end{definition}
 
-\subsubsection{Fubini's Theorem}
+\subsection{Iterated Integration}
 \begin{lemma}
 	Let $E \subset X \times Y$ be an $\mathcal{R}_{\sigma\delta}$ set for which $(\mu \times \nu)(E) < \infty$.
 	Then for every $x \in X$, the $x$-section of $E$, $E_x$ is a $\nu$-measurable subset of $Y$, the function which maps each $x \in X$ into $\nu(E_x)$ is a $\mu$-measurable function and
@@ -3694,6 +3725,38 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 	\end{equation}
 \end{lemma}
 \begin{proof}
+	Consider $E = A \times B$.
+	Then,
+	$$ E_x = \begin{cases} B & x \in A \\ \phi & x \notin A \end{cases} \quad \text{ and } \quad \nu(E_x) = \begin{cases} \nu(B) & x \in A \\ 0 & x \notin A \end{cases} $$
+	Thus, $\nu(E_x) = \nu(B) \cdot \chi_A(x)$
+	And,
+	$$(\mu \times \nu)(E) = \mu(A) \cdot \nu(B) = \nu(B) \int_X \chi_A \ d\mu = \int_X \nu(B) \cdot \chi_A(x) \ d\mu(x) $$
+
+	Let $E$ be an $\mathcal{R}_\sigma$ set.
+	Then, $E_\sigma$ can be expressed as disjoint union of measurable rectangles $\{ A_k \times B_k : k \in \mathbb{N} \}$ of finite measure.
+	Since $\mathcal{R}$ is a semiring, the $x$-section of $E$ can be expressed as disjoint, union of the $x$-sections of the respective measurable rectangles. That is,
+	$$ E_x = \bigcup_{k=1}^\infty (A_k \times B_k)_x $$
+	\begin{align*}
+		\int_x \nu(E_x) \ d\mu(x)
+		= & \int_X \sum_{k=1}^\infty \nu([A_k \times B_k]_x) \ d\mu
+		= \int_X \lim_{n \to \infty} \sum_{k=1}^n \nu( [A_k \times B_k]_x) \ d\mu \\
+		= & \lim_{n \to \infty} \int_X \sum_{k=1}^\infty \nu([A_k \times B_k]_x) \ d\mu \ (\because \text{monotone convergence theorem}) \\
+		= & \sum_{k=1}^\infty \int_X \nu([A_k \times B_k]_x) \ d\mu \\
+		= & \sum_{k=1}^\infty \mu(A_k) \cdot \nu(B_k) 
+		= (\mu \times \nu)(E)
+	\end{align*}
+
+	Let $E$ be an $\mathcal{R}_{\sigma\delta}$ set with $(\mu \times \nu)(E) < \infty$.
+	Since $\mathcal{R}$ is semiring, $E$ can be expressed as intersection of a descending sequence $\{ E_k \}_{k=1}^\infty$ in $\mathcal{R}_\sigma$.
+	And without loss of generality $(\mu \times \nu)(E_1) < \infty$.
+	By continuity of measure $\mu \times \nu$,
+	$$ \lim_{k \to \infty} (\mu \times \nu)(E_k) = (\mu \times \nu)(E) $$
+	Since $E_1$ is an $\mathcal{R}_\sigma$ set,
+	$$ (\mu \times \nu)(E_1) = \int_X \nu([E_1]_x) \ d\mu(x)  $$
+	Thus, $\nu([E_1]_x]) < \infty$.
+	And for each $x \in X$, $E_x$ is $\nu$ measurable.
+	By continuity of measure,
+	$$ \lim_{k \to \infty} \nu([E_k]_x) = \nu(E_x) $$
 \end{proof}
 
 \begin{lemma}
@@ -3719,7 +3782,7 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[Tonelli]
 	Suppose measure $\nu$ is complete.
 	Let $\varphi : X \times Y \to \mathbb{R}$ be asimple functions that is integrable over $X \times Y$ with respect to $\mu \times \nu$.
 	Then for almost all $x \in X$, the $x$-section of $\varphi$, $\varphi(x,\cdot)$ is integrable over $Y$ with respect to $\nu$ and
@@ -3741,7 +3804,6 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 \begin{proof}
 \end{proof}
 
-\subsubsection{Tonelli's Theorem}
 \begin{theorem}[Tonelli]
 	Let $(X,\mathcal{A},\mu)$ and $(Y,\mathcal{B},\nu)$ be two $\sigma$-finite measure spaces where $\nu$ is complete.
 	Let $f$ be a non-negative $(\mu \times \nu)$-measurable function on $X \times Y$.

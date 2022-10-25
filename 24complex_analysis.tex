@@ -3,7 +3,7 @@
 %The spherical representation of complex numbers, Riemann Sphere, Stereographic projection, Distance between the stereographic projections
 %Elementary Theory of power series,Abel's Theorem on convergence of the power series, Hadamard's formula, Abel's limit Theorem
 %Arcs and closed curves, Analytic functions in regions, Conformal mappings, Length and area, Linear transformations, The cross ratio, Symmetry, Oriented circles, Families of circles.
-%Chapter – 1 Section ?. Chapter – 2 Sections 2.1 to 2.5,Chapter – 3 Sections 2.1, 2.2, 2.3, 2.4 and 3.1 to 3.4 (25 hours)
+%Chapter – 1 Section 2.4 Chapter – 2 Sections 2.1 to 2.5,Chapter – 3 Sections 2.1, 2.2, 2.3, 2.4 and 3.1 to 3.4 (25 hours)
 %Module 2
 %Fundamental theorems on complex integration: line integrals, rectifiable arcs, line integrals as functions of arcs, Cauchy's theorem for a rectangle, Cauchy's theorem in a disk, Cauchy's integral formula: the index of a point with respect to a cloud curve, the integral formula.
 %(Chapter 4 – Sections 1 , 2.1 and 2.2 )  (20 hours.)
@@ -25,109 +25,111 @@
 %\chapter 1
 {\Large Module 1 }
 \section{Complex Numbers}
-\subsection{The Algebra of Complex Numbers}
+%\subsection{The Algebra of Complex Numbers}
+%\subsubsection{Conjugation,Absolute Value}
+%\begin{commentary}
+%	Usually, Ahlfors uses greek alphabets $\alpha,\beta,\dots$ for real numbers and english alphabets $a,b,\dots$ for complex numbers.
+%	And rarely, he writes $ z= x+iy$.
+%\end{commentary}
+%\subsubsection{Inequalities}
+%\paragraph{Lagrange's Identity}(complex form)
+%\begin{equation}
+%	\left| \sum_{i=1}^n a_ib_i \right|^2 = \sum_{i=1}^n|a_i|^2\sum_{i=1}^n |b_i|^2 - \sum_{1 \le i < j \le n} |a_i\conj{b_j} - a_j\conj{b_i}|^2
+%\end{equation}
+%\paragraph{Triangle Inequality}
+%\begin{equation}
+%	\left| \sum_{i=1}^n a_i \right| \le \sum_{i=1}^n |a_i|
+%\end{equation}
+%\paragraph{Cauchy's Inequality}
+%\%begin{equation}
+%	\left| \sum_{i=1}^n a_ib_i \right|^2 \le \sum_{i=1}^n |a_i|^2 \sum_{i=1}^n |b_i|^2
+%\end{equation}
+
+%\subsection{The Geometric Representation of Complex Numbers}
+%\subsubsection{Geometric Addition and Multiplcation}
+%\begin{important}
+%	Argument of $0$ is undefined.
+%\end{important}
+%\subsubsection{Binomial Theorem}
+%\paragraph{de Moivre's formula}
+%\begin{equation}
+%	(\cos \phi+i\sin \phi)^n = \cos n\phi + i \sin n\phi
+%\end{equation}
+%\paragraph{nth root of $a = r(\cos \phi+i\sin \phi)$}
+%\begin{equation}
+%	z = \sqrt[n]{r} \left(\cos \left(\frac{\phi}{n}+k\frac{2\pi}{n}\right) + i\sin\left(\frac{\phi}{n} + k\frac{2\pi}{n}\right) \right)
+%\end{equation}
+
+%Let $\omega = \cos \frac{2\pi}{n} + i\sin \frac{2\pi}{n}$.
+%Then, nth roots of unity are $1,\omega,\omega^2,\dots,\omega^{n-1}$.
+%Then for any integer $h$ which is not a multiple of $n$, we have
+%\begin{equation}
+%	1+\omega^h + \omega^{2h} + \dots + \omega^{(n-1)h} = 0
+%\end{equation}
+%And,
+%\begin{equation}
+%	1-\omega^h + \omega^{2h} + \dots + (-1)^{n-1}\omega^{(n-1)h} = \begin{cases} 0 & n \text{ is odd } \\ 1+i\tan(\frac{\pi h}{n}) & n \text{ is even} \end{cases}
+%\end{equation}
+%\begin{commentary}
+%	The proof for the even cases are bit complicated.
+%	Refer \url{https://math.stackexchange.com/q/4362927} for the proof.
+%\end{commentary}
+
+%\subsubsection{Analytic Geometry}
+%\paragraph{Circle} with center $a$ and radius $r$.
+%\begin{equation}
+%	|z-a| = r
+%\end{equation}
+%\[ (z-a)(\conj z - \conj a) = r^2 \]
+%Also, $|z-a| < r$ and $|z-a| > r$ are inside and outside of the cirle.
+%\paragraph{Straight Line} through $a,b$.
+%\begin{equation}
+%	z = a+bt
+%\end{equation}
+%Direction of the line is given by $arg(b)$.
+%\[ L1 : z = a+bt,\qquad L2 : z = a'+b't \]
+%Angle between $L1,L2$ is given by $arg (b/b')$.
+%$L1, L2$ are the same line if $a'-a,b'$ are (real) multiples of $b$.
+%$L1,L2$ are orthogonal if $b/b'$ is purely imaginary.\\
+
+%Also, $\Im\frac{(z-a)}{b} < 0$ and $\Im\frac{(z-a)}{b} > 0$ are left and right half plane of the directed line from $a$ to $b$.
+
+%\paragraph{Exercise}
+%\begin{enumerate}
+%	\item When does $az+b\conj z+c = 0$ represent a line ?
+%		\begin{proof}[Answer]
+%			Let $z = x+iy$.
+%			\[ a(x+iy) + b(x-iy) + c = 0 \iff (a+b)x+(a-b)iy + c = 0 \]
+%			\[ y = \frac{c}{(b-a)i}+\frac{(a+b)}{(b-a)i}x \]
+%			Thus, $az+b\conj z+c = 0$ is a straight line if $a+b,c$ are (real) multiples of $(a-b)i$.
+%		\end{proof}
+%	\item Write the equation of an ellipse, hyperbola, parabola in complex form.
+%		\begin{proof}[Answer]
+%		Ellipse : $|z-a|+|z-b|=k$ \\
+%		Parabola : $||z-a|-|z-b|| = k$ \\
+%		Hyperbola : $ $
+%		\end{proof}
+%	\item Prove that
+%		\begin{enumerate}
+%			\item the diagonals of a parallelogram bisect each other.
+%			\begin{proof}[Answer]
+%			\end{proof}
+
+%			\item the diagonals of a rhombus are orthogonal.
+%			\begin{proof}[Answer]
+%			\end{proof}
+%		\end{enumerate}
+%	\item Prove analytically that the midpoints of parallel chords to a circle lie on a diameter perpendicular to the chords.
+%	\begin{proof}[Answer]
+%	\end{proof}
+
+%	\item Show that all circles circles that pass through $a$ and $1/\conj a$ intersect the circle $|z|=1$ at right angles.
+%	\begin{proof}[Answer]
+%	\end{proof}
+%\end{enumerate}
+
+\setcounter{subsection}{2}
 \setcounter{subsubsection}{3}
-\subsubsection{Conjugation,Absolute Value}
-\begin{commentary}
-	Usually, Ahlfors uses greek alphabets $\alpha,\beta,\dots$ for real numbers and english alphabets $a,b,\dots$ for complex numbers.
-	And rarely, he writes $ z= x+iy$.
-\end{commentary}
-\subsubsection{Inequalities}
-\paragraph{Lagrange's Identity}(complex form)
-\begin{equation}
-	\left| \sum_{i=1}^n a_ib_i \right|^2 = \sum_{i=1}^n|a_i|^2\sum_{i=1}^n |b_i|^2 - \sum_{1 \le i < j \le n} |a_i\conj{b_j} - a_j\conj{b_i}|^2
-\end{equation}
-\paragraph{Triangle Inequality}
-\begin{equation}
-	\left| \sum_{i=1}^n a_i \right| \le \sum_{i=1}^n |a_i|
-\end{equation}
-\paragraph{Cauchy's Inequality}
-\begin{equation}
-	\left| \sum_{i=1}^n a_ib_i \right|^2 \le \sum_{i=1}^n |a_i|^2 \sum_{i=1}^n |b_i|^2
-\end{equation}
-
-\subsection{The Geometric Representation of Complex Numbers}
-\subsubsection{Geometric Addition and Multiplcation}
-\begin{important}
-	Argument of $0$ is undefined.
-\end{important}
-\subsubsection{Binomial Theorem}
-\paragraph{de Moivre's formula}
-\begin{equation}
-	(\cos \phi+i\sin \phi)^n = \cos n\phi + i \sin n\phi
-\end{equation}
-\paragraph{nth root of $a = r(\cos \phi+i\sin \phi)$}
-\begin{equation}
-	z = \sqrt[n]{r} \left(\cos \left(\frac{\phi}{n}+k\frac{2\pi}{n}\right) + i\sin\left(\frac{\phi}{n} + k\frac{2\pi}{n}\right) \right)
-\end{equation}
-
-Let $\omega = \cos \frac{2\pi}{n} + i\sin \frac{2\pi}{n}$.
-Then, nth roots of unity are $1,\omega,\omega^2,\dots,\omega^{n-1}$.
-Then for any integer $h$ which is not a multiple of $n$, we have
-\begin{equation}
-	1+\omega^h + \omega^{2h} + \dots + \omega^{(n-1)h} = 0
-\end{equation}
-And,
-\begin{equation}
-	1-\omega^h + \omega^{2h} + \dots + (-1)^{n-1}\omega^{(n-1)h} = \begin{cases} 0 & n \text{ is odd } \\ 1+i\tan(\frac{\pi h}{n}) & n \text{ is even} \end{cases}
-\end{equation}
-\begin{commentary}
-	The proof for the even cases are bit complicated.
-	Refer \url{https://math.stackexchange.com/q/4362927} for the proof.
-\end{commentary}
-
-\subsubsection{Analytic Geometry}
-\paragraph{Circle} with center $a$ and radius $r$.
-\begin{equation}
-	|z-a| = r
-\end{equation}
-\[ (z-a)(\conj z - \conj a) = r^2 \]
-Also, $|z-a| < r$ and $|z-a| > r$ are inside and outside of the cirle.
-\paragraph{Straight Line} through $a,b$.
-\begin{equation}
-	z = a+bt
-\end{equation}
-Direction of the line is given by $arg(b)$.
-\[ L1 : z = a+bt,\qquad L2 : z = a'+b't \]
-Angle between $L1,L2$ is given by $arg (b/b')$.
-$L1, L2$ are the same line if $a'-a,b'$ are (real) multiples of $b$.
-$L1,L2$ are orthogonal if $b/b'$ is purely imaginary.\\
-
-Also, $\Im\frac{(z-a)}{b} < 0$ and $\Im\frac{(z-a)}{b} > 0$ are left and right half plane of the directed line from $a$ to $b$.
-
-\paragraph{Exercise}
-\begin{enumerate}
-	\item When does $az+b\conj z+c = 0$ represent a line ?
-		\begin{proof}[Answer]
-			Let $z = x+iy$.
-			\[ a(x+iy) + b(x-iy) + c = 0 \iff (a+b)x+(a-b)iy + c = 0 \]
-			\[ y = \frac{c}{(b-a)i}+\frac{(a+b)}{(b-a)i}x \]
-			Thus, $az+b\conj z+c = 0$ is a straight line if $a+b,c$ are (real) multiples of $(a-b)i$.
-		\end{proof}
-	\item Write the equation of an ellipse, hyperbola, parabola in complex form.
-		\begin{proof}[Answer]
-		Ellipse : $|z-a|+|z-b|=k$ \\
-		Parabola : $||z-a|-|z-b|| = k$ \\
-		Hyperbola : $ $
-		\end{proof}
-	\item Prove that
-		\begin{enumerate}
-			\item the diagonals of a parallelogram bisect each other.
-			\begin{proof}[Answer]
-			\end{proof}
-
-			\item the diagonals of a rhombus are orthogonal.
-			\begin{proof}[Answer]
-			\end{proof}
-		\end{enumerate}
-	\item Prove analytically that the midpoints of parallel chords to a circle lie on a diameter perpendicular to the chords.
-	\begin{proof}[Answer]
-	\end{proof}
-
-	\item Show that all circles circles that pass through $a$ and $1/\conj a$ intersect the circle $|z|=1$ at right angles.
-	\begin{proof}[Answer]
-	\end{proof}
-\end{enumerate}
 \subsubsection{The Spherical Representation}
 \begin{definition}[extended complex plane]
 	Let $\mathbb{C}$ be the set of all complex numbers o f the form $z = x+iy$ where $x,y$ are real numbers.
@@ -453,28 +455,77 @@ Therefore,
 
 \section{Complex Functions}
 \subsection{Analytic Function}
-\begin{definition}[analytic]
-	A function is analytic if it is differentiable everywhere in its domain.
+\begin{definition}[region]
+	A region $\Omega$ is an open, connected subset of $\mathbb{C}$.
 \end{definition}
 
+\subsubsection{Limit and Continuity}
+\begin{definition}[limit]
+	Let $\Omega$ be a region.
+	Let function $f : \Omega \to \mathcal{C}$.
+	Function $f$ has limit $A$ as $x$ tends to $a$ if for every $\varepsilon > 0$, there exists $\delta > 0$ such that $|f(x)-A| < \varepsilon$ for any $x$ such that $|x-a| < \delta$ and $x \ne a$.
+	\[ \text{ Notation: } f(x) \to A \text{ as } x \to a \]
+\end{definition}
+
+\paragraph{Properties of Limit}
+Suppose $f(x) \to A$ and $g(x) \to B$ as $x \to a$.
+\begin{enumerate}
+	\item $(f+g)(x) \to A+B$ as $x \to a$
+	\item $(fg)(x) \to AB$ as $x \to a$
+	\item $(f/g)(x) \to A/B$ as $x \to a$ \dag\footnote{If $g$ is bounded away from zero.}
+	\item $\overline{f(x)} \to \bar{A}$ as $x \to a$
+\end{enumerate}
+
+\begin{definition}[continuity]
+	$f$ is continuous at $a$ if $f(x) \to f(a)$ as $x \to a$.
+	And $f : \Omega \to \mathbb{C}$ is continuous if it is continuous at each point of $\Omega$.
+\end{definition}
+
+\paragraph{Properties of Continuous Functions}
+Let $f,g$ be two continuous function.
+\begin{enumerate}
+	\item $f \pm g$, $fg$ and $f/g$ are continuous ($g \ne 0$).
+	\item $Re{(f)}, Im{(f)}, |f|$ are continuous.
+\end{enumerate}
+
+\begin{definition}[derivative]
+	The derivative of $f$ at $a$ is 
+	\begin{equation}
+		f'(a) = \lim_{x \to a} \frac{f(x)-f(a)}{x-a}
+	\end{equation}
+\end{definition}
+
+\paragraph{Properties of Derivatives}
+\begin{enumerate}
+	\item $(f+g)'(a) = f'(a) + g'(a)$
+	\item $(fg)'(a) = f'(a)g(a) + f(a)g'(a)$
+	\item $(f/g)'(a) = \frac{g(a)f'(a)-f(a)g'(a)}{g^2(a)}$
+	\item $(f \circ g)'(a) = f'(g(a)) g'(a)$
+\end{enumerate}
+
 \begin{important}
-	``A real function of complex variable either has derivative zero or else the derivative does not exist.''
+	A real function of complex variable either has the derivative zero or else the derivative does not exist.
+	And complex function of real variable can be reduced to the real case.
+	$$ f(x) = g(x)+ih(x) \qquad f'(x) = g'(x) +ih'(x) $$
 \end{important}
 
-\begin{definition}[Cauchy-Riemann conditions]
-A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
+\subsubsection{Analytic Functions}
+\begin{definition}[analytic]
+	An analytic function is a complex function of complex variable which has derivative wherever it is defined.
+\end{definition}
+
+\begin{definition}[Cauchy-Riemann]
+	Cauchy-Riemann differential equations for a complex function $f : \Omega \to \mathbb{C},\ f(z) = u(z)+iv(z)$ are
 \begin{equation}
-	\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \qquad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+	\textcolor{purple}{\frac{\partial f}{\partial x} = -i\frac{\partial f}{\partial y}}      \qquad \text{ OR }   \textcolor{blue}{\qquad \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \qquad \text{ and } \qquad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}}
 	\label{eqn:CR}
 \end{equation}
+	Then the pair $(u,v)$ is said to satify Cauchy-Riemann differential equations.
+	And $f = u+iv$ is said to satisfy Cauchy-Riemann conditions for analyticity.
 \end{definition}
 
-\begin{important}
-	If $f$ is analytic then $f$ satisfies the C.R. conditions.
-\end{important}
-
 \begin{definition}[harmonic]
-	A real function $u$ of complex variable $z = x+iy$ is harmonic if $u$ satisfies the Laplace equation,
+	A real function $u : \Omega \to \mathbb{R}$ of complex variable is a harmonic function if $u(z)$ satisfies the Laplace equation for every $z \in \Omega$.
 \begin{equation}
 	\Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0
 	\label{eqn:laplace}
@@ -482,8 +533,290 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 \end{definition}
 
 \begin{definition}[conjugate harmonic]
-	Two harmonic functions $u,v$ are conjugate harmonic if $u,v$ satisfy C.R. conditions.
+	Two harmonic functions $u,v$ are conjugate harmonic if the pair $(u,v)$ satisfy Cauchy-Riemann differential equations.
 \end{definition}
+
+\paragraph{Properties of Analytic Functions}
+Let $f,g$ be analytic functions.
+\[ f'(z) = \lim_{h \to 0} \frac{f(z+h)-f(z)}{h} \]
+\begin{enumerate}
+	\item $f \pm g, fg, f/g$ are analytic functions ($g \ne 0$).
+
+	\item Analytic functions are continuous.
+	\begin{proof}
+		Let $f : \Omega \to \mathbb{C}$ be an analytic function.
+		Let $z \in \mathbb{C}$.
+		Then for sufficietly small $h$, we have $z+h \in \Omega$.
+		And,
+		\begin{align*}
+			f(z+h) - f(z) 
+			& =  h\frac{f(z+h)-f(z)}{h}
+		\end{align*}
+		Thus, $f(z+h)-f(z) \to 0f'(z) = 0$ as $h \to 0$.
+		In other words, $f(z+h) \to f(z)$ as $h \to 0$.
+		Clearly, $f$ is continuous.
+	\end{proof}
+
+	\item Real and imaginary parts of analytic functions satisfies Cauchy-Riemann differential equations.
+	\begin{proof}
+		Let $f : \Omega \to \mathbb{C}$ be an analytic function.
+		Let $z = x+iy \in \Omega$.
+		Then $f'(z)$ exists.
+		And the value of $f'(z)$ is independent of the path along which $z+h$ approaches $z$.\\
+
+		Suppose $h$ is real, then $f(z+h) = f(x+h+iy)$. Thus,
+		\begin{align}
+			f'(z) 
+			& = \lim_{h \to 0} \frac{f(x+h+iy)-f(x+iy)}{h} = \frac{\partial f}{\partial x} \\
+			& = \lim_{h \to 0} \frac{u(x+h,y)-u(x,y)}{h} + \lim_{h \to 0} i\frac{v(x+h,y)-v(x,y)}{h} \nonumber \\
+			& = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} 
+		\end{align}
+		Suppose $h$ is imaginary, then $f(z+h) = f(x+i(y+k))$.
+		Thus,
+		\begin{align}
+			f'(z) 
+			& = \lim_{k \to 0} \frac{f(x+i(y+k)) - f(x+iy)}{ik} = -i\frac{\partial f}{\partial y} \\
+			& = \lim_{k \to 0} \frac{u(x,y+k)-u(x,y)}{ik} + \lim_{k \to 0} i\frac{v(x,y+k)-v(x,y)}{ik} \nonumber \\
+			& = -i\frac{\partial u}{\partial y} + \frac{\partial v}{\partial y}
+		\end{align}
+		Comparing the equations, we get
+		\begin{equation*}
+			\frac{\partial f}{\partial x} = -i\frac{\partial f}{\partial y} \qquad \text{ OR } \qquad \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \qquad \text{ and } \qquad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+		\end{equation*}
+		Therefore, real and imaginary parts of $f$ satisfies Cauchy-Riemann differential equations.	
+		In other words, $f$ satisfying the Cauchy-Riemann conditions for analyticity.
+	\end{proof}
+
+	\item $|f'(z)|^2$ is the Jacobian of $u$ and $v$ with respect to $x$ and $y$.
+	\begin{proof}
+		Let $f = u+iv$ be an analytic function.
+		Then,
+	\begin{align*}
+		f'(z) & = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} \\
+		|f'(z)|^2 & = \left(\frac{\partial u}{\partial x} \right)^2 + \left(\frac{\partial v}{\partial x}\right)^2 \\
+		& = \frac{\partial u}{\partial x} \frac{\partial v}{\partial y} - \frac{\partial u}{\partial y} \frac{\partial v}{\partial x} = \left|\begin{matrix} \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\ \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} \end{matrix} \right|
+	\end{align*}
+	\end{proof}
+
+	\item Derivative of an analytic function is analytic. (\textcolor{blue}{proof : \ref{sect:higherDerivatives}})
+
+	\item Analyticity implies existence of the partial dertivatives $\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial v}{\partial x}, \frac{\partial v}{\partial y}$ of real and imaginary parts.
+	Since derivative of an analytic function is also an analytic function, real and imaginary parts of an analytic function has continuous partial derivatives of all orders.
+	And mixed partial derivatives are equal since the second order partial derivatives are continuous.
+
+	\item If $f = u +iv$ is analytic, then $u,v$ are harmonic functions.
+	And $v$ is the unique conjugate harmonic function of $u$ upto an additive constant.
+\end{enumerate}
+\begin{theorem}[conjugate harmonic]
+	Function $f = u+iv$ is an analytic function if and only if $u,v$ are conjugate harmonic functions.
+\end{theorem}
+\begin{proof}
+	Suppose $v$ is the conjugate harmonic function of $u$.
+	Then the four first order partial derivatives of $u,v$ exists, they are continuous and they satisfy Cauchy-Riemann differential equations.
+	\begin{align*}
+		u(x+h,y+k) - u(x,y) 
+		& = u(x+h,y+k) - u(x,y+k) + u(x,y+k) - u(x,y) \\
+		& = h\frac{u(x+h,y+k) - u(x,y+k)}{h} + k\frac{u(x,y+k) - u(x,y)}{k} 
+		\intertext{By existence and continuity of the partial derivatives,}
+		u(x+h,y+k) & - u(x,y) \to h\frac{\partial u}{\partial x} + k\frac{\partial u}{\partial y} \text{ as } h+ik \to 0
+		\intertext{For sufficiently small values of $h,k$ we have,}
+		u(x+h,y+k) - u(x,y) 
+		& = h\frac{\partial u}{\partial x} + k\frac{\partial u}{\partial y} + \varepsilon_1 \text{ where } \frac{\varepsilon_1}{h+ik} \to 0 \text{ as } h+ik \to 0
+		\intertext{Similarly,}
+		v(x+h,y+k) - v(x,y) 
+		& = h\frac{\partial v}{\partial x} + k\frac{\partial v}{\partial y} + \varepsilon_2 \text{ where } \frac{\varepsilon_2}{h+ik} \to 0 \text{ as } h+ik \to 0
+		\intertext{Substituting the values,}
+		f(z+h+ik) - f(z) 
+		& = u(x+h,y+k)-u(x,y) + iv(x+h,y+k) - v(x,y)\\
+		& = h\frac{\partial u}{\partial x}  + k\frac{\partial u}{\partial y} + \varepsilon_1 + ih\frac{\partial v}{\partial x} + ik\frac{\partial v}{\partial y} + i\varepsilon_2 \\
+		& = \left(\frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} \right) (h+ik) + (\varepsilon_1 + i \varepsilon_2) \\
+		\implies f'(z) & \to \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} \text{ as } h+ik \to 0
+	\end{align*}
+	Thus, $f$ is analytic.\\
+
+	Suppose $f = u+iv$ is an analytic function.
+	We know that, 
+	\[ f'(z) = \frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x} = -i\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y} \]
+	Suppose $u,v$ are harmonic functions.
+	Comparing real and imaginary parts, we have $v$ is the conjugate harmonic function of $u$ upto an additive constant.\\
+
+	It remains to prove that $u,v$ are harmonic functions.
+	We have, 
+	\[\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}  \implies \frac{\partial^2 u}{\partial x^2} = \frac{\partial^2 v}{\partial x \partial y}\]
+	\[\frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}  \implies \frac{\partial^2 u}{\partial y^2} = -\frac{\partial^2 v}{\partial y \partial x}\]
+	Since the second order partial derivatives of $v$ are continuous, these mixed partial derivatives of $v$ are equal.
+	\[ \Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = \frac{\partial^2 v}{\partial x \partial y}-\frac{\partial^2 v}{\partial y \partial x} = 0 \]
+	Therefore, $u$ is harmonic and similarly $v$ is also harmonic.
+\end{proof}
+
+\begin{commentary}
+\begin{remark}
+	An analytic function can't be reduced to a function of two real variables.
+\end{remark}
+\begin{align*}
+	f(z) 
+	& = f(x+iy) \\
+	& = f\left(\frac{z+\bar{z}}{2}-i\frac{z-\bar{z}}{2}\right) \\
+	\implies \frac{\partial f}{\partial \bar{z}} 
+	& = \frac{1}{2}\frac{\partial f}{\partial x} + \frac{i}{2}\frac{\partial f}{\partial y} = 0 \qquad \left(\because f \text{ is analytic, }\frac{\partial f}{\partial x} = -i\frac{\partial f}{\partial y}\right)
+\end{align*}
+Thus, $f$ is independent of $\bar{z}$.	
+Therefore, an analytic function $f(x+iy)$ can't be truely represented by $f(x,y)$.
+\end{commentary}
+
+\paragraph{Computing $f$ from rational function $u(x,y)$}
+\begin{equation}
+	f(z) = 2u(z/2,z/2i)-u(0,0)+c
+\end{equation}
+\paragraph{Exercise}
+\begin{enumerate}
+	\item Composition of analytic functions is also analytic.
+	\begin{proof}
+	\begin{align*}
+		(g \circ f)'(z)
+		& = \lim_{h \to 0} \frac{(g \circ f)(z+h) - (g \circ f)(z)}{h} \quad ? 
+	\end{align*}
+	\end{proof}
+	\item 
+	\begin{enumerate}
+		\item $z^2  = x^2-y^2 + 2xyi$
+			\[ \frac{\partial f}{\partial x} = 2x+2iy = -i(2ix-2y) \qquad \frac{\partial f}{\partial y} = -2y+2ix \]
+		\item $z^3 = x^3-3xy^2+i(3x^2y-y^3)$
+			\[ \frac{\partial f}{\partial x} = 3x^2-3y^2+6ixy = -i(3ix^2-3iy^2-6xy) \qquad \frac{\partial f}{\partial y} = -6xy+3ix^2-3iy^2 \]
+	\end{enumerate}
+	\item $u = ax^3+bx^2y+cxy^2+dy^3$
+	\begin{align*}
+		\frac{\partial u}{\partial x} 
+		&= 3ax^2+2bxy+cy^2 & \frac{\partial^2 u}{\partial x^2} = 6ax+2by \\
+		\frac{\partial u}{\partial y}
+		& = bx^2+2cxy+3dy^2  & \frac{\partial^2 u}{\partial y^2} = 2cx+6dy \\
+		\Delta u & = 0 \implies c = -3a,\ d = -b/3 \\
+		u & = ax^3+bx^2y-3axy^2-y^2/3 \\
+		\frac{\partial v}{\partial y} & = 3ax^2 + 2bxy-3ay^2 \\
+		\frac{\partial v}{\partial x} & = -bx^2 + 6axy+by^2 
+	\end{align*}
+	\item
+	\item 
+	\item
+	\item
+\end{enumerate}
+
+\subsubsection{Polynomials}
+\paragraph{Polynomials are analytic functions}
+Polynomials are the \textit{simplest} analytic functions.
+\begin{proof}
+Constant functions are analytic with derivative $0$ and $z$ is the simplest non-constant analytic function and it has derivative $1$.
+Since sum and product of analytic functions are analytic, the polynomial
+\begin{equation}
+	P(z) = a_0 + a_1 z + \dots + a_nz^n,\quad (a_n \ne 0)
+\end{equation}
+with degreen $n$ is analytic with derivative
+\begin{equation}
+	P'(z) = a_1 + 2a_2z + \dots + na_nz^{n-1}
+\end{equation}
+\end{proof}
+
+By fundamental theorem of algebra(theorem \ref{thm:fundamental}), every polynomial $P(z)$ with degree $n > 0$ has atleast one root, say $\alpha_1$.
+Thus, $P(z) = (z-\alpha_1)P_1(z)$ where $P_1(z)$ is a polynomial of degree $n-1$.
+Repeating the process, we get $P(z) = a_n(z-\alpha_1)(z-\alpha_2)\dots(z-\alpha_n)$ where $\alpha_j$'s are not necessarily distinct.\\
+
+\paragraph{Order of a zero}
+These $\alpha_j$'s are the zeroes of $P(z)$.
+If there are $h$ number of $\alpha_j$'s such that $\alpha = \alpha_j$. Then $\alpha$ is a \textbf{zero of order $h$}.\\
+
+Also order of a zero $\alpha$ is the order of the first nonvanishing derivative of $P(z)$ at $\alpha$.
+That is, the least positive integer $m$ such that the derivative \[ P^{(h)}(\alpha) = \left.\frac{d^n}{dz^n}P(z)\right|_{z=\alpha} \ne 0 \]
+Thus, \textbf{simple zero} of $P(z)$ is an $\alpha$ such that $P(\alpha) = 0$ and $P^\prime(\alpha) \ne 0$.
+
+\begin{theorem}[Lucas]
+	If all zeroes of a polynomial $P(z)$ lies in a half plane, then all zeroes of the derivative $P^\prime(z)$ lie in the same half plane.
+\end{theorem}
+\begin{proof}
+	Let $H$ be the half plane defined by
+	\[ H = \left\{ z : Im{\left(\frac{z-a}{b}\right)}<0\right\} \]
+	Suppose every zero $\alpha_k$ of $P(z)$ belong to $H$.
+	Then,
+	\[ Im\left(\frac{\alpha_k-a}{b}\right) < 0,\ \forall k \]
+	Suppose $z$ belongs to the other half plane.
+	Then, $P(z) \ne 0$ and
+	\[ Im\left(\frac{z-a}{b}\right) > 0 \]
+	Thus,
+	\[ Im\left(\frac{z-\alpha_k}{b}\right) = Im\left(\frac{z-a}{b}-\frac{\alpha_k-a}{b}\right) = Im\left(\frac{z-a}{b}\right)-Im\left(\frac{\alpha_k-a}{b}\right) > 0 \]
+	Since imaginary part of reciprocals have opposite sign, we have
+	\[ Im\left(\frac{b}{z-\alpha_k}\right) < 0,\ \forall k \]
+
+	We have,
+	\begin{align*}
+		\log P(z) 
+			& = \log a_n + \log (z-\alpha_1) + \log (z-\alpha_2) + \dots + \log (z-\alpha_n) \\
+		\implies \frac{P^\prime(z)}{P(z)} 
+			& = \frac{1}{z-\alpha_1}+\frac{1}{z-\alpha_2}+\dots+\frac{1}{z-\alpha_n} = \sum_{k=1}^n \frac{1}{z-\alpha_k} \\
+		\implies Im\left(\frac{bP^\prime(z)}{P(z)}\right)
+			& = \sum_{k=1}^n Im\left(\frac{b}{z-\alpha_k}\right) < 0
+\end{align*}
+	 Therefore, $P^\prime(z) \ne 0$ for any $z \notin H$.
+\end{proof}
+\begin{commentary}
+\begin{theorem}[Lucas]
+	The smallest convex polygon containing the zeroes of $P(z)$ contains all the zeroes of $P^\prime(z)$. In other words, it contains all critical points of $P(z)$.
+\end{theorem}
+\begin{proof}
+	Let $C$ be the smallest convex polygon containing all zeroes of $P(z)$.
+	Without loss of generality, all the zeroes of $P(z)$ lies on the same half plane defined by each edge of this polygon.
+	By above proof, we know that the critical points of $P(z)$ which are the zeroes of $P^\prime(z)$ belongs to the same half plane.
+\end{proof}
+\end{commentary}
+
+\subsubsection{Rational Functions}
+\begin{definition}
+	A function of the form $R(z) = \frac{P(z)}{Q(z)}$ where $P(z),Q(z)$ are polynomials such that they don't have any common zeroes.
+\end{definition}
+The zeroes of $P(z)$ are the \textbf{zeroes} of $R(z)$ and the zeroes of $Q(z)$ are the \textbf{poles} of $R(z)$.
+The \textbf{order of a pole} of $R(z)$ is the order of the respective zero of $Q(z)$.
+
+\paragraph{Derivative}
+The derivative of $R(z)$ exists only when $Q(z) \ne 0$.
+\[ R^\prime(z) = \frac{P^\prime(z)Q(z) - P(z)Q^\prime(z)}{Q(z)^2} \]
+
+\paragraph{Order of a rational function}
+Rational functions have common number of zeroes and poles in the extended plane.
+This number is the \textbf{order} of the rational function.\\
+
+Let $n,m$ be the order of the polynomials $P(z),Q(z)$.
+The order of the rational function $R(z) = \frac{P(z)}{Q(z)}$ is $\max\{m,n\}$.
+If $n > m$, then $R(z)$ has a pole of order $n-m$ at $\infty$.
+If $m < n$, then $R(z)$ has a zero of order $m-n$ at $\infty$.\\
+
+If $R(z)$ is a rational polynomial of order $n$.
+Then order or $R(z)-a$ is $n$.
+Thus, $R(z)=a$ has $n$ zeroes.
+\begin{definition}
+	A linear transformation is a rational function of order $1$.
+	\[ S(z) = \frac{\alpha z + \beta}{\gamma z + \delta} ,\ \alpha\delta - \beta\gamma \ne 0 \]
+\end{definition}
+\begin{description}
+	\item[parallel translations] are linear trasformations of the form $z+a$.
+	\item[inversion] is the linear transformation $1/z$.
+\end{description}
+
+\begin{definition}
+	Fixed point of a linear transformation $S$ is a complex number $z$ in the extended plane for which $S(z) = z$.
+\end{definition}
+Fixed point of parallel translation is $\infty$ and that of inversion are $1,-1$.
+
+\paragraph{Partial Fraction Representation}
+\[ R(z) = \frac{P(z)}{Q(z)} = G(z) + H(z) \]
+where $H(z)$ is finite at $\infty$ and $G(z)$ is a polynomial without constant term.
+In other words, $H(z) = \frac{P_1(z)}{Q(z)}$ where $P_1(z)$ and $Q(z)$ are of the same degree.
+Then, there exists a unique $G(z)$ such that $P(z) = G(z)Q(z) + P_1(z)$.
+Clearly, $G(z)$ is \textbf{singular part} of $R(z)$ at $\infty$.\\
+
+Suppose $R(z)$ has $q$ distinct, finite poles, say $\beta_1, \beta_2,\dots,\beta_q$.
+Then,
+\begin{equation}
+	R(z) = G(z) + \sum_{j=1}^q G_j\left(\frac{1}{z-\beta_j}\right)
+\end{equation}
+where $G_j$ is the singular part of $R(z)$ at $\beta_j$.
 
 \subsection{Elementary Theory of Power Series}
 \subsubsection{Sequences}
@@ -496,7 +829,9 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 \begin{remark}
 	Sequence diverges to infinity if $\displaystyle \lim_{n \to \infty} a_n = \infty$.
 \end{remark}
-\[ \text{ However, } |a_n - \infty| < \varepsilon \text{ is not possible !!} \]
+\begin{equation}
+	\forall \varepsilon > 0, \exists N \in \mathbb{N} \text{ such that } \forall n > N, \ |a_n| > \frac{1}{\varepsilon}
+\end{equation}
 
 \begin{definition}[Cauchy]
 	A sequence $\sequence{a_n}$ is Cauchy/Fundamental if \begin{equation}
@@ -530,12 +865,152 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 	Then there exists $\alpha_n < A-\varepsilon$ and exists $\alpha_m > a + \varepsilon$.
 	Therefore, \[A-a = A - \alpha_m + \alpha_m - \alpha_n + \alpha_n - a < 3\varepsilon \]
 \end{proof}
+
+\paragraph{Limit Superior and Limit Inferior}
+\begin{definition}
+	Let $\sequence{\alpha_n}_{n=1}^\infty$ be a real sequence.
+	Define $a_n = \max\{\alpha_1,\alpha_2,\dots,\alpha_n\}$.
+	?
+\end{definition}
+\paragraph{Properties of Limit Superior/Inferior}
+\begin{enumerate}
+	\item The hierarchy
+	\[ \varliminf \alpha_n + \varliminf \beta_n \le \varliminf (\alpha_n+\beta_n) \le \varliminf \alpha_n + \varlimsup \beta_n \le \varlimsup (\alpha_n + \beta_n) \le \varlimsup \alpha_n + \varlimsup \beta_n \]
+\end{enumerate}
+
 \subsubsection{Series}
+\begin{definition}
+	A sequence $\sequence{b_n}$ is a \textbf{contraction} of sequence $\sequence{a_n}$ if $|b_m-b_n| \le |a_m - a_n|,\ \forall m,n \in \mathbb{N}$.
+\end{definition}
+
+\begin{definition}
+	An infinite series is a formal infinite sum
+	\[ \sum_{n = 1}^\infty a_n = a_1 + a_2 + \dots + a_n + \dots \]
+\end{definition}
+\begin{definition}
+	Series $\sum a_n$ converges if and only if the sequence of partial sums $\sequence{s_n}$ where $s_n = \sum_{j=1}^n a_n$ converges.
+	The limit of the sequence of partial sum is the \textbf{sum} of the series.
+\end{definition}
+\paragraph{Cauchy Condition}
+The series converges if and only if for every $\varepsilon > 0$ there exists a natural number $n_0$ such that $|a_n + a_{n+1}+\dots+a_{n+p}| < \varepsilon$.\\
+
+For $p=0$, we have $|a_n| < \varepsilon$.
+In other words, $a_n \to 0$.\\
+
+If a finite number of terms are omitted from a series, then the new series converges/diverges simultaneously with the first series.
+And the sum of the original(first) series $S = s_n + R_n$ where $s_n$ is the sum of the omitted terms and $R_n$ is the sum of the second series.
+
+\paragraph{Absolute Convergence}
+Let $\sum a_n$ be a series.
+The series converges absolutely if $\sum |a_n|$ converges.
+Absolute convergence is stronger than convergence in the case of series.
+In other words, absolute convergence implies convergence.
+
 \subsubsection{Uniform Convergence}
+\begin{definition}
+	A sequence of functions $\sequence{f_n(x)}$ defined on $E$ is said to converge uniformly to a function $f(x)$ if
+	\[ \forall \varepsilon > 0, \ \exists n_0 \in \mathbb{N} \text{ such that } \forall x \in E,\ \forall n > n_0, \ |f_n(x)-f(x)| < \varepsilon \]
+\end{definition}
+
+Convergence is pointwise if $n_0$ depends on $x \in E$.
+\paragraph{Properties of Uniform Convergence}
+\begin{enumerate}
+	\item The limit function of a uniformly convergent sequence of continuous functions is continuous.
+\end{enumerate}
+
+\paragraph{Cauchy Condition}
+A sequence of functions $\sequence{f_n(x)}$ is uniformly convergence if and only if
+	\[ \forall \varepsilon > 0, \ \exists n_0 \in \mathbb{N} \text{ such that } \forall x \in E,\ \forall m,n > n_0, \ |f_m(x)-f_n(x)| < \varepsilon \]
+
+\paragraph{Weierstrass M Test}
+If $\sequence{f_n(x)}$ is a contraction of a convergent sequence $\sequence{a_n}$, then $\sequence{f_n(x)}$ is uniformly convergent.
+\[ |f_n(x)-f_m(x)| \le |a_n - a_m|, \ \forall n,m \in \mathbb{N} \implies \sum f_n(x) = f(x) \]
+
+Suppose $\sum a_n$ is convergent and $\sum f_n(x)$ is a minorant of $\sum Ma_n$ for some constant $M$.
+\[ \exists n_0 \in \mathbb{N} \text{ such that } \forall n > n_0,\ |f_n(x)| \le M|a_n| \]
+Then $\sum f_n(x) $ is uniformly convergent.
+
 \subsubsection{Power Series}
+\begin{definition}
+	A power series is a series of the form
+	\[ \sum a_n (z-z_0)^n = a_0 + a_1(z-z_0) + \dots + a_n(z-z_0)^n + \dots \]
+	where $a_n,z_0 \in \mathbb{C}$.
+\end{definition}
+
+\begin{theorem}
+	For every power series about origin there exists a number $R$ called \textbf{radius of convergence} such that $0 \le R \le \infty$ and
+	\begin{enumerate}
+		\item The series converges absolutely for every $z$ with $|z|<R$.
+		If $0 \le \rho < R$, the convergence is uniform for $|z| \le \rho$
+
+		\item If $|z|>R$, the terms of the series are unbounded, and the series is divergent.
+
+		\item In $|z| <R$, the sum of the series is an analytic function. The derivative can be obtained by temwise differentiation.
+			And the derived series has the same radius of convergence.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+The circle $|z| = R$ is the \textbf{circle of convergence}.
+\paragraph{Hadamard's Formula}
+\begin{equation}
+	\frac{1}{R} = \varlimsup \sqrt[n]{|a_n|}
+\end{equation}
+
+\paragraph{Taylor-Maclaurin Development}
+\begin{equation}
+	f(z) = f(0) + f'(0)z + \frac{f^{\prime\prime}(0)}{2!}z^2 + \dots + \frac{f^{(n)}(0)}{n!}z^n + \dots 
+\end{equation}
+
 \subsubsection{Abel's Limit Theorem}
+\begin{theorem}[Abel]
+	If $\sum a_n$ converges, then $f(z) = \sum a_n$ tends to $f(1)$ as $z$ approaches $1$ in such a way that $|1-z|/(1-|z|)$ remains bounded.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+In other words, the series converges at $z=1$ if the approach is in Stolz angle.
+
+\subsection{The exponential and trignometric funtions}
+\subsubsection{The Exponential}
+\begin{definition}
+	The exponential function is the function $f(z)$ of power series form $\sum a_n z^n$ such that $f'(z) = f(z)$.
+\end{definition}
+\[ e^z = \sum_{n = 0}^\infty \frac{z^n}{n!} = 1 + z + \frac{z^2}{2!} + \dots + \frac{z^n}{n!} + \dots \]
+\subsection{The Trignometric Functions}
+All the trignometric functions are rational functions of $e^{iz}$.
+\[ \cos z = \frac{e^{iz}+e^{-iz}}{2} = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \dots \]
+\[ \sin z = \frac{e^{iz}-e^{-iz}}{2i} = z - \frac{z^3}{3!} + \frac{z^5}{5!} + \dots \]
+\[ \tan z = -i \frac{e^{iz}-e^{-iz}}{e^{iz}+e^{-iz}} \]
+
+\subsubsection{The Periodicity}
+The function $f(z)$ has period $c$ if $f(z+c) = f(z),\ \forall z$.
+Then, period of $e^{z}$ is $c = 2\pi i$.
+And period of $e^{iz}$ is $c = 2\pi$.
+The smallest positive period of $e^{iz}$ is $2\pi$.
+\subsubsection{The Logarithm}
+The inverse function of the exponential function.
+There exists only one elementary transcendental function, say $e^z$.
+
 \section{Analytic Functions as Mappings}
-\setcounter{subsection}{1}
+\subsection{Elementary point set topology}
+\subsubsection{Sets and Elements}
+Point, Set, Intersection, Union, Complement, De Morgan laws
+\subsubsection{Metric Spaces}
+Metric, Open ball, Open set, Neighbourhood characterisation of open set, Closed set, Interior, Exterior, Boundary, Accumulation Point
+\subsubsection{Connectedness}
+Connected, Path connectedness, Connected components
+\begin{definition}
+	A region is a nonempty, connected, open set.
+\end{definition}
+In a locally connected, separable space every open set is a countable union of disjoint regions.
+\subsubsection{Compactness}
+complete, compact, bounded, Sequential compactness
+\subsubsection{Continuous Functions}
+compactness, connectedness, extrema, uniform continuity
+\subsubsection{Topological Spaces}
+Hausdorff
 \subsection{Conformality}
 \subsubsection{Arcs and Closed Curves}
 \begin{definition}[Arc]
@@ -546,45 +1021,18 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 \end{definition}
 
 \begin{remark}
-	Arc is not a point set, but a succession of points.
+	Arc is a point set, with a succession of points.
 \end{remark}
 
 \begin{definition}[change of parameter]
 	Let $\gamma : [\alpha,\beta] \to \mathbb{C}$ be an arc.
 	Let $\varphi : [\alpha',\beta'] \to [\alpha,\beta]$ be a non-decreasing onto function.
 	Then $\gamma \circ \varphi$ defines the same sucession of points as the arc $\gamma$.
-
 \end{definition}
 
-%	An arc $\gamma$ in a complex plane is defined as the set of points given by $\gamma = \{ z : z = z(t), a \le t \le b \}$ and $z(t)$ is a continuous function of the real variable $t$.
-
-%	Thus, every arc in the complex plane is the continuous image of closed interval and $z \in \gamma$ means $z = z(t) = x(t) + iy(t)$.
-%	That is, points on $\gamma$ are images of a complex function of a real variable.\\
-
-%	This representation of an arc $z = z(t)$ is called a parameteric representation and $t$ is called the parameter and $[a,b]$ is called the parametric interval.
-%	The point $z = z(a)$ is called origin or initial point of $\gamma$ and $z = z(b)$ is called the terminus or terminal point of $\gamma$.
-%	If $z(a) = z(b)$, then $\gamma$ is called a closed curve, otherwise it is open.\\
-
-%	If in $\gamma$, $z(t_1) = z(t_2) = z$ for $t_1 \ne t_2$, then $z$ is called a multiple point on $\gamma$.
-%	Geometrically, a multiple point $z$ in $\gamma$ is a point where $\gamma$ crosses itself.
-
-%	An arc having no multiple points is called a simple arc or Jordan arc.
-
-%	Consider the mapping, $w = f(z)$, then the arc $\gamma$ in the $z$-plane corresponds to an arc $\Gamma$ in the $w$-plane where --tikz--  That is, $\gamma$ in the $z$-plane and $\Gamma$ in the $w$-plane are different parameteric representations of the same parametric interval $[a,b]$.\\
-
-%	Let $\gamma$ be defined by $z = e^{it}$ where $0 \le t \le \frac{\pi}{2}$.
-%	Then, --tikz--  Now, consider the mapping $w = f(z) = z^4$ and $\gamma$ be mapped onto $\Gamma$.
-%	$z \in \gamma$ iff $w \in \Gamma$.
-%	That is, $z = e^{it} \implies w = (e^{it})^4 = e^{i4t}$ and $t : 0 \to 2\pi$.\\
-
-%	Again if we consider points on $\gamma$.
-%	That is, $z = z(t) = x(t) + iy(t)$.
-%	$z'(t) = x'(t) + iy'(t)$ If this exist and is not equal to zero, then $\gamma$ has a tangent and its direction is given by the $\arg z'(t)$.
-%	If $z'(t) = 0$, then tangent does not exist at that point because $\arg 0$ is not defined.
-
 \begin{description}
-	\item[differentiable] $z'(t)$ exist and is continuous at all points.
-	\item[regular] differentiable and $z'(t) \ne 0$ at points on $\gamma$.
+	\item[differentiable] $z^\prime(t)$ exist and is continuous at all points.
+	\item[regular] differentiable and $z^\prime(t) \ne 0$ at points on $\gamma$.
 	\item[piecewise differentiable] differentiable except for finitely many points
 	\item[piecewise regular] regular except for finitely many points.
 	\item[opposite arc] set of points $z = z(-t),\ -b \le t \le -a$.
@@ -599,156 +1047,224 @@ A complex function $f = u+iv$ satisfies the Cauchy-Riemann Conditions :
 \subsubsection{Oriented Circles}
 \subsubsection{Family of Circles}
 
-
-%\begin{wraptable}{r}{3cm}
-%\begin{tabular}{|c|c|} \hline
-%$t$ & $z(t)$ \\ \hline
-%$0$ & $1$ \\  \hline
-%$\frac{\pi}{2}$ & $i$ \\ \hline
-%$\pi$ & $-1$ \\ \hline
-%$\frac{3\pi}{2}$ & $-i$ \\ \hline
-%$2\pi$ & $1$ \\ \hline
-%\end{tabular}
-%\end{wraptable}
-
-%	For example, consider $z = z(t) = e^{it},\ 0 \le t \le 2\pi$.
-%	Then as $t$ varies from $0$ to $2\pi$, $z = e^{it}$ varies from $(1,0)$ to $(1,0)$ through $i = (0,1),\ (-1,0),\ (0,-1)$ along the path $|z| = 1$. 
-
-%\[ \forall t,\ |z| = |e^{it}| = |\cos t+i\sin t| = \sqrt{\cos^2 t + \sin^2 t} = \sqrt{1} = 1 \]
-
-%	Also if $z = e^{it}$.
-%	Then $x(t)+iy(t) = \cos t+ i\sin t$.
-%	Equating real and imaginary parts, $x(t) = \cos t$ and $y(t) = \sin t$.
-%	That is, $x(t)$ and $y(t)$ are real valued functions of real variable $t$. \\
-
-%	For example, $z= 2e^{it},\ t \in [0,\frac{\pi}{2}]$. \\
-
-%	For example, $x^2 = y$, then $z = t + it^2$. \\
-
-
 {\Large Module 2 }
 \section{Complex Integration}
 \subsection{Fundamental Theorems}
 \subsubsection{Line Integrals}
-\paragraph{Evaluating Line Integral : Method 1}
-	Integrals of the form $\int_a^b f(t)\ dt$ where $f(t)$ is a complex valued function of a real variable $t$.
-	Then, we can write $f(t) = u(t)+iv(t)$.
-
-\[ \int_a^b f(t)\ dt = \int_a^b u(t) + iv(t)\ dt = \int_a^b u(t)\ dt + i\int_a^b v(t)\ dt \]
-
-	That is, $\Re\int f(t)\ dt = \int \Re f(t)\ dt$ and $\Im\int f(t)\ dt = \int \Im f(t)\ dt$.
-
-	For example, $f(t) = e^{it},\ 0 \le t \le \frac{\pi}{2}$.
-	Then 
-
-\[ \int_0^{\frac{\pi}{2}} f(t)\ dt = \int_0^{\frac{\pi}{2}} \cos t\ dt + i \int_0^{\frac{\pi}{2}} \sin t\ dt = 1 + i \]
-
-\paragraph{Evaluating Line Integral : Method 2}
-	Let $\gamma$ be a piecewise differentiable arc in the complex plane defined by the equation $z = z(t),\ a \le t \le b$ and $f(z)$ be defined and continuous in $\gamma$.
-	Then the line integral $\int_\gamma f(z)\ dz$ is defined by
-
-\[ \int_\gamma f(z)\ dz = \int_a^b f(z(t))\ z'(t)\ dt \]
-
-	For example, let $f(z) = u+iv$.
-	Then $f(z)\ dz = (u+iv)(dx+idy)$
-
-\[ \int_\gamma f(z)\ dz = \int_\gamma udx - vdy + i \int_\gamma vdx + udy \]
-
-	That is, real and imaginary part of $\int_\gamma f(z)\ dz$ can be written in the form $\int_\gamma pdx + qdy$ where $p,q$ are real valued functions of $x$ and $y$.
-\begin{commentary}
-	That is, real valued functions of two real variables $x$ and $y$.
-\end{commentary}
-	Therefore, the study of line integral $\int_\gamma f(z)\ dz$ can be restricted to the study of line integrals of the form $\int_\gamma pdx+qdy$ and line integrals can be defined as $\int_\gamma pdx+qdy$ where $\gamma$ is a piecewise differentiable arc.
-
-\paragraph{Properties}
-\begin{enumerate}
-	\item Scalar multiplication,
-		\[ \int_\gamma cf(z)\ dz = c\int_\gamma f(z)\ dz \]
-	\item Modulus Inequality,
-		\[ \left| \int_a^b f(t)\ dt \right| \le \int_a^b |f(t)\ dt| \] -more--
-	\item Change of variable,
-		\[ \int_\gamma f(z)\ dz = \int_a^b f(z(t))\ z'(t)\ dt \]
-	\item Inverse arc,
-		\[ \int_{-\gamma} f(z)\ dz = -\int_\gamma f(z)\ dz \]
-	\item Integration by parts,
-		\[ \int_\gamma f(z)\ dz = \int_{\gamma_1} f(z)\ dz + \int_{\gamma_2} f(z)\ dz+ \cdots + \int_{\gamma_n} f(z)\ dz \]
-\end{enumerate}
-
-\paragraph{Line Integral : Type 3}
-	Line integrals with respect to $\bar{z}$ are denoted by
-\[ \int_\gamma f(z)\ d\bar{z} = \overline{ \int_\gamma \bar{f}\ dz} \]
-
-\begin{proof}
-We have,
-$x = \frac{z+\bar{z}}{2}$ and $y = \frac{z-\bar{z}}{2i}$. 
-\[ dx = \frac{dz+d\bar{z}}{2} \qquad dy = \frac{dz-d\bar{z}}{2i} \]
-\[ \int_\gamma f(z)\ dx = \int_\gamma f(z) \frac{dz + d\bar{z}}{2} \qquad \int_\gamma f(z)\ dy = \int_\gamma f(z) \frac{dz-d\bar{z}}{2i} \]
-\[ \int_\gamma f(z)\ dx-idy = \int_\gamma f(z)\ d\bar{z} \] --more--
-\end{proof}
-
-\paragraph{Line Integral : Type 4}
- Line integrals with respect to arc length, $s$ is denoted by 
- \[ \int_\gamma f(z)\ ds  = \int_\gamma f(z)\ |dz| \text{ where } ds = \sqrt{1+\left(\frac{dy}{dx}\right)^2}\ dx \]
- 
- 	When $f = 1$, it gives the length of the arc.
 \subsubsection{Rectifiable Arcs}
-	Length of an arc $\gamma$ is defined as $L(\gamma) = \int |dz|$.
-	If $L(\gamma) < \infty$, then $\gamma$ is a rectifiable arc and the process of determining the length of an arc is called rectification.
-
 \subsubsection{Line Integrals as Functions of Arcs}
 \subsubsection{Cauchy's Theorem for a Rectangle}
 \subsubsection{Cauchy's Theorem in a Disk}
 \subsection{Cauchy's Integral Formula}
 \subsubsection{The Index of a Point wrt a Closed Curve}
 \subsubsection{The Integral Formula}
+\pagebreak
+
 {\Large Module 3 }
 \subsubsection{Higher Derivatives}
+\label{sect:higherDerivatives}
+\begin{lemma}
+	Suppose $\phi(\zeta)$ is continuous on the closed curve arc $\gamma$. Then the function
+	\begin{equation}
+		F_n(z) = \int_\gamma \frac{\phi(\zeta)d\zeta}{(\zeta-z)^n}
+	\end{equation}
+	is analytic in each of the regions determined by the closed curve $\gamma$ and its derivative is $F_n^\prime(z) = nF_{n+1}(z)$.
+\end{lemma}
+\begin{theorem}[Morera]
+	If $f(z)$ is defined and continuous in a region $\Omega$, and if $\int_\gamma f(z)\ dz = 0$ for all closed curves $\gamma$ in $\Omega$, then $f(z)$ is analytic in $\Omega$.
+\end{theorem}
+\begin{theorem}[Liouville]
+	A function which is analytic and bounded in the whole plane must reduce to a constant.
+\end{theorem}
+\begin{theorem}[fundamental theorem]
+	Every non-constant polynomial with complex coefficients has a zero.
+	\label{thm:fundamental}
+\end{theorem}
 \subsection{Local Properties of Analytical Functions}
 \subsubsection{Removable Singularities, Taylor's Theorem}
 \subsubsection{Zeros and Poles}
+
 \subsubsection{The Local Mapping}
+
 \subsubsection{The Maximum Principle}
 {\Large Module 4 }
 \subsection{The General Form of Cauchy's Theorem}
 \subsubsection{Chains and Cycles}
+\begin{definition}[chain]
+	A chain is a formal sum of arcs.
+\end{definition}
+For example, $\gamma = \gamma_1 + \gamma_2 + \dots + \gamma_n$ is a chain if $\gamma_1,\gamma_2,\dots,\gamma_n$ are arcs.
+\paragraph{Properties of Chains}
+\begin{enumerate}
+	\item Different formal sums can represent the same chain.
+	\item Two chains are identical if they yield the same line integral for all functions $f$.
+		\[ \int_{\gamma_1+\gamma_2+\dots+\gamma_n} f\ dz = \int_{\gamma_1} f\ dz + \int_{\gamma_2} f\ dz + \dots + \int_{\gamma_n} f\ dz \]
+	\item The following operations does not affect any chain
+	\begin{enumerate}
+		\item Permutation of two arcs. $\gamma_1+\gamma_2+\gamma_3 = \gamma_1+\gamma_3+\gamma_2$
+		\item Subdivision of an arc. $\gamma_1+\gamma_2 = \gamma_1 + \gamma_{21} + \gamma_{22}$
+		\item Fusion of subarcs into a single arc. $\gamma_1 + \gamma_{21}+\gamma_{22} = \gamma_1+\gamma_2$
+		\item Reparametrisation of an arc. $\gamma(\tau(t)) = \gamma(t)$
+		\item Cancellation of opposite arcs. $\gamma_1 + \gamma_2 - \gamma_2 = \gamma_1$
+	\end{enumerate}
+	\item Sum of two chains defined to preserve the additive property of the line integrals.
+		\[ \gamma = \alpha_1 \gamma_1 + \alpha_2 \gamma_2 + \dots + \alpha_n \gamma_n \]
+		where $\alpha_j$ are integers and $\gamma_j$ are arcs.
+		That is, instead of $\gamma_1 + \gamma_1 = 2\gamma_1$.
+		And $-\gamma_1-\gamma_1 = -2\gamma_1 = 2(-\gamma_1)$.
+		Also, $\gamma_1 - \gamma_1 = 0 \gamma_1$.
+		Terms with zero coefficients can be added/removed without altering the chain.
+\end{enumerate}
+\begin{definition}[cycle]
+	A cycle is a formal sum of closed curves.
+\end{definition}
+\begin{definition}[index of a point]
+	Index of a point with respect to a cycle $\gamma = \alpha_1\gamma_1+\alpha_2\gamma_2+\dots+\alpha_n\gamma_n$ is given by
+	\begin{equation}
+		n(\alpha_1\gamma_1+\alpha_2\gamma_2+\dots+\alpha_n\gamma_n,a) = \alpha_1n(\gamma_1,a) + \alpha_2n(\gamma_2,a)+\dots + \alpha_nn(\gamma_n,a)
+	\end{equation}
+\end{definition}
+
 \subsubsection{Simple Connectivity}
+\begin{definition}[simply connected]
+	A region is simply connected if it complement with respect to the extended plane is connected.
+\end{definition}
+
+\begin{theorem}
+	A region $\Omega$ is simply connected if and only if $n(\gamma,a) = 0$ fo all cycle $\gamma$ in $\Omega$ and all points $a$ which does not belong to $\Omega$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 \subsubsection{Homology}
+\begin{definition}
+	A cycle $\gamma$ in an open set $\Omega$ is \textbf{homologous to zero with respect to $\Omega$} if $n(\gamma,a)=0$ for all points $a$ in the complement of $\Omega$.
+	\[ \text{Notation : } \gamma \sim 0 \!\!\! \pmod{\Omega} \]
+\end{definition}
+\begin{remark}
+	\[ \gamma_1 \sim \gamma_2 \!\!\! \pmod{\Omega} \iff \gamma_1-\gamma_2 \sim 0 \!\!\! \pmod{\Omega} \]
+	\[ \Omega \subset \Omega',\ \gamma \sim 0 \!\!\! \pmod{\Omega} \implies \gamma \sim 0 \!\!\! \pmod{\Omega'} \]
+\end{remark}
+
 \subsubsection{The General Statement of Cauchy's Theorem}
+\begin{theorem}
+	If $f(z)$ is analytic in $\Omega$, then
+	\[ \int_\gamma f(z)\ dz = 0 \]
+	for every cycle $\gamma$ which is homologous to zero in $\Omega$.
+\end{theorem}
+\begin{corollary}
+	If $f(z)$ is analytic in a simply connected region $\Omega$, then $ \int_\gamma f(z)\ dz = 0$ for all cycles $\gamma$ in $\Omega$.
+\end{corollary}
+\begin{proof}
+	Every cycle $\gamma$ in a simply connected region $\Omega$ is homologous to zero.
+	Thus by general Cauchy's theorem, $\int_\gamma f(z)\ dz = 0$.
+\end{proof}
+
+\begin{corollary}
+	If $f(z)$ is analytic and $f \ne 0$ in a simply connected region $\Omega$ then it is possible to define a single valued analytic braches of $\log f(z)$ and $\sqrt[n]{f(z)}$ in $\Omega$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
 \subsubsection{Proof of Cauchy's Theorem}
 \subsubsection{Locally Exact Differentials}
+\begin{definition}
+	A differential $pdx+qdy$ is exact if there exists an analytic function $U$ such that $\frac{\partial U}{\partial x} = p$ and $\frac{\partial U}{\partial y} = q$.
+\end{definition}
+\begin{commentary}
+\begin{remark}
+	If $Mdx+Ndy$ is exact differential then 
+	\[ \frac{\partial M}{\partial y} = \frac{\partial^2 U}{\partial y \partial x} = \frac{\partial^2 U}{\partial x \partial y} = \frac{\partial N}{\partial x} \]
+\end{remark}
+\end{commentary}
+
+\begin{definition}
+	A differential $pdx+qdy$ is locally exact in $\Omega$ if it is exact in some neighbourhood of every point in $\Omega$.
+\end{definition}
+\begin{theorem}
+	If $pdx+qdy$ is locally exact in $\Omega$, then
+	\[ \int_\gamma pdx+qdy = 0 \]
+	for every cycle $\gamma \sim 0 \!\!\! \pmod{\Omega}$.
+\end{theorem}
 \subsubsection{Multiply Connected Regions}
+\begin{definition}
+	A multiply connected region is a region which is not simply connected.
+\end{definition}
+
 \subsection{The Calculus of Residues}
 \subsubsection{The Residue Theorem}
+\begin{definition}
+	The residue of $f(z)$ at an isolated singularity of the unique complex number $R$ which makes $f(z)-R/(z-a)$ the derivative of a single valued analytic function in the annulus $0<|z-a|<\delta$.
+\end{definition}
+\begin{theorem}
+	Let $f(z)$ be analytic except for a isolated singularities $a_j$ in a region $\Omega$.
+	Then,
+	\begin{equation}
+		\frac{1}{2\pi i} \int_\gamma f(z)\ dz = \sum_j n(\gamma,a_j) Res_{z=a_j} f(z) 
+	\end{equation}
+	for any cycle $\gamma \sim 0 \!\!\! \pmod{\Omega}$ and $\gamma$ doesn't pass through any of the points $a_j$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	A cycle $\gamma$ bounds the region $\Omega$ if and only if $n(\gamma,a)$ is defined and equal to $1$ for all points $a \in \Omega$ and either undefined or equal to zero for all points $a \notin \Omega$.
+\end{definition}
+\begin{commentary}
+	In other words, $\gamma$ is the boundary of the region $\Omega$.
+\end{commentary}
+
 \subsubsection{The Argument Principle}
+\begin{theorem}
+	If $f(z)$ is memromorphic in $\Omega$ with the zeroes $a_j$ and the poles $b_j$, then
+	\begin{equation}
+		\frac{1}{2\pi i} \int_\gamma \frac{f^\prime(z)}{f(z)} dz = \sum_j n(\gamma,a_j) - \sum_k n(\gamma,b_k)
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}[Rouch\'e]
+	Let $\gamma \sim 0 \pmod{\Omega}$ such that $n(\gamma,z)$ is either $0$ or $1$ for any point $z \notin \gamma$.
+	Suppose $f(z), g(z)$ are analytic in $\Omega$ and satisfies the inequality $|f(z)-g(z)| < |f(z)|$ on $\gamma$.
+	Then $f(z)$ and $g(z)$ have the same number of zeroes enclosed by $\gamma$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+\paragraph{Exercise}
+\begin{enumerate}
+	\item
+	\item
+	\item
+\end{enumerate}
 \subsubsection{Evaluation of Definite Integrals}
+\paragraph{Type 1}
+\begin{equation}
+	\int_0^{2\pi} R(\cos \theta,\sin \theta) d\theta = -i\int_{|z|=1} \!\!\! R\left(\frac{1}{2}(z+\frac{1}{z}),\frac{1}{2i}(z-\frac{1}{z}) \right) \frac{dz}{z}
+\end{equation}
 
+\paragraph{Type 2}
+\begin{equation}
+	\int_{-\infty}^\infty R(x)\ dx = 2\pi i \sum_{y>0} Res\ R(z)
+\end{equation}
 
-%\paragraph{Indefinite Integral}
-%	Consider $f(z)$ a complex function of a complex variable.
-%	Indefinite integral denoted by $\int f(z)\ dz$ is another function $F(z)$ such that $F'(z) = f(z)$.
-%	That is, $F(z) = \int f(z)\ dz \iff F'(z) = f(z)$.
-%	$F(z)$ is also called antiderivative.
+\paragraph{Type 3}
+\begin{equation}
+	\int_{-\infty}^\infty R(x)e^{ix}\ dx = 2\pi i \sum_{y > 0} Res\ R(z)e^{iz}
+\end{equation}
+\begin{equation}
+	\int_{-\infty}^\infty R(x) \sin x\ dx = Re \left( 2\pi i \sum_{y > 0} Res\ R(z)e^{iz} \right)
+\end{equation}
+\begin{equation}
+	\int_{-\infty}^\infty R(x) \cos x\ dx = Im \left( 2\pi i \sum_{y > 0} Res\ R(z)e^{iz} \right)
+\end{equation}
 
-%	For example, $\int e^z\ dz = e^z + c$, $\int dz = z = c$ and $\int z^2\ dz = \frac{z^3}{3} + c$.
+\paragraph{Type 4}
+\begin{equation}
+	\int_0^\infty x^\alpha R(x)\ dx	= (1-e^{2\pi i \alpha})\int_0^\infty z^{2\alpha+1} R(z^2)\ dz
+\end{equation}
 
-%\paragraph{Definite Integrals}
-%	are of the form $\int_\gamma f(z)\ dz$ where $\gamma$ is an arc in the cmplex plane and $f(z)$ in defined and continuous on $\gamma$.
-%	Its value is a complex number and it may or may not depend on $\gamma$.
-
-\begin{enumerate}
-	\item If $f(z)$ has an antiderivative $F(z)$, then $\int_\gamma f(z)\ dz$ depends only on the end points and is independent of the path $\gamma$.
-	\item If $f(z)$ has an antiderivative, then $\int_\gamma f(z)\ dz = 0$ for all closed curves $\gamma$.
-	\item If $f(z)$ has no antiderivatives, $\int_\gamma f(z)\ dz$ depends on the path $\gamma$.
-\end{enumerate}
-
-	For different choices of $\gamma$, the integral may have different values even though the end points are the same.
-
-\subsection{Exercise}
-\begin{enumerate}
-\item Evaluate $\int_c f(z)\ dz$ where $f(z) = y-x-i3x^2$ and contour is
-	\begin{itemize*}
-		\item[$c_1$:]the line segment $0$ and $i+1$
-		\item[$c_2$:] the polygon joining $(0,0),\ (0,1),\ (1,1)$ 
-	\end{itemize*}
-	In the above example, $\int_{c_1} f(z)\ dz \ne \int_{c_2}f(z)\ dz$ even though $c_1$ and $c_2$ have the same end points.
-\end{enumerate}
+\paragraph{Type 5}
+\begin{equation}
+	\int_0^\pi \log \sin \theta\ d\theta = -\pi \log 2
+\end{equation}
