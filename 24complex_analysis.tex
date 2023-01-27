@@ -1268,3 +1268,53 @@ For example, $\gamma = \gamma_1 + \gamma_2 + \dots + \gamma_n$ is a chain if $\g
 \begin{equation}
 	\int_0^\pi \log \sin \theta\ d\theta = -\pi \log 2
 \end{equation}
+
+\paragraph{Exercise}
+\begin{enumerate}
+	\item Find the poles and residues of the following functions
+	\begin{enumerate}
+		\item 
+			\[ \underset{z=-2}{Res}\ \frac{1}{z^2+5z+6} = \lim_{z \to -2} \frac{z+2}{(z+2)(z+3)} = 1  \]
+			\[ \underset{z = -3}{Res}\ \frac{1}{z^2+5z+6} = \lim_{z \to -3} \frac{z+3}{(z+2)(z+3)} = -1  \]
+		\item 
+			\[ \underset{z=-1}{Res}\ \frac{1}{(z^2-1)^2} = \lim_{z \to -1} \frac{d}{dz}\frac{(z+1)^2}{(z+1)^2(z-1)^2} = \frac{1}{4} \]
+			\[ \underset{z=1}{Res}\ \frac{1}{(z^2-1)^2} = \lim_{z \to 1} \frac{d}{dz}\frac{(z-1)^2}{(z+1)^2(z-1)^2} = -\frac{1}{4} \]
+		\item 
+			\[ \underset{z=2n\pi}{Res} \ \frac{1}{\sin z} = \lim_{z \to 2n\pi} \frac{z-2n\pi}{\sin z} = 1 \]
+			\[ \underset{z=(2n+1)\pi}{Res} \ \frac{1}{\sin z} = \lim_{z \to (2n+1)\pi} \frac{z-2n\pi-\pi}{\sin z} = -1 \]
+		\item
+			\[ \underset{z=n\pi}{Res} \ \frac{\cos z}{\sin z} = \lim_{z \to n\pi} \frac{(z-n\pi)\cos z}{\sin z} = 1 \]
+		\item 
+			\[ \underset{z=n\pi}{Res} \ \frac{1}{\sin^2 z} = \lim_{z \to n\pi}\frac{d}{dz}\frac{(z-n\pi)^2}{\sin^2 z} = 0 \]
+		\item
+			\[ \underset{z=0}{Res} \ \frac{1}{z^m(1-z)^n} = \lim_{z \to 0} \frac{1}{m!} \frac{d^{m-1}}{dz^{m-1}}\frac{1}{(1-z)^n} =  \]
+			\[ \underset{z=1}{Res} \ \frac{1}{z^m(1-z)^n} = \lim_{z \to 1} \frac{1}{n!} \frac{d^{n-1}}{dz^{n-1}}\frac{1}{z^m} =  \]
+	\end{enumerate}
+	\item 
+	\item
+	\begin{enumerate}
+		\item hint : $\int_0^{2\pi} \frac{1}{a+\sin^2 x} = 4 \int_0^{\pi/2} \frac{1}{a+\sin^2 x}$.
+			\[ R(\cos \theta,\sin \theta) = \frac{1}{a+\sin^2 x} \]
+			\[ \int_0^{\pi/2} \frac{1}{a + \sin^2 x}\ dx = -i \int_{|z|=1} \frac{z}{z^4+(a-2)z^2+1} dz \]
+		\item  hint : $\int_{-\infty}^\infty R(x)\ dx = 2\int_0^\infty R(x)\ dx$ if $R(-x) = R(x)$
+			\[ R(x) = \frac{x^2}{x^4+5x^2+6} \]
+			\[ \int_0^\infty \frac{x^2}{x^4+5x^2+6} = \pi i \sum_{y > 0} Res\ R(z) = \frac{(\sqrt{3}-\sqrt{2})\pi}{2} \]
+			\[ \underset{z=\sqrt{2}i}{Res}\ R(z) = \lim_{z \to \sqrt{2}i} \frac{z^2(z-\sqrt{2}i)}{(z^2+2)(z^2+3)} = \frac{i}{\sqrt{2}} \]
+			\[ \underset{z=\sqrt{3}i}{Res}\ R(z) = \lim_{z \to \sqrt{3}i} \frac{z^2(z-\sqrt{3}i)}{(z^2+2)(z^2+3)} = -\frac{\sqrt{3}i}{2} \]
+		\item
+			\[ R(x) = \frac{x^2-x+2}{x^4+10x^2+9} \]
+			\[ \int_{-\infty}^\infty \frac{x^2-x+2}{x^4+10x^2+9} = 2\pi i \sum_{y > 0} Res\ R(z) = \frac{5\pi}{12}\]
+			\[ \underset{z=i}{Res}\ R(z) = \lim_{z \to i} \frac{(z^2-z+2)(z-i)}{(z^2+1)(z^2+9)} = -\frac{1+i}{16} \]
+			\[ \underset{z=3i}{Res}\ R(z) = \lim_{z \to 3i} \frac{(z^2-z+2)(z-3i)}{(z^2+1)(z^2+9)} = \frac{3-7i}{48} \]
+		\item
+			\[ R(x) = \frac{x^2}{(x^2+a^2)^3} \]
+		\item
+			\[ R(x)\cos x = \frac{1}{x^2+a^2} \cos x \]
+		\item
+			\[ R(x)\sin x = \frac{x}{x^2+a^2} \sin x \]
+		\item
+			\[ x^\alpha R(x) = x^{\frac{1}{3}} \frac{1}{1+x^2} \]
+		\item 
+		\item
+	\end{enumerate}
+\end{enumerate}

@@ -3460,16 +3460,17 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	And this function $f$ is unique with respect to $\mu$. That is, for any other non-negative, measurable[$\mu$] function $g$ defining $\nu$, $f = g$ a.e.[$\mu$] on $X$.
 \end{theorem}
 \begin{proof}
+	\textbf{Step 1 : Finite Measures $\mu,\nu$}\\
 	Suppose $\mu,\nu$ are finite measures.
-	%We can extend the same proof for $\sigma$-finite measures $\mu,\nu$.
 	If $\nu(E) = 0$ for any $E \in \mathcal{M}$, then the equation is true for $f = 0$ on $X$.\\
 
+	\textbf{Step 2 : Non-vanishing Measure $\nu$}\\
 	Suppose $\nu(E) \ne 0$ for some $E \in \mathcal{M}$.
 	First, we prove that there exists a non-negative function $f$ on $X$ such that
 	\[ \int_X f \ d\mu > 0 \text{ and } \int_E f \ d\mu \le \nu(E),\ \forall E \in \mathcal{M} \]
 	Then we prove that the supremum of all such function is the unique function satisfying our requirements.\\
-	
-	\textbf{Step 1 : Existence of $f$}\\
+
+	\textbf{Step 3 : $\lambda_0$ such that $\mu(P_{\lambda_0}) > 0$}\\
 	Let $\lambda > 0$.
 	Then $\nu - \lambda\mu$ is difference of two finite measures and thus a signed measure.
 	According to Hahn decomposition therem, there exists a Hahn decomposition $\{ P_\lambda,N_\lambda\}$ of signed measure $\nu - \lambda\mu$.
@@ -3489,6 +3490,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	Clearly, $\mu(E) = 0 \implies \nu(E) = 0$ and $\mu(E) < \infty \implies \nu(E) = 0$ by archimedian property.
 	This is a contradiction, since we assumed that $\nu(E) \ne 0$ for some $E \in \mathcal{M}$.\\
 
+	\textbf{Step 4 : Existence of $f$ such that $\int_E fd\mu \le \nu(E)$}\\
 	Let $\lambda_0 >0$ such that $\mu(P_{\lambda_0}) > 0$.
 	Define $f = \lambda_0 \cdot \chi_{P_{\lambda_0}}$.
 	Then, we have $\displaystyle \int_X f \ d\mu = \lambda_0 \cdot \mu(P_{\lambda_0}) > 0$.
@@ -3496,7 +3498,7 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	\[ \int_E f \ d\mu = \lambda_0 \cdot \mu(P_{\lambda_0} \cap E) \le \nu(P_{\lambda_0} \cap E) \le \nu(E) \]
 	And by construction, $f$ is a non-negative, measurable function on $X$.
 
-	\textbf{Step 2 : Construction of $f$}\\
+	\textbf{Step 5 : Construction of $f$ such that $\int_E fd\mu = \nu(E)$}\\
 	Let $\mathcal{F}$ be the collection of all such non-negative, measurable functions on $X$.
 	Define $\displaystyle M = \sup_{f \in \mathcal{F}} \left\{ \int_X f \ d\mu \right\}$.
 	Suppose $g,h \in \mathcal{F}$, then $\max\{g,h\} \in \mathcal{F}$.
@@ -3504,11 +3506,11 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 	\[ \int_E \max \{g,h\} \ d\mu = \int_{E_1} h \ d\mu + \int_{E_2} g \ d\mu \]
 	where $E_1 = \{ x \in X : h(x) > g(x) \}$ and $E_2 = \{ x \in X : h(x) \le g(x) \}$.\\
 
-	Consider a sequence $\{f_n\}$ in $\mathcal{F}$ such that $\displaystyle \lim_{n \to \infty} \int_X f_n \ d\mu = M$.
+	By the definition of supremum, there exists a sequence of functions $\{f_n\}$ in $\mathcal{F}$ such that $\lim_{n \to \infty} \int_X f_n \ d\mu = M$.
 	Without loss of generality, this is an increasing sequence.
-	If the sequence is not increasing, then replace $f_k$ with $\displaystyle \sum_{n=1}^k f_n$.\\
+	If the sequence is not increasing, then replace $f_k$ with $\max\{f_1,f_2,\dots,f_k\}$.\\
 
-	Define $\displaystyle f(x) = \lim_{n \to \infty} \int_X f_n \ d\mu$.
+	Define $f(x) = \lim_{n \to \infty} \int_X f_n \ d\mu$.
 	By monotone convergence theorem,  we have $\int_X f \ d\mu = M$.
 	Define $\eta(E) = \nu(E) - \int_E f \ d\mu$.
 	Since integral is coutably additive and $\nu(X) < \infty$, $\eta$ is a signed measure.
@@ -3516,26 +3518,25 @@ For example, Lebesgue measure is $\sigma$-finite since $\mathbb{R} = \bigcup_{n 
 
 	We claim that $\eta = 0$ on $\mathcal{M}$.\\
 	Suppose $\eta \ne 0$.
-	Then by performing Step 1, 2 for $\eta$ instead of $\nu$, we get a non-negative measurable function $\hat{f}$ such that
+	By above proof, replacing $\eta$ with $\nu$, we get a non-negative measurable function $\hat{f}$ such that
 	\[ \int_X \hat{f} \ d\mu > 0 \text{ and } \int_E \hat{f} \ d\mu \le \eta(E) = \nu(E) - \int_E f \ d\mu \]
 	Clearly $f + \hat{f} \in \mathcal{F}$ and $\displaystyle \int_X (f+\hat{f}) \ d\mu > \int_X f \ d\mu = M$ which is a contradiction.\\
 
-	\textbf{Step 3 : Uniqueness of $f$}\\
+	\textbf{Step 6 : Uniqueness of $f$}\\
 	Suppose $f_1,f_2$ are two limit function on $\mathcal{F}$ satisfying the conditions.
 	Then, for every measurable subset $E \in \mathcal{M}$, we have $\displaystyle s\int_E (f_1-f_2) \ d\mu = 0$ and $f_1 = f_2$ a.e.[$\mu$] on $X$.
 	Therefore, the choice of $f$ is unique upto measure $\mu$.\\
 
 	\textbf{Step 4 : Extending the proof to $\sigma$-finite measures}\\
 	Suppose $\mu,\nu$ are $\sigma$-finite measures.
-	Then from the defintion of $\sigma$-finite measure, $X$ has a countable partition, $X = \cup_{n =1}^\infty X_n$ such that $\mu(X_n) < \infty$ and $\nu(X_n) < \infty$ for every $n$.
-	Now we may represent $\sigma$-finite measures as countable sum of finite measures, $\mu_n,\nu_n$ on $X_n$.\\
-	That is, $\displaystyle \mu = \sum_{n=1}^\infty \mu_n \cdot \chi_{X_n}$ and $\displaystyle \nu = \sum_{n=1}^\infty \nu_n \cdot \chi_{X_n}$\\
-	Now $\displaystyle \nu-\lambda\mu = \sum_{n=1}^\infty (\nu_n - \lambda\mu_n) \cdot \chi_{X_n}$ is a $\sigma$-finite signed measure.
-	From Step 1,2 and 3, we have a non-negative measurable function $f$ such that integral of $f$ is the supremum of integrals of all the non-negative functions dominated by $\nu$.
-	Then,
-	\[ \int_{X} f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f \ d\mu_n > 0 \]
+	Then from the defintion of $\sigma$-finite measure, $X$ has a countable partition, $X = \cup_{n =1}^\infty X_n$ such that $\mu(X_n) < \infty$ and $\nu(X_n) < \infty$ for every $n$.\\
+
+	We know that on each $X_n$ there exists a non-negative function $f_n$ such that $\int_{E \cap X_n} f_n d\mu_n = \nu_n(E \cap X_n)$.
+	Define $f = \sum f_n \cdot \chi_{X_n}$.
+
+	\[ \int_{X} f \ d\mu = \sum_{n=1}^\infty \int_{X_n} f_n \ d\mu_n > 0 \]
 	And
-	\[ \int_{E} f \ d\mu = \sum_{n=1}^\infty \int_{E \cap X_n} f \ d\mu_n < \sum_{n=1}^\infty \nu_n(E \cap X_n) = \nu(E) \]
+	\[ \int_{E} f \ d\mu = \sum_{n=1}^\infty \int_{E \cap X_n} f_n \ d\mu_n = \sum_{n=1}^\infty \nu_n(E \cap X_n) = \nu(E) \]
 \end{proof}
 
 \begin{theorem}
@@ -3706,14 +3707,15 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 
 \begin{definition}[product measure]
 	Let $(X,\mathcal{A},\mu)$, $(Y,\mathcal{B},\nu)$ be two measure spaces.
-	Let $\mathcal{R}$ be the collection of measurable rectangles in $X \times Y$ and $\lambda$ is the premeasure defined by $\lambda : \mathcal{R} \to [0,\infty],\ \lambda(A \times B) = \mu(A) \cdot \nu(B)$.
+	Let $\mathcal{R}$ be the semiring of measurable rectangles in $X \times Y$ and $\lambda$ is the premeasure defined by $\lambda : \mathcal{R} \to [0,\infty],\ \lambda(A \times B) = \mu(A) \cdot \nu(B)$.
 	The \textbf{product measure} $\lambda = \mu \times \nu$ is the Caratheodory extension of $\lambda : \mathcal{R} \to [0,\infty]$ defined by the $\sigma$-algebra of $(\mu \times \nu)^\ast$-measurable subsets of $X \times Y$.
 \end{definition}
 
 \begin{definition}[$x$-section]
 	Let $E$ be a subset of $X \times Y$ and $f$ be a function on $E$.
 	Let $x \in X$.
-	Then the $x$-section of $f$, $E_x = \{ y \in Y : (x,y) \in E \}$.
+	Then the $x$-section of $E$, $E_x = \{ y \in Y : (x,y) \in E \}$.
+	And the $x$-section of $f$, $f(x,\cdot)$ is a function on $E_x$ such that $f(x,\cdot)(y) = f(x)(y),\ \forall y \in E_x$.
 \end{definition}
 
 \subsection{Iterated Integration}
@@ -3759,6 +3761,23 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 	$$ \lim_{k \to \infty} \nu([E_k]_x) = \nu(E_x) $$
 \end{proof}
 
+\begin{definition}
+	Let $\mathcal{S}$ be a collection of measurable sets.
+	Then $\mathcal{S}_\sigma$ is the collection of all countable unions of members of $\mathcal{S}$.
+	And $\mathcal{S}_{\sigma\delta}$ is the colleciton of all countable intersection of members of $\mathcal{S}_\sigma$.
+\end{definition}
+
+\begin{proposition}[\S10.17 pp. 362]
+	Let $\mathcal{S}$ be a collection of subsets of $X$.
+	Let $\mu : S \to [0,\infty]$ be a set function on $\mathcal{S}$, $\mu^\ast : 2^X \to [0,\infty]$ be the Caratheodory outer measure and $\bar{\mu} : \mathcal{M} \to [0,\infty]$ be the Caratheodory measure induced by $\mu$.
+	Let $E$ be a subset of $X$ such that $\mu^\ast(E) < \infty$.
+	Then there exists an $S_{\sigma\delta}$ set $A$ such that $E \subset A$ and $\mu^\ast(E) = \mu^\ast(A)$.
+	Futhermore if $E$ and each set in $\mathcal{S}$ is measurable with respect to $\mu^\ast$, then $\bar{\mu}(A \sim E) = 0$.
+\end{proposition}
+\begin{proof}
+	is not required.
+\end{proof}
+
 \begin{lemma}
 	Suppose measure $\nu$ is complete.
 	Let $E \subset X \times Y$ be measurable with respect to $\mu \times \nu$.
@@ -3769,6 +3788,12 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 	\end{equation}
 \end{lemma}
 \begin{proof}
+	We have $(\mu \times \nu)(E) < \infty$.
+	Then there exists an $\mathcal{R}_{\sigma\delta}$ set $A$ such that $E \subset A$ and $(\mu \times \nu)(A) = 0$.
+	Then every $x$-section of $A$, $A_x$ is $\nu$ measurable and $(\mu \times \nu)(A) = \int_X \nu(A_x) d\mu$.\\
+
+	Clearly, $\nu(A_x) = 0$ for almost all $x \in X$ and $E_x \subset A_x,\ \forall x$.
+	Then, $\nu(E_x) = 0$ since $\nu$ is complete.
 \end{proof}
 
 \begin{theorem}
@@ -3780,9 +3805,20 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	We have $(\mu \times \nu)E < \infty$.
+	Then, there exists $\mathcal{R}_{\sigma\delta}$ set $A$ such that $E \subset A$ and $(\mu \times \nu)(A \sim E) = 0$.
+	By excision property, $(\mu \times \nu)E = (\mu \times \nu)A$.
+	And $\nu(A_x) = \nu(E_x) + \nu((A \sim E)_x) = \nu(E_x)$ for almost all $x \in X$.
+	Thus,
+	\begin{align*}
+		(\mu \times \nu)E
+		& = (\mu \times \nu)A\\
+		& = \int_X \nu(A_x)d\mu \\
+		& = \int_X \nu(E_x)d\mu
+	\end{align*}
 \end{proof}
 
-\begin{theorem}[Tonelli]
+\begin{theorem}
 	Suppose measure $\nu$ is complete.
 	Let $\varphi : X \times Y \to \mathbb{R}$ be asimple functions that is integrable over $X \times Y$ with respect to $\mu \times \nu$.
 	Then for almost all $x \in X$, the $x$-section of $\varphi$, $\varphi(x,\cdot)$ is integrable over $Y$ with respect to $\nu$ and
@@ -3791,6 +3827,23 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	Let $\phi = \chi_E$ be a characteristic function on a measurable rectangle $E$ of $X \times Y$.
+	Then,
+	\begin{align*}
+	\int_{X \times Y} \phi \ d(\mu \times \nu) 
+		& = \int_{X \times Y} \chi_E \ d(\mu \times \nu) \\
+		& = \int_X \int_Y \chi_{E_x} \ d\mu \ d\nu \\
+		& = \int_X \left( \int_Y \phi(x,\cdot)(y) \ d\nu \right) \ d\mu \\
+		& = \int_X \left( \int_Y \phi(x,y) \ d\nu \right) \ d\mu 
+	\end{align*}
+	Let $\phi = \sum a_n \chi_{E_n}$ be a simple function where $E_n$ are measurable rectangles.
+	Then by linearity of integration, we have
+	\begin{align*}
+	\int_{X \times Y} \phi \ d(\mu \times \nu) 
+		& = \sum a_n \int_{X \times Y} \phi_n \ d(\mu \times \nu) \\
+		& = \sum a_n \int_X \int_Y \phi_n(x,y) \ d\mu d\nu \\
+		& = \int_X \int_Y \phi(x,y) \ d(\mu \times \nu)
+	\end{align*}
 \end{proof}
 
 \begin{theorem}[Fubini]
@@ -3802,6 +3855,13 @@ For example, Lebesgue outer measure $m^\ast$ is a premeasure on $\mathbb{R}$.
 	\end{equation}
 \end{theorem}
 \begin{proof}
+	Let $f$ be a non-negative, measurable function on $X \times Y$.
+	By simple approximation theorem, there exists an increasing sequence $\sequence{\phi_n}$ of simple functions such that $0 \le \phi_n \le f$.
+	Since $f$ is integrable, $\phi_n$ are integrable.
+	\[ \int_{X \times Y} \phi_n d(\mu \times \nu) \le \int_{X \times Y} f d(\mu \times \nu) < \infty \]
+	By monotone convergence theorem,
+	\[ \lim_{n \to \infty} \int_{X \times Y} \phi_n d(\mu \times \nu) = \int_{X \times Y} f d(\mu \times \nu) \]
+
 \end{proof}
 
 \begin{theorem}[Tonelli]

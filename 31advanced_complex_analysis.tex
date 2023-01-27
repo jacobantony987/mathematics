@@ -14,8 +14,134 @@
 %The Weierstrass's Theory - The Weierstrass's $\rho$-function, The functions $\zeta(s)$ and $\sigma(z)$, The Differential Equation
 %(Chapter 6 : Section 1: 1.1-1.3, Chapter 7 : Section 3 : 3.1 - 3.3)
 
-%Module 1 - \cite{ahlfors} 4
-%Module 2 - \cite{ahlfors} 5
-%Module 3 - \cite{ahlfors} 5
-%Module 4 - \cite{ahlfors} 6, 7
-%Missing - \cite{ahlfors} 8, 9, 10?
+%Module 1 - \cite{ahlfors} 4.6, 6.3, 6.4
+%Module 2 - \cite{ahlfors} 5.1, 5.2, 5.3
+%Module 3 - \cite{ahlfors} 5.4, 5.5
+%Module 4 - \cite{ahlfors} 6.1, 7.3
+%Missing - \cite{ahlfors} (6.2, 6.5, 7.1, 7.2, 8.1, 8.2, 8.3, 8.4)
+
+%Module 1 - 4.6, 6.3, 6.4
+{\Large Module 1}
+\section{Harmonic Functions(4.6)}
+\subsection{Definition and Basic properties(4.6.1)}
+\begin{definition}[harmonic]
+	A real-valued function $u(z)$ defined and single-valued in a region $\Omega$ is harmonic if it is continuous together with its partial derivatives of first two orders and satisfies Laplace's equation
+	\[ \Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \]
+
+	In polar form,
+	\[ r \frac{\partial}{\partial r} \left( r \frac{\partial u}{\partial r}\right) + \frac{\partial^2 u}{\partial \theta^2} = 0 \]
+\end{definition}
+%Regularity conditions can be weakened. How ?
+\begin{remark}
+	The sum of two harmonic functions is harmonic. A constant multiple of a harmonic function is harmonic.\\
+
+	From polar form, $\log r$ is harmonic and any harmonic function that depends only on $r$ must be of the form $a \log r + b$.  The argument $\theta$ is harmonic whenever it can be uniquely defined. \\
+
+	If $u$ is harmonic in $\Omega$, then $f(z) = \frac{\partial u}{\partial x} - i \frac{\partial u}{\partial y}$ is analytic on $\Omega$.\\
+
+	\[ f\ dz = f\ dx+i f\ dy = \left( \frac{\partial u}{\partial x} dx + \frac{\partial u}{\partial y}dy \right) + i \left( -\frac{\partial u}{\partial y}dx + \frac{\partial u}{\partial x}dy \right) \]
+	The real part is the differential of $u$ and imaginary part is the conjugate differential of $du$.
+	\[ f\ dz = du + i\ \underset{}{^\ast}du \]
+\end{remark}
+
+---to be continued---
+
+\subsection{The Mean-value Property(4.6.2)}
+\subsection{Poisson's Formula(4.6.3)}
+\subsection{Schwarz's Theorem(4.6.4)}
+\subsection{The Reflection Principle(4.6.5)}
+
+\section{A Closer look at Harmonic Functions(6.3)}
+\subsection{Functions with the Mean-value Property (6.3.1)}
+\begin{definition}
+	Let $u(z)$ be a real-valued continuous function in a region $\Omega$. Function $u$ satisfies mean-value property if
+	\[ u(z_0) = \frac{1}{2\pi} \int_0^{2\pi} u(z_0+re^{i\theta})\ d\theta \]
+	when the disk $|z-z_0| \le r$ is contained in $\Omega$.
+\end{definition}
+\begin{remark}
+	Mean-value property implies maximum principle.
+\end{remark}
+\begin{theorem}
+	A continuous function $u(z)$ satisfying the mean-value property is necessarily harmonic.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Harnack's Principle (6.3.2)}
+\begin{theorem}[Harnack's Inequality]
+	\[ \frac{\rho-r}{\rho+r} u(0) \le u(z) \le \frac{\rho+r}{\rho-r}u(0) \]
+	where $u(z)$ is harmonic in $|z| = r < \rho$ and continuous is $|z| \le \rho$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Harnack's Principle]
+	Increasing sequence of harmonic functions on regions $\Omega_n$ converges to either $+\infty$ or a harmonic function $u$ uniformly on every compact subset of $\Omega$ where every point $z \in \Omega$ belongs to all except finitely many $\Omega_n$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\section{The Dirichlet Problem(6.4)}
+\begin{definition}[Dirichlet Problem]
+	Find a harmonic function $u(z)$ on a region $\Omega$ with given boundary values.
+\end{definition}
+
+\subsection{Subharmonic Functions (6.4.1)}
+\begin{definition}[subharmonic]
+	A continuous, real-valued function $v(z)$ is subharmonic in $\Omega$ if for any harmonic function $u(z)$ in $\Omega' \subset \Omega$, $v-u$ satisfies the maximum principle on $\Omega'$.
+\end{definition}
+
+\begin{remark}
+	Harmonic functions are subharmonic.\\
+	
+	Sufficient condition for subharmonicity : If $v$ has a positive laplacian, then $v$ is subharmonic. The condition is not necessary as there exists subharmonic functions without partial dertivatives.
+\end{remark}
+
+\begin{theorem}
+	A continuous function $v(z)$ is subharmonic in $\Omega$ if and only if 
+	\[ v(z_0) \le \frac{1}{2\pi} \int_0^{2\pi} v(z_0+re^{i\theta})\ d\theta \]
+	for every disk $|z-z_0| \le r$ contained in $\Omega$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	Elementary Properties of Subharmonic Functions,
+	\begin{enumerate}
+		\item If $v$ is subharmonic, then $kv$ is subharmonic for any constant $k \ge 0$.
+		\item If $v_1,v_2$ are subharmonic, then $v_1+v_2$ is subharmonic.
+		\item If $v_1,v_2$ are subharmonic, then $v=\max(v_1,v_2)$ is subharmonic.
+		\item Let $v$ be subharmonic on $\Omega$. Let $\Delta$ be a disk whose closure is contained in $\Omega$ and $P_v$ be the Poisson integral formed with $v$ on the boundary of $\Delta$. Then $v'$ defined as $P_v$ on $\Delta$ and $v$ outside $\Delta$ is subharmonic.
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}[semicontinuous]
+	A function $v(z)$ is upper semicontinuous at $z_0$ if $\displaystyle \lim_{z \to z_0} \sup v(z) \le v(z_0)$.
+	A function $v(z)$ is lower semicontinuous at $z_0$ if $\displaystyle \lim_{z \to z_0} \inf v(z) \ge v(z_0)$.
+\end{definition}
+
+\begin{remark}
+	Upper continuous function attains maximum on any compact set.
+\end{remark}
+
+\subsection{Solution of Dirichlet's Problem (6.4.2)}
+\begin{theorem}
+\end{theorem}
+\begin{proof}
+\end{proof}
+\pagebreak
+%Module 2 - 5.1, 5.2, 5.3
+{\Large Module 2}
+\section{Power Series Expansions(5.1)}
+\section{Partial Fractions and Factorisation(5.2)}
+\section{Entire Functions(5.3)}
+\pagebreak
+%Module 3 - 5.4, 5.5
+{\Large Module 3}
+\section{The Riemann Zeta Function(5.4)}
+\section{Normal Families(5.5)}
+%Module 4 - 6.1, 7.3
+\pagebreak
+{\Large Module 4}
+\section{The Riemann Mapping Theorem(6.1)}
+\section{The Weierstrass Theory(7.3)}

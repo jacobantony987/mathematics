@@ -16,3 +16,172 @@
 %Module 2 - \cite{mital} 6
 %Module 3 - \cite{mital} 5, 7
 %Module 4 - \cite{solberg} 11
+
+%Module 1
+\section{Linear Programming}
+\begin{definition}[LPP]
+Linear Programming Problem (LPP) is the optimization of linear object function subject to certain linear equality and linear inequalities constraints.
+\end{definition}
+\paragraph{General LPP}
+A general LPP is of the form,
+\begin{align}
+\text{ minimise } & : & f(X) = CX  & \text{ (object function)} \label{eqn:obj} \\
+\text{ subject to } & : & AX = B & \text{ (constraints)}\label{eqn:sub} \\
+\text{ such that } & & X \ge 0 & \text{ (non-negativity conditions)}\label{eqn:positive}
+\end{align}
+
+	That is,
+\begin{align}
+\text{ minimise } & : & f = c_1x_1 + c_2x_2 + \dots + c_nx_n & \\
+\text{ subject to } & : & \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1m} \\ a_{21} & a_{22} & \dots & a_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mm} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \dots \\ x_m \end{pmatrix} & = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{pmatrix} \\
+\text{ such that } & & X \ge 0 &
+\end{align}
+
+	The coefficients of the object function, $c_i$ are the \textbf{cost coefficients}.
+
+\paragraph{Feasible Solution} is a vector $X$ satisfying both constraints and non-negativity constraints. The set of all feasible solutions is denoted by $S_F$. This is a convex set and is often represented graphically by a polytope.
+
+\paragraph{Basic Solution} In an LPP with $m$ constraints and $n$ variables, a \textbf{basic solution} is a vector $X$ in which $n-m$ variables are zero. These variables are the non-basic variables and the remaining $m$ variables are the basic variable. The set of all basic variables is a \textbf{basis}.
+
+\paragraph{Basic Feasible Solution} is a basic solution which is feasible. The \textbf{b.f.s.} are vertices of the polytope $S_F$ (if nonempty).
+
+\paragraph{Optimal Solution} is a vector $X$ which optimizes the object function $f$. For a bounded $S_F$, always there exists a b.f.s which is optimal.
+
+\paragraph{Solving LPP} Due to the presence of inequalities, there is no analytic tool for solving an LPP. There are a few numerical methods for solving an LPP. Simplex is popular among them.
+
+\paragraph{Simplex Algorithm}
+	First, we compute a b.f.s. (which is a vertex of the polytope $S_F$). If there is a desirable b.f.s. (an  adjancent vertex) which improves the object function, then we jump to the corresponding b.f.s. (vertex). We continue this process until there is no scope of further improvement.
+
+\paragraph{Canonical Form}
+	Consider the LPP (in matrix form)
+\begin{align*}
+\text{ minimise } & f(X) = CX \\
+\text{ subject to } & AX = B \\
+\text{ such that } & X \ge 0  
+\end{align*}
+\begin{commentary}
+\begin{align*}
+	\intertext{Rearranging the non-basic variable, we get}
+	\begin{pmatrix} a_{11} & a_{12} & \dots & a_{1m} \\ a_{21} & a_{22} & \dots & a_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mm} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_m \end{pmatrix} & = \begin{pmatrix} b_1 - a_{1,(m+1)} x_{m+1} - a_{1,(m+2)} x_{m+2} - \dots - a_{1n}x_n \\ b_2 - a_{2,(m+1)} x_{m+1} - a_{2,(m+2)} x_{m+2} - \dots - a_{2,n}x_n \\ \vdots \\ b_m-a_{m,(m+1)}x_{m+1} - a_{m,(m+2)}x_{m+2}-\dots-a_{m,n}x_n \end{pmatrix}
+\end{align*}
+Left multplying with $A^{-1}$ on either sides, we get
+\begin{align*}
+	\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_m \end{pmatrix} = & \begin{pmatrix} \bar{b}_1 - \bar{a}_{1,(m+1)} x_{m+1} - \bar{a}_{1,(m+2)} x_{m+2} - \dots - \bar{a}_{1n}x_n \\ \bar{b}_2 - \bar{a}_{2,(m+1)} x_{m+1} - \bar{a}_{2,(m+2)} x_{m+2} - \dots - \bar{a}_{2,n}x_n \\ \vdots \\ \bar{b}_m-\bar{a}_{m,(m+1)}x_{m+1} - \bar{a}_{m,(m+2)}x_{m+2}-\dots-\bar{a}_{m,n}x_n \end{pmatrix}\\
+		\text{where } & \begin{pmatrix} \\ A^{-1} \\ \hphantom{} \end{pmatrix} \begin{pmatrix} b_1 \\ b_2 \\ \dots \\ b_m \end{pmatrix} = \begin{pmatrix} \bar{b}_1 \\ \bar{b}_2 \\ \vdots \\ \bar{b}_m \end{pmatrix} \text{ and } \begin{pmatrix} \\ A^{-1} \\ \hphantom{} \end{pmatrix} \begin{pmatrix} a_{1,(m+1)} \\ a_{2,(m+1)} \\ \vdots \\ a_{m,(m+1)} \end{pmatrix} = \begin{pmatrix} \bar{a}_{1,(m+1)} \\ \bar{a}_{2,(m+1)} \\ \vdots \\ \bar{a}_{m,(m+1)} \end{pmatrix}
+\end{align*}
+
+The constraints \[ \sum_{j=1}^n a_{ij}x_j = b_i, \qquad j = 1,2,\dots,n \] in the form, \[ x_i + \sum_{j=m+1}^n \bar{a}_{i,j} = \bar{b}_i, \qquad i=1,2,\dots,m\] is said to be canonical.
+Also we can replace $x_i$'s in object function to get, 
+\[ f(X) = \sum_{i=1}^m c_i \left( \bar{b}_i - \sum_{j=m+1}^n \bar{a}_{ij}x_j \right) + \sum_{j=m+1}^n c_jx_j = \sum_{i=1}^m c_i\bar{b}_i + \sum_{i=m+1}^n \bar{c}_jx_j \]
+where $\displaystyle \bar{c}_j = c_j - \sum_{i=1}^m c_i \bar{a}_{ij},\ j = m+1,m_2,\dots,n$.
+ From the canonical form, we can compute the corresponding b.f.s., $X = (\bar{b}_1,\bar{b}_2,\dots,\bar{b}_m,0,0,\dots,0)$ and object function $\displaystyle f(X) = \sum_{i=1}^m \bar{b}_ic_i $ since $\bar{c}_j$ are zero for $j > m$. These $\bar{c}_j$'s are called the \textbf{relative cost coefficients}.
+\end{commentary}
+
+\subsection{Simplex Method}
+\begin{align*}
+\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_3 - 5x_4\\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 \le 1 \\
+& x_2 + 4x_3 - 2x_4 \le 2 \\
+& x_1,x_2,x_3,x_4 \ge 0
+\end{align*}
+\begin{figure}[hbt]
+\centering
+\begin{tabular}{c|c|c|c|c|c|c|c|c|}\hline
+Phase & Basis & B & $P_1$ & $P_2$ & $P_3$ & $P_4$ & $P_5$ & $P_6$ \\ \hline
+1 & $x_5$ & 1 & 4 & -1 & 2 & \textcolor{red}{$3$} & 1 & 0  \\ 
+  & $x_6$ & 2 & 0 &  1 & 0 & $4$ & 0 & 1 \\ \hline
+  & $f$   & 0 & 6 & -2 & 4 & -5 & 0 & 0 \\ \hline
+	2 & $x_4$ & $\sfrac{1}{3}$ & $\sfrac{4}{3}$ & $\sfrac{-1}{3}$ & $\sfrac{2}{3}$ & 1 & $\sfrac{1}{3}$ & 0  \\ 
+	& $x_6$ & $\sfrac{2}{3}$ & $\sfrac{-16}{3}$ & \textcolor{red}{$\sfrac{7}{3}$} & $\sfrac{-8}{3}$ & 0 & $\sfrac{-4}{3}$ & 1 \\ \hline
+	& $f$ & $\sfrac{5}{3}$ & $\sfrac{38}{3}$ & $\sfrac{-11}{3}$ & $\sfrac{22}{3}$ & 0 & $\sfrac{5}{3}$ & 0 \\ \hline
+	3 & $x_4$ & $\sfrac{3}{7}$ & $\sfrac{4}{7}$ & 0 & $\frac{2}{7}$ & 1 & \textcolor{red}{$\sfrac{1}{7}$} & $\sfrac{1}{7}$  \\ 
+	& $x_2$ & $\sfrac{2}{7}$ & $\sfrac{-16}{7}$ & 1 & $\sfrac{-8}{7}$ & 0 & $\sfrac{-4}{7}$ & $\sfrac{3}{7}$ \\ \hline
+	& $f$ & $\sfrac{19}{7}$ & $\sfrac{30}{7}$ & 0 & $\sfrac{22}{7}$ & 0 & $\sfrac{-3}{7}$ & $\sfrac{11}{7}$ \\ \hline
+	4 & $x_5$ & 3 & 4 & 0 & 2 & 7 & 1 & 1 \\
+	  & $x_2$ & 2 & 0 & 1 & 0 & 4 & 0 & 1 \\ \hline
+	  & $f$   & 4 & 6 & 0 & 4 & 3 & 0 & 2 \\ \hline
+\end{tabular}
+\caption{Simplex Steps}
+\end{figure}
+
+\subsection{Unrestricted Variable}
+\begin{align*}
+\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_3 - 5x_4\\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 \le 1 \\
+& x_2 + 4x_3 - 2x_4 \le 2 \\
+& x_1,x_2,x_4 \ge 0 \text{ and } x_3 \text{ unrestricted}
+\end{align*}
+	In above LPP, the variable $x_3$ is unrestricted. Replace $x_3$ with two variables $x_{31}$ and $x_{32}$ such that $x_3 = x_{31}-x_{32},\ x_{31} \ge 0,\ x_{32} \ge 0$. We get,
+\begin{align*}
+	\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_{31}-4x_{32} - 5x_4\\
+	\text{ subject to : } & 4x_1 - x_2 + 2x_{31}-2x_{32} - 3x_4 \le 1 \\
+	& x_2 + 4x_{31}-4x_{32} - 2x_4 \le 2 \\
+	& x_1,x_2,x_{31},x_{32},x_4 \ge 0
+\end{align*}
+
+\subsection{Artificial Variable}
+\begin{align*}
+\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_3 - 5x_4\\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 \le 1 \\
+& x_2 - 4x_3 + 2x_4 \le -2 \\
+& x_1 - 2x_2 + x_3 \le -5 \\
+& x_1,x_2,x_3,x_4 \ge 0
+\end{align*}
+First, we need to change all right-hand side constants into on-negative.
+\begin{align*}
+\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_3 - 5x_4\\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 \le 1 \\
+& -x_2 + 4x_3 - 2x_4 \ge 2 \\
+& -x_1 + 2x_2 - x_3 \ge 5 \\
+& x_1,x_2,x_3,x_4 \ge 0
+\end{align*}
+Now we need to introduce three slack variables $x_5,x_6,x_7$,
+\begin{align*}
+\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_3 - 5x_4\\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 + x_5 = 1 \\
+& -x_2 + 4x_3 - 2x_4 - x_6 = 2 \\
+& -x_1 + 2x_2 - x_3 - x_7 = 5 \\
+& x_1,x_2,x_3,x_4,x_5,x_6,x_7 \ge  0
+\end{align*}
+
+\subsubsection{Two Phase Method}
+First phase we compute a basic feasible solution (b.f.s.) for the first iteration the simplex method from an auxiliary problem with the artificial variables $x_8,x_9$ each introduced into '$\ge$' constraints. In second phase, original problem is optimized using simplex method.\\
+
+	If the auxiliary problem does not have a feasible solution in which every artificial variables are zero, then original LPP has no feasible solution.\\
+
+Phase I: Auxiliary Problem
+\begin{align*}
+	\text{ minimise : } & g(x) = x_8 + x_9 \\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 + x_5 = 1 \\
+& -x_2 + 4x_3 - 2x_4 - x_6 + x_8 = 2 \\
+& -x_1 + 2x_2 - x_3 - x_7 + x_9 = 5 \\
+& x_1,x_2,x_3,x_4,x_5,x_6,x_7,x_8,x_9 \ge  0
+\end{align*}
+
+Phase II: Origial Problem with an initial b.f.s. 
+---to be corrected---
+\begin{align*}
+	\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_3 - 5x_4 \\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 + x_5 = 1 \\
+& -x_2 + 4x_3 - 2x_4 - x_6 + x_8 = 2 \\
+& -x_1 + 2x_2 - x_3 - x_7 + x_9 = 5 \\
+& x_1,x_2,x_3,x_4,x_5,x_6,x_7,x_8,x_9 \ge  0
+\end{align*}
+
+\subsubsection{Big M Method}
+In Big M method, arbitrarily large multiples of artificial variables are added to the object function. If the optimal solution of the modified problem has any artificial variables with nonzero value, then it has no feasible solution.
+\begin{align*}
+	\text{ minimise : } & f(x) = 6x_1 - 2x_2 +4x_3 - 5x_4 + 100x_8 + 100x_9 \\
+\text{ subject to : } & 4x_1 - x_2 + 2x_3 - 3x_4 + x_5 = 1 \\
+& -x_2 + 4x_3 - 2x_4 - x_6 + x_8 = 2 \\
+& -x_1 + 2x_2 - x_3 - x_7 + x_9 = 5 \\
+& x_1,x_2,x_3,x_4,x_5,x_6,x_7,x_8,x_9 \ge  0
+\end{align*}
+
+%Module 2
+\section{Integer Programming}
+%Module 3
+\section{Networks}
+%Module 4
+\section{Non-linear Programming}
+
