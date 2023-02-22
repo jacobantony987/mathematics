@@ -133,7 +133,123 @@
 %Module 2 - 5.1, 5.2, 5.3
 {\Large Module 2}
 \section{Power Series Expansions(5.1)}
+\subsection{Weierstrass's Theorem(5.1.1) pp.175}
+\begin{important}
+	Weierstrass`s theorem gives a sufficient condition for convergence to preserve analyticity, that is uniform convergence on every compact subset of the region. 
+	And Hurwitz`s theorem characterises such analytic, limit functions.
+\end{important}
+\begin{theorem}[Weierstrass]
+	Suppose $f_n(z)$ is analytic in the region $\Omega_n$, and the sequence $\sequence{f_n(z)}$ converges to $f(z)$ in a region $\Omega$ uniformly on every compact subset of $\Omega$. Then the limit function $f(z)$ is analytic in $\Omega$. Moreover, $f_n'(z)$ converges to $f'(z)$ on every compact subset of $\Omega$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	A series with analytic terms
+	\[ f(z) = f_1(z) + f_2(z) + \dots + f_n(z) + \dots \]
+	converges uniformly on every compact subset of a region $\Omega$, then the sum $f(z)$ is analytic in $\Omega$. And the series can be differentiated term by term.
+\end{remark}
+\begin{proof}
+\end{proof}
+\begin{remark}
+	Uniform convergence on the boundary of a compact set $A$ implies unform convergence on $A$.
+\end{remark}
+\begin{proof}
+	Hint : maximum principle
+\end{proof}
+
+\begin{remark}
+	If $f_n(z)$ are analytic in $|z|<1$ and convergence is uniform on each circle $C : |z| = r_m$ where $r_m \to 1$ as $m \to \infty$, then limit function $f(z)$ is analytic.
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Hurwitz]
+	If the functions $f_n(z)$ are analytic in a region $\Omega$, $f_n(z) \ne 0, \forall z \in \Omega$ and $f_n(z)$ converges to $f(z)$ uniformly on every compact subset of $\Omega$, then $f(z)$ is either identitally zero in $\Omega$ or never assumes zero in $\Omega$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+	
+\subsection{The Taylor Series (5.1.2) pp 179}
+\begin{important}
+	Every analytic function has a convergent Taylor series representation.
+\end{important}
+\begin{theorem}
+	If $f(z)$ is analytic in a region $\Omega$ containing $z_0$, then the representation
+	\begin{equation}
+		f(z) = f(z_0) + \frac{f'(z_0)}{1!}(z-z_0) + \dots + \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n + \dots
+	\end{equation}
+	is valid in the largest open disk of center $z_0$ contained in $\Omega$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+Taylor series representation for a few analytic functions,
+\begin{enumerate}
+	\item $e^z = 1 + z + \frac{z^2}{2!} + \dots + \frac{z^n}{n!} + \dots$
+	\item $\cos z = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \dots + $
+	\item $\sin z = z - \frac{z^3}{3!} + \frac{z^5}{5!} + \dots + $
+	\item $(1+z)^\mu = 1 + \mu z + \binom{\mu}{2} z^2 + \dots$ where $\binom{\mu}{n} = \frac{\mu(\mu-1)(\mu-2)\dots(\mu-n+1)}{1 \cdot 2 \cdot 3 \cdots n}$
+	\item $\log (1+z) = z - \frac{z^2}{2} + \frac{z^3}{3} - \frac{z^4}{4} + \dots$
+	\item $\arctan z = z - \frac{z^3}{3} + \frac{z^5}{5} - \frac{z^7}{7} + \dots$
+	\item $\frac{1}{\sqrt{1-z^2}} = 1 + \frac{1}{2}z^2 + \frac{1}{2}\frac{3}{4} z^4 + \frac{1}{2} \frac{3}{4} \frac{5}{6} z^6 + \dots$ 
+	\item $\arcsin z = z + \frac{1}{2} \frac{z^3}{3} + \frac{1}{2} \frac{3}{4} \frac{z^5}{5} + \frac{1}{2} \frac{3}{4} \frac{5}{6} \frac{z^7}{7} + \dots$
+	\item $\tan z = z + \frac{z^3}{3}+\frac{2}{15}z^5+\dots$
+	\item $\log \frac{\sin z}{z} = $
+\end{enumerate}
+
+\subsubsection*{}
+The procedure to find Taylor representation of an analytic function,
+\begin{enumerate}
+	\item Choose a well-defined branch so that we have a single-valued function.
+	\item Choose a center $z_0$ which is not a branch point about which the series is to be developed.
+\end{enumerate}
+
+\subsubsection*{}
+Computational techniques to obtain Taylor series representation,
+\begin{enumerate}
+	\item Comparing Real and Imaginary Parts of a Taylor Series
+	\item Differentiating/Intergrating a Taylor Series
+	\item $f(z)g(z) = P_n(z)Q_n(z) + [z^{n+1}]$ \\ where $f(z) = P_n(z) + [z^{n+1}]$ and $g(z) = Q_n(z) + [z^{n+1}]$.
+	\item $f(z)/g(z) = R_n(z) + [z^{n+1}]$\\ such that $P_n(z) + [z^{n+1}] = Q_n(z)R_n(z) + [z^{n+1}]$.
+	\item $f(g(z)) = P_n(Q_n(z)) + [z^{n+1}]$
+	\item $g^{-1}(w) = P_n(w) + [w^{n+1}]$ \\ such that $P_n(Q_n(z)) + [z^{n+1}] = z$.
+\end{enumerate}
+
+\begin{definition}[Legendre Polynomials]
+	Legendre polynomials in $\alpha$, $P_n(\alpha)$ are the coefficients of the Taylor series of $(1-2\alpha z + z^2)^{-\frac{1}{2}}$ about origin.
+	\begin{equation}
+		(1-2\alpha z + z^2)^{-\frac{1}{2}} = 1 + P_1(\alpha)z + P_2(\alpha)z^2+\dots
+	\end{equation}
+\end{definition}
+
+\subsection{The Laurent Series (5.1.3) pp. 184}
+\begin{remark}
+	If the function $f(z)$ is analytic in the annulus $R_1 < |z-a| < R_2$, then the Laurent Series representation
+	\begin{equation}
+		f(z) = \sum_{n = -\infty}^\infty A_n (z-a)^n
+	\end{equation}
+	is valid for any $z$ in the annulus.
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[Schwarzian Derivative]
+	Schwarzian Derivative of $f$ is defined as,
+	\[ \{f,z\} = \frac{f^{\prime\prime\prime}(z)}{f'(z)} - \frac{3}{2} \left(\frac{f^{\prime\prime}(z)}{f'(z)}\right)^2 \]
+	The leading term in the Laurent Series representation of Schwarzian derivative should be of some importance.
+\end{definition}
+
+\begin{remark}
+	Laurent series representation,
+	\[ (e^2-1)^{-1} = \frac{1}{z} - \frac{1}{2} + \sum_{k=1}^\infty (-1)^{k-1}\frac{B_k}{(2k)!} z^{2k-1} \]
+	where $B_k$ are the Bernoulli numbers.
+\end{remark}
 \section{Partial Fractions and Factorisation(5.2)}
+\subsection{Partial Fractions (5.2.1) pp. 187}
+\begin{theorem}[Mittag-Leffler]
+	Let 
+\end{theorem}
 \section{Entire Functions(5.3)}
 \pagebreak
 %Module 3 - 5.4, 5.5
