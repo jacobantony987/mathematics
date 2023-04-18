@@ -51,6 +51,138 @@
 \end{tikzpicture}
 	\caption{Graph of $f(x_1)=x_1^2$ and Level set $f^{-1}(c)$}
 \end{figure}
+\subsection*{Exercise}
+In exercise 1.1-1.4, sketch typical level curves and the graph of each function\\
+\begin{enumerate} 
+\item $f(x_1,x_2) = x_1$
+\begin{figure}[hbt]
+\centering
+\begin{tikzpicture}[scale=0.5]
+	\draw[dotted] (-5,0) -- (5,0) node(x1)[label=right:$x_1$]{};
+	\draw[dotted] (0,-5) -- (0,5) node(x2)[label=above:$x_2$]{};
+
+	\draw (-2,-4) -- (-2,4) node (Fm2){};
+	\draw (-1,-4) -- (-1,4) node (Fm1){};
+	\draw (0,-4) -- (0,4) node (F0){};
+	\draw (1,-4) -- (1,4) node (F1){};
+	\draw (2,-4) -- (2,4) node (F2){};
+
+	\draw (-9,5.5) node (fm2){$f^{-1}(-2)$};
+	\draw (-7,6.5) node (fm1){$f^{-1}(-1)$};
+	\draw (-5,7.5) node (f0){$f^{-1}(0)$};
+	\draw (5,6.5) node (f1){$f^{-1}(1)$};
+	\draw (7,5.5) node (f2){$f^{-1}(2)$};
+		
+	\draw[->] (fm2) -- (Fm2);
+	\draw[->] (fm1) -- (Fm1);
+	\draw[->] (f0) -- (F0);
+	\draw[->] (f1) -- (F1);
+	\draw[->] (f2) -- (F2);
+\end{tikzpicture}
+\caption{Level Sets for $f(x_1,x_2)=x_1$}
+\end{figure}
+\item $f(x_1,x_2) = x_1-x_2$
+\begin{figure}[hbt]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\begin{axis}[grid=both]
+	\addplot[smooth,thick,black] {x-2};
+	\addplot[smooth,thick,black] {x-1};
+	\addplot[smooth,thick,black] {x-0};
+	\addplot[smooth,thick,black] {x+1};
+	\addplot[smooth,thick,black] {x+2};
+\end{axis}
+	\draw (-2,6) node(fm2){$f^{-1}(-2)$};
+	\draw (-2,5) node(fm1){$f^{-1}(-1)$};
+	\draw (-2,4) node(f0){$f^{-1}(0)$};
+	\draw (-2,3) node(f1){$f^{-1}(1)$};
+	\draw (-2,2) node(f2){$f^{-1}(2)$};
+
+	\draw[->] (fm2) -- (3.4,3.5);
+	\draw[->] (fm1) -- (3.1,3);
+	\draw[->] (f0) -- (2.8,2.5);
+	\draw[->] (f1) -- (2.5,2);
+	\draw[->] (f2) -- (2.2,1.5);
+\end{tikzpicture}
+\caption{Level Set for $f(x_1,x_2) = x_1-x_2$}
+\end{figure}
+\item $f(x_1,x_2) = x_1^2-x_2^2$
+\begin{figure}[hbt]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\begin{axis}[grid=both]
+	\addplot[smooth,thick,olive,samples=1000] {sqrt(x^2-2)};
+	\addplot[smooth,thick,teal,samples=1000] {sqrt(x^2-1)};
+	\addplot[smooth,thick,black] {x};
+	\addplot[smooth,thick,cyan] {sqrt(x^2+1)};
+	\addplot[smooth,thick,purple] {sqrt(x^2+2)};
+
+	\addplot[smooth,thick,olive,samples=1000] {-sqrt(x^2-2)};
+	\addplot[smooth,thick,teal,samples=1000] {-sqrt(x^2-1)};
+	\addplot[smooth,thick,black] {-x};
+	\addplot[smooth,thick,cyan] {-sqrt(x^2+1)};
+	\addplot[smooth,thick,purple] {-sqrt(x^2+2)};
+\end{axis}
+
+	\draw (-2,3.5) node(fm2){$f^{-1}(-2)$};
+	\draw (-2,2.5) node(fm1){$f^{-1}(-1)$};
+	\draw (2,5) node(f0){$f^{-1}(0)$};
+	\draw (3.5,4.5) node(f1){$f^{-1}(1)$};
+	\draw (5,5) node(f2){$f^{-1}(2)$};
+
+	\draw[->] (fm2) -- (2.5,3.2);
+	\draw[->] (fm1) -- (2.6,2.4);
+	\draw[->] (f0) -- (3.6,3);
+	\draw[->] (f1) -- (3.7,3.4);
+	\draw[->] (f2) -- (3.8,3.6);
+
+	\draw[ultra thick,black] (0,2.85)--(6.85,2.85);
+\end{tikzpicture}
+\caption{Level Set for $f(x_1,x_2) = x_1^2-x_2^2$}
+\end{figure}
+\item $f(x_1,x_2) = 3r^8 - 8r^6 + 6r^4$ where $r^2 = x_1^2 + x_2^2$.
+\begin{figure}[hbt]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\begin{axis}
+	%\addplot {};
+\end{axis}
+\end{tikzpicture}
+\caption{Level Set for $f(x_1,x_2) = 3r^8-8r^6+6r^4;\ r^2 = x_1^2+x_2^2$}
+\end{figure}
+\end{enumerate}
+In exercise 1.5-1.9, sketch the level sets of $f^{-1}(c)$ for $n=0,1$ and $2$ of each function at the heights indicated
+\begin{enumerate} 
+	\setcounter{enumi}{4}
+	\item $f(x_1,x_2,\dots,x_{n+1}) = x_{n+1};\ c = -1,0,1,2$
+	\begin{figure}[hbt]
+	\centering
+	\begin{tikzpicture}[scale=0.5]
+	\begin{axis}
+		\addplot {cos(deg(x))};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Level Set for $f(x_1,x_2,\dots,x_{n+1}) = x_{n+1}$}
+	\end{figure}
+	\item $f(x_1,x_2,\dots,x_{n+1}) = 0x_1^2 + x_2^2 + \dots + x_{n+1}^2;\ c = 0,1,4$
+	\item $f(x_1,x_2,\dots,x_{n+1}) = x_1 - x_2^2 -\dots - x_{n+1}^2;\ c = -1,0,1,2$
+	\item $f(x_1,x_2,\dots,x_{n+1}) = x_1^2 - x_2^2 - \dots - x_{n+1}^2;\ c = -1,0,1$
+	\item $f(x_1,x_2,\dots,x_{n+1}) = x_1^2 + x_2^2/4 + \dots + x_{n+1}^2/(n+1)^2;\ c = 1$
+	\item Show that graph of any function $f : \mathbb{R} \to \mathbb{R}$ is a level set for some function $F : \mathbb{R}^{n+1} \to \mathbb{R}$.\\
+
+	\textbf{Solution : }
+	Let $f : \mathbb{R}^n \to \mathbb{R}$ and $F : \mathbb{R}^{n+1} \to \mathbb{R}$ such that 
+	$$F(x_1,x_2,\dots,x_{n+1}) = x_{n+1}-f(x_1,x_2,\dots,x_n)$$
+	Then,
+	\begin{align*}
+		\text{Level Set for $F$ at height $0$ }
+		& = F^{-1}(0) \\
+		& = \{ (x_1,x_2,\dots,x_{n+1}) : F(x_1,x_2,\dots,x_{n+1}) = 0 \} \\
+		& = \{ (x_1,x_2,\dots,x_n,x_{n+1}) : x_{n+1} - f(x_1,x_2,\dots,x_n) = 0 \}\\
+		& = \{ (x_1,x_2,\dots,x_n,x_{n+1}) : x_{n+1} = f(x_1,x_2,\dots,x_n) \}\\
+		& = graph(f)
+	\end{align*}
+\end{enumerate}
 
 %\chapter{Vector Fields}
 \section{Vector Fields}

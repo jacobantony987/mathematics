@@ -22,40 +22,364 @@
 %Missing - 7, 8?
 
 %\chapter{An Introduction to Graphs}
-%\section{What is a Graph ?}
-%\section{The Degree of a Vertex}
-%\section{Isomorphic Graphs}
-%\section{Subgraphs}
-%\section{Degree Sequences}
-%\section{Connected Graphs}
-%\section{Cut-Vertices and Bridges}
-%\section{Special Graphs}
-%\section{Digraphs}
+\section{What is a Graph ?}
+\begin{definition}[graph]
+	A graph $G$ is a finite nonempty set $V(G)$ and a family $E(G)$ of 2-element subsets of $V(G)$.
+\end{definition}
+
+\begin{remark}
+	Elements of $V(G)$ are called \textbf{vertices} and elements of $E(G)$ are called \textbf{edges} of the graph $G$.
+	Suppose $\{u,v\}$ be an edge of a graph $G$. We may represent this edge by $uv$.\\
+
+	Two vertices $u,v$ are \textbf{adjacent} if there exists an edge $e = uv$ joining them.
+\end{remark}
+
+\begin{definition}[multigraph]
+	A graph with parallel edges is called a multigraph.
+\end{definition}
+\begin{definition}[psueudograph]
+	A graph with parallel egdes and loops is called a psuedograph.
+\end{definition}
+
+\begin{definition}
+	The number of vertices in graph $G$ is the order of the graph $G$.
+	The number of edge in graph $G$ is the size of the graph $G$.
+\end{definition}
+\begin{remark}
+	A graph $G$ of order $p$ and size $q$ is called a $(p,q)$ graph.
+\end{remark}
+
+\section{The Degree of a Vertex}
+\begin{definition}[neighbourhood]
+	Let $v$ be a vertex of graph $G$.
+	The neighbourhood of $v$, $N(v)$ is the set of all vertices adjacent to it.
+	$$ N(v) = \{ u \in V(G) : uv \in E(G) \} $$
+\end{definition}
+\begin{remark}
+	The \textbf{degree} of a vertex $v$ is the cardinality of the neighbourhood of $v$ in graph $G$.
+	$$ deg\ v = |N(v)| $$
+	An edge of zero degree is called an \textbf{isolated vertex}.
+	An edge of odd(even) degree is called an \textbf{odd(even) edge}.
+\end{remark}
+
+\begin{remark}
+	Let $e=uv$ be an edge of a graph $G$.
+	Then $e$ is \textbf{incident} on both $u$ and $v$.
+\end{remark}
+
+\begin{theorem}[First Theorem]
+	Let $G$ be a graph of order $p$ and size $q$ with vertex set $V(G) = \{ v_1,v_2,\dots,v_p \}$.
+	Then,
+	$$ \sum_{i=1}^p deg\ v_i = 2q $$
+\end{theorem}
+\begin{proof}
+	Since degrees of vertices are counted, every edge is counted twice (from both ends). Thus the sum of degrees is twice the size of the graph.
+\end{proof}
+
+\begin{corollary}
+	Every graph has even number of odd vertices.
+\end{corollary}
+\begin{proof}
+	By first theorem of graph theory, the sum of degree is an even integer.
+	Suppose there are odd number of odd vertices.
+	Then the sum of degrees is odd which is a contradiction.
+	Therefore, there are even number of odd vertices in any graph $G$.
+\end{proof}
+
+\begin{definition}[regular]
+	A graph $G$ is $r$-regular if every vertex of $G$ has degree $r$.
+\end{definition}
+
+\begin{definition}[complement]
+	Let $G$ be a graph. The complement $\bar{G}$ is the graph with vertex set $V(G) = V(\bar{G})$ and $uv$ is an edge of $\bar{G}$ if $uv$ is not an edge of $G$.
+\end{definition}
+
+\section*{Problem Set 1.2}
+\begin{enumerate}
+	\item Prove that every graph of order $n \ge 2$ has at least two vertices of the same degree.
+	\begin{proof}
+		Let $G$ be a graph of order $p$. Suppose every vertex is of different degree. Then there exists a vertex of degree $0$ and a vertex of degree $p-1$. This is a contradiction as the vertex of degree $0$ is not adjacent to any other vertex and the vertex of degree $p-1$ is adjacent to every other vertex.
+	\end{proof}
+		\setcounter{enumi}{6}
+	\item
+	\begin{enumerate}
+	\item Construct an $r$-regular graph of order $8$ for each $r$, $0 \le r < 8$.\\
+		(See Figure \ref{dia:regularOrder8})
+	\begin{figure}[hbt]
+	\centering
+	\begin{tikzpicture}[scale=0.5]
+		\draw (0,0) node (a)[circle]{};
+		\draw (a) ++(0:2) node (a1)[draw,circle,label=right:$v_1$]{};
+		\draw (a) ++(45:2) node (a2)[draw,circle,label=right:$v_2$]{};
+		\draw (a) ++(90:2) node (a3)[draw,circle,label=above:$v_3$]{};
+		\draw (a) ++(135:2) node (a4)[draw,circle,label=left:$v_4$]{};
+		\draw (a) ++(180:2) node (a5)[draw,circle,label=left:$v_5$]{};
+		\draw (a) ++(225:2) node (a6)[draw,circle,label=left:$v_6$]{};
+		\draw (a) ++(-90:2) node (a7)[draw,circle,label=below:$v_7$]{};
+		\draw (a) ++(-45:2) node (a8)[draw,circle,label=right:$v_8$]{};
+
+		\draw (0,8) node (b)[circle]{};
+		\draw (b) ++(0:2) node (b1)[draw,circle,label=right:$v_r$]{};
+		\draw (b) ++(45:2) node (b2)[draw,circle,label=right:$v_2$]{};
+		\draw (b) ++(90:2) node (b3)[draw,circle,label=above:$v_3$]{};
+		\draw (b) ++(135:2) node (b4)[draw,circle,label=left:$v_4$]{};
+		\draw (b) ++(180:2) node (b5)[draw,circle,label=left:$v_5$]{};
+		\draw (b) ++(225:2) node (b6)[draw,circle,label=left:$v_6$]{};
+		\draw (b) ++(-90:2) node (b7)[draw,circle,label=below:$v_7$]{};
+		\draw (b) ++(-45:2) node (b8)[draw,circle,label=right:$v_8$]{};
+		\draw (b1)--(b2);
+		\draw (b3)--(b4);
+		\draw (b5)--(b6);
+		\draw (b7)--(b8);
+
+		\draw (7,0) node (c)[circle]{};
+		\draw (c) ++(0:2) node (c1)[draw,circle,label=right:$v_1$]{};
+		\draw (c) ++(45:2) node (c2)[draw,circle,label=right:$v_2$]{};
+		\draw (c) ++(90:2) node (c3)[draw,circle,label=above:$v_3$]{};
+		\draw (c) ++(135:2) node (c4)[draw,circle,label=left:$v_4$]{};
+		\draw (c) ++(180:2) node (c5)[draw,circle,label=left:$v_5$]{};
+		\draw (c) ++(225:2) node (c6)[draw,circle,label=left:$v_6$]{};
+		\draw (c) ++(-90:2) node (c7)[draw,circle,label=below:$v_7$]{};
+		\draw (c) ++(-45:2) node (c8)[draw,circle,label=right:$v_8$]{};
+		\draw (c1)--(c2)--(c3)--(c4)--(c5)--(c6)--(c7)--(c8)--(c1);
+
+		\draw (7,8) node (d)[circle]{};
+		\draw (d) ++(0:2) node (d1)[draw,circle,label=right:$v_1$]{};
+		\draw (d) ++(45:2) node (d2)[draw,circle,label=right:$v_2$]{};
+		\draw (d) ++(90:2) node (d3)[draw,circle,label=above:$v_3$]{};
+		\draw (d) ++(135:2) node (d4)[draw,circle,label=left:$v_4$]{};
+		\draw (d) ++(180:2) node (d5)[draw,circle,label=left:$v_5$]{};
+		\draw (d) ++(225:2) node (d6)[draw,circle,label=left:$v_6$]{};
+		\draw (d) ++(-90:2) node (d7)[draw,circle,label=below:$v_7$]{};
+		\draw (d) ++(-45:2) node (d8)[draw,circle,label=right:$v_8$]{};
+		\draw (d1)--(d2)--(d3)--(d4)--(d5)--(d6)--(d7)--(d8)--(d1);
+		\draw (d1)--(d5);
+		\draw (d2)--(d6);
+		\draw (d3)--(d7);
+		\draw (d4)--(d8);
+
+		\draw (14,0) node (e)[circle]{};
+		\draw (e) ++(0:2) node (e1)[draw,circle,label=right:$v_1$]{};
+		\draw (e) ++(45:2) node (e2)[draw,circle,label=right:$v_2$]{};
+		\draw (e) ++(90:2) node (e3)[draw,circle,label=above:$v_3$]{};
+		\draw (e) ++(135:2) node (e4)[draw,circle,label=left:$v_4$]{};
+		\draw (e) ++(180:2) node (e5)[draw,circle,label=left:$v_5$]{};
+		\draw (e) ++(225:2) node (e6)[draw,circle,label=left:$v_6$]{};
+		\draw (e) ++(-90:2) node (e7)[draw,circle,label=below:$v_7$]{};
+		\draw (e) ++(-45:2) node (e8)[draw,circle,label=right:$v_8$]{};
+		%\draw (e1)--(e2)--(e3)--(e4)--(e5)--(e6)--(e7)--(e8)--(e1);
+		\draw (e1)--(e3)--(e5)--(e7)--(e1);
+		\draw (e2)--(e4)--(e6)--(e8)--(e2);
+		\draw (e1)--(e4)--(e7)--(e2)--(e5)--(e8)--(e3)--(e6)--(e1);
+
+		\draw (14,8) node (f)[circle]{};
+		\draw (f) ++(0:2) node (f1)[draw,circle,label=right:$v_1$]{};
+		\draw (f) ++(45:2) node (f2)[draw,circle,label=right:$v_2$]{};
+		\draw (f) ++(90:2) node (f3)[draw,circle,label=above:$v_3$]{};
+		\draw (f) ++(135:2) node (f4)[draw,circle,label=left:$v_4$]{};
+		\draw (f) ++(180:2) node (f5)[draw,circle,label=left:$v_5$]{};
+		\draw (f) ++(225:2) node (f6)[draw,circle,label=left:$v_6$]{};
+		\draw (f) ++(-90:2) node (f7)[draw,circle,label=below:$v_7$]{};
+		\draw (f) ++(-45:2) node (f8)[draw,circle,label=right:$v_8$]{};
+		\draw (f1)--(f3)--(f5)--(f7)--(f1);
+		\draw (f2)--(f4)--(f6)--(f8)--(f2);
+		\draw (f1)--(f4)--(f7)--(f2)--(f5)--(f8)--(f3)--(f6)--(f1);
+		\draw (f1)--(f5);
+		\draw (f2)--(f6);
+		\draw (f3)--(f7);
+		\draw (f4)--(f8);
+
+		\draw (21,0) node (g)[circle]{};
+		\draw (g) ++(0:2) node (g1)[draw,circle,label=right:$v_1$]{};
+		\draw (g) ++(45:2) node (g2)[draw,circle,label=right:$v_2$]{};
+		\draw (g) ++(90:2) node (g3)[draw,circle,label=above:$v_3$]{};
+		\draw (g) ++(135:2) node (g4)[draw,circle,label=left:$v_4$]{};
+		\draw (g) ++(180:2) node (g5)[draw,circle,label=left:$v_5$]{};
+		\draw (g) ++(225:2) node (g6)[draw,circle,label=left:$v_6$]{};
+		\draw (g) ++(-90:2) node (g7)[draw,circle,label=below:$v_7$]{};
+		\draw (g) ++(-45:2) node (g8)[draw,circle,label=right:$v_8$]{};
+		\draw (g1)--(g3)--(g5)--(g7)--(g1);
+		\draw (g2)--(g4)--(g6)--(g8)--(g2);
+		\draw (g1)--(g4)--(g7)--(g2)--(g5)--(g8)--(g3)--(g6)--(g1);
+		\draw (g1)--(g5)--(g4)--(g8)--(g1);
+		\draw (g2)--(g3)--(g7)--(g6)--(g2);
+
+		\draw (21,8) node (h)[circle]{};
+		\draw (h) ++(0:2) node (h1)[draw,circle,label=right:$v_1$]{};
+		\draw (h) ++(45:2) node (h2)[draw,circle,label=right:$v_2$]{};
+		\draw (h) ++(90:2) node (h3)[draw,circle,label=above:$v_3$]{};
+		\draw (h) ++(135:2) node (h4)[draw,circle,label=left:$v_4$]{};
+		\draw (h) ++(180:2) node (h5)[draw,circle,label=left:$v_5$]{};
+		\draw (h) ++(225:2) node (h6)[draw,circle,label=left:$v_6$]{};
+		\draw (h) ++(-90:2) node (h7)[draw,circle,label=below:$v_7$]{};
+		\draw (h) ++(-45:2) node (h8)[draw,circle,label=right:$v_8$]{};
+		\draw (h1)--(h2)--(h3)--(h4)--(h5)--(h6)--(h7)--(h8)--(h1);
+		\draw (h1)--(h3)--(h5)--(h7)--(h1)--(h4)--(h6)--(h8)--(h2)--(h5)--(h8)--(h3)--(h6)--(h1);
+		\draw (h1)--(h5);
+		\draw (h2)--(h6);
+		\draw (h3)--(h7);
+		\draw (h4)--(h8);
+	\end{tikzpicture}
+	\caption{$r$-regular graph of order $8$}
+	\label{dia:regularOrder8}
+	\end{figure}
+\item Determine the complement of each graph constructed in (a).\\
+	(complements are already there in the list)
+	\item Prove that if $G$ is a regular graph. Then $\bar{G}$ is regular.
+	\begin{proof}
+	Let $G$ be an $r$-regular graph of order $p$. Let $v \in V(G)$. Then $deg\ v = r$. Thus, there are $r$ vertices adjacent to $v$ in graph $G$. In other words, there are $p-r-1$ vertices non-adjacent to $v$ in $G$. Therefore, $deg\ v$ is the complement graph $\bar{G}$ is $p-r-1$. Since $v \in V(G)$ is arbitrary, $\bar{G}$ is $p-r-1$-regular graph.
+	\end{proof}
+\end{enumerate}
+\end{enumerate}
+
+\section{Isomorphic Graphs}
+\begin{definition}[isomorphism]
+	Two graphs $G_1,G_2$ are isomorphic if there exists a bijection $$\phi : V(G_1) \to V(G_2) \text{ such that }uv \in E(G_1) \iff \phi(u)\phi(v) \in E(G_2)$$
+\end{definition}
+\begin{remark}
+	Two graphs $G_1,G_2$ are equal if $V(G_1) = V(G_2)$ and $E(G_1) = E(G_2)$. Clearly, equal graphs are isomorphic. However, isomorphic graphs are not equal.
+\end{remark}
+
+\subsection*{Problem Set 1.3}
+\begin{enumerate}
+	\item Find two non-isomorphic $3$-regualr graphs of order $6$ and size $9$.\\
+		There are exactly two non-isomorphic $3$-regular graphs of order $6$. By first theorem of graph theory, the size of such a graph is always $9$.(see Figure \ref{dia:3r6o}.
+	\begin{figure}[hbt]
+		\centering
+		\begin{tikzpicture}[scale=0.5]
+			\draw (8,0) node (v){};
+			\draw (v) ++(30:2) node (v1)[draw,circle,label=above:$v_1$]{};
+			\draw (v) ++(90:2) node (v2)[draw,circle,label=above:$v_2$]{};
+			\draw (v) ++(150:2) node (v3)[draw,circle,label=above:$v_3$]{};
+			\draw (v) ++(-150:2) node (v4)[draw,circle,label=below:$v_4$]{};
+			\draw (v) ++(-90:2) node (v5)[draw,circle,label=below:$v_5$]{};
+			\draw (v) ++(-30:2) node (v6)[draw,circle,label=below:$v_6$]{};
+			\draw (v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v1);
+			\draw (v1)--(v4);
+			\draw (v2)--(v5);
+			\draw (v3)--(v6);
+
+			\draw (0,0) node (u){};
+			\draw (u) ++(30:2) node (u1)[draw,circle,label=above:$v_1$]{};
+			\draw (u) ++(90:2) node (u2)[draw,circle,label=above:$v_2$]{};
+			\draw (u) ++(150:2) node (u3)[draw,circle,label=above:$v_3$]{};
+			\draw (u) ++(-150:2) node (u4)[draw,circle,label=below:$v_4$]{};
+			\draw (u) ++(-90:2) node (u5)[draw,circle,label=below:$v_5$]{};
+			\draw (u) ++(-30:2) node (u6)[draw,circle,label=below:$v_6$]{};
+			\draw (u1)--(u2)--(u3)--(u4)--(u5)--(u6)--(u1);
+			\draw (u1)--(u4);
+			\draw (u2)--(u6);
+			\draw (u3)--(u5);
+		\end{tikzpicture}
+		\caption{$3$-regular graph of order $6$}
+		\label{dia:3r6o}
+	\end{figure}
+	\item
+	\begin{enumerate}
+	\item Draw all eleven nonisomorphic graphs of order $4$\\
+		$P_4,C_4,\bar{C_4},K_4,\bar{K_4},K_4-e,K_2+2K_1,K_{1,3},\bar{K}_{1,3},P_2+K_1,C_3+e$
+	\item Let $S$ be a set of $23$ graphs of order $4$, then $S$ has at least three graphs that are pairwise isomorphic.
+	\begin{proof}
+		There are at most eleven non-isomorphic graphs of order $r$.
+		By pigeonhole principle, in a family of $23$ graphs of order $4$ at least three graphs are pairwise isomorphic.
+	\end{proof}
+	\end{enumerate}
+	\item Give an example of a graph $G$ of order $5$ such that $G \cong \bar{G}$.\\
+		There are only two such graphs upto isomorphism.(see Figure \ref{dia:sc5})
+	\begin{figure}[hbt]
+	\centering
+	\begin{tikzpicture}
+		\draw (0,0) node (u){};
+		\draw (u) ++(36:2) node (u1)[draw,circle,label=right:$v_1$]{};
+		\draw (u) ++(108:2) node (u2)[draw,circle,label=above:$v_2$]{};
+		\draw (u) ++(180:2) node (u3)[draw,circle,label=left:$v_3$]{};
+		\draw (u) ++(-108:2) node (u4)[draw,circle,label=above:$v_4$]{};
+		\draw (u) ++(-36:2) node (u5)[draw,circle,label=right:$v_5$]{};
+		\draw (u1)--(u2)--(u3)--(u4)--(u5);
+		\draw (u2)--(u4);
+
+		\draw (6,0) node (v){};
+		\draw (v) ++(36:2) node (v1)[draw,circle,label=right:$v_1$]{};
+		\draw (v) ++(108:2) node (v2)[draw,circle,label=above:$v_2$]{};
+		\draw (v) ++(180:2) node (v3)[draw,circle,label=left:$v_3$]{};
+		\draw (v) ++(-108:2) node (v4)[draw,circle,label=above:$v_4$]{};
+		\draw (v) ++(-36:2) node (v5)[draw,circle,label=right:$v_5$]{};
+		\draw (v1)--(v2)--(v3)--(v4)--(v5)--(v1);
+	\end{tikzpicture}
+	\caption{Self-complementary graphs of order $5$}
+	\label{dia:sc5}
+	\end{figure}
+	\item There are three regular graphs of order $5$, and eight regular graphs of order $6$. Draw all of them\\
+		Three regular graphs of order $5$ are $C_5,K_5$ and $\bar{K}_5$.\\
+		Eight regular graphs of order $6$ are $3K_2,C_6,2K_3,K_6$ and complements.
+	\item Prove that two graph $G_1$ and $G_2$ are isomorphic if and only if their complements are isomorphic.
+	\begin{proof}
+	\begin{align*}
+	G_1 \cong G_2 
+		& \iff \phi : G_1 \to G_2,\ \left[uv \in E(G_1) \iff  \phi(u)\phi(v) \in E(G_2)\right] \\
+		& \iff \phi : G_1 \to G_2,\ \left[uv \notin E(G_1) \iff \phi(u)\phi(v) \notin E(G_2)\right] \\
+		& \iff \bar{G}_1 \cong \bar{G}_2
+	\end{align*}
+	\end{proof}
+	\item Draw all nonisomorphic $4$-regular graphs of order $7$.\\
+		There are only two distinct $2$-regular graphs of order $7$ upto isomorphism. The graphs are $C_7$ and $C_3+C_4$. Every $4$-regular graphs of order $7$ is complement of some $2$-regular graph of order $7$. Thus there are only two $4$-regular graphs of order $7$. The graphs are $\bar{C}_7$ and $\overline{C_3+C_4}$.
+
+\begin{commentary}
+	There are two trivial regular graphs $K_p$ and $\bar{K}_p$. In order to count regular graphs of order $p$, it is always easier to count $r$-regular graphs for $0 \le r \le \lfloor (p-1)/2 \rfloor$.\\
+
+	For example, $p=8$. We need to construct all nonisomorphic $r$-regular graphs of order $8$ for $r=0,1,2,3$. There are one graph each for $r=0,1$. The $2$-regular graphs are always disjoint union of cycles. Thus, the only possibilities are $C_3+C_5, 2C_4$ and $C_8$. Finding $3$-regular graphs of order $8$ is the hard part.\\
+
+	You may find various classifications of all small graphs (upto order $13$) at \href{https://www.graphclasses.org/smallgraphs.html}{graphclasses.org}. And there is a combinatorial result on number of regular graphs of order $p$ available at \href{https://oeis.org/A051031}{oeis.org}.\\
+
+	As per OEIS there are six nonisomorphic $3$ regular graph of order $8$. Thus, there are twenty two nonisomophic regular graphs of order $8$.
+\end{commentary}
+	\setcounter{enumi}{8}
+	\item Show that the relation `is isomorphic to' is an equivalence relation on the set of all graphs.
+	\begin{proof}
+		Trivially $G \cong G$ as $G$ is equal to itself and equal graphs are always isomorphic.\\
+
+		Suppose $G_1 \cong G_2$. Then there exists a bijection $\phi : V(G_1) \to V(G_2)$ such that $uv \in E(G_1) \iff \phi(u)\phi(v) \in E(G_2)$. Clearly, $\phi^{-1} : V(G_2) \to V(G_1)$ is an isomorphism. Thus, $G_2 \cong G_1$.\\
+
+		Suppose $G_1 \cong G_2$ and $G_2 \cong G_3$.
+		Then there exist bijection $\phi : V(G_1) \to V(G_2)$ such that $uv \in E(G_1) \iff \phi(u)\phi(v) \in E(G_2)$ and bijection $\psi : V(G_2) \to V(G_3)$ such that
+		$$\phi(u)\phi(v) \in E(G_2) \iff \psi(\phi(u))\psi(\phi(v)) \in E(G_3)$$
+		Clearly, $\psi \circ \phi : V(G_1) \to V(G_3)$ is a bijection such that
+		$$ uv \in E(G_1) \iff \psi \circ \phi(u) \psi\circ\phi(v) \in E(G_3) $$
+		Therefore, $G_1 \cong G_3$.
+	\end{proof}
+\end{enumerate}
+\section{Subgraphs}
+---to continue-- (pp. 12)
+\section{Degree Sequences}
+\section{Connected Graphs}
+\section{Cut-Vertices and Bridges}
+\section{Special Graphs}
+\section{Digraphs}
 
 %\chapter{An Introduction to Algorithms}
-%\section{Algorithmic Complexity}
-%\section{Serach Algorithms}
-%\section{Sorting Algorithms}
+\section{Algorithmic Complexity}
+\section{Serach Algorithms}
+\section{Sorting Algorithms}
 %\section{Introducing NP-Completeness*}
-%\setcounter{section}{4}
-%\section{Greedy Algorithms}
-%\section{Representing Graphs in a Computer}
+\setcounter{section}{4}
+\section{Greedy Algorithms}
+\section{Representing Graphs in a Computer}
 
 %Module 2
 %\chapter{Trees}
-%\section{Properties of Trees}
-%\section{Rooted Trees}
-%\section{Depth-First Search}
-%\section{Depth-First Search : A Tool for Finding Blocks}
-%\section{Breadth-First Search}
-%\section{The Minimum Spanning Tree Problem}
+\section{Properties of Trees}
+\section{Rooted Trees}
+\section{Depth-First Search}
+\section{Depth-First Search : A Tool for Finding Blocks}
+\section{Breadth-First Search}
+\section{The Minimum Spanning Tree Problem}
 
 %\chapter{Paths and Distance in Graphs}
-%\section{Distance in Graphs}
-%\section{Distance in Weighted Graphs}
-%\section{The Center and Median of a Graph}
-%\section{Activity Digraphs and Critical Paths}
-%\section{Error Correcting Codes*}
+\section{Distance in Graphs}
+\section{Distance in Weighted Graphs}
+\section{The Center and Median of a Graph}
+\section{Activity Digraphs and Critical Paths}
+%\section{Error Correcting Codes$^\ast$}
 
 %Module 3
 \section{Networks}

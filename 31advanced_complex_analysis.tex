@@ -1,17 +1,17 @@
 %Text Books : \cite{ahlfors}
 %Module 1:
-%Harmonic Functions - Definitions and Basic Properties, The Mean-Value Property, Poisson's Formula, Schwarz's Theorem, The Reflection Principle. A closer look at Harmonic Functions - Functions with Mean Value Property, Harnack's Principle.
-%The Dirichlet's Problem - Subharmonic Functions, Solution of Dirichlet's Problem ( Proof of Dirichlet's Problem and Proofs of Lemma 1 and 2 excluded )
+%Harmonic Functions - Definitions and Basic Properties, The Mean-Value Property, Poisson`s Formula, Schwarz`s Theorem, The Reflection Principle. A closer look at Harmonic Functions - Functions with Mean Value Property, Harnack`s Principle.
+%The Dirichlet`s Problem - Subharmonic Functions, Solution of Dirichlet`s Problem ( Proof of Dirichlet`s Problem and Proofs of Lemma 1 and 2 excluded )
 %(Chapter 4 : Section 6: 6.1 - 6.5, Chapter 6 : Section 3 : 3.1 - 3.2 , Section 4 : 4.1 - 4.2)
 %Module 2:
-%Power Series Expansions - Weierstrass's theorem, The Taylor Series, The Laurent Series Partial Fractions and Factorization - Partial Fractions, Infinite Products, Canonical Products, The Gamma Function. Entire Functions - Jensen's Formula, Hadamard's Theorem ( Hadamard's theorem - proof excluded)
+%Power Series Expansions - Weierstrass`s theorem, The Taylor Series, The Laurent Series Partial Fractions and Factorization - Partial Fractions, Infinite Products, Canonical Products, The Gamma Function. Entire Functions - Jensen`s Formula, Hadamard`s Theorem ( Hadamard`s theorem - proof excluded)
 %(Chapter 5 : Section 1 : 1.1 - 1.3, Section 2 : 2.1 - 2.4, Section 3 : 3.1 - 3.2 )
 %Module 3:
-%The Riemann Zeta Function - The Product Development, The Extension of $\zeta(s)$ to the Whole Plane, The Functional Equation, The Zeroes of the Zeta Function Normal Families - Normality and Compactness, Arzela's Theorem
+%The Riemann Zeta Function - The Product Development, The Extension of $\zeta(s)$ to the Whole Plane, The Functional Equation, The Zeroes of the Zeta Function Normal Families - Normality and Compactness, Arzela`s Theorem
 %(Chapter 5 : Section 4 : 4.1 - 4.4, Section 5 : 5.2 - 5.3)
 %Module 4:
 %The Riemann Mapping Theorem - Statement and Proof, Boundary Behaviour, Use of the Reflection Principle
-%The Weierstrass's Theory - The Weierstrass's $\rho$-function, The functions $\zeta(s)$ and $\sigma(z)$, The Differential Equation
+%The Weierstrass`s Theory - The Weierstrass`s $\wp$-function, The functions $\zeta(s)$ and $\sigma(z)$, The Differential Equation
 %(Chapter 6 : Section 1: 1.1-1.3, Chapter 7 : Section 3 : 3.1 - 3.3)
 
 %Module 1 - \cite{ahlfors} 4.6, 6.3, 6.4
@@ -23,9 +23,9 @@
 %Module 1 - 4.6, 6.3, 6.4
 {\Large Module 1}
 \section{Harmonic Functions(4.6)}
-\subsection{Definition and Basic properties(4.6.1)}
+\subsection{Definition and Basic properties(4.6.1) pp. 162}
 \begin{definition}[harmonic]
-	A real-valued function $u(z)$ defined and single-valued in a region $\Omega$ is harmonic if it is continuous together with its partial derivatives of first two orders and satisfies Laplace's equation
+	A real-valued function $u(z)$ defined and single-valued in a region $\Omega$ is harmonic if it is continuous together with its partial derivatives of first two orders and satisfies Laplace`s equation
 	\[ \Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \]
 
 	In polar form,
@@ -46,13 +46,102 @@
 
 ---to be continued---
 
-\subsection{The Mean-value Property(4.6.2)}
-\subsection{Poisson's Formula(4.6.3)}
-\subsection{Schwarz's Theorem(4.6.4)}
-\subsection{The Reflection Principle(4.6.5)}
+\begin{theorem}
+	If $u_1$ and $u_2$ are harmonic in a region $\Omega$, then
+	\[ \int_\gamma u_1 ^\ast du_2 - u_2 ^\ast du_1 = 0 \]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{The Mean-value Property(4.6.2) pp. 165}
+\begin{theorem}
+	The arithmetic mean of a harmonic function over arithmetic circles $z|=r$ is a linear function of $\log r$,	
+	\begin{equation}
+		u(z_0) = \frac{1}{2\pi} \int_0^{2\pi} u\ d\theta = \alpha \log r + \beta
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	A nonconstant harmonic function has neither a maximum nor a minimum in its region of definition. Consequently, the maximum and the minimum on a closed bounded set $E$ are taken on the boundary of $E$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Poisson`s Formula(4.6.3) pp. 166}
+\begin{remark}
+	If $u(z)$ is continous on a closed bounded set $E$ and harmonic in the interior of $E$, then it is uniquely determined by its values on the boundary of $E$.
+\end{remark}
+\begin{theorem}
+	Suppose that $u(z)$ is harmonic for $|z| < R$, continuous for $|z| \le R$. Then
+	\begin{equation}
+		u(a) = \frac{1}{2\pi} \int_{|z|=R} \frac{R^2-|a|^2}{|z-a|^2}\ u(z)\ d\theta, \quad (|a| < R)
+	\end{equation}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Schwarz`s Theorem(4.6.4) pp. 168}
+\begin{definition}[Poisson integral]
+	Let $U$ be a piece-wise continous function on $[0,2\pi]$.
+	The Poisson integral of $U$ is given by,
+	\begin{equation}
+		P_U(z) = \frac{1}{2\pi} \int_0^{2\pi} \Re\left(\frac{e^{i\theta}+z}{e^{i\theta}-z}\right)\ U(\theta)\ d\theta
+	\end{equation}
+\end{definition}
+
+\begin{remark} Clearly, Poisson integral is a positive linear functional since the Riemann integral is linear.
+	\[ P_{U+V} = P_U + P_V \]
+	\[ P_{cU} = cP_U \]
+	\[ U \ge 0 \implies P_U \ge 0 \]
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	Also we have, $P_c = c$. And since $P_U$ is a positive, linear functional, we have
+	\[m \le U \le M \implies m \le P_U \le M\]
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Schwarz]
+	The function $P_U(z)$ is harmonic for $|z|<1$, and
+	\begin{equation}
+		\lim_{z \to e^{i\theta_0}} P_U(z) = U(\theta_0)
+	\end{equation}
+	provided $U$ is continuous at $\theta_0$ and $P_U(z)$ is the Poisson integral of the piecewise continuous function $U$ on $[0,2\pi]$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{The Reflection Principle(4.6.5) pp. 172}
+\begin{remark}
+	Let $\Omega$ be a region and $\Omega^\ast$ be its reflection about real axis.
+	In other words, if $z \in \Omega$, then $\bar{z} \in \Omega^\ast$.
+	Let $u(z)$ be a harmonic function defined on $\Omega$, then $u(\bar{z})$ is a harmonic function on $\Omega^\ast$.
+	And if $f(z)$ is analytic on $\Omega$, then $\overline{f(\bar{z})}$ is analytic on $\Omega^\ast$.
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\begin{definition}[Symmetric Region]
+	Region $\Omega$ is symmetric if it is symmetric about real axis.
+	In other words, for every $z \in \Omega$, $\bar{z}$ is also in $\Omega$.
+\end{definition}
+
+\begin{theorem}[Reflection Principle]
+	Let $\Omega^+$ be the part in the upper plane of a symmetric region $\Omega$ and $\sigma$ be its part on the real axis.
+	Let $v(z)$ be continuous on $\Omega^+ \cup \sigma$, analytic on $\Omega^+$ and vanishes on $\sigma$.
+	Then $v$ has a harmonic extension to $\Omega$ satisfying $v(\bar{z}) = -v(z)$.
+	And if $v$ is the imgainary part of an analytic function $f(z)$ in $\Omega^+$, then $f(z)$ has an analytic extension which satisfies $f(z) = \overline{f(\bar{z})}$.
+\end{theorem}
+\begin{proof}
+\end{proof}
 
 \section{A Closer look at Harmonic Functions(6.3)}
-\subsection{Functions with the Mean-value Property (6.3.1)}
+\subsection{Functions with the Mean-value Property (6.3.1) pp. 242}
 \begin{definition}
 	Let $u(z)$ be a real-valued continuous function in a region $\Omega$. Function $u$ satisfies mean-value property if
 	\[ u(z_0) = \frac{1}{2\pi} \int_0^{2\pi} u(z_0+re^{i\theta})\ d\theta \]
@@ -67,15 +156,15 @@
 \begin{proof}
 \end{proof}
 
-\subsection{Harnack's Principle (6.3.2)}
-\begin{theorem}[Harnack's Inequality]
+\subsection{Harnack`s Principle (6.3.2) pp. 243}
+\begin{theorem}[Harnack`s Inequality]
 	\[ \frac{\rho-r}{\rho+r} u(0) \le u(z) \le \frac{\rho+r}{\rho-r}u(0) \]
 	where $u(z)$ is harmonic in $|z| = r < \rho$ and continuous is $|z| \le \rho$.
 \end{theorem}
 \begin{proof}
 \end{proof}
 
-\begin{theorem}[Harnack's Principle]
+\begin{theorem}[Harnack`s Principle]
 	Increasing sequence of harmonic functions on regions $\Omega_n$ converges to either $+\infty$ or a harmonic function $u$ uniformly on every compact subset of $\Omega$ where every point $z \in \Omega$ belongs to all except finitely many $\Omega_n$.
 \end{theorem}
 \begin{proof}
@@ -86,9 +175,9 @@
 	Find a harmonic function $u(z)$ on a region $\Omega$ with given boundary values.
 \end{definition}
 
-\subsection{Subharmonic Functions (6.4.1)}
+\subsection{Subharmonic Functions (6.4.1) pp. 245}
 \begin{definition}[subharmonic]
-	A continuous, real-valued function $v(z)$ is subharmonic in $\Omega$ if for any harmonic function $u(z)$ in $\Omega' \subset \Omega$, $v-u$ satisfies the maximum principle on $\Omega'$.
+	A continuous, real-valued function $v(z)$ is subharmonic in $\Omega$ if for any harmonic function $u(z)$ in $\Omega^\prime \subset \Omega$, $v-u$ satisfies the maximum principle on $\Omega^\prime$.
 \end{definition}
 
 \begin{remark}
@@ -109,37 +198,83 @@
 	Elementary Properties of Subharmonic Functions,
 	\begin{enumerate}
 		\item If $v$ is subharmonic, then $kv$ is subharmonic for any constant $k \ge 0$.
+			\begin{proof}\end{proof}
 		\item If $v_1,v_2$ are subharmonic, then $v_1+v_2$ is subharmonic.
+			\begin{proof}\end{proof}
 		\item If $v_1,v_2$ are subharmonic, then $v=\max(v_1,v_2)$ is subharmonic.
-		\item Let $v$ be subharmonic on $\Omega$. Let $\Delta$ be a disk whose closure is contained in $\Omega$ and $P_v$ be the Poisson integral formed with $v$ on the boundary of $\Delta$. Then $v'$ defined as $P_v$ on $\Delta$ and $v$ outside $\Delta$ is subharmonic.
+			\begin{proof}\end{proof}
+		\item Let $v$ be subharmonic on $\Omega$. Let $\Delta$ be a disk whose closure is contained in $\Omega$ and $P_v$ be the Poisson integral formed with $v$ on the boundary of $\Delta$. Then $v^\prime$ defined as $P_v$ on $\Delta$ and $v$ outside $\Delta$ is subharmonic.
+			\begin{proof}\end{proof}
 	\end{enumerate}
 \end{remark}
 
 \begin{definition}[semicontinuous]
-	A function $v(z)$ is upper semicontinuous at $z_0$ if $\displaystyle \lim_{z \to z_0} \sup v(z) \le v(z_0)$.
-	A function $v(z)$ is lower semicontinuous at $z_0$ if $\displaystyle \lim_{z \to z_0} \inf v(z) \ge v(z_0)$.
+	A function $v(z)$ is \textbf{upper semicontinuous} at $z_0$ if $\displaystyle \lim_{z \to z_0} \sup v(z) \le v(z_0)$.
+	A function $v(z)$ is \textbf{lower semicontinuous} at $z_0$ if $\displaystyle \lim_{z \to z_0} \inf v(z) \ge v(z_0)$.
 \end{definition}
 
 \begin{remark}
 	Upper continuous function attains maximum on any compact set.
 \end{remark}
 
-\subsection{Solution of Dirichlet's Problem (6.4.2)}
+\subsection{Solution of Dirichlet`s Problem (6.4.2) pp. 248}
+\begin{definition}[$\mathfrak{B}(f)$]
+	Let $f$ be continuous real-vallued function defined on the boundary $\Gamma$ of a bounded region $\Omega$.
+	The family of functions, $\mathfrak{B}(f)$ contains all functions $v$ such that 
+	\begin{enumerate}
+		\item $v$ is subharmonic in $\Omega$ and
+		\item $\displaystyle \varlimsup_{z \to \zeta} v(z) \le f(\zeta),\ \forall \zeta \in \Gamma$.
+	\end{enumerate}
+\end{definition}
+\begin{lemma}
+	The function $u$ defined as $u(z) = \inf \{ v(z) : v \in \mathfrak{B}(f)\}$ is harmonic in $\Omega$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
+\begin{remark}[Perron`s method]
+	Let $\Omega$ be a bounded\footnote{Bounded Set : A set $\Omega$ of complex numbers is bounded, if there exists $\rho \in \mathbb{R}$ such that $\Omega$ is contained in an open disk of radius $\rho$ about origin.} region.
+	Let $\Gamma$ be the boundary of $\Omega$.
+	Let $f$ be a continuous, real-valued function on $\Gamma$.
+	Then, corresponding to each function $f$, there exists a harmonic function $u$ on $\Omega$ which can be obtained by Perron`s method.\\
+
+	Let $\Delta$ be a disk whose closure in contained in $\Omega$.
+	Let $z_0 \in \Delta$ and sequence $\sequence{v_n}$ in $\mathfrak{B}(f)$ such that $\sequence{v_n(z_0)}$ converges.
+	Define $u(z_0) = \lim_{n \to \infty} v_n(z_0)$.
+	Without loss of generality, $\sequence{v_n}$ is nondecreasing.\footnote{If not, consider $V_n = \max\{v_1,v_2,\dots,v_n\}$}
+	By Harnack`s principle, there exists a harmonic function $U$ such that $U \le u$ and $U(z_0) = u(z_0)$.\\
+
+	Let $z_1 \in \Delta$ and sequence $\sequence{w_n}$ in $\mathfrak{B}(f)$ converges.
+	Define $u(z_1) = \lim_{n \to \infty} w_n(z_1)$.
+	Then there exists a harmonic function $U_1$ such that $U \le U_1 \le u$ and $U_1(z_1) = u(z_1)$.
+	However, $U - U_1$ hax maximum zero at $z_0$.
+	Thus, $U = U_1$ and $\forall z_1 \in \Delta,\ U(z_1) = U_1(z_1) = u(z_1)$.
+	Clearly, we have constructed the harmonic function $u = U$.
+\end{remark}
+
+\begin{lemma}
+	Suppose there exists a harmonic function $w(z)$ in $\Omega$ whos continuous boundary values $w(\zeta)$ are strictly positive except at one point $\zeta_0 = 0$. Then, if $f(\zeta)$ is continuous at $\zeta_0$, the corresponding function $u$ determined by Perron`s method satisfies $\displaystyle \lim_{z \to \zeta_0} u(z) = f(\zeta_0)$.
+\end{lemma}
+\begin{proof}
+\end{proof}
+
 \begin{theorem}
+	The Dirchlet problem can be solved for any region $\Omega$ such that each boundary point is the end point of a line segment whose other points are exterior to $\Omega$.
 \end{theorem}
 \begin{proof}
 \end{proof}
+
 \pagebreak
 %Module 2 - 5.1, 5.2, 5.3
 {\Large Module 2}
 \section{Power Series Expansions(5.1)}
-\subsection{Weierstrass's Theorem(5.1.1) pp.175}
+\subsection{Weierstrass`s Theorem(5.1.1) pp.175}
 \begin{important}
 	Weierstrass`s theorem gives a sufficient condition for convergence to preserve analyticity, that is uniform convergence on every compact subset of the region. 
 	And Hurwitz`s theorem characterises such analytic, limit functions.
 \end{important}
 \begin{theorem}[Weierstrass]
-	Suppose $f_n(z)$ is analytic in the region $\Omega_n$, and the sequence $\sequence{f_n(z)}$ converges to $f(z)$ in a region $\Omega$ uniformly on every compact subset of $\Omega$. Then the limit function $f(z)$ is analytic in $\Omega$. Moreover, $f_n'(z)$ converges to $f'(z)$ on every compact subset of $\Omega$.
+	Suppose $f_n(z)$ is analytic in the region $\Omega_n$, and the sequence $\sequence{f_n(z)}$ converges to $f(z)$ in a region $\Omega$ uniformly on every compact subset of $\Omega$. Then the limit function $f(z)$ is analytic in $\Omega$. Moreover, $f_n^\prime(z)$ converges to $f^\prime(z)$ on every compact subset of $\Omega$.
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -177,7 +312,7 @@
 \begin{theorem}
 	If $f(z)$ is analytic in a region $\Omega$ containing $z_0$, then the representation
 	\begin{equation}
-		f(z) = f(z_0) + \frac{f'(z_0)}{1!}(z-z_0) + \dots + \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n + \dots
+		f(z) = f(z_0) + \frac{f^\prime(z_0)}{1!}(z-z_0) + \dots + \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n + \dots
 	\end{equation}
 	is valid in the largest open disk of center $z_0$ contained in $\Omega$.
 \end{theorem}
@@ -236,7 +371,7 @@ Computational techniques to obtain Taylor series representation,
 
 \begin{definition}[Schwarzian Derivative]
 	Schwarzian Derivative of $f$ is defined as,
-	\[ \{f,z\} = \frac{f^{\prime\prime\prime}(z)}{f'(z)} - \frac{3}{2} \left(\frac{f^{\prime\prime}(z)}{f'(z)}\right)^2 \]
+	\[ \{f,z\} = \frac{f^{\prime\prime\prime}(z)}{f^\prime(z)} - \frac{3}{2} \left(\frac{f^{\prime\prime}(z)}{f^\prime(z)}\right)^2 \]
 	The leading term in the Laurent Series representation of Schwarzian derivative should be of some importance.
 \end{definition}
 
@@ -248,16 +383,293 @@ Computational techniques to obtain Taylor series representation,
 \section{Partial Fractions and Factorisation(5.2)}
 \subsection{Partial Fractions (5.2.1) pp. 187}
 \begin{theorem}[Mittag-Leffler]
-	Let 
+	Let $\sequence{b_\nu}$ be a sequence of complex numbers with $\displaystyle \lim_{\nu \to \infty} b_\nu = \infty$, and let $P_\nu(\zeta)$ be polynomials without constant term. Then there are functions which are meromorphic in the whole plane with poles are the points $b_\nu$ and the corresponding singular parts $P_\nu(\frac{1}{z-b_\nu})$. Moreover, the most general meromorphic function of this kind can be written in the form
+	\begin{equation}
+		f(z) = \sum_\nu \left( P_v(\frac{1}{z-b_nu} - p_\nu(z) \right) + g(z)
+	\end{equation}
+	where $p_\nu(z)$ are suitably chosen polynomials and $g(z)$ is analytic in the whole plane.
 \end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	\begin{enumerate}
+		\item \[ \frac{\pi^2}{\sin^2 \pi z} = \sum_{n=-\infty}^\infty \frac{1}{(z-n)^2} \]
+		\item \[ \pi \cot \pi z = \frac{1}{z} + \sum_{n \ne 0} \left(\frac{1}{z-n} + \frac{1}{n} \right) \]
+	\end{enumerate}
+\end{remark}
+
+\subsection{Infinite Products (5.2.2) pp. 191}
+\begin{definition}[Infinite Product]
+	Infinite product of complex numbers $\sequence{p_n}$ is defined as
+	\begin{equation}
+		P = \lim_{n \to \infty} P_n = \lim_{n \to \infty} \prod_{k=1}^n p_k
+	\end{equation}
+	if the limit exists and is nonzero. The infinite product converges if and only if at most finitely many terms are zero and infinite product of the nonzero terms converges to a finite limit.	
+\end{definition}
+
+\begin{remark}
+	In a convergent infinite product, the general term $p_n \to 1$.\\
+	Thus, we may represent an infinite product as
+	\[ \prod_{n=1}^\infty p_n = \prod_{n = 1}^\infty (1+a_n) \text{ where } a_n \to 0 \]
+\end{remark}
+
+\begin{theorem}
+	The infinite product $\prod (1+a_n)$ with $1+a_n \ne 0$ converges simultaneously with the series $\sum \log (1+a_n)$ whose terms represent the value of the pricipal branch of the logarithm.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	The infinite product $\prod (1+a_n)$ converges absolutely if and only if the respective series $\sum |a_n|$ converges.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Canonical Products (5.2.3) pp. 193}
+\begin{remark}[Canonical Product]
+	An entire function $f(z)$ may be represented using another entire function $g(z)$, 
+	\begin{equation}
+		f(z) = z^m e^{g(z)} \prod(1-\frac{z}{a_n})
+	\end{equation}
+	if the infinite product converges absolutely on every compact subset.
+\end{remark}
+
+\begin{theorem}[Weierstrass]
+	There exists an entire function with arbitrarily prescribed zeroes $a_n$ provided that, in the case of infinitely many zeroes, $a_n \to \infty$. Every entire functions with these and no other zeroes can be written in the form
+	\begin{equation}
+		f(z) = z^m e^{g(z)} \prod_{n=1}^\infty \left( 1- \frac{z}{a_n} \right) e^{\frac{z}{a_n} + \frac{1}{2}(\frac{z}{a_n})^2 + \dots + \frac{1}{m_n}(\frac{z}{a_n})^{m_n}}
+	\end{equation}
+	where all the product is taken over all $a_n \ne 0$, then $m_n$ are certain integers, and $g(z)$ is an entire function.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	Every function which is meromorphic in the whole plane is the quotient of two entire functions.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\subsection{The Gamma Function (5.2.4) pp 198}
+\begin{definition}
+	Euler`s gamma function is defined as,
+\begin{equation}
+	\Gamma(z) = \frac{e^{-\gamma z}{z}}{z} \prod_{n=1}^\infty \left( 1+\frac{z}{n}\right)^{-1} e^\frac{z}{n}
+\end{equation}
+	where $\gamma = \displaystyle \lim_{n \to \infty} \left( 1+ \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n} - \log n \right) \approx 0.57722 $ is the Euler`s constant.
+\end{definition}
+\begin{remark}
+	\begin{equation}
+		\Gamma(z+1) = z \Gamma(z)
+	\end{equation}
+\end{remark}
+\begin{remark}
+	\begin{equation}
+		\Gamma(z) \Gamma(1-z) = \frac{\pi}{\sin \pi z}
+	\end{equation}
+\end{remark}
+\begin{remark}[Legendre`s Duplication Formula]
+	\begin{equation}
+		\sqrt{\pi} \Gamma(2z) = 2^{2z-1} \Gamma\left(z+\frac{1}{2}\right)
+	\end{equation}
+\end{remark}
+\subsection*{Exercise}
+\begin{remark}[Gauss`s Formula]
+	\begin{equation}
+		(2\pi)^\frac{n-1}{2} \Gamma(z) = n^{z-\frac{1}{2}} \ \Gamma\left(\frac{z}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \ \cdots \ \Gamma\left(\frac{z+n+1}{n}\right)
+	\end{equation}
+\end{remark}
+
+\begin{remark}
+	\begin{equation}
+		\Gamma\left(\frac{1}{6}\right) = 2^{-\frac{1}{2}} \left( \frac{3}{\pi}\right)^\frac{1}{2} \Gamma\left(\frac{1}{3}\right)^2
+	\end{equation}
+\end{remark}
+
+%\subsection{Stirling`s Formula (5.2.5) pp 201}
 \section{Entire Functions(5.3)}
+\subsection{Jensen`s Formula (5.3.1) pp 207}
+\begin{remark}[Jensen`s Formula]
+	Let $f$ be an entire function with zeroes $a_1,a_2,\dots,a_n$ in the interior of $|z| < \rho$.
+	Then,
+	\begin{equation}
+		\log |f(0)| = -\sum_{i=1}^n \log \left( \frac{\rho}{|a_i|} \right) + \frac{1}{2\pi} \int_0^{2\pi} \log \left| f\left(\rho e^{i\theta}\right) \right| \ d\theta
+	\end{equation}
+\end{remark}
+\begin{proof}
+\end{proof}
+\begin{remark}[Poisson-Jensen Formula]
+	Let $f$ be an entire function with zeroes $a_1,a_2,\dots,a_n$ in the interior of $|z| < \rho$ and $f(z) \ne 0$.
+	Then,
+	\begin{equation}
+		\log |f(0)| = -\sum_{i=1}^n \log \left| \frac{\rho^2-\bar{a_i}z}{\rho(z-a_i)} \right| + \frac{1}{2\pi} \int_0^{2\pi} \Re \frac{\rho e^{i \theta}+z}{\rho e^{i \theta} - z}\ \log \left| f\left(\rho e^{i\theta}\right) \right| \ d\theta
+	\end{equation}
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\subsection{Hadamard`s Theorem (5.3.2) pp 208}
+\begin{definition}[Order]
+	The order of an entire function $f$ is defined by
+	\begin{equation}
+		\lambda = \varlimsup_{r \to \infty} \frac{\log \log M(r)}{\log r} \text{ where } M(r) = \max \{ f(z) : |z| = r\}
+	\end{equation}
+\end{definition}
+\begin{remark}
+	The order is the smallest number such that
+	\begin{equation}
+		M(r) \le e^{r^{\lambda+\varepsilon}},\ \forall \varepsilon > 0 \text{ and sufficiently large } r
+	\end{equation}
+\end{remark}
+
+\begin{theorem}
+	The genus $h$ and the order $\lambda$ of an entire function \textcolor{blue}{of finite order} satisfies the double inequality $h \le \lambda \le h+1$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	If the genus of an entire function is fractional, then the genus $h$ and the form of the product is uniquely determined.
+	If the genus is integral, then there is an ambiguity.
+\end{remark}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	An entire function of fractional order assumes every finite value infinitely many times.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
 \pagebreak
 %Module 3 - 5.4, 5.5
 {\Large Module 3}
-\section{The Riemann Zeta Function(5.4)}
-\section{Normal Families(5.5)}
+\section{The Riemann Zeta Function (5.4) pp 212}
+\begin{definition}[Euler Zeta Function]
+\begin{equation}
+	\zeta(s) = \sum_{n=1}^\infty n^{-s},\ s > 1
+\end{equation}
+\end{definition}
+
+\begin{definition}[Riemann Zeta Function]
+	The Riemann Zeta Function given by,
+\begin{equation}
+	\zeta(s) = \sum_{n=1}^\infty n^{-s},\ \Re(s) = \sigma > 1 \quad (s = \sigma + it)
+\end{equation}
+	is analytic in the half plane $\sigma > 1$.
+\end{definition}
+
+\subsection{The Product Development (5.4.1) pp 213}
+\subsection{Extension of $\zeta(s)$ to the Whole Plane (5.4.2) pp 214}
+\subsection{The Functional Equation (5.4.3) pp 218}
+\subsection{The Zeroes of the Zeta Function (5.4.4) pp 218}
+
+\section{Normal Families (5.5) pp 219}
+\subsection{Equicontinuity (5.5.1) pp 219}
+\subsection{Normality and Compactness (5.5.2) pp 220}
+\subsection{Arzela`s Theorem (5.5.3) pp 222}
+%\subsection{The Classical Definition (5.5.4) pp 225}
+
 %Module 4 - 6.1, 7.3
 \pagebreak
 {\Large Module 4}
 \section{The Riemann Mapping Theorem(6.1)}
+\subsection{Statement and Proof (6.1.1) pp 229}
+\subsection{Boundary Behaviour (6.1.2) pp 232}
+\begin{commentary}
+\begin{theorem}
+	Let $f : \Omega \to \Omega^\prime$ be a surjective, conformal mapping.
+	If $\Omega$ and $\Omega^\prime$ are Jordan regions, then $f$ can be extended to a topological mapping from the closure of $\Omega$ onto the closure of $\Omega^\prime$.
+\end{theorem}
+\begin{proof}
+	Out of scope.
+\end{proof}
+\end{commentary}
+
+\begin{definition}
+	Let sequence $\sequence{z_n}$ ben a sequence in $\Omega$. The \textbf{sequence tends to the boundary of $\Omega$} if the points eventually stays away from any point in $\Omega$.
+\end{definition}
+
+In other words, the sequence $\sequence{z_n}$ tends to the boundary of $\Omega$ if for any point $z_0 \in \Omega$ and any neighbourhood $|z - z_0| < \varepsilon$, there exists a natural number $N$ such that $\forall n > N,\ |z_n - z_0|>\varepsilon$.
+
+\begin{definition}
+	\textbf{An arc $z(t)$ tends to the boundary of $\Omega$} if $z(t)$ eventually stays away from any point in $\Omega$.
+\end{definition}
+In other words, the arc $z : [a,b] \to \mathbb{C}$ tends to the boundary of $\Omega$ if $\forall \varepsilon > 0$ there exists $t_0 \in [a,b]$ such that $\forall t > t_0,(t \in [a,b])\ \forall z \in \Omega,\ |z(t)-z| > \varepsilon$.
+
+\begin{theorem}
+	Let $f$ be a topological mapping of a region $\Omega$ onto $\Omega^\prime$. If a sequence $\sequence{z_n}$ or an arc $z(t)$ tends to the boundary of $\Omega$, then the sequence $\sequence{f(z_n)}$ or the arc $f(z(t))$ tends to the boundary of $\Omega^\prime$.
+\end{theorem}
+\begin{proof}
+	Suppose sequence $\sequence{z_n}$ is a sequence which tends to boundary of $\Omega$.
+	Let $K$ be a compact subset of $\Omega^\prime$.
+	Then $f^{-1}(K)$ is a compact subset of $\Omega$ (which is preserved by the continuous function).\\
+	
+	The family of balls with center at $z \in K$ and radius $\varepsilon$ is a cover of $K$.
+	The radius of these balls may depend on the point $z \in K$.
+	Since $f^{-1}(K)$ is compact, the above cover has a finite subcover.
+	Thus, there are finite balls with center $z_1,z_2,\dots,z_k$ and radius $\varepsilon_1, \varepsilon_2,\dots,\varepsilon_k$.
+	Since $\sequence{z_n}$ stays away from each of these points, there exists natural numbers $N_1,N_2,\dots,N_k$ such that $|z_n-z_j|>\varepsilon_j$ for every $n > N_k$ and $j=1,2,\dots,k$.
+	Define $n_0 = \max\ \{N_1,N_2,\dots,N_k\}$ and $\varepsilon_0 = \min\{\varepsilon_1,\varepsilon_2,\dots,\varepsilon_k\}$.
+	Then $|z_n-z_j| > \varepsilon_0$ for every $n > n_0$ and $j = 1,2,\dots,k$.\\
+
+	Clearly, $z_n \notin K$ for $n > n_0$ and $f(z_n) \notin K$ for $n > n_0$.
+	Thus, the sequence $\sequence{f(z_n)}$ stays away from each point in $K$.
+	Since $K$ is arbitrary, the sequence stays away from every compact subset of $\Omega^\prime$.
+	Thus, the sequence stays away from any point in $\Omega^\prime$.
+	Clearly, the sequence tends to the boundary of $\Omega^\prime$.
+\end{proof}
+
+\subsection{Use of the Reflection Principle (6.1.3) pp 233}
+\begin{definition}[free boundary arc]
+	Let $\Omega$ be a region and $\gamma$ be a arc.
+	Arc $\gamma$ is a free boundary arc if every point of $\gamma$ has a neighbourhood whose intersection with $\partial \Omega$ is same as its intersection with $\gamma$.
+\end{definition}
+
+\begin{definition}[one-sided/two-sided boundary arc]
+	Let $\gamma$ be a free-boundary arc with respect to $\Omega$.
+	Then each point $z(t_0)$ on $\gamma$ has a disk about $z(t_0)$ such that $\gamma$ divides the disk into two half disks in such a way that at least one of the half disks is contained in $\Omega$.\\
+
+	A point on $\gamma$ is a one-sided boundary point if one half disk is outside $\Omega$ and two-side boundary point if both half disks are inside $\Omega$.\\
+
+	A arc is one-side boundary arc if all its points are one-sided boundary points. And two-sided boundary arc if all its points are two-sided boundary points.
+\end{definition}
+
+\begin{theorem}
+	Let $\Omega$ be a simply connect region.
+	Let $\gamma$ be line segement in $\partial \Omega$ and is a one-sided boundary arc.
+	Then the function which maps $\Omega$ onto the unit disk can be extended to a function analytic and one to one on $\Omega \cup \gamma$. The image of $\gamma$ is an arc $\gamma^\prime$ on the unit circle.
+\end{theorem}
+\begin{proof}
+	Let $f$ be a conformal mapping from $\Omega$ onto unit disk, normalised by the condition $f(z_0) = 0$.
+	Consider a disk about $x_0 \in \gamma$ such that the half disk in $\Omega$ does not contain $z_0$ with $f(z_0) = 0$.	
+	Then $\log f(z)$ has a single valued branch in the half disk, and its real part tends to $0$ as $z$ tends to the diameter.\footnote{If the intersection of neighbourhood of $x_0$ with $\partial \Omega$ is its intersection with $\gamma$, then the intersection is a diameter of the disk}
+	From the boundary behaviour of the conformal map $f$ suggested by Riemann mapping theorem, we know that ``as $z$ tends to the boundary of $\Omega$, $f(z)$ tends to the boundary of the unit disk.''
+	Thus, $|f(z)|$ tends to $1$.\\
+
+	By reflection principle, $\log f(z)$ has an analytic extension to the whole disk. Therefore, $\log f(z)$ is analytic at $x_0$. Clearly, $f(z)$ is analytic at $x_0$. Suppose $x_1 \in \gamma$ belongs to the disk. Then the extension to the neighbourhood of $x_1$ coincides with the extension to the neighbourhood of $x_0$ on their intersection and $f$ is analytic at $x_1$. Continuing like this, $f(z)$ can be extended to $\Omega \cup \gamma$ preserving its analyticity.\\
+
+	We claim that, $f'(z) \ne 0$ for any $z \in \gamma$. Suppose $f'(x_0) = 0$ for some $x_0 \in \gamma$. Then $f(x_0)$ is a branch point and the two subarcs of $\gamma$ at $x_0$ form an angle $\pi/n$ where $n \ge 2$. Then the unit cirlcle should have two arcs at $\pi/n$ angles which is impossible.\\
+
+	Without loss of generality suppose that the upper half disks are in $\Omega$. Then 
+	\[ \frac{\partial \log |f|}{\partial y} = -\frac{\partial \arg f}{\partial x} < 0 \]
+	 on $\gamma$. Thus, $\gamma$ and $\arg f$ move in the same direction.
+	 Therefore, $f$ is injective on $\gamma$.
+\end{proof}
+\begin{remark}
+	For two-side (boundary) arcs
+	---to continue--- find `obvious' modifications
+\end{remark}
+
+\subsection{Analytic Arcs (6.1.4) pp 234}
+\begin{theorem}
+	If the boundary of $\Omega$ contains a free one-sided analytic arc $\gamma$, then the mapping function has an analytic extension to $\Omega \cup \gamma$, and $\gamma$ is mapped on an arc of the unit circle.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 \section{The Weierstrass Theory(7.3)}
+\subsection{The Weierstrass $\wp$ function (7.3.1) pp 272}
+\subsection{The Functions $\zeta(z)$ and $\sigma(z)$ (7.3.2) pp 273}
+\subsection{The Differential Equation (7.3.3) pp 275}

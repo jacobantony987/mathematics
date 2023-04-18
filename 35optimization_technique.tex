@@ -20,14 +20,14 @@
 %Module 1
 \section{Linear Programming}
 \begin{definition}[LPP]
-Linear Programming Problem (LPP) is the optimization of linear object function subject to certain linear equality and linear inequalities constraints.
+Linear Programming Problem (LPP) is the optimization of linear object function under certain linear equality/inequalities constraints.
 \end{definition}
 \paragraph{General LPP}
 A general LPP is of the form,
 \begin{align}
-\text{ minimise } & : & f(X) = CX  & \text{ (object function)} \label{eqn:obj} \\
-\text{ subject to } & : & AX = B & \text{ (constraints)}\label{eqn:sub} \\
-\text{ such that } & & X \ge 0 & \text{ (non-negativity conditions)}\label{eqn:positive}
+	\text{ minimise } & : & f(X) = CX  & \text{ (object function)} \label{eqn:obj} \\
+	\text{ subject to } & : & AX = B & \text{ (linear constraints)}\label{eqn:sub} \\
+	\text{ such that } & & X \ge 0 & \text{ (non-negativity conditions)}\label{eqn:positive}
 \end{align}
 
 	That is,
@@ -180,6 +180,27 @@ In Big M method, arbitrarily large multiples of artificial variables are added t
 
 %Module 2
 \section{Integer Programming}
+\begin{definition}
+	Integer Linear Programming Problem(ILPP) is the integral conditioning of an optimization of a linear object function under certain linear equality/inequality constraints.
+\end{definition}
+
+\paragraph{General ILPP}
+A general ILPP is of the form,
+\begin{align}
+	\text{ minimise } & : & f(X) = & CX  \text{ (object function)} \label{eqn:obj} \\
+	\text{ subject to } & : & AX = & B \text{ (constraints)}\label{eqn:sub} \\
+	\text{ such that } & & X \ge & 0 \text{ (non-negativity conditions)}\label{eqn:positive} \\
+	and & & X \text{ is an integer vector}. & \text{ (integer condition) }
+\end{align}
+
+\begin{remark}
+	Let $T_F$ be the set of all integer solutions.
+	Let $[T_F]$ be the convex hull of $T_F$.
+	Let $S_F$ be the set of all real solutions.
+	Then, $T_F \subset [T_F] \subset S_F$.\\
+	
+	Finding optimal solution from $T_F$ is a much more difficult than finding optimal solution from $[T_F]$. Using Simplex method on $[T_F]$, we can find the optimal integer solutions.
+\end{remark}
 %Module 3
 \section{Networks}
 %Module 4
