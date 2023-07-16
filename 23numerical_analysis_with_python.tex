@@ -21,12 +21,12 @@
 
 \section{Interpolation and Curve Fitting}
 \begin{definition}
-	Given $(n+1)$ data points $(x_k, y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that satisfy the data points is the interpolation problem.
-	ie, $y(x_k) = y_k,\ k = 0,1,\cdots,n$.
+	Given $(n+1)$ data points $(x_k, y_k),\ k = 0,1,\dots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that satisfy the data points is the interpolation problem.
+	ie, $y(x_k) = y_k,\ k = 0,1,\dots,n$.
 \end{definition}
 \begin{definition}
-	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that is sufficiently close to the data points is the curve-fitting problem.\\
-	ie, Given $\epsilon > 0,\ |y(x_k)-y_k| < \epsilon,\ k = 0,1,\cdots,n$.
+	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\dots,n$, the problem of estimating $y(x)$ using a function $y : \mathbb{R} \to \mathbb{R}$ that is sufficiently close to the data points is the curve-fitting problem.\\
+	ie, Given $\epsilon > 0,\ |y(x_k)-y_k| < \epsilon,\ k = 0,1,\dots,n$.
 \end{definition}
 \begin{remark}
 \begin{commentary}
@@ -36,7 +36,7 @@ The data could be from scientific experiments or computations on mathematical mo
 \end{commentary}
 \end{remark}
 \begin{definition}
-	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\cdots,n$, the problem of estimating $y(x)$ using a polynomial function of degree $n$ that satisfy the data points is the polynomial interpolation problem.
+	Given $(n+1)$ data points $(x_k,y_k),\ k = 0,1,\dots,n$, the problem of estimating $y(x)$ using a polynomial function of degree $n$ that satisfy the data points is the polynomial interpolation problem.
 \end{definition}
 \begin{remark}
 	Polynomial is the `simplest' interpolant.
@@ -69,7 +69,7 @@ Interpolation polynomial
 \begin{proposition}
 	Error in polynomial interpolation is given by
 	\begin{equation}
-		f(x) - P(x) = \frac{(x-x_0)(x-x_1)\cdots(x-x_n)}{(n+1)!} f^{(n+1)}(\xi)
+		f(x) - P(x) = \frac{(x-x_0)(x-x_1) \dotsm (x-x_n)}{(n+1)!} f^{(n+1)}(\xi)
 		\label{equ:error}
 	\end{equation}
 	where $\xi \in (x_0, x_n)$
@@ -81,12 +81,12 @@ Interpolation polynomial
 \subsection{Newton's Method}
 The interpolation polynomial is given by,
 \begin{equation}
-	P(x) = a_0 + a_1(x-x_0) + \cdots + a_n(x-x_0)(x-x_1)\cdots(x-x_{n-1})
+	P(x) = a_0 + a_1(x-x_0) + \dotsb + a_n(x-x_0)(x-x_1) \dotsm (x-x_{n-1})
 	\label{equ:newton}
 \end{equation}
-where $a_i = \nabla^i y_i,\ i = 0,1,\cdots,n$.
+where $a_i = \nabla^i y_i,\ i = 0,1,\dots,n$.
 \begin{remark}
-	For Newton's Method, usually it is assumed that $x_0 < x_1 < \cdots < x_n$.
+	For Newton's Method, usually it is assumed that $x_0 < x_1 < \dotsb < x_n$.
 \end{remark}
 \begin{remark}
 	 Lagrange's method is conceptually simple.
@@ -95,7 +95,7 @@ where $a_i = \nabla^i y_i,\ i = 0,1,\cdots,n$.
 \subsubsection{Computing coefficients $a_i$ of the polynomial}
 The coefficients are given by,
 \begin{equation}
-	a_0 = y_0,\ a_1 = \nabla y_1,\ a_2 = \nabla^2 y_2,\ a_3 = \nabla^3 y_3,\cdots, a_n = \nabla^n y_n
+	a_0 = y_0,\ a_1 = \nabla y_1,\ a_2 = \nabla^2 y_2,\ a_3 = \nabla^3 y_3,\dots, a_n = \nabla^n y_n
 \end{equation}
 \begin{remark}
 	The divided difference $\nabla^i y_i$ are computed as follows:
@@ -159,8 +159,8 @@ The coefficients are given by,
 		Defines a function which takes two arguments/parameters, named $xData$ and $yData$.
 		In \cite[3.2]{kiusalaas}, you will find coeffts which I have changed to coefficients.
 		$xData$,$yData$ are numpy array objects.
-		$xData$ is a array with values $x_0,x_1,\cdots,x_n$.
-		And $yData$ is array with values $y_0,y_1,\cdots,y_n$.
+		$xData$ is a array with values $x_0,x_1,\dots,x_n$.
+		And $yData$ is array with values $y_0,y_1,\dots,y_n$.
 		For example, the value of $x_3$ can be accessed as $xData[3]$.
 	\item \texttt{m = len(xData)}\\
 		The functon $len()$ is extended by numpy to give the length of array objects.
@@ -176,19 +176,19 @@ The coefficients are given by,
 			Python block is a group of statement with same level of indentation.
 			A sub-block is a block with an additional indentation.
 		}
-		In this context, Line 5 will be executed $n$ times, since the $range(1,m)$ object is a list-type object with values $1,2,\cdots,m-1$.
-		And intepreter executes Line 5 for each values in the $range()$ object, ie, $k=1,2,\cdots, m-1$ before interpreting Line 6.
+		In this context, Line 5 will be executed $n$ times, since the $range(1,m)$ object is a list-type object with values $1,2,\dots,m-1$.
+		And intepreter executes Line 5 for each values in the $range()$ object, ie, $k=1,2,\dots, m-1$ before interpreting Line 6.
 	\item \texttt{a[k:m] = (a[k:m]-a[k-1])/(xData[k:m]-xData[k-1])}\\
 		This is very nice feature available in python.
 		\textbf{
 			This statement, evaluates $m-k$ values in a single step.
-			ie, $a[k],a[k+1],\cdots,a[m]$.
+			ie, $a[k],a[k+1],\dots,a[m]$.
 			This calculation corresponds to subsequent columns of the divided difference table, that we are familiar with.
 		}
 		For example, executing Line 5 with $k=3$ is same as evaluating the $\nabla^3y_j$ column.
 		Note that the value $a[0]$ is never updated and similarly $a[2]$ changes when Line 5 is executed with $k=1,2$.
 		From column 3 onward, $a[2]$ is not updated.
-		Therefore, \textbf{after completing $n$th executing of the Line 5, we have $a[0] = y_0,\ a[1]=\nabla y_1,\ a[2]=\nabla^2 y_2,\cdots,\ a[n]=\nabla^n y_n$.}
+		Therefore, \textbf{after completing $n$th executing of the Line 5, we have $a[0] = y_0,\ a[1]=\nabla y_1,\ a[2]=\nabla^2 y_2,\dots,\ a[n]=\nabla^n y_n$.}
 	\item \texttt{return a}\\
 		This returns the array $a$ which is the array of coefficients.
 \end{enumerate}
@@ -354,15 +354,15 @@ The coefficients are given by,
 
 	Consider a system of $n$ linear, simultaneous equations in $n$ unknowns,
 	\begin{align*}
-		A_{11}x_1 + A_{12}x_2 + \cdots + A_{1n}x_n & = b_1 \\
-		A_{21}x_1 + A_{22}x_2 + \cdots + A_{2n}x_n & = b_2 \\
+		A_{11}x_1 + A_{12}x_2 + \dotsb + A_{1n}x_n & = b_1 \\
+		A_{21}x_1 + A_{22}x_2 + \dotsb + A_{2n}x_n & = b_2 \\
 		\vdots \\
-		A_{n1}x_1 + A_{n2}x_2 + \cdots + A_{nn}x_n & = b_n 
+		A_{n1}x_1 + A_{n2}x_2 + \dotsb + A_{nn}x_n & = b_n 
 	\end{align*}
 
 	We may represent them using matrices as $Ax = b$.
 	That is,
-	\[ \begin{bmatrix} A_{11} & A_{12} & \cdots & A_{1n} \\ A_{21} & A_{22} & \cdots & A_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ A_{n1} & A_{n2} & \cdots & A_{nn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix} \]
+	\[ \begin{bmatrix} A_{11} & A_{12} & \dots & A_{1n} \\ A_{21} & A_{22} & \dots & A_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ A_{n1} & A_{n2} & \dots & A_{nn} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix} \]
 		
 	Gauss Elimination and Doolittle Decomposition are two methods to solve sytem of equaitons, $Ax = b$.
 
@@ -381,12 +381,12 @@ The coefficients are given by,
 	We can eliminate unknowns from an equation by adding a scalar multiple of an equation to another equation of the system.
 	In matrices, this is equivalent to adding a scalar multiple of one row to another row, say $R_i \leftarrow R_i + \lambda{}R_k$.
 	\begin{align*}
-		A_{k1}x_1 + A_{k2}x_2 + \cdots + A_{kn}x_n = b_k  & + \\
-		\lambda \left( A_{i1}x_1 + A_{i2}x_2 + \cdots + A_{in}x_n  = b_i \right) & \\ \hline
-		(A_{k1}+\lambda{}A_{i1})x_1 + (A_{k2}+\lambda{}A_{i2})x_2 + \cdots + (A_{kn} + \lambda{}A_{in})x_n & = b_k + \lambda{}b_i
+		A_{k1}x_1 + A_{k2}x_2 + \dotsb + A_{kn}x_n = b_k  & + \\
+		\lambda \left( A_{i1}x_1 + A_{i2}x_2 + \dotsb + A_{in}x_n  = b_i \right) & \\ \hline
+		(A_{k1}+\lambda{}A_{i1})x_1 + (A_{k2}+\lambda{}A_{i2})x_2 + \dotsb + (A_{kn} + \lambda{}A_{in})x_n & = b_k + \lambda{}b_i
 	\end{align*}
 
-	\[ \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \cdots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1} & A_{i2} & \cdots & A_{in} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix} \xrightarrow{R_i \leftarrow R_i + \lambda{}R_k} \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \cdots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1}+\lambda{}A_{k1} & A_{i2}+\lambda{}A_{k2} & \cdots & A_{in}+\lambda{}A_{kn} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix}\]
+	\[ \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \dots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1} & A_{i2} & \dots & A_{in} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix} \xrightarrow{R_i \leftarrow R_i + \lambda{}R_k} \begin{bmatrix} \vdots & \vdots & \vdots & \vdots \\ A_{k1} & A_{k2} & \dots & A_{kn} \\ \vdots & \vdots & \ddots & \vdots \\ A_{i1}+\lambda{}A_{k1} & A_{i2}+\lambda{}A_{k2} & \dots & A_{in}+\lambda{}A_{kn} \\ \vdots & \vdots & \vdots & \vdots \end{bmatrix}\]
 		\[ \begin{bmatrix} \vdots \\ b_k \\ \vdots \\ b_i \\ \vdots \end{bmatrix} \xrightarrow{R_i \leftarrow R_i + \lambda{}R_k} \begin{bmatrix} \vdots \\ b_k \\ \vdots \\ b_i + \lambda{}b_k \\ \vdots \end{bmatrix} \]
 			
 %	However, we can reduce the number of operations
@@ -394,24 +394,24 @@ The coefficients are given by,
 %			Number of steps is an important measure of the quality of algorithm.
 %	}
 %			required for the elimination.
-%			First we will eliminate $x_1$ from row $R_i,\ i = 2,3,\cdots,n$ using a suitable scalar, say $A_{i1}/A_{11}$.
-%			Then, we will eliminate $x_2$ from $R_i,\ i = 3,4,\cdots,n$.
+%			First we will eliminate $x_1$ from row $R_i,\ i = 2,3,\dots,n$ using a suitable scalar, say $A_{i1}/A_{11}$.
+%			Then, we will eliminate $x_2$ from $R_i,\ i = 3,4,\dots,n$.
 %			And so on.\\
 %
-%	When $x_1$ is eliminated from $R_2$, we get $A_{k1} = 0,\ k=2,3,\cdots,n$.
-%	The variable $x_2$, is eliminated from equations $3,4,\cdots,n$ by the operation, $R_i \rightarrow R_i + \lambda{}R_2$ where $i = 3,4,\cdots,n$.
+%	When $x_1$ is eliminated from $R_2$, we get $A_{k1} = 0,\ k=2,3,\dots,n$.
+%	The variable $x_2$, is eliminated from equations $3,4,\dots,n$ by the operation, $R_i \rightarrow R_i + \lambda{}R_2$ where $i = 3,4,\dots,n$.
 %	However, $A_{21}$ is already reduced to zero, therefore we have to add only the scalar multiples of the nonzero values in the row $R_2$.
-%	Consider the elimination of $x_k$ from equation $i$ where $ i = k+1,k+2,\cdots,n$, we have $A_{k,1},A_{k,2},\cdots, \text{and}, A_{k,k-1}$ are already zero due to the elimination of $x_1,x_2,\cdots, \text{and} ,x_{k-1}$.
+%	Consider the elimination of $x_k$ from equation $i$ where $ i = k+1,k+2,\dots,n$, we have $A_{k,1},A_{k,2},\dots, \text{and}, A_{k,k-1}$ are already zero due to the elimination of $x_1,x_2,\dots, \text{and} ,x_{k-1}$.
 %	Thus, adding scalar multiple (zero) of these entries can be avoided to reduce the number of operations.
 
 \subsection{Back substitution}
 	Let $Ux = c$ be a system of $n$ linear equations in $n$ unknowns and $U$ is an upper triangular matrix.
 	Then we can solve the system of equations from the back.
-	\[ \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n-1} & U_{1,n} \\ 0 & U_{2,2} & \cdots & U_{2,n-1} & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & \cdots & U_{n-1,n-1} & U_{n-1,n} \\ 0 & 0 & \cdots & 0 & U_{n,n} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_{n-1} \\ x_n \end{bmatrix} = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_{n-1} \\ c_n \end{bmatrix} \]
+	\[ \begin{bmatrix} U_{1,1} & U_{1,2} & \dots & U_{1,n-1} & U_{1,n} \\ 0 & U_{2,2} & \dots & U_{2,n-1} & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & \dots & U_{n-1,n-1} & U_{n-1,n} \\ 0 & 0 & \dots & 0 & U_{n,n} \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_{n-1} \\ x_n \end{bmatrix} = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_{n-1} \\ c_n \end{bmatrix} \]
 	\begin{align*}
 		U_{n,n}\ x_n = c_n & \implies x_n = \frac{c_n}{U_{n,n}} \\
 		\sum_{i=n-1}^{n} U_{n-1,i}\ x_i = c_{n-1}  & \implies x_{n-1} = \frac{c_{n-1} - U_{n-1,n} x_n}{U_{n-1,n-1}} \\
-		& \cdots \\
+		& \dots \\
 		\sum_{i=1}^n U_{1,i}\ x_i  = c_1 & \implies x_1 = \frac{c_1 - \sum_{i = 2}^{n} U_{1,i} x_i}{U_{1,1}}
 	\end{align*}
 
@@ -489,10 +489,10 @@ The coefficients are given by,
 		First argument is the coefficient matrix $A$ and second argument is the constant matrix $b$ of the linear system of the form $Ax = b$.
 	\item \texttt{$n = len(b)$}\\ it assigns the length of the list $b$ into variable $n$ which is obviously the number of equations.
 	\item \texttt{for $k$ in range($0$,$n-1$):}  \\ it is a loop construct.
-		Five instructions following it are part of this loop body, which are executed for each values of $k$ ie, $k = 0, 1, \cdots, n-1$.
+		Five instructions following it are part of this loop body, which are executed for each values of $k$ ie, $k = 0, 1, \dots, n-1$.
 		For each value of $k$, the unknown $x_{k+1}$ is selected for elimination process.
 	\item \texttt{for i in range($k+1$,$n$):}\\ it is a loop inside another loop.
-		Four instructions following it are part of this loop body, which are executed for each values of $i$, ie, $i = k+1, k+2, \cdots, n$.
+		Four instructions following it are part of this loop body, which are executed for each values of $i$, ie, $i = k+1, k+2, \dots, n$.
 		This eliminates $x_{k+1}$ from all the equations after the $k+1$th equation of the system.
 		Value of $i+1$ is the equation\footnote{Python starts counting from zero.
 		For example : $A_{11} = a[0,0]$, $x_1 = x[0]$ and $b_1 = b[0]$} from which $x_{k+1}$ is eliminated.
@@ -505,17 +505,17 @@ The coefficients are given by,
 		This is same as equ.($i+1$) $\leftarrow$ equ.($i+1$) - $\lambda$ equ.($k+1$)
 	\item \texttt{$b[i] = b[i]-lam*b[k]$} \\ The same row operations are performed on the matrix $b$ instead of using an augmented matrix.
 	\item \texttt{for $k$ in range($n-1$,$-1$,$-1$):} \\ This is another loop construct.
-		The following statement is executed $n$ times for values of $k = n-1, n-2, \cdots, 0$.
+		The following statement is executed $n$ times for values of $k = n-1, n-2, \dots, 0$.
 		Value of $k+1$ gives the unknown $x_{k+1}$ which is solved by the back substitution process.
 	\item \texttt{$x[k] = (b[k]-dot(a[k,k+1:n],x[k+1:n]))/a[k,k]$} \\ This is the back substitution process.
-		After elimination phase we have $k$ equation in the form $A_{k,k}x_{k} + A_{k,k+1}x_{k+1}+\cdots+A_{k,n}x_n = b_k$.
-		And we already have values of $x_{k+1},\ x_{k+2},\ \cdots,\ x_n$.
+		After elimination phase we have $k$ equation in the form $A_{k,k}x_{k} + A_{k,k+1}x_{k+1}+\dotsb+A_{k,n}x_n = b_k$.
+		And we already have values of $x_{k+1},\ x_{k+2},\ \dots,\ x_n$.
 		Then
-	\[x_{k} = \frac{b_k - (A_{k,k+1}x_{k+1} + A_{k,k+2}x_{k+2}+\cdots)}{A_{k,k}}\]
+	\[x_{k} = \frac{b_k - (A_{k,k+1}x_{k+1} + A_{k,k+2}x_{k+2}+\dotsb)}{A_{k,k}}\]
 	This is equivalent to 
-	\[ b_k \leftarrow \frac{ b_k - \begin{bmatrix}A_{k,k+1} & A_{k,k+2} & \cdots A_{k,n} \end{bmatrix}\begin{bmatrix} x_{k+1} \\ x_{k+2} \\ \vdots \\ x_n \end{bmatrix}}{A_{k,k}} \]
+		\[ b_k \leftarrow \frac{ b_k - \begin{bmatrix}A_{k,k+1} & A_{k,k+2} & \dots & A_{k,n} \end{bmatrix}\begin{bmatrix} x_{k+1} \\ x_{k+2} \\ \vdots \\ x_n \end{bmatrix}}{A_{k,k}} \]
 	Remember : The values of $x_k$ are updated into $b_k$ as they are computed.
-		Thus $x_{k}, x_{k+1}, \cdots, x_n$ are stored in $b$ for next back substitution ie, for evaluating $x_{k-1}$.
+		Thus $x_{k}, x_{k+1}, \dots, x_n$ are stored in $b$ for next back substitution ie, for evaluating $x_{k-1}$.
 		We start with $x_{n-1}$, as $x_n = b_n$ is already solved.
 	\item \texttt{return b} \\ It returns the new $b$ matrix as output of the ``gaussElimination()'' function where $x_k = b_k,\ \forall k$.
 \end{enumerate}
@@ -530,9 +530,9 @@ There are two phases for this method : \begin{enumerate*} \item LU decomposition
 	Then We can solve $Ly = b$ using forward substitution process and then solve $Ux = y$ using back substitution process.\\
 
 	For Doolittle decomposition, we prefer to write $A$ as a product $LU$ as shown below:
-	\[ A = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ L_{2,1} & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1} & L_{n,2} & \cdots & 1 \end{bmatrix} \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\ 0 & U_{2,2} & \cdots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & U_{n,n} \end{bmatrix} \]
+	\[ A = \begin{bmatrix} 1 & 0 & \dots & 0 \\ L_{2,1} & 1 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1} & L_{n,2} & \dots & 1 \end{bmatrix} \begin{bmatrix} U_{1,1} & U_{1,2} & \dots & U_{1,n} \\ 0 & U_{2,2} & \dots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & U_{n,n} \end{bmatrix} \]
 
-		\[ A = \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\ L_{2,1}U_{1,1} & L_{2,1}U_{1,2} + U_{2,2} & \cdots & L_{2,1}U_{1,n}+U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1}U_{1,1} & L_{n,1}U_{1,2}+L_{n,2}U_{2,2} & \cdots & \sum_{k=1}^{n-1} L_{n,k}U_{k,n}+U_{n,n} \end{bmatrix} \]
+		\[ A = \begin{bmatrix} U_{1,1} & U_{1,2} & \dots & U_{1,n} \\ L_{2,1}U_{1,1} & L_{2,1}U_{1,2} + U_{2,2} & \dots & L_{2,1}U_{1,n}+U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1}U_{1,1} & L_{n,1}U_{1,2}+L_{n,2}U_{2,2} & \dots & \sum_{k=1}^{n-1} L_{n,k}U_{k,n}+U_{n,n} \end{bmatrix} \]
 
 	\begin{commentary}Note that in Doolittle's decomposition method, the diagonal entries of the lower triangular matrix $L$ are all 1.
 	ie, $L_{ii} = 1,\ \forall i$.
@@ -540,19 +540,19 @@ There are two phases for this method : \begin{enumerate*} \item LU decomposition
 	And this matrix is reprensented by $[L\text{\textbackslash{}}U]$.
 	\footnote{algorithmic implementation all decomposition algorithms prefer to use a combined matrix}\end{commentary}\\
 
-	\[ [L\text{\textbackslash{}}U] = \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\ L_{2,1} & U_{2,2} & \cdots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\  L_{n,1} & L_{n,2} & \cdots & U_{n,n} \end{bmatrix} \]
+	\[ [L\text{\textbackslash{}}U] = \begin{bmatrix} U_{1,1} & U_{1,2} & \dots & U_{1,n} \\ L_{2,1} & U_{2,2} & \dots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\  L_{n,1} & L_{n,2} & \dots & U_{n,n} \end{bmatrix} \]
 
 	is the combined matrix made from both the triangular matrices $L$ and $U$.
 
 	The triangular matrices $L$ and $U$ such that $LU = A$ can be computed the variables in the Gauss elimination method.
-	\[ A = \begin{bmatrix} 1 & 0 & \cdots & 0 \\ L_{2,1} & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1} & L_{n,2} & \cdots & 1 \end{bmatrix} \begin{bmatrix} U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\ 0 & U_{2,2} & \cdots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & U_{n,n} \end{bmatrix} \]
+	\[ A = \begin{bmatrix} 1 & 0 & \dots & 0 \\ L_{2,1} & 1 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ L_{n,1} & L_{n,2} & \dots & 1 \end{bmatrix} \begin{bmatrix} U_{1,1} & U_{1,2} & \dots & U_{1,n} \\ 0 & U_{2,2} & \dots & U_{2,n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & U_{n,n} \end{bmatrix} \]
 	\begin{commentary}
 		We can break down this matrix multiplication into the following row operations on the rows of the upper triangular matrix\footnote{$U_{Rk}$ : $k$th row of the matrix $U$}
 	\begin{align*}
 		U_{R1} & \leftarrow U_{R1} \\
 		U_{R2} & \leftarrow L_{2,1}\cdot{}U_{R1} + U_{R2} \\
-		& \cdots \\
-		U_{Rn} & \leftarrow L_{n,1}\cdot{}U_{R1} + L_{n,2}\cdot{}U_{R2} + \cdots + L_{n,n-1}\cdot{}U_{R(n-1)} + U_{Rn}
+		& \dots \\
+		U_{Rn} & \leftarrow L_{n,1}\cdot{}U_{R1} + L_{n,2}\cdot{}U_{R2} + \dotsb + L_{n,n-1}\cdot{}U_{R(n-1)} + U_{Rn}
 	\end{align*}
 	Clearly, $\lambda$ we use to eliminate $x_k$ from row $i$ are $L_{i,k}$.
 		And the matrix obtained after Gauss elimination is the upper triangular matrix $U$.
@@ -610,7 +610,7 @@ There are two phases for this method : \begin{enumerate*} \item LU decomposition
 			b_3 \leftarrow y_3 & = b_3 - \begin{bmatrix} L_{3,1} & L_{3,2} \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \end{bmatrix},\text{ since } b_1 = y_1,\ b_2 = y_2
 	\end{align*}
 	In general,
-	\[ b_k \leftarrow y_k = b_k - \begin{bmatrix} L_{k,1} & L_{k,2} & \cdots & L_{k,k-1} \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_k-1 \end{bmatrix},\text{ since } b_j = y_j,\ j = 1,2,\cdots,(k-1) \]
+	\[ b_k \leftarrow y_k = b_k - \begin{bmatrix} L_{k,1} & L_{k,2} & \dots & L_{k,k-1} \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_k-1 \end{bmatrix},\text{ since } b_j = y_j,\ j = 1,2,\dots,(k-1) \]
 \end{commentary}
 	We have $A = LU \implies LUx = b$.
 	Suppose $Ux = y$, then we get $Ly = b$.
@@ -634,7 +634,7 @@ There are two phases for this method : \begin{enumerate*} \item LU decomposition
 		y_1 \leftarrow x_1 & = \frac{y_1 - \begin{bmatrix} y_2 \\ y_3 \end{bmatrix} \begin{bmatrix} U_{1,2} & U_{1,3} \end{bmatrix}}{U_{1,1}},\text{ since } y_2 = x_2,\ y_3 = x_3
 	\end{align*}
 	In general,
-	\[ x_k = \frac{y_k - \begin{bmatrix} y_{k+1} \\ y_{k+2} \\ \vdots \\ y_n \end{bmatrix} \begin{bmatrix} U_{k,k+1} & U_{k,k+2} & \cdots & U_{k,n} \end{bmatrix}}{U_{k,k}},\text{ since } y_j = x_j,\ j = k+1,k+2,\cdots,n \]
+	\[ x_k = \frac{y_k - \begin{bmatrix} y_{k+1} \\ y_{k+2} \\ \vdots \\ y_n \end{bmatrix} \begin{bmatrix} U_{k,k+1} & U_{k,k+2} & \dots & U_{k,n} \end{bmatrix}}{U_{k,k}},\text{ since } y_j = x_j,\ j = k+1,k+2,\dots,n \]
 \end{commentary}
 \subsection{Python : Doolittle's LU Decomposition method}
 \begin{program}
@@ -691,7 +691,7 @@ This time the gaussElimination() function which you have seen earlier is split i
 	\item \texttt{$n = len(a)$} \\ We have to compute this again as this function starts fresh and thus value of the variable $n$ from LUdecomposition() is lost.
 	\item \texttt{for $k$ in range($1$,$n$):} \\ This is the loop for forward substitution.
 	\item \texttt{$b[k] = b[k]-dot(a[k,0:k],b[0:k])$} \\ updating $b_{k^*}$ with $y_{k^*}$ such that $Ly = b$ where $k^* = k-1$.
-	\[ b_k \leftarrow b_k - \begin{bmatrix} L_{k,1} & L_{k,2} & \cdots & L_{k,k-1} \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_k-1 \end{bmatrix} \]
+	\[ b_k \leftarrow b_k - \begin{bmatrix} L_{k,1} & L_{k,2} & \dots & L_{k,k-1} \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_k-1 \end{bmatrix} \]
 	\item \texttt{$b[n-1] = b[n-1]/a[n-1,n-1]$} \\ Computing
 		\footnote{
 			Mathematically, you can define dot product of empty matrices as zero, but nympy dot function can't handle such a situation.
@@ -701,7 +701,7 @@ This time the gaussElimination() function which you have seen earlier is split i
 	\[b_n \leftarrow \frac{b_n}{U_{n,n}}\]
 	\item \texttt{for $k$ in range($n-2$,$-1$,$-1$):}  \\ This is the loop for back substitution.
 	\item \texttt{$b[k] = (b[k] - dot(a[k,k+1:n],b[k+1:n]))/a[k,k]$} \\ updating $b_{k^*}$ with $x_{k^*}$ such that $Ux = y$ where $k^* = k-1$.
-	\[ b_k \leftarrow \frac{b_k - \begin{bmatrix} x_{k+1} \\ x_{k+2} \\ \vdots \\ x_n \end{bmatrix} \begin{bmatrix} U_{k,k+1} & U_{k,k+2} & \cdots & U_{k,n} \end{bmatrix}}{U_{k,k}} \]
+	\[ b_k \leftarrow \frac{b_k - \begin{bmatrix} x_{k+1} \\ x_{k+2} \\ \vdots \\ x_n \end{bmatrix} \begin{bmatrix} U_{k,k+1} & U_{k,k+2} & \dots & U_{k,n} \end{bmatrix}}{U_{k,k}} \]
 	\item \texttt{return $b$} \\ LUsolve($[L\text{\textbackslash{}}U]$,$b$) returns $b$ where $b[i+1]=x_i$.
 \end{enumerate}
 
@@ -739,7 +739,7 @@ This time the gaussElimination() function which you have seen earlier is split i
 
 \subsection{Newton-Cotes formulas}
 	We divide the interval of integral $(a,b)$ into $n$ subintervals of equal length, ie, $h = (b-a)/n$.
-	Let $x_0 = a, x_1, x_2,\cdots,x_{n-1},x_n=b$ be the end points of these subintervals.
+	Let $x_0 = a, x_1, x_2,\dots,x_{n-1},x_n=b$ be the end points of these subintervals.
 	Then we can find an $n$ degree polymonial interpolant satisfying $f$ at those points, using Lagrange's method.\\
 
 	\[ \text{Polynomial, }P(x) = \sum_{i =0}^n f(x_i)l_i(x) \text{ where } l_i(x) = \prod_{\substack{j=0\\j\ne i}}^n \frac{x-x_i}{x_i-x_j} \]
@@ -832,9 +832,9 @@ This time the gaussElimination() function which you have seen earlier is split i
 	In Composite Trapezoidal Rule, Trapezoidal Rule is applied to each subinterval.
 	Thus we have,
 \begin{align*}
-	I & = I_0 + I_1 + \cdots + I_{n-1} \text{ where } I_k \text{ is the integral over }(x_{k},x_{k+1})\\
-	& = \frac{h(f(x_0) + f(x_1))}{2} + \frac{h(f(x_1)+f(x_2))}{2} + \cdots + \frac{h(f(x_{n-1}+f(x_n))}{2} \\
-	& = \frac{h}{2} (f(x_0) + 2f(x_1) + \cdots + 2f(x_{n-1})+ f(x_n))
+	I & = I_0 + I_1 + \dotsb + I_{n-1} \text{ where } I_k \text{ is the integral over }(x_{k},x_{k+1})\\
+	& = \frac{h(f(x_0) + f(x_1))}{2} + \frac{h(f(x_1)+f(x_2))}{2} + \dotsb + \frac{h(f(x_{n-1}+f(x_n))}{2} \\
+	& = \frac{h}{2} (f(x_0) + 2f(x_1) + \dotsb + 2f(x_{n-1})+ f(x_n))
 \end{align*}
 
 \subsection{Recursive Trapezoidal Rule}
@@ -866,9 +866,9 @@ This time the gaussElimination() function which you have seen earlier is split i
 	$I_1 = 32(f(0)+f(64))$\\
 	$I_2 = 16(f(0)+2f(32)+f(64))$\\
 	$I_3 = 8(f(0)+2f(16)+2f(32)+2f(48)+f(64))$\\
-	$I_4 = 4(f(0)+2f(8)+2f(16)+\cdots+2f(56)+f(64)$\\
-	$I_5 = 2(f(0)+2f(4)+2f(8)+\cdots+2f(60)+f(64)$\\
-	$I_6 = f(0)+2f(2)+2f(4)+\cdots+2f(62)+f(64)$\\
+	$I_4 = 4(f(0)+2f(8)+2f(16)+\dotsb+2f(56)+f(64)$\\
+	$I_5 = 2(f(0)+2f(4)+2f(8)+\dotsb+2f(60)+f(64)$\\
+	$I_6 = f(0)+2f(2)+2f(4)+\dotsb+2f(62)+f(64)$\\
 	$\vdots$\\
 	The values corresponding to the intervals in $I_{k-1}$ appear in $I_k$ as alternate terms.
 	Other terms, corresponds to the odd multiples of $\frac{H}{2^k}$.
@@ -934,7 +934,7 @@ This time the gaussElimination() function which you have seen earlier is split i
 		Equivalent to $sum \leftarrow 0$.
 	\item \texttt{for $i$ in range($n$):}\\
 		This the variable $i$ in the recursive forumula for $I_k$.
-		For each value of $i = 1,2,\cdots,2^{k-2}$, Lines 10 and 11 are executed.
+		For each value of $i = 1,2,\dots,2^{k-2}$, Lines 10 and 11 are executed.
 		That is, for each value of $i$, the corresponding term in the sum is computed and added to the variable $sum$.
 	\item \texttt{$sum = sum + f(x)$}\\
 		Value of $f$ at $x$ is computed and added to the partial sum.
@@ -946,7 +946,7 @@ This time the gaussElimination() function which you have seen earlier is split i
 		For $i=1$, $x = a + \frac{h}{2}$ before Line 11.
 		At Line 11, $x \leftarrow a+\frac{3h}{2}$.
 		And this is the value of $x$ for $i = 2$ before Line 11 next time.
-		Thus, $x$ iterates through $a+\frac{h}{2}, a+\frac{3h}{2}, \cdots, a+\frac{(2n-1)h}{2}$.
+		Thus, $x$ iterates through $a+\frac{h}{2}, a+\frac{3h}{2}, \dots, a+\frac{(2n-1)h}{2}$.
 		This $x$ is updated and used for next execution of Line 10 and 11.
 	\item \texttt{$Inew = (Iold + h * sum ) / 2.0$}\\
 		We reach here only after executing Line 10-11 for all values of $i$.

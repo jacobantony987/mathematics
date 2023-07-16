@@ -281,7 +281,7 @@
 
 \begin{remark}
 	A series with analytic terms
-	\[ f(z) = f_1(z) + f_2(z) + \dots + f_n(z) + \dots \]
+	\[ f(z) = f_1(z) + f_2(z) + \dotsb + f_n(z) + \dotsb \]
 	converges uniformly on every compact subset of a region $\Omega$, then the sum $f(z)$ is analytic in $\Omega$. And the series can be differentiated term by term.
 \end{remark}
 \begin{proof}
@@ -312,7 +312,7 @@
 \begin{theorem}
 	If $f(z)$ is analytic in a region $\Omega$ containing $z_0$, then the representation
 	\begin{equation}
-		f(z) = f(z_0) + \frac{f^\prime(z_0)}{1!}(z-z_0) + \dots + \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n + \dots
+		f(z) = f(z_0) + \frac{f^\prime(z_0)}{1!}(z-z_0) + \dotsb + \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n + \dotsb
 	\end{equation}
 	is valid in the largest open disk of center $z_0$ contained in $\Omega$.
 \end{theorem}
@@ -321,15 +321,15 @@
 
 Taylor series representation for a few analytic functions,
 \begin{enumerate}
-	\item $e^z = 1 + z + \frac{z^2}{2!} + \dots + \frac{z^n}{n!} + \dots$
-	\item $\cos z = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \dots + $
-	\item $\sin z = z - \frac{z^3}{3!} + \frac{z^5}{5!} + \dots + $
-	\item $(1+z)^\mu = 1 + \mu z + \binom{\mu}{2} z^2 + \dots$ where $\binom{\mu}{n} = \frac{\mu(\mu-1)(\mu-2)\dots(\mu-n+1)}{1 \cdot 2 \cdot 3 \cdots n}$
-	\item $\log (1+z) = z - \frac{z^2}{2} + \frac{z^3}{3} - \frac{z^4}{4} + \dots$
-	\item $\arctan z = z - \frac{z^3}{3} + \frac{z^5}{5} - \frac{z^7}{7} + \dots$
-	\item $\frac{1}{\sqrt{1-z^2}} = 1 + \frac{1}{2}z^2 + \frac{1}{2}\frac{3}{4} z^4 + \frac{1}{2} \frac{3}{4} \frac{5}{6} z^6 + \dots$ 
-	\item $\arcsin z = z + \frac{1}{2} \frac{z^3}{3} + \frac{1}{2} \frac{3}{4} \frac{z^5}{5} + \frac{1}{2} \frac{3}{4} \frac{5}{6} \frac{z^7}{7} + \dots$
-	\item $\tan z = z + \frac{z^3}{3}+\frac{2}{15}z^5+\dots$
+	\item $e^z = 1 + z + \frac{z^2}{2!} + \dotsb + \frac{z^n}{n!} + \dotsb$
+	\item $\cos z = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \dotsb + $
+	\item $\sin z = z - \frac{z^3}{3!} + \frac{z^5}{5!} + \dotsb + $
+	\item $(1+z)^\mu = 1 + \mu z + \binom{\mu}{2} z^2 + \dotsb$ where $\binom{\mu}{n} = \frac{\mu(\mu-1)(\mu-2) \dotsm (\mu-n+1)}{1 \cdot 2 \cdot 3 \dotsm n}$
+	\item $\log (1+z) = z - \frac{z^2}{2} + \frac{z^3}{3} - \frac{z^4}{4} + \dotsb$
+	\item $\arctan z = z - \frac{z^3}{3} + \frac{z^5}{5} - \frac{z^7}{7} + \dotsb$
+	\item $\frac{1}{\sqrt{1-z^2}} = 1 + \frac{1}{2}z^2 + \frac{1}{2}\frac{3}{4} z^4 + \frac{1}{2} \frac{3}{4} \frac{5}{6} z^6 + \dotsb$ 
+	\item $\arcsin z = z + \frac{1}{2} \frac{z^3}{3} + \frac{1}{2} \frac{3}{4} \frac{z^5}{5} + \frac{1}{2} \frac{3}{4} \frac{5}{6} \frac{z^7}{7} + \dotsb$
+	\item $\tan z = z + \frac{z^3}{3}+\frac{2}{15}z^5+\dotsb$
 	\item $\log \frac{\sin z}{z} = $
 \end{enumerate}
 
@@ -354,7 +354,7 @@ Computational techniques to obtain Taylor series representation,
 \begin{definition}[Legendre Polynomials]
 	Legendre polynomials in $\alpha$, $P_n(\alpha)$ are the coefficients of the Taylor series of $(1-2\alpha z + z^2)^{-\frac{1}{2}}$ about origin.
 	\begin{equation}
-		(1-2\alpha z + z^2)^{-\frac{1}{2}} = 1 + P_1(\alpha)z + P_2(\alpha)z^2+\dots
+		(1-2\alpha z + z^2)^{-\frac{1}{2}} = 1 + P_1(\alpha)z + P_2(\alpha)z^2+\dotsb
 	\end{equation}
 \end{definition}
 
@@ -438,7 +438,7 @@ Computational techniques to obtain Taylor series representation,
 \begin{theorem}[Weierstrass]
 	There exists an entire function with arbitrarily prescribed zeroes $a_n$ provided that, in the case of infinitely many zeroes, $a_n \to \infty$. Every entire functions with these and no other zeroes can be written in the form
 	\begin{equation}
-		f(z) = z^m e^{g(z)} \prod_{n=1}^\infty \left( 1- \frac{z}{a_n} \right) e^{\frac{z}{a_n} + \frac{1}{2}(\frac{z}{a_n})^2 + \dots + \frac{1}{m_n}(\frac{z}{a_n})^{m_n}}
+		f(z) = z^m e^{g(z)} \prod_{n=1}^\infty \left( 1- \frac{z}{a_n} \right) e^{\frac{z}{a_n} + \frac{1}{2}(\frac{z}{a_n})^2 + \dotsb + \frac{1}{m_n}(\frac{z}{a_n})^{m_n}}
 	\end{equation}
 	where all the product is taken over all $a_n \ne 0$, then $m_n$ are certain integers, and $g(z)$ is an entire function.
 \end{theorem}
@@ -457,7 +457,7 @@ Computational techniques to obtain Taylor series representation,
 \begin{equation}
 	\Gamma(z) = \frac{e^{-\gamma z}{z}}{z} \prod_{n=1}^\infty \left( 1+\frac{z}{n}\right)^{-1} e^\frac{z}{n}
 \end{equation}
-	where $\gamma = \displaystyle \lim_{n \to \infty} \left( 1+ \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n} - \log n \right) \approx 0.57722 $ is the Euler`s constant.
+	where $\gamma = \displaystyle \lim_{n \to \infty} \left( 1+ \frac{1}{2} + \frac{1}{3} + \dotsb + \frac{1}{n} - \log n \right) \approx 0.57722 $ is the Euler`s constant.
 \end{definition}
 \begin{remark}
 	\begin{equation}
@@ -477,7 +477,7 @@ Computational techniques to obtain Taylor series representation,
 \subsection*{Exercise}
 \begin{remark}[Gauss`s Formula]
 	\begin{equation}
-		(2\pi)^\frac{n-1}{2} \Gamma(z) = n^{z-\frac{1}{2}} \ \Gamma\left(\frac{z}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \ \cdots \ \Gamma\left(\frac{z+n+1}{n}\right)
+		(2\pi)^\frac{n-1}{2} \Gamma(z) = n^{z-\frac{1}{2}} \ \Gamma\left(\frac{z}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \ \dotsm \ \Gamma\left(\frac{z+n+1}{n}\right)
 	\end{equation}
 \end{remark}
 

@@ -375,8 +375,8 @@ Thus \[ \lim_{\alpha \to \infty} \frac{1}{2\pi} \int_{-\alpha}^\alpha F(v) + iG(
 \section{Multivariate Differential Calculus}
 
 In this chapter, we deal with real functions of several variables.
-Instead of $\mathbf{c}$, we write \( \bar{c} \in \mathbb{R}^n \), then \( \bar{c} = (c_1, c_2, \dotsc, c_n) \) where \( c_j \in \mathbb{R} \) for every \(j = 1,2, \dotsc, n\).
-Again, suppose \(f : \mathbb{R}^n \to \mathbb{R}^m\) and \(f(\bar{x}) = \bar{y}\), then \(\bar{y} = (y_1, y_2, \dotsc, y_m)\) where each $y_k$ is real.
+Instead of $\mathbf{c}$, we write \( \bar{c} \in \mathbb{R}^n \), then \( \bar{c} = (c_1, c_2, \dots, c_n) \) where \( c_j \in \mathbb{R} \) for every \(j = 1,2, \dots, n\).
+Again, suppose \(f : \mathbb{R}^n \to \mathbb{R}^m\) and \(f(\bar{x}) = \bar{y}\), then \(\bar{y} = (y_1, y_2, \dots, y_m)\) where each $y_k$ is real.
 The unit co-ordinate vector, $\bar{u}_k$ is given by \( {u_k}_j = \delta_{j,k} \)
 
 \subsection{Directional Derivative}
@@ -408,13 +408,13 @@ Then \[ f'(\bar{c},\bar{u}) = \lim_{h \to 0} \frac{\bar{a}\cdot(\bar{c}+h\bar{u}
 	\item \( f'(\bar{c},\bar{0}) = \bar{0} \)\\
 	\textsl{Note : The zero vectors belongs to $\mathbb{R}^n, \mathbb{R}^m$ respectively.}
 	\item \( f'(\bar{c},\bar{u}_k) = \frac{\partial f}{\partial u_k}(\bar{c}) = D_k f(\bar{c}) \), the $k^{th}$ partial derivative of $f$.
-	\item Let \( f = (f_1, f_2, \cdots, f_m), \text{ such that } f(\bar{c}) = \left(f_1(\bar{c}),f_2(\bar{c}),\dotsc,f_m(\bar{c})\right) \).
+	\item Let \( f = (f_1, f_2, \dots, f_m), \text{ such that } f(\bar{c}) = \left(f_1(\bar{c}),f_2(\bar{c}),\dots,f_m(\bar{c})\right) \).
 	Then, 
-		\[ \exists f'(\bar{c},\bar{u}) \iff \forall k, \exists f_k'(\bar{c},\bar{u}) \text{ and } f'(\bar{c},\bar{u}) = \left(f_1'(\bar{c},\bar{u}),f_2'(\bar{c},\bar{u}),\dotsc,f_m'(\bar{c},\bar{u})\right) \]
+		\[ \exists f'(\bar{c},\bar{u}) \iff \forall k, \exists f_k'(\bar{c},\bar{u}) \text{ and } f'(\bar{c},\bar{u}) = \left(f_1'(\bar{c},\bar{u}),f_2'(\bar{c},\bar{u}),\dots,f_m'(\bar{c},\bar{u})\right) \]
 	ie, Directional derivative of $f$ exists iff directional derivative of each component function $f_k$ exists.
 	And the components of the directional derivatives of $f$ are the directional derivaties of the components of $f$.
 
-	Thus \( D_k f(\bar{c}) = \left(D_k f_1(\bar{c}),D_k f_2(\bar{c}),\dotsc,D_k f_m(\bar{c}) \right) \) holds.
+	Thus \( D_k f(\bar{c}) = \left(D_k f_1(\bar{c}),D_k f_2(\bar{c}),\dots,D_k f_m(\bar{c}) \right) \) holds.
 	\item Let \( F(t) = f(\bar{c}+t\bar{u}) \), then \( F'(0) = f'(\bar{c},\bar{u}) \) and \( F'(t) = f'(\bar{c}+t\bar{u},\bar{u}) \)
 	\item Let \( f(\bar{c}) = \bar{c} \cdot \bar{c} = \|\bar{c}\|^2 \), and \(F(t) = f(\bar{c}+t\bar{u}) \), then \( F'(t) = 2\bar{c} \cdot \bar{u}+2t\|\bar{u}\|^2 \) and \( F'(0) = f'(\bar{c},\bar{u}) = 2\bar{c} \cdot \bar{u} \)
 	\item Let \(f\) be linear, then \( f'(\bar{c},\bar{u}) = f(\bar{u}) \)
@@ -452,7 +452,7 @@ Then,
 \begin{enumerate}
 	\item \( f'(\bar{c})(\bar{v}) = f'(\bar{c},\bar{u}) \)
 	\item If $f$ is differentiable at $\bar{c}$, then $f$ is continuous at $\bar{c}$.
-	\item \( f'(\bar{c})(\bar{v}) = v_1 D_1 f(\bar{c}) + v_2 D_2 f(\bar{c}) + \dots + v_n D_n f(\bar{c}) \)
+	\item \( f'(\bar{c})(\bar{v}) = v_1 D_1 f(\bar{c}) + v_2 D_2 f(\bar{c}) + \dotsb + v_n D_n f(\bar{c}) \)
 	\end{enumerate}
 \end{remark}
 
@@ -502,9 +502,9 @@ If $f$ is differentiable at \( \bar{c} \), then $f$ is continuous at \( \bar{c} 
 \begin{proof}
 Let $\bar{v} \ne 0$, then
 \begin{align*}
-	\bar{v} = v_1 \bar{u}_1 & + v_2 \bar{u}_2 + \dots + v_n \bar{u}_n,\\
+	\bar{v} = v_1 \bar{u}_1 & + v_2 \bar{u}_2 + \dotsb + v_n \bar{u}_n,\\
 	\bar{v} \to \bar{0} \implies & \forall j,\ v_j \to 0 \\
-	T \text{ is linear }\implies & T_{\bar{c}} (\bar{v}) = v_1 T_{\bar{c}}(\bar{u}_1) + v_2 T_{\bar{c}}(\bar{u}_2) + \dots + v_n T_{\bar{c}}(\bar{u}_n)\\
+	T \text{ is linear }\implies & T_{\bar{c}} (\bar{v}) = v_1 T_{\bar{c}}(\bar{u}_1) + v_2 T_{\bar{c}}(\bar{u}_2) + \dotsb + v_n T_{\bar{c}}(\bar{u}_n)\\
 	\text{Thus, } & T_{\bar{c}}(\bar{v}) \to \bar{0} \text{ as } \bar{v} \to 0
 \end{align*}
 Since $f$ differentiable at \( \bar{c} \), there exists linear function $T_{\bar{c}}$ such that
@@ -517,7 +517,7 @@ Since $f$ differentiable at \( \bar{c} \), there exists linear function $T_{\bar
 
 \begin{theorem}
 Let $S \subset \mathbb{R}^n$ and $f : S \to \mathbb{R}^m$ be differentiable at an interior point $\bar{c}$ of $S$, where $S \subseteq \mathbb{R}^n$.
-If $\bar{v} = v_1\bar{u}_1+v_2\bar{u}_2 + \cdots + v_n\bar{u}_n$, then
+If $\bar{v} = v_1\bar{u}_1+v_2\bar{u}_2 + \dotsb + v_n\bar{u}_n$, then
 \[ f'(\bar{c})(\bar{v}) = \sum_{k=1}^n v_k D_k f(\bar{c}) \]
 In particular, if $f$ is real-valued $(m = 1)$ we have, $f'(\bar{c})(\bar{v}) = \nabla{}f(\bar{c}).\bar{v}$
 \end{theorem}
@@ -529,7 +529,7 @@ Suppose $f : S \to \mathbb{R}^m$ is differentiable at $\bar{c}$, then there exis
 	& = \sum_{k=1}^n v_k D_k f(\bar{c}), \text{ since $f'(\bar{c})(\bar{u}_k) = f'(\bar{c},\bar{u}_k) = D_k f(\bar{c})$}\\
 	\intertext{Let $m = 1$, then $f : S \to \mathbb{R}$ }
 	f'(\bar{c})(\bar{v}) & = \sum_{k=1}^n v_k D_k f(\bar{c}) = \nabla{}f(\bar{c}).\bar{v}\\
-	& \text{ since } \nabla{}f(\bar{c}) = \left( D_1f(\bar{c}),\ D_2f(\bar{c}),\ \cdots ,\ D_nf(\bar{c}) \right)
+	& \text{ since } \nabla{}f(\bar{c}) = \left( D_1f(\bar{c}),\ D_2f(\bar{c}),\ \dots ,\ D_nf(\bar{c}) \right)
 \end{align*}
 \end{proof}
 
@@ -542,15 +542,15 @@ Let $f : S \to \mathbb{R}$, then $f(\bar{c} +\bar{v}) = f (\bar{c}) + \nabla{}f(
 
 \subsection{Matrix of Linear Function}
 Let $T : \mathbb{R}^n \to \mathbb{R}^m$ be a linear function.
-Let $\{\bar{u}_1,\ \bar{u}_2,\ \cdots,\ \bar{u}_n\}$ be standard basis for $\mathbb{R}^n$ and  $\{\bar{e}_1,\ \bar{e}_2,\ \cdots,\ \bar{e}_m\}$ be standard basis for $\mathbb{R}^m$.
+Let $\{\bar{u}_1,\ \bar{u}_2,\ \dots,\ \bar{u}_n\}$ be standard basis for $\mathbb{R}^n$ and  $\{\bar{e}_1,\ \bar{e}_2,\ \dots,\ \bar{e}_m\}$ be standard basis for $\mathbb{R}^m$.
 Let $\bar{v} \in \mathbb{R}^n$, then $\bar{v} = \sum_{k=1}^n v_k\bar{u}_k$ and $T(\bar{v}) = \sum_{k=1}^n v_k T(\bar{u}_k)$ and
 \begin{commentary}
 \begin{align*}
-	T(\bar{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} T(\bar{u}_1) \\ T(\bar{u}_2) \\ \cdots \\ T(\bar{u}_n) \end{bmatrix} \\
-	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}\bar{e}_1+t_{21}\bar{e}_2+\cdots+t_{m1}\bar{e}_m \\ t_{12}\bar{e}_1+t_{22}\bar{e}_2+\cdots+t_{m2}\bar{e}_m \\ \cdots \\ t_{1n}\bar{e}_1+t_{2n}\bar{e}_2+\cdots+t_{mn}\bar{e}_m \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} \bar{e}_1 \\ \bar{e}_2 \\ \cdots \\ \bar{e}_m \end{bmatrix} \\
+	T(\bar{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} T(\bar{u}_1) \\ T(\bar{u}_2) \\ \dots \\ T(\bar{u}_n) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}\bar{e}_1+t_{21}\bar{e}_2+\dotsb+t_{m1}\bar{e}_m \\ t_{12}\bar{e}_1+t_{22}\bar{e}_2+\dotsb+t_{m2}\bar{e}_m \\ \dots \\ t_{1n}\bar{e}_1+t_{2n}\bar{e}_2+\dotsb+t_{mn}\bar{e}_m \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \dots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \dots & t_{m1} \\ t_{12} & t_{22} & \dots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \dots & t_{mn} \end{bmatrix} \begin{bmatrix} \bar{e}_1 \\ \bar{e}_2 \\ \dots \\ \bar{e}_m \end{bmatrix} \\
 	\intertext{ We may take the transpose,}
-	T(\bar{v}) & = \begin{bmatrix} \bar{e}_1 & \bar{e}_2 & \cdots & \bar{e}_m \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
+	T(\bar{v}) & = \begin{bmatrix} \bar{e}_1 & \bar{e}_2 & \dots & \bar{e}_m \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \dots & t_{1n} \\ t_{21} & t_{22} & \dots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \dots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \dots \\ v_n  \end{bmatrix} 
 \end{align*}
 \end{commentary}
 \[ T(\bar{v}) = T \left( \sum_{k=1}^n v_k \bar{u}_k \right) = \sum_{k=1}^n v_k T(\bar{u}_k) = \sum_{k=1}^n v_n \sum_{j=1}^m t_{kj}\bar{e}_j \]
@@ -583,18 +583,18 @@ Since $S,T$ are linear, $S \circ T$ is also linear.
 	S \circ T(a \bar{x} + b \bar{y}) = & S(T(a \bar{x} + b\bar{y})) = S(a T(\bar{x}) + b T(\bar{y})) = a S(T(\bar{x}))) + b S(T(\bar{y})) \\
 	= & a S \circ T(\bar{x}) + b S \circ T(\bar{y}),\ \forall a,b \in \mathbb{R},\ \forall \bar{x},\bar{y} \in \mathbb{R}^n
 \end{align*}
-Let $\{\bar{u}_1,\bar{u}_2,\cdots,\bar{u}_n\}$ be the standards basis for $\mathbb{R}^n$, $\{\bar{e}_1,\bar{e}_2,\cdots,\bar{e}_m\}$ be the standards basis for $\mathbb{R}^m$ and $\{\bar{w}_1,\bar{w}_2,\cdots,\bar{w}_p\}$ be the standards basis for $\mathbb{R}^p$.
+Let $\{\bar{u}_1,\bar{u}_2,\dots,\bar{u}_n\}$ be the standards basis for $\mathbb{R}^n$, $\{\bar{e}_1,\bar{e}_2,\dots,\bar{e}_m\}$ be the standards basis for $\mathbb{R}^m$ and $\{\bar{w}_1,\bar{w}_2,\dots,\bar{w}_p\}$ be the standards basis for $\mathbb{R}^p$.
 Let $\bar{v} \in \mathbb{R}^n$, then $\bar(v) = \sum_{i=1}^n v_i\bar{u}_i$, and $S \circ T(\bar{v})=\sum_{i=1}^n v_n S \circ T(\bar{u}_i)$
 \begin{commentary}
 \begin{align*}
-	S \circ T(\bar{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} S \circ T(\bar{u}_1) \\ S \circ T(\bar{u}_2) \\ \cdots \\ S \circ T(\bar{u}_n) \end{bmatrix} \\
-	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} S(t_{11}\bar{e}_1 + \cdots + t_{m1}\bar{e}_m) \\ S(t_{12}\bar{e}_1 + \cdots + t_{m2}\bar{e}_m) \\ \cdots \\ S(t_{1n}\bar{e}_1 + \cdots + t_{mn}\bar{e}_m) \end{bmatrix} \\
-	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}S(\bar{e}_1) + \cdots + t_{m1}S(\bar{e}_m) \\ t_{12}S(\bar{e}_1) + \cdots + t_{m2}S(\bar{e}_m) \\ \cdots \\ t_{n1}S(\bar{e}_1) + \cdots + t_{mn}S(\bar{e}_m) \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} S(\bar{e}_1) \\ S(\bar{e}_2) \\ \cdots \\ S(\bar{e}_m) \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11}\bar{w}_1+s_{12}\bar{w}_2+\cdots+s_{1p}\bar{w}_p \\ s_{12}\bar{w}_1+s_{22}\bar{w}_2+\cdots+s_{p2}\bar{w}_p \\ \cdots \\ s_{1m}\bar{w}_1+ s_{2m}\bar{w}_2+\cdots+s_{pm}\bar{w}_p \end{bmatrix} \\
-	& = \begin{bmatrix} v_1 & v_2 & \cdots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \cdots & t_{m1} \\ t_{12} & t_{22} & \cdots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11} & s_{21} & \cdots & s_{p1} \\ s_{12} & s_{22} & \cdots & s_{p2} \\ \vdots & \vdots & \ddots & \vdots \\ s_{1m} & s_{2m} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} \bar{w}_1 \\ \bar{w}_2 \\ \vdots \\ \bar{w}_p \end{bmatrix}\\
+	S \circ T(\bar{v}) & =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix} \begin{bmatrix} S \circ T(\bar{u}_1) \\ S \circ T(\bar{u}_2) \\ \dots \\ S \circ T(\bar{u}_n) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} S(t_{11}\bar{e}_1 + \dotsb + t_{m1}\bar{e}_m) \\ S(t_{12}\bar{e}_1 + \dotsb + t_{m2}\bar{e}_m) \\ \dots \\ S(t_{1n}\bar{e}_1 + \dotsb + t_{mn}\bar{e}_m) \end{bmatrix} \\
+	& =  \begin{bmatrix} v_1 & v_2 & \vdots & v_n  \end{bmatrix}\begin{bmatrix} t_{11}S(\bar{e}_1) + \dotsb + t_{m1}S(\bar{e}_m) \\ t_{12}S(\bar{e}_1) + \dotsb + t_{m2}S(\bar{e}_m) \\ \dots \\ t_{n1}S(\bar{e}_1) + \dotsb + t_{mn}S(\bar{e}_m) \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \dots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \dots & t_{m1} \\ t_{12} & t_{22} & \dots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \dots & t_{mn} \end{bmatrix} \begin{bmatrix} S(\bar{e}_1) \\ S(\bar{e}_2) \\ \dots \\ S(\bar{e}_m) \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \dots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \dots & t_{m1} \\ t_{12} & t_{22} & \dots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \dots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11}\bar{w}_1+s_{12}\bar{w}_2+\dotsb+s_{1p}\bar{w}_p \\ s_{12}\bar{w}_1+s_{22}\bar{w}_2+\dotsb+s_{p2}\bar{w}_p \\ \dots \\ s_{1m}\bar{w}_1+ s_{2m}\bar{w}_2+\dotsb+s_{pm}\bar{w}_p \end{bmatrix} \\
+	& = \begin{bmatrix} v_1 & v_2 & \dots & v_n  \end{bmatrix} \begin{bmatrix} t_{11} & t_{21} & \dots & t_{m1} \\ t_{12} & t_{22} & \dots & t_{m2} \\ \vdots & \vdots & \ddots & \vdots \\ t_{1n} & t_{2n} & \dots & t_{mn} \end{bmatrix} \begin{bmatrix} s_{11} & s_{21} & \dots & s_{p1} \\ s_{12} & s_{22} & \dots & s_{p2} \\ \vdots & \vdots & \ddots & \vdots \\ s_{1m} & s_{2m} & \dots & s_{pm} \end{bmatrix} \begin{bmatrix} \bar{w}_1 \\ \bar{w}_2 \\ \vdots \\ \bar{w}_p \end{bmatrix}\\
 	\intertext{We may take transpose,}
-	S \circ T(\bar{v}) & = \begin{bmatrix} \bar{w}_1 & \bar{w}_2 & \vdots & \bar{w}_p \end{bmatrix} \begin{bmatrix} s_{11} & s_{12} & \cdots & s_{1m} \\ s_{21} & s_{22} & \cdots & s_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ s_{p1} & s_{p2} & \cdots & s_{pm} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \cdots & t_{1n} \\ t_{21} & t_{22} & \cdots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \cdots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \cdots \\ v_n  \end{bmatrix} 
+	S \circ T(\bar{v}) & = \begin{bmatrix} \bar{w}_1 & \bar{w}_2 & \vdots & \bar{w}_p \end{bmatrix} \begin{bmatrix} s_{11} & s_{12} & \dots & s_{1m} \\ s_{21} & s_{22} & \dots & s_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ s_{p1} & s_{p2} & \dots & s_{pm} \end{bmatrix} \begin{bmatrix} t_{11} & t_{12} & \dots & t_{1n} \\ t_{21} & t_{22} & \dots & t_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ t_{m1} & t_{m2} & \dots & t_{mn} \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ \dots \\ v_n  \end{bmatrix} 
 \end{align*}
 Remember : Given $T : \mathbb{R}^n \to \mathbb{R}^m$, then we may take $m(T)$ either as $m \times n$ matrix or $n \times m$ matrix.
 Since, we chose $m \times n$, $m(S \circ T) = m(S)m(T)$.
@@ -604,8 +604,8 @@ This may change for different authors.
 
 Suppose $m(S) = (s_{ij})$ and $m(T) = (t_{ij})$ respectively.
 Then
-\[ S(e_k) = \sum_{i=1}^p s_{ik} \bar{w}_i,\ k=1,2,\cdots,m \text{ and }\]
-\[ T(u_j) = \sum_{k=1}^m t_{kj} \bar{e}_k,\ j=1,2,\cdots,n \]
+\[ S(e_k) = \sum_{i=1}^p s_{ik} \bar{w}_i,\ k=1,2,\dots,m \text{ and }\]
+\[ T(u_j) = \sum_{k=1}^m t_{kj} \bar{e}_k,\ j=1,2,\dots,n \]
 \begin{align*}
 	(S \circ T)(\bar{u}_j) = & S(T(\bar{u}_j)) = S\left(\sum_{k=1}^m t_{kj}\bar{e}_k\right) = \sum_{k=1}^m t_{kj}S(\bar{e}_k) \\ 
 	= & \sum_{k=1}^m t_{kj}\left( \sum_{i=1}^p s_{ik} \bar{w}_i\right) = \sum_{i=1}^p \left(\sum_{k=1}^m s_{ik}t_{kj}\right)\bar{w}_i
@@ -613,19 +613,19 @@ Then
 Therefore, $m(S \circ T) = \sum_{k=1}^m s_{ik}t_{kj} = (s_{ik})(t_{kj}) =  m(S)m(T)$.
 
 \subsection{The Jacobian Matrix}
-Let $\bar{u}_1, \bar{u}_2, \cdots, \bar{u}_n$ be the unit co-ordinate vectors in $\mathbb{R}^n$ and $\bar{e}_1, \bar{e}_2, \cdots, \bar{e}_m$ be the unit co-ordinate vectors in $\mathbb{R}^m$.
+Let $\bar{u}_1, \bar{u}_2, \dots, \bar{u}_n$ be the unit co-ordinate vectors in $\mathbb{R}^n$ and $\bar{e}_1, \bar{e}_2, \dots, \bar{e}_m$ be the unit co-ordinate vectors in $\mathbb{R}^m$.
 Let function $f : \mathbb{R}^n \to \mathbb{R}^m$ be differentiable at $\bar{c} \in \mathbb{R}^n$.
 Then there exists a linear function $T = f'(\bar{c}) : \mathbb{R}^n \to \mathbb{R}^m$ such that $f(\bar{c}+\bar{v}) = f(\bar{c})+f'(\bar{c})(\bar{v}) + \|\bar{v}\|+E_{\bar{c}}(\bar{v})$.
 We have, $T(\bar{u}_k) = f'(\bar{c})(\bar{u}_k) = f'(\bar{c},\bar{u}_k) = D_kf(\bar{c}) = D_k \sum_{i=1}^m f_i(\bar{c})\bar{e}_i$.
 
 Clearly, the matrix of total derivative $T$, $m(T) = (t_{ik}) = (D_k f_i(\bar{c}))$.
 This matrix is called Jacobian matrix of $f$ at $\bar{c}$ and is denoted by $Df(\bar{c})$.
-\[ Df(\bar{c}) = \begin{bmatrix} D_1 f_1(\bar{c}) & D_2 f_1(\bar{c}) & \cdots & D_n f_1(\bar{c}) \\ D_1 f_2(\bar{c}) & D_2 f_2(\bar{c}) & \cdots & D_n f_2(\bar{c}) \\ \vdots & \vdots & \ddots & \vdots \\ D_1 f_m(\bar{c}) & D_2 f_m(\bar{c}) & \cdots & D_n f_m(\bar{c}) \end{bmatrix} \]
+\[ Df(\bar{c}) = \begin{bmatrix} D_1 f_1(\bar{c}) & D_2 f_1(\bar{c}) & \dots & D_n f_1(\bar{c}) \\ D_1 f_2(\bar{c}) & D_2 f_2(\bar{c}) & \dots & D_n f_2(\bar{c}) \\ \vdots & \vdots & \ddots & \vdots \\ D_1 f_m(\bar{c}) & D_2 f_m(\bar{c}) & \dots & D_n f_m(\bar{c}) \end{bmatrix} \]
 
 \subsubsection{Properties of Jacobian matrix}
 \begin{enumerate}
 	\item $k$th row of $Df(\bar{c})$ is gradient vector of $f_k$
-		\[\nabla f_k(\bar{c}) = (D_1f_k(\bar{c}),D_2f_k(\bar{c}),\cdots,D_nf_k(\bar{c}))\]
+		\[\nabla f_k(\bar{c}) = (D_1f_k(\bar{c}),D_2f_k(\bar{c}),\dots,D_nf_k(\bar{c}))\]
 	\item When $m = 1$, $Df(\bar{c}) = \nabla f(\bar{c})$.
 	\item $f'(\bar{c})(\bar{v}) = \sum\limits_{k=1}^m \left(\nabla f_k(\bar{c}) \cdot \bar{v}\right) \bar{e}_k$
 	\item $\|f'(\bar{c})(\bar{v})\| \le M\|v\|$ where $M = \sum\limits_{k=1}^m \|\nabla f_k(\bar{c})\| $, by property (3)
@@ -688,7 +688,7 @@ Suppose $g$ is differentiable at $\bar{a} \in \mathbb{R}^p$ and $f$ is different
 Then $h$ is differentiable at $\bar{a}$ and the Jacobian matrix of $h$ is given by the chain rule,
 \[ Dh(\bar{a}) = Df(\bar{b})Dg(\bar{a}) \text{ where } h = f \circ g,\ \bar{b} = g(\bar{a})\]
 In other words,
-\[ D_jh_i(\bar{a}) = \sum_{k=1}^n D_k f_i(\bar{b}) D_j g_k(\bar{a}),\ i=1,2,\cdots,m,\ j=1,2,\cdots,p \]
+\[ D_jh_i(\bar{a}) = \sum_{k=1}^n D_k f_i(\bar{b}) D_j g_k(\bar{a}),\ i=1,2,\dots,m,\ j=1,2,\dots,p \]
 
 For $m=1$, $D_j h(\bar{a}) = \sum\limits_{k=1}^n D_kf(\bar{b}) D_jg_k(\bar{a})$
 
@@ -809,7 +809,7 @@ Thus Mean-value theorem holds for all $\bar{x},\bar{y} \in S$.
 \section{Multivariate Calculus}
 \subsection{A sufficient condition for differentiability}
 \begin{theorem}
-Suppose one of the partial derivatives $D_1f,D_2f,\cdots,D_nf$ exists at $\bar{c}$.
+Suppose one of the partial derivatives $D_1f,D_2f,\dots,D_nf$ exists at $\bar{c}$.
 And the remaining $n-1$ partial derivatives exists in some $n$-ball $B(\bar{c})$ and are continuous at $\bar{c}$.
 Then $f$ is differentiable at $\bar{c}$.
 \end{theorem}
@@ -822,55 +822,55 @@ Suppose $f$ is differentiable at $\bar{c}$, then there exists a linear, total de
 
 ie, $f(\bar{c}+\bar{v}) = f(\bar{c}) + f'(\bar{c})(\bar{v}) + \|\bar{v}\| E_{\bar{c}}(\bar{v})$ where $E_{\bar{c}}(\bar{v}) \to \bar{0}$ as $\bar{v} \to \bar{0}$.
 \begin{align*}
-	f(\bar{c}+\bar{v}) & = \left( f_1(\bar{c}+\bar{v}), f_2(\bar{c}+\bar{v}), \cdots, f_m(\bar{c}+\bar{v}) \right)\\
-	f(\bar{c}) & = \left( f_1(\bar{c}), f_2(\bar{c}), \cdots, f_m(\bar{c}) \right) \\
-	f'(\bar{c})(\bar{v}) & = \left( f'_1(\bar{v}), f'_2(\bar{v}), \cdots, f'_m(\bar{v}) \right) \\
-	E_{\bar{c}}(\bar{v}) & = \left( E_1(\bar{v}), E_2(\bar{v}), \cdots, E_m(\bar{v}) \right)
+	f(\bar{c}+\bar{v}) & = \left( f_1(\bar{c}+\bar{v}), f_2(\bar{c}+\bar{v}), \dots, f_m(\bar{c}+\bar{v}) \right)\\
+	f(\bar{c}) & = \left( f_1(\bar{c}), f_2(\bar{c}), \dots, f_m(\bar{c}) \right) \\
+	f'(\bar{c})(\bar{v}) & = \left( f'_1(\bar{v}), f'_2(\bar{v}), \dots, f'_m(\bar{v}) \right) \\
+	E_{\bar{c}}(\bar{v}) & = \left( E_1(\bar{v}), E_2(\bar{v}), \dots, E_m(\bar{v}) \right)
 \end{align*}
 where each component of the error function $E_k(\bar{v}) \to 0$ as $\bar{v} \to \bar{0}$.
 Also since $f'(\bar{c})$ is linear, each of its components $f'_k : \mathbb{R}^n \to \mathbb{R}$ are linear.
 \begin{align*}
-	f(\bar{c}+\bar{v}) = & \left( f_1(\bar{c}+\bar{v}), f_2(\bar{c}+\bar{v}), \cdots, f_m(\bar{c}+\bar{v}) \right) \\
-	= & \left( f_1(\bar{c}), f_2(\bar{c}), \cdots, f_m(\bar{c}) \right) + \left( f'_1(\bar{v}), f'_2(\bar{v}), \cdots, f'_m(\bar{v}) \right) \\
-	& + \|\bar{v}\|\left(E_1(\bar{v}), E_2(\bar{v}), \cdots, E_m(\bar{v}) \right) \text{ where } E_k(\bar{v}) \to 0 \text{ as } \bar{v} \to \bar{0}\\
-	= & \left( f_1(\bar{c}), f_2(\bar{c}), \cdots, f_m(\bar{c}) \right) + \left( f'_1(\bar{v}), f'_2(\bar{v}), \cdots, f'_m(\bar{v}) \right) \\
-	& + \left(\|\bar{v}\|E_1(\bar{v}), \|\bar{v}\|E_2(\bar{v}), \cdots, \|\bar{v}\|E_m(\bar{v}) \right) \text{ where } E_k(\bar{v}) \to 0 \text{ as } \bar{v} \to \bar{0}\\
-	= & \left( f_1(\bar{c}) + f'_1(\bar{v}) + \|\bar{v}\|E_1(\bar{v}), \cdots, f_m(\bar{c}) + f'_m(\bar{v}) + \|\bar{v}\|E_m(\bar{v}) \right) 
+	f(\bar{c}+\bar{v}) = & \left( f_1(\bar{c}+\bar{v}), f_2(\bar{c}+\bar{v}), \dots, f_m(\bar{c}+\bar{v}) \right) \\
+	= & \left( f_1(\bar{c}), f_2(\bar{c}), \dots, f_m(\bar{c}) \right) + \left( f'_1(\bar{v}), f'_2(\bar{v}), \dots, f'_m(\bar{v}) \right) \\
+	& + \|\bar{v}\|\left(E_1(\bar{v}), E_2(\bar{v}), \dots, E_m(\bar{v}) \right) \text{ where } E_k(\bar{v}) \to 0 \text{ as } \bar{v} \to \bar{0}\\
+	= & \left( f_1(\bar{c}), f_2(\bar{c}), \dots, f_m(\bar{c}) \right) + \left( f'_1(\bar{v}), f'_2(\bar{v}), \dots, f'_m(\bar{v}) \right) \\
+	& + \left(\|\bar{v}\|E_1(\bar{v}), \|\bar{v}\|E_2(\bar{v}), \dots, \|\bar{v}\|E_m(\bar{v}) \right) \text{ where } E_k(\bar{v}) \to 0 \text{ as } \bar{v} \to \bar{0}\\
+	= & \left( f_1(\bar{c}) + f'_1(\bar{v}) + \|\bar{v}\|E_1(\bar{v}), \dots, f_m(\bar{c}) + f'_m(\bar{v}) + \|\bar{v}\|E_m(\bar{v}) \right) 
 \end{align*}
 
 Thus first-order Taylor's forumula for $f$ at $\bar{c}$ gives first-order Taylor's forumula for each of its components $f_k$.
 ie, $f_k(\bar{c}+\bar{v}) = f_k(\bar{c}) + f'_k(\bar{v} + \|\bar{v}\|E_k(\bar{v})$ where $E_k(\bar{v}) \to 0$ as $\bar{v} \to \bar{0}$.
-Therefore, $f_k$ are differentiable at $\bar{c}$ for $k = 1,2,\cdots, m$.
+Therefore, $f_k$ are differentiable at $\bar{c}$ for $k = 1,2,\dots, m$.
 
 Suppose each component $f_k$ of $f$ are differentiable at $\bar{c}$.
 Then there exists linear, total derivative functions $f'_k$ satisfying first-order Taylor's formula at $\bar{c}$.
 ie, $f_k(\bar{c}+\bar{v}) = f_k(\bar{v}) + f'_k(\bar{v}) + \|\bar{v}\|E_k(\bar{v})$ where $E_k(\bar{v}) \to 0$ as $\bar{v} \to \bar{0}$.
 
-Define $E_{\bar{c}}(\bar{v}) = \left( E_1(\bar{v}), E_2(\bar{v}), \cdots, E_k(\bar{v}) \right)$.
+Define $E_{\bar{c}}(\bar{v}) = \left( E_1(\bar{v}), E_2(\bar{v}), \dots, E_k(\bar{v}) \right)$.
 Then $E_{\bar{c}}(\bar{v}) \to \bar{0}$ as $\bar{v} \to \bar{0}$.
-Therefore, there exists a linear, total derivative function $f'(\bar{c}) = \left( f'_1, f'_2, \cdots, f'_m \right)$ satisfying first-order Taylor's formula at $\bar{c}$.
+Therefore, there exists a linear, total derivative function $f'(\bar{c}) = \left( f'_1, f'_2, \dots, f'_m \right)$ satisfying first-order Taylor's formula at $\bar{c}$.
 
 Thus, if each (real-valued) component function $f_k$ are differentiable, then $f$ is also differentiable.
 Therefore, it is sufficient to prove the theorem for a real-valued function.\\
 \begin{commentary}Step 2: Telescopic Sum\end{commentary}
 
-Assume (without loss of generality) that $D_1f$ exists at $\bar{c}$ and $D_2f,D_3f,\cdots,D_nf$ exist and continuous in some $n$-ball $B(\bar{c})$.
+Assume (without loss of generality) that $D_1f$ exists at $\bar{c}$ and $D_2f,D_3f,\dots,D_nf$ exist and continuous in some $n$-ball $B(\bar{c})$.
 \begin{commentary} Suppose $D_rf$ exists at $\bar{c}$ and all partial derivatives execept $D_rf$ are continuous.
-	Then $v_0 = \bar{0}$, $v_1 = y_r\bar{u}_r$, $v_2 = y_r\bar{u}_r + y_1\bar{u}_1$, \dots.
+	Then $v_0 = \bar{0}$, $v_1 = y_r\bar{u}_r$, $v_2 = y_r\bar{u}_r + y_1\bar{u}_1, \dotsc$.
 Then the following proof can be applied without any loss of generality.
 \end{commentary}
 
 Let $\bar{v} = \lambda\bar{y}$ where $\bar{y} = \frac{\bar{v}}{\|\bar{v}\|}$.
 Clearly, $\|\bar{y}\| = 1$ and $\lambda = \| \bar{v} \|$.
-Choose $\lambda > 0$ such that $\bar{c}+\bar{v} \in B(\bar{c})$ and all the partial derivatives $D_2f, D_3f, \cdots, D_nf$ exists and are continuous in $B(\bar{c})$.
+Choose $\lambda > 0$ such that $\bar{c}+\bar{v} \in B(\bar{c})$ and all the partial derivatives $D_2f, D_3f, \dots, D_nf$ exists and are continuous in $B(\bar{c})$.
 
-	We have, $\bar{y} = (y_1, y_2, \cdots, y_n) = y_1 \bar{u}_1 + y_2 \bar{u}_2 + \cdots + y_n \bar{u}_n$.
+	We have, $\bar{y} = (y_1, y_2, \dots, y_n) = y_1 \bar{u}_1 + y_2 \bar{u}_2 + \dotsb + y_n \bar{u}_n$.
 
-	Define $\bar{v}_0 = \bar{0},\ \bar{v}_1 = y_1\bar{u}_1, \cdots, \ \bar{v}_n = y_1 \bar{u}_1 + y_2 \bar{u}_2 + \cdots + y_n \bar{u}_n$.
+	Define $\bar{v}_0 = \bar{0},\ \bar{v}_1 = y_1\bar{u}_1, \dots, \ \bar{v}_n = y_1 \bar{u}_1 + y_2 \bar{u}_2 + \dotsb + y_n \bar{u}_n$.
 \begin{align*}
 	f(\bar{c}+\bar{v}) - f(\bar{c}) = & ( f(\bar{c}+\lambda{} \bar{v}_n) - f(\bar{c}+\lambda{} \bar{v}_{n-1}) ) \\
 	& + ( f(\bar{c}+\lambda{} \bar{v}_{n-1}) - f(\bar{c}+\lambda{} \bar{v}_{n-2}) ) \\
-	& + \cdots + ( f(\bar{c}+\lambda{} \bar{v}_1) - f(\bar{c}+\lambda{} \bar{v}_0) ) \\
+	& + \dotsb + ( f(\bar{c}+\lambda{} \bar{v}_1) - f(\bar{c}+\lambda{} \bar{v}_0) ) \\
 	& = \sum_{k = 1}^n f(\bar{c} + \lambda{} \bar{v}_k) - f(\bar{c} + \lambda{} \bar{v}_{k-1}) \\
 	& = \sum_{k = 1}^n f(\bar{c} + \lambda{} \bar{v}_{k-1} + \lambda{} y_k \bar{u}_k) - f(\bar{c} + \lambda{} \bar{v}_{k-1})
 \end{align*}
@@ -932,10 +932,10 @@ Then $D_{r,k} f = D_{k,r} f$.
 \begin{proof}
 \begin{commentary}Step 1 : Real-valued function\end{commentary}\\
 	It is sufficient to prove the theorem for real-valued functions.
-	Let $f : \mathbb{R}^n \to \mathbb{R}^m$, then $f(\bar{c}) = \left( f_1(\bar{c}),f_2(\bar{c}),\cdots,f_m(\bar{c}) \right)$.
+	Let $f : \mathbb{R}^n \to \mathbb{R}^m$, then $f(\bar{c}) = \left( f_1(\bar{c}),f_2(\bar{c}),\dots,f_m(\bar{c}) \right)$.
 	And
-	\[ D_k f(\bar{c}) = \left( D_k f_1(\bar{c}), D_k f_2(\bar{c}), \cdots, D_k f_m(\bar{c}) \right) \]
-	Thus it is sufficient to prove that $D_{r,k}f_j(\bar{c}) = D_{k,r}f_j(\bar{c}),\ j = 1,2,\cdots,m$.
+	\[ D_k f(\bar{c}) = \left( D_k f_1(\bar{c}), D_k f_2(\bar{c}), \dots, D_k f_m(\bar{c}) \right) \]
+	Thus it is sufficient to prove that $D_{r,k}f_j(\bar{c}) = D_{k,r}f_j(\bar{c}),\ j = 1,2,\dots,m$.
 	That is, it is sufficient to prove equality of mixed partial derivatives of a real-valued function $f_j : \mathbb{R}^n \to \mathbb{R}$.
 	Also, we will prove it for $n = 2$ and $\bar{c} = (0,0)$.
 \begin{commentary}
@@ -1033,7 +1033,7 @@ And $D_{r,k} f$ and $D_{k,r} f$ are continuous at $\bar{c}$.
 Then $D_{r,k} f = D_{k,r} f$.
 \end{theorem}
 \begin{proof}
-We have $D_r f = (D_r f_1 , D_r f_2, \cdots, D_r f_m)$.
+We have $D_r f = (D_r f_1 , D_r f_2, \dots, D_r f_m)$.
 Therefore, it is sufficient to prove the theorem for real-valued functions.
 Suppose $n = 2$, $\bar{c} = (0,0)$ and the partial derivatives $D_1 f$ and $D_2 f$ exist and are continuous in some $2$-ball about $(0,0)$.
 Suppose $(h,h)$ lies in that $2$-ball, then $D_1 f(h,h) \to D_1 f(0,0)$ as $h \to 0$.
@@ -1201,7 +1201,7 @@ Let components of $f$ has continuous partial derivatives on $S$, $D_jf_i$ and $J
 Then there is an $n$-ball $B$ about $\bar{a}$ on which $f$ is injective.
 \end{theorem}
 \begin{proof}
-	Let $\bar{z} = (\bar{z}_1,\bar{z}_2,\cdots,\bar{z}_n)$ where $\bar{z}_i \in \mathbb{R}^n$.
+	Let $\bar{z} = (\bar{z}_1,\bar{z}_2,\dots,\bar{z}_n)$ where $\bar{z}_i \in \mathbb{R}^n$.
 	ie, $\bar{z} \in \mathbb{R}^{n^2}$.
 	Define function $h : \mathbb{R}^{n^2} \to \mathbb{R}$ by $h(\bar{z}) = \det{[D_jf_i(\bar{z}_i)]}$.
 	Since $f$ has continuous partial derivatives on $S$, each component of $f$ has continuous partial derivatives in $S$ and thus $h$ is continuous on $S^n$ 
@@ -1214,7 +1214,7 @@ Then there is an $n$-ball $B$ about $\bar{a}$ on which $f$ is injective.
 	Existence of such a point in $S$ is assumed.
 \end{commentary}
 	Consider,$\bar{z}_i = \bar{a},\ \forall i$.
-	Then $\bar{z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
+	Then $\bar{z} = (\bar{a},\bar{a},\dots,\bar{a})$.
 	And $h(\bar{z}) = \det{[D_jf_i(\bar{a})]} = J_f(\bar{a}) \ne 0$.
 
 	Since $h$ is continous and $h(\bar{z}) \ne 0$.
@@ -1227,12 +1227,12 @@ Then there is an $n$-ball $B$ about $\bar{a}$ on which $f$ is injective.
 	And the line segment $L(\bar{x},\bar{y}) \subset B(\bar{a})$.
 	The function $f$ is differentiable on $S$.
 	On applying mean-value theorem to each component of $f$, we get
-	\[ 0 = f_i(\bar{y})-f_i(\bar{x}) = \nabla f_i(\bar{Z}_i)\cdot(\bar{y}-\bar{x}),\ i=1,2,\cdots \]
+	\[ 0 = f_i(\bar{y})-f_i(\bar{x}) = \nabla f_i(\bar{Z}_i)\cdot(\bar{y}-\bar{x}),\ i=1,2,\dotsc \]
 	where $\bar{Z}_i \in L(\bar{x},\bar{y}) \subset B(\bar{a})$.
 	Therefore, We have
 	\[ \sum_{k=1}^n D_kf_i(\bar{Z}_i)(y_k-x_k) = 0 \]
-	The determinant of this system of linear equations is nonzero, as the function $f$ has nonzero jacobian determinant at $\bar{Z}_i \in B(\bar{a})$ for $i = 1,2,\cdots$.
-	Thus, $y_i = x_i$ for $i = 1,2,\cdots$. This contradicts $\bar{x} \ne \bar{y}$.
+	The determinant of this system of linear equations is nonzero, as the function $f$ has nonzero jacobian determinant at $\bar{Z}_i \in B(\bar{a})$ for $i = 1,2,\dotsc$.
+	Thus, $y_i = x_i$ for $i = 1,2,\dotsc$. This contradicts $\bar{x} \ne \bar{y}$.
 	Hence, the function $f$ is injective.
 \end{proof}
 
@@ -1308,8 +1308,8 @@ That is, $\forall x \in \bar{B},\ g(f(\bar{x})) = x$.
 Thus, $g(X) = Y$ and $g$ is unique.\\
 \begin{commentary}Step 3 : $g$ has continuous partial derivatives.\end{commentary}
 
-Define a real-valued function $h : S^n \to \mathbb{R}$ by $h(\bar{Z}) = \det[D_jf_i(\bar{Z}_i)]$ where $\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n \in S$ and $\bar{Z} = (\bar{Z}_1,\bar{Z}_2,\cdots,\bar{Z}_n)$.
-Now, let $\bar{Z} = (\bar{a},\bar{a},\cdots,\bar{a})$.
+Define a real-valued function $h : S^n \to \mathbb{R}$ by $h(\bar{Z}) = \det[D_jf_i(\bar{Z}_i)]$ where $\bar{Z}_1,\bar{Z}_2,\dots,\bar{Z}_n \in S$ and $\bar{Z} = (\bar{Z}_1,\bar{Z}_2,\dots,\bar{Z}_n)$.
+Now, let $\bar{Z} = (\bar{a},\bar{a},\dots,\bar{a})$.
 Then $h(\bar{Z}) \ne 0$ and $h$ is continuous on $S^n$.
 Therefore, $\bar{Z}$ has a neighbourhood on which $h$ does not vanish (that is, nonzero).
 Let $B_2(\bar{a})$ be the corresponding $n$-ball with center $\bar{a}$ such that $\bar{Z}_i \in B_2(\bar{a}) \implies h(\bar{Z}) \ne 0$.
@@ -1318,8 +1318,8 @@ Let $B$ be an $n$-ball with center $\bar{a}$ contained in $B_2(\bar{a})$.
 Now $\bar{B} \subset B_2(\bar{a})$.
 And $h(\bar{Z}) \ne 0,\ \forall \bar{Z}_i \in \bar{B}$.
 
-We have, $g = (g_1, g_2, \cdots,g_n)$.
-It is enough to prove that $g_k \in C'$ for $k=1,2,\cdots,n$.
+We have, $g = (g_1, g_2, \dots,g_n)$.
+It is enough to prove that $g_k \in C'$ for $k=1,2,\dots,n$.
 Again, it is enough to prove that $D_rg_k$ exists and is continuous for $1 \le r \le n$.
 (Fix some $r$ and prove that $D_rg_k$ is continuous.)
 
@@ -1360,9 +1360,9 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 \end{theorem}
 \begin{proof}
 	Given $f : S \to \mathbb{R}^n$ where $S \subset \mathbb{R}^{n+k}$.
-	We have $f = (f_1,f_2,\cdots,f_m)$.
+	We have $f = (f_1,f_2,\dots,f_m)$.
 	Also given that $f \in C'(S)$, $f(\bar{x}_0;\bar{t}_0) = 0$, and $J_f(\bar{x}_0;\bar{t}_0) \ne 0$.
-	Define a function $F : S \to \mathbb{R}^{n+k}$ defined by $F = (F_1,F_2,\cdots,F_{n+k})$.
+	Define a function $F : S \to \mathbb{R}^{n+k}$ defined by $F = (F_1,F_2,\dots,F_{n+k})$.
 	\[ F_m(\bar{x};\bar{t}) = \begin{cases}
 		f_m(\bar{x};\bar{t}) & 1 \le m \le n\\
 		t_{m-n} & n < m \le n+k
@@ -1377,15 +1377,15 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 	Then the Jacobian determinant of $F'(\bar{x};\bar{t})$ is given by
 	\[ J_F(\bar{x};\bar{t}) = \begin{vmatrix}
 		\begin{matrix}
-			D_1f_1 & D_2f_1 & \cdots & D_mf_1 \\
-			D_1f_2 & D_2f_2 & \cdots & D_mf_2 \\
+			D_1f_1 & D_2f_1 & \dots & D_mf_1 \\
+			D_1f_2 & D_2f_2 & \dots & D_mf_2 \\
 			\vdots & \vdots & \ddots & \vdots \\
-			D_1f_m & D_2f_m & \cdots & D_mf_m
+			D_1f_m & D_2f_m & \dots & D_mf_m
 		\end{matrix}
-		& 0 & \cdots & 0 \\
-		0 & 1 & \cdots & 0 \\
+		& 0 & \dots & 0 \\
+		0 & 1 & \dots & 0 \\
 		\vdots & \vdots & \ddots & \vdots \\
-		0 & 0 & \cdots & 1 
+		0 & 0 & \dots & 1 
 	\end{vmatrix} \]
 	Thus $J_F(\bar{x}_0;\bar{t}_0) = J_f(\bar{x}_0;\bar{t}_0) \ne 0$.
 	Also, $F(\bar{x}_0;\bar{t}_0) = (\bar{0};\bar{t}_0)$.
@@ -1427,7 +1427,7 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 \begin{theorem}[sufficient condition for local extrema]
 	Let $n \ge 1$ and function $f$ has $n$th partial derivative in open interval $(a,b)$.
 	Suppose for some $c \in (a,b)$,
-	\[ f'(c) = f''(c) = \cdots = f^{(n-1)}(c) = 0 \text{ and } f^{(n)}(c) \ne 0 \]
+	\[ f'(c) = f''(c) = \dots = f^{(n-1)}(c) = 0 \text{ and } f^{(n)}(c) \ne 0 \]
 	If $n$ is even,
 \begin{enumerate}
 	\item $f$ has a local minimum at $c$ if $f^{(n)}(c)>0$
@@ -1443,7 +1443,7 @@ Therefore, $D_rg_k$ are all continuous and $g \in C'$.
 		f(x) = f(c) + \sum_{k = 1}^{n-1} \frac{f^{(k)}(c)}{k!}(x-c)^k + \frac{f^{(n)}(x_1)}{n!} (x-c)^n
 	\end{equation}
 	where $x_1 \in L(x,c)$, the line connecting $x$ and $c$.
-	We have, $f^{(k)}(c) = 0$ for $k = 1,2,\cdots,n-1$.
+	We have, $f^{(k)}(c) = 0$ for $k = 1,2,\dots,n-1$.
 	Thus,
 	\[ f(x)-f(c) = \frac{f^{(n)}(x_1)}{n!} (x-c)^n \]
 	Case 1 : $n$ is even.
@@ -1597,10 +1597,10 @@ Then we have,
 	Let $f$ be a continuous, real-valued function on $I^k$.
 	Then, the \textbf{integral} of $f$ over $I^k$ is given by,
 	\[ \int_{I^k}f(\bar{x}) d\bar{x} = f_0 \text{ where } f_k = f \text{ and } \]
-	\[ f_{r-1} = \int_{a_r}^{b_r} f_r(x_0,x_1,\cdots,x_r) dx_r,\ r = 1,2,\cdots,k \]
+	\[ f_{r-1} = \int_{a_r}^{b_r} f_r(x_0,x_1,\dots,x_r) dx_r,\ r = 1,2,\dots,k \]
 \begin{commentary}
 	In other words,
-	\[ \int_{I^k} f(\bar{x})\ d\bar{x} = \idotsint_{a_k}^{b_k} \left[f(x_0,x_1,\cdots,x_k)\ dx_k\right]\ dx_{k-1}\cdots dx_1 \]
+	\[ \int_{I^k} f(\bar{x})\ d\bar{x} = \idotsint_{a_k}^{b_k} \left[f(x_0,x_1,\dots,x_k)\ dx_k\right]\ dx_{k-1} \dotsm dx_1 \]
 \end{commentary}
 \end{definition}
 
@@ -1619,7 +1619,7 @@ Then we have,
 	It is only for the purpose of understanding.)
 \end{commentary}
 
-Let $h(\bar{x}) = h_1(x_1)h_2(x_2)\cdots h_k(x_k)$ where $h_j \in [a_j,b_j]$.
+Let $h(\bar{x}) = h_1(x_1)h_2(x_2)\dots h_k(x_k)$ where $h_j \in [a_j,b_j]$.
 	\[ L(h) = \int_{I^k} \left(\prod_{i = 1}^k h_i(x_i)\right) d\bar{x} = \prod_{i = 1}^k \int_{a_k}^{b_k} h_i(x_i)\ dx_i = L'(h) \]
 \begin{commentary}Step 2 : Algebra of ``separable'' functions, $\mathscr{A}$.\end{commentary}
 
@@ -1714,7 +1714,7 @@ Therefore, $L(f) = L'(f)$.
 
 \begin{theorem}
 	Suppose $F$ is a $\mathscr{C}'$-mapping of an open set $E \subset \mathbb{R}^n$ into $\mathbb{R}^n$, $\bar{0} \in E$, $F(\bar{0}) = \bar{0}$, and $F'(\bar{0})$ is invertible.
-	Then there is a neighbourhood of $\bar{0}$ in $\mathbb{R}^n$ in which the representation $F(\bar{x}) = B_1B_2\cdots B_{n-1}G_n\circ G_{n-1}\circ \cdots G_1(\bar{x})$ is valid where $G_i$ are primitive $\mathscr{C}'$-mapping in some neighbourhood of $\bar{0}$, $G_i(\bar{0}) = \bar{0}$, $G'(\bar{0})$ is invertible and each $B_i$ is either a flip or identity operator.
+	Then there is a neighbourhood of $\bar{0}$ in $\mathbb{R}^n$ in which the representation $F(\bar{x}) = B_1B_2 \dotsm B_{n-1}G_n\circ G_{n-1}\circ \dotsm \circ G_1(\bar{x})$ is valid where $G_i$ are primitive $\mathscr{C}'$-mapping in some neighbourhood of $\bar{0}$, $G_i(\bar{0}) = \bar{0}$, $G'(\bar{0})$ is invertible and each $B_i$ is either a flip or identity operator.
 
 \begin{commentary}
 	In other words, locally $F$ is a composition of primitive mappings and flips.
@@ -1729,10 +1729,10 @@ Proof by mathematical induction on $m$.
 	F_m'(\bar{0}) & \text{ is invertible and }\\
 	P_{m-1}F_m(\bar{x}) & = P_{m-1}\bar{x},\ \bar{x} \in V_m
 \end{align}
-	where the $k$th projection $P_k : \mathbb{R}^n \to \mathbb{R}^n$ is defined by $P_k(\bar{x}) = x_1\bar{e}_1 + x_2\bar{e}_2 + \cdots + x_k\bar{e}_k + 0\bar{e}_{k+1} + \cdots + 0\bar{e}_n$.
+	where the $k$th projection $P_k : \mathbb{R}^n \to \mathbb{R}^n$ is defined by $P_k(\bar{x}) = x_1\bar{e}_1 + x_2\bar{e}_2 + \dotsb + x_k\bar{e}_k + 0\bar{e}_{k+1} + \dotsb + 0\bar{e}_n$.
 Clearly, $P_0(\bar{x}) = \bar{0}$.
 
-	The essence of this proof lies in the fourth statement which is designed to construct a seqeunce of functions $F_1,F_2,\cdots,F_n$ such that the other three statements remains true for every function in this sequence.\\
+	The essence of this proof lies in the fourth statement which is designed to construct a seqeunce of functions $F_1,F_2,\dots,F_n$ such that the other three statements remains true for every function in this sequence.\\
 \end{commentary}
 
 \begin{commentary}Step 1 : Initial Case, prove that all the four statements are true for $m = 1$.\end{commentary}
@@ -1741,13 +1741,13 @@ Define $F_1 = F$ and $V_1 = E$.
 Thus, $F \in \mathscr{C}'(E) \implies F_1 \in \mathscr{C}'(V_1)$.
 Also we have, $F_1(\bar{0}) = F(\bar{0}) = 0$, and $F_1'(\bar{0}) = F'(\bar{0})$ is invertible.
 Obviously the trivial projection, $P_0(F_1(\bar{x})) = P_0(F(\bar{x})) = \bar{0} = P_0(\bar{x})$ for every $\bar{x} \in V_1$.\\
-\begin{commentary}Step 2 : Induction Hypothesis, suppose all the four statements are true for $m = 1,2,\cdots,n-1$.\end{commentary}
+\begin{commentary}Step 2 : Induction Hypothesis, suppose all the four statements are true for $m = 1,2,\dots,n-1$.\end{commentary}
 
-Suppose that for each $m = 1,2,\cdots,n-1$, there exists a neighbourhood of $\bar{0}$, say $V_m$ such that $F_m \in \mathscr{C}'(V_m),\ F_m(\bar{0}) = \bar{0},\ F_m'(\bar{0})$ is invertible and $P_{m-1}F_m(\bar{x}) = P_{m-1}(\bar{x})$ for every $\bar{x} \in V_m$.\\
+Suppose that for each $m = 1,2,\dots,n-1$, there exists a neighbourhood of $\bar{0}$, say $V_m$ such that $F_m \in \mathscr{C}'(V_m),\ F_m(\bar{0}) = \bar{0},\ F_m'(\bar{0})$ is invertible and $P_{m-1}F_m(\bar{x}) = P_{m-1}(\bar{x})$ for every $\bar{x} \in V_m$.\\
 \begin{commentary}Step 3 : Induction Step, prove that all the four statements are true for $m = n$.\end{commentary}
 \begin{align*}
 	P_{m-1}F_m(\bar{x}) & = P_{m-1}\bar{x},\ \bar{x} \in V_m \\
-	& = x_1\bar{e}_1 + x_2\bar{e}_2 + \cdots + x_{m-1}\bar{e}_{m-1} 
+	& = x_1\bar{e}_1 + x_2\bar{e}_2 + \dotsb + x_{m-1}\bar{e}_{m-1} 
 	\intertext{We may write remaining components of $F_m(\bar{x})$ using real-valued functions. That is, $k$th component of the function $F_m$, say $F_{m_k} = \alpha_k$.}
 	F_m(\bar{x}) & = P_{m-1}(\bar{x}) + \sum_{i = m}^n \alpha_i(\bar{x})\bar{e}_i
 \end{align*}
@@ -1772,13 +1772,13 @@ Then $F_m \in \mathscr{C}'(V_{m+1})$, $F_{m+1}(\bar{0}) = 0$ and $F_{m+1}'(\bar{
 Also, for $\bar{x} \in U_m$, we have
 \begin{align*}
 	P_mF_{m+1}(G_m(\bar{x})) & = P_m B_m F_m (\bar{x}) \\
-	& = P_m (P_{m-1}\bar{x} + \alpha_k(\bar{x}\bar{e}_m + \cdots) \\
+	& = P_m (P_{m-1}\bar{x} + \alpha_k(\bar{x}\bar{e}_m + \dotsb) \\
 	& = P_{m-1}\bar{x} + \alpha_k(\bar{x})\bar{e}_m \\
 	& = P_m G_m(\bar{x})\\
 	\implies P_mF_{m+1}(\bar{y}) & = P_m(\bar{y})
 \end{align*}
-Thus, by mathematical induction, we have characterised a finite sequence of function $F_1,F_2,\cdots,F_n$ such that all the four statements are true.\\
-\begin{commentary}Step 4 : Using the finite sequence of functions $F_1, F_2, \cdots, F_n$ constructed in the proof, we can represent $F$ in terms of flips and primitive mappings.\end{commentary}
+Thus, by mathematical induction, we have characterised a finite sequence of function $F_1,F_2,\dots,F_n$ such that all the four statements are true.\\
+\begin{commentary}Step 4 : Using the finite sequence of functions $F_1, F_2, \dots, F_n$ constructed in the proof, we can represent $F$ in terms of flips and primitive mappings.\end{commentary}
 
 Let $\bar{x} \in U_m$ and $\bar{y} = G_m(\bar{x})$. We have,
 \begin{align*}
@@ -1788,7 +1788,7 @@ Let $\bar{x} \in U_m$ and $\bar{y} = G_m(\bar{x})$. We have,
 	F_m(\bar{x}) & = B_m(F_{m+1}(G_m(\bar{x}))\\
 \end{align*}
 \begin{equation}
-	\text{Thus, } F_m = B_m F_{m+1} \circ G_m,\ m = 1,2,\cdots, n
+	\text{Thus, } F_m = B_m F_{m+1} \circ G_m,\ m = 1,2,\dots, n
 \end{equation}
 Therefore, we have
 \begin{align*}
@@ -1796,27 +1796,27 @@ Therefore, we have
 	& = B_1F_2\circ G_1 \\
 	& = B_1 (B_2F_3 \circ G_2) \circ G_1 = B_1B_2F_3 \circ G_2 \circ G_1 \\
 	& \vdots \\
-	F & = B_1 B_2 \cdots B_n F_n \circ G_{n-1} \circ G_{n-2} \circ \cdots \circ G_1
+	F & = B_1 B_2 \dotsm B_n F_n \circ G_{n-1} \circ G_{n-2} \circ \dotsm \circ G_1
 	\intertext{Since $P_n F_n(\bar{x}) = P_{n-1}(\bar{x})$, $F_n$ is a primitive mapping, say $G_n$.}
-	F & = B_1 B_2 \cdots B_n G_n \circ G_{n-1} \circ G_{n-2} \circ \cdots \circ G_1
+	F & = B_1 B_2 \dotsm B_n G_n \circ G_{n-1} \circ G_{n-2} \circ \dotsm \circ G_1
 \end{align*}
 \end{proof}
 
 \begin{remark}
 	Let $K$ be a compact subset of $\mathbb{R}^n$.
-	Then a family of function $\psi_1,\psi_2,\cdots,\psi_s$ where $\psi_j : K \to \mathbb{R}$ is a partition of unity if it satisfies
+	Then a family of function $\psi_1,\psi_2,\dots,\psi_s$ where $\psi_j : K \to \mathbb{R}$ is a partition of unity if it satisfies
 	\begin{enumerate}
-		\item $0 \le \psi_j(\bar{x}) \le 1$ for every $\bar{x} \in K,\ j = 1,2,\cdots, s$.
+		\item $0 \le \psi_j(\bar{x}) \le 1$ for every $\bar{x} \in K,\ j = 1,2,\dots, s$.
 		\item $\sum\limits_{j=1}^s \psi_j(\bar{x}) = 1$ for every $\bar{x} \in K$.
 	\end{enumerate}
 \end{remark}
 \begin{theorem}[partitions of unity]
 	Suppose $K$ is a compact subset of $\mathbb{R}^n$, and $\{V_\alpha\}$ is an open cover of $K$.
-	Then there exists functions $\psi_1,\psi_2,\cdots,\psi_s \in \mathscr{C}(\mathbb{R}^n)$ such that
+	Then there exists functions $\psi_1,\psi_2,\dots,\psi_s \in \mathscr{C}(\mathbb{R}^n)$ such that
 	\begin{enumerate}
 		\item $0 \le \psi_i \le 1$ for $1 \le i \le s$
 		\item each $\psi_i$ has its support in some $V_\alpha$ and
-		\item $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
+		\item $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \dotsb + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
 	\end{enumerate}
 	\begin{commentary}
 		In other words, every open cover of a compact subset of $\mathbb{R}^n$ has a partition of unity with compact support in a finite subcover.
@@ -1834,10 +1834,10 @@ Therefore, we have
 		\bar{x} \in B(\bar{x}) \subset \bar{B}(\bar{x}) \subset W(\bar{x}) \subset \bar{W}(\bar{x}) \subset V_{\alpha(\bar{x})}
 	\end{equation}
 	The family $\{ B(\bar{x}) \}$ is an open cover of $K$.
-	Since $K$ is compact, the open cover $\{ B(\bar{x}) \}$ has a finite subcover, say $\{ B(\bar{x}_1),B(\bar{x}_2),\cdots,B(\bar{x}_s) \}$.
-	That is, there are points $\bar{x}_1,\bar{x}_2,\cdots,\bar{x}_s$ in $K$ such that
+	Since $K$ is compact, the open cover $\{ B(\bar{x}) \}$ has a finite subcover, say $\{ B(\bar{x}_1),B(\bar{x}_2),\dots,B(\bar{x}_s) \}$.
+	That is, there are points $\bar{x}_1,\bar{x}_2,\dots,\bar{x}_s$ in $K$ such that
 	\begin{equation}
-		K = B(\bar{x}_1) \cup B(\bar{x}_2) \cup \cdots \cup B(\bar{x}_s)
+		K = B(\bar{x}_1) \cup B(\bar{x}_2) \cup \dotsb \cup B(\bar{x}_s)
 	\end{equation}
 	Since $\mathbb{R}^n$ is a metric space,\footnote{metric spaces have a simpler version of Urysohn's lemma or apply Urysohn's lemma}
 	there exists continuous functions $\phi_j : \mathbb{R}^n \to [0,1]$
@@ -1851,9 +1851,9 @@ Therefore, we have
 		\text{Define, } \psi_1 & = \phi_1 \\
 		\psi_2 & = (1-\phi_1)\phi_2\\
 		& \vdots\\
-		\psi_s & = (1-\phi_1)(1-\phi_2)\cdots(1-\phi_{s-1})\phi_s
+		\psi_s & = (1-\phi_1)(1-\phi_2) \dotsm (1-\phi_{s-1})\phi_s
 	\end{align*}
-	Clearly, $0 \le \psi_j \le 1$ for $j = 1,2,\cdots,s$.
+	Clearly, $0 \le \psi_j \le 1$ for $j = 1,2,\dots,s$.
 	And $\psi_j$ has a compact support in $W(\bar{x}_j) \subset V_{\alpha(\bar{x}_j)}$.\\
 	\begin{commentary}
 		Step 3 : $\{\psi_j\}$ is a partition of unity.
@@ -1861,28 +1861,28 @@ Therefore, we have
 
 	We claim that,
 	\begin{equation}
-		\psi_1+\psi_2 + \cdots+\psi_j = 1 - (1-\phi_1)(1-\phi_2)\cdots(1-\phi_j),\ j = 1,2,\cdots,s
+		\psi_1+\psi_2 + \dotsb+\psi_j = 1 - (1-\phi_1)(1-\phi_2) \dotsm (1-\phi_j),\ j = 1,2,\dots,s
 	\end{equation}
 	It is proved using mathematical induction on $j$.
 	Clearly, it is true for $j = 1$.
 	$\psi_1 = \phi_1 = 1 - 1 + \phi = 1 - (1-\phi)$.
 	Suppose the claim is true for $j = k$ for some $1 \le k < s$.
-	Then we have, $\psi_1 + \psi_2 + \cdots + \psi_k = 1-(1-\phi_1)(1-\phi_2)\cdots(1-\phi_k)$.
+	Then we have, $\psi_1 + \psi_2 + \dotsb + \psi_k = 1-(1-\phi_1)(1-\phi_2) \dotsm (1-\phi_k)$.
 	\begin{align*}
-		\text{Thus, }\psi_1 + \psi_2 + \cdots + \psi_k + \psi_{k+1} = & 1-(1-\phi_1)(1-\phi_2)\cdots(1-\phi_k) \\
-		& + (1-\phi_1)(1-\phi_2)\cdots(1-\phi_k)\phi_{k+1}\\
-		= & 1-(1-\phi_1)(1-\phi_2)\cdots(1-\phi_{k+1})
+		\text{Thus, }\psi_1 + \psi_2 + \dotsb + \psi_k + \psi_{k+1} = & 1-(1-\phi_1)(1-\phi_2) \dotsm (1-\phi_k) \\
+		& + (1-\phi_1)(1-\phi_2) \dotsm (1-\phi_k)\phi_{k+1}\\
+		= & 1-(1-\phi_1)(1-\phi_2) \dotsm (1-\phi_{k+1})
 	\end{align*}
-	Thus, the claim is true for $j = 1,2,\cdots,s$.
+	Thus, the claim is true for $j = 1,2,\dots,s$.
 	Let $\bar{x} \in K$.
 	Then $\bar{x} \in B(\bar{x}_j)$ for some $j$.
 	By definition of $\phi_j$, $\phi_j(\bar{x}) = 1$.
 	That is, $(1-\phi_j(\bar{x})) = 0$.
 	\begin{align*}
-		\implies (1-\phi_1(\bar{x}))(1-\phi_2(\bar{x}))\cdots(1-\phi_s(\bar{x})) & = 0 \\
-		\implies \psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) & = 1
+		\implies (1-\phi_1(\bar{x}))(1-\phi_2(\bar{x})) \dotsm (1-\phi_s(\bar{x})) & = 0 \\
+		\implies \psi_1(\bar{x}) + \psi_2(\bar{x}) + \dotsb + \psi_s(\bar{x}) & = 1
 	\end{align*}
-	Therefore, $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \cdots + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
+	Therefore, $\psi_1(\bar{x}) + \psi_2(\bar{x}) + \dotsb + \psi_s(\bar{x}) = 1$ for every $\bar{x} \in K$.
 \end{proof}
 
 \begin{definition}
@@ -1925,7 +1925,7 @@ Therefore, we have
 
 	Let $E$ be an open subset of $\mathbb{R}^k$.
 	We claim that\footnote{This proof is my own work. There may exist simpler proofs.}
-	the theorem is true for functions $h : E \to \mathbb{R}$ of the form $h(\bar{y}) = h_1(y_1)h_2(y_2)\cdots h_k(y_k)$.
+	the theorem is true for functions $h : E \to \mathbb{R}$ of the form $h(\bar{y}) = h_1(y_1)h_2(y_2) \dotsm h_k(y_k)$.
 	We know that, every continuous function $T$ is locally a composition of primitives and flips.
 	Therefore it is enough to prove that the theorem is true for functions $h$ with transformations $T$ primitives, flips and their compositions.\\
 	\begin{commentary}
@@ -1935,25 +1935,25 @@ Therefore, we have
 	Let $G$ be a primitive with change in $m$th coordinate.
 	Then
 	\begin{equation}
-		G(\bar{x}) = x_1\bar{e}_1 + x_2\bar{e}_2 + \cdots + g(\bar{x})\bar{e}_m + \cdots + x_k\bar{e}_k
+		G(\bar{x}) = x_1\bar{e}_1 + x_2\bar{e}_2 + \dotsm + g(\bar{x})\bar{e}_m + \dotsm + x_k\bar{e}_k
 	\end{equation}
 	We have,
 	\begin{equation}
 		J_G(\bar{x}) = \begin{vmatrix}
-			1 & 0 & \cdots & 0 & \cdots & 0 & 0 \\
-			0 & 1 & \cdots & 0 & \cdots & 0 & 0 \\
+			1 & 0 & \dots & 0 & \dots & 0 & 0 \\
+			0 & 1 & \dots & 0 & \dots & 0 & 0 \\
 			\vdots & \vdots & \ddots & \vdots & \iddots & \vdots & 0 \\ 
-			D_1g(\bar{x}) & D_2g(\bar{x}) & \cdots & D_mg(\bar{x}) & \cdots & D_{k-1}g(\bar{x}) & D_kg(\bar{x}) \\
+			D_1g(\bar{x}) & D_2g(\bar{x}) & \dots & D_mg(\bar{x}) & \dots & D_{k-1}g(\bar{x}) & D_kg(\bar{x}) \\
 			\vdots & \vdots & \iddots & 0 & \ddots & \vdots & \vdots \\
-			0 & 0 & \cdots & 0 & \cdots & 1 & 0 \\
-			0 & 0 & \cdots & 0 & \cdots & 0 & 1 
+			0 & 0 & \dots & 0 & \dots & 1 & 0 \\
+			0 & 0 & \dots & 0 & \dots & 0 & 1 
 		\end{vmatrix}
 	\end{equation}
 	Therefore, $J_G(\bar{x}) = D_mg(\bar{x})$.
 	\begin{align*}
 		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \prod_{j = 1}^k \int h_j(y_j)\ dy_j\\
 		& = \left( \prod_{j \ne m} \int h_j(y_j)\ dy_j \right) \int h_m(y_m)\ dy_m \\
-		G(\bar{x}) = \bar{y} \implies & (x_1,x_2,\cdots,g(\bar{x}),\cdots,x_k) = (y_1,y_2,\cdots,y_m,\cdots,y_k)\\
+		G(\bar{x}) = \bar{y} \implies & (x_1,x_2,\dots,g(\bar{x}),\dots,x_k) = (y_1,y_2,\dots,y_m,\dots,y_k)\\
 		\implies & x_j = y_j \text{ for } j \ne m \text{ and } g(\bar{x}) = y_m\\
 		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \left( \prod_{j \ne m} \int h_j(x_j)\ 1\ dx_j \right) \int h_m(g(\bar{x}))\ D_mg(\bar{x})\ dx_m \\
 		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \int_{\mathbb{R}^k} h(G(\bar{x}))\ |J_G(\bar{x})|\ d\bar{x}\\
@@ -1965,23 +1965,23 @@ Therefore, we have
 	Let $B$ be a flip that interchanges $m$ and $n$ coordinates.
 	When $m = n$, $B$ is an identity map and the theorem is trivially true.
 	\begin{equation}
-		B(\bar{x}) = x_1\bar{e}_1 + \cdots + x_n\bar{e}_m + \cdots +  x_m\bar{e}_n + \cdots + x_k\bar{e}_k
+		B(\bar{x}) = x_1\bar{e}_1 + \dotsb + x_n\bar{e}_m + \dotsb +  x_m\bar{e}_n + \dotsb + x_k\bar{e}_k
 	\end{equation}
 	The Jacobian matrix is an identity matrix with $m$th and $n$th rows interchanged.
 	For example,
 	\begin{equation}
 		J_B(\bar{x}) = \begin{vmatrix}
-			0 & 1 & \cdots & 0 \\
+			0 & 1 & \dots & 0 \\
 			1 & 0 & \vdots & 0 \\
 			\vdots & \vdots & \ddots & \vdots \\
-			0 & 0 & \cdots &  1
+			0 & 0 & \dots &  1
 		\end{vmatrix}
 	\end{equation}
 	Therefore, $J_B(\bar{x}) = \pm 1$.
 	\begin{align*}
 		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \prod_{j = 1}^k \int h_j(y_j)\ dy_j\\
 		& = \left( \prod_{j \ne m,n} \int h_j(y_j)\ dy_j \right) \int h_n(y_n)\ dy_n \int h_m(y_m)\ dy_m \\
-		B(\bar{x}) = \bar{y} \implies & (x_1,\cdots,x_n,\cdots,x_m,\cdots,x_k) = (y_1,\cdots,y_m,\cdots,y_n,\cdots,y_k)\\
+		B(\bar{x}) = \bar{y} \implies & (x_1,\dots,x_n,\dots,x_m,\dots,x_k) = (y_1,\dots,y_m,\dots,y_n,\dots,y_k)\\
 		\int_{\mathbb{R}^k} h(\bar{y})\ d\bar{y} & = \left( \prod_{j \ne m,n} \int h_j(x_j)\ dx_j \right) \int h_n(x_m)\ dx_n \int h_m(x_n)\ dx_m \\
 		& = \int_{\mathbb{R}^k} h(B(\bar{x}))\ 1\ d\bar{x} = \int_{\mathbb{R}^k} h(B(\bar{x}))\ |J_B(\bar{x}|\ d\bar{x}
 	\end{align*}
@@ -2023,20 +2023,20 @@ Therefore, we have
 	Suppose $E$ is an open set in $\mathbb{R}^n$.
 	A \textbf{differential form} of order $k \ge 1$ in $E$, a $k$-form in $E$ is a function $\omega$,
 	symbolically represented by the sum
-	\begin{equation} \omega = \sum a_{i1\cdots ik}(\bar{x})\ dx_{i1}\wedge dx_{i2} \wedge \cdots dx_{ik}
+	\begin{equation} \omega = \sum a_{i1 \dotsm ik}(\bar{x})\ dx_{i1}\wedge dx_{i2} \wedge \dotsm \wedge dx_{ik}
 	\end{equation}
 	which assigns to each $k$-surface $\Phi$ in $E$ a number $\omega(\Phi) = \int_{\Phi} \omega $,
 	according to the rule
 	\begin{equation}
-		\int_{\Phi} \omega = \int_D \sum a_{i1\cdots ik}(\Phi(\bar{u})) \frac{\partial(x_{i1},x_{i2},\cdots,x_{ik})}{\partial(u_1,u_2,\cdots,u_k)}d\bar{u}
+		\int_{\Phi} \omega = \int_D \sum a_{i1 \dotsm ik}(\Phi(\bar{u})) \frac{\partial(x_{i1},x_{i2},\dots,x_{ik})}{\partial(u_1,u_2,\dots,u_k)}d\bar{u}
 	\end{equation}
 	where $D$ is the paramter domain of $\Phi$ and
 	\begin{equation}
-	\frac{\partial(x_{i1},x_{i2},\cdots,x_{ik})}{\partial(u_1,u_2,\cdots,u_k)} = \begin{vmatrix}
-		\frac{\partial x_{i1}}{\partial u_1} & \frac{\partial x_{i1}}{\partial u_2} & \cdots & \frac{\partial x_{i1}}{\partial u_k} \\
-		\frac{\partial x_{i2}}{\partial u_1} & \frac{\partial x_{i2}}{\partial u_2} & \cdots & \frac{\partial x_{i2}}{\partial u_k} \\
+	\frac{\partial(x_{i1},x_{i2},\dots,x_{ik})}{\partial(u_1,u_2,\dots,u_k)} = \begin{vmatrix}
+		\frac{\partial x_{i1}}{\partial u_1} & \frac{\partial x_{i1}}{\partial u_2} & \dots & \frac{\partial x_{i1}}{\partial u_k} \\
+		\frac{\partial x_{i2}}{\partial u_1} & \frac{\partial x_{i2}}{\partial u_2} & \dots & \frac{\partial x_{i2}}{\partial u_k} \\
 		\vdots & \vdots & \ddots & \vdots \\
-		\frac{\partial x_{ik}}{\partial u_1} & \frac{\partial x_{ik}}{\partial u_2} & \cdots & \frac{\partial x_{ik}}{\partial u_k} \\
+		\frac{\partial x_{ik}}{\partial u_1} & \frac{\partial x_{ik}}{\partial u_2} & \dots & \frac{\partial x_{ik}}{\partial u_k} \\
 	\end{vmatrix}
 	\end{equation}
 \end{definition}
@@ -2055,7 +2055,7 @@ Therefore, we have
 	\begin{equation}
 		\omega(\Phi) = \int_\Phi \omega =  \iint_D \omega_\Phi(x,y) \frac{\partial ( \Phi_{i_1}, \Phi_{i_2})}{\partial ( x, y) } dx\ dy
 	\end{equation}
-	where $\omega_{\Phi}(x,y)$ is obtained by evaluating each function $a_{i_1i_2\cdots i_k}(\Phi(x,y))$.
+	where $\omega_{\Phi}(x,y)$ is obtained by evaluating each function $a_{i_1 i_2 \dotsm i_k}(\Phi(x,y))$.
 
 	\begin{align*}
 		\omega(\Phi) & = \iint_D a_{1,3}(\Phi(x,y)) \begin{vmatrix} \frac{\partial \Phi_1}{\partial x} & \frac{\partial \Phi_1}{\partial y} \\
@@ -2104,15 +2104,15 @@ Therefore, we have
 \end{remark}
 
 \begin{remark}
-	A $k$-form $\omega$ is of class $\mathscr{C}'$ or $\mathscr{C}''$ if the functions $a_{i1\cdots ik}$ are all of class $\mathscr{C}'$ or $\mathscr{C}''$.
+	A $k$-form $\omega$ is of class $\mathscr{C}'$ or $\mathscr{C}''$ if the functions $a_{i1 \dotsm ik}$ are all of class $\mathscr{C}'$ or $\mathscr{C}''$.
 	A $0$-form in $E$ is defined to be a continuous function in $E$.
 	And $0$ is the only $k$-form in any open set $E \subset \mathbb{R}^n$.
 \end{remark}
 
 \begin{definition}
-	Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \cdots \wedge {dx_i}_k$.
+	Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \dotsm \wedge {dx_i}_k$.
 	Then \textbf{$\bar{\omega}$} is the $k$-form obtained by interchanging a pair subscripts of $\omega$.
-	ie, $\bar{\omega} = a(\bar{x})\ {dx_i}_2 \wedge {dx_i}_1 \wedge \cdots \wedge {dx_i}_k$. 
+	ie, $\bar{\omega} = a(\bar{x})\ {dx_i}_2 \wedge {dx_i}_1 \wedge \dotsm \wedge {dx_i}_k$. 
 \end{definition}
 
 \subsubsection{Elementary properties of $k$-forms}
@@ -2134,22 +2134,22 @@ Therefore, we have
 \end{definition}
 
 \begin{remark}
-	Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \cdots \wedge {dx_i}_k$. If $\bar{\omega} = \omega$, then $\omega = 0$. Since $\wedge$ is anticommutative.
+	Let $\omega = a(\bar{x})\ {dx_i}_1 \wedge {dx_i}_2 \wedge \dotsm \wedge {dx_i}_k$. If $\bar{\omega} = \omega$, then $\omega = 0$. Since $\wedge$ is anticommutative.
 
 	Thus, differential $k$-forms with repeated subscripts are $0$.
 	For example, $\omega = dx_i \wedge dx_j \wedge dx_i = 0$.
 \end{remark}
 
 \begin{definition}
-	Let $\bar{I} = (i_1,i_2,\cdots,i_k)$ be an \textbf{increasing $k$-index}.
-	That is, $1 \le i_1 \le i_2 \le \cdots i_k \le n$.
-	Then $dx_{\bar{I}}$ of the form $dx_{\bar{I}} = dx_{i1} \wedge dx_{i2} \cdots dx_{ik}$ is \textbf{basic $k$-form} in $\mathbb{R}^n$.
+	Let $\bar{I} = (i_1,i_2,\dots,i_k)$ be an \textbf{increasing $k$-index}.
+	That is, $1 \le i_1 \le i_2 \le \dotsb \le i_k \le n$.
+	Then $dx_{\bar{I}}$ of the form $dx_{\bar{I}} = dx_{i1} \wedge dx_{i2} \dotsm dx_{ik}$ is \textbf{basic $k$-form} in $\mathbb{R}^n$.
 \end{definition}
 
 \begin{remark} List of all basic $k$-forms
 	\begin{description}
 		\item[$0$-form] $0$
-		\item[$1$-forms] $dx_1$, $dx_2$, $\cdots$, $dx_n$
+		\item[$1$-forms] $dx_1, dx_2, \dots, dx_n$
 		\item[$2$-forms] $dx_i \wedge dx_j$ for every $1 \le i,j \le n$.
 		\item[$3$-forms] $dx_i \wedge dx_j \wedge dx_k$ for every $1 \le i,j,k \le n$.
 	\end{description}
@@ -2159,7 +2159,7 @@ Therefore, we have
 	There are $(^n_k)$ basic $k$-forms in $\mathbb{R}^n$.
 
 	Every $k$-form can be represented in terms of basic $k$-forms.
-	For every $k$-tuple $(j_1,j_2,\cdots,j_k)$, $dx_{j1} \wedge \cdots dx_{jk} = \sigma(j_1,j_2,\cdots,j_k)dx_{\bar{J}}$ where $\bar{J}$ is the increasing $k$-index obtained by interchanging pairs.
+	For every $k$-tuple $(j_1,j_2,\dots,j_k)$, $dx_{j1} \wedge \dotsm \wedge dx_{jk} = \sigma(j_1,j_2,\dots,j_k)dx_{\bar{J}}$ where $\bar{J}$ is the increasing $k$-index obtained by interchanging pairs.
 	And $\sigma$ maps odd permutations to $-1$ and even permutations to $1$.
 
 	Standard representation of a $k$-form

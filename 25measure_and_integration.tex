@@ -124,7 +124,7 @@
 		If $c \ne 0$, then $m(E \cup \phi) = m(E) + m(\phi) = c+k > k = m(E)$ is a contradiction.
 	\item $\displaystyle m\left(\bigcup_{k=1}^\infty E_k\right) \le \sum_{k=1}^\infty m(E_k)$\\
 		Define $\{ F_k : k \in \mathbb{N} \}$ by $F_k = E_k - \cup_{j = 1}^{k-1} E_j$\\
-		Then $F_1 = E_1$, $F_2 = E_2 - E_1$, $F_3 = E_3 - (E_1 \cup E_2)$, \dots\\
+		Then $F_1 = E_1$, $F_2 = E_2 - E_1$, $F_3 = E_3 - (E_1 \cup E_2), \dotsc$\\
 		Also $F_k \in \mathcal{A}$ and $F_k \subseteq E_k,\ \forall k \in \mathbb{N}$.
 		Thus $m(F_k) \le m(E_k),\ \forall k$
 		However, $\cup_{k=1}^\infty E_k = \cup_{k=1}^\infty F_k$\\
@@ -257,7 +257,7 @@
 \end{center}
 
 	Suppose $b_2 < b$.
-	Continuing like this we get, $N$ open intervals in $\mathcal{C}$, $\{ (a_k,b_k) : k = 1,2,\cdots,N \} $ such that $a_1 < a < b_1$ and $a_N < b < b_N$ and $a_k < b_{k-1} < b_k$ for all $k$.
+	Continuing like this we get, $N$ open intervals in $\mathcal{C}$, $\{ (a_k,b_k) : k = 1,2,\dots,N \} $ such that $a_1 < a < b_1$ and $a_N < b < b_N$ and $a_k < b_{k-1} < b_k$ for all $k$.
 	The process should terminate in finite steps as $\mathcal{C}$ is a finite cover of $[a,b]$.
 	Then $\displaystyle \sum_{k=1}^N l(I_k) \ge \sum_{k=1}^N l(a_k,b_k) \ge l(a_1,b_N) \ge b-a$.
 
@@ -312,7 +312,7 @@
 \end{tikzpicture}
 \end{center}
 
-	Clearly, every open cover of $[a,b]$ contains a finite subcover $\mathcal{C}$, which contains a finite subcover of the form $\{ (a_k,b_k) : k=1,2,\cdots,N \}$ such that $\displaystyle \sum_{k=1}^N l(I_k) \ge b-a$.
+	Clearly, every open cover of $[a,b]$ contains a finite subcover $\mathcal{C}$, which contains a finite subcover of the form $\{ (a_k,b_k) : k=1,2,\dots,N \}$ such that $\displaystyle \sum_{k=1}^N l(I_k) \ge b-a$.
 	Thus, for any open cover $\displaystyle \sum_{k=1}^\infty l(I_k) \ge b-a$.
 	And thus,
 	\begin{equation}
@@ -923,7 +923,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 \begin{enumerate}
 	\item
 	Suppose $\{ A_k \}_{k=1}^\infty$ be an ascending
-	\footnote{$\{A_k\}$ is ascending if $A_1 \subset A_2 \subset \dots$}
+	\footnote{$\{A_k\}$ is ascending if $A_1 \subset A_2 \subset \dotsb$}
 	collection of Lebesgue measurable sets.
 	Then, 
 	\begin{equation}
@@ -931,7 +931,7 @@ Let $A$ be a Lebesgue measurable set of finite measure and $A \subset B$.
 	\end{equation}
 	\item
 	Suppose $\{ B_k \}_{k=1}^\infty$ be an descending
-	\footnote{$\{A_k\}$ is ascending if $B_1 \supset B_2 \supset \dots$}
+	\footnote{$\{A_k\}$ is ascending if $B_1 \supset B_2 \supset \dotsb$}
 	collection of Lebesgue measurable sets and $m(B_1) < \infty$.
 	Then, 
 	\begin{equation}
@@ -1190,7 +1190,7 @@ That is, there doesn't exists a bounded set of positive measure which has counta
 	Thus, $\displaystyle \bigcap_{k=1}^\infty F_k \ne \phi$.
 	Let $x \in \displaystyle \bigcap_{k=1}^\infty F_k$.
 	Clearly $x \ne c_k$ for any $k$ as $\displaystyle c_k \notin F_k \implies c_k \notin \bigcap_{k=1}^\infty F_k$.
-	However, $x \in C$ which is a contradiction to the assumption that $C = \{ c_k : k = 1,2,\dots \}$.
+	However, $x \in C$ which is a contradiction to the assumption that $C = \{ c_k : k = 1,2,\dotsc \}$.
 	Therefore, elements of $C$ can't be enumerated.
 	In other words, $C$ is uncountable.
 \end{proof}
@@ -1635,7 +1635,7 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 \begin{proof}
 	Let $f$ be a bounded, measurable function on $E$.
 	Then there exists open, bounded interval $(c,d)$ such that $f(E) \subset (c,d)$.
-	Let $P = \{y_0,y_1,\dots,y_n\}$ be a partitions of open interval $(c,d)$ such that $y_0 =c < y_1 < \dots < y_{n-1} < y_n = d$ and $y_k - y_{k-1} < \varepsilon$ for every $k$.
+	Let $P = \{y_0,y_1,\dots,y_n\}$ be a partitions of open interval $(c,d)$ such that $y_0 =c < y_1 < \dotsb < y_{n-1} < y_n = d$ and $y_k - y_{k-1} < \varepsilon$ for every $k$.
 	Define $I_k = [y_{k-1},y_k)$ and $E_k = f^{-1}(I_k)$.
 	Then $E_k$ are measurable since $I_k$ are intervals and $f$ is measurable.({ \color{blue}Why ?})\\
 
@@ -1691,7 +1691,7 @@ Then each equivalent class of $E$ under above equivalence is also measurable by 
 		That is,
 		$\varphi_1' = max \{ \varphi_1 \} = \varphi_1$, and
 		$\varphi_2' = max \{ \varphi_1,\varphi_2 \}$, and
-		$\varphi_3' = max \{ \varphi_1,\varphi_2,\varphi_3 \}$, $\dots$
+		$\varphi_3' = max \{ \varphi_1,\varphi_2,\varphi_3 \}, \dotsc$
 		},
 	we have an increasing sequence of simple functions $\varphi_n \}$ converging to $f$ pointwise on $E$.
 \end{proof}
@@ -1740,7 +1740,7 @@ Out of syllabus - But important for our understanding of the subject.
 \section{Lebesgue Integration}
 \subsection{Riemann integral}
 \begin{definition}[partition]
-	A set $P = \{a,x_1,x_2,\dots,x_{n-1},b \}$ is a partition of an interval $[a,b]$ into $n$ subintervals if $a < x_1 < x_2 < \dots < x_{n-1} < b$.
+	A set $P = \{a,x_1,x_2,\dots,x_{n-1},b \}$ is a partition of an interval $[a,b]$ into $n$ subintervals if $a < x_1 < x_2 < \dotsb < x_{n-1} < b$.
 \end{definition}
 \begin{definition}[lower/upper Riemann integral]
 	Let $f$ be a bounded, real-valued function on a closed interval $[a,b]$ and $P$ be a partition of $[a,b]$.
@@ -1902,7 +1902,7 @@ Now we can prove that Lebesgue integral is a generalisation of Riemann integral 
 	\begin{equation*}
 		0 \le \psi_n - \varphi_n \le \frac{1}{n} \implies 0 \le \int_E \psi_n - \varphi_n  = \int_E \psi_n - \int_E \varphi_n \le \frac{1}{n} \int_E 1 \\
 	\end{equation*}
-	We know that, $\inf \{r_1,r_2,\dots\} \le r_k$ and $-\sup\{s_1,s_2,\dots\} \le -s_k$.
+	We know that, $\inf \{r_1,r_2,\dotsc\} \le r_k$ and $-\sup\{s_1,s_2,\dotsc\} \le -s_k$.
 	\begin{align*}
 		0 & \le \inf \left\{ \int_E \psi : \psi \text{ simple}, f \le \psi \right\} - \sup \left\{ \int_E \varphi : \varphi \text{ simple}, \varphi \le f \right\}\\
 		& \le \int_E \psi_n - \int_E \varphi_n \le \frac{1}{n} m(E)

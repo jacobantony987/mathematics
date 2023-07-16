@@ -36,7 +36,7 @@
 \subsection{Properties of Monotone Functions}
 \begin{theorem}
 	Let $f$ be an increasing function defined on closed interval $[a,b]$.
-	And let $x_0=a < x_1 < x_2 < \dots <x_{n-1} < x_n = b$.
+	And let $x_0=a < x_1 < x_2 < \dotsb <x_{n-1} < x_n = b$.
 	Then,
 	\[ \sum_{k = 1}^{n-1} [f(x_k+)-f(x_k-)] \le f(b) - f(a) \]
 \end{theorem}
@@ -74,7 +74,7 @@
 \subsection{Function of Bounded Variation}
 \begin{definition}[partition]
 	Let $[a,b]$ be a compact interval.
-	Let $x_0 = a$, $x_0 < x_1 < x_2 < \dots < x_n$ and $x_n = b$.
+	Let $x_0 = a$, $x_0 < x_1 < x_2 < \dotsb < x_n$ and $x_n = b$.
 	Then $P = \{ x_0,x_1,\dots,x_n \}$ is a \textbf{partition} of $[a,b]$.
 	And $(x_{k-1},x_k)$ is the \textbf{$k$th subinterval} of the partition.
 \end{definition}
@@ -410,7 +410,7 @@
 	A path $f : [a,b] \to \mathbb{R}^n$ is rectifiable if and only if each component $f_k$ of $f$ is of bounded variation on $[a,b]$.
 	Let $V_k(a,b)$ be the total variation of $f_k$ on $[a,b]$.
 	Then,
-	\[ V_k(a,b) \le \Lambda_f(a,b) \le V_1(a,b) + V_2(a,b) + \dots + V_n(a,b) \]
+	\[ V_k(a,b) \le \Lambda_f(a,b) \le V_1(a,b) + V_2(a,b) + \dotsb + V_n(a,b) \]
 \end{theorem}
 \begin{proof}
 	Let $x_j \in \mathbb{R}^n$ for $j = 1,2,\dots,m$.
@@ -1085,7 +1085,7 @@ If $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, then
 	Let $\sum_{n=1}^\infty c_n$ be a convergent series.
 	Given $\varepsilon > 0$, there exists a natural number $N$ such that 
 	\[ \sum_{n=N+1}^\infty c_n < \varepsilon \]
-	Let $s_1,s_2,s_3,\dots$ be distinct points in $(a,b)$.
+	Let $s_1,s_2,s_3,\dotsc$ be distinct points in $(a,b)$.
 	Without loss of generality, sequence $\sequence{s_n}$ is a striclty increasing sequence in $[a,b]$.
 	Let $\alpha = \sum_{n = 1}^\infty c_n I(t-s_n)$.
 	Then, $\alpha(a) = 0$ and $\alpha(b) = \sum_{n=1}^\infty c_n$.
@@ -1360,7 +1360,7 @@ If $f,g \in \mathscr{R}(\alpha)$ on $[a,b]$, then
 \end{commentary}
 \begin{challenge}
 	Let $\bar{f},\bar{g} \in \mathscr{R}(\alpha)$ on $[a,b]$ where $\bar{f},\bar{g} : [a,b] \to \mathbb{R}^k$.
-	Define $\bar{f} \cdot \bar{g} : [a,b] \to \mathbb{R}$ by $(\bar{f} \cdot \bar{g})(x) = f_1(x)g_1(x) + f_2(x)g_2(x) + \dots + f_k(x)g_k(x)$.
+	Define $\bar{f} \cdot \bar{g} : [a,b] \to \mathbb{R}$ by $(\bar{f} \cdot \bar{g})(x) = f_1(x)g_1(x) + f_2(x)g_2(x) + \dotsb + f_k(x)g_k(x)$.
 	Then, $\bar{f} \cdot \bar{g} \in \mathscr{R}(\alpha)$ on $[a,b]$.
 	And,
 	\[ \int_a^b \bar{f} \cdot \bar{g} d\alpha = \left( \int_a^b \bar{f} d\alpha \right) \cdot \left( \int_a^b \bar{g} d\alpha \right) \]
@@ -1453,7 +1453,7 @@ Therefore,
 	Then, we have $\bar{f} = (f_1,f_2,\dots,f_k)$.\\
 	Suppose $\bar{f} \in \mathscr{R}(\alpha)$ on $[a,b]$.
 	Then, $f_j \in \mathscr{R}(\alpha)$ on $[a,b]$ for $1 \le j \le k$.
-	We have, $|\bar{f}| = \left( f_1^2+f_2^2+\dots+f_k^2 \right)^\frac{1}{2}$.
+	We have, $|\bar{f}| = \left( f_1^2+f_2^2+\dotsb+f_k^2 \right)^\frac{1}{2}$.
 	We know that if $f_j \in \mathscr{R}(\alpha)$, then $f_j^2 \in \mathscr{R}(\alpha)$.
 	Again, $\sum f_j^2 \in \mathscr{R}(\alpha)$.\\
 
@@ -1473,9 +1473,9 @@ Therefore,
 	Then, $\bar{y} = (y_1,y_2,\dots,y_k)$ and $\displaystyle y_j = \int_a^b f_j d\alpha$.
 	\begin{align*}
 	|\bar{y}|^2 
-		& = y_1^2 + y_2^2 + \dots + y_k^2\\
-		& = y_1 \int_a^b f_1 d\alpha + y_2 \int_a^b f_2 d\alpha + \dots + y_k \int_a^b f_k d\alpha \\
-		& = \int_a^b (y_1f_1 + y_2f_2 + \dots + y_kf_k) d\alpha
+		& = y_1^2 + y_2^2 + \dotsb + y_k^2\\
+		& = y_1 \int_a^b f_1 d\alpha + y_2 \int_a^b f_2 d\alpha + \dotsb + y_k \int_a^b f_k d\alpha \\
+		& = \int_a^b (y_1f_1 + y_2f_2 + \dotsb + y_kf_k) d\alpha
 	\end{align*}
 	By Schwarz inequality,
 		\[ \sum_{j=1}^n y_j f_j \le \left( \sum_{j=1}^n y_j^2 \right)^\frac{1}{2} \left( \sum_{j=1}^n f_j^2 \right)^\frac{1}{2} = |\bar{y}| \ |\bar{f}| \]
@@ -1757,7 +1757,7 @@ Uniform convergence is a partial solution to our main problem.
 	Then $g_{n+1}(x) \ge \varepsilon$.
 	We have, $g(x) \ge g_{n+1}(x)$.
 	Thus, $g(x) \ge \varepsilon$.
-	Therefore, $K_n \supset K_{n+1} \supset \dots$.\\
+	Therefore, $K_n \supset K_{n+1} \supset \dotsb$.\\
 
 	Let $x \in K$.
 	We have $\sequence{g_n(x)} \to 0$ pointwise.
@@ -2136,23 +2136,23 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 	Let $\sequence{x_i}$ be a sequence in $E$.
 	Then $\sequence{f_n(x_1)}$ is a bounded sequence of complex numbers.
 	By Bolzano-Weierstrass theorem,  $\sequence{f_n(x_1)}$ has a subsequence $S_1$, say $\sequence{f_{1,k}(x_1)}$ which converges at $x_1 \in E$.
-	\[ S_1 : f_{1,1}\ f_{1,2}\ f_{1,3} \dots \]
+	\[ S_1 : f_{1,1}\ f_{1,2}\ f_{1,3}\ \cdots \]
 
 	Consider, the subsequence $\sequence{f_{2,k}(x_2)}$ of the sequence $\sequence{f_n(x_2)}$ with the same values for $k$ as in subsequence $\sequence{f_{1,k}(x_2)}$.
 	Again, $\sequence{f_{2,k}(x_2)}$ is a bounded complex sequence.
 	And by Bolzano-Weierstrass theorem, $\sequence{f_{2,k}(x_2)}$ has a convergent subsequence $S_2$, say $\sequence{f_{2,k'}(x_2)}$ which is a subsequence of $\sequence{f_2(x_2)}$.
 	And more importantly, $S_2$ is a subsequence of $S_1$ such that $S_2$ converges for both $x_1,x_2 \in E$.
-	\[ S_2 : f_{2,1}\ f_{2,2}\ f_{2,3} \dots \]
+	\[ S_2 : f_{2,1}\ f_{2,2}\ f_{2,3}\ \cdots \]
 
 	Continuing like this, we get a sequence of subsequences
 	\begin{align*}
-		S_1 \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \dots \\
-		S_2 \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \dots \\
-		 & \dots \\
-		S_n \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \dots
+		S_1 \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \cdots \\
+		S_2 \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \cdots \\
+		 & \vdots \\
+		S_n \quad & : f_{n,1}\quad f_{n,2}\quad f_{n,3}\quad \cdots
 	\end{align*}
 
-	Consider the diagonal sequence, $S : f_{1,1}\ f_{2,2}\ f_{3,3} \dots $.
+	Consider the diagonal sequence, $S : f_{1,1}\ f_{2,2}\ f_{3,3}\ \cdots $.
 	We know that discarding finitely many first terms won't affect convergence of sequences.
 	And for any natural number $n$, we have can obtain a subsequence of $S_n$ by discarding a finite number of first terms from $S$.
 	Thus, we have sequence $S$ which converges for $x_1,x_2,\dots,x_n \in E$ since $S_n$ converges.
@@ -2219,7 +2219,7 @@ But $\mathbb{Q}$ is not complete since a sequence of rational numbers converging
 
 	Let $\varepsilon > 0$.
 	Choose $\delta > 0$ such that $|f_n(x)-f_n(y)| < \varepsilon$ whenever $d(x,y) < \delta$.
-	Since $K$ is compact, $K$ has a countable dense subset, say $E = \{x_1,x_2,\dots\}$.
+	Since $K$ is compact, $K$ has a countable dense subset, say $E = \{x_1,x_2,\dotsc\}$.
 	That is, given $\delta > 0$, for any $x \in K$, there exists $x_j \in E$ such that $d(x,x_j) < \delta$.
 	Clearly, $K$ has a cover of open balls with center $x_j$s and radius $\delta$.
 	Since $K$ is compact, there exists finitely many points $x_1,x_2,\dots,x_m \in E$ such that $d(x,x_m) < \delta$.\\
@@ -2399,7 +2399,7 @@ In other words, any continuous function has a polynomial approximation.
 \begin{corollary}
 	Suppose $\displaystyle \sum_{n = 0}^\infty c_n x^n$ converges for $|x| < R$ and function $f$ is defined by $f(x) = \displaystyle \sum_{n = 0}^\infty c_n x^n$.
 	Then $f$ has derivatives of all ordres, say $f^{(k)}(x)$ given by
-	\[ f^{(k)}(x) = \sum_{n=k}^\infty n(n-1)\dots(n-k+1)c_n x^{n-k} \]
+	\[ f^{(k)}(x) = \sum_{n=k}^\infty n(n-1)\dotsm(n-k+1)c_n x^{n-k} \]
 	In particular,
 	\[ f^{(k)}(0) = k!\ c_k \]
 \end{corollary}
@@ -2408,9 +2408,9 @@ In other words, any continuous function has a polynomial approximation.
 	Then, we have 
 	\[ f'(x) = \sum_{n = 1}^\infty n c_n x^n \]
 	By mathematical induction, we have
-	\[ f^{(k)}(x) = \sum_{n = k}^\infty n(n-1)\dots(n-k+1) c_n x^{n-k} \]
+	\[ f^{(k)}(x) = \sum_{n = k}^\infty n(n-1)\dotsm(n-k+1) c_n x^{n-k} \]
 	When $x = 0$, we get
-	\[ f^{(k)}(0) = \sum_{n = k}^\infty n(n-1)\dots(n-k+1) c_n 0^{n-k} = {\color{red}k!\ c_k} \]
+	\[ f^{(k)}(0) = \sum_{n = k}^\infty n(n-1)\dotsm(n-k+1) c_n 0^{n-k} = {\color{red}k!\ c_k} \]
 \end{proof}
 
 \begin{theorem}
@@ -2420,7 +2420,7 @@ In other words, any continuous function has a polynomial approximation.
 	\[ \lim_{x \to 1} f(x) = \sum_{n=0}^\infty c_n \]
 \end{theorem}
 \begin{proof}
-	Let $s_n = c_0 + c_1 + \dots + c_n$ and $s_{-1} = 0$.
+	Let $s_n = c_0 + c_1 + \dotsb + c_n$ and $s_{-1} = 0$.
 	Suppose $\sum c_n$ converges, then $s_n$ converges, say $s_n \to s$.
 	Let $\varepsilon > 0$.
 	Then there exists $N \in \mathbb{N}$ such that $\forall n > N,\ |s-s_n| < \frac{\varepsilon}{2}$.\\
@@ -2441,7 +2441,7 @@ In other words, any continuous function has a polynomial approximation.
 
 	{\color{red}
 	We know that,
-	\[ (1-x)\sum_{n=0}^m x^n = (1-x)(1+x+x^2+\dots+x^m) = 1-x^{m+1} \]
+	\[ (1-x)\sum_{n=0}^m x^n = (1-x)(1+x+x^2+\dotsb+x^m) = 1-x^{m+1} \]
 	Thus,
 	\[ \lim_{m \to \infty} (1-x)\sum_{n=0}^m x^n = \lim_{m \to \infty} 1-x^{m+1} = 1 \]
 	}
@@ -2475,7 +2475,7 @@ In other words, any continuous function has a polynomial approximation.
 \begin{proof}
 	\textbf{Step 1 : Construction of $f_i$}\\
 	Given series $\displaystyle \sum_{j=1}^\infty |a_{ij}|$ converges to $b_i$.
-	Let $E = \{ x_0,x_1,x_2,\dots \}$ be a countable set such that $x_n \to x_0$ as $n \to \infty$.
+	Let $E = \{ x_0,x_1,x_2,\dotsc \}$ be a countable set such that $x_n \to x_0$ as $n \to \infty$.
 	Define sequence of functions $\sequence{f_i}$ on $E$ such that 
 	\[ f_i(x_n) = \sum_{j=1}^n a_{ij},\ \forall n \in \mathbb{N} \quad \text{ and } \quad f_i(x_0) = \sum_{j=1}^\infty a_{ij} \]
 	Clearly, $f_i(x_0) = b_i$ and $f_i(x_n) \to f_i(x_0)$ as $n \to \infty$.\\
@@ -2602,7 +2602,7 @@ Whether the power series representation is unique ?
 		E'(z) & = \lim_{h \to 0} \frac{E(z+h)-E(z)}{h} \\
 		& = \lim_{h \to 0} \frac{E(z)E(h) - E(z)}{h} \\
 		& = E(z) \lim_{h \to 0} \frac{E(h)-1}{h} \\
-		& = E(z) \lim_{h \to 0} (h+\frac{h^2}{2!}+\frac{h^3}{3!} + \dots )/ h \\
+		& = E(z) \lim_{h \to 0} (h+\frac{h^2}{2!}+\frac{h^3}{3!} + \dotsb )/ h \\
 		& = E(z) 
 	\end{align*}
 	Thus, $E(x)$ is differentiable at every $x \in \mathbb{R}$.
@@ -2610,7 +2610,7 @@ Whether the power series representation is unique ?
 	Thus, the function $E : \mathbb{R} \to (0,\infty)$ is strictly increasing.\\
 
 	By mathematical induction
-	\[ E(z_1 + z_2 + \dots + z_n) = E(z_1) E(z_2) \dots E(z_n) \]
+	\[ E(z_1 + z_2 + \dotsb + z_n) = E(z_1) E(z_2) \dotsm E(z_n) \]
 	Thus,
 	\[ E(n) = E(1)^n = e^n,\ \forall n \in \mathbb{N} \]
 	Also we have,
@@ -2737,15 +2737,15 @@ Whether the power series representation is unique ?
 	Then
 	\begin{align*}
 		|a_n z^n|
-		& = |P(z) - a_0 + a_1z + a_2R^2 + \dots + a_{n-1}R^{n-1}| \\
+		& = |P(z) - a_0 + a_1z + a_2R^2 + \dotsb + a_{n-1}R^{n-1}| \\
 		R^n
-		& \le |P(z)| + |a_0| + |a_1|R + \dots + |a_{n-1}R^{n-1} 
+		& \le |P(z)| + |a_0| + |a_1|R + \dotsb + |a_{n-1}R^{n-1} 
 	\end{align*}
 	Rearranging the terms, we get
 	\begin{align*}
 		|P(z)| 
-		& \ge R^n - |a_0| - |a_1|R - |a_2|R^2 - \dots - |a_{n-1}|R^{n-1} \\
-		& \ge R^n \left(1 - |a_{n-1}|R^{-1} - |a_{n-2}|R^{-2} - \dots - |a_0|R^{-n} \right)
+		& \ge R^n - |a_0| - |a_1|R - |a_2|R^2 - \dotsb - |a_{n-1}|R^{n-1} \\
+		& \ge R^n \left(1 - |a_{n-1}|R^{-1} - |a_{n-2}|R^{-2} - \dotsb - |a_0|R^{-n} \right)
 	\end{align*}
 	Thus $|P(z)| \to \infty$ as $R \to \infty$.
 	Hence, there exists $R_0$ such that $|P(z)| > \mu$ if $|z| > R_0$.
@@ -2758,7 +2758,7 @@ Whether the power series representation is unique ?
 	Define $Q(z) = P(z+z_0)/P(z_0)$.
 	Then, $Q$ is a nonconstant polynomial with $Q(0) = 1$ and $|Q(z)| \ge 1,\ \forall z$.
 	Clearly, $Q(z)$ is a polynomial of at most $n$ degrees.
-	\[ Q(z) = b_0 + b_1z + b_2z^2 + \dots + b_n z^n \]
+	\[ Q(z) = b_0 + b_1z + b_2z^2 + \dotsb + b_n z^n \]
 	where $b_0 = 1$ since $Q(0) = 1$.
 	Let $k$ be the smallest positive integer such that $b_k \ne 0$.
 	That is, $1 \le k \le n$.
@@ -2771,7 +2771,7 @@ Whether the power series representation is unique ?
 	Then,
 	\[ |1+b_kr^ke^{ik\theta}| = 1 - r^k|b_k| \]
 	Thus,
-	\[ Q(z) = Q(re^{i\theta})| \le 1 - r^k\left(|b_k|-r|b_{k+1}| - \dots - r^{n-k}|b_n| \right) \]
+	\[ Q(z) = Q(re^{i\theta})| \le 1 - r^k\left(|b_k|-r|b_{k+1}| - \dotsb - r^{n-k}|b_n| \right) \]
 	For sufficiently small $r$, $|Q(re^{i\theta})| < 1$ which is a contradiction.
 	Thus $\mu = 0$.
 	Therefore, there exists $|z_0| \le R_0$ such that $P(z_0) = 0$.

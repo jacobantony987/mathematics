@@ -718,7 +718,7 @@ with degreen $n$ is analytic with derivative
 
 By fundamental theorem of algebra(theorem \ref{thm:fundamental}), every polynomial $P(z)$ with degree $n > 0$ has atleast one root, say $\alpha_1$.
 Thus, $P(z) = (z-\alpha_1)P_1(z)$ where $P_1(z)$ is a polynomial of degree $n-1$.
-Repeating the process, we get $P(z) = a_n(z-\alpha_1)(z-\alpha_2)\dots(z-\alpha_n)$ where $\alpha_j$'s are not necessarily distinct.\\
+Repeating the process, we get $P(z) = a_n(z-\alpha_1)(z-\alpha_2) \dotsm (z-\alpha_n)$ where $\alpha_j$'s are not necessarily distinct.\\
 
 \paragraph{Order of a zero}
 These $\alpha_j$'s are the zeroes of $P(z)$.
@@ -748,9 +748,9 @@ Thus, \textbf{simple zero} of $P(z)$ is an $\alpha$ such that $P(\alpha) = 0$ an
 	We have,
 	\begin{align*}
 		\log P(z) 
-			& = \log a_n + \log (z-\alpha_1) + \log (z-\alpha_2) + \dots + \log (z-\alpha_n) \\
+			& = \log a_n + \log (z-\alpha_1) + \log (z-\alpha_2) + \dotsb + \log (z-\alpha_n) \\
 		\implies \frac{P^\prime(z)}{P(z)} 
-			& = \frac{1}{z-\alpha_1}+\frac{1}{z-\alpha_2}+\dots+\frac{1}{z-\alpha_n} = \sum_{k=1}^n \frac{1}{z-\alpha_k} \\
+			& = \frac{1}{z-\alpha_1}+\frac{1}{z-\alpha_2}+\dotsb+\frac{1}{z-\alpha_n} = \sum_{k=1}^n \frac{1}{z-\alpha_k} \\
 		\implies Im\left(\frac{bP^\prime(z)}{P(z)}\right)
 			& = \sum_{k=1}^n Im\left(\frac{b}{z-\alpha_k}\right) < 0
 \end{align*}
@@ -885,14 +885,14 @@ where $G_j$ is the singular part of $R(z)$ at $\beta_j$.
 
 \begin{definition}
 	An infinite series is a formal infinite sum
-	\[ \sum_{n = 1}^\infty a_n = a_1 + a_2 + \dots + a_n + \dots \]
+	\[ \sum_{n = 1}^\infty a_n = a_1 + a_2 + \dotsb + a_n + \dotsb \]
 \end{definition}
 \begin{definition}
 	Series $\sum a_n$ converges if and only if the sequence of partial sums $\sequence{s_n}$ where $s_n = \sum_{j=1}^n a_n$ converges.
 	The limit of the sequence of partial sum is the \textbf{sum} of the series.
 \end{definition}
 \paragraph{Cauchy Condition}
-The series converges if and only if for every $\varepsilon > 0$ there exists a natural number $n_0$ such that $|a_n + a_{n+1}+\dots+a_{n+p}| < \varepsilon$.\\
+The series converges if and only if for every $\varepsilon > 0$ there exists a natural number $n_0$ such that $|a_n + a_{n+1}+\dotsb+a_{n+p}| < \varepsilon$.\\
 
 For $p=0$, we have $|a_n| < \varepsilon$.
 In other words, $a_n \to 0$.\\
@@ -933,7 +933,7 @@ Then $\sum f_n(x) $ is uniformly convergent.
 \subsubsection{Power Series}
 \begin{definition}
 	A power series is a series of the form
-	\[ \sum a_n (z-z_0)^n = a_0 + a_1(z-z_0) + \dots + a_n(z-z_0)^n + \dots \]
+	\[ \sum a_n (z-z_0)^n = a_0 + a_1(z-z_0) + \dotsb + a_n(z-z_0)^n + \dotsb \]
 	where $a_n,z_0 \in \mathbb{C}$.
 \end{definition}
 
@@ -960,7 +960,7 @@ The circle $|z| = R$ is the \textbf{circle of convergence}.
 
 \paragraph{Taylor-Maclaurin Development}
 \begin{equation}
-	f(z) = f(0) + f'(0)z + \frac{f^{\prime\prime}(0)}{2!}z^2 + \dots + \frac{f^{(n)}(0)}{n!}z^n + \dots 
+	f(z) = f(0) + f'(0)z + \frac{f^{\prime\prime}(0)}{2!}z^2 + \dotsb + \frac{f^{(n)}(0)}{n!}z^n + \dotsb
 \end{equation}
 
 \subsubsection{Abel's Limit Theorem}
@@ -977,11 +977,11 @@ In other words, the series converges at $z=1$ if the approach is in Stolz angle.
 \begin{definition}
 	The exponential function is the function $f(z)$ of power series form $\sum a_n z^n$ such that $f'(z) = f(z)$.
 \end{definition}
-\[ e^z = \sum_{n = 0}^\infty \frac{z^n}{n!} = 1 + z + \frac{z^2}{2!} + \dots + \frac{z^n}{n!} + \dots \]
+\[ e^z = \sum_{n = 0}^\infty \frac{z^n}{n!} = 1 + z + \frac{z^2}{2!} + \dotsb + \frac{z^n}{n!} + \dotsb \]
 \subsection{The Trignometric Functions}
 All the trignometric functions are rational functions of $e^{iz}$.
-\[ \cos z = \frac{e^{iz}+e^{-iz}}{2} = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \dots \]
-\[ \sin z = \frac{e^{iz}-e^{-iz}}{2i} = z - \frac{z^3}{3!} + \frac{z^5}{5!} + \dots \]
+\[ \cos z = \frac{e^{iz}+e^{-iz}}{2} = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} + \dotsb \]
+\[ \sin z = \frac{e^{iz}-e^{-iz}}{2i} = z - \frac{z^3}{3!} + \frac{z^5}{5!} + \dotsb \]
 \[ \tan z = -i \frac{e^{iz}-e^{-iz}}{e^{iz}+e^{-iz}} \]
 
 \subsubsection{The Periodicity}
@@ -1093,12 +1093,12 @@ Hausdorff
 \begin{definition}[chain]
 	A chain is a formal sum of arcs.
 \end{definition}
-For example, $\gamma = \gamma_1 + \gamma_2 + \dots + \gamma_n$ is a chain if $\gamma_1,\gamma_2,\dots,\gamma_n$ are arcs.
+For example, $\gamma = \gamma_1 + \gamma_2 + \dotsb + \gamma_n$ is a chain if $\gamma_1,\gamma_2,\dots,\gamma_n$ are arcs.
 \paragraph{Properties of Chains}
 \begin{enumerate}
 	\item Different formal sums can represent the same chain.
 	\item Two chains are identical if they yield the same line integral for all functions $f$.
-		\[ \int_{\gamma_1+\gamma_2+\dots+\gamma_n} f\ dz = \int_{\gamma_1} f\ dz + \int_{\gamma_2} f\ dz + \dots + \int_{\gamma_n} f\ dz \]
+		\[ \int_{\gamma_1+\gamma_2+\dotsb+\gamma_n} f\ dz = \int_{\gamma_1} f\ dz + \int_{\gamma_2} f\ dz + \dotsb + \int_{\gamma_n} f\ dz \]
 	\item The following operations does not affect any chain
 	\begin{enumerate}
 		\item Permutation of two arcs. $\gamma_1+\gamma_2+\gamma_3 = \gamma_1+\gamma_3+\gamma_2$
@@ -1108,7 +1108,7 @@ For example, $\gamma = \gamma_1 + \gamma_2 + \dots + \gamma_n$ is a chain if $\g
 		\item Cancellation of opposite arcs. $\gamma_1 + \gamma_2 - \gamma_2 = \gamma_1$
 	\end{enumerate}
 	\item Sum of two chains defined to preserve the additive property of the line integrals.
-		\[ \gamma = \alpha_1 \gamma_1 + \alpha_2 \gamma_2 + \dots + \alpha_n \gamma_n \]
+		\[ \gamma = \alpha_1 \gamma_1 + \alpha_2 \gamma_2 + \dotsb + \alpha_n \gamma_n \]
 		where $\alpha_j$ are integers and $\gamma_j$ are arcs.
 		That is, instead of $\gamma_1 + \gamma_1 = 2\gamma_1$.
 		And $-\gamma_1-\gamma_1 = -2\gamma_1 = 2(-\gamma_1)$.
@@ -1119,9 +1119,9 @@ For example, $\gamma = \gamma_1 + \gamma_2 + \dots + \gamma_n$ is a chain if $\g
 	A cycle is a formal sum of closed curves.
 \end{definition}
 \begin{definition}[index of a point]
-	Index of a point with respect to a cycle $\gamma = \alpha_1\gamma_1+\alpha_2\gamma_2+\dots+\alpha_n\gamma_n$ is given by
+	Index of a point with respect to a cycle $\gamma = \alpha_1\gamma_1+\alpha_2\gamma_2+\dotsb+\alpha_n\gamma_n$ is given by
 	\begin{equation}
-		n(\alpha_1\gamma_1+\alpha_2\gamma_2+\dots+\alpha_n\gamma_n,a) = \alpha_1n(\gamma_1,a) + \alpha_2n(\gamma_2,a)+\dots + \alpha_nn(\gamma_n,a)
+		n(\alpha_1\gamma_1+\alpha_2\gamma_2+\dotsb+\alpha_n\gamma_n,a) = \alpha_1n(\gamma_1,a) + \alpha_2n(\gamma_2,a)+\dotsb + \alpha_nn(\gamma_n,a)
 	\end{equation}
 \end{definition}
 

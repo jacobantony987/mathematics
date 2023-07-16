@@ -33,8 +33,8 @@ The following are a few metric spaces and their distance functions,
 	\item $\displaystyle B(A), d(x,y) = \sup_{t \in A} \left\{ |x(t)-y(t)| \right\}$ where $x$ is a bounded, complex-valued function defined on $A \subset \mathbb{R}$
 	\item $\displaystyle l^p, d(x,y) = \left( \sum_{j = 1}^\infty |\xi_j - \eta_j|^p \right)^\frac{1}{p}$ where $x = \sequence{\xi_j}$ and $\displaystyle \sum_{j=1}^\infty |\xi_j|^p < \infty$. That is, set of all sequences such that the $p$th power series is convergent.
 	\item $\displaystyle l^\infty, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \} $ where $x = \sequence{\xi_j}$ and $|\xi_j| \le c$. That is, $l^\infty$ is the space of all bounded sequences of complex numbers.
-	\item $\displaystyle c, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \}$ where $\sequence{\xi_j} = \xi_1,\xi_2,\dots$ is the space of all convergent sequences of complex numbers.
-	\item $\displaystyle s, d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{1+|\xi_j-\eta_j|}$ where $x = \sequence{\xi_j} = \xi_1,\xi_2,\dots$ is the space of all sequence of complex numbers.
+	\item $\displaystyle c, d(x,y) = \sup_{j \in \mathbb{N}} \{ |\xi_j - \eta_j| \}$ where $\sequence{\xi_j} = \xi_1,\xi_2,\dotsc$ is the space of all convergent sequences of complex numbers.
+	\item $\displaystyle s, d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{1+|\xi_j-\eta_j|}$ where $x = \sequence{\xi_j} = \xi_1,\xi_2,\dotsc$ is the space of all sequence of complex numbers.
 \end{enumerate}
 Clearly, $l^p \subset l^\infty \subset s$.
 But, $B(A),C[a,b]$ are non-comparable since there exists discontinuous, bounded functions and continuous, unbounded functions.
@@ -157,7 +157,7 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 	The complex sequence space of all bounded sequences, $l^\infty$ is complete.
 \end{theorem}
 \begin{proof}
-	Let $\sequence{x_k}$ be a Cauchy sequence in $l^\infty$ where $x_k = \xi_{k,1},\ \xi_{k,2},\ \dots$ are bounded sequences in $\mathbb{C}$ for each $k$.\\
+	Let $\sequence{x_k}$ be a Cauchy sequence in $l^\infty$ where $x_k = \xi_{k,1},\ \xi_{k,2},\ \dotsc$ are bounded sequences in $\mathbb{C}$ for each $k$.\\
 	\textbf{Step 1 : Construct $x$}\\
 	Let $\varepsilon > 0$.
 	Then there exists $N \in \mathbb{N}$ such that $\forall m,n > N$,
@@ -174,7 +174,7 @@ Convergent sequences in a metric space are Cauchy sequences. But, Cauchy sequenc
 		\caption{Construction of limit in Sequence spaces}
 	\end{figure}
 	Thus, $\xi_{j,k} \to \xi_k \in \mathbb{C}$.
-	Let $x = \xi_1,\ \xi_2,\ \dots $.
+	Let $x = \xi_1,\ \xi_2,\ \dotsc $.
 	Now we need to prove that $x_k \to x$ and $x \in l^\infty$.\\
 	\textbf{Step 2 : $x \in l^\infty$}\\
 	We have, $x_j \in l^\infty \implies |\xi_{m,j}| < c_j, \ \forall m \in \mathbb{N} $.
@@ -286,9 +286,9 @@ For example, the metric of $C[a,b]$ is a uniform metric.
 The following metric spaces are not complete,
 \begin{enumerate}
 	\item The space of rational numbers, $\mathbb{Q}$ with usual metric $d(x,y) = |x-y|$ is not complete since the rational approximations of $\pi$ is sequence in $\mathbb{Q}$ which doesn't converge in $\mathbb{Q}$.
-		\[ 3,\ 3.1,\ 3.14,\ 3.141,\ \dots \to \pi \notin \mathbb{Q} \]
+		\[ 3,\ 3.1,\ 3.14,\ 3.141,\ \dotsc \to \pi \notin \mathbb{Q} \]
 	\item The space of polynomial functions with metric $d(x,y) = \sup \{ x(t) - y(t)|$ is not complete since taylor approximations of $\sin x$ is a sequence of polynomial funcitons which doesn't converge to a polynomial function.
-		\[ x,\ x+\frac{-x^3}{3!},\ x+\frac{-x^3}{3!}+\frac{x^5}{5!},\ \dots \to \sin x \notin p \]
+		\[ x,\ x+\frac{-x^3}{3!},\ x+\frac{-x^3}{3!}+\frac{x^5}{5!},\ \dotsc \to \sin x \notin p \]
 	\item The space of continuous function on unit interval $[0,1]$ with a different\dag\footnote{Area under the graph of difference function is well-defined for integrable functions.} metric 
 		\[ d(x,y) = \int_0^1 \left| x(t)-y(t) \right| \ dt \]
 		is not complete since $\sequence{x_k}$ where $x_k : [0,1] \to \mathbb{R}$ is defined by
@@ -380,7 +380,7 @@ And if  $f$ is a bijection, then $X,Y$ are isometric space.\\
 
 	\textbf{Step 2: Construction of Isometry $T : X \to W,\ W \subset \hat{X}$.}\\
 	Let $b \in X$.
-	Then $b,b,\dots$ is a Cauchy sequence in $\hat{X}$.
+	Then $b,b,\dotsc$ is a Cauchy sequence in $\hat{X}$.
 	Let $\hat{b} \in \hat{X}$ be the equivalent class of Cauchy sequences containing the constant sequence $\sequence{b}$.
 	Define $T : X \to \hat{X}$ given by $T(b) = \hat{b}$.\\
 	Let $a,b \in X$, then
@@ -471,14 +471,14 @@ Unlike other texts\dag\footnote{
 	That is,
 	\[ Y = \text{span } M \]
 
-A set $M$ is \textbf{linear independent} if there exists a non-zero $r$-tuple $(\alpha_1,\alpha_2,\dots,\alpha_r)$ such that $\alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_r x_r = 0$ where $x_1,x_2,\dots,x_r \in M$.\\
+A set $M$ is \textbf{linear independent} if there exists a non-zero $r$-tuple $(\alpha_1,\alpha_2,\dots,\alpha_r)$ such that $\alpha_1 x_1 + \alpha_2 x_2 + \dotsb + \alpha_r x_r = 0$ where $x_1,x_2,\dots,x_r \in M$.\\
 
 A vector space $X$ is \textbf{finite dimensional} if there exists an integer $n$ which is the maximum cardinality for any linearly independent subset of $X$, say \textbf{dimension} of $X$, $\text{dim } X$.\\
 
 Let $X$ be a finite dimenstional vector space of dimension $n$.
 Then \textbf{basis} of $X$ is a linearly independent subset of cardinality $n$.\\
 Note : Let $B$ be a basis of vector space $X$. Then $X = \text{span }B$.
-And every element $x \in X$ has a unique representation $x = \alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_n x_n$ where $B = \{ x_1,x_2,\dots,x_n \}$.\\
+And every element $x \in X$ has a unique representation $x = \alpha_1 x_1 + \alpha_2 x_2 + \dotsb + \alpha_n x_n$ where $B = \{ x_1,x_2,\dots,x_n \}$.\\
 
 Let $X$ be an infinite dimensional vector space.
 Let $B$ be a linearly independent subset of $X$ which span $X$, then $B$ is a \textbf{ Hamel basis} for $X$.\\
@@ -575,7 +575,7 @@ Then $d(x,y) = \| x -y\|$ is a metric induced by the norm.
 	\item $\displaystyle B(A), \| x \| = \sup_{t \in A} \left\{ |x(t)| \right\}$ where $x$ is a bounded, complex-valued function defined on $A \subset \mathbb{R}$
 	\item $\displaystyle l^p, \| x \| = \left( \sum_{j = 1}^\infty |\xi_j|^p \right)^\frac{1}{p}$ where $x = \sequence{\xi_j}$ and $\displaystyle \sum_{j=1}^\infty |\xi_j|^p < \infty$. That is, set of all sequences such that the $p$th power series is convergent.
 	\item $\displaystyle l^\infty, \| x \| = \sup_{j \in \mathbb{N}} \{ |\xi_j| \} $ where $x = \sequence{\xi_j}$ and $|\xi_j| \le c$. That is, $l^\infty$ is the space of all bounded sequences of complex numbers.
-	\item $\displaystyle c, \| x \| = \sup_{j \in \mathbb{N}} \{ |\xi_j| \}$ where $\sequence{\xi_j} = \xi_1,\xi_2,\dots$ is the space of all convergent sequences of complex numbers.
+	\item $\displaystyle c, \| x \| = \sup_{j \in \mathbb{N}} \{ |\xi_j| \}$ where $\sequence{\xi_j} = \xi_1,\xi_2,\dotsc$ is the space of all convergent sequences of complex numbers.
 \end{enumerate}
 
 \subsubsection{Test for norm which can be induced from a metric}
@@ -586,7 +586,7 @@ Then $d(x,y) = \| x -y\|$ is a metric induced by the norm.
 
 	For example, metric space of all sequence of complex numbers with metric
 	\[ d(x,y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\xi_j-\eta_j|}{1+|\xi_j-\eta_j|} \]
-	where $x = \sequence{\xi_j} = \xi_1,\xi_2,\dots$ is not translationally invariant since,
+	where $x = \sequence{\xi_j} = \xi_1,\xi_2,\dotsc$ is not translationally invariant since,
 
 	\[ d(\alpha x, \alpha y) = \sum_{j = 1}^\infty \frac{1}{2^j} \frac{|\alpha\xi_j-\alpha\eta_j|}{1+|\alpha\xi_j - \alpha\eta_j|} = \sum_{j=1}^\infty \frac{1}{2^j} \frac{|\xi_j - \eta_j|}{\left|\frac{1}{\alpha}\right|+|\xi_j-\eta_j|} \ne |\alpha| d(x,y) \]
 
@@ -827,7 +827,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 \begin{important}
 	%Seminar - Akshaya Peter\\
 	refer : Exercise 2.3.10\\
-	hint : Let $B = \{ e_1,e_2, \dots \}$ be a Schauder basis of normed space $(X,\|\cdot\|)$. Then $B$ is a dense subset of $X$.
+	hint : Let $B = \{ e_1,e_2, \dotsc \}$ be a Schauder basis of normed space $(X,\|\cdot\|)$. Then $B$ is a dense subset of $X$.
 \end{important}
 \end{proof}
 
@@ -876,13 +876,13 @@ But there exists separable, Banach spaces without a Schauder basis.
 	\end{align*}
 	It is sufficient to prove that for any real-number $c>0$, there does not exists an $n$-tuple of scalars violating the above inequality.\\
 
-	On the contrary, suppose that for every positive real number $c \in \mathbb{R}$ there exists a subset $\{ \beta_1,\beta_2,\dots,\beta_n \}$ such that $\| \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n \| < c$.
+	On the contrary, suppose that for every positive real number $c \in \mathbb{R}$ there exists a subset $\{ \beta_1,\beta_2,\dots,\beta_n \}$ such that $\| \beta_1 x_1 + \beta_2 x_2 + \dotsb + \beta_n x_n \| < c$.
 	Then, for each $m \in \mathbb{N}$, there exist a subset of $n$ scalars $\{ \beta_{m,1}, \beta_{m,2},\dots,\beta_{m,n} \}$ such that
-	\[ \| \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dots + \beta_{m,n} x_n \| < \frac{1}{m} \]
-	Define, $y_m = \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dots + \beta_{m,n} x_n$.
+	\[ \| \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dotsb + \beta_{m,n} x_n \| < \frac{1}{m} \]
+	Define, $y_m = \beta_{m,1} x_1 + \beta_{m,2} x_2 + \dotsb + \beta_{m,n} x_n$.
 	Then, $\|y_m\| \to 0$ as $m \to \infty$.\\
 
-	Now, every $\beta_{j,k}$ is bounded since for each $m$, $|\beta_{m,1}| + |\beta_{m,2}| + \dots + |\beta_{m,n}| = 1$.
+	Now, every $\beta_{j,k}$ is bounded since for each $m$, $|\beta_{m,1}| + |\beta_{m,2}| + \dotsb + |\beta_{m,n}| = 1$.
 	The sequence $\sequence{\beta_{m,1}}$ of first terms of the sequence $\sequence{y_m}$ is a bounded sequence.
 	By Bolzano-Weierstrass theroem, sequence $\sequence{\beta_{m,1}}$ has a convergent subsequence, say $\beta_{m,1} \to 1$ as $m \to \infty$.
 	Let sequence $\sequence{y_{1,m}}$ be subsequence of sequence $\sequence{y_m}$ such that the sequence of first terms is convergent.\\
@@ -893,16 +893,16 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Continuing like this $n$ times, we get sequence $\sequence{y_{n,m}}$ such that sequence corresponding each term is convergent.
 	That is, $\beta_{m,j} \to \beta_j$ for $j=1,2,\dots,n$.\\
 
-	Define $y = \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n$.
+	Define $y = \beta_1 x_1 + \beta_2 x_2 + \dotsb + \beta_n x_n$.
 	Clearly, the sequence $\sequence{y_{n,m}}$ is a convergent subsequence of $\sequence{y_m}$.
 	And $y_{n,m} \to y$ as $m \to \infty$.
 	Suppose $\sequence{y_{n,m}}$ is convergent, then $y_{n,m} \to y$ as the limit is unique.
 	By the continuity of norm, we have $\| y_m \| \to \| y \|$.\\
 
-	Since $\| y \| = 0$, we have $y = \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n = 0$.
+	Since $\| y \| = 0$, we have $y = \beta_1 x_1 + \beta_2 x_2 + \dotsb + \beta_n x_n = 0$.
 	We have $\{ x_1, x_2, \dots, x_n \}$ is linearly independent.
 	Then, $\beta_j = 0$ for each $j$.
-	And, for each $m$, sequence $\sequence{|\beta_{m,n} |}$ converges to $0$ and $|\beta_{m,1}|+|\beta_{m,2}|+\dots+|\beta_{m,n}| = 1$.
+	And, for each $m$, sequence $\sequence{|\beta_{m,n} |}$ converges to $0$ and $|\beta_{m,1}|+|\beta_{m,2}|+\dotsb+|\beta_{m,n}| = 1$.
 	This is a contradition.
 	Therefore, there exists such a positive real-number $c$ satisfying the lemma.
 \end{proof}
@@ -914,7 +914,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Let $dim\ Y = n$ and $B = \{ y_1, y_2, \dots, y_n \}$ be a basis for $Y$.
 	Let sequence $\sequence{y_m}$ be a Cauchy sequence in $Y$.
 	Then,
-	\[ y_m = \alpha_{m,1} y_1 + \alpha_{m,2} y_2 + \dots + \alpha_{m,n} y_n \]
+	\[ y_m = \alpha_{m,1} y_1 + \alpha_{m,2} y_2 + \dotsb + \alpha_{m,n} y_n \]
 	Since $\sequence{y_m}$ is a Cauchy sequence, we have $N \in \mathbb{N}$ such that $\forall s,t > N$
 	\[ \| y_s - y_t \| = \left\| \sum_{j=1}^n \alpha_{s,j} y_j - \sum_{j=1}^n \alpha_{t,j} y_j \right\| < \varepsilon \]
 	Since basis of $Y$ is a linearly independent subset of $X$, applying lemma we get
@@ -1181,9 +1181,9 @@ But there exists separable, Banach spaces without a Schauder basis.
 	Then for each $j$, we have $y_j = Tx_j$.
 	Since $\dim X = n$, the set $\{x_1,x_2,\dots,x_{n+1}\}$ is linearly dependent.
 	That is, there exist $\alpha_j$'s in $K$ such that 
-	\[ \alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_{n+1} x_{n+1} = 0 \]
+	\[ \alpha_1 x_1 + \alpha_2 x_2 + \dotsb + \alpha_{n+1} x_{n+1} = 0 \]
 	Therefore,
-	\[ T(\alpha_1 x_1 + \alpha_2 x_2 + \dots + \alpha_{n+1} x_{n+1}) = \alpha_1 y_1 + \alpha_2 y_2 + \dots + \alpha_{n+1} y_{n+1} = 0 \]
+	\[ T(\alpha_1 x_1 + \alpha_2 x_2 + \dotsb + \alpha_{n+1} x_{n+1}) = \alpha_1 y_1 + \alpha_2 y_2 + \dotsb + \alpha_{n+1} y_{n+1} = 0 \]
 	Thus, any subset of $\mathscr{R}(T)$ having $n+1$ or more elements is linearly dependent.
 	Clearly, the dimension of $\mathscr{R}(T) \le n = \dim X$.\\
 	\begin{important}
@@ -1466,9 +1466,9 @@ But there exists separable, Banach spaces without a Schauder basis.
 	\footnote{
 		We know that $l^\infty$ is the set of all bounded sequences.
 		We may use simpler sequence $x_n = (\xi_{n,j})$ where $\xi_{n,j} = j,\ j \le n$ and vanishes for $j >n$.
-		That is, $x_1 = 1,0,0,\dots$, $x_2 = 1,2,0,0,\dots$ and $x_n = 1,2,\dots,n,0,0,\dots$.
-		Then $Tx_n = 1,1,\dots,1,0,0,\dots$.
-		Clearly, $x_n \to y$ where $y = 1,2,3,\dots$ is unbounded and $Tx_n \to Ty$ where $Ty = 1,1,1,\dots$ is bounded.}
+		That is, $x_1 = 1,0,0,\dotsc$, $x_2 = 1,2,0,0,\dotsc$ and $x_n = 1,2,\dots,n,0,0,\dotsc$.
+		Then $Tx_n = 1,1,\dots,1,0,0,\dotsc$.
+		Clearly, $x_n \to y$ where $y = 1,2,3,\dotsc$ is unbounded and $Tx_n \to Ty$ where $Ty = 1,1,1,\dotsc$ is bounded.}
 	\[\xi_{n,j} = \begin{cases} j-\frac{1}{n} & j \le n \\ 0 & j > n \end{cases} \]
 	Clearly, $x_n \in l^\infty$ since $x_n$ is bounded by $n$.
 	And $\sequence{Tx_n} = (\eta_{n,j})$ defined by $\eta_{n,j} =\frac{\xi_{n,j}}{j}$ is a sequence of bounded functions which converges to $y= (\eta_j)$ where $\eta_j = 1$.
@@ -1525,7 +1525,7 @@ But there exists separable, Banach spaces without a Schauder basis.
 
 	Now, we show that the function $\tilde{T}$ is defined independent of the choice of the sequence $\sequence{x_n}$.
 	Let $x_n \to x$ and $z_n \to x$.
-	Consider $\sequence{v_n} : x_1,z_1,x_2,z_2,\dots$.
+	Consider $\sequence{v_n} : x_1,z_1,x_2,z_2,\dotsc$.
 	Then $v_n \to x$.
 	And $\sequence{Tv_n}$ converges.
 	Then, the subsequences $\sequence{Tx_n}$ and $\sequence{Tzn}$ converges and they must have the same limit.
@@ -1679,7 +1679,6 @@ The dot product is a bounded linear functional on any finite dimensional Euclide
 	Clearly, $-f \in X^\ast$ since $-f(\alpha x + \beta y) = \alpha (-f(x)) + \beta (-f(y))$.
 	Then, $(f + -f)(x) = f(x) + (-f)(x) = 0 = 0(x)$.
 	Thus, every linear functional $f$ in $X^\ast$ has a unique additive inverse in $X^\ast$.
-
 	$\vdots$
 \end{proof}
 \end{commentary}
@@ -1815,7 +1814,7 @@ And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ 
 	Let $\sum \beta_k f_k = 0$.
 	Then, for each $j = 1,2,\dots,n $
 	\[ 0 = 0(e_j) = \left( \sum_{k = 1}^n \beta_k f_k\right)(e_j) =\sum_{k = 1}^n \beta_k f_k(e_j) =\sum_{k = 1}^n \beta_k \delta_{j,k} = \beta_j \]
-	Clearly, $\beta_1f_1+\beta_2f_2+\dots+\beta_nf_n = 0$ if and only if $\beta_j = 0$ for all $j$.
+	Clearly, $\beta_1f_1+\beta_2f_2+\dotsb+\beta_nf_n = 0$ if and only if $\beta_j = 0$ for all $j$.
 	Therefore, $F$ is linearly independent.\\
 
 	Let $f : X \to K$ such that $f(e_j) = \alpha_j$.
@@ -1950,7 +1949,7 @@ And the matrix $T_{EB} = (\tau_{j,k})$ is the matrix of the linear operator $T$ 
 	The Schauder basis for $l^1$ is $(e_k)$ where $e_k = (\delta_{k,j})$.
 	\begin{commentary}
 	That is, each sequence $e_k$ has one as its $k$th term and all other terms are zeroes.
-	For example, $(\frac{1}{2},\frac{1}{4},\dots) = \sum \frac{1}{2^k} e_k$.
+	For example, $(\frac{1}{2},\frac{1}{4},\dotsc) = \sum \frac{1}{2^k} e_k$.
 	\end{commentary}	
 	Then any $x \in l^1$ is of the form
 	\[ x = (\xi_j) = \sum_{k=1}^\infty \xi_k \delta_{k,j} = \sum_{k =1}^\infty \xi_k e_k \]
@@ -2762,7 +2761,7 @@ Inner product is a sesquilinear operator.
 	Then by Pythagorean theorem,
 	\[ \|x_1 + x_2\|^2 = \|x_1\|^2 + \|x_2\|^2 \qquad \text{ since } x_1 \perp x_2 \]
 	By finite mathematical induction,
-	\[ \|x_1 + x_2 + \dots + x_n\|^2 = \|x_1\|^2 + \|x_2\|^2 + \dots + \|x_n\|^2 \]
+	\[ \|x_1 + x_2 + \dotsb + x_n\|^2 = \|x_1\|^2 + \|x_2\|^2 + \dotsb + \|x_n\|^2 \]
 \end{remark}
 
 \begin{lemma}
@@ -2785,7 +2784,7 @@ Inner product is a sesquilinear operator.
 \begin{enumerate}
 	\item $\mathbb{R}^3,\ M = \{(1,0,0),(0,1,0),(0,0,1)\}$
 	\item $l^2,\ M = \{e_j\}$ where $e_j =\delta_{n,j}$
-	\item {\color{red}$L^2[0,2\pi],\ M = \{ \frac{\cos nt}{\sqrt{\pi}} : n =0,1,2,\dots \}$}
+	\item {\color{red}$L^2[0,2\pi],\ M = \{ \frac{\cos nt}{\sqrt{\pi}} : n =0,1,2,\dotsc \}$}
 	\item {\color{red}$L^2[0,2\pi],\ M = \{ \frac{\sin nt}{\sqrt{\pi}} : n \in \mathbb{N} \}$}
 \end{enumerate}
 
@@ -2885,13 +2884,13 @@ Then,
 \end{theorem}
 \begin{proof}
 	Consider the series $\sum \alpha_k e_k$ and the sequence of partial sums $\sequence{s_n}$.
-	\[ s_n = \alpha_1 e_1 + \alpha_2 e_2 + \dots + \alpha_n e_n \]
+	\[ s_n = \alpha_1 e_1 + \alpha_2 e_2 + \dotsb + \alpha_n e_n \]
 	Similarly, consider the series $\sum |\alpha_k|^2$ and the sequence of partial sums $\sequence{\sigma_n}$.
-	\[ \sigma_n = |\alpha_1|^2 + |\alpha_2|^2 + \dots + |\alpha_n|^2 \]
+	\[ \sigma_n = |\alpha_1|^2 + |\alpha_2|^2 + \dotsb + |\alpha_n|^2 \]
 	\begin{align*}
 		\|s_n - s_m\|^2 \
-		& = \| \alpha_{m+1}e_{m+1} + \alpha_{m+2} e_{m+2} + \dots + \alpha_n e_n \| \\
-		& = |\alpha_{m+1}|^2 + |\alpha_{m+2}|^2 + \dots + |\alpha_n|^2 \text{ since } \inner{e_n}{e_m} = \delta_{n,m} \\
+		& = \| \alpha_{m+1}e_{m+1} + \alpha_{m+2} e_{m+2} + \dotsb + \alpha_n e_n \| \\
+		& = |\alpha_{m+1}|^2 + |\alpha_{m+2}|^2 + \dotsb + |\alpha_n|^2 \text{ since } \inner{e_n}{e_m} = \delta_{n,m} \\
 		& = |\sigma_n-\sigma_m|
 	\end{align*}
 	Clearly, $\sequence{s_n}$ is Cauchy if and only if $\sequence{\sigma_n}$ is Cauchy.
@@ -3109,7 +3108,7 @@ Then,
 
 	Let sequence $\sequence{e_k}$ be a total orthonormal sequence in $H$.
 	Let $A$ be the set of all linear combinations of the form,
-	\[ \gamma_1^{(n)}e_1 + \dots + \gamma_n^{(n)}e_n  \]
+	\[ \gamma_1^{(n)}e_1 + \dotsb + \gamma_n^{(n)}e_n  \]
 	where $\gamma_k^{(n)} = a_k^{(n)} + ib_k^{(n)}$ and $a_k^{(n)},b_k^{(n)}$ are rationals.
 	Then, $A$ is countable.\\
 

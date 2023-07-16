@@ -24,4 +24,213 @@
 %Pigeonhole, Inclusion \& Exclusion, Derangements - Generalizations
 %Generating Function \& Recurrence
 
-%``Who decides when to add/multiply numbers ?''
+\section{Permutations and Combinations}
+\subsection{Two Basic Counting Principles}
+\begin{commentary}
+``Who decides when to add/multiply numbers ?''
+\end{commentary}
+\begin{definition}[addition principle]
+	Suppose event $E$ can be partitioned into $k$ pairwise disjoint events.
+	And event $E_j$ has $n_j$ ways to occur where $j=1,2,\dots,k$.
+	Then the number of ways for the event $E$ to occur is $n_1+n_2+\dotsb+n_k$.
+\end{definition}
+For example : Let $E$ be the event of throwing a dice. Event $E$ can be partitioned into two subevents $E_1$ and $E_2$ where $E_1$ is the event of getting an even number and $E_2$ is the event of getting an odd number. $E_1$ has $3$ ways to occur and $E_2$ has $3$ ways to occur. And $E$ has $6$ ways to occur.
+
+\begin{remark}[Set Theoretical Equivalent]
+	Suppose set $A$ is disjoint union of the sets $A_1,A_2,\dots,A_k$ where $A_i \cap A_j = \phi,\ (i \ne j)$.
+	Then,
+	$$ |A| = \left|\bigcup_{j=1}^k A_j \right| = \sum_{j=1}^k |A_j|$$
+\end{remark}
+
+\begin{definition}[multiplication principle]
+	Suppose event $E$ can be decomposed into $k$ subevents.
+	And event $E_j$ has $n_j$ ways to occur where $j=1,2,\dots,k$.
+	Then number of ways for event $E$ to occur is $n_1 \times n_2 \times \dots n_k$.
+\end{definition}
+For example : Let $E$ be the event throwing 3 coins. Event $E$ can be decomposed into three events $E_1$, $E_2$ and $E_3$ where $E_j$ is the event of throwing $j$th coin. Each subevent has $2$ ways to occur. And $E$ has $8$ ways to occur.
+
+\begin{remark}[Set Theoretical Equivalent]
+	Suppose $A = A_1 \times A_2 \times \dotsm \times A_k$.
+	Then 
+	$$|A| = \left|\prod_{j=1}^k A_j\right| = \prod_{j=1}^k |A_j|$$
+\end{remark}
+
+\subsection*{Problems}
+\begin{enumerate}
+	\item The number of ordered pair $(x,y)$ such that $x^2+y^2 \le 5$.\\
+	(hint : Addition Principle, disjoint Events $E_j$ such that $x^2+y^2 \le j$, $(j=0,1,2,\dots,5)$)
+	\cite[Example 1.1.2]{chen}
+	\item The number of $k$-ary sequences of length $n$.\\
+	(hint : Multiplication Principle, subevents $E_j$ of choosing $j$th term in the sequence from $\{0,1,\dots,(k-1)\}$)
+	\cite[Example 1.1.4]{chen}
+	\item The number of positive divisors of $600$.\\
+	(hint : Multiplicaiton Principle, $600 = 2^3 \times 3^1 \times 5^2$, subevents $E_j$ of different powers of prime $j$ dividing $600$, $(j=2,3,5)$)
+	\cite[Example 1.1.5]{chen}
+	\item The cardinality of $S = \{ (a,b,c) : 0\le a,b,c \le 100,\ a<b,\ a<c \}$.\\
+	(hint : Multiplication Principle, subevents $E_a$ for each choice of $a$.)
+	\cite[Example 1.1.6]{chen}
+	\item The number of pairs $\{a,b\}$ such that $|a-b| = 5$.\\
+	(hint : Addition Principle, disjoint events $E_j$ where $\min\{a,b\} = j$.)
+	\cite[Exercise 1.1(i)]{chen} 
+	\item The number of pairs $\{a,b\}$ such that $|a-b| \le 5$.\\
+	(hint : Multiplication Principle, subevents $E_k$ for $|a-b|=k$.)
+	\cite[Exercise 1.1(ii)]{chen} 
+\end{enumerate}
+
+\subsection{Permutations}
+\begin{definition}[Permutation]
+	The $r$-permutation from a set of $n$ objects is the number of ways of arranging $r$ objects out of $n$ objects in a row.
+\end{definition}
+\begin{theorem}
+	$P^n_r = n \times (n-1) \times \dotsb \times = (n+1-r) = \frac{n!}{(n-r)!}$
+\end{theorem}
+\begin{proof}
+	The event of $r$-permutation can be decomposed into $r$ subevents.
+	The subevents $E_j$`s are the event of placing an object from a set of $n+1-j$ objects in the $j$th position.
+
+	\begin{commentary}
+	For example, $E_1$ has $n$ ways to occur as we are placing an object from $n$ objects in the first position and $E_2$ has $n-1$ ways to occur as we are placing an object from the remaining $n-1$ objects in the second position.
+	Continuing like this, $E_r$ has $(n+1-r)$ ways to occur as we are placing an object from $n+1-r$ objects in the $r$th position.
+	\end{commentary}
+
+	Clearly, each subevent $E_j$ has $n+1-j$ ways to occur.
+	By multplication principle, $E$ has $n \times (n-1) \times (n+1-r)$ ways to occur.
+	Clearly. $P^n_r = n \times (n-1) \times \dotsb \times (n+1-r)$.
+	Multiplying both numerator and denominator with $(n-r)!$, we get $P^n_r = \frac{n!}{(n-r)!}$.
+\end{proof}
+
+\begin{remark} $0! = 1$ \end{remark}
+
+\subsection*{Problems}
+\begin{enumerate}
+	\item Number of five letter words where first and last letter are distinct vowels and remaining three letters are distinct consonants.\\
+	(hint: Multiplication Principle, Subevents $E_v$ has $P^5_2$ ways to occur and $E_c$ has $P^{21}_3$ ways to occur.)
+\end{enumerate}
+\subsection{Circular Permutations}
+\begin{definition}[circular permutation]
+	The number of $r$-circular permutations from a set of $n$ objects, $Q^n_r$ in the number of ways of arranging $r$ objects out of $n$ objects around a circle.
+\end{definition}
+
+\begin{theorem}
+	$Q^n_r = P^n_r/r$
+\end{theorem}
+\begin{proof}
+	Let $x_1,x_2,\dots,x_r$ be any $r$-circular permutation. Consider the following $r$-permutations obtained from the $r$-circular permutation by rotation.
+\begin{itemize}
+	\item $x_1,x_2,\dots,x_r$ 
+	\item $x_2,x_3,\dots,x_r,x_1$\\ $\vdots$ 
+	\item $x_r,x_1,x_2,\dots,x_{r-1}$ 
+\end{itemize}
+
+	Each $r$-circular permutations represents a subset of $r$ number of $r$-permutations.
+	Clearly, the subsets corresponding to two different $r$-circular permutations are disjoint.
+	Therefore, the number of $r$-circular permutations is $P^n_r/r$.	
+\end{proof}
+\begin{remark}
+	$Q^n_n = P^n_n / n = (n-1)!$.
+\end{remark}
+
+\subsection*{Problems}
+\begin{enumerate}
+	\item Number of ways to seat 5 boys and 3 girls around a table is $Q^8_8 = 7!$.
+%	\item Number of ways to seat 5 boys and 3 girls around a table such that boy $B_1$ and girl $G_1$ are not adjacent.\\
+%	(hint : Seating all except $G_1$ around a table in $Q^7_7$ ways, then $G_1$ is seated away from $B_1$.)
+%\item Seating 5 boys and 3 girls in such a way that no girls are adjacent.\\ 
+%	(hint : Seating 5 boys around a table in $Q^5_5$ ways, then seating 3 girls in 5 positions between them in $P^5_3$ way.)
+%	\begin{commentary}
+%		You might be tempted to think that 3 girls are seated around 5 seats around a table. While seating the boys all the five seats where identical around the table, but after seating them the 5 positions in between them are not identical as the person on their left and right changes as they rotate around the table.
+%	\end{commentary}
+\end{enumerate}
+
+\begin{definition}[Principle of Complementation]
+	If event $E$ has $n$ ways to occur and its subevent $E_1$ has $r$ ways to occur. Let $E_2$ be the complement event of $E_1$. Then $E_2$ has $n-r$ ways to occur.
+\end{definition}
+
+\subsection{Combinations}
+\begin{definition}
+	An $r$-combination of a set of $n$ objects is a subset of $r$ elements.
+\end{definition}
+\begin{theorem}
+	The number of $r$-combinations of $n$ objects $C^n_r = P^n_r/r!$.
+\end{theorem}
+\begin{proof}
+	Let $E$ be the event of $r$-permutations of $n$ objects. We may decompose this event into two subevents, event $E_1 :$ the $r$-combinations of $n$ objects and event $E_2 :$ the $r$-permutations of those $r$ objects. Thus, $P^n_r = C^n_r \times P^r_r$.
+	Therefore, $C^n_r = P^n_r/P^r_r = P^n_r / r!$.
+\end{proof}
+
+\begin{remark}
+	$C^n_r = \binom{n}{r} = \frac{n!}{r!\ (n-r)!}$.
+\end{remark}
+\paragraph{Properties}
+\begin{enumerate}
+	\item $\binom{n}{r} = \binom{n}{n-r}$, by the symmetry of the factorial expression.
+	\item $\binom{n}{r} = \binom{n-1}{r-1} + \binom{n-1}{r}$.
+	\begin{proof}
+		Let event $E$ be the $r$-combinations of $n$ objects. Event $E$ can be partitions into two disjoint events, event $E_1 :$ a particular element $e$ should be there in the $r$-combination and event $E_2 :$ element $e$ should not be there in the $r$-combination. Clearly $E_1$ has $\binom{n-1}{r-1}$ ways to occur and $E_2$ has $\binom{n-1}{r}$ ways to occur. By addition principle, $E$ has $\binom{n-1}{r-1} + \binom{n-1}{r}$ ways to occur.
+	\end{proof}
+\end{enumerate}
+\subsection*{Problem}
+\begin{enumerate}
+	\item Number of binary sequence of length seven with four $0$`s is $\binom{7}{4}$.
+	\item Number of ways to form a committe of $5$ from a group of $11$ is $\binom{11}{5}$.
+\end{enumerate}
+\begin{definition}
+	The \textbf{Stirling numbers of the first kind} $s(r,n)$ is the number of ways to distribute $r$ distinct objects around $n$ identical circles in such a way that each circle has at least one object.
+\end{definition}
+\paragraph{Properties}
+\begin{enumerate}
+	\item $s(r,0) = 0$ if $r \ge 1$, trivial as there is no table.
+	\item $s(r,r) = 1$ if $r \ge 0$, unique distribution as the tables are identical.
+	\item $s(r,1) = (r-1)!$ is $r$-circular permutation.
+	\item $s(r,r-1) = \binom{r}{2}$ as some table has a $2$-combination of $r$ objects.
+	\item $s(r,n) = s(r-1,n-1)+s(r-1)\ s(r-1,n)$.
+	\begin{proof}
+		The event $E$ of distributing $r$ distinct objects around $n$ idential circles can be partitioned into two disjoint events, event $E_1 :$ a particular element $e$ is the only element in its circle and event $E_2 :$ element $e$ is not alone in its circle. And event $E_2$ can be further decomposed into two subevents, event $E_{21} :$ distributing $r-1$ objects around $n$ identical circles and event $E_{22} :$ placing element $e$ on the immediate right of an element.\\
+
+		Clearly event $E_1$ has $s(r-1,n-1)$ ways to occur, event $E_{21}$ has $s(r-1,n)$ ways to occur and event $E_{22}$ has $r-1$ ways to occur. Thus, $E$ has $s(r-1,n-1) + (r-1) s(r-1,n)$ ways to occur.
+	\end{proof}
+\end{enumerate}
+\subsection{The Injection and Bijection Principles}
+\subsection*{Problems}
+\begin{enumerate}
+	\item The number shortest routes an $m \times n$ street map is $\binom{m+n}{n}$.
+	\item The number of $m$-separated $r$-combinations of $N_n$ is 
+\end{enumerate}
+\subsection{Arrangements and Selections with Repetitions}
+\subsection{Distribution Problems}
+
+\section{Binomial Coefficients and Multinomial Coefficients*}
+
+\section{The Pigeonhole Principle and Ramsey Numbers}
+\subsection{Introduction}
+\subsection{The Pigeonhole Principle}
+\subsection{More Examples}
+\subsection{Ramsey Type Problems and Ramsey Numbers}
+\subsection{Bounds for Ramsey Numbers}
+
+\section{The Principle of Inclusion and Exclusion}
+\subsection{Introduction}
+\subsection{The Principle}
+\subsection{A Generalization}
+\subsection{Integer Solutions and Shortest Routes}
+\subsection{Surjective Mappings and Stirling Numbers of the Second Kind}
+\subsection{Derangements and A Generalization}
+\subsection{The Sieve of Eratosthenes and Euler $\phi$-function*}
+\subsection{The `Probl\'eme des M\'enages'*}
+
+\section{Generating Functions}
+\subsection{Ordinary Generating Functions}
+\subsection{Some Modelling Problems}
+\subsection{Partitions of Integers}
+\subsection{Exponential Generating Functions}
+
+\section{Recurrence Relations}
+\subsection{Introduction}
+\subsection{Two Examples}
+\subsection{Linear Homogeneous Recurrence Relations}
+\subsection{General Linear Recurrence Relations}
+\subsection{Two Applications}
+\subsection{A System of Linear Recurrence Relations}
+\subsection{The Method of Generating Functions}
+\subsection{A Nonlinear Recurrence Relations and Catalan Numbers}
+\subsection{Oscillating Permutations and an Exponential Generating Function}

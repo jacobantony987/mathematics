@@ -89,10 +89,10 @@
 	Thus $p(\alpha) = 0 \implies f(\alpha) = 0$.
 	Thus, it remains to prove that there exists $\alpha \in F[x]/\generator{p(x)}$ such that $p(\alpha) = 0$.\\
 
-	Let $p(x) = a_0 + a_1x + a_2 x^2\cdots + a_n x^n$.
+	Let $p(x) = a_0 + a_1x + a_2 x^2 + \dotsb + a_n x^n$.
 	Consider $\alpha = x + \generator{p(x)}$.
 	Then $p(\alpha) = \phi_\alpha(p)$.
-	Thus, $p(\alpha) = a_0 + a_1(x+\generator{p(x)}) + \cdots + a_n(x + \generator{p(x)})^n$.
+	Thus, $p(\alpha) = a_0 + a_1(x+\generator{p(x)}) + \dotsb + a_n(x + \generator{p(x)})^n$.
 	Thus, $p(\alpha) = (a_0+a_1x + a_n x^n) + \generator{p(x)} = p(x) + \generator{p(x)} = \generator{p(x)} = 0$.
 	Therefore, $p(\alpha) = 0$ and $f(\alpha) = 0$.
 \end{proof}
@@ -158,31 +158,31 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 \begin{theorem}
 	Let $E$ be a simple extension $F(\alpha)$ of field $F$ where $\alpha \in E$ is algebraic over $F$.
 	Let $deg(\alpha,F) = n \ge 1$.
-	Then any element $\beta \in E$ can be uniquely expressed in the form $\beta = b_0 + b_1\alpha + \cdots + b_{n-1}\alpha^{n-1}$ where $b_k \in F$.
+	Then any element $\beta \in E$ can be uniquely expressed in the form $\beta = b_0 + b_1\alpha + \dotsb + b_{n-1}\alpha^{n-1}$ where $b_k \in F$.
 \end{theorem}
 \begin{proof}
 	Consider the evaluation homomorphism $\phi_\alpha : F[x] \to E$ defined by $\phi_\alpha(f) = f(\alpha)$.
 	Then $\phi_\alpha[F[x]] = F(\alpha)$.\\
 	
-	Let $irr(\alpha,F) = p(x) = x^n + a_{n-1}x^{n-1} + \cdots +a_1x+a_0$.
+	Let $irr(\alpha,F) = p(x) = x^n + a_{n-1}x^{n-1} + \dotsb +a_1x + a_0$.
 	Then, $p(\alpha) = 0$.
 	Thus, 
 \begin{equation}
-	\alpha^n = -a_{n-1} \alpha^{n-1}-a_{n-2} \alpha^{n-2} - \cdots - a_1\alpha - a_0
+	\alpha^n = -a_{n-1} \alpha^{n-1}-a_{n-2} \alpha^{n-2} - \dotsb - a_1\alpha - a_0
 \end{equation}
 	Clearly, any higher power of $\alpha$ can be eliminated from $f(\alpha)$ as shown below,
 	\begin{align*}
-		\alpha^{n+1} = & \alpha \alpha^n = -a_{n-1} \alpha^n -a_{n-2} \alpha^{n-1} - \cdots - a_1\alpha^2 - a_0 \alpha \\ 
-		 = & a_{n-1} \left( a_{n-1}\alpha^{n-1}+a_{n-2}\alpha^{n-2}+\cdots+a_1\alpha + a_0 \right)\\
+		\alpha^{n+1} = & \alpha \alpha^n = -a_{n-1} \alpha^n -a_{n-2} \alpha^{n-1} - \dotsb - a_1\alpha^2 - a_0 \alpha \\ 
+		 = & a_{n-1} \left( a_{n-1}\alpha^{n-1}+a_{n-2}\alpha^{n-2}+\dotsb+a_1\alpha + a_0 \right)\\
 		& - a_{n-2}\alpha^{n-1} - a_{n-3}\alpha^{n-2} - a_1\alpha^2 - a_0 \alpha
 	\end{align*}
 
 	Thus, in the representation of the element in $F(\alpha)$, the maximum degree of $\alpha$ is $deg(\alpha,F)-1$.
-	Therefore, $\beta \in F(\alpha) \implies \beta = b_0 + b_1\alpha + b_2\alpha^2 + \cdots + b_{n-1}\alpha^{n-1}$.\\
+	Therefore, $\beta \in F(\alpha) \implies \beta = b_0 + b_1\alpha + b_2\alpha^2 + \dotsb + b_{n-1}\alpha^{n-1}$.\\
 
 	We can also show that this representation is unique for any $\beta \in F(\alpha)$.
-	Suppose $\beta = b_0'+b_1'\alpha+b_2'\alpha^2+\cdots+b_{n-1}'\alpha^{n-1}$.
-	Then $0 = (b_0 - b_0') + (b_1 - b_1')\alpha + \cdots + (b_{n-1} - b_{n-1}')\alpha^{n-1} = \phi_\alpha(g)$ where $g(x) = (b_0 - b_0') + (b_1 - b_1')x + \cdots + (b_{n-1} - b_{n-1}')x^{n-1}$.
+	Suppose $\beta = b_0'+b_1'\alpha+b_2'\alpha^2+\dotsb+b_{n-1}'\alpha^{n-1}$.
+	Then $0 = (b_0 - b_0') + (b_1 - b_1')\alpha + \dotsb + (b_{n-1} - b_{n-1}')\alpha^{n-1} = \phi_\alpha(g)$ where $g(x) = (b_0 - b_0') + (b_1 - b_1')x + \dotsb + (b_{n-1} - b_{n-1}')x^{n-1}$.
 	Clearly, degree of $g(x)$ is $deg(\alpha,F)-1$ which is less than the minimum degree for a non-zero irreducible polynomial for $\alpha$ over $F$.
 	Thus $g(x) = 0$.
 	In other words, $b_j = b_j',\ \forall j$ and representation for $\beta \in F(\alpha)$ is unique.
@@ -267,11 +267,11 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 	Let $E$ be a fintie extension of degree $n$ over $F$.
 	Then $[E:F] = n$.
 	Suppose $\alpha \in E$.
-	Clearly, $\{1,\alpha,\alpha^2,\cdots,\alpha^n \}$ is set of $n+1$ vectors from the vector space $E$ over $F$.
+	Clearly, $\{1,\alpha,\alpha^2,\dots,\alpha^n \}$ is set of $n+1$ vectors from the vector space $E$ over $F$.
 	We know that in a vector space of dimension $n$, any set having $n+1$ vector is linearly dependant.
-	In other words, there exits scalars $c_0,c_1,\cdots,c_n \in F$ (not all zero) such that $c_0+c_1\alpha+c_2\alpha^2+\cdots+c_n\alpha^n = 0$.\\
+	In other words, there exits scalars $c_0,c_1,\dots,c_n \in F$ (not all zero) such that $c_0+c_1\alpha+c_2\alpha^2+\dotsb+c_n\alpha^n = 0$.\\
 
-	Clearly, $f(x) = c_0 + c_1x + c_2x^2 + \cdots +c_nx^n$ is a polynomial in $F[x]$ such that $\phi_\alpha(f) = f(\alpha) = 0$.
+	Clearly, $f(x) = c_0 + c_1x + c_2x^2 + \dotsb +c_nx^n$ is a polynomial in $F[x]$ such that $\phi_\alpha(f) = f(\alpha) = 0$.
 	Since $\alpha \in E$ is arbitrary, every element in $E$ is algebraic over $F$.
 \end{proof}
 
@@ -282,37 +282,37 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 \end{theorem}
 \begin{proof}
 	Let $[E:F] = n$ and $[K:E] = m$.
-	Let $\{ \alpha_1,\alpha_2,\cdots,\alpha_n \}$ be basis for vector space $E(F)$ and let $\{ \beta_1,\beta_2,\cdots,\beta_m\}$ be basis for vector space $K(E)$.
+	Let $\{ \alpha_1,\alpha_2,\dots,\alpha_n \}$ be basis for vector space $E(F)$ and let $\{ \beta_1,\beta_2,\dots,\beta_m\}$ be basis for vector space $K(E)$.
 	We claim that $\{\alpha_i\beta_j : 1 \le i \le n,\ 1 \le j \le m \}$ is a basis for the vector space $K(F)$.\\
 
 	Let $\gamma \in K$.
-	Then we have $b_1,b_2,\cdots,b_m \in E$ such that $\gamma = b_1\beta_1+b_2\beta_2+\cdots+b_m\beta_m$.
-	Again, for each $b_j \in E$, we have $a_{ij} \in F$ such that $b_j = a_{1j}\alpha_1+a_{2j}\alpha_2+\cdots+a_{nj}\alpha_n$.
+	Then we have $b_1,b_2,\dots,b_m \in E$ such that $\gamma = b_1\beta_1+b_2\beta_2+\dotsb+b_m\beta_m$.
+	Again, for each $b_j \in E$, we have $a_{ij} \in F$ such that $b_j = a_{1j}\alpha_1+a_{2j}\alpha_2+\dotsb+a_{nj}\alpha_n$.
 	Therefore, 
 	\[\gamma = \sum_{i=1}^n \sum_{j=1}^m a_{ij} \alpha_i \beta_j\]
 
-	That is, $\{ \alpha_i \beta_j : i =1,2,\cdots,n,\ j=1,2,\cdots,m \}$ spans $K$.
+	That is, $\{ \alpha_i \beta_j : i =1,2,\dots,n,\ j=1,2,\dots,m \}$ spans $K$.
 	It remains to prove that $\{\alpha_i \beta_j \}$ is linearly independent.
 	Suppose it is linearly dependent.
 	Then there exists scalars $c_{i,j} \in F$ (not all zero) such that
 	\[\sum_{i=1}^n \sum_{j=1}^m c_{i,j} \alpha_i \beta_j  = \sum_{j=1}^m \left( \sum_{i=1}^n c_{i,j} \alpha_i \right) \beta_j  = 0\]
 	
 	Let $\sum_{i=1}^n c_{i,j}\alpha_i = b_j$.
-	We know that, $\{ \beta_j : j = 1,2,\cdots,m \}$ is linearly independent.
+	We know that, $\{ \beta_j : j = 1,2,\dots,m \}$ is linearly independent.
 	Thus, $\sum_j b_j \beta_j = 0 \implies b_j = 0,\ \forall j$.\\
 	
 
 	Again $b_j = 0 \implies \sum_{i = 0}^n c_{i,j}\alpha_i = 0$.
-	Once again, $\{ \alpha_i : i = 1,2,\cdots,n \}$ is linear independent.
+	Once again, $\{ \alpha_i : i = 1,2,\dots,n \}$ is linear independent.
 	Thus, $c_{i,j} = 0,\ \forall i,j$.
 	Thus, $\{ \alpha_i \beta_j \}$ is linearly independent.
 	Therefore, $\{ \alpha_i \beta_j \}$ is a basis for the vector space $K(F)$.
-	And $[K : F] = |\{\alpha_i \beta_j : i =1,2,\cdots,n \text{ and } j=1,2,\cdots,m\}|= mn$.
+	And $[K : F] = |\{\alpha_i \beta_j : i =1,2,\dots,n \text{ and } j=1,2,\dots,m\}|= mn$.
 \end{proof}
 
 \begin{corollary}
-	Let $F_i$ be fields and $F_{i+1}$ are finite extensions of $F_i$s for $i = 1,2,\cdots,r$.
-	Then $[F_r : F_1] = [F_r : F_{r-1}][F_{r-1}:F_{r-2}]\cdots[F_2:F_1]$.
+	Let $F_i$ be fields and $F_{i+1}$ are finite extensions of $F_i$s for $i = 1,2,\dots,r$.
+	Then $[F_r : F_1] = [F_r : F_{r-1}][F_{r-1}:F_{r-2}] \dotsm [F_2:F_1]$.
 \end{corollary}
 \begin{proof}
 	We have, $F_3$ is a finite extension of $F_1$ and 
@@ -321,11 +321,11 @@ For example : $\sqrt{2} \in \mathbb{C}$ is algebraic over $\mathbb{Q}$ since $x^
 	\end{equation}
 	Suppose $F_k$ is a finite extension of $F_1$ and 
 	\begin{equation}
-		[F_k : F_1] = [F_k:F_{k-1}][F_{k-1}:F_{k-2}] \cdots [F_2:F_1]
+		[F_k : F_1] = [F_k:F_{k-1}][F_{k-1}:F_{k-2}] \dotsm [F_2:F_1]
 	\end{equation}
 	\begin{align*}
 		[F_{k+1}:F_1] = & [F_{k+1} : F_k][F_k : F_1] \text{ since } F_k \text{ is a finite extension of } F_1\\
-		= & [F_{k+1}:F_k][F_k:F_{k-1}][F_{k-1}:F_{k-2}] \cdots [F_2:F_1]
+		= & [F_{k+1}:F_k][F_k:F_{k-1}][F_{k-1}:F_{k-2}] \dotsm [F_2:F_1]
 	\end{align*}
 \end{proof}
 
@@ -1251,7 +1251,7 @@ For example, let $x,y$ be two indeterminates, then an element $f(x) \in F[x,y]$ 
 
 	Suppose $K = F[x_1,x_2,\dots,x_k]$ is a UFD.\\
 
-	Then, $F[x_1,x_2,\dots,x_k,x_{k+1}] = F[x_1,x_2,\dots,x_k][x_{k+1}] = K[x_{k+1}] = K[x]$ is a UFD.
+	Then, $F[x_1,x_2,\dots,x_k,x_{k+1}] = F[x_1,x_2,\dots, x_k][x_{k+1}] = K[x_{k+1}] = K[x]$ is a UFD.
 \end{proof}
 
 \subsection{Exercise \S45}
@@ -1341,7 +1341,7 @@ For example, $v(n) = |n|$ is a Euclidean norm on Euclidean domain $\mathbb{Z}$. 
 \begin{proof}
 	\textbf{Step 1 : Finite Sequence  $r_1,r_2,\dots,r_s$}\\
 	Suppose $r_1,r_2,\dots,r_{i-1} \ne 0$.
-	Then $v(r_1) > v(r_2) > \dots > v(r_{i-1})$ is a strictly decreasing sequence of non-negative integers.
+	Then $v(r_1) > v(r_2) > \dotsb > v(r_{i-1})$ is a strictly decreasing sequence of non-negative integers.
 	Thus, the sequence will terminate in finite numbers of steps.
 	That is, $r_s = 0 $ for some integer $s$.\\
 	
@@ -1606,17 +1606,17 @@ $irr(i,\mathbb{R}) = x^2+1 = irr(-i,\mathbb{R})$.
 	Let $F$ be a field.
 	Let $\alpha,\beta$ be algebraic over $F$ with $\deg(\alpha,F) = n$.
 	The map $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$ defined by 
-	\[ \psi_{\alpha,\beta} \left( c_0 + c_1\alpha + \dots + c_{n-1}\alpha^{n-1} \right) = c_0 + c_1\beta + \dots + c_{n-1}\beta^{n-1} \]
+	\[ \psi_{\alpha,\beta} \left( c_0 + c_1\alpha + \dotsb + c_{n-1}\alpha^{n-1} \right) = c_0 + c_1\beta + \dotsb + c_{n-1}\beta^{n-1} \]
 	where $c_j \in F$ is an isomorphism from $F(\alpha)$ onto $F(\beta)$ if and only if $\alpha,\beta$ are conjugates over $F$.
 \end{theorem}
 \begin{proof} 
 	Let $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$ be an isomorphism.
 	Let $\deg(\alpha,F) = n$ and $irr(\alpha,F) = q(x)$ given by
-	\[ irr(\alpha,F) = q(x) = a_0 + a_1 x + \dots + a_n x^n \]
+	\[ irr(\alpha,F) = q(x) = a_0 + a_1 x + \dotsb + a_n x^n \]
 	Then 
-	\[ a_0 + a_1 \alpha + \dots + a_n \alpha^n = 0 \]
+	\[ a_0 + a_1 \alpha + \dotsb + a_n \alpha^n = 0 \]
 	Thus,
-	\[ \psi_{\alpha,\beta}(0) = \psi_{\alpha,\beta} (a_0 + a_1 \alpha + \dots + a_n \alpha^n) = a_0 + a_1 \beta + \dots + a_n \beta^n = 0 \]
+	\[ \psi_{\alpha,\beta}(0) = \psi_{\alpha,\beta} (a_0 + a_1 \alpha + \dotsb + a_n \alpha^n) = a_0 + a_1 \beta + \dotsb + a_n \beta^n = 0 \]
 	Let $irr(\beta,F) = p(x) \in F[x]$.
 	Then, $p(\beta) = 0$.
 	We already have, $q(\beta) = 0$.
@@ -1661,7 +1661,7 @@ $irr(i,\mathbb{R}) = x^2+1 = irr(-i,\mathbb{R})$.
 	Similary, there exists another canonical isomorphism
 	\[ \psi_\beta : F[x]/\generator{p(x)} \to \phi_\beta[F[x]],\quad \psi_\beta(r(x) + \generator{p(x)} = \phi_\beta(r(x)) = r(\beta) \]
 	Therefore, $\psi_{\alpha,\beta} = \psi_\beta \circ \psi_\alpha^{-1} : F(\alpha) \to F(\beta)$ is an isomorphism such that
-	\[ \psi_\beta \circ \psi_\alpha^{-1} (c_0 + c_1 \alpha + \dots +c_{n-1}\alpha^{n-1}) = c_0 + c_1 \beta + \dots + c_{n-1} \beta^{n-1} \]
+	\[ \psi_\beta \circ \psi_\alpha^{-1} (c_0 + c_1 \alpha + \dotsb +c_{n-1}\alpha^{n-1}) = c_0 + c_1 \beta + \dotsb + c_{n-1} \beta^{n-1} \]
 \end{proof}
 
 \begin{commentary}
@@ -1765,9 +1765,9 @@ However, only two of them are distinct.
 \end{corollary}
 \begin{proof} 
 	Let $\psi : F(\alpha) \to E$ be an isomorphism such that $\psi(a) = a,\ \forall a \in F$.
-	Let $irr(\alpha,F) = p(x) = a_0 + a_1x + \dots + a_nx^n$.
-	Then $\phi_\alpha(p(x)) = p(\alpha) = a_0 + a_1\alpha + \dots + a_n \alpha^n = 0$.
-	And, $\psi(0) = \psi(p(\alpha)) = a_0 + a_1 \psi(\alpha) + \dots + a_n \psi(\alpha)^n = 0$.
+	Let $irr(\alpha,F) = p(x) = a_0 + a_1x + \dotsb + a_nx^n$.
+	Then $\phi_\alpha(p(x)) = p(\alpha) = a_0 + a_1\alpha + \dotsb + a_n \alpha^n = 0$.
+	And, $\psi(0) = \psi(p(\alpha)) = a_0 + a_1 \psi(\alpha) + \dotsb + a_n \psi(\alpha)^n = 0$.
 	That is, $\psi(\alpha)$ is a zero of the polynomial $p(x)$.
 	Thus, $\alpha,\psi(\alpha)$ are conjugates over $F$.\\
 
@@ -1775,9 +1775,9 @@ However, only two of them are distinct.
 
 	Let $\alpha,\beta$ be conjugates over $F$.
 	Then, the conjugation isomorphism $\psi_{\alpha,\beta} : F(\alpha) \to F(\beta)$ defined by
-	\[ \psi_{\alpha,\beta}(a_0 + a_1\alpha + \dots + a_{n-1} \alpha^{n-1}) = a_0 + a_1 \beta + \dots + a_{n-1} \beta^{n-1} \]
+	\[ \psi_{\alpha,\beta}(a_0 + a_1\alpha + \dotsb + a_{n-1} \alpha^{n-1}) = a_0 + a_1 \beta + \dotsb + a_{n-1} \beta^{n-1} \]
 	is an isomorphism which maps $a \to a,\ \forall a \in F$ and $\alpha \to \beta$.
-	Since every element in $F(\alpha)$ is of the form $a_0 + a_1 \alpha + \dots + a_{n-1}\alpha^{n-1}$.
+	Since every element in $F(\alpha)$ is of the form $a_0 + a_1 \alpha + \dotsb + a_{n-1}\alpha^{n-1}$.
 	And the definition $a \to a,\ \alpha \to \beta$ compltelely determines the isomorphism.
 	Therefore, there exists a unique conjugate isomorphism which maps $\alpha$ to its conjugate $\beta$.
 \end{proof} 
@@ -1799,12 +1799,12 @@ However, only two of them are distinct.
 	Let $a+ib \in \mathbb{C}$.
 	Let $f(x) \in \mathbb{R}[x]$ such that $irr(a+ib,\mathbb{R}) = f(x)$.\\
 	Since $f(x) \in \mathbb{R}[x]$,
-	\[ f(x) = c_0 + c_1x+ \dots c_nx^n \]
+	\[ f(x) = c_0 + c_1x + \dotsb + c_nx^n \]
 	Since $irr(a+ib,\mathbb{R}) = f(x)$,
-	\[ \phi_{a+ib}(f(x)) = f(a+ib) = c_0 + c_1(a+ib) + \dots + c_n(a+ib)^n = 0 \]
+	\[ \phi_{a+ib}(f(x)) = f(a+ib) = c_0 + c_1(a+ib) + \dotsb + c_n(a+ib)^n = 0 \]
 	Field $\mathbb{R}$ is fixed under the conjugate isomorphism, $\psi_{i,-i}$.
 	Thus, $\psi_{i,-i}(0) = 0$,
-	\[ \psi_{i,-i}(0) = \psi_{i,-i}(f(a+ib)) = f(a-ib) = c_0 + c_1(a-ib) + \dots + c_n(a-ib)^n = 0 \]
+	\[ \psi_{i,-i}(0) = \psi_{i,-i}(f(a+ib)) = f(a-ib) = c_0 + c_1(a-ib) + \dotsb + c_n(a-ib)^n = 0 \]
 	Therefore, $(a-ib)$ is a zero of $f(x)$.
 	Let $irr(a-ib,\mathbb{R}) = p(x)$.
 	Then $f(x) \in \generator{p(x)}$.
@@ -2112,8 +2112,8 @@ Also we have, $[\mathbb{Q}(\sqrt{2},\sqrt{3}) : \mathbb{Q}] = 4$ is the order of
 	Let $\psi_\alpha$ be the canonical isomorphism corresponding to the evaluation homomorphism $\phi_\alpha$.
 	\[ \psi_\alpha : K[x]/\generator{p(x)} \to K(\alpha),\quad \phi_\alpha : K[x] \to K(\alpha) \]
 	Consider the isomorphism $\tau : K \to K'$.
-	Let $p(x) = a_0 + a_1 x + \dots + a_nx^n$.
-	Then, $q(x) = \tau(p)(x) = \tau(a_0) + \tau(a_1) x + \dots + \tau(a_n)x^n$ is an irreducible polynomial over $K'$.\\
+	Let $p(x) = a_0 + a_1 x + \dotsb + a_nx^n$.
+	Then, $q(x) = \tau(p)(x) = \tau(a_0) + \tau(a_1) x + \dotsb + \tau(a_n)x^n$ is an irreducible polynomial over $K'$.\\
 
 	Let $\alpha'$ be a zero of $q(x) \in K'[x]$.
 	Consider $\psi_{\alpha'} : K'[x]/\generator{q(x)} \to K'(\alpha')$ which is analogous to $\psi_\alpha$.
@@ -2183,11 +2183,11 @@ Also we have, $[\mathbb{Q}(\sqrt{2},\sqrt{3}) : \mathbb{Q}] = 4$ is the order of
 	\dag\footnote{Let $p(x)$ be irreducible over $F$.
 	Let $\sigma : F \to F'$ be an isomorphism.
 	Then there exists a polynomial $q(x)$ which is irreducible over $F'$.
-	And if $p(x) = a_0 + a_1 x + \dots +a_nx^n$, then $q(x) = \sigma(a_0) + \sigma(a_1)x +\dots + \sigma(a_n)x^n$.
+	And if $p(x) = a_0 + a_1 x + \dotsb +a_nx^n$, then $q(x) = \sigma(a_0) + \sigma(a_1)x + \dotsb + \sigma(a_n)x^n$.
 	We may write $q = \sigma_x(p)$ where $\sigma_x : F[x] \to F'[x]$.}\\
 	Let $irr(\alpha_j,F) = p(x) \in F[x]$ with $\deg(\alpha_j,F) = k$.
 	Then, 
-	\[ p(x) = a_0 + a_1 x + \dots + a_k x^k \]
+	\[ p(x) = a_0 + a_1 x + \dotsb + a_k x^k \]
 	We have, $\phi_{\alpha_j}(p(x)) = p(\alpha_j) = 0$.
 	Let $q(x) \in F'[x]$ such that 
 	\[ q(x) = \sigma_x(p)(x) = \sigma(a_0) + \sigma(a_1) x + \dots + \sigma(a_k) x^k \]
@@ -2251,7 +2251,7 @@ For example, $\mathbb{Q}(\sqrt{2},\sqrt{3})$ is the splitting field of $\{ x^2-2
 	\textbf{Step 1 : $\{ \alpha_j : j \in J \}$ generates $E$}\\
 	Let $\{ \alpha_j : j \in J\}$ be the set of all zeroes of $\mathscr{F} = \{ f_i(x) : i \in I\}$.
 	We know that, the elements of  $F(\alpha_j)$ are of the form
-	\[ \phi_{\alpha_j} g(x) = g(\alpha_j) =  a_0 + a_1 \alpha_j + \dots + a_{n_j-1}\alpha^{n_j-1} \]
+	\[ \phi_{\alpha_j} g(x) = g(\alpha_j) =  a_0 + a_1 \alpha_j + \dotsb + a_{n_j-1}\alpha^{n_j-1} \]
 	where $a_k \in F$, $\deg(\alpha_j,F) = n_j$.
 	Clearly, $g(x)$ is some polynomial in $F[x]$ of degree less than $n_j$.\\
 
@@ -2268,7 +2268,7 @@ For example, $\mathbb{Q}(\sqrt{2},\sqrt{3})$ is the splitting field of $\{ x^2-2
 	In other words, $\{ \alpha_j : j \in J \}$ generates $E$ over $F$.
 	\dag\footnote{$E$ is a vector space over the field $F$ spanned by $\{ \alpha_j : j \in J \}$. 
 	Let $\beta \in E$.
-	Then, $\beta = a_0 \alpha_0 + a_1 \alpha_1 + \dots + a_r \alpha_r$ where $a_k \in F$.}\\
+	Then, $\beta = a_0 \alpha_0 + a_1 \alpha_1 + \dotsb + a_r \alpha_r$ where $a_k \in F$.}\\
 
 	\textbf{Step 2 : $\sigma$ is an automorphism of $E$}\\
 	Since $\{ \alpha_j : j \in J \}$ spans $E$ over $F$, $\sigma : \bar{F} \to \bar{F}$ is completely determined on $E$ by the images of $\alpha_j$s, say $\sigma(\alpha_j)$.

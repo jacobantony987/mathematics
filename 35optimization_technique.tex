@@ -32,7 +32,7 @@ A general LPP is of the form,
 
 	That is,
 \begin{align}
-\text{ minimise } & : & f = c_1x_1 + c_2x_2 + \dots + c_nx_n & \\
+\text{ minimise } & : & f = c_1x_1 + c_2x_2 + \dotsb + c_nx_n & \\
 \text{ subject to } & : & \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1m} \\ a_{21} & a_{22} & \dots & a_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mm} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \dots \\ x_m \end{pmatrix} & = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{pmatrix} \\
 \text{ such that } & & X \ge 0 &
 \end{align}
@@ -62,11 +62,11 @@ A general LPP is of the form,
 \begin{commentary}
 \begin{align*}
 	\intertext{Rearranging the non-basic variable, we get}
-	\begin{pmatrix} a_{11} & a_{12} & \dots & a_{1m} \\ a_{21} & a_{22} & \dots & a_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mm} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_m \end{pmatrix} & = \begin{pmatrix} b_1 - a_{1,(m+1)} x_{m+1} - a_{1,(m+2)} x_{m+2} - \dots - a_{1n}x_n \\ b_2 - a_{2,(m+1)} x_{m+1} - a_{2,(m+2)} x_{m+2} - \dots - a_{2,n}x_n \\ \vdots \\ b_m-a_{m,(m+1)}x_{m+1} - a_{m,(m+2)}x_{m+2}-\dots-a_{m,n}x_n \end{pmatrix}
+	\begin{pmatrix} a_{11} & a_{12} & \dots & a_{1m} \\ a_{21} & a_{22} & \dots & a_{2m} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \dots & a_{mm} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_m \end{pmatrix} & = \begin{pmatrix} b_1 - a_{1,(m+1)} x_{m+1} - a_{1,(m+2)} x_{m+2} - \dotsb - a_{1n}x_n \\ b_2 - a_{2,(m+1)} x_{m+1} - a_{2,(m+2)} x_{m+2} - \dotsb - a_{2,n}x_n \\ \vdots \\ b_m-a_{m,(m+1)}x_{m+1} - a_{m,(m+2)}x_{m+2}-\dotsb-a_{m,n}x_n \end{pmatrix}
 \end{align*}
 Left multplying with $A^{-1}$ on either sides, we get
 \begin{align*}
-	\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_m \end{pmatrix} = & \begin{pmatrix} \bar{b}_1 - \bar{a}_{1,(m+1)} x_{m+1} - \bar{a}_{1,(m+2)} x_{m+2} - \dots - \bar{a}_{1n}x_n \\ \bar{b}_2 - \bar{a}_{2,(m+1)} x_{m+1} - \bar{a}_{2,(m+2)} x_{m+2} - \dots - \bar{a}_{2,n}x_n \\ \vdots \\ \bar{b}_m-\bar{a}_{m,(m+1)}x_{m+1} - \bar{a}_{m,(m+2)}x_{m+2}-\dots-\bar{a}_{m,n}x_n \end{pmatrix}\\
+	\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_m \end{pmatrix} = & \begin{pmatrix} \bar{b}_1 - \bar{a}_{1,(m+1)} x_{m+1} - \bar{a}_{1,(m+2)} x_{m+2} - \dotsb - \bar{a}_{1n}x_n \\ \bar{b}_2 - \bar{a}_{2,(m+1)} x_{m+1} - \bar{a}_{2,(m+2)} x_{m+2} - \dotsb - \bar{a}_{2,n}x_n \\ \vdots \\ \bar{b}_m-\bar{a}_{m,(m+1)}x_{m+1} - \bar{a}_{m,(m+2)}x_{m+2}-\dotsb-\bar{a}_{m,n}x_n \end{pmatrix}\\
 		\text{where } & \begin{pmatrix} \\ A^{-1} \\ \hphantom{} \end{pmatrix} \begin{pmatrix} b_1 \\ b_2 \\ \dots \\ b_m \end{pmatrix} = \begin{pmatrix} \bar{b}_1 \\ \bar{b}_2 \\ \vdots \\ \bar{b}_m \end{pmatrix} \text{ and } \begin{pmatrix} \\ A^{-1} \\ \hphantom{} \end{pmatrix} \begin{pmatrix} a_{1,(m+1)} \\ a_{2,(m+1)} \\ \vdots \\ a_{m,(m+1)} \end{pmatrix} = \begin{pmatrix} \bar{a}_{1,(m+1)} \\ \bar{a}_{2,(m+1)} \\ \vdots \\ \bar{a}_{m,(m+1)} \end{pmatrix}
 \end{align*}
 

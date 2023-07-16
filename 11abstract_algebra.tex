@@ -102,7 +102,7 @@
 \end{definition}
 
 \begin{definition}
-	$\mathbb{Z}_n = \{ 0, 1, 2, \cdots, n-1 \}$
+	$\mathbb{Z}_n = \{ 0, 1, 2, \dots, n-1 \}$
 \end{definition}
 
 \begin{remark}
@@ -174,10 +174,10 @@ If $x \in A \implies x \in B$, then $A \subset B$
 %Week 01 Day 02 \S11.1-11
 \section{Direct Products and Finitely Generated Abelian Groups}
 \begin{definition}[Cartesian product of sets]
-	Let $S_1,\ S_2, \cdots,\ S_n$ be a sets.
+	Let $S_1,\ S_2, \dots,\ S_n$ be a sets.
 	Their cartesian product,
 	\begin{equation}
-		S_1 \times S_2 \times \cdots \times S_n = \prod_{i = 1}^n S_n = \{ (a_1,a_2,\cdots,a_n) :  a_i \in S_i \} 
+		S_1 \times S_2 \times \dotsb \times S_n = \prod_{i = 1}^n S_n = \{ (a_1,a_2,\dots,a_n) :  a_i \in S_i \} 
 	\end{equation}
 	For example, $ \{A,B,C\} \times \{ 1,2 \} = \{ (A,1),(A,2),(B,1),(B,2),(C,1),(C,2) \}$.
 \end{definition}
@@ -187,10 +187,10 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \end{question}
 
 \begin{theorem}[Direct product of Groups]
-	Let $G_1,\ G_2,\ \cdots,\ G_n$ be groups.
+	Let $G_1,\ G_2,\ \dots,\ G_n$ be groups.
 	Then their cartesian product is a group with the binary operation $\ast$,
 	\begin{equation}
-		(a_1,\ a_2,\ \cdots,\ a_n) \ast (b_1,\ b_2,\ \cdots,\ b_n) = (a_1 \ast b_1,\ a_2 \ast b_2,\ \cdots,\ a_n \ast b_n)
+		(a_1,\ a_2,\ \dots,\ a_n) \ast (b_1,\ b_2,\ \dots,\ b_n) = (a_1 \ast b_1,\ a_2 \ast b_2,\ \dots,\ a_n \ast b_n)
 	\end{equation}
 	where the binary operation in  $a_i \ast b_i$ is the binary operation of the group $G_i$.
 \end{theorem}
@@ -199,34 +199,34 @@ If $x \in A \implies x \in B$, then $A \subset B$
 	\begin{enumerate}[label=G\arabic*]
 		\item Associativity
 			\begin{align*}
-				(a_1,\ a_2,\ & \cdots,\ a_n) \big( (b_1,\ b_2,\ \cdots,\ b_n)(c_1,\ c_2,\ \cdots,\ c_n) \big) \\
-				= & (a_1,\ a_2,\ \cdots,\ a_n)(b_1c_1,\ b_2c_2,\ \cdots,\ b_nc_n) \\
-				= & \big( a_1(b_1c_1),\ a_2(b_2c_2),\ \cdots,\ a_n(b_nc_n) \big) \\
-				= & \big( (a_1 b_1)c_1,\ (a_2b_2)c_2,\ \cdots,\ (a_nb_n )c_n \big) \\
-				= &  (a_1b_1,\ a_2b_2,\ \cdots,\ a_nb_n)(c_1,\ c_2,\ \cdots,\ c_n) \\
-				= & \big( (a_1,\ a_2,\ \cdots,\ a_n)(b_1,\ b_2,\ \cdots,\ b_n) \big)(c_1,\ c_2,\ \cdots,\ c_n)
+				(a_1,\ a_2,\ & \dots,\ a_n) \big( (b_1,\ b_2,\ \dots,\ b_n)(c_1,\ c_2,\ \dots,\ c_n) \big) \\
+				= & (a_1,\ a_2,\ \dots,\ a_n)(b_1c_1,\ b_2c_2,\ \dots,\ b_nc_n) \\
+				= & \big( a_1(b_1c_1),\ a_2(b_2c_2),\ \dots,\ a_n(b_nc_n) \big) \\
+				= & \big( (a_1 b_1)c_1,\ (a_2b_2)c_2,\ \dots,\ (a_nb_n )c_n \big) \\
+				= &  (a_1b_1,\ a_2b_2,\ \dots,\ a_nb_n)(c_1,\ c_2,\ \dots,\ c_n) \\
+				= & \big( (a_1,\ a_2,\ \dots,\ a_n)(b_1,\ b_2,\ \dots,\ b_n) \big)(c_1,\ c_2,\ \dots,\ c_n)
 			\end{align*}
 
 		\hrule \vspace{1em}
 
 		\item Existence of a unique identity element in $\prod\limits_{i = 1}^n G_i$\\
 			Let $e_i$ be the identity element in $G_i$.
-			Then $(e_1,\ e_2,\ \cdots,\ e_n)$ is the identity element in $\prod\limits_{i = 1}^n G_i$.
+			Then $(e_1,\ e_2,\ \dots,\ e_n)$ is the identity element in $\prod\limits_{i = 1}^n G_i$.
 			\begin{align*}
-				(a_1,\ a_2,\ \cdots,\ a_n)&(e_1,\ e_2,\ \cdots, e_n) \\
-				& = (a_1e_1,\ a_2e_2,\ \cdots,\ a_ne_n) \\
-				& = (a_1,\ a_2,\ \cdots,\ a_n)
+				(a_1,\ a_2,\ \dots,\ a_n)&(e_1,\ e_2,\ \dots, e_n) \\
+				& = (a_1e_1,\ a_2e_2,\ \dots,\ a_ne_n) \\
+				& = (a_1,\ a_2,\ \dots,\ a_n)
 			\end{align*}
 
 		\hrule \vspace{1em}
 
 		\item Existence of unique inverse element for each element in $\prod\limits_{i = 1}^n G_i$\\
-			Let $(a_1,\ a_2,\ \cdots, a_n)$ be in $\prod\limits_{i = 1}^n G_i$.
-			Then it has the inverse element $( a_1^{-1},\ a_2^{-1},\ \cdots,\ a_n^{-1} )$ in $\prod\limits_{i = 1}^n G_i$.
+			Let $(a_1,\ a_2,\ \dots, a_n)$ be in $\prod\limits_{i = 1}^n G_i$.
+			Then it has the inverse element $( a_1^{-1},\ a_2^{-1},\ \dots,\ a_n^{-1} )$ in $\prod\limits_{i = 1}^n G_i$.
 			\begin{align*}
-				(a_1,\ a_2,\ \cdots a_n)&(a_1^{-1},\ a_2^{-1},\ \cdots, a_n^{-1}) \\
-				& = (a_1a_1^{-1},\ a_2a_2^{-1},\ \cdots,\ a_na_n^{-1}) \\
-				& = (e_1,\ e_2,\ \cdots,\ e_n)
+				(a_1,\ a_2,\ \dots a_n)&(a_1^{-1},\ a_2^{-1},\ \dots, a_n^{-1}) \\
+				& = (a_1a_1^{-1},\ a_2a_2^{-1},\ \dots,\ a_na_n^{-1}) \\
+				& = (e_1,\ e_2,\ \dots,\ e_n)
 			\end{align*}
 	\end{enumerate}
 \end{proof}
@@ -237,7 +237,7 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \end{remark}
 
 \begin{remark}
-	$\mathbb{Z}_n = \{ 0,1,\cdots,(n-1) \}$ is a group with $+_n$.
+	$\mathbb{Z}_n = \{ 0,1,\dots,(n-1) \}$ is a group with $+_n$.
 	(addition modulo $n$)
 
 	For example, Consider $(1,2) \in \mathbb{Z}_2 \times \mathbb{Z}_3$.
@@ -278,7 +278,7 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \end{proof}
 
 \begin{corollary}
-	$\prod\limits_{i = 1}^n \mathbb{Z}_{m_i}$ is cyclic and is isomorphic to $Z_{m_1m_2\cdots m_n}$ if and only if any two of the numbers $m_i$ are relatively prime.
+	$\prod\limits_{i = 1}^n \mathbb{Z}_{m_i}$ is cyclic and is isomorphic to $Z_{m_1m_2\dots m_n}$ if and only if any two of the numbers $m_i$ are relatively prime.
 \end{corollary}
 
 \begin{question}
@@ -286,12 +286,12 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \end{question}
 
 \begin{theorem}
-	Let $(a_1,\ a_2,\ \cdots,\ a_n) \in \prod\limits_{i = 1}^n G_i$. And $a_i$ are of finite order $r_i$ in $G_i$. Then the order of $\prod\limits_{i = 1}^n G_i$ is the least common multiple of $r_i$s.
+	Let $(a_1,\ a_2,\ \dots,\ a_n) \in \prod\limits_{i = 1}^n G_i$. And $a_i$ are of finite order $r_i$ in $G_i$. Then the order of $\prod\limits_{i = 1}^n G_i$ is the least common multiple of $r_i$s.
 \end{theorem}
 \begin{proof}
 	Least common multiple of $r_i$s is the smallest positive integer $d$ which is a multiple of all $r_i$s.
 	For each $i$, the $r_i$th multiple of $a_i$ gives $0$ (identity).
-	Thus, the order of the cyclic subgroup generated by $(a_1,\ a_2,\ \cdots,\ a_n)$ is the least common multiple of all the $r_i$s.
+	Thus, the order of the cyclic subgroup generated by $(a_1,\ a_2,\ \dots,\ a_n)$ is the least common multiple of all the $r_i$s.
 \end{proof}
 \begin{remark}
 	Consider $(3,6,12,16) \in \mathbb{Z}_4 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20} \times \mathbb{Z}_{24}$.
@@ -303,7 +303,7 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \end{remark}
 
 \begin{remark}
-	Define $\overline{G_i} = \{ (e_1,\ e_2,\ \cdots,\ e_{i-1},\ a_i,\ e_{i+1},\ \cdots,\ e_n) : a_i \in G_i\}$.
+	Define $\overline{G_i} = \{ (e_1,\ e_2,\ \dots,\ e_{i-1},\ a_i,\ e_{i+1},\ \dots,\ e_n) : a_i \in G_i\}$.
 	Then $G_i \approx \overline{G_i}$.
 	And $\prod\limits_{i=1}^n G_i$ is the internal direct product of $\overline{G_i}$s.
 
@@ -325,7 +325,7 @@ If $x \in A \implies x \in B$, then $A \subset B$
 \begin{theorem}[fundamental theorem of finitely generated abelian groups]
 	Every finitely generated abelian group $G$ is isomorphic to a direct product of cyclic groups in the form
 	\begin{equation}
-		\mathbb{Z}_{{p_1}^{r_1}} \times\mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}} \times \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}
+		\mathbb{Z}_{{p_1}^{r_1}} \times\mathbb{Z}_{{p_2}^{r_2}} \times \dotsb \times \mathbb{Z}_{{p_n}^{r_n}} \times \mathbb{Z} \times \mathbb{Z} \times \dotsb \times \mathbb{Z}
 	\end{equation}
 	where $p_i$ are primes, not necessarily distict and $r_i$ are positive integers.
 	The direct product is unique, except for the possible rearrangement of the factors.
@@ -378,7 +378,7 @@ For any finite abelian group, Betti number is $0$.
 	Necessary part: 
 	Let $G$ be a finite, indecomposible abelian group.
 	By fundamental theorem of finitely generated abelian groups, $G$ is isomorphic to a direct product of cyclic groups of prime power order.
-	\[ G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}\]
+	\[ G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \dotsb \times \mathbb{Z}_{{p_n}^{r_n}}\]
 	Thus for $G$ to be indecomposible the direct product should be a cyclic group of prime power order.
 	$G \approx \mathbb{Z}_{{p_1}^{r_1}}$.
 
@@ -399,10 +399,10 @@ For any finite abelian group, Betti number is $0$.
 	If $m$ divides the order of a finite abelian group $G$, then $G$ has a subgroup of order $m$.
 \end{theorem}
 \begin{proof}
-	Let $G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}$.
-	Then $|G| = p_1^{r_1} p_2^{r_2} \cdots p_n^{r_n}$.
-	Suppose $m$ divides $|G|$, then $m = p_1^{s_1} p_2^{s_2} \cdots p_n^{s_n}$ where $0 \le s_i \le r_i$.
-	Define $H = \mathbb{Z}_{{p_1}^{s_1}} \times \mathbb{Z}_{{p_2}^{s_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{s_n}}$.
+	Let $G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \dotsb \times \mathbb{Z}_{{p_n}^{r_n}}$.
+	Then $|G| = p_1^{r_1} p_2^{r_2} \dotsm p_n^{r_n}$.
+	Suppose $m$ divides $|G|$, then $m = p_1^{s_1} p_2^{s_2} \dotsm p_n^{s_n}$ where $0 \le s_i \le r_i$.
+	Define $H = \mathbb{Z}_{{p_1}^{s_1}} \times \mathbb{Z}_{{p_2}^{s_2}} \times \dotsb \times \mathbb{Z}_{{p_n}^{s_n}}$.
 	Then $H$ is subgroup of order $m$.
 \end{proof}
 
@@ -412,10 +412,10 @@ For any finite abelian group, Betti number is $0$.
 \begin{proof}
 	Let $m$ be a square-free integer and $G$ be an abelian group of order $m$.
 	By fundamental theorem of finitely generated abelian groups
-	\[ G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \cdots \times \mathbb{Z}_{{p_n}^{r_n}}\]
+	\[ G \approx \mathbb{Z}_{{p_1}^{r_1}} \times \mathbb{Z}_{{p_2}^{r_2}} \times \dotsb \times \mathbb{Z}_{{p_n}^{r_n}}\]
 	We have, $m$ is square-free.
 	Thus $r_i = 1$ and $p_i$ are distinct.
-	Therefore, $G \approx \mathbb{Z}_{p_1 p_2 \cdots p_n}$ is a cyclic group of order $m$.
+	Therefore, $G \approx \mathbb{Z}_{p_1 p_2 \dotsm p_n}$ is a cyclic group of order $m$.
 \end{proof}
 %\pagebreak
 
@@ -458,7 +458,7 @@ If group $G$ is abelian, then its elements of finite order forms a subgroup.%\S1
 \end{definition}
 
 \begin{definition}
-	The integers $m_1,m_2,\cdots,m_n$ are torsion coefficients of $G$ such that $G \approx \mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \cdots \times \mathbb{Z}_{m_n}$ where $m_i$ divides $m_{i+1}$.%\S11Ex44
+	The integers $m_1,m_2,\dots,m_n$ are torsion coefficients of $G$ such that $G \approx \mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2} \times \dotsb \times \mathbb{Z}_{m_n}$ where $m_i$ divides $m_{i+1}$.%\S11Ex44
 \end{definition}
 
 For example, $\mathbb{Z}_6 \times \mathbb{Z}_{12} \times \mathbb{Z}_{20}$ has torsion coefficients $2, 12, 60$
@@ -539,7 +539,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \section{Cosets and Homomorphism}
 
 \begin{definition}
-	A \textbf{permutation group} $S_n$ is the set of all permutations on the set $\{1,2,\cdots,n\}$.	
+	A \textbf{permutation group} $S_n$ is the set of all permutations on the set $\{1,2,\dots,n\}$.	
 \end{definition}
 
 \begin{remark}
@@ -1376,7 +1376,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \end{theorem}
 \begin{proof}
 	Suppose there are $r$ orbits in $X$.
-	Choose an element from each orbit, say $x_1,x_2,\cdots,x_r$.
+	Choose an element from each orbit, say $x_1,x_2,\dots,x_r$.
 	We have, 
 	\begin{equation}
 		|X| = \sum_{i = 1}^r |Gx_i|
@@ -1409,32 +1409,32 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 \begin{proof}
 	Let $X$ be the set of all $n$-tuples of elements of $G$ such that the product of co-ordinates of each $n$-tuple is the identity element $e$ of $G$.
 	\begin{equation}
-	X = \{ (g_1,g_2,\cdots,g_p) \in G^p : g_1g_2\cdots g_p = e\}
+	X = \{ (g_1,g_2,\dots,g_p) \in G^p : g_1g_2 \dotsm g_p = e\}
 	\end{equation}
-	Let $g_1,g_2,\cdots,g_{p-1}$ be any elements in $G$.
-	Then $g_p = (g_1g_2\cdots g_{p-1})^{-1}$ is uniquely determined.
+	Let $g_1,g_2,\dots,g_{p-1}$ be any elements in $G$.
+	Then $g_p = (g_1g_2 \dotsm g_{p-1})^{-1}$ is uniquely determined.
 	That is, the $(p-1)$ co-ordinates of an element in $X$ may be chosen in $|G|$ different ways.
 	Thus, $|X| = |G|^{p-1}$.
 	Since $p$ divides $|G|$, $p$ divides $|X|$.
 
-	We have $g_1(g_2\cdots g_p) = (g_2g_3\cdots g_p)g_1$, since $g_2g_3\cdots g_p = g_1^{-1}$.
-	Thus, for every $(g_1,g_2,\cdots,g_p) \in X$, the $\sigma$ permutation of that element is in $X$.
-	That is, $\sigma(g_1,g_2,\cdots,g_p) = (g_2,g_3,\cdots,g_p,g_1) \in X$.
-	Similarly, $g_2(g_3g_4\cdots g_pg_1) = (g_3g_4\cdots g_pg_1)g_2$.
-	And $\sigma^2(g_1,g_2,\cdots,g_p) = g_3,g_4,\cdots,g_p,g_1,g_2)$.
+	We have $g_1(g_2 \dotsm g_p) = (g_2g_3 \dotsm g_p)g_1$, since $g_2g_3 \dotsm g_p = g_1^{-1}$.
+	Thus, for every $(g_1,g_2,\dots,g_p) \in X$, the $\sigma$ permutation of that element is in $X$.
+	That is, $\sigma(g_1,g_2,\dots,g_p) = (g_2,g_3,\dots,g_p,g_1) \in X$.
+	Similarly, $g_2(g_3g_4 \dotsm g_pg_1) = (g_3g_4 \dotsm g_pg_1)g_2$.
+	And $\sigma^2(g_1,g_2,\dots,g_p) = g_3,g_4,\dots,g_p,g_1,g_2)$.
 	Clearly, the subgroup generated by $\sigma$, is a subgroup of $S_p$ and $X$ is a $\generator{\sigma}$-set.
 	We have, $|X| \cong |X_{\generator{\sigma}}| \pmod{p}$.
 	Thus, $p$ divides $|X_{\generator{\sigma}}|$.
 
-	Clearly, $(e,e,\cdots,e) \in X$ and $(e,e,\cdots,e) \in X_{\generator{\sigma}}$.
+	Clearly, $(e,e,\dots,e) \in X$ and $(e,e,\dots,e) \in X_{\generator{\sigma}}$.
 	Thus, $X_{\generator{\sigma}}$ has atleast $p$ elements.
-	Let $(g_1,g_2,\cdots,g_p) \in X_{\generator{\sigma}}$, then $\sigma$ fixes $(g_1,g_2,\cdots,g_p)$.
+	Let $(g_1,g_2,\dots,g_p) \in X_{\generator{\sigma}}$, then $\sigma$ fixes $(g_1,g_2,\dots,g_p)$.
 	\begin{align*}
-		\sigma(g_1,g_2,\cdots,g_p) & = (g_1,g_2,\cdots,g_p)\\
-		\implies (g_2,\cdots,g_p,g_1) & = (g_1,g_2,\cdots,g_p)
+		\sigma(g_1,g_2,\dots,g_p) & = (g_1,g_2,\dots,g_p)\\
+		\implies (g_2,\dots,g_p,g_1) & = (g_1,g_2,\dots,g_p)
 	\end{align*}
-	Thus, $g_1 = g_2 = \cdots = g_p$, say $g \in G$.
-	That $(g,g,\cdots,g) \in X$ and $g^p = e$ by the definition of $X$.
+	Thus, $g_1 = g_2 = \dotsb = g_p$, say $g \in G$.
+	That $(g,g,\dots,g) \in X$ and $g^p = e$ by the definition of $X$.
 	Therefore, $G$ has an element $g$ of order $p$.
 \end{proof}
 \begin{corollary}
@@ -1527,7 +1527,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 		\item Every subgroup $H$ of $G$ of order $p^i$ is normal subgroup of the subgroup of order $p^{i+1}$, for $1 \le i \le n$.
 	\end{enumerate}
 %	For each prime factor $p$ of $|G|$, there exists a subnormal series\footnote{Fraleigh, uses series instead of sequence in \S35.1!} of $G$.
-%	That is, $H_0 \le H_1 \le \cdots \le H_n = G$.
+%	That is, $H_0 \le H_1 \le \dots \le H_n = G$.
 \end{theorem}
 \begin{proof}
 	We have, $G$ is finite group and $p$ divides $|G|$.
@@ -1545,7 +1545,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 	Consider the canonical homomorphism $\gamma : N[H] \to N[H]/H$ defined by $\gamma(x) = xH$.
 	Then $\gamma^{-1}(K)$ is a subgroup of $N[H]$ of order $p^{i+1}$ and contains $H$.
 	Thus, $H$ is a normal subgroup of $\gamma^{-1}(K)$.
-	By mathematical induction, $G$ has subgroups of order $p^i$ for $i = 2,3,\cdots,n$.
+	By mathematical induction, $G$ has subgroups of order $p^i$ for $i = 2,3,\dots,n$.
 \end{proof}
 
 \begin{definition}
@@ -1642,7 +1642,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 %Week 7 Day 1 \S37.1-6
 \section{Sylow Theorem : Applications}
 \begin{definition}
-	A group $G$ is solvable if there is sequence of subgroups $\{e\} = H_0 \le H_1 \le \cdots H_n = G$ such that for $i = 0,1,2,\cdots$,
+	A group $G$ is solvable if there is sequence of subgroups $\{e\} = H_0 \le H_1 \le \dotsb H_n = G$ such that for $i = 0,1,2,\dotsc$
 	\begin{enumerate}
 		\item $H_i$ is a normal subgroup of $H_{i+1}$
 		\item $H_{i+1}/H_i$ is simple and
@@ -1700,7 +1700,7 @@ This is a warm-up exercise for \S37.5, where the theory is discussed by Fraleigh
 	The following are a few sample tests for finite groups. For different numbers, you may have to use a combination of these tests.
 
 \begin{remark}
-Finite, non-abelian, simple groups are of order 60, 168, 360, \dots. 
+Finite, non-abelian, simple groups are of order $60, 168, 360, \dotsc$. 
 \end{remark}
 
 \subsubsection*{Type 1 : $p^r$}

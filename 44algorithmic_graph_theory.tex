@@ -22,7 +22,8 @@
 %Missing - 7, 8?
 
 %\chapter{An Introduction to Graphs}
-\section{What is a Graph ?}
+\section{An Introduction to Graphs}
+\subsection{What is a Graph ?}
 \begin{definition}[graph]
 	A graph $G$ is a finite nonempty set $V(G)$ and a family $E(G)$ of 2-element subsets of $V(G)$.
 \end{definition}
@@ -49,7 +50,7 @@
 	A graph $G$ of order $p$ and size $q$ is called a $(p,q)$ graph.
 \end{remark}
 
-\section{The Degree of a Vertex}
+\subsection{The Degree of a Vertex}
 \begin{definition}[neighbourhood]
 	Let $v$ be a vertex of graph $G$.
 	The neighbourhood of $v$, $N(v)$ is the set of all vertices adjacent to it.
@@ -94,7 +95,7 @@
 	Let $G$ be a graph. The complement $\bar{G}$ is the graph with vertex set $V(G) = V(\bar{G})$ and $uv$ is an edge of $\bar{G}$ if $uv$ is not an edge of $G$.
 \end{definition}
 
-\section*{Problem Set 1.2}
+\subsection*{Problem Set 1.2}
 \begin{enumerate}
 	\item Prove that every graph of order $n \ge 2$ has at least two vertices of the same degree.
 	\begin{proof}
@@ -232,7 +233,7 @@
 \end{enumerate}
 \end{enumerate}
 
-\section{Isomorphic Graphs}
+\subsection{Isomorphic Graphs}
 \begin{definition}[isomorphism]
 	Two graphs $G_1,G_2$ are isomorphic if there exists a bijection $$\phi : V(G_1) \to V(G_2) \text{ such that }uv \in E(G_1) \iff \phi(u)\phi(v) \in E(G_2)$$
 \end{definition}
@@ -348,38 +349,784 @@
 		Therefore, $G_1 \cong G_3$.
 	\end{proof}
 \end{enumerate}
-\section{Subgraphs}
----to continue-- (pp. 12)
-\section{Degree Sequences}
-\section{Connected Graphs}
-\section{Cut-Vertices and Bridges}
-\section{Special Graphs}
-\section{Digraphs}
+
+\subsection{Subgraphs}
+\begin{definition}
+	A graph $H$ is a subgraph of $G$ if $V(H) \subset V(G)$ and $E(H) \subset E(G)$.
+\end{definition}
+
+\begin{definition}
+	Let $G$ be a graph and $S$ be a nonempty subset of $V(G)$.
+	The vertex set $S$ induced subgraph $H$ of graph $G$ is the maximal subgraph of $G$ with vertex set $S$.
+\end{definition}
+\begin{remark}
+	Let $G$ be a graph and let $S$ be a nonempty subset of $V(G)$.
+	If graph $H$ is a vertex induced subgraph of $G$, then $V(H) = S$ and $E(H) \subset E(G)$.
+\end{remark}
+
+\begin{definition}
+	Let $G$ be a graph and $X$ be a nonempty subset of $E(G)$.
+	A graph $H$ is an edge induced subgraph of $G$ if $H$ is the minimal subgraph of $G$ with edge set $X$.
+\end{definition}
+\begin{remark}
+	Let $G$ be a graph and let $X$ be a nonempty subset of $E(G)$.
+	If graph $H$ is a vertex induced subgraph of $G$, then $V(H)$ is the set of all vertices incident with some edge in $X$ and $E(H) \subset X$.
+\end{remark}
+
+\begin{definition}
+	Let $G$ be a graph and $S$ be a nonempty, \textit{proper} subset of $G$.
+	The graph $G-S$ is the maximal subgraph of $G$ with vertex set $V(G) - S$.
+\end{definition}
+\begin{remark}
+	When a vertex $v$ is deleted from $G$, then all the edges incident with $v$ (if any) are also deleted from $G$.
+\end{remark}
+
+\begin{definition}
+	Let $G$ be a graph.
+	A graph $H$ is a spanning subgraph of $G$ is $V(H) = V(G)$.
+\end{definition}
+
+\begin{definition}
+	Let $G$ be a graph and $X$ be a nonempty, \textit{proper} subset of $E(G)$.
+	The graph $G-X$ is the maximal subgraph of $G$ with edge set $E(G)-X$.
+\end{definition}
+\begin{remark}
+	Vertices of graph $G$ are not deleted when its edges are deleted.
+\end{remark}
+
+\begin{definition}
+	Let $G$ be a graph with vertices $u$ and $v$.
+	Suppose $u$ and $v$ are non-adjacent in $G$.
+	Graph $G + \{uv\}$ is the graph with vertex set $V(G)$ and edge set $E(G)+\{uv\}$.
+\end{definition}
+
+\subsection*{Problem Set 1.4}
+\begin{enumerate}
+	\setcounter{enumi}{4}
+	\item If $H = \langle E(G) \rangle$, does it follow that $H = \langle V(G) \rangle$ ?\\
+		\textbf{Solution :}
+		No.	
+		Suppose $G$ has an isolated vertex $v$.
+		Then, subgraph induced by edge set $E(G)$ does not contain the vertex $v$.
+	\item Let $G$ be a $\langle p,q \rangle$ graph. How many different edge-induced subgraphs does $G$ have ?\\
+		\textbf{Solution :}
+		The size of the graph $q=|E(G)|$, the cardinality of the edge set of $G$.
+		The number of nonempty subsets of $E(G)$ is $2^q-1$.
+		There exists a unique edge-induced subgraph for each subset of $E(G)$.
+		Therefore, $G$ has $2^q-1$ edge-induced subgraphs.
+\end{enumerate}
+
+\subsection{Degree Sequences}
+\begin{definition}
+	Let $G$ be a graph of order $p$.
+	The degree sequence $\mathcal{D}(G)$ is the finite sequence $d_1,d_2,\dots,d_p$ of length $p$ such that $d_1 \ge d_2 \ge \dotsb \ge d_p$ and $d_j = deg(v_j)$ where $\{ v_j : 1 \le j \le p \} = V(G)$.
+\end{definition}
+
+\begin{definition}
+	The smallest term $d_p$ in the degree sequence of $G$ is the minimum degree of $G$, $\delta(G)$.
+	The largest term $d_1$ in the degree sequence of $G$ is the maximum degree of $G$, $\Delta(G)$.
+\end{definition}
+
+\begin{theorem}[Havel-Hakini]
+	A sequence $d_1,d_2,\dots,d_p$ of nonnegative integers with $d_1 \ge d_2 \ge \dotsb \ge d_p$ where $p \ge 2$ and $d_1 \ge 1$ is graphical if and only if the sequence $d_2-1,d_3-1,\dots,d_{d_1+1}-1,d_{d_1+2},\dots,d_p$ is graphical.
+\end{theorem}
+\begin{proof}
+	Suppose the sequence $s_1 : d_2-1,d_3-1,\dots,d_{d_1+1}-1,d_{d_1+2},\dots,d_p$ is graphical with vertex set $\{v_2,v_3,\dots,v_p\}$.
+	Introduce a new vertex $v_1$ which is adjacent to $v_2,v_3,\dots,v_{d_1+1}$.
+	The new graph has degree sequence $s : d_1,d_2,\dots,d_p$.
+	Therefore, the sequence $s$ is graphical.\\
+
+	Let $G$ be a graph with degree sequence $s$.
+	We claim that $v_1$ is adjacent to next $d_1$ vertices, say $v_2,v_3,\dots,v_{d_1+1}$.
+	Suppose this is not true, then there exists $j<k$ such that $deg(v_j) > deg(v_k)$, but $v_1$ is adjacent to $v_k$ and $v_1$ is non-adjacent to $v_j$.
+	Since $deg(v_j) > deg(v_k)$, there exists a vertex $v_n$ which is adjacent to $v_j$ but nonadjacent to $v_k$.
+	The degree sequence of the graph remains unchanged if we delete edges $v_1v_k$ and $v_jv_n$ and add edges $v_1v_j$ and $v_kv_n$.
+	Therefore, the claim is true.
+	Now, the graph $G-v_1$ has degree sequence $s_1$ since $v_1 \in V(G)$ was adjacent to next $d_1$ vertices in $G$.
+\end{proof}
+
+\begin{definition}[algorithm]
+	An algorithm is a finite set of well-defined instructions to solve a particular family of problems.
+\end{definition}
+
+\begin{algorithm}[Graphical Degree Sequence]
+	The algorithm to check whether a finite sequence is graphical.
+	\begin{enumerate}[label=Step \arabic*]
+		\item If all the integers in the sequence are $0$, then the sequence is graphical.
+			If the sequence contains a negative integer, then the sequence is not graphical.
+			Otherwise, continue to Step 2
+		\item Reorder the number in the current sequence in nonincreasing order.
+		\item Delete the first number, say $n$ from the sequence and subtract $1$ from next $n$ numbers in the sequence. Return to Step 1.
+	\end{enumerate}
+	\begin{commentary}
+		In Step 2, we don't have to check whether the sequence is nonincreasing order as it takes almost the same amount of time(effort) to reorder the sequence.
+		We safely assume that if the number $n$ is larger than the length of the sequence then $0$ are added to the end of the sequence so that $1$ can be subtracted.
+	\end{commentary}
+\end{algorithm}
+
+\subsection*{Problem Set 1.5}
+\begin{enumerate}
+	\item Determine whether the degree sequence $s$ is graphical and, if so, find a graph having $s$ as its degree sequence
+	\begin{enumerate}
+		\item $s : 5,5,4,4,3,3,1,0,0$\\
+			$s_1 : 4,3,3,2,2,1,0,0$, $s_2 : 2,2,1,1,1,0,0$, $s_3 : 1,1,1,0,0,0$, \\
+			$s_4 : 1,0,0,0,0$, $s_5 : -1,0,0,0$, Thus, $s$ is not graphical.\\
+			Also the number of odd vertices in $s$ is odd, which is not possible.
+		\item $s : 7,6,2,2,2,1,0,0$\\
+			$s_1 : 5,1,1,1,1,0,-1,-1$. Thus, $s$ is not graphical.
+		\item $s : 5,3,3,3,2,2,1,1$\\
+			$s_1 : 2,2,2,1,1,1,1$, $s_2 : 1,1,1,1,1,1$, $s_3 : 1,1,1,1,0$, \\
+			$s_4 : 1,1,0,0$, $s_5 : 0,0,0$\\
+
+			In figure \ref{dia:ds1} delete the vertices in the order $v_1,v_2,\dots,v_5$ to get degree sequences $s_1,s_2,\dots,s_5$.
+
+			\begin{figure}[hbt]
+				\centering
+				\begin{tikzpicture}[scale=0.6]
+					\draw (0,0) node(v1)[fill,circle,label=right:$v_1$]{};
+					\draw (v1) ++(36:2) node(v2)[fill,circle,label=above:$v_7$]{};
+					\draw (v1) ++(108:2) node(v3)[fill,circle,label=above:$v_3$]{};
+					\draw (v1) ++(180:2) node(v4)[fill,circle,label=left:$v_2$]{};
+					\draw (v1) ++(-108:2) node(v5)[fill,circle,label=below:$v_4$]{};
+					\draw (v1) ++(-36:2) node(v6)[fill,circle,label=below:$v_6$]{};
+					\draw (3,-1) node(v7)[fill,circle,label=right:$v_5$]{};
+					\draw (3,1) node(v8)[fill,circle,label=right:$v_8$]{};
+
+					\draw (v2)--(v3)--(v4)--(v5)--(v6);
+					\draw[red] (v6)--(v1)--(v2);
+					\draw (v3)--(v1)--(v4);
+					\draw (v1)--(v5);
+					\draw (v7)--(v8);
+					%\draw[dotted,blue] (v7)--(v1)--(v8);
+
+					\draw (10,0) node(v1)[fill,circle,label=right:$v_1$]{};
+					\draw (v1) ++(36:2) node(v2)[fill,circle,label=above:$v_7$]{};
+					\draw (v1) ++(108:2) node(v3)[fill,circle,label=above:$v_3$]{};
+					\draw (v1) ++(180:2) node(v4)[fill,circle,label=left:$v_2$]{};
+					\draw (v1) ++(-108:2) node(v5)[fill,circle,label=below:$v_4$]{};
+					\draw (v1) ++(-36:2) node(v6)[fill,circle,label=below:$v_6$]{};
+					\draw (13,-1) node(v7)[fill,circle,label=right:$v_5$]{};
+					\draw (13,1) node(v8)[fill,circle,label=right:$v_8$]{};
+
+					\draw (v2)--(v3)--(v4)--(v5)--(v6);
+					%\draw[red] (v6)--(v1)--(v2);
+					\draw (v3)--(v1)--(v4);
+					\draw (v1)--(v5);
+					\draw (v7)--(v8);
+					\draw[blue] (v7)--(v1)--(v8);
+				\end{tikzpicture}
+				\caption{Two graphs with Degree Sequence $5,3,3,3,2,2,1,1$}
+				\label{dia:ds1}
+			\end{figure}
+			\begin{commentary}
+				Draw all those five graphs $G_1,G_2,\dots,G_5$.
+				From Havel-Hakini theorem, we have a method for constructing the graph $G$. We start from $G_5$ with degree sequence $s_5$ and vertex set $\{v_6,v_7,v_8\}$. Graph $G_5$ has order $3$ and size $0$. Now we may add vertices $v_5,v_4,\dots,v_1$ and edges as required by the degree sequences $s_4,s_2,\dots,s_1,s$ to get graphs $G_4,G_3,\dots,G_1,G$ respectively.
+			\end{commentary}
+		\item $s : 3,3,2,2,2,2,1$\\
+			$s_1 : 2,2,2,1,1,1$, $s_2 : 1,1,1,1,1$, $s_3 : 1,1,1,0$\\
+			$s_4 : 1,0,0$, $s_5 : -1,0$. Thus, $s$ is not graphical.\\
+			Also the number of odd vertices in $s$ is odd, which is not possible.
+	\end{enumerate}
+	\item Find a graph with degree sequence $\mathcal{D}(G) = \{ 0,4,5\}$.\\
+		The number of odd vertices should be even. And the degree of vertex should be less than the order of the graph. Since there is a vertex with degree $5$ and a vertex of degree $0$, we need at least a graph of order $7$ with exactly one vertex of degree $0$. The possibilities for graph of order seven are $5,5,5,5,4,4,0$ and $5,5,4,4,4,4,0$. If both these sequences are nongraphical, we will have to consider graph of higher order.\\
+
+		Suppose $s : 5,5,5,5,4,4,0$. Then $s_1 : 4,4,4,3,3,0$, $s_2 : 3,3,2,2,0$, $s_3 : 2,1,1,0$, $s_4 : 0,0,0$. Clearly, $s : 5,5,5,5,4,4,0$ is graphical.\\
+
+		Suppose $s : 5,5,4,4,4,4,0$. Then $s_1 : 4,3,3,3,3,0$, $s_2 : 2,2,2,2,0$, $s_3: 2,1,1,0$, $s_4 : 0,0,0$. Clearly, $s : 5,5,4,4,4,4,0$ is also graphical.
+
+	\begin{figure}[hbt]
+		\centering
+		\begin{tikzpicture}
+			\draw (0,0) node(v){};
+			\draw (v) ++(0:2)    node (v1)[fill,circle,label=above:$v_1$]{};
+			\draw[olive] (v) ++(51:2)   node (v2)[fill,circle,label=above:$v_2$]{};
+			\draw[blue] (v) ++(102:2)  node (v3)[fill,circle,label=above:$v_3$]{};
+			\draw[red] (v) ++(153:2)  node (v4)[fill,circle,label=above:$v_4$]{};
+			\draw (v) ++(-153:2) node (v5)[draw,circle,label=above:$v_5$]{};
+			\draw (v) ++(-102:2) node (v6)[draw,circle,label=above:$v_6$]{};
+			\draw (v) ++(-51:2)  node (v7)[draw,circle,label=above:$v_7$]{};
+
+			\draw[red] (v5)--(v4)--(v6);
+			\draw[blue] (v6)--(v3)--(v4);
+			\draw[blue] (v3)--(v5);
+			\draw[olive] (v3)--(v2)--(v4);
+			\draw[olive] (v5)--(v2)--(v6);
+			\draw (v2)--(v1)--(v3);
+			\draw (v4)--(v1)--(v5);
+			\draw (v1)--(v6);
+
+			\draw (6,0) node(w){};
+			\draw (w) ++(0:2)    node (w1)[fill,circle,label=above:$v_1$]{};
+			\draw[olive] (w) ++(51:2)   node (w2)[fill,circle,label=above:$v_2$]{};
+			\draw[blue] (w) ++(102:2)  node (w3)[fill,circle,label=above:$v_3$]{};
+			\draw[red] (w) ++(153:2)  node (w4)[fill,circle,label=above:$v_4$]{};
+			\draw (w) ++(-153:2) node (w5)[draw,circle,label=above:$v_5$]{};
+			\draw (w) ++(-102:2) node (w6)[draw,circle,label=above:$v_6$]{};
+			\draw (w) ++(-51:2)  node (w7)[draw,circle,label=above:$v_7$]{};
+
+			\draw[red] (w5)--(w4)--(w6);
+			\draw[blue] (w5)--(w3)--(w6);
+			\draw[olive] (w3)--(w2)--(w4);
+			\draw[olive] (w5)--(w2)--(w6);
+			\draw (w2)--(w1)--(w3);
+			\draw (w4)--(w1)--(w5);
+			\draw (w1)--(w6);
+		\end{tikzpicture}
+		\caption{Graphs of order $7$ with degree sequence $\mathcal{D}(G) = \{0,4,5\}$}
+	\end{figure}
+
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
+\subsection{Connected Graphs}
+\begin{definition}[walk]
+	A walk of length $n$ is an alternating sequence $W : v_0,e_1,v_1,\dots,e_n,v_n$ where $e_j = v_{j-1}v_j$.
+\end{definition}
+\begin{remark}
+	Walk of length zero is a trivial walk.
+	In the case of walk, we count the number of edges involved.
+\end{remark}
+
+\begin{definition}[trail]
+	A trail is a walk in which no edges are repeated.
+\end{definition}
+
+\begin{definition}[path]
+	A path is a walk in which no vertices are repeated.
+\end{definition}
+
+\begin{theorem}
+	Every $u-v$ walk contains a $u-v$ path.
+\end{theorem}
+\begin{proof}
+	Suppose $u \ne v$. If $u = v$ then the walk contains the trivial path $u-u$.\\
+
+	Let $u-v : u_0,u_1,\dots,u_n$ where $u_0 = u$ and $u_n = v$ be a $u-v$ walk in graph $G$.
+	Suppose $u-v$ has vertex $u_i = u_j$ for some $i \ne j$.
+	If there are no such intermediate vertices then the $u-v$ walk is a path.
+	Consider the walk $W_1 : u_0,u_1,\dots,u_{i-1},u_j,u_{j+1},\dots,u_n$ is a walk contained in previous walk with. The walk $W_1$ is shorter in length compared to $W$. If $W_1$ has repeated vertices, we repeat the process until there are no vertices repeated.
+\end{proof}
+
+\begin{commentary}
+	The walk has only finite length. And in each step the number of walk reduces. It is quite important from algorithmic point of view as it ensures that the algorithm will terminate in a finite number steps.
+\end{commentary}
+
+\begin{definition}[cycle]
+	A cycle is a closed walk. That is, $v_0 = v_n$.
+\end{definition}
+
+\begin{definition}[circuit]
+	A circuit is a nontrivial closed trail.
+\end{definition}
+
+\begin{definition}
+	Let $G$ be a graph with vertices $u,v$.
+	The vertex $u$ is connected to the vertex $v$ if there exists a $u-v$ path in $G$.
+\end{definition}
+
+\begin{definition}
+	A graph $G$ is connected if every pair of vertices $u,v$ are connected in $G$.
+\end{definition}
+
+\begin{definition}[component]
+	A component of $G$ is a maximal connected subgraph of $G$.
+\end{definition}
+
+\begin{remark}
+	$k(G)$ is the number of components of graph $G$.
+\end{remark}
+\subsection*{Problem Set 1.6}
+\begin{enumerate}
+	\item
+	\item 
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
+\subsection{Cut-Vertices and Bridges}
+\begin{definition}
+	A vertex $v$ in a graph $G$ is a cut-vertex if $k(G-v) > k(G)$.
+\end{definition}
+
+\begin{definition}
+	An edge $e$ in a graph $G$ is a bridge if $k(G-e) > k(G)$.
+\end{definition}
+
+\begin{remark}
+	If $v$ is a cut-vertex of a connected graph $G$, then $k(G-v) \ge 2$. However, if $e$ is a bridge of a connected graph $G$, then $k(G-e) = 2$.
+\end{remark}	
+
+\begin{theorem}
+	An edge $e$ of a connected graph $G$ is a bridge if and only if $e$ does not lie on a cycle of $G$.
+\end{theorem}
+\begin{proof}
+	Suppose $e = uv$ is a bridge of $G$.
+	Suppose $e$ lies on a cycle $u,v,w,\dots,x,u$.
+	Clearly, $G$ has a $u-v$ path in it, say $u,x,\dots,w,v$.\\
+
+	Let $u_1,v_1 \in V(G)$.
+	Since $G$ is connected, there is a $u_1-v_1$ path in $G$.
+	Suppose the path does not contain $e$, then the path remains in $G-e$.
+	If the path contains edge $e$, say $u_1,\dots,u,v,\dots,v_1$, then $u_1,\dots,u,x,\dots,w,v,\dots,v_1$ is a $u_1-v_1$ walk in $G-e$.
+	We know that, every $u_1-v_1$ walk contains a $u_1-v_1$ path.
+	Thus, $G-e$ is connected.
+	Therefore, $e$ does not lie on any cycle.\\
+
+	Let $G$ be a connected graph.
+	Suppose $e = uv$ lies on no cycle of $G$.
+	Then $G-e$ contains no $u-v$ path.
+	Suppose $G-e$ has a $u-v$ path $P$, then $P + uv$ is a cycle in $G$ which is a contradiction.
+	Therefore, $e$ is a bridge of $G$.
+\end{proof}
+
+\begin{definition}
+	A graph $G$ is nonseparable if $G$ has no cut-vertex.
+\end{definition}
+\begin{definition}
+	A block $B$ of a graph $G$ is a maximal nonseparable subgraph of $G$.
+\end{definition}
+
+\begin{definition}
+	An end-block of a graph $G$ is a block that contains exactly one cut-vertex.
+\end{definition}
+
+\begin{theorem}
+	Let $G$ be a connected graph with at least one cut-vertex, then $G$ has at least two end-blocks.
+\end{theorem}
+\subsection*{Problem Set 1.7}
+\begin{enumerate}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
+\subsection{Special Graphs}
+\begin{definition}
+	A complete graph is a graph in which every pair of vertices are adjacent.
+\end{definition}
+\begin{remark}
+	A complete graph of order $p$, $K_p$ is $(p-1)$-regular and has size $\binom{p}{2}$.
+\end{remark}
+
+\begin{definition}
+	A graph of order $n$ which is itself a path is a path of order $n$, say $P_n$.
+\end{definition}
+
+\begin{definition}
+	A graph of order $n$ which is itself a cycle is an  $n$-cycle, $C_n$.
+\end{definition}
+
+\begin{remark}
+	An odd(even) path is a path of odd(even) length. An odd(even) cycle is an $n$-cycle where $n$ is odd(even).
+\end{remark}
+
+\begin{definition}
+	A graph $G$ is bipartite if $V(G)$ can be partitioned into two nonempty subsets $V_1$ and $V_2$ such that every edge of $G$ joins a vertex of $V_1$ with a vertex of $V_2$.
+\end{definition}
+
+\begin{theorem}
+	A nontrivial graph $G$ is bipartite if and only if $G$ has no odd cycles.
+\end{theorem}
+\begin{proof}
+	Suppose $G$ is bipartite.
+	Suppose $G$ has an $n$-cycle $C : v_1,v_2,\dots,v_n,v_1$.
+	Suppose $v_1 \in V_1$. Then $v_2 \in V_2$ since $G$ is bipartite.
+	Similarly, $v_3 \in V_1, v_4 \in V_2, \dotsc$.
+	Since there is an edge $v_nv_1$ in $C$, $v_n \in V_2$.
+	Clearly, $n$ is even.
+	Thus, every $n$-cycle in bipartite graph $G$ is an even cycle.\\
+
+	Suppose $G$ has no odd cycles.
+	Assume without loss of generality that $G$ is a connected graph.
+	Let $v$ be a vertex of $G$.
+	Define $V_1 \subset V(G)$ as the set of all vertices $v$ such that the minimal $v_1-v$ is of odd length.
+	Define $V_2 = V(G) - V_1$.
+	Suppose there exists an edge between vertices in $V_1$, say $u,v$.
+	Then ($v_1-u$ path + $uv$ + $v-v_1$ path) is a cycle of odd length.
+	Similarly, if there exists an edge between vertices in $V_2$, say $u,v$. Then there exists an odd cycle.
+	Therefore, every edge in $G$ joins a vertex of $V_1$ and a vertex of $V_2$.
+	Clearly, graph $G$ is bipartite.
+\end{proof}
+
+\begin{definition}
+	Let $G$ be a bipartite graph with vertex set parition $V_1$ and $V_2$.
+	Graph $G$ is complete bipartite, if every vertex in $V_1$ is adjacent to every vertex in $V_2$.
+\end{definition}
+\begin{remark}
+	Let $G$ be a bipartite graph with $|V_1| = n$ and $|V_2| = m$.
+	Then $G = K_{m,n}$.
+	The graph $K_{1,n}$ is a star.
+\end{remark}
+
+\begin{definition}
+	Let $G$ be a graph with vertex set partition $V_1,V_2,\dots,V_n$ such that no edge joins vertices in the same partite set.
+\end{definition}
+
+\begin{definition}
+	A complete $n$-partite graph is an $n$-partite graph in which every vertex in $V_j$ is adjacent to every vertex in $V_k$ where $j \ne k$.
+\end{definition}
+
+\begin{definition}[union]
+	$G_1 \cup G_2$ is the graph with 
+	$$ V(G_1 \cup G_2) = V(G_1) \cup V(G_2) \text{ and }E(G_1 \cup G_2) = E(G_1) \cup E(G_2) $$
+\end{definition}
+\begin{remark}
+	If $G_1 \cong G_2 \cong G$, then $G_1 \cup G_2 = 2G$.
+\end{remark}
+
+\begin{definition}[join]
+	$G_1+G_2$ is the graph with	
+	$$ V(G_1+G_2) = V(G_1) \cup V(G_2) $$
+	$$ uv \in E(G_1+G_2) \text{ if } \begin{cases} uv \in E(G_1) \\ u \in V(G_1), v \in V(G_2) \\ uv \in E(G_2) \end{cases} $$
+\end{definition}
+
+\begin{definition}[product]
+	$G_1 \times G_2$ is the graph with
+	$$ V(G_1 \times G_2) = V(G_1) \times V(G_2) $$
+	A vertex of $G_1 \times G_2$ is of the form $(u,v)$ where $u \in V(G_1)$ and $v \in V(G_2)$.
+	$$ (u_1,u_2)(v_1,v_2) \in E(G_1 \times G_2) \text{ if } \begin{cases} u_1 = v_1, u_2u_2 \in E(G_2) \\ u_2 = v_2, u_1v_1 \in E(G_1) \end{cases} $$
+\end{definition}
+
+\begin{remark}
+	By symmetry of the definitions, $G_1 \cup G_2 = G_2 \cup G_1$, $G_1 + G_2 = G_2 + G_1$ and $G_1 \times G_2 = G_2 \times G_1$.
+\end{remark}
+\subsection*{Problem Set 1.8}
+
+\begin{enumerate}
+	\item
+\end{enumerate}
+
+\subsection{Digraphs}
+\begin{description}
+	\item[$id(v)$] indegree of a vertex $v$ is the number of arcs entering the vertex $v$.
+	\item[$od(v)$] outdegree of a vertex $v$ is the number of arcs leaving the vertex $v$.
+	\item[$deg(v)$] $=id(v) + od(v)$.
+	\item[semiwalk] is an alternating sequence of vertices and arcs, say $W : u_0 e_0 u_1 e_1 \dots u_n e_n$ where each edge $e_k$ is either a $(u_{n-1},u_n)$ arc(forward arc) or a $(u_n,u_{n-1})$ arc(reverse arc).
+	\item[unilaterally connected] A digraph is unilaterally connected if there is either a directed $u-v$ path or a directed $v-u$ path for each pair of vertices $u$ and $v$.
+	\item[strongly connected] A digraph is strongly connected if for each pair of vertices $u$ and $v$, there exists both $u-v$ directed path and $v-u$ directed path.
+	\item[(weakly) connected] A digraph is connected or weakly connected if for each pair of vertices $u$ and $v$ there is a $u-v$ semiwalk( or a $u-v$ semipath).
+	\item[symmetric] A digraph is symmtric if each arc $(u,v)$ there exists an opposite arc $(v,u)$ in it.
+	\item[tournament] A digraph in which each pair of vertices is joined by exactly one arc. The underlying graph of a tournament is a complete graph.
+	\item[$G^\ast$] The symmetric digraph obtained by replacing each edge $uv$ of a graph $G$ with symmetric arcs $(u,v)$ and $(v,u)$.
+	\item[parallel arcs] Two arcs are parallel if both arcs are incident with the same vertices and have the same direction.
+	\item[r-regular] A digraph $D$ is $r$-regular if $id(v) = od(v) = r$ for each vertex $v \in V(D)$.
+\end{description}
+\begin{theorem}
+	$$\sum od(v) = \sum id(v) = q $$
+\end{theorem}
+\begin{proof}
+	Every arc should enter some vertex and should leave some vertex. Counting the arcs is same as counting the number vertices it enters( or leaves).
+\end{proof}
+\subsection*{Problem Set 1.9}
+\begin{enumerate}
+	\setcounter{enumi}{3}
+	\item \begin{tikzpicture} 
+		\tikzstyle every node=[draw,circle]
+		\node(1){};
+		\draw (1) ++(60:1) node(2){};
+		\draw (1) ++(0:1) node(3){};
+		\draw[->] (1)--(2);
+		\draw[->] (2)--(3);
+		\draw[->] (1)--(3);
+\end{tikzpicture} is a unilaterally connected digraph with no (directed) cycles.
+	\item The digraph in problem 1.9.2 is not strongly connected. But, every vertex belongs to a directed cycle.
+	\setcounter{enumi}{7}
+\item
+	\begin{enumerate*}
+	\item \begin{tikzpicture} 
+		\tikzstyle every node=[draw,circle]
+		\draw node(1){};
+		\draw (1) ++(90:1) node(2){};
+		\draw (1) ++(0:1) node(3){};
+		\draw (3) ++(90:1) node(4){};
+		\draw[->] (1)--(2);
+		\draw[->] (1)--(3);
+		\draw[->] (1)--(4);
+		\draw[->] (2)--(3);
+		\draw[->] (4)--(3);
+		\draw[->] (2)--(4);
+	\end{tikzpicture}
+	\item No, \begin{tikzpicture} 
+		\tikzstyle every node=[draw,circle]
+		\draw node(1){};
+		\draw (1) ++(90:1) node[red](2){};
+		\draw (1) ++(0:1) node(3){};
+		\draw (3) ++(90:1) node[red](4){};
+		\draw[->] (1)--(2);
+		\draw[->] (2)--(3);
+		\draw[->] (1)--(3);
+		\draw[->] (3)--(4);
+		\draw[->] (1)--(4);
+		\draw[->] (2)--(3);
+		\draw[->] (2)--(4);
+	\end{tikzpicture}
+	\item No, \begin{tikzpicture} 
+		\tikzstyle every node=[draw,circle]
+		\draw node(1){};
+		\draw (1) ++(90:1) node(2){};
+		\draw (1) ++(0:1) node(3){};
+		\draw (3) ++(90:1) node(4){};
+		\draw[->] (1)--(2);
+		\draw[->] (2)--(4);
+		\draw[->] (4)--(3);
+		\draw[->,red] (3)--(1);
+	\end{tikzpicture}
+	$\not\cong$ \begin{tikzpicture} 
+		\tikzstyle every node=[draw,circle]
+		\draw node(1){};
+		\draw (1) ++(90:1) node(2){};
+		\draw (1) ++(0:1) node(3){};
+		\draw (3) ++(90:1) node(4){};
+		\draw[->] (1)--(2);
+		\draw[->] (2)--(4);
+		\draw[->] (4)--(3);
+		\draw[->,red] (3)--(2);
+	\end{tikzpicture}
+	\end{enumerate*}
+	\item Any tournament of order six have 15 arcs.
+	\begin{enumerate}
+		\item Total outdegree is 15. Impossible to have 6 vertices of same outdegree.
+		\item Total indegree is 15. Impossible to have 6 vertices of same indegree.
+		\item Total degree in a tournament of order 6 is 30. Thus the degree of each vertex should be $5$. Any tournament of order 6 will have the same degree for all its vertices. \textcolor{blue}{Draw $K_6$ and give some direction to all its edges to get a tournament of order 6.}
+	\end{enumerate}
+	\item Let $D$ be a tournament with two vertices $u,v$ of outdegree 0. Then there is no arc in between $u$ and $v$. This is a contradiction as $D$ is a tournament.
+\end{enumerate}
 
 %\chapter{An Introduction to Algorithms}
-\section{Algorithmic Complexity}
-\section{Serach Algorithms}
-\section{Sorting Algorithms}
-%\section{Introducing NP-Completeness*}
-\setcounter{section}{4}
-\section{Greedy Algorithms}
-\section{Representing Graphs in a Computer}
+\section{An Introduction to Algorithms}
+\subsection{Algorithmic Complexity}
+\begin{definition}
+	$f = O(g)$ if there exists $c \in \mathbb{R}^+$ and exists $N \in \mathbb{N}$ such that $\forall n > N,\ f(n) \le cg(n)$.
+\end{definition}
+Example, $f : 3n+5$ and $g : n^2$. Then $f = O(g)$, consider $c = 1$ and $N = 4$. If $f = O(g)$, then order of $f$ is less than or equal to the order of $g$.
+
+\begin{remark}
+	$f,g$ have same order if $f = O(g)$ and $g = O(f)$.
+\end{remark}
+
+An algorithm of complexity $f$ is \textbf{more efficient} than an algorithm of complexity $g$ if $f = O(g)$ and $g \ne O(f)$.\\
+
+The hierarchy of increasing order of complexity is, 
+$$O(1), O(\log n), O(n), O(n\log n), O(n^2), O(n^3), \textcolor{red}{O(2^n), O(n!)}$$
+An algorithm is efficient if its complexity is a polynomial in $n$. If there exists an efficient algorithm to solve a problem, then that problem is \textbf{tractable}. Tiling problem is intractable.
+
+\subsection*{Problem Set 2.1}
+\begin{enumerate}
+	\setcounter{enumi}{2}
+	\item $c = 1$, $N = 10$.
+	\item $c = 1$, $N = 5$.
+	\item To prove $f = O(g)$ take $c = 2, N = 5$ and to prove $g = O(f)$ take $c = 1, N = 1$.
+		This is very important from complexity point of view. The result says that you can safely ignore terms with less complexity.
+	\item $\forall n \in \mathbb{N},\ 2^n > n \implies \log 2^n > \log n \implies n\log 2 > \log n$.
+		Take $c = \log 2$ and $N = 1$, then $\log n = O(n)$.
+	\item Use result from Problem 2.1.5 \begin{enumerate*} \item $f = O(n^5)$ \item $f = O(n^3\log n)$ \item $f = O(2^n)$ \end{enumerate*}
+	\item %Remember $\lim_{n \to \infty} \log n < n^{\varepsilon}$ where $\varepsilon > 0$.
+	\begin{enumerate}
+		\item $f = O(n^3)+O(n^{2.5}) = O(n^3)$ and $g = O(n^2\log n)+O(n) = O(n^2 \log n)$. By hierarchy, $g = O(f)$ and $f \ne O(g)$.
+		\item $f = O(2^n) + O(n^{10}) = O(2^n)$ and $g = O(n!) + O(3^n) = O(n!)$. By hierarchy, $f = O(g)$ and $g \ne O(f)$.
+	\end{enumerate}
+	\item The complexity of algorithm 2.1 is $O(n)$. The problem to find first word is tractable.
+	\item Complexity is $O(n)$.
+	\item Complexity is $O(n)$.
+\end{enumerate}
+\begin{algorithm}[Largest Number] Let $N(1),N(2),\dots,N(n)$ be the list of numbers from which LARGEST number and its position are to be found.
+\begin{enumerate}
+	\item $LARGEST \leftarrow N(1)$.
+	\item $p \leftarrow 1$.
+	\item For $k = 2$ to $n$.
+	\begin{enumerate}
+		\item IF $N(k) < LARGEST$ then
+		\begin{enumerate}
+			\item $LARGEST \leftarrow N(k)$
+			\item $p \leftarrow k$
+		\end{enumerate}
+	\end{enumerate}
+\item Output $LARGEST, p$.
+\end{enumerate}
+\end{algorithm}
+
+\begin{algorithm}[First two Words].
+\begin{enumerate}
+	\item IF $W(1) < W(2)$ then
+	\begin{enumerate}
+		\item $FIRST \leftarrow W(1)$
+		\item $SECOND \leftarrow W(2)$
+	\end{enumerate}
+	\item Else :
+	\begin{enumerate}
+		\item $FIRST \leftarrow W(2)$
+		\item $SECOND \leftarrow W(1)$
+	\end{enumerate}
+\item For $k = 3$ to $n$
+	\begin{enumerate}
+		\item IF $W(1) > W(k)$ then
+		\begin{enumerate}
+			\item $FIRST \leftarrow W(k)$.
+			\item $SECOND \leftarrow FIRST$.
+		\end{enumerate}
+		\item Else IF $W(2) > W(k)$ then
+		\begin{enumerate}
+			\item $SECOND \leftarrow W(k)$.
+		\end{enumerate}
+	\end{enumerate}
+	\item Output $FIRST, SECOND$.
+\end{enumerate}
+\end{algorithm}
+
+\subsection{Search Algorithms}
+\subsection*{Problem Set 2.2}
+\begin{enumerate}
+	\item Sequential Search 
+	\begin{enumerate}
+		\item $W(1) = MEYER$ ? No
+		\item $W(2) = MEYER$ ? No
+		\item \dots
+		\setcounter{enumii}{4}
+		\item $W(5) = MEYER$ ? Yes
+		\begin{enumerate}
+			\item $p \leftarrow 5$.
+			\item Output $p$ and Stop.
+		\end{enumerate}
+	\end{enumerate}
+	Binary Search
+	\begin{enumerate}
+		\item $f \leftarrow 1$, $l \leftarrow 11$, $k \leftarrow 6$,\\ $MITCHELL = MEYER$ ? No 
+		\item $MITCHELL > MEYER$ ? Yes $l \leftarrow 5$, $k \leftarrow 3$,\\ $CHAPMAN = MEYER$ ? No
+		\item $CHAPMAN < MEYER$ ? Yes $f \leftarrow 4$, $k \leftarrow 4$,\\ $DONALDSON = MEYER$ ? No
+		\item $DONALDSON < MEYER$ ? Yes $f \leftarrow 5$, $k \leftarrow 5$,\\ $MEYER = MEYER$ ? Yes Output $5$ and Stop
+	\end{enumerate}
+	\item Binary Search
+	\begin{enumerate}
+		\item $f \leftarrow 1$, $l \leftarrow 12$, $k \leftarrow 6$,\\ $HAWAII = MICHIGAN$ ? No.
+		\item $HAWAII < MICHIGAN$ ? Yes $f \leftarrow 7$, $k \leftarrow 9$,\\ $LOUISIANA = MICHIGAN$ ? No.
+		\item $LOUISIANA < MICHIGAN$ ? Yes $f \leftarrow 10$, $k \leftarrow 11$,\\ $NEVADA = MICHIGAN$ ? No
+		\item $NEVADA > MICHIGAN$ ? Yes $l \leftarrow 10$, $k \leftarrow 10$,\\ $MICHIGAN = MICHIGAN$ ? Yes Output 10 and Stop.
+	\end{enumerate}
+\end{enumerate}
+\subsection{Sorting Algorithms}
+\subsection*{Problem Set 2.3}
+\begin{enumerate}
+	\item Sequential Sort
+	\begin{enumerate}
+		\item $FIRST \leftarrow CARTER$, $p \leftarrow 4$\\
+			$W(1) \leftarrow CARTER$, $W(4) \leftarrow DENNIS$.
+		\item $FIRST \leftarrow DENNIS$, $p \leftarrow 4$\\
+			$W(2) \leftarrow DENNIS$, $W(4) \leftarrow THOMAS$.
+		\item $FIRST \leftarrow JACKSON$, $p \leftarrow 5$\\
+			$W(3) \leftarrow JACKSON$, $W(5) \leftarrow MATTHEWS$.
+		\item $FIRST \leftarrow MATTHEWS$, $p \leftarrow 5$\\
+			$W(4) \leftarrow MATTHEWS$, $W(5) \leftarrow THOMAS$.
+	\end{enumerate}
+	Bubble Sort
+	\begin{enumerate}
+		\item $JACKSON < CARTER$ No.\\ $CARTER < MATTHEWS$ Yes.\\ $W(3) \leftarrow CARTER$, $W(4)\leftarrow MATTHEWS$.\\ 
+			$\to DENNIS,THOMAS,\textcolor{blue}{CARTER},\textcolor{red}{MATTHEWS},JACKSON$\\
+			$CARTER < THOMAS$ Yes.\\ $W(2) \leftarrow CARTER$, $W(3) \leftarrow THOMAS$.\\ 
+			$\to DENNIS,\textcolor{blue}{CARTER},\textcolor{red}{THOMAS},MATTHEWS,JACKSON$\\
+			$CARTER < DENNIS$ Yes.\\ $W(1) \leftarrow CARTER$, $W(2) \leftarrow DENNIS$.\\
+			$\to \textcolor{green}{CARTER},\textcolor{red}{DENNIS,THOMAS,MATTHEWS,JACKSON}$
+		\item $JACKSON < MATTHEWS$ Yes.\\
+			$W(4) \leftarrow JACKSON$, $W(5) \leftarrow MATTHEWS$.\\
+			$\to CARTER,DENNIS,THOMAS,\textcolor{blue}{JACKSON},\textcolor{red}{MATTHEWS}$\\
+			$JACKSON < THOMAS$ Yes.\\
+			$W(3) \leftarrow JACKSON$, $W(4) \leftarrow THOMAS$.\\
+			$\to CARTER,DENNIS,\textcolor{blue}{JACKSON},\textcolor{red}{THOMAS},MATTHEWS$\\
+			$JACKSON < DENNIS$ No.\\
+			$\to \textcolor{green}{CARTER, DENNIS}, \textcolor{red}{JACKSON, THOMAS, MATTHEWS}$
+		\item $MATTHEWS < THOMAS$ Yes.\\
+			$W(4) \leftarrow MATTHEWS$, $W(5) \leftarrow THOMAS$.\\
+			$\to CARTER, DENNIS,JACKSON,\textcolor{blue}{MATTHEWS},\textcolor{red}{THOMAS}$\\
+			$MATTHEWS < JACKSON$ No.\\
+			$\to \textcolor{green}{CARTER, DENNIS, JACKSON}, \textcolor{red}{MATTHEWS, THOMAS}$
+		\item $THOMAS < MATTHEWS$ No.\\
+			$\to \textcolor{green}{CARTER, DENNIS, JACKSON, MATTHEWS}, \textcolor{red}{THOMAS}$
+	\end{enumerate}
+\end{enumerate}
+%\subsection{Introducing NP-Completeness*}
+\setcounter{subsection}{4}
+\subsection{Greedy Algorithms}
+\subsection*{Problem Set 2.5}
+\begin{enumerate}
+	\item
+\end{enumerate}
+\subsection{Representing Graphs in a Computer}
+\subsection*{Problem Set 2.6}
+\begin{enumerate}
+	\item
+\end{enumerate}
 
 %Module 2
 %\chapter{Trees}
-\section{Properties of Trees}
-\section{Rooted Trees}
-\section{Depth-First Search}
-\section{Depth-First Search : A Tool for Finding Blocks}
-\section{Breadth-First Search}
-\section{The Minimum Spanning Tree Problem}
+\section{Trees}
+\subsection{Properties of Trees}
+\begin{theorem}
+	Every tree of order $p$ has size $p-1$.
+\end{theorem}
+\subsection{Rooted Trees}
+\subsection{Depth-First Search}
+\begin{algorithm}[DFS Algorithm].\\
+\begin{enumerate}
+	\item $dfi(u) \leftarrow 0$.
+	\item $i \leftarrow 1$.
+	\item $S \leftarrow \phi$.
+	\item If $dfi(r) \ne 0$ for every vertex $r$, then output $S$ and stop. Otherwise, let $r$ be the first vertex such that $dfi(r) = 0$, $w \leftarrow r$ and continue.
+	\item $ dfi(w) \leftarrow i$.
+	\item $i \leftarrow i+1$.
+	\item 
+		\begin{enumerate}[label=7.\arabic*]
+			\item If $dfi(v) = 0$ for some vertex $v$ in the adjacency list of $w$, then continue. Otherwise and goto Step 7.4 
+			\item $PARENT(v) \leftarrow w$ and $w \leftarrow v$.
+			\item $S \leftarrow S \cup \{ vw \}$ and goto Step 7.1
+			\item If $w \ne r$, then $w \leftarrow PARENt(w)$ and goto Step 7.1 Otherwise goto Step 4.
+		\end{enumerate}
+\end{enumerate}
+\end{algorithm}
+
+\subsection{Depth-First Search : A Tool for Finding Blocks}
+
+\subsection{Breadth-First Search}
+\begin{algorithm}[Component finding Algorithm].
+	Let $G$ be a graph. Let $bfi(v)$ denote the BFS index of each vertex, $S$ be the set of vertices in the component of $G$ containing the current vertex $v$ and $Q$ be the queue of all vertices of $G$ whose children are yet to be visited.
+\begin{enumerate}
+	\item (All vertices are given breadth first search indes of 0. And $i$ is initilised and it will be assigned to the $i$th vertex visited during the search.)
+	\begin{enumerate}
+	\item $bfi(v) \leftarrow 0$ for each vertex $v \in V(G)$.
+	\item $i \leftarrow 1$.
+	\end{enumerate}
+	\item (We start with a vertex $v$ from an unvisited component of $G$.)\\
+		If $bfi(v) \ne 0$ for all $v \in V(G)$, then stop since all the components of $G$ have been determined. Otherwise, let $v$ be the first vertex such that $bfi(v) = 0$. Assign $bfi(v) \leftarrow i$, $i \leftarrow i+1$, $S \leftarrow \{v\}$ and add $v$ to $Q$.
+	\item For each vertex $y$ adjacent to $v$ such that $bfi(y) = 0$, assign $bfi(y) \leftarrow i$, $i \leftarrow i+1$, $S \leftarrow S \cup \{ y \}$, add $y$ to $Q$.
+	\item If $Q \ne \phi$, then delete a vertex $x$ from $Q$. Assign $v \leftarrow x$ and go to Step 5. Otherwise output $S$ and go to Step 3.
+\end{enumerate}
+\end{algorithm}
+
+\subsection{The Minimum Spanning Tree Problem}
 
 %\chapter{Paths and Distance in Graphs}
-\section{Distance in Graphs}
-\section{Distance in Weighted Graphs}
-\section{The Center and Median of a Graph}
-\section{Activity Digraphs and Critical Paths}
-%\section{Error Correcting Codes$^\ast$}
+\section{Paths and Distance in Graphs}
+\subsection{Distance in Graphs}
+\subsection{Distance in Weighted Graphs}
+\subsection{The Center and Median of a Graph}
+\subsection{Activity Digraphs and Critical Paths}
+%\subsection{Error Correcting Codes$^\ast$}
 
 %Module 3
 \section{Networks}
@@ -538,9 +1285,9 @@
 \begin{description}
 	\item[maximum flow] A flow $f$ in network $N$ is maximum flow in $N$, if $f(N) \ge f'(N)$ for each flow $f'$ in $N$.
 	\item[minimum cut] A cut $(P,\bar{P})$ in network $N$ is minimum cut of $N$,\\ if $c(P,\bar{P}) \le c(X,\bar{X})$ for each cut $(X,\bar{X})$ in $N$.
-	\item[$f$-unsaturated] Let $f$ be a flow in network $N$ with underlying digraph $D$, and $Q = u_0,a_1,u_1,a_2,\cdots,u_{n-1},a_n,u_n$ be a semipath in $D$ such that every forward arc $a_i = (u_{i-1},u_i)$ has flow not upto its capacity, $f(a_i) < c(a_i)$ and every reverse arc $a_i = (u_i,u_{i-1})$ has some positive flow in it, $f(a_i) > 0$
+	\item[$f$-unsaturated] Let $f$ be a flow in network $N$ with underlying digraph $D$, and $Q = u_0,a_1,u_1,a_2,\dots,u_{n-1},a_n,u_n$ be a semipath in $D$ such that every forward arc $a_i = (u_{i-1},u_i)$ has flow not upto its capacity, $f(a_i) < c(a_i)$ and every reverse arc $a_i = (u_i,u_{i-1})$ has some positive flow in it, $f(a_i) > 0$
 	\item[f-augmenting semipath] Let $f$ be a flow in a network $N$ with underlying digraph $D$.
-		Suppose semipath $Q = s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ (from source to sink) is $f$-unsaturated, then $Q$ is an $f$-augmenting semipath.
+		Suppose semipath $Q = s,a_1,u_1,a_2,\dots,u_{n-1},a_n,t$ (from source to sink) is $f$-unsaturated, then $Q$ is an $f$-augmenting semipath.
 \end{description}
 
 \begin{theorem}
@@ -554,7 +1301,7 @@
 	Suppose $f^*$ in a maximum flow in $N$, then $f(N) \le f^*(N) \le c(P,\bar{P}) = f(N)$.
 \end{synopsis}
 \begin{proof}
-	Let $f$ be a flow in a network $N$ with underlying digraph $D$ and $Q = s, a_1, u_1, a_2, u_2, \cdots, u_{n-1}, a_n, t$ be an $f$-augmenting semipath in $D$.
+	Let $f$ be a flow in a network $N$ with underlying digraph $D$ and $Q = s, a_1, u_1, a_2, u_2, \dots, u_{n-1}, a_n, t$ be an $f$-augmenting semipath in $D$.
 	\[\text{define } \Delta_i = \begin{cases}
 		c(a_i) - f(a_i) \text{ for every forward arc } a_i \in Q, \\
 		f(a_i) \text{ for every reverse arc } a_i \in Q,
@@ -722,15 +1469,15 @@ Suppose there is an $f$-augmenting semipath $Q$ in $D$, then there is either \be
 	Let $D'$ be the digraph with vertex set $V(D') = V(D)$ and arc set $E(D') = \{ (x,y) : \text{either }(x,y) \text{ or } (y,x) \text{ is unsaturated in } N \}$.\\
 
 
-	Suppose $D'$ has a directed $s-t$ path $Q' : s,u_1,u_2,\cdots,u_{n-1},t$.
+	Suppose $D'$ has a directed $s-t$ path $Q' : s,u_1,u_2,\dots,u_{n-1},t$.
 	Then by the construction of $D'$, for each $u_i \in Q$, there exists an $f$ unsaturated arc $a_i$ in $D$.
 	ie, either forward arc $a_i = (u_{k-1},u_k)$ such that $f(u_{k-1},u_k) < c(u_{k-1},u_k)$ or reverse arc $a_i = (u_k,u_{k-1})$ such that $f(u_k,u_{k-1}) > 0$.
-	Therefore, we have an $s-t$ semipath $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ in $D$ such that $Q$ is an $f$-augmenting semipath since every arc in $Q$ is $f$-unsaturated.
+	Therefore, we have an $s-t$ semipath $Q : s,a_1,u_1,a_2,\dots,u_{n-1},a_n,t$ in $D$ such that $Q$ is an $f$-augmenting semipath since every arc in $Q$ is $f$-unsaturated.
 	Clearly, $Q,Q'$ are of the same length.\\
 
 
-	Conversely, suppose that the digraph $D$ has an $f$-augmenting semipath $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$.
-	Then each arc $a_i \in Q$ are $f$-unsaturated and by the construction of $D'$, there exists a directed $s-t$ path $Q' = s,u_1,u_2,\cdots,u_{n-1},t$ in $D'$.
+	Conversely, suppose that the digraph $D$ has an $f$-augmenting semipath $Q : s,a_1,u_1,a_2,\dots,u_{n-1},a_n,t$.
+	Then each arc $a_i \in Q$ are $f$-unsaturated and by the construction of $D'$, there exists a directed $s-t$ path $Q' = s,u_1,u_2,\dots,u_{n-1},t$ in $D'$.
 	And $Q,Q'$ are of the same length.\\
 
 
@@ -750,8 +1497,8 @@ Suppose there is an $f$-augmenting semipath $Q$ in $D$, then there is either \be
 		\item Construct digraph $D'$ with vertex set $V(D') = V(D)$ and arc set $E(D') = \{ (x,y) : (x,y) \in E(D) \&  f(x,y) < c(x,y) \text{ or } (y,x) \in E(D) \& f(y,x) > 0 \}$
 		\item Find (shortest) $s-t$ directed path in $D'$ using Moore's breadth first search(BFS) algorithm.
 			If $D'$ doesn't have an $s-t$ path, then proceed to step 5.
-			Otherwise, let $Q' : s,u_1,u_2,\cdots,u_{n-1},t$ be a (shortest) $s-t$ path in $D'$.
-		\item Let $Q : s,a_1,u_1,a_2,\cdots,u_{n-1},a_n,t$ be the respective semipath in $D$ such that $f(a_j) < c(a_j)$ for forward arcs and $f(a_i) > 0$ for reverse arcs.
+			Otherwise, let $Q' : s,u_1,u_2,\dots,u_{n-1},t$ be a (shortest) $s-t$ path in $D'$.
+		\item Let $Q : s,a_1,u_1,a_2,\dots,u_{n-1},a_n,t$ be the respective semipath in $D$ such that $f(a_j) < c(a_j)$ for forward arcs and $f(a_i) > 0$ for reverse arcs.
 			Let $\Delta_j = c(a_j) - f(a_j)$ for forward arcs and $\Delta_j = f(a_j)$ for reverse arcs.
 			And let $\Delta = \min \{ \Delta_j \}$.
 			And augment flow $f$ by $\Delta$ ie, $f(a_j) \leftarrow f(a_j) + \Delta$ for forward arcs and $f(a_j) \leftarrow f(a_j)-\Delta$ for reverse arcs.
@@ -778,7 +1525,8 @@ Suppose there is an $f$-augmenting semipath $Q$ in $D$, then there is either \be
 %	\end{enumerate}
 %\end{remark}
 
-%\section{The Complexity of the Max-Flow Min-Cut Theorem*}
+%\subsection{The Complexity of the Max-Flow Min-Cut Theorem*}
+
 \setcounter{subsection}{4}
 
 \subsection{Connectivity and Edge-Connectivity}
@@ -989,7 +1737,7 @@ Then the components of $H$ are either
 \end{corollary}
 
 \begin{theorem}
-	A collection $S_1,S_2,\cdots,S_n$ of finite non-empty sets has a system of distinct representatives iff for each $k,\ 0 \le k \le n$, the union of any $k$ of these sets contains at least $k$ elements.
+	A collection $S_1,S_2,\dots,S_n$ of finite non-empty sets has a system of distinct representatives iff for each $k,\ 0 \le k \le n$, the union of any $k$ of these sets contains at least $k$ elements.
 \end{theorem}
 
 \begin{remark}[Hall's Marriage Theorem]
@@ -1026,7 +1774,7 @@ Then the components of $H$ are either
 %\end{proof}
 \begin{corollary}
 	Let $M$ be a matching of a graph $G$.
-	Suppose that $M = M_1,M_2,\cdots,M_k$ is a finite sequence of matchings of $G$ such that $M_i$ $(2 \le i \le k)$ is obtained by augmenting $M_{i-1}$ along some augmenting path.
+	Suppose that $M = M_1,M_2,\dots,M_k$ is a finite sequence of matchings of $G$ such that $M_i$ $(2 \le i \le k)$ is obtained by augmenting $M_{i-1}$ along some augmenting path.
 	Suppose $v$ is a single vertex with respect to $M$ for which there exists no augmenting path starting at $v$.
 	Then $G$ does not contain an augmenting path with respect to $M_i$ $(2 \le i \le k)$ that has $v$ as an end-vertex.
 \end{corollary}
@@ -1043,13 +1791,13 @@ Then the components of $H$ are either
 			otherwise, $v \leftarrow v_i$ and $Q$ is initialized to contain $v$ only.
 		\item 
 			\begin{enumerate}[label=(\arabic*)]
-				\item For $j = 1,2,\cdots,p$ and $j \ne i$, let $TREE(v_j) \leftarrow F$.\\
+				\item For $j = 1,2,\dots,p$ and $j \ne i$, let $TREE(v_j) \leftarrow F$.\\
 					Also, $TREE(v_j) \leftarrow T$.
 				\item If $Q = \phi$, then $i \leftarrow i+1$ and return to Step 2;\\
 					otherwise, delete a vertex $x$ from $Q$ and continue.
 				\item 
 					\begin{enumerate}[label=(\arabic*)]
-						\item Suppose that $N(x) = \{y_1,y_2,\cdots,y_k\}$.
+						\item Suppose that $N(x) = \{y_1,y_2,\dots,y_k\}$.
 							Let $j \leftarrow 1$.
 						\item If $j \le k$, then $y \leftarrow y_j$; otherwise return to Step 4.2
 						\item If $TREE(y) = T$, then $j \leftarrow j+1$ and return to Step 4.3.2. Otherwise, continue.
@@ -1112,7 +1860,8 @@ Then the components of $H$ are either
 	\label{alg:maxweightmatching}
 \end{algorithm}
 
-%\section{Maximum Matching in General Graphs*}
+%\subsection{Maximum Matching in General Graphs*}
+
 \setcounter{subsection}{3}
 \subsection{Factorizations}
 \begin{definition}
@@ -1120,8 +1869,8 @@ Then the components of $H$ are either
 \end{definition}
 
 \begin{definition}
-	Let $G_1, G_2, \cdots, G_n$ be edge-disjoint factors of $G$ such that $E(G) = \cup_{i = 1}^n E(G_i)$.
-	Then $G$ is \textbf{factorable} and $G = G_1 \oplus G_2 \oplus \cdots \oplus G_n$.
+	Let $G_1, G_2, \dots, G_n$ be edge-disjoint factors of $G$ such that $E(G) = \cup_{i = 1}^n E(G_i)$.
+	Then $G$ is \textbf{factorable} and $G = G_1 \oplus G_2 \oplus \dotsb \oplus G_n$.
 \end{definition}
 
 \begin{definition}
@@ -1194,14 +1943,14 @@ Then the components of $H$ are either
 \end{theorem}
 
 \begin{definition}
-	Let $\{E_1, E_2, \cdots, E_n \}$ be partition of $E(G)$.
+	Let $\{E_1, E_2, \dots, E_n \}$ be partition of $E(G)$.
 	And let $H_i$ be subgraph of $G$ induced by the edge set $E_i$.
-	A \textbf{decomposition} of a graph $G$ is a colletion of these subgraphs $H_1, H_2, \cdots, H_n$.
-	And $G = H_1 \oplus H_2 \oplus \cdots \oplus H_n$.
+	A \textbf{decomposition} of a graph $G$ is a colletion of these subgraphs $H_1, H_2, \dots, H_n$.
+	And $G = H_1 \oplus H_2 \oplus \dotsb \oplus H_n$.
 \end{definition}
 
 \begin{definition}
-	Let $G = H_1 \oplus H_2 \oplus \cdots \oplus H_n$ be a decomposition of $G$ such that $H \cong H_i$.
+	Let $G = H_1 \oplus H_2 \oplus \dotsb \oplus H_n$ be a decomposition of $G$ such that $H \cong H_i$.
 	Then $G$ is $H$-decomposible.
 \end{definition}
 
@@ -1217,7 +1966,7 @@ Then the components of $H$ are either
 %\begin{remark}The following observations are not yet proved.
 %	\begin{description}
 %		\item[Ascending subgraph Conjecture] Every graph of size $\binom{n}{2}$ has an ascending subgraph decomposition. 
-%		\item[Perfect Tree Conjecture] Every $K_{n+1}$ can be decomposed into n distinct trees of size $1, 2, \cdots, n$ respectively.
+%		\item[Perfect Tree Conjecture] Every $K_{n+1}$ can be decomposed into n distinct trees of size $1, 2, \dots, n$ respectively.
 %		\item[Ringel Conjecture] Every $K_{2n+1}$ is $T$-decomposible for every tree of size n.
 %	\end{description}
 %\end{remark}
@@ -1293,36 +2042,42 @@ Then the components of $H$ are either
 \end{theorem}
 
 %\chapter{Eulerian Graphs*}
-%\section{An Introduction to Eulerian Graphs}
-%\section{Characterizing Eulerian Graphs Again}
-%\section{The Chinese Postman Problem}
-%\section{Eulerian Digraph}
+%\section{Eulerian Graphs*}
+%\subsection{An Introduction to Eulerian Graphs}
+%\subsection{Characterizing Eulerian Graphs Again}
+%\subsection{The Chinese Postman Problem}
+%\subsection{Eulerian Digraph}
 
 %\chapter{Hamiltonian Graphs*}
-%\section{An Introduction to Hamiltonian Graphs}
-%\section{Which Graphs are Hamiltonian ?}
-%\section{The Traveling Salesman Problem}
+%\section{Hamiltonian Graphs*}
+%\subsection{An Introduction to Hamiltonian Graphs}
+%\subsection{Which Graphs are Hamiltonian ?}
+%\subsection{The Traveling Salesman Problem}
 
 %\chapter{Planar Graphs*}
-%\section{Properties of Planar Graphs}
-%\section{A Planarity-Testing Algorithm}
-%\section{The Crossing Number and the Thickness of a Graph}
-%\section{The Genus of a Graph}
-%\section{Graph Minors}
+%\section{Planar Graphs*}
+%\subsection{Properties of Planar Graphs}
+%\subsection{A Planarity-Testing Algorithm}
+%\subsection{The Crossing Number and the Thickness of a Graph}
+%\subsection{The Genus of a Graph}
+%\subsection{Graph Minors}
 
 %\chapter{Coloring Graphs*}
-%\section{Vertex Colorings}
-%\section{Chromatic Polynomials}
-%\section{Edge Colorings}
-%\section{The Four Color Problem}
+%\section{Coloring Graphs*}
+%\subsection{Vertex Colorings}
+%\subsection{Chromatic Polynomials}
+%\subsection{Edge Colorings}
+%\subsection{The Four Color Problem}
 
 %\chapter{Digraphs*}
-%\section{Strong Digraphs}
-%\section{Depth-First Search in Digraphs}
-%\section{Strongly Connected Components}
-%\section{Tournaments}
+%\section{Digraphs*}
+%\subsection{Strong Digraphs}
+%\subsection{Depth-First Search in Digraphs}
+%\subsection{Strongly Connected Components}
+%\subsection{Tournaments}
 
 %\chapter{Extremal Graph Theory*}
-%\section{Turan's Theorem}
-%\section{Ramsey Numbers}
-%\section{Generalised Ramsey Numbers}
+%\section{Extremal Graph Theory*}
+%\subsection{Turan's Theorem}
+%\subsection{Ramsey Numbers}
+%\subsection{Generalised Ramsey Numbers}

@@ -133,7 +133,7 @@
 	Therefore, we have restrict this family into a finite family.
 	We use compactness for this part.})\\
 	$\mathcal{C} = \{ V_y : y \in F \}$ is an open cover of compact subset $F$.\\
-	$\implies$ there exists a finite subcover, $\mathcal{C'} = \{ V_{y_i} : y_i \in F, i = 1,2,\cdots,n \}$.\\
+	$\implies$ there exists a finite subcover, $\mathcal{C'} = \{ V_{y_i} : y_i \in F, i = 1,2,\dots,n \}$.\\
 	Define $U = \cap_{i = 1}^n \{U_{y_i}\}$ and $V = \cup_{i = 1}^n \{V_{y_i}\}$.\\
 	$\implies x \in U,\ F \subset V,\ U \cap V = \phi$.
 \end{proof}
@@ -243,7 +243,7 @@
 	Let $C$ be a closed subset, $F$ be a compact subset of $X$ and $C \cap F = \phi$.\\
 	$X$ is regular $\implies \forall y \in F,\ \exists U_y,V_y \in \mathcal{T},\ C \subset U_y,\ y \in V_y,\ U_y \cap V_y = \phi$\\
 	Define $\mathcal{C} = \{ V_y : y \in F \}$ is cover of compact subset $F$.\\
-	$\implies \exists \mathcal{C}'$ such that $\mathcal{C}' = \{ V_{y_i} : i = 1,2,\cdots,n \}$ is a finite subcover.\\
+	$\implies \exists \mathcal{C}'$ such that $\mathcal{C}' = \{ V_{y_i} : i = 1,2,\dots,n \}$ is a finite subcover.\\
 	Define $U = \cap_{i = 1}^n \{ U_{y_i} \}$ and $V = \cup_{i = 1}^n \{ V_{y_i} \}$.\\
 	$\implies C \subset U,\ F \subset V,\ U \cap V = \phi$.
 \end{proof}
@@ -257,7 +257,7 @@
 	$X$ is regular $\implies \forall y \in D,\ \exists U_y, V_y \text{ such that } C \subset U_y,\ y \in U_y,\ U_y \cap U_y = \phi$\\
 	Then $\{ U_x : x \in C \}$ and $\{ V_y : y \in D \}$ are open covers of $C$ and $D$ respectively.
 	$\dag$\footnote{Here, $U_x$, $V_y$ are unrelated.})\\
-	Let $\{ U_n : n = 1,2,\cdots \}$ and $\{ V_n : n = 1,2,\cdots \}$ be their countable subcovers.\\
+	Let $\{ U_n : n = 1,2,\dotsc \}$ and $\{ V_n : n = 1,2,\dotsc \}$ be their countable subcovers.\\
 	Define $G_n = U_n - \cup_{i = 1}^n \closure{V_i}$ and $H_n = V_n - \cup_{i = 1}^n \closure{U_i}$.\\
 	Define $G = \cup_{i = 1}^\infty G_n$ and $H = \cup_{i = 1}^\infty H_n$.\\
 	\begin{important}
@@ -400,7 +400,7 @@
 
 	Let $A,B$ be two closed subsets in a normal space $X$.\\
 	Enumerate rationals in the unit interval.\\
-	$\mathbb{Q} \cap [0,1] = \{ 0, 1, \cdots \} = \{ q_0, q_1, q_2, \cdots \}$.\\
+	$\mathbb{Q} \cap [0,1] = \{ 0, 1, \dotsc \} = \{ q_0, q_1, q_2, \dotsc \}$.\\
 	Define $F_1 = F_{q_1} = X-B$. \\
 	$A \subset X-B \implies\exists H \text{ such that } A \subset H \subset \closure{H} \subset X-B$.
 	($\star$\footnote{Equivalent condition for normality : Let $A$ be closed subset and $G$ be an open subset containing $A$.
@@ -409,8 +409,8 @@
 	Define $F_{q_0} = F_0 = H$.\\
 
 	$\closure{F_{q_0}} \subset F_{q_1} \implies $ true for $n = 1$.\\
-	Suppose : $\closure{F_{q_i}} \subset F_{q_j},\ \forall j > i$ is true for $j = 1,2,\cdots,n-1$.\\
-	Define $q_i = \sup \{ q_k : q_k < q_n, k < n \}$ and $q_j = \inf \{ q_k : q_k > q_n, k < n \}$ ($\dag$\footnote{ Let $\mathbb{Q}\cap[0,1] = \{ 0,1,0.3,0.7,0.8,\textbf{0.5},0.6,\cdots \}$.
+	Suppose : $\closure{F_{q_i}} \subset F_{q_j},\ \forall j > i$ is true for $j = 1,2,\dots,n-1$.\\
+	Define $q_i = \sup \{ q_k : q_k < q_n, k < n \}$ and $q_j = \inf \{ q_k : q_k > q_n, k < n \}$ ($\dag$\footnote{ Let $\mathbb{Q}\cap[0,1] = \{ 0,1,0.3,0.7,0.8,\textbf{0.5},0.6,\dotsc \}$.
 	Consider $n = 5$.
 	Then $q_n = q_5 = 0.5$ and in the respective induction step, $q_i = \sup\{0,0.3\} = 0.3$ and $q_j = \inf\{1,0.7,0.8\} = 0.7$}) \\
 	$\implies q_i < q_n < q_j$ and $\closure{F_{q_i}} \subset F_{q_j}$.\\
@@ -694,7 +694,7 @@ Examples of Nets
 
 	Let $f : \mathbb{R} \to \mathbb{R}$ be any function, then the function,
 		\[S : (\mathcal{P},\xi) \to \mathbb{R} \text{ defined by } S(P,\eta) = \sum_{j=1}^k f(\eta_k)(a_k-a_{k-1})\]
-	where $P = \{ a_0,\ a_1,\cdots,\ a_k \ \}$ is the Riemann Net with respect to the real function $f$.\\
+	where $P = \{ a_0,\ a_1,\dots,\ a_k \ \}$ is the Riemann Net with respect to the real function $f$.\\
 
 	For example, let $f(x) = x^2$ and $P,\eta$ are same as above example, then $S(P,\eta) = 0.2^2(0.3-0) + 0.6^2(0.7-0.3) + 0.9(1-0.7) = 3.99$
 	\end{enumerate}
@@ -1196,21 +1196,21 @@ Examples of Nets
 	Then $X-A$ is a non-empty, open subset of $X$.\\ 
 
 	Let $\mathcal{U}$ be a countable open cover of $A$.
-	Then $\mathcal{U} = \{ U_1, U_2, \cdots \}$ where each element $U_k \in \mathcal{U}$ is an open subset of $A$.
+	Then $\mathcal{U} = \{ U_1, U_2, \dotsc \}$ where each element $U_k \in \mathcal{U}$ is an open subset of $A$.
 	Since $A$ is a subspace of $X$, every open subset $U_k$ in $A$ is of the form $G \cap A$ for some open subset $G$ in $X$.
 	Therefore, there exists open subsets $V(U_k)$ for each $U_k$ such that $A \cap V(U_k) = U_k$.
 	$\star$\footnote{Relative topology,$\mathcal{T}_{/_A} = \{ G \cap A : G \in \mathcal{T} \}$})\\
 
-	Define $\mathcal{V} = \{ X-A, V(U_1), V(U_2), \cdots \}$.
+	Define $\mathcal{V} = \{ X-A, V(U_1), V(U_2), \dots \}$.
 	Clearly, $\mathcal{V}$ is a countable open cover ($\star$\footnote{$X-A$ is open in $X$.
 	If $y \not\in A$, then $y \in X-A$.
 	If $y \in A$, then $y \in U_k$ for some $k$.}) of $X$.
 	We have $X$ is countably compact, thus $\mathcal{V}$ has a finite subcover, say $\mathcal{V}'$.
 	Without loss of generality assume ($\star$\footnote{Otherwise, you will have to consider two cases: $X-A \in \mathcal{V}'$ and $X-A \not\in \mathcal{V}'$}) that $X-A \in \mathcal{V}'$.
 	Suppose $X-A \not\in \mathcal{V}'$, then we can define another finite subcover $\mathcal{V}' \cup \{X-A\}$.
-	Thus $\mathcal{V}' = \{ X-A,\ V(U_{n_1}),\ V(U_{n_2}),\cdots,\ V(U_{n_k})\}$.\\
+	Thus $\mathcal{V}' = \{ X-A,\ V(U_{n_1}),\ V(U_{n_2}),\dots,\ V(U_{n_k})\}$.\\
 
-	Then the corresponding subcover $\mathcal{U}'=\{U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$.
+	Then the corresponding subcover $\mathcal{U}'=\{U_{n_1},U_{n_2},\dots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$.
 	Since countable open cover $\mathcal{U}$ and closed subset $A$ are arbitrary, every closed subset of $X$ with relative topology is countably compact.
 	Therefore, countable compactness is weakly hereditary.
 \end{proof}
@@ -1248,11 +1248,11 @@ Examples of Nets
 \end{synopsis}
 \begin{proof}
 	Suppose $X$ is a countably compact space, $Y$ is a topological space and $f:X \to Y$ is a continuous function.
-	Let $\mathcal{U} = \{ U_1, U_2,\cdots \}$ be a countable cover of $f(X)$ by set open in $f(X)$.
+	Let $\mathcal{U} = \{ U_1, U_2,\dotsc \}$ be a countable cover of $f(X)$ by set open in $f(X)$.
 	We have to show that $\mathcal{U}$ has a finite subcover.\\
 
 
-	Define $\mathcal{V} = \{ f^{-1}(U_1), f^{-1}(U_2), \cdots \}$.
+	Define $\mathcal{V} = \{ f^{-1}(U_1), f^{-1}(U_2), \dotsc \}$.
 	Then $\mathcal{V}$ is a countable open cover of $X$, since $f^{-1}(U_k)$ are open subsets of $X$ and,
 
 \begin{align*}
@@ -1261,14 +1261,14 @@ Examples of Nets
 \end{align*}
 
 	We have, $\mathcal{V}$ is a countable open cover of $X$, which is a countably compact space.
-	Therefore $\mathcal{V}$ has a finite subcover $\mathcal{V}' = \{ f^{-1}(U_{n_1}),\ f^{-1}(U_{n_2}),\cdots,\ f^{-1}(U_{n_k}) \}$.
+	Therefore $\mathcal{V}$ has a finite subcover $\mathcal{V}' = \{ f^{-1}(U_{n_1}),\ f^{-1}(U_{n_2}),\dots,\ f^{-1}(U_{n_k}) \}$.
 
 \begin{align*}
 	\bigcup_{j=1}^k f^{-1}(U_{n_j}) = X \implies & f^{-1}\left(\bigcup_{j=1}^k U_{n_j}\right) = X\\
 	\implies & \bigcup_{j=1}^k U_{n_j} = f(X)
 \end{align*}
 
-	Clearly $\mathcal{U}' = \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$.
+	Clearly $\mathcal{U}' = \{ U_{n_1},U_{n_2},\dots,U_{n_k}\}$ is a finite subcover of $\mathcal{U}$.
 	Thus every countable open cover of $f(X)$ by sets open in $f(X)$ has a finite subcover.
 	Therefore, continuous images of countably compact spaces are countably compact.
 \end{proof}
@@ -1446,30 +1446,30 @@ We may assert the properties of countably compact, metric spaces on sequentially
 \begin{proof}
 	$1 \implies 2$\\
 	Suppose $X$ is countably compact.
-	Let $\mathcal{C} = \{C_1,C_2,\cdots\}$ be a countable family of closed subsets of $X$ with empty intersection.
-	Define $\mathcal{U} = \{X-C_1, X-C_2, \cdots \}$ is a family of open subsets of $X$.
+	Let $\mathcal{C} = \{C_1,C_2,\dotsc \}$ be a countable family of closed subsets of $X$ with empty intersection.
+	Define $\mathcal{U} = \{X-C_1, X-C_2, \dotsc \}$ is a family of open subsets of $X$.
 	By de Morgan's law, ($\star$\footnote{Complement of Intersection = Union of complements, $X - (C \cap D) = (X-C) \cup (X-D)$, })
 
 	\[\bigcap_{k = 1}^\infty C_k = \phi, \text{ then } X =  X - \left(\bigcap_{k = 1}^\infty C_k\right) = \bigcup_{k = 1}^\infty (X-C_k)\]
 
 	We have $\mathcal{U}$ is a countable cover of $X$ and $X$ is countably compact space.
-	Thus $\mathcal{U}$ has a finite subcover $\mathcal{U}' = \{X-C_{n_1},X-C_{n_2},\cdots,X-C_{n_k}\}$.
+	Thus $\mathcal{U}$ has a finite subcover $\mathcal{U}' = \{X-C_{n_1},X-C_{n_2},\dots ,X-C_{n_k}\}$.
 
 	\[ \mathcal{U}' \text{ is a cover of } X, \text{ then } X = \bigcup_{j = 1}^k \left( X-C_{n_j} \right)\]
 
 	\[X - \bigcup_{j = 1}^k \left( X-C_{n_j} \right) = \bigcap_{j = 1}^k \left( X - \left( X - C_{n_j} \right) \right) = \bigcap_{j = 1}^k C_{n_j} = \phi \]
 
-	Now $\mathcal{C}' = \{ C_{n_1},C_{n_2},\cdots,C_{n_k}\}$ has empty intersection.
+	Now $\mathcal{C}' = \{ C_{n_1}, C_{n_2}, \dots, C_{n_k}\}$ has empty intersection.
 	This is a contradiction to the finite intersection property of $\mathcal{C}$.
 	Thus $\mathcal{C}$ has non-empty intersection.
 	Therefore, every countably family of closed subsets of $X$ have non-empy intersection.\\
 
 	$2 \implies 1$\\
 
-	Let $\mathcal{U}=\{ U_1, U_2, \cdots \}$ be a countable cover of $X$.
-	Then $\mathcal{C} = \{ X-U_1,X-U_2,\cdots \}$ is a countable family of closed subsets of $X$.\\
+	Let $\mathcal{U}=\{ U_1, U_2, \dotsc \}$ be a countable cover of $X$.
+	Then $\mathcal{C} = \{ X-U_1,X-U_2,\dotsc \}$ is a countable family of closed subsets of $X$.\\
 
-	Let $\mathcal{U}'= \{ U_{n_1},U_{n_2},\cdots,U_{n_k}\}$ be any finite subfamily of $\mathcal{U}$.
+	Let $\mathcal{U}'= \{ U_{n_1},U_{n_2},\dots ,U_{n_k}\}$ be any finite subfamily of $\mathcal{U}$.
 	Suppose $X$ is not countably compact, then $\mathcal{U}$ doesn't have a finite subcover.
 	Therefore, $\mathcal{U}'$ is not a cover of $X$.
 	And $\mathcal{C}$ is a family of closed subsets with finite intersection property.\\
@@ -2023,9 +2023,9 @@ We may assert the properties of countably compact, metric spaces on sequentially
 
 
 \begin{theorem}
-	Let $f$ be a path in $X$, and $a_0, a_1, \cdots, a_n$ be numbers such that $0 = a_0 < a_1 < \cdots < a_n = 1$.
+	Let $f$ be a path in $X$, and $a_0, a_1, \dots, a_n$ be numbers such that $0 = a_0 < a_1 < \dotsb < a_n = 1$.
 	Let $f_i : I \to X$ be the path that equals the positive linear map of $I$ onto $[a_{i-1},a_i]$ followed by $f$.
-	Then $[f] = [f_1]\ast{}[f_2]\ast{}\cdots[f_n]$.
+	Then $[f] = [f_1] \ast{} [f_2] \ast{} \dotsm \ast{} [f_n]$.
 	\begin{commentary}
 	In other words, every path is path-homotopic to a piecewise-linear path.
 	\end{commentary}
@@ -2035,8 +2035,8 @@ We may assert the properties of countably compact, metric spaces on sequentially
 	\[ f(t) = \begin{cases} f_1(t) & t \in [0=a_0,a_1] \\ f_2(t) & t \in [a_1,a_2] \\ \vdots & \vdots \\ f_n(t) & t \in [a_{n-1},a_n] \end{cases} \]
 	where $f_i : I \to [a_{i-1},a_i]$ such that $f_i(t)$ are a positive linear maps. \\
 
-	Consider the path $p : I \to I$  defined by the unique positive linear maps on the subintervals of any partition $\{ 0 = x_0, x_1, \cdots, x_n \}$ of $I$. \\
-	ie, $0 = x_0 < x_1 < \cdots < x_n=1$
+	Consider the path $p : I \to I$  defined by the unique positive linear maps on the subintervals of any partition $\{ 0 = x_0, x_1, \dots, x_n \}$ of $I$. \\
+	ie, $0 = x_0 < x_1 < \dotsb < x_n=1$
 	\begin{align*}
 		p_1 : [x_0,x_1] & \to [a_0,a_1] \\
 		p_2 : [x_1,x_2] & \to [a_1,a_2] \\
@@ -2047,7 +2047,7 @@ We may assert the properties of countably compact, metric spaces on sequentially
 	Then there exists a path homotopy $P$ between identity map $i : I \to I,\ i(t) = t$  and $p$ given by
 	\[ P(s,t) = \begin{cases} t + (p_1(t)-t)\frac{a_1}{x_1} & s \in [0,x_1] \\ t + (p_2(t)-t)\frac{s-x_1}{x_2-x_1} & s \in [x_1,x_2] \\ \vdots & \\ t + (p_n(t)-t)\frac{s-x_{n-1}}{x_n - x_{n-1}} & s \in [x_{n-1},x_n] \end{cases} \]
 	
-	Since any product of $f_1$, $f_2$, $\cdots$, $f_n$ is a path $p$ for some partition decided by the order of associativity.
+	Since any product of $f_1, f_2, \dots, f_n$ is a path $p$ for some partition decided by the order of associativity.
 	This partition can be constructed as follows :\\
 	Let the last product operation (by associtivity) corresponds to $\frac{1}{2}$.
 	The expression on its left corresponds to $[0,\frac{1}{2}]$ and expression on the right corresponds to $[\frac{1}{2},1]$.
@@ -2061,11 +2061,11 @@ We may assert the properties of countably compact, metric spaces on sequentially
 	Thus, we have $\{0, \frac{1}{4}, \frac{3}{8}, \frac{1}{2}, \frac{3}{4},1 \}$.\\
 \end{commentary}
 	
-	Thus given two paths $f$ and $f'$ with distinct order of associativity of $n$ paths : $f_1$, $f_2$, $\cdots$, $f_n$.
+	Thus given two paths $f$ and $f'$ with distinct order of associativity of $n$ paths : $f_1, f_2, \dots, f_n$.
 	We have path homotopy $P$, $P'$ given by the $P(s,t)$ for the respective partition constructed according to the order of associativity.
 	Then, we have $f \simeq_p i$ and $f' \simeq_p i$.
 	Thus, irrespective of the order of associativity all these paths are path homotopic.
-	ie, $[f] = [f_1] \ast [f_2] \cdots [f_n]$
+	ie, $[f] = [f_1] \ast [f_2] \ast \dotsb \ast [f_n]$
 \end{proof}
 
 %\section{The Fundamental Group}
