@@ -957,7 +957,17 @@ But there exists separable, Banach spaces without a Schauder basis.
 	\end{equation}
 \end{definition}
 \begin{commentary}
-	For a topologist, it will interesting to prove that the topologies coincide if and only if the above inequality holds.
+	For a topologist, it will interesting to prove that the topologies coincide if the above inequality holds.
+\begin{proof}
+	Let $G$ be an open set in the induced metric space $(X;d_0)$ where $d_0(x,y) = \| x-y\|_0$. Let $x \in G$. Then there exists an $n$-Ball $B_0(x,r)$ such that $x \in B_0(x,r)$ and $B_0(x,r) \subset G$, since $G$ is open. Then $B_1(x,r/a)$ in an $n$-Ball in $(X,d_1)$ contained in $G$. Therefore, $G$ is open in the induced metric space $(X,d_1)$ where $d_1(x,y) = \| x-y \|_1$. Similarly, if $G$ is an open set in $(X,d_1)$, then $G$ is an open set in $(X,d_0)$.
+\end{proof}
+
+\begin{remark}
+	Two norms that induces same topological space are not necessarily equivalent.
+\end{remark}
+\begin{proof}
+	Let $(R,d_1)$ be a metric space. Define $d_2 = d_1/(d_1+1)$. Then $(R,d_2) \cong (R,d_1)$. However, $d_1,d_2$ are not equivalent since $d_1(x,y) > cd_2(x,y)$ for every $c \in \mathbb{R}$ when $d_1(x,y) = n$. Refer \url{https://math.stackexchange.com/questions/109733}
+\end{proof}
 \end{commentary}
 
 \begin{theorem}

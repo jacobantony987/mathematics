@@ -28,7 +28,219 @@
 %Module 4 - \cite{balakrishnan} 8, 11
 %Missing - \cite{balakrishnan} 5, 9, 10, ?
 
-%\chapter{Graphs}
+%\chapter{Basic Results}
+\section{Basic Results}
+%\subsection{Introduction}
+%\setcounter{subsection}{1}
+\subsection{Basic Concepts}
+\begin{definition}
+	A \textbf{graph} is an ordered triple $G = (V,E,I)$ where $V$ is a nonempty set of vertices, $E$ is a set of edges and $I$ is an incidence map which associates each edge with an unordered pair of vertices.
+\end{definition}
+
+\begin{description}
+	\item[end vertices] Let $e$ be an edge with $I_G(e) = \{ u,v \}$. Then $u,v$ are the end vertices of $e$. We may write $e = uv$.
+	\item[incident] An edge $e =uv $ said to be incident on both vertices $u$ and $v$. Then vertices $u$ and $v$ are incident on edge $e$ as well. 
+	\item[parallel edges] are those edges which have same pair of end vertices.
+	\item[loop] is an edge whose both end vertices are the same.
+	\item[neighbour] Vertex $u$ is neighbour of vertex $v$ if $uv$ is an edge of the graph.
+	\item[Open neighbourhood] $N(u)$ is the set of all neighbours of the vertex $u$.
+	\item[Closed neighbourhood] $N[u] = N(u) \cup \{ u \}$.
+	\item[simple] graph does not have any parallel edges or loops.
+	\item[adjacent] Two vertices $u,v$ are adjacent if both $u,v$ are incident on an edge, say $uv$. Two edges are adjacent if they have a common end vertex.
+\end{description}
+\begin{definition}
+	A graph is \textbf{finite} if both vertex set $V$ and edge set $E$ are finite. A finite graph, $G$ order, $n(G) = |V(G)|$ and size, $m(G) = |E(G)|$. Or simply $n = |V(G)|$ and $m = |E(G)|$.
+\end{definition}
+
+\begin{definition}
+	A graph $G$ is \textbf{labeled} if its vertices are distinguished from one another by means of distinct labels.
+\end{definition}
+
+\begin{definition}
+	Two graphs $G$ and $H$ are \textbf{isomorphic} if there exists a pair $(\phi,\theta)$ where $\phi : V(G) \to V(H)$ and $\theta : E(G) \to E(H)$ are bijections such that $I_G(e) = \{ u,v \} \iff I_H(\theta(e)) = \{ \phi(u),\phi(v) \}$.\\
+
+	Two simple graphs $G$ and $H$ are \textbf{isomorphic} if there exists a bijection $\phi : V(G) \to V(H)$ which induced another bijection $\theta : E(G) \to E(H)$ such that $I_G(e) = \{ u,v \} \iff I_H(\theta(e)) = \{ \phi(u),\phi(v) \}$.
+\end{definition}
+
+\begin{exercise}
+	Let $G$, $H$ be simple graph and let $\phi : V(G) \to V(H)$ be a bijection such that $uv \in E(G) \implies \phi(u)\phi(v) \in E(H)$. Show that $\phi$ is not an isomorphism.
+\end{exercise}
+	Let $G,H$ be simple graph with bijection $\phi : V(G) \to V(H)$.
+	If there exists two vertices $u,v$ which are non-adjacent in $G$, but $\phi(u),\phi(v)$ are adjacent in $H$.
+	Then $\phi$ is not an isomorphism.
+
+\begin{definition}
+	A simple graph is \textbf{complete} if every pair of distinct vertices are adjacent.
+	A complete graph with $n$ vertices is denoted by $K_n$.
+	Then $m(K_n) = \binom{n}{2} = \frac{n(n-1)}{2}$.
+	A \textbf{totally} disconnected graph has no edges.
+	Thus, $0 \le m \le \binom{n}{2}$.
+	A graph $G$ is trivial if it has only one vetex and no edges.
+\end{definition}
+
+\begin{definition}
+	A graph $G$ is \textbf{bipartite} if its vertex set can be partitioned into two nonempty sets $X$ and $Y$ such that every end of $G$ has one end in $X$ and the other end in $Y$. We write $G(X,Y)$ is bipartite with partition $X,Y$.
+	A simple, bipartite graph $G(X,Y)$ is \textbf{complete bipartite} if every vertex in $X$ is adjacent to every vertex in $Y$. Let $G(X,Y)$ be a complete bipartite graph with $|X| = p$ and $|Y|=q$, then we write $K_{p,q}$. A graph of the form $K_{1,q}$ is called a \textbf{star}.
+\end{definition}
+
+\begin{remark}
+	Let $G$ be a complete bipartite graph, $K_{p,q}$.
+	Then it has order $n = p+q$ and size $m = pq$.
+\end{remark}
+
+\begin{definition}
+Let $G$ be a graph. The complement $G^c$ of graph $G$ is the graph with same vertex set. Two vertices $u,v$ of $G^c$ are adjacent if and only if $u,v$ are non-adjacent in $G$.
+	$$ V(G^c) = V(G) \quad \& \quad uv \in E(G^c) \iff uv \notin E(G) $$
+\end{definition}
+\begin{remark}
+	We have, $(G^c)^c = G$, since ${uv \in G \iff uv \notin G^c \iff uv \in (G^c)^c}$ and $V(G) = V(G^c) = V((G^c)^c)$.
+	Let $G$ be a graph of order $n$, then $E(G) + E(G^c) = E(K_n)$ as each edge of $K_n$ is either an edge of $G$ or an edge of $G^c$.
+\end{remark}
+
+\begin{definition}
+	A simple graph is self-complementary if $G \cong G^c$.
+\end{definition}
+\begin{remark}
+	The order of a self complementary graph $G$ of order $n$ is $n(n-1)/4$ since $m(G) = m(G^c)$ and $m(G) + m(G^c) = m(K_n)$.
+\end{remark}
+
+\subsection{Subgraphs}
+\begin{description}
+	\item[subgraph] A graph $H$ is a subgraph of $G$ if $V(H) \subset V(G)$, $E(H) \subset E(G)$ and $I_H$ is $I_G$ restricted to $E(H)$. Then $G$ is a \textbf{supergraph} of $H$.
+	\item[induced subgraph] Let $G$ be a graph and $S$ be a subset of the vertex set of $G$. The subgraph induced by $S$, $G[S]$ has vertex set $S$ and two vertices are adjacent only if they are adjacent in $G$.
+	\item[edge induced subgraph] Let $G$ be a graph and $S$ be a subset of the edge set of $G$. The subgraph induced by the edge set $S$ is denoted by $G[S]$. Vertex $u$ is a vertex of $G[S]$ only if $S$ has an edge incident on it.
+	\item[spanning subgraph] Let $H$ be a subgraph of graph $G$. If $V(H) = V(G)$, then $H$ is a spanning subgraph.
+	\item[clique] is a subgraph which is complete. A clique is maximal if it is not contained in another clique.
+\end{description}
+
+\begin{remark}
+	If an edge $e$ is deleted from a graph $G$, then vertex set remains the same. The graph $G-\{e\}$ is a spanning subgraph of $G$.
+	If a vertex $u$ is deleted from a graph $G$, then all the edge incident on $u$ are also deleted. The graph $G-\{u\}$ is an induced subgraph of $G$.
+\end{remark}
+
+\subsection{Degree of Vertices}
+\begin{definition}
+	Let $G$ be a graph and $u$ be a vertex of $G$.
+	The \textbf{degree} of $u$ is the number of edges incident on it with multiplicities. That is, every loop incident on $u$ is counted twice.
+\end{definition}
+\begin{remark}
+	In a simple graph, the degree of a vertex is the cardinality of its open neighbourhood.
+	$\deg_G(u) = |N_G(u)|$.
+\end{remark}
+
+\begin{definition}
+	A graph $G$ is $k$-\textbf{regular} if every vertex is of degree $k$. Graph $G$ is \textbf{regular} if it is $k$-regular for some $k$. \textbf{Cubic} graphs are the $3$-regular graphs.
+\end{definition}
+\begin{remark}
+	Complete graph $K_{n+1}$ are $n$-regular.
+	And complete graphs are the smallest regular graphs.
+	$K_4$ is cubic.
+	Petersen graph is cubic.
+\end{remark}
+\begin{remark}
+	The complement of a regular graph is also regular. If $G$ is $k$-regular, then $G^c$ is $r$-regular where $k+r = n-1$.
+\end{remark}
+\begin{description}
+	\item[1-factor] is a spanning, $1$-regular subgraph.
+	\item[isolated vertex] is a vertex with degree $0$.
+	\item[pendent vertex] is a vertex with degree $1$.
+	\item[pendent edge] is the only edge incident on a pendent vertex.
+\end{description}
+
+\begin{theorem}[Euler]
+	The degree sum of a graph is twice its size.
+\end{theorem}
+\begin{proof}
+	Every edge $e= uv$ contributes $1$ to the degree of both the end vertices $u$ and $v$. Thus every edge contributes $2$ to the degree sum. There are $m$ edges, thus degree sum is $2m$.
+\end{proof}
+
+\begin{corollary}
+	In a grpah $G$, the number of vertices of odd degree is even.
+\end{corollary}
+\begin{proof}
+	Let $G$ be a graph of order $n$.
+	Let $V_1,V_2$ be the set of vertices of even,odd degree respectively.
+	Then, $\sum d_i = \sum_{v \in V_1} \deg(v) + \sum_{v \in V_2} \deg(v)$.
+	The degree sum is even and the first sum on RHS is also even. Thus the second sum should be even. Since, each term in the second sum is an odd integer, there are even number of terms in the second sum. In other words, there are even number of vertices with an odd degree.
+\end{proof}
+\begin{exercise} 
+	If $G \overset{\phi}{\cong} H$, then each pair $u,\phi(u)$ have the same degree.
+\end{exercise}
+Let $G,H$ be isomorphic graphs.
+Let $u$ be a vertex of $G$.
+A vertex $v$ is adjacent of $u$ in $G$ if and only if $\phi(v)$ is adjacent to $\phi(u)$ in $H$. Thus, $\deg_G(u) = \deg_H(\phi(u))$.
+
+\begin{remark}
+	Clearly, a graph isomorphism preserves adjacency, degree of vertices and neighbourhoods, etc.
+	$N_H(\phi(u)) = \{ \phi(v) : v \in N_G(u) \}$.
+\end{remark}
+
+\begin{exercise}
+	Let $d : d_1,d_2,\dots,d_n$ be the degree sequence of a graph $G$.
+	Let $r$ be a positive integer, then $\sum d_i^r$ is even.
+\end{exercise}
+Let $G$ be a graph of order $n$.
+Let $V_1,V_2$ be the set of vertices of even and odd degree respectively.
+Clearly, $\sum d_i^r = \sum_{v \in V_1} d_i^r + \sum_{v \in V_2} d_i^r$.
+Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. And the second sum is odd as $d_i^r$ is odd when $d_i$ is odd. By Euler`s theorem, there are an even number of such odd terms. Thus, the second sum on RHS is also even. Therefore, $\sum d_i^r$ is even.
+
+\begin{definition}
+	A sequence of nonnegative integers $d : d_1,d_2,\dots,d_n$ is \textbf{graphical} if there exists a \textit{simple} graph with degree sequence $d$.
+\end{definition}
+
+\begin{example}
+	The sequence $d : 7,6,3,3,2,1,1,1$ is nongraphical. Let $v_0,v_1$ be the vertics with degree $7,6$ respectively. Then for $d$ to be graphical, there should be at least another $4$ vertices with degree greater than or equal to $2$.
+	This is not the case, therefore $d$ is not graphical.
+\end{example}
+
+\begin{exercise}
+	Let $d : d_1,d_2,\dots,d_n$ is a sequence of nonnegative integers with $\sum d_i$ even. Show that there exists a non-simple graph with $d$ as its degree sequence.
+\end{exercise}
+	Let $d : d_1,d_2,\dots,d_n$ be a sequence of nonnegative integers with $\sum d_i$ even. Then there are even number of odd integers (if any).\\
+	Step 1 : Pair these odd integers. That is, $(d_{n_1}, d_{n_2}), (d_{n_3},d_{n_4}),\dots$. And for each pair of odd integers draw two vertices $u_i,u_{i+1}$ and draw an edge between them $u_iu_{i+1}$.\\
+	Step 2 : Now draw all other vertices and draw loops on each vertex so that the degree is as required.
+
+\begin{application}
+	In any group of $n$ persons ($n \ge 2$), there are at least two with same number of friends.
+\end{application}
+\begin{proof}
+	Suppose group of $n$ persons is modelled by a graph with $n$ vertices and two vertices are adjacent if the respective persons are friends. It is assumed that friendship is mutual, otherwise it is not considered. Suppose all of them have different number of friends. Then every vertex in the graph has different degree.\\
+
+	The possible degree of a vertex in a graph of order $n$ is $0,1,\dots,(n-1)$. Since all $n$ vertices have different degree and we have only $n$ options. There exists a vertex of degree $j$ for each $0 \le j < n$. This leads to a contradiction.\\
+
+	Let $v_1,v_n$ be the vertices with degree $0,(n-1)$. Then $v_n$ is adjacent to every other vertex and $v_1$ is non-adjacent to every other vertex which is not possible. Thus, at least two vertices should have same degree. Therefore, in a group of $n$ persons, at least two of them have same number of friends.
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a graph in which every vertex is of degree $k$ or $k+1$. Then the number of vertices with degree $k$ is $(k+1)n-2m$.
+\end{exercise}
+\begin{proof}
+	Let $G$ be a graph of order $n$ and size $m$.
+	Let $x$ be the number of vertices with degree $k$.
+	Then there are $n-x$ vertices with degree $k+1$.
+	By Euler`s theorem, $ xk + (n-x)(k+1) = 2m \implies x = (k+1)n-2m$.
+\end{proof}
+	
+\subsection{Paths and Connectedness}
+\begin{definition}
+	Let $G$ be a graph. A \textbf{walk} on $G$ is an alternating finite sequence of vertices and edges which starts and ends at some vertices, say $W : v_0 e_0 v_1 e_1 \dots e_k v_k$.
+	The vertex $v_0$ is the \textbf{origin} and $v_k$ is the \textbf{terminus} of the walk $W$.
+\end{definition}
+\begin{description}
+	\item[closed walk] A walk is \textbf{closed} if its origin and terminus are identical. Otherwise the walk is \textbf{open}.
+	\item[trail] is a walk in which edges are distinct.
+	\item[path] is a trail in which vertices are distinct.
+	\item[cycle] is a closed trail in which vertices are distinct.
+\end{description}
+
+\begin{remark}
+	A walk of length zero is a single vertex. And this walk is called a \textbf{trivial path}.
+\end{remark}
+
+\subsection{Automorphisms of a simple graph}
+
+\subsection{Line Graph}
+
 %\chapter{Directed Graphs}
 %\chapter{Connectivity}
 %\chapter{Trees}
