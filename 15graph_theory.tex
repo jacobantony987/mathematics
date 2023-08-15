@@ -30,8 +30,8 @@
 
 %\chapter{Basic Results}
 \section{Basic Results}
-%\subsection{Introduction}
-%\setcounter{subsection}{1}
+\subsection{Introduction}
+\cite{balakrishnan}
 \subsection{Basic Concepts}
 \begin{definition}
 	A \textbf{graph} is an ordered triple $G = (V,E,I)$ where $V$ is a nonempty set of vertices, $E$ is a set of edges and $I$ is an incidence map which associates each edge with an unordered pair of vertices.
@@ -137,6 +137,35 @@ Let $G$ be a graph. The complement $G^c$ of graph $G$ is the graph with same ver
 	$K_4$ is cubic.
 	Petersen graph is cubic.
 \end{remark}
+\begin{figure}
+\centering
+\scalebox{0.9}{
+\begin{tikzpicture}
+	\node (u){};
+	\tikzstyle every node=[draw,circle]
+	\draw (u) ++(90:1.5) node (b1)[label=above right:$v_6$]{};
+	\draw (u) ++(162:1.5) node (b2)[label=above:$v_7$]{};
+	\draw (u) ++(234:1.5) node (b3)[label=left:$v_8$]{};
+	\draw (u) ++(306:1.5) node (b4)[label=right:$v_9$]{};
+	\draw (u) ++(18:1.5) node (b5)[label=above:$v_{10}$]{};
+
+	\draw (u) ++(90:3) node (a1)[label=above right:$v_1$]{};
+	\draw (u) ++(162:3) node (a2)[label=above:$v_2$]{};
+	\draw (u) ++(234:3) node (a3)[label=left:$v_3$]{};
+	\draw (u) ++(306:3) node (a4)[label=right:$v_4$]{};
+	\draw (u) ++(18:3) node (a5)[label=above:$v_5$]{};
+
+	\draw (b1)--(b3)--(b5)--(b2)--(b4)--(b1);
+	\draw (a1)--(a2)--(a3)--(a4)--(a5)--(a1);
+
+	\draw (a1)--(b1);
+	\draw (a2)--(b2);
+	\draw (a3)--(b3);
+	\draw (a4)--(b4);
+	\draw (a5)--(b5);
+\end{tikzpicture}
+}
+\end{figure}
 \begin{remark}
 	The complement of a regular graph is also regular. If $G$ is $k$-regular, then $G^c$ is $r$-regular where $k+r = n-1$.
 \end{remark}
@@ -197,8 +226,15 @@ Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. 
 	Let $d : d_1,d_2,\dots,d_n$ is a sequence of nonnegative integers with $\sum d_i$ even. Show that there exists a non-simple graph with $d$ as its degree sequence.
 \end{exercise}
 	Let $d : d_1,d_2,\dots,d_n$ be a sequence of nonnegative integers with $\sum d_i$ even. Then there are even number of odd integers (if any).\\
-	Step 1 : Pair these odd integers. That is, $(d_{n_1}, d_{n_2}), (d_{n_3},d_{n_4}),\dots$. And for each pair of odd integers draw two vertices $u_i,u_{i+1}$ and draw an edge between them $u_iu_{i+1}$.\\
-	Step 2 : Now draw all other vertices and draw loops on each vertex so that the degree is as required.
+
+	Step 1 : Draw a vertex $u_i$ for each term $d_i$.
+	If a pair $(d_i,d_j)$ is odd\footnote{If you want maximal simple graph, you may add an edge $u_iu_j$(if it not already there) and subtract $1$ from both $d_i$ and $d_j$, provided both $d_i$ and $d_j$ are nonzero.}, then draw an edge $u_iu_j$ and subtract $1$ from both $d_i$ and $d_j$.\\
+
+	Step 2 : If $d_i = 2k$. Draw $k$ loops on $u_i$.\\
+
+\begin{challenge}
+	Draw maximal connected graph for a degree sequence ?
+\end{challenge}
 
 \begin{application}
 	In any group of $n$ persons ($n \ge 2$), there are at least two with same number of friends.
@@ -235,11 +271,370 @@ Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. 
 
 \begin{remark}
 	A walk of length zero is a single vertex. And this walk is called a \textbf{trivial path}.
+	Let $P : v_0,e_1,v_1,e_2,v_2,\dots,v_{k-1},e_k,v_k$ be a path in $G$. Then the \textbf{inverse of the path} is given by, $P^{-1} : v_k,e_k,v_{k-1},\dots,v_1,e_1,v_0$.
+	And $v_j,e_j,v_{j+1},\dots,v_{k-1},e_{k-1},v_k$ is the $v_j-v_k$ \textbf{section} of the path $P$.
 \end{remark}
+
+\begin{definition}
+	Let $G$ be a graph. Then connectedness is an equivalence relation on $V(G)$. Let $V_1,V_2,\dots,V_\omega$ be the equivalence classes. Then the induced subgraphs $G[V_1], G[V_2], \dots, G[V_\omega]$ are the \textbf{components} of $G$.
+\end{definition}
+
+\begin{remark}
+	For a connected graph, $\omega = 1$. And for disconnected graphs $\omega \ge 2$. And components are maximal connected subgraphs of $G$. The number of components of $G$ is denoted by $\omega(G)$.
+\end{remark}
+
+\begin{definition}
+	Let $d : V(G) \to V(G),\ d(u,v)$ is the length of the shortest $u-v$ path. If there is no $u-v$ path, then $d(u,v) = \infty$.
+\end{definition}
+\begin{exercise}
+	Let $G$ be a simple graph.
+	The vertex set $V(G)$ together with distance function $d(u,v)$, length of shortest $u-v$ path is a metric space.
+\end{exercise}
+\begin{proof}
+	Let $G$ be a simple graph with vertex set $V(G)$ and $d : V(G) \to V(G),\ d(u,v)$ is the length of a shortest $u-v$ path.
+\begin{enumerate}
+	\item Every path has non-negative length. Thus, $\forall u,v \in V(G),\ d(u,v) \ge 0$.\\
+	And $d(u,u) = 0$ since trivial path has zero length.
+	\item Suppose $u,v$ are connected in $G$. Otherwise $d(u,v) = d(v,u) = \infty$.\\
+	Let $P$ be a shortest $u-v$ path. Then $P^{-1}$ is a shortest $v-u$ path.
+	Suppose there exists a $v-u$ path, $Q$ which is shorter than $P^{-1}$. Then $Q^{-1}$ is shorter than $P$ which is a contradiction.
+	Thus, $d(u,v) = d(v,u)$.
+	\item Suppose $d(u,v) < \infty$. Otherwise the result is trivial.\\
+	Let $P,Q$ be shortest $u-w$ path, $w-v$ path in $G$. Then $P+Q$ is a $u-v$ walk.
+	Thus, there exists a $u-v$ path\footnote{Every $u-v$ walk, contains a $u-v$ path which can be obtained by subsequently replacing each $w-w$ section of the walk with $w$.} of length less than or equal to the length of $P+Q$.
+	Therefore, $d(u,v) \le d(u,w) + d(w,v)$.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+	If $G$ is a simple graph with $\delta(G) \ge \frac{n-1}{2}$, then $G$ is connected.
+\end{proposition}
+\begin{proof}
+	Let $G$ be a graph of order $n$.
+	Suppose $G$ is not connected. Then $G$ has at least two components, say $G_1$ and $G_2$.
+	Let $v \in V(G_1)$. Since $\deg(v) \ge \frac{n-1}{2}$, there are at least $\frac{n-1}{2}$ other vertices in $G_1$.
+	Thus, each component of $G$ has at least $\frac{n+1}{2}$ vertices.
+	And $G$ has at least $\frac{n+1}{2} + \frac{n+1}{2}$ vertices which is a contradiction.
+	Therefore, $G$ is connected.
+\end{proof}
+
+\begin{exercise}
+	A simple graph with $\delta(G) \ge \frac{n-2}{2}$ is not necessarily connected.
+\end{exercise}
+\begin{proof}
+	Let $G$ be a simple graph with $\delta(G) = \frac{n-2}{2}$ where $n$ is even. Then $G$ is not necessarily connected. For example, $2K_2$ has $\delta = 1$ and is disconnected.
+\end{proof}
+
+\begin{exercise}
+	In a group of six people, there must be three people who are mutually acquainted or three people who are mutually nonacquainted.
+\end{exercise}
+\begin{proof}
+	Suppose the result is not true.
+	Then every person $u$ has at least one friend. Suppose $u$ has no friends. Then $(v,w,x)$ are mutual friends. Otherwise, either $(u,v,w)$, $(u,v,x)$ or $(u,w,x)$ are mutually non-acquainted.\\
+	
+\begin{figure}[hbt]
+\centering
+\scalebox{0.9}{
+\begin{tikzpicture}
+	\tikzstyle every node=[draw,circle]
+	\node (u)[label=above:$u$]{};
+	\node (v)[above right=1cm of u,label=above:$v$]{};
+	\node (w)[below right=1cm of u,label=below:$w$]{};
+	\node (x)[right=1cm of v,label=above:$x$]{};
+	\node (y)[right=1cm of w,label=below:$y$]{};
+	\node (z)[below right=1cm of x,label=above:$z$]{};
+	\draw[dotted] (w)--(u)--(v);
+	\draw[dotted] (x)--(u)--(y);
+	\draw[dotted] (u)--(z);
+	\draw[dashed,red] (v)--(w)--(z)--(v);
+\end{tikzpicture}
+}
+\caption{Minimum Degree $\delta(G) > 0$}
+\end{figure}
+	There exists a person $u$ with at least two friends. Suppose every person has exactly one friend, say $(u,v), (w,x), (y,z)$ are friends. Then $(u,w,y)$ are mutually non-acquainted.\\
+
+\begin{figure}[hbt]
+\centering
+\scalebox{0.9}{
+\begin{tikzpicture}
+	\tikzstyle every node=[draw,circle]
+	\node (u)[label=above:$u$]{};
+	\node (v)[above right=1cm of u,label=above:$v$]{};
+	\node (w)[below right=1cm of u,label=below:$w$]{};
+	\node (x)[right=1cm of v,label=above:$x$]{};
+	\node (y)[right=1cm of w,label=below:$y$]{};
+	\node (z)[below right=1cm of x,label=above:$z$]{};
+	\draw (u)--(v);
+	\draw (w)--(x);
+	\draw (y)--(z);
+	\draw[dotted,red] (u)--(w)--(y)--(u);
+\end{tikzpicture}
+}
+\caption{Maximum degree $\Delta(G) > 1$}
+\end{figure}
+	Suppose $u$ has at least two friends, say $v,w$. Then $v,w$ are not friends, otherwise $(u,v,w)$ are mutual friends.
+	Every other person $x,y$ and $z$ is friend of either $v$ or $w$. Suppose $x$ is not a friend of both $v$ and $w$. Then $(v,w,x)$ are mutually non-acquainted. Suppose $x$ is a friend of $v$ or $w$ or both. Then $u$ is not a friend of $x$. Otherwise either $(u,v,x)$ or $(u,w,x)$ are mutual friends.\\
+
+\begin{figure}[hbt]
+\centering
+\scalebox{0.9}{
+\begin{tikzpicture}
+	\tikzstyle every node=[draw,circle]
+	\node (u)[label=above:$u$]{};
+	\node (v)[above right=1cm of u,label=above:$v$]{};
+	\node (w)[below right=1cm of u,label=below:$w$]{};
+	\node (x)[right=1cm of v,label=above:$x$]{};
+	\node (y)[right=1cm of w,label=below:$y$]{};
+	\node (z)[below right=1cm of x,label=above:$z$]{};
+	\draw (v)--(u)--(w);
+	\draw[dotted,red] (v)--(x)--(w)--(v);
+\end{tikzpicture}
+\hspace{2cm}
+\begin{tikzpicture}
+	\tikzstyle every node=[draw,circle]
+	\node (u)[label=above:$u$]{};
+	\node (v)[above right=1cm of u,label=above:$v$]{};
+	\node (w)[below right=1cm of u,label=below:$w$]{};
+	\node (x)[right=1cm of v,label=above:$x$]{};
+	\node (y)[right=1cm of w,label=below:$y$]{};
+	\node (z)[below right=1cm of x,label=above:$z$]{};
+	\draw (v)--(u)--(w);
+	\draw[dotted] (v)--(w);
+	\draw[dashed,blue] (v)--(x);
+	\draw[dashed,blue] (w)--(x);
+	\draw[dotted] (u)--(x);
+	\draw[dotted] (u)--(y);
+	\draw[dotted] (u)--(z);
+\end{tikzpicture}
+}
+\caption{$\deg_G(u) = 2$ or $\Delta(G) = 2$}
+\end{figure}
+	Similarly, $u$ is not a friend of $y$ and $z$. Thus, $\deg(u) = 2$. And $\Delta(G) = 2$.\\
+
+	Suppose $(x,y,z)$ are not mutual friends. Then either $(u,x,y), (u,y,z)$, or $(u,z,x)$ are mutually non-acquainted which is a contradiction.
+\begin{figure}[hbt]
+\centering
+\scalebox{0.9}{
+\begin{tikzpicture}
+	\tikzstyle every node=[draw,circle]
+	\node (u)[label=above:$u$]{};
+	\node (v)[above right=1cm of u,label=above:$v$]{};
+	\node (w)[below right=1cm of u,label=below:$w$]{};
+	\node (x)[right=1cm of v,label=above:$x$]{};
+	\node (y)[right=1cm of w,label=below:$y$]{};
+	\node (z)[below right=1cm of x,label=above:$z$]{};
+	\draw (v)--(u)--(w);
+	\draw[dotted] (v)--(w);
+%	\draw[blue] (v)--(x);
+	\draw[dotted,blue] (u)--(x);
+	\draw[dotted,blue] (u)--(y);
+	\draw[dotted,blue] (u)--(z);
+	\draw[dashed,red] (x)--(y)--(z)--(x);
+\end{tikzpicture}
+}
+\end{figure}
+\end{proof}
+
+\begin{theorem}
+	If a simple graph $G$ is not connected, then $G^c$ is connected.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a disconnected graph with at least two components $G_1,G_2$.
+	Let $u,v \in V(G)$. It is enough to prove that there exists a $u-v$ path in $G^c$.\\
+
+	Case 1 : Two vertices $u,v$ belong to different components of $G$.
+	Then $u,v$ are non-adjacent in $G$. Thus, $u,v$ are adjacent in $G^c$. Therefore, there exists a $u-v$ path in $G^c$.\\
+
+	Case 2 : Suppose $u,v$ belongs to the same component of $G$. Let $w$ be a vertex from another component of $G$. Then $u,w,v$ is a $u-v$ path in $G^c$.\\
+
+	Therefore, there exists a $u-v$ path between any pair of vertices in $G^c$.
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a self-complementary graph.\\ Then $n(G) \cong 0 \text{ or } 1 \pmod{4}$.
+\end{exercise}
+\begin{proof}
+	Let $G$ be a self-complementary graph of order $n$.
+	Then $m(G) = m(G^c)$ since $G \cong G^c$.
+	And $m(G)+m(G^c)= m(K_n)$ since every edge in $K_n$ is either an edge of $G$ or an edge of $G^c$.
+	We know that, $m(K_n) = n(n-1)/2$.
+	Therefore, $m(G) = n(n-1)/4$.
+	Since $n,n-1$ are consecutive, at most one of them is even.
+	Therefore, either $n \cong 0 \pmod{4}$ or $n-1 \cong 0 \pmod{4}$.
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a self-complementary graph.
+	If $G$ has one pendent vertex, then it has another pendent vertex.
+\end{exercise}
+\begin{proof}
+	Let $G$ be a self-complementary graph with isomorphism $\phi$ from $V(G)$ to $V(G^c)$.
+	Let $u$ be a pendent vertex of $G$.
+	Then $\phi(u)$ is also a pendent vertex of $G$.
+	Suppose $u = \phi(u)$. Then, $n-1 = \deg(u) + \deg(\phi(u)) = 2$. However, no graph of order $3$ is self-complementary.
+	Therefore, $u \ne \phi(u)$.
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a simple graph.
+	Then $m < \frac{(n-\omega)(n-\omega+1)}{2}$.
+\end{exercise}
+\begin{proof}
+	Let $G_1,G_2,\dots,G_\omega$ be the components of $G$.
+	Let $n_i,m_i$ be the order and size of $G_i$.
+	Since every component is nonempty, $n-\omega+1$ is an upperbound for order of any component of $G$.
+	\begin{align*}
+		m 
+		& \le \sum_{i=1}^\omega m_i\\
+		& \le \sum_{i=1}^\omega n_i(n_i-1)/2,\quad \text{by Euler`s theorem}\\
+		& \le \frac{n-\omega+1}{2} \sum_{i=1}^\omega (n_i - 1),\quad \text{applying upperbound for $n_i$}\\
+		& \le \frac{n-\omega+1}{2} (n - \omega)
+	\end{align*}
+\end{proof}
+
+\begin{definition}
+	A graph $G$ is \textbf{locally connected} at a vertex $v$ if the subgraph induced by open neighbhourhood of $v$ in $G$ is connected.
+	And $G$ is locally connected if it is locally connected at every vertex.
+\end{definition}
+
+\begin{theorem}[Odd cycle characterisation of Bipartite graphs].\\
+	A graph is bipartite if and only if it has no odd cycles.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a bipartite graph with partite sets $X,Y$.
+	Let $C : v_0,v_1,\dots,v_k,v_0$ be a cycle in $G$.
+	WLOG suppose $v_0 \in X$.
+	Then $v_1 \in Y$, $v_2 \in X$, \dots.
+	Clearly, if $j$ is even, then $v_j \in X$.
+	Since $v_k,v_0$ are adjacent $k$ is odd and the cycle is of even length.\\
+
+	Suppose $G$ has no odd cycles.
+	Supppose $G$ is connected.
+	Let $u$ be vertex of $G$.
+	Define $X = \{ v \in V(G) : d(u,v) \text{ is even } \}$ and $Y = \{ v \in V(G) : d(u,v) \text{ is odd }\}$.
+	Suppose vertices $v,w \in X$ are adjacent.
+	Since $v,w \in X$, there exists $u-v$ path $P$ and $u-w$ path $Q$ both are of even length. Then $P+Q$ is not necessarily a $v-w$ path, let $w'$ be the last vertex they have in common. Then the $w'-v$ section of $P$, say $P'$ and $w'-w$ section of $Q$, say $Q'$ are disjoint. If $u-w'$ is of even(odd) length, then both $P',Q'$ are even(odd). And $P'+Q'+vw$ is an odd cycle which is a contradiction.\\
+
+	Similary, if $v,w \in Y$ are adjacent then respective disjoint path $P',Q'$ are both of odd length. And $P'+Q'+vw$ is again an odd cycle which is a contradiction. Thus, $G(X,Y)$ is bipartite.\\
+
+	Suppose $G$ is disconnected. Then each component $G_i(X_i,Y_i)$ is bipartite. And $G(X,Y)$ is bipartite where $X = \cup X_i$ and $Y = \cup Y_i$.
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a simple, nontrivial graph.
+	Graph $G$ is connected if and only if there exists an edge between any two nonempty partitions of $V(G)$.
+\end{exercise}
+\begin{proof}
+	Suppose $G$ is connected.
+	Let $V_1,V_2$ be two nonempty partitions of $V(G)$.
+	Let $v_1 \in V_1$ and $v_2 \in V_2$.
+	Then there exists a $v_1-v_2$ path, $P$ in $G$.
+	Let $u$ be the first vertex in $P$ which is not from $V_1$ and $w$ be its preceeding vertex in $P$. Then $wu$ is an edge between $V_1$ and $V_2$.\\
+
+	Suppose every nonempty parition $V_1,V_2$ has an edge between them.
+	Let $u,v \in V(G)$ and $V_1 = \{ u \}$ and $V_2 = V(G)-V_1$. Then there exists an edge $uw$ between $V_1$ and $V_2$. If $w = v$, then we have a $u-v$ path. Suppose $w \ne v$. Consider $V_1 = \{u,w\}$ and $V_2 = V(G)-V_1$. Again there exists and edge between $V_1$ and $V_2$. Continuing like this, we get a $u-v$ path as the vertex set of $G$ is finite. Since every pair of vertices $(u,v)$ are connected by a $u-v$ path, the graph $G$ is connected.
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a connected graph of order at least $3$.
+	Then any two longest paths in $G$ has a common vertex.
+\end{exercise}
+\begin{proof}
+	Let $G$ be a connected graph of order at least $3$.
+	Let $P:u_1,u_2,\dots,u_k$, $Q : v_1,v_2,\dots,v_k$ be two longest paths in $G$ which are disjoint.
+	Since $G$ is connected, there exists a $u_1-v_1$ path, $P'$ in $G$.
+	Let $u_r,v_s$ be vertices in $P'$ such that $u_r-u_k$ section of $P$ and $u_r-v_1$ section of $P'$ are disjoint and $v_s-v_k$ section of $Q$ and $u_1-v_s$ section of $Q$ are disjoint. Let $P''$ be the $u_r-v_s$ section of $P'$ of length at least $1$. \\
+
+	WLOG $u_1-u_r$ section of $P$, say $P_1$ and $v_s-v_1$ section of $Q$, say $Q_1$ are of length at least $k/2$. Then $P_1 + P''+Q_1$ is path of length at least $k/2+1+k/2$. This is a contradiction as this path is longer than the longest paths in $G$. Therefore, two longest paths in $G$ must have a common vertex.
+\end{proof}
+
+\begin{exercise}
+	The union of two distinct paths joining two vertices contains a cycle.
+\end{exercise}
+\begin{proof}
+	Let $P$, $Q$ be two distinct paths between two distinct vertices $u,v$ in $G$.
+	The vertex $u$ belongs to both $P$ and $Q$.
+	Let $w$ be the first vertex such that the vertex after $w$ is different in $P$ and $Q$. Let $x$ be a vertex after $w$ which is in both $P$ and $Q$. There exists such a vertex since $v$ belongs to both $P$ and $Q$. Then $w-x$ section of $P,Q$ are disjoint $w-x$ paths. Therefore, they form a cycle.
+\end{proof}
+\begin{exercise}
+	If a simple, connected graph $G$ of order $n \ge 3$ is not complete. Then there exists three vertices $u,v,w$ such that $uv,vw$ are edges of $G$, but $uw$ is not an edge of $G$.
+\end{exercise}
+\begin{proof}
+	Let $n \ge 3$. Since $G$ is not complete, there exists two vertices $u,v$ which are non-adjacent in $G$. Since $G$ is connected, there exists a $u-v$ path $P$ in $G$, let $w$ be the vertex preceeding $v$ in $P$. If $u,w$ are adjacent, then the proof is complete.\\
+
+	Suppose $u,w$ are not adjacent. Rename $w$ as $v$. Again, we have a pair of vertices $u,v$ which are adjacent and a vertex $w$ preceeding $v$ on the $u-v$ path $P'$. The length of $P'$ is one less than the length of $P$. Suppose there is no such vertex for every path of length $\ge 3$. Then a $u-v$ path of length two, say $u,w,v$ has a such a vertex.
+\end{proof}
+
+\begin{definition}
+	A simple graph $G$ is \textbf{highly irregular} at a vertex $v$ if all its neighbours have different degrees. A simple graph $G$ is highly irregular if it is highly irregular at every vertex of $G$.
+\end{definition}
+\begin{exercise}
+	There does not exists highly irregular, simple connected graphs of order $3$ and $5$. 
+\end{exercise}
+\begin{proof}
+	Let $G$ be a simple connected graph of order $3$.
+	Then $G$ has a vertex $v$ with degree $2$.
+	Let $u,w$ be the neighbours of $v$.
+	Since $G$ is connected, degree of these vertices are $1$ or $2$.
+	By Euler's theorem, the sum of degrees should be even. Therefore, the degree of $u,w$ are the same. Therefore simple connected graphs of order $3$ are not highly irregular.\\
+
+	Let $G$ be a simple connected graph of order $5$.
+	Suppose $G$ is highly irregular.
+	If $G$ has a vertex $v$ with degree $4$, then the degree of its neighbours are $1,2,3$ and $4$.
+	Then the degree sequence of $G$ is $4,4,3,2,1$
+	This is a contradiction as $G$ has two vertices of degree $4$ and one vertex of degree $1$.
+	Therefore, $G$ does not have a vertex of degree $4$.\\
+
+	If $G$ has a vertex $v$ with degree $3$, then degree of its neighbours are $1,2,3$ as $G$ does not have a vertex of degree $0$ or $4$. By Euler's theorem, the vertex which is not adjacent to $v$ must have an odd degree.
+	Therefore the degree sequence of $G$ is either $3,3,3,2,1$ or $3,3,2,1,1$.
+	Let $u$ be the vertex with degree $2$. Then the neighbours $u$ of must have degree different degree say, $1$ and $3$ which is not possible as the remaining vertex needs three neighbours.\\
+
+	Then $G$ has vertices of degree $2$ or $1$.
+	By Euler's theorem, the degree sequences are $(2,1,1,1,1)$, $(2,2,2,1,1)$ or $(2,2,2,2,2)$. Clearly, not every vertex of degree $2$ have neighbours with different degree. Therefore, no graph of order $5$ is highly irregular.
+\end{proof}
+\begin{challenge}
+	Prove that : highly irregular graphs of all orders exists, except $3,5$ and $7$.
+\end{challenge}
+\begin{remark}
+	$P_4$ is highly irregular.\footnote{I thought, we should call it $P_3$.}
+	And there exists a unique connected simple graph of order $6$ with degree sequence $3,3,2,2,1,1$ which is  highly irregular.
+\end{remark}
+
+\begin{definition}
+	The \textbf{generalised Petersen graph} $P(n,k)$ is given by
+	$$ V(P(n,k)) = \{ a_i,b_i : 0 \le i \le n-1 \} $$
+	$$ E(P(n,k)) = \{ a_ia_{i+1}, a_ib_i, b_ib_{i+k} : 0 \le i \le (n-1) \}$$
+	where the additions $i+1, i+k$ are modulo $n$.
+\end{definition}
+\begin{exercise}
+	The generalised Petersen graph $P(n,k)$ is bipartite if $n$ is even and $k$ is odd.
+\end{exercise}
+\begin{proof}
+	Consider the sets $X = \{ a_{2j}, b_{2j-1} : 1 \le j \le n/2 \}$ and $Y = \{ a_{2j-1}, b_{2j} : 1 \le j \le n/2 \}$. Clearly, edges of the form $a_ib_i$ has one end vertex in $X$ and other in $Y$.\\
+
+	\textbf{Suppose $n$ is even}. Then $a_1 \in Y$ and $a_n \in X$. Therefore, edge of the form $a_i,a_{i+1}$ has one end vertex in $X$ and other in $Y$.\\
+
+	\textbf{Suppose $k$ is odd}. If $i$ is odd, then $i+k \pmod{n}$ is even. And $b_i \in Y$ and $b_{i+k} \in X$. Similarly, if $i$ is even, then $b_i \in X$ and $b_{i+k} \in Y$. Therefore, edges of the form $b_ib_{i+k}$ has one end vertex in $X$ and other in $Y$.
+	Therefore, $P(n,k)$ is bipartite if $n$ is odd and $k$ is even.
+\end{proof}
+
+\begin{exercise}
+	If $G$ is simple and $\delta(G) \ge k$, then $G$ contains a path of length at least $k$.
+\end{exercise}
+\begin{proof}
+	Let $P : v_0,v1,\dots,v_r$ be a longest path in $G$.
+	Then $v_r$ is at most adjacent to $v_1,v_2,\dots,v_{r-1}$. Otherwise, there exists a longer path in $G$.
+	Therefore, $\deg(v_r) < r$. And $G$ has a vertex with minimum degree less than the length of its longest path.
+	In other words, if $G$ has a vertex with minimum degree $k$ then it has a path which is at least $k$ long.
+\end{proof}
 
 \subsection{Automorphisms of a simple graph}
 
 \subsection{Line Graph}
+
+\subsection{Graph Operations}
+
+\subsection{Graph Products}
 
 %\chapter{Directed Graphs}
 %\chapter{Connectivity}
