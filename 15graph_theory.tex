@@ -129,7 +129,7 @@ Let $G$ be a graph. The complement $G^c$ of graph $G$ is the graph with same ver
 \end{remark}
 
 \begin{definition}
-	A graph $G$ is $k$-\textbf{regular} if every vertex is of degree $k$. Graph $G$ is \textbf{regular} if it is $k$-regular for some $k$. \textbf{Cubic} graphs are the $3$-regular graphs.
+	A graph $G$ is $\mathbf{k}$-\textbf{regular} if every vertex is of degree $k$. Graph $G$ is \textbf{regular} if it is $k$-regular for some $k$. \textbf{Cubic} graphs are the $3$-regular graphs.
 \end{definition}
 \begin{remark}
 	Complete graph $K_{n+1}$ are $n$-regular.
@@ -622,19 +622,463 @@ Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. 
 	If $G$ is simple and $\delta(G) \ge k$, then $G$ contains a path of length at least $k$.
 \end{exercise}
 \begin{proof}
-	Let $P : v_0,v1,\dots,v_r$ be a longest path in $G$.
+	Let $P : v_0,v_1,\dots,v_r$ be a longest path in $G$.
 	Then $v_r$ is at most adjacent to $v_1,v_2,\dots,v_{r-1}$. Otherwise, there exists a longer path in $G$.
 	Therefore, $\deg(v_r) < r$. And $G$ has a vertex with minimum degree less than the length of its longest path.
 	In other words, if $G$ has a vertex with minimum degree $k$ then it has a path which is at least $k$ long.
 \end{proof}
 
 \subsection{Automorphisms of a simple graph}
+\begin{definition}
+	An \textbf{automorphism} on a graph $G$ is an isomorphism of $G$ onto itself.
+	The set $aut(G)$ is the set of all automorphisms on $G$.
+\end{definition}
 
+\begin{theorem}
+	The set $aut(G)$ of all automorphisms on a simple graph $G$ together with function composition is a group.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a simple graph. Then the identity map $\phi : G \to G$ defined by $\phi(v) = v$ is a trivial automorphism on $G$. Therefore the $aut(G)$ is nonempty.\\
+
+	We need to prove that the proposed group operation is closed. Let $\phi_1,\phi_2$ be two automorphisms on $G$. Let $u,v$ be two vertices of $G$.
+	\begin{align*}
+		u,v \text{ are adjacent } 
+		& \iff \phi_2(u),\phi_2(v) \text{ are adjacent}\\
+		& \iff \phi_1(\phi_2(u)),\phi_1(\phi_2(v)) \text{ are adjacent}
+	\end{align*}
+	Clearly, $\phi_1 \circ \phi_2$ are bijective and preserves adjacency and non-adjacency. Therefore, $\phi_1 \circ \phi_2$ is an automorphism. Thus, the group operation is closed.\\
+
+	We know that function composition is associative. The trivial automorphism is the identity element of the group. And the inverse of each automorphism $\phi$ is the inverse map $\phi^{-1}$. Therefore, $\entity{aut(G),\circ}$ is a group.
+\end{proof}
+
+\begin{theorem}
+	For any simple graph $aut(G) = aut(G^c)$.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a simple graph and $\phi$ be an automorphism on $G$. Let $u,v$ be two vertices of $G$.
+	\begin{align*}
+		u,v \text{ are non-adjacent in } G^c 
+		& \iff u,v \text{ are adjacent in } G \\
+		& \iff \phi(u),\phi(v) \text{ are adjacent in } G \\
+		& \iff \phi(u),\phi(v) \text{ are nonadjacent in } G^c
+	\end{align*}
+	Clearly, every automorphism $\phi$ on $G$ is essentially a bijection on the vertex set of both $G$ and $G^c$. The $\phi$ preserves adjacency/non-adjacency of $G^c$ as well.\\
+
+	Every autmorphism $\phi$ on $G$ is an automorphism on $G^c$.
+	If $\phi \in aut(G)$ then $\phi \in aut(G^c)$. Thus, $aut(G^c) \subset aut(G)$.
+	Similarly, every automorphism on $G^c$ is an automorphism on $G$ as well. 
+	If $\phi \in aut(G^c)$ then $\phi \in aut(G)$. Thus, $aut(G) \subset aut(G^c)$.
+	Therefore, $aut(G) \cong aut(G^c)$.
+\end{proof}
+
+\begin{exercise}
+	$aut(K_n) \cong S_n$.
+\end{exercise}
+\begin{proof}
+	Let $K_n$ be a complete graph with vertices $v_1,v_2,\dots,v_n$.
+	Any automorphism $\phi$ on $K_n$ is a bijection/permutation of $n$ vertices. Thus, $\phi \in S_n$.
+\end{proof}
 \subsection{Line Graph}
+\begin{definition}
+	Let $G$ be a graph. The \textbf{line graph} of $G$ is graph $L(G)$ with vertex set in $1-1$ correspondence with edge set of $G$ and two vertices of $L(G)$ are adjacent if the corresponding edges are adjacent in $G$.
+\end{definition}
+\begin{commentary}
+	Let $G$ be a graph with vertex set $V(G) = \{ u,v,w,x \}$ and edge set $E(G) = \{ uv, vw, wx, uw \}$. Then the line graph $L(G)$ is a graph with vertex set $V(L(G)) = \{ a,b,c,d \}$ with $1-1$ correspondence $a \to uv, b \to vw, c \to wx, d \to uw$ and edge set $E(L(G)) = \{ ab, ad, bc, bd, cd \}$ with adjacency at vertices $v,u,w,w,w$ respectively.
+\end{commentary}
+
+\subsubsection{Properties of Line graph}
+Suppose $G$ has no isolated vertices.
+\begin{enumerate}
+	\item $G$ is connected if and only if $L(G)$ is connected.
+	\begin{proof}
+		Let $G$ be a connected graph. Let $e,f$ be itwo vertices of $L(G)$. Then $e,f$ corresponds to edges of $G$ say $e = uv$ and $f = wx$. Since $G$ is connected, there exists a $u-v$ path in $G$. The edges of $u-v$ path corresponds to the vertices of an $e-f$ path in $L(G)$. Therefore, two arbitrary vertices $e,f$ in $L(G)$ have a path between them. Thus, $L(G)$ is a connected graph.\\
+
+		Let $G$ be a graph and $L(G)$ is the line graph of $G$. Suppose $L(G)$ is connected. Let $u,v$ be two vertices of $G$. Since $G$ has no isolated vertices. There exists some edges $e,f$ incident of $u,v$. Suppose $e \ne f$. Otherwise edge $uv$ is a $u-v$ path of length $1$. Since $L(G)$ is connected, there exists a $e-f$ path in $L(G)$. The vertices of $e-f$ path corresponds to edges in a $u-v$ path in $G$. Therefore, two arbitrary vertices of $G$ have a path between them. Thefore, $G$ is connected.
+	\end{proof}
+	\item If $H$ is a subgraph of $G$, then $L(H)$ is a subgraph of $L(G)$.
+	\begin{proof}
+		Let $H$ be a subgraph of $G$.
+		The vertices of $L(H)$ corresponds to edges of $H$. Since $H$ is a subgraph of $G$, these edges also belong to $G$. Thus, $L(G)$ have vertices corresponding to these edges as well. In other words, $V(L(H)) \subset V(L(G))$.\\
+
+		Two vertices in $L(H)$ are adjacent if the corresponding edges are adjacent in $H$. Clearly, these edges are adjacent in $G$ as well. Therefore, the vertices are adjacent in $L(G)$ as well. That is, $E(L(H)) \subset E(L(G))$. Therefore $L(H)$ is a subgraph of $L(G)$.
+	\end{proof}
+	\item The edges incident at a vertex of $G$ give rise to a clique of $L(G)$.
+	\begin{proof}
+		Suppose $k$ edges are incident on a vertex of $G$. Let $e_1,e_2,\dots,e_k$ be the vertices of $L(G)$ corresponding to those edges in $G$. Every pair of vertices $e_i, e_j$ among them are adjacent in $L(G)$ as the respective edges are adjacent in $G$. Thus, we have a complete subgraph of $L(G)$. Since $G$ is simple, no other edge in $G$ is simultaneously adjacent to all those edges. Therefore, the complete subgraph induced by $\{ e_1,e_2,\dots,e_k \}$ is maximal in $L(G)$.
+	\end{proof}
+\item Let $G$ be a simple graph. Then the degree of the vertex $e$ of $L(G)$ corresponding to an edge $e = uv$ of $G$ is given by
+		$$d_{L(G)}(e) = d_G(u) + d_G(v) - 2$$
+	\begin{proof}
+		Let $e = uv$ be an edge in $G$. The number of edges adjacent to $e$ at $u$ is $d(u)-1$. Similarly, the number of edges adjacent to $e$ at $v$ is $d(v)-1$. Therefore, there are $d(u)+d(v)-2$ edges adjacent to $e$ in $G$. Clearly, the correpsonding vertex $e$ is adjacent to $d(u)+d(v)-2$ vertices in $L(G)$. In other words, $d_{L(G)}(e) = d_G(u)+d_G(v)-2$.
+	\end{proof}
+	\item Let $G$ be a simple graph with degree sequence $\mathscr{D}(G) = d_1,d_2,\dots,d_n$.
+		Then size of the line graph $L(G)$ is given by $m(L(G)) = \frac{1}{2} \sum d_i^2 - m(G)$.
+	\begin{proof}
+	By Euler's theorem,
+	\begin{align*}
+		m(L(G)) 
+		& = \frac{1}{2} \sum_{e \in V(L(G))} d_{L(G)}(e) \\
+		& = \frac{1}{2} \sum_{e \in E(G)} \left[ d_G(u)+d_G(v)-2 \right] \\
+		& = \left[ \sum_{v \in V(G)} d_G(v)^2 \right] - m(G) 
+	\end{align*}
+	\end{proof}
+\end{enumerate}
+
+\begin{exercise}
+	Line graph of the star $K_{1,n}$ is the complete graph $K_n$.
+	$$L(K_{1,n}) \cong K_n$$
+\end{exercise}
+\begin{proof}
+	Let $e_1,e_2,\dots,e_n$ be the edges of $K_{1,n}$.
+	Clearly, $L(K_{1,n})$ has $n$ vertices.
+	Since every pair of edges in $K_{1,n}$ are adjacent, the respective vertices are adjacent in $L(K_{1,n})$.
+	Therefore, line graph $L(K_{1,n})$ is a complete graph with $n$ vertices, say $K_n$.
+\end{proof}
+
+\begin{exercise}
+	Line graph of the cycle $C_n$ ($n \ge 3$) is $C_n$ itself.
+	$$ L(C_n) = C_n$$
+\end{exercise}
+\begin{proof}
+	Let $C_n$ be a cycle of length $n \ge 3$. Let $e_1,e_2,\dots,e_n$ be the edges of $C_n$ where $e_j,e_{j+1}$ are adjacent. Let $G$ be the line graph of $C_n$. Then $G$ has $n$ vertices corresponding to $n$ edges of $C_n$. We know that $d_{L(G)}(e) = d(u) + d(v) - 2$. Since $C_n$ are $2$-regular, $d(u) = d(v) = 2$. Then the line graph $G$ is $2$-regular. We know that, line graph of a connected graph is connected. Since $C_n$ is connected, its line graph $G$ is also connected. Since $G$ is a connected $2$-regular graph, $G$ is isomorphic to $C_n$ itself.
+\end{proof}
+
+\begin{theorem}
+	Line graph of a simple graph is a path if and only if $G$ is a path.
+	$$ G \cong P_n \iff L(G) \cong P_{n-1} $$
+\end{theorem}
+\begin{proof}
+	Let $G$ be a path of length $n$, say $P_n$. Let $e_1,e_2,\dots,e_n$ be the edges of $P_n$ such that each pair of edges $e_j,e_j+1$ are adjacent except the pair $e_n,e_1$.
+	\begin{commentary} (We usually consider addition modulo $n$.\end{commentary}) Then line graph $L(G)$ has $n$ vertices. Since $G$ is connected, $L(G)$ is also connected. Clearly, every vertex $e_j$ is adjacent to $e_{j+1}$ except $e_n,e_1$. Therefore, $L(P_n)$ is a path of length $n-1$, say $P_{n-1}$.\\
+
+		Let $G$ be a simple graph with no isolated vertices. Suppose $L(G)$ is a path of length $m$, say $P_m$. By the definition of line graph the size of $G$ is $m$. Since $L(G)$ is connected, $G$ is also connected. Since $L(G)$ has two pendent vertices, $G$ has two pendent edges. Since the order of maximal subgraphs are at most $2$, the degree of vertices of $G$ is at most $2$. Therefore, $G$ is a path of length $m+1$, say $P_{m+1}$.
+\end{proof}
+
+\begin{exercise}
+	Let $H = L^2(G)$ be defined as $L(L(G))$. Find $m(H)$ if $G$ is the graph in figure \ref{dia:L2G}.
+\begin{figure}[hbt]
+\centering
+\begin{tikzpicture}
+	\tikzstyle every node=[draw,circle]
+	\node (u){};
+	\node (v)[below=0.6cm of u]{};
+	\node (w)[below left=1cm of v]{};
+	\node (x)[below right=1cm of v]{};
+	\node (y)[below left=1cm of w]{};
+	\node (z)[below right=1cm of x]{};
+	\draw (u)--(v)--(w)--(y);
+	\draw (v)--(x);
+	\draw (x.360) to[out=10,in=100] (z.90);
+	\draw (x.270) to[out=280,in=180] (z.170);
+\end{tikzpicture}
+	\label{dia:L2G}
+\end{figure}
+\end{exercise}
+\begin{proof}
+	(do it yourself)
+\end{proof}
+
+\begin{exercise}
+	Show that $d_{L(G)}(uv) = d_G(u) + d_G(v)-2$ is not valid if $G$ has a loop.
+\end{exercise}
+\begin{proof}
+	(do it yourself)
+\end{proof}
+
+\begin{exercise}
+	Prove that a simple connected graph $G$ is isomorphic to its line graph if and only if it is a cycle.
+\end{exercise}
+\begin{proof}
+	We know that the line graph of a cycle is always a cycle of same length. Thus, if $G$ is a cycle then it is isomorphic to its line graph.\\
+
+	Let $G$ be a connected graph. Suppose $G$ is isomorphic to its line graph. Then order and size of $G$ are the same.  (yet to complete)
+\end{proof}
+
+\begin{exercise}
+	Disprove : If the graph $H$ is a spanning subgraph of $G$, then $L(H)$ is a spanning subgraph of $G$.
+\end{exercise}
+\begin{proof}
+	(do it yourself)
+\end{proof}
+
+\begin{theorem}
+	If the simple graphs $G_1,G_2$ are isomorphic, then $L(G_1),L(G_2)$ are isomorphic.
+\end{theorem}
+\begin{proof}
+	Let two simple graphs $G_1,G_2$ are isomophic.
+	Then there exists an isomorphic $\phi : V(G_1) \to V(G_2)$ which gives rise to an edge set bijection $\theta : E(G_1) \to E(G_2)$ such that $\phi(u)\phi(v) = \theta(uv)$.\\
+
+	Let $e$ be an edge of $G_1$. Then $e$ corresponds to a vertex $e$ of $L(G_1)$. By graph isomorphism, $\theta(e)$ is an edge of $G_2$ and $\theta(e)$ corresponds to a vertex $\theta(e)$ of $L(G_2)$. Consider the map $\phi' : V(L(G_1)) \to V(L(G_2))$ defined by $\phi'(e) = \theta(e)$. Clearly, $\phi'$ is a bijection.\\
+
+	Suppose two edges $e,e'$ are adjacent in $G_1$. Then by isomorphism $\theta(e),\theta(e')$ are adjacent in $G_2$. Therefore, if two vertices $e,e'$ are adjacent in $L(G_1)$, then the respective vertices $\phi'(e),\phi'(e')$ are adjacent in $L(G_2)$. Therefore $\phi'$ is a graph isomorphism between $L(G_1)$ and $L(G_2)$. Clearly, $L(G_1) \cong L(G_2)$.
+\end{proof}
+
+\begin{remark}
+	Suppose $G_1,G_2$ be simple, connected graphs. Then $L(G_1) \cong L(G_2)$ does not imply that $G_1 \cong G_2$.
+\end{remark}
+\begin{proof}
+	Suppose $G_1 = K_{1,3}$ and $G_2 = K_3$. Then $L(G_1) \cong L(G_2) \cong K_3$ and $G_1 \not\cong G_2$.
+\end{proof}
 
 \subsection{Graph Operations}
+\begin{definition}
+	Let $G_1,G_2$ be two simple graph.
+	Their \textbf{union} $G_1 \cup G_2$ is given by 
+	$$ V(G_1 \cup G_2) = V(G_1) \cup V(G_2) \qquad E(G_1 \cup G_2) = E(G_1) \cup E(G_2) $$
+	If $V(G_1) \cap V(G_2) = \phi$, then the graph $G_1 \cup G_2$ is their \textbf{sum} $G_1 + G_2$.
+\end{definition}
+
+\begin{remark}
+	The finite union of graph is associative.
+\end{remark}
+
+\begin{definition}
+	Let $G_1,G_2$ be two simple graph with $V(G_1) \cap V(G_2) \ne \phi$.
+	Their \textbf{intersection} $G_1 \cap G_2$ is given by 
+	$$ V(G_1 \cap G_2) = V(G_1) \cap V(G_2) \qquad E(G_1 \cup G_2) = E(G_1) \cap E(G_2) $$
+\end{definition}
+
+\begin{definition}
+	Let $G_1,G_2$ be two vertex-disjoint graphs. Then the \textbf{join} $G_1 \vee G_2$ is the supergraph of $G_1 + G_2$ in which each vertex of $G_1$ is adjacent to every vertex of $G_2$.\\
+
+	If $G_1 = K_1$ and $G_2 = C_n$, then $G_1 \vee G_2 \cong W_n$ a \textbf{wheel} of order $n+1$.
+\end{definition}
+
+\subsubsection{Properties of Graph Operations}
+\begin{enumerate}
+	\item $n(G_1 \cup G_2) = n(G_1) + n(G_2) - n(G_1 \cup G_2)$ and\\
+		$m(G_1 \cup G_2) = m(G_1) + m(G_2) - m(G_1 \cup G_2)$.
+		\begin{proof}
+			do it yourself
+		\end{proof}
+	\item $n(G_1+G_2) = n(G_1) + n(G_2)$ and \\ $m(G_1+G_2) = m(G_1) + m(G_2)$.
+		\begin{proof}
+			do it yourself
+		\end{proof}
+	\item $n(G_1 \vee G_2) = n(G_1)+n(G_2)$ and \\ $m(G_1 \vee G_2) = m(G_1)+m(G_2)+n(G_1)n(G_2)$.
+		\begin{proof}
+			do it yourself
+		\end{proof}
+\end{enumerate}
 
 \subsection{Graph Products}
+\begin{definition}
+	The \textbf{general graph product} $G_1 \ast G_2$ is defined as a graph with vertex set $V(G_1 \ast G_2) = V(G_1) \times V(G_2)$ and the adjacency/non-adjacency among a pair of vertices is given by the structure table $S$, 
+$$ S = \begin{bmatrix} \circ & \circ & \circ \\ \circ & = & \circ \\ \circ & \circ & \circ \end{bmatrix} $$
+	where $\circ$'s are either $N$ or $E$. The letter `E' means Edge and `N' means No edge.\\
+
+	The first, second and third rows of $S$ corresponds to adjacency, equality and non-adjacency of respective vertices in $G_1$. Similarly, first, second and third columns of $S$ corresponds to adjacency, equality and non-adjacency of respective vertices in $G_2$.
+\end{definition}
+
+\begin{commentary}
+	For example, $G_1,G_2$ be two simple graph given in diagram \ref{dia:generalProduct}. Let $G_1 \star G_2$ be a graph product with the following strcture table $S$ given in table \ref{tb:generalProduct}.
+
+\begin{figure}[hbt]
+\centering
+\begin{tikzpicture}
+\tikzstyle every node=[draw,black,circle]
+	\node (u)[label=left:$u_1$]{};
+	\node (v)[above right=1cm of u,label=left:$v_1$]{};
+	\node (w)[below right=1cm of u,label=left:$w_1$]{};
+	\draw[black] (v)--(u)--(w);
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\tikzstyle every node=[draw,black,circle]
+	\node (u)[label=above:$u_2$]{};
+	\node (v)[right = 1cm of u,label=above:$v_2$]{};
+	\draw[black] (u)--(v);
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}
+\tikzstyle every node=[draw,black,circle]
+	\node (u1)[label=left:$u_1u_2$]{};
+	\node (v1)[above right=1cm of u1,label=left:$v_1u_2$]{};
+	\node (w1)[below right=1cm of u1,label=left:$w_1u_2$]{};
+	\node (u2)[right=2cm of u1,label=right:$u_1v_2$]{};
+	\node (v2)[above right=1cm of u2,label=right:$v_1v_2$]{};
+	\node (w2)[below right=1cm of u2,label=right:$w_1v_2$]{};
+%	\draw[black] (v1)--(u1)--(w1);
+%	\draw[black] (v2)--(u2)--(w2);
+	\draw[green] (v1)--(u1)--(w1);
+	\draw[green] (w2)--(u2)--(v2);
+	\draw[cyan] (u1)--(u2);
+	\draw[cyan] (v1)--(v2);
+	\draw[cyan] (w1)--(w2);
+	\draw[blue] (v1.300) to[out=290,in=160] (w2.150);
+	\draw[blue] (w1.60) to[out=70,in=200] (v2.210);
+\end{tikzpicture}
+	\caption{A graph product $G_1 \star G_2$}
+	\label{dia:generalProduct}
+\end{figure}
+
+	For example, $v_1u_2, w_1v_2$ are two vertices of $G_1 \star G_2$. We know that $v_1,w_1$ are non-adjacent in $G_1$. Thus, we need to look at the third row of the structure table $S$. Again, $u_2,v_2$ are adjacent in $G_2$. Thus, we need to look at the first column of the structure table $S$. Clearly, $S_{3,1}$ which is $E$. Therefore, they are adjacent in $G_1 \star G_2$. Refer table \ref{tb:generalProduct} to find element of $S$ corresponding to each pair of vertices in $G_1 \star G_2$.
+
+\begin{table}[hbt]
+\centering
+$ S = \displaystyle\begin{bmatrix} N & E & N \\ E & = & N \\ E & N & N \end{bmatrix}$
+\hfill
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+	& $u_1u_2$ & $v_1u_2$ & $w_1u_2$ & $u_1v_2$ & $v_1v_2$ & $w_1v_2$ \\ \hline
+	$u_1u_2$ & $S_{2,2}$ & \textcolor{green}{$S_{1,2}$} & \textcolor{green}{$S_{1,2}$} & \textcolor{cyan}{$S_{2,1}$} & $S_{1,1}$ & $S_{1,1}$ \\ \hline
+	$v_1u_2$ & \textcolor{green}{$S_{1,2}$} & $S_{2,2}$ & $S_{3,2}$ & $S_{1,1}$ & \textcolor{cyan}{$S_{2,1}$} & \textcolor{blue}{$S_{3,1}$} \\ \hline
+	$w_1u_2$ & \textcolor{green}{$S_{1,2}$} & $S_{3,2}$ & $S_{2,2}$ & $S_{1,1}$ & \textcolor{blue}{$S_{3,1}$} & \textcolor{cyan}{$S_{2,1}$} \\ \hline
+	$u_1v_2$ & \textcolor{cyan}{$S_{2,1}$} & $S_{1,1}$ & $S_{1,1}$ & $S_{2,2}$ & \textcolor{green}{$S_{1,2}$} & \textcolor{green}{$S_{1,2}$} \\ \hline
+	$v_1v_2$ & $S_{1,1}$ & \textcolor{cyan}{$S_{2,1}$} & \textcolor{blue}{$S_{3,1}$} & \textcolor{green}{$S_{1,2}$} & $S_{2,2}$ & $S_{3,2}$ \\ \hline
+	$w_1v_2$ & $S_{1,1}$ & \textcolor{blue}{$S_{3,1}$} & \textcolor{cyan}{$S_{2,1}$} & \textcolor{green}{$S_{1,2}$} & $S_{3,2}$ & $S_{2,2}$ \\ \hline
+\end{tabular}
+	\caption{Adjacency/Non-adjacency Table for $G_1 \star G_2$}
+	\label{tb:generalProduct}
+\end{table}
+\end{commentary}
+
+\begin{definition}
+	The \textbf{cartesian product} $G_1 \square G_2$ is the graph product with structure table $S$ given by
+	$$ S = \begin{bmatrix} N & E & N \\ E & = & N \\ N & N & N \end{bmatrix} $$
+\end{definition}
+
+\begin{definition}
+	The \textbf{direct product}(tensor/Kronecker product) $G_1 \times G_2$ is the graph product with structure table $S$ given by
+	$$ S = \begin{bmatrix} E & N & N \\ N & = & N \\ N & N & N \end{bmatrix} $$
+\end{definition}
+
+\begin{definition}
+	The \textbf{composition product} (wreath/lexicographic product) $G_1[G_2]$ is the graph product with structure table $S$ given by
+	$$ S = \begin{bmatrix} E & E & E \\ E & = & N \\ N & N & N \end{bmatrix} $$
+\end{definition}
+
+\begin{definition}
+	The \textbf{strong product} (normal product) $G_1 \boxtimes G_2$ is the graph product with structure table $S$ given by
+	$$ S = \begin{bmatrix} E & E & N \\ E & = & N \\ N & N & N \end{bmatrix} $$
+\end{definition}
+
+\begin{remark}
+	From structure table $S$, it is evident that all the above graph products are associative and all except the composition product are commutative.
+\end{remark}
+
+\begin{challenge}
+	Can you find a non-associative graph product ?
+\end{challenge}
+
+\begin{exercise}
+	Show that $G_1[G_2] \not\cong G_2[G_1]$
+\end{exercise}
+\begin{proof}
+	$K_2[K_{1,3}] \not\cong K_{1,3}[K_2]$
+\end{proof}
+
+\begin{exercise}
+	Prove that $G_1 \square G_2 \cong G_2 \cong G_1$.
+\end{exercise}
+\begin{proof}
+	Since the structure table $S$ of the cartesian graph product is symmetric the graph product is commutative.
+\end{proof}
+
+\begin{exercise}
+	Prove that $G_1 \boxtimes G_2 \cong G_2 \boxtimes G_1$
+\end{exercise}
+\begin{proof}
+	Since the structure table $S$ of the strong product is symmetric the graph product is commutative.
+\end{proof}
+
+\begin{definition}
+	Let $(x,y)$ be a vertex of $G_1 \square G_2$. The $\mathbf{G_2}$ \textbf{fiber at} $\mathbf{x}$ in $G_1 \square G_2$ denoted by $(G_2)_x$ is the subgraph of $G_1 \square G_2$ induced by the set of all vertices $\{ (x,z) : z \in V(G_2) \}$. Similarly, the $\mathbf{G_1}$\textbf{-fiber at} $\mathbf{y}$, $(G_1)_y)$ is the subgraph of $G_1 \square G_2$ induced by $\{ (z,y) : z \in V(G_1) \}$.
+\end{definition}
+
+
+\begin{exercise}Properties of graph products
+\begin{enumerate}
+	\item The order of a general graph product is the product of their orders.
+	\begin{align*}
+		n(G_1 \square G_2) 
+		= n(G_1[G_2]) = n(G_2[G_1]) & =\\
+		n(G_1 \times G_2) = n(G_1 \boxtimes G_2) & = n(G_1) n(G_2)
+		\end{align*}
+	\begin{proof}
+		The vertex set of a general graph product is the cartesian product of the vertex sets, $G_1 \ast G_2$ is $V(G_1) \times V(G_2)$. Therefore, order of a general graph product is $n(G_1)n(G_2)$.
+	\end{proof}
+	\item $m(G_1 \square G_2) = n(G_1) m(G_2) + m(G_1) n(G_2)$.
+	\begin{proof}
+		The structure table of cartesian graph product has entry $E$ at $S_{1,2}$ and $S_{2,1}$.
+		Thus the edge conditions for cartesian graph product $G_1 \square G_2$ are
+		\begin{enumerate*}
+			\item $u_1 = v_1$ and $u_2,v_2$ are adjacent or 
+			\item $u_2 = v_2$ and $u_1,v_1$ are adjacent.
+		\end{enumerate*}
+
+		\textbf{Case 1 :} Let $xy$ be an edge of $G_2$ and $v$ be a vertex of $G_1$. Then $(v,x),(v,y)$ are adjacent in $G_1 \square G_2$. Every edge of type 1 is of this form. Therefore, there are $n(G_1)m(G_2)$ edges of type $1$ in $G_1 \square G_2$.\\
+
+		\textbf{Case 2 :} Let $xy$ be an edge of $G_1$ and $v$ be a vertex of $G_2$. Then $(x,v),(y,v)$ are adjacent in $G_1 \square G_2$. Every edge of type 2 is of this form. Therefore, there are $m(G_1)n(G_2)$ edges of type $2$ in $G_1 \square G_2$.
+		Therefore, $m(G_1 \square G_2) = n(G_1)m(G_2) + m(G_1)n(G_2)$.
+	\end{proof}
+	\item $m(G_1[G_2]) = n(G_1) m(G_2) + n(G_2)^2 m(G_1)$.
+	\begin{proof}
+		The structure table for composition product has entry $E$ at first row of $S$ and $S_{2,1}$. Thus the condition for adjacency of two vertices $(u_1,u_2),(v_1,v_2)$ in $G_1[G_2]$ are
+	\begin{enumerate*}
+		\item $u_1,v_1$ are adjacent or
+		\item $u_1 = v_1$ and $u_2,v_2$ are adjacent.
+	\end{enumerate*}
+
+		\textbf{Case 1 :} Let $xy$ be an edge of $G_1$ and $u,v$ be two vertices of $G_2$. Then an edge of type $1$ is of the form $(x,u)(y,v)$. Thus, there are $m(G_1)n(G_2)^2$ edges of type $1$ in $G_1[G_2]$.
+
+		\textbf{Case 2 :} Let $xy$ be an edge in $G_2$ and $v$ be a vertex in $G_1$. Then an edge of type $2$ is of the form $(v,x)(v,y)$. Thus, there are $m(G_2)n(G_1)$ edges of type $2$ in $G_1[G_2]$.
+
+		Therefore $m(G_1[G_2]) = m(G_1)n(G_2)^2 + m(G_2)n(G_1)$.
+	\end{proof}
+	\item $m(G_1 \times G_2) = 2m(G_1) m(G_2)$.
+	\begin{proof}
+		The only E entry in the structure table of direct product is $S_{1,1}$. Thus the condition for adjacency between $(u_1,u_2),(v_1,v_2)$ in $G_1 \times G_2$ is $u_1,v_1$ are adjacent and $u_2,v_2$ are adjacent.\\
+
+		Let $uv,xy$ be edges in $G_1,G_2$ respectively. Then an edge of direct product is of the form $(u,x)(v,y)$ or $(u,y)(v,x)$. There are $m(G_1)m(G_2)$ edges of both kind.
+		Therefore, $m(G_1 \times G_2) = 2m(G_1)m(G_2)$.
+	\end{proof}
+	\item $m(G_1 \boxtimes G_2) = n(G_1) m(G_2) + m(G_1) n(G_2) + 2m(G_1) m(G_2)$.
+	\begin{proof}
+		We know that the strong product is the disjoint union of the cartesian and direct graph products, $G_1 \boxtimes G_2 = G_1 \square G_2 \cup G_1 \times G_2$. 
+		By the properties of sum of two graph, $E(G_1 \boxtimes G_2) = E(G_1 \square G_2) \cup E(G_1 \times G_2)$.
+		Therefore, $m(G_1 \boxtimes G_2) = m(G_1 \square G_2) + m(G_1 \times G_2)$.
+	\end{proof}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Prove that $L(K_{m,n}) \cong K_m \square K_n$.
+\end{exercise}
+\begin{proof}
+	Let $u_j,v_k$ be labels for the vertices of $K_m,K_n$ respectively. Abusing the language we may write that a vertex of $K_m \square K_n$ is of the form $u_jv_k$. By the definition of cartesian graph product, $u_jv_s, u_kv_t$ are adjacent if and only if $u_j,u_k$ are adjacent and $v_s,v_t$ are adjacent.\\
+
+	Consider the line graph $L(K_{m,n})$ of the bipartite graph $K_{m,n}$ with partite set $X,Y$. Let $x_j,y_k$ be labels for vertices in the partite sets $X,Y$ respectively. The edge of $K_{m,n}$ are of the form $x_jy_k$. Two vertices $x_jy_s,x_ky_t$ are adjacent in $L(K_{m,n})$ if the respective edges have a common vertex. In other words, either $x_j = x_k$ or $y_s = y_t$.\\
+
+	\begin{commentary}
+	Define $\psi : X \to V(K_m)$ where $\psi(x_j) = u_j$ and define $\xi : Y \to V(K_n)$ where $\xi(y_k) = v_k$.
+	\end{commentary}
+	Define $\phi : V(L(K_{m,n})) \to V(K_m \square K_n)$ by $\phi(x_jy_k) = u_jv_k$. Clearly, $x_jy_s,x_ky_t$ are adjacent if and only if $\phi(x_jy_s)=u_jv_s$ and $\phi(x_ky_t)=u_kv_t$ are adjacent. Therefore, $L(K_{m,n}) \cong K_m \square K_n$.
+\end{proof}
+
+\begin{definition}
+	The $\mathbf{k}$\textbf{th power} $G^k$ of $G$ has $V(G^k) = V(G)$ where two vertices $u,v$ are adjacent in $G^k$ whenever $d_G(u,v) \le k$.
+\end{definition}
+
+\begin{exercise}
+	Show that if $G$ is a connected graph with at least two edges, then each edge of $G^2$ belongs to a triangle.
+\end{exercise}
+\begin{proof}
+	Let $e=uv$ be an edge of $G^2$. Then there are two possibilities, either $d_G(u,v) = 1$ or $d_G(u,v) = 2$.\\
+
+	\textbf{Case 1 :} Suppose $d_G(u,v) = 1$. Since $G$ is connected, without loss of generality there exists an edge adjacent to $uv$ at $v$, say $vw$. Then $d_G(u,w) \le 2$ and $uw \in E(G^2)$. Clearly, the edge $uv$ belongs to the triangle $\triangle uvw$ in $G^2$.\\
+
+	\textbf{Case 2 :} Suppose $d_G(u,v)=2$. Then there exists $w \in V(G)$ such that $uw,wv \in E(G)$. Clearly, the edge $uv$ belongs to the triangle $\triangle uwv$ in $G^2$.
+\end{proof}
+
+\begin{exercise}
+	If $d_G(u,v) = p$, determine $d_{G^k}(u,v)$.
+\end{exercise}
+\begin{proof}
+	Suppose $p$ is finite. Otherwise $d_G(u,v) = \infty$ and  $d_{G^k}(u,v) = \infty$.
+	Since $p,k$ are natural numbers, there exists unique integers $q,r$ such that $p = qk+r$, $q \ge 0$ and $0 \le r < k$. Then the shortest $u-v$ path contains vertices $v_1,v_2,\dots,v_q$ such that $d_G(u,v_1) = k$ and $d_G(v_j,v_{j+1}) = k$ and $d_G(v_{j+1},v) = r$. Then $u,v_1$ are adjacent in $G^k$. Similarly, $v_j,v_{j+1}$ are adjacent in $G^k$.\\
+
+	Suppose $r = 0$. Then $v_q = v$ and $u,v_1,v_2,\dots,v_{q-1},v$ is the shortest $u-v$ path in $G^k$. Thus, $d_{G^k}(u,v) = q$. Suppose $r > 0$. Then $d_G(v_q,v) = r < k$. Thus, $v_q,v$ are adjacent in $G^k$ and $u,v_1,v_2,\dots,v_q,v$ is the shortest $u-v$ path in $G^k$. Therefore, $d_{G^k}(u,v) = q+1$.
+\end{proof}
 
 %\chapter{Directed Graphs}
 %\chapter{Connectivity}
