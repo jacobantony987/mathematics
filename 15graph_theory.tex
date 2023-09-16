@@ -871,7 +871,7 @@ $$ S = \begin{bmatrix} \circ & \circ & \circ \\ \circ & = & \circ \\ \circ & \ci
 \end{definition}
 
 \begin{commentary}
-	For example, $G_1,G_2$ be two simple graph given in diagram \ref{dia:generalProduct}. Let $G_1 \star G_2$ be a graph product with the following strcture table $S$ given in table \ref{tb:generalProduct}.
+	For example, $G_1,G_2$ be two simple graph given in diagram \ref{dia:generalProduct}. Let $G_1 \star G_2$ be a graph product with the following strcture table $S$ given in table \ref{tb:generalProduct}.\\
 
 \begin{figure}[hbt]
 \centering
@@ -1079,6 +1079,82 @@ $ S = \displaystyle\begin{bmatrix} N & E & N \\ E & = & N \\ E & N & N \end{bmat
 
 	Suppose $r = 0$. Then $v_q = v$ and $u,v_1,v_2,\dots,v_{q-1},v$ is the shortest $u-v$ path in $G^k$. Thus, $d_{G^k}(u,v) = q$. Suppose $r > 0$. Then $d_G(v_q,v) = r < k$. Thus, $v_q,v$ are adjacent in $G^k$ and $u,v_1,v_2,\dots,v_q,v$ is the shortest $u-v$ path in $G^k$. Therefore, $d_{G^k}(u,v) = q+1$.
 \end{proof}
+
+\setcounter{subsection}{11}
+\subsection{Miscellaneous Exercises}
+\begin{enumerate}
+	\item Show that the sequences \begin{enumerate*} \item $(7,6,5,4,3,3,2)$ and \item $(6,6,5,4,3,3,1)$ are not graphical \end{enumerate*}
+	\item Give an example of a degree sequence that is realizable as the degree sequence by only a disconnected graph.
+	\begin{proof}[Solution]
+		$(1,1,1,1)$ or $(1,1,0)$.
+	\end{proof}
+	\item Show that for a simple bipartite graph, $m \le n^2/4$.
+	\begin{proof}[Solution]
+		Let $G$ be a bipartite graph. The size of a bipartite graph is maximum when it is a complete bipartite graph with cardinality of partite set $X,Y$ almost equal.\\
+
+		Suppose order of $G$ is even, $n = 2k$. Then the size of the bipartite graph is maximum when $p = q = k$. And size 
+		$$ m \le  pq = k^2 = \frac{n^2}{4} $$
+		Suppose order of $G$ is odd, $n = 2k+1$. The the size of the bipartite graph is maximum when $p = k$ and $q = k+1$. And size 
+		$$ m \le pq = k(k+1) \le \left(k+\frac{1}{2}\right)^2 = \frac{n^2}{4} $$
+	\end{proof}
+	\item Show that $\delta \le \frac{2m}{n} \le \Delta$.
+	\begin{proof}[Solution]
+		By Euler's theorem, the sum of degrees of a graph is twice its size. Thus $2m/n$ is the average of the degrees of vertices. We know that, $minimum \le average \le maximum$ is true for any finite sequence.
+	\end{proof}
+	\item For every $n \ge 3$, construct a $3$-regular simple graph on $2n$ vertices containing no triangles.
+	\begin{proof}[Solution]
+		The generalised Petersen graphs $P(n,k)$ where $0 \le k \le n$ and $\gcd(n,k)=1$ are $3$-regular and does not contain any cycles.
+	\end{proof}
+\item If a bipartite graph $G(X,Y)$ is regular, show that $|X| = |Y|$.
+	\begin{proof}[Solution]
+		Since $G$ is bipartite the sum of degree of vertices both partite sets are equal, as every edge contributes one to both the sum. If $G$ is regular, then 
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+	\item
+	\begin{proof}[Solution]
+	\end{proof}
+\end{enumerate}
 
 %\chapter{Directed Graphs}
 %\chapter{Connectivity}
