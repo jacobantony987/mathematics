@@ -28,6 +28,7 @@
 %Module 4 - \cite{balakrishnan} 8, 11
 %Missing - \cite{balakrishnan} 5, 9, 10, ?
 
+{\Large Module 1}
 %\chapter{Basic Results}
 \section{Basic Results}
 \subsection{Introduction}
@@ -75,7 +76,7 @@
 	Then $m(K_n) = \binom{n}{2} = \frac{n(n-1)}{2}$.
 	A \textbf{totally} disconnected graph has no edges.
 	Thus, $0 \le m \le \binom{n}{2}$.
-	A graph $G$ is trivial if it has only one vetex and no edges.
+	A graph $G$ is trivial if it has only one vertex and no edges.
 \end{definition}
 
 \begin{definition}
@@ -211,7 +212,7 @@ A vertex $v$ is adjacent of $u$ in $G$ if and only if $\phi(v)$ is adjacent to $
 Let $G$ be a graph of order $n$.
 Let $V_1,V_2$ be the set of vertices of even and odd degree respectively.
 Clearly, $\sum d_i^r = \sum_{v \in V_1} d_i^r + \sum_{v \in V_2} d_i^r$.
-Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. And the second sum is odd as $d_i^r$ is odd when $d_i$ is odd. By Euler`s theorem, there are an even number of such odd terms. Thus, the second sum on RHS is also even. Therefore, $\sum d_i^r$ is even.
+Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. And the second sum is odd as $d_i^r$ is odd when $d_i$ is odd. By Euler's theorem, there are an even number of such odd terms. Thus, the second sum on RHS is also even. Therefore, $\sum d_i^r$ is even.
 
 \begin{definition}
 	A sequence of nonnegative integers $d : d_1,d_2,\dots,d_n$ is \textbf{graphical} if there exists a \textit{simple} graph with degree sequence $d$.
@@ -254,7 +255,7 @@ Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. 
 	Let $G$ be a graph of order $n$ and size $m$.
 	Let $x$ be the number of vertices with degree $k$.
 	Then there are $n-x$ vertices with degree $k+1$.
-	By Euler`s theorem, $ xk + (n-x)(k+1) = 2m \implies x = (k+1)n-2m$.
+	By Euler's theorem, $ xk + (n-x)(k+1) = 2m \implies x = (k+1)n-2m$.
 \end{proof}
 	
 \subsection{Paths and Connectedness}
@@ -450,6 +451,13 @@ Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. 
 	Therefore, there exists a $u-v$ path between any pair of vertices in $G^c$.
 \end{proof}
 
+\begin{corollary}
+	If a graph is self-complementary, then it is connected.
+\end{corollary}
+\begin{proof}
+	Suppose $G$ is disconnected. Then its complement is connected. Therefore, $G$ is not self-complementary.
+\end{proof}
+
 \begin{exercise}
 	Let $G$ be a self-complementary graph.\\ Then $n(G) \cong 0 \text{ or } 1 \pmod{4}$.
 \end{exercise}
@@ -486,7 +494,7 @@ Once again, the first sum on RHS is even as $d_i^r$ is even when $d_i$ is even. 
 	\begin{align*}
 		m 
 		& \le \sum_{i=1}^\omega m_i\\
-		& \le \sum_{i=1}^\omega n_i(n_i-1)/2,\quad \text{by Euler`s theorem}\\
+		& \le \sum_{i=1}^\omega n_i(n_i-1)/2,\quad \text{by Euler's theorem}\\
 		& \le \frac{n-\omega+1}{2} \sum_{i=1}^\omega (n_i - 1),\quad \text{applying upperbound for $n_i$}\\
 		& \le \frac{n-\omega+1}{2} (n - \omega)
 	\end{align*}
@@ -719,7 +727,7 @@ Suppose $G$ has no isolated vertices.
 		m(L(G)) 
 		& = \frac{1}{2} \sum_{e \in V(L(G))} d_{L(G)}(e) \\
 		& = \frac{1}{2} \sum_{e \in E(G)} \left[ d_G(u)+d_G(v)-2 \right] \\
-		& = \left[ \sum_{v \in V(G)} d_G(v)^2 \right] - m(G) 
+		& = \frac{1}{2} \left[ \sum_{v \in V(G)} d_G(v)^2 \right] - m(G) 
 	\end{align*}
 	\end{proof}
 \end{enumerate}
@@ -755,6 +763,7 @@ Suppose $G$ has no isolated vertices.
 \end{proof}
 
 \begin{exercise}
+	\label{ex:L2G}
 	Let $H = L^2(G)$ be defined as $L(L(G))$. Find $m(H)$ if $G$ is the graph in figure \ref{dia:L2G}.
 \begin{figure}[hbt]
 \centering
@@ -771,6 +780,7 @@ Suppose $G$ has no isolated vertices.
 	\draw (x.360) to[out=10,in=100] (z.90);
 	\draw (x.270) to[out=280,in=180] (z.170);
 \end{tikzpicture}
+	\caption{Graph $G$ in exercise \ref{ex:L2G} }
 	\label{dia:L2G}
 \end{figure}
 \end{exercise}
@@ -791,7 +801,15 @@ Suppose $G$ has no isolated vertices.
 \begin{proof}
 	We know that the line graph of a cycle is always a cycle of same length. Thus, if $G$ is a cycle then it is isomorphic to its line graph.\\
 
-	Let $G$ be a connected graph. Suppose $G$ is isomorphic to its line graph. Then order and size of $G$ are the same.  (yet to complete)
+	Let $G$ be a connected graph. Suppose $G$ is isomorphic to its line graph. Then order and size of $G$ are the same.\\
+
+	Let $\Delta$ be the maximum degree of $G$. Then $G$ has a vertex $u$ with degree $\Delta$. Then $u$ has at least one neighbour with degree greater than $1$. Otherwise, $G \cong K_{1,\Delta}$ and $L(G) = K_{\Delta}$ is a contradiction. If degree of a vertex $v$ adjacent to $u$ has degree greater than $2$. Then $L(G)$ has a vertex $uv$ with degree greater than $\Delta$ which is a contradiction.\\
+
+	Suppose $G$ has a vertex $u$ with $d(u) = \Delta$ and a vertex $v$ adjacent to $u$ with $d(v) = 2$. Then $L(G)$ has a vertex $x'$ with $d(x') = \Delta$ and a vertex $y'$ adjacent to $x'$ with $d(y') = \Delta-1$. Since $G \cong L(G)$. $G$ has vertices $x,y$ which adjacent and $d(x) = \Delta,\ d(y) = \Delta-1$. Then $L(G)$ has a vertex $xy$, corresponding to the edge $xy$ of $G$, with $d(xy) = 2\Delta - 3$. Clearly, $\Delta \le 3$ otherwise $L(G)$ has a vertex with degree greater than $\Delta$ which is a contradiction.\\
+
+	Suppose $\Delta  = 3$. Then $G$ has two adjacent vertices $u,v$ with $d(u) = 3,\ d(v) = 2$. Then $L(G)$ has two adjacent vertices $x',y'$ with $d(x') = 3$ and $d(y') = 3$. Since $G \cong L(G)$, $G$ has two adjacent vertices $x,y$ with $d(x) = 3,\ d(y) = 3$. Thus $L(G)$ has a vertex $xy$ with degree $4$ which is a contradiction.\\
+	
+	We know that $\Delta \ne 1$, otherwise $G = K_2$ and $L(G) = K_1$ which is a contradiction. Thus, $\Delta = 2$. Since $G$ is connected, $G$ is either a path or a cycle. Suppose $G$ is a path $P_n$, then $L(G) = P_{n-1}$ which is a contradiction. Therefore $G$ is a cycle.
 \end{proof}
 
 \begin{exercise}
@@ -1107,59 +1125,906 @@ $ S = \displaystyle\begin{bmatrix} N & E & N \\ E & = & N \\ E & N & N \end{bmat
 	\end{proof}
 \item If a bipartite graph $G(X,Y)$ is regular, show that $|X| = |Y|$.
 	\begin{proof}[Solution]
-		Since $G$ is bipartite the sum of degree of vertices both partite sets are equal, as every edge contributes one to both the sum. If $G$ is regular, then 
+		Since $G$ is bipartite the sum of degree of vertices both partite sets are equal, as every edge contributes one to both the sum.
+		If $G$ is regular, then the degree of every vertex is the same, say $k$.\\
+
+		Let $X,Y$ be the partite sets of $G$ with cardinality $p,q$.
+		Then the degree sum of vertices in $X$ is $kp$ and the degree sum of vertices in $Y$ is $kq$.
+		We know that $G$ is bipartite, thus every edge in $G$ has one end in $X$ and the other end in $Y$.
+		Thus, the degree sum of $X$ and $Y$ should be the same.
+		That is, $kp = kq$.
+		Therefore $p = q$.
+		In other word, both partite sets have the same number of vertices.
 	\end{proof}
-	\item
+	\item Show that in a simple graph, any closed walk of odd length contains a cycle.
 	\begin{proof}[Solution]
+		Let $G$ be a simple graph and $W : u_0,e_1,u_1,\dots,e_n,u_0$ be a closed walk of odd length in $G$. If $W$ does not visit any vertex twice(other than the origin $u_0$), then $W$ is a cycle.\\
+
+		Suppose $W$ visits another vertex $v$ multiple times. Suppose every such sections are of even length, then delete all those $u_j-u_k$ sections of $W$ to obtain an odd cycle contained in $W$. If the number of edges of $W$ between two consecutive visits of a vertex $v = u_j,u_k$ is odd, then $u_j-u_k$ section of $W$ is a closed walk of odd length. Repeating like this, we get an odd cycle contained in $W$.
 	\end{proof}
-	\item
+\item Give an example of a disconnected simple graph with $\omega$ components, $n$ vertices and $\frac{(n-\omega)(n-\omega+1)}{2}$ edges
 	\begin{proof}[Solution]
+		Do it yourself (hint : check the proof)
 	\end{proof}
-	\item
+\item Prove or disprove : If $H$ is a subgraph of $G$, then $\delta(H) \le \delta(G)$, $\Delta(H) \le \Delta(G)$.
 	\begin{proof}[Solution]
+		Do it yourself
 	\end{proof}
-	\item
+\item If $m > \frac{(n-1)(n-2)}{2}$, then show that $G$ is connected.
 	\begin{proof}[Solution]
+		Check exercise $8$ with $\omega = 2$.
 	\end{proof}
-	\item
+	\item If $\delta \ge 2$, then show that $G$ contains a cycle.
 	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
-	\end{proof}
-	\item
-	\begin{proof}[Solution]
+		Let $G$ be a graph with $\delta \ge 2$.
+		Suppose $G$ doesnot contain a cycle.
+		Let $v$ be a vertex of $G$ then $v$ has at least two neighbors, say $u,w$. Since $G$ has no cycles, vertices $u,w$ are non-adjacent. Then $w$ have another neighbor  $x$ and $x$ is non-adjacent to $u,v$. Thus, $x$ have another neighbour $y$, which is not adjacent to $u,v$ or $w$. Continuing like this, we get a vertex $z$ with degree $1$ since $G$ has only finite number of vertices. This is a contradiction. Therefore, every finite graph $G$ with $\delta \ge 2$ contains a cycle.
 	\end{proof}
 \end{enumerate}
 
 %\chapter{Directed Graphs}
+\section{Directed Graphs}
+\setcounter{subsection}{1}
+\subsection{Basis Concepts}
+\begin{definition}
+	A \textbf{directed graph} $D$ is a ordered triple $(V(D),A(D),I_D)$ where $V(D)$ is a nonempty set of vertices, $A(D)$ is a set of arcs and $I_D$ is an incidence map that associates each arc of $D$ with an ordered pair of vertices.
+\end{definition}
+
+\begin{remark}
+	A directed graph is also called a digraph. For every digraph $D$, there exists a graph $G$ on the same vertex set which has an edge for each arc of $D$ with same end vertices. This graph $G$ is the \textbf{underlying graph} of $D$.\\
+
+	Let $G$ be a graph. If we assign an arc for each edge of $G$ with same end vertices, then we get a digraph $D$. This assignment/specification is an \textbf{orientation} of $G$. If the size of $G$ is $m$, then $2^m$ orientations are possible.
+\end{remark}
+
+\begin{definition}
+	Let $a = (u,v)$ be an arc of $D$. Then $a$ is \textbf{incident out} of $u$ and \textbf{incident into} $v$. And $v$ is an \textbf{outneighbor} of $u$ and $u$ is an \textbf{inneighbor} of $v$. The sets $\mathbf{N^+_D(u), N^-_D(u)}$ are the outneighborhood and inneighborhood of $u$ respectively. And their cardinalities $d^+_D(u),d^-_D(u)$ are the \textbf{outdegree} and \textbf{indegree} of $u$. Thus, degree of a vertex $u$ is $d_D(u) = d^+_D(u) + d^-_D(u)$.\\
+
+	Since each arc contributes one to sum of indegrees and outdegrees, we have
+	$$ \sum_{v \in V(D)} d^+(v) = \sum_{v \in V(D)} d^-(v) = m(D) $$
+	A vertex $v$ is pendent if $d(v) = 1$. Then either $d^+(v) = 1, d^-(v) = 0$ or $d^+(v) = 0, d^-(v) = 1$. A vertex $v$ is isolated if $d(v) = 0$.
+\end{definition}
+
+\begin{definition}
+	A digraph $D'$ is \textbf{subdigraph} of a digraph $D$ if $V(D') \subset V(D)$, $A(D') \subset A(D)$ and $I_D'$ is the restriction of $I_D$ of $A(D')$.
+\end{definition}
+
+\begin{description}
+	\item[directed walk] is an alternating sequence $W : v_0,a_1,v_1,a_2,\dots,a_n,v_n$ where $a_j = (v_{j-1},v_j)$.
+	A walk is closed if $v_0 = v_n$ otherwise it is open.
+	\item[directed trail] is a directed walk with no arcs repeated.
+	\item[directed path] is a directed walk with no vertices repeated.
+	\item[directed cycle] is a closed directed trail with no vertices repeated.
+	\item[induced subdigraph] $D[S]$ is the maximal subdigraph of the digraph $D$ with vertex set $S$.
+	\item[induced subdigraph] $D[A']$ is the minimal subdigraph of the digraph $D$ with edge set $A'$.
+	\item[reachable] A vertex $v$ is reachable from $u$ if there exists a directed $u-v$ path in $D$.
+	\item[diconnected] Two vertices $u,v$ are diconnected if there exists both $u-v$ directed path and $v-u$ directed path in $D$.\\
+
+		The diconnectedness is an equivalence relation on vertex set of a digraph of $D$. A digraph $D$ is \textbf{strongly connected/diconnected} if it has exactly one dicomponent.
+	\item[strict] A digraph is strict if its underlying graph is simple.
+	\item[symmetric] a digraph is symmetric if $(u,v)$ is an arc of $D$ whenever $(v,u)$ is an arc of $D$.
+\end{description}
+
+\begin{exercise} How many orientations does a simple graph of $m$ edges have ? $2^m$
+\end{exercise}
+
+\begin{exercise} Let $D$ be a directed graph with no directed cycle. Prove that there exists a vertex whose indegree is $0$. Deduce that there is an ordering $v_1,v_2,\dots,v_n$ of $V$ such that for $2 \le i \le n$ every arc of $D$ with terminal vertex $v_i$ has its initial vertex in $\{v_1,v_2,\dots,v_{i-1}\}$.
+\end{exercise}
+\begin{proof}[Solution]
+	See Chapter 1 Problem 12.11
+\end{proof}
+
+\subsection{Tournament}
+\begin{definition}
+	A digraph $D$ is a \textbf{tournament} if its underlying graph is complete.
+\end{definition}
+
+\begin{theorem}[R\'edei]
+	Every tournament contains a directed Hamilton path.
+\end{theorem}
+\begin{proof}
+	The proof is by induction on number of vertices of the tournament. The result is trivial for $n = 2,3$. Suppose the result is true for $n-1$. Let $T$ be a tournament of order $n$. Let $v \in V(T)$. Then $T'=T-\{v\}$ is tournament of order $n-1$. By induction hypothesis $T'$ has a Hamilton path $v_1,v_2,\dots,v_{n-1}$. Suppose $T$ does not have the arcs $(v,v_1)$ or $(v_{n-1},v)$. Otherwise $T$ has a directed Hamilton path. Since $T$ is a tournment it has the arcs $(v_1,v)$ and $(v,v_{n-1})$.\\
+
+	Then there exists a vertex $v_j$ such that $(v_j,v),(v,v_{j+1})$ belongs to the arc set of $T$. Thus, $v_1,v_2,\dots,v_j,v,v_{j+1},\dots,v_{n-1}$ is a Hamilton path in $T$.
+\end{proof}
+
+\begin{theorem}[Moon]
+	Every vertex of a diconnected tournament $T$ on $n$ vertices with $n \ge 3$ is contained in a directed $k$-cyclewhere $3 \le k \le n$.\\ In other words, every diconnected tournament is vertex-pancyclic.
+\end{theorem}
+\begin{proof}
+	Let $T$ be a diconnected tournament with order $n \ge 3$. Let $u \in V(T)$, $S = N^+(u)$ and $S' = N^-(u)$. Since $T$ is diconnected, the set of all arcs from $S$ to $S'$, $[S,S']$ is nonempty, say $vw \in [S,S']$. Then $uvwu$ is a $3$-cycle in $T$. Thus, every vertex in a diconnected tournament belongs to a $3$-cycle.\\
+
+	Suppose $u$ belongs to cycles of length $3 \le k \le p$ where $p < n$. It is enough to prove that $u$ belongs to a cycle of length $p+1$.\\
+
+	By induction hypothesis, there exists a cycle $C : v_0,v_1,\dots,v_{p-1},v_0$ of length $p$ containing $v_0 = u$. Since $p < n$, $T$ has vertices which does not belong to the cycle $C$. Suppose $T$ has a vertex $v$ such that there exists arcs $v_i,v$ and $v,v_j$. Then there would exists two adjacent vertices $v_i,v_{i+1}$ such that arcs $v_iv,vv_{i+1}$ exists. Thus $u$ belongs to a cycle $v_0,v_1,\dots,v_i,v,v_{i+1},\dots,v_{p-1},v_0$ of length $p+1$.\\
+
+	Suppose	no such vertex exists. Let $S$ be the set of vertices such that their inneighbourhood contains $C$ and $S'$ be the set of vertices such that their outneighbourhood contains $C$. Since $T$ is diconnected, both $S,S'$ are nonempty and there exists an arc $vw \in [S,S']$. Then $v_0,v,w,v_2,v_3,\dots,v_{p-1},v_0$ is a cycle of length $p+1$. By induction, every vertex of a diconnected graph belongs to cycles of length $k$ where $3 \le k \le n$.
+\end{proof}
+
+\begin{remark}
+	Every diconnected tournament is Hamiltonian.\footnote{A digraph is Hamiltonian if it contains a directed spanning cycle.}
+\end{remark}
+
+\begin{exercise}
+	Show that every tournament $T$ is diconnected or can be made into one by the reorientation of just one arc of $T$
+\end{exercise}
+\begin{proof}[Solution]
+	By R\'edei's theorem, every tournament contains a directed spanning path, say $v_1,v_2,\dots,v_n$. Suppose $v_nv_1 \in A(T)$. Then $T$ is diconnected. Otherwise, $v_1v_n \in A(T)$ and we can obtain a diconnected tournament by reorienting the arc $v_1v_n$.
+\end{proof}
+
+\begin{exercise}
+	Show that a tournament is diconnected if and only if it has a spanning directed cycle.
+\end{exercise}
+\begin{proof}[Solution]
+	By Moon's theorem, every diconnected tournament is Hamiltonian. Suppose a digraph $T$ is Hamiltonian with directed spanning cycle $C$. Let $u,v \in V(T)$. Then $u-v$, $v-u$ sections of $C$ are directed $u-v$ path and directed $v-u$ path respectively. Therefore, every Hamiltonian digraph $T$ is diconnected.
+\end{proof}
+
+\begin{exercise}
+	Show that every tournament of order $n$ has at most one vertex $v$ with $d^+(v) = n-1$.
+\end{exercise}
+\begin{proof}[Solution]
+	Let $T$ be a tournament of order $n$. Since the underlying graph is complete,  the degree of every vertex of $T$ is $n-1$. Suppose there exists a vertex $u$ with outdegree $n-1$. Then indegree of $u$ is zero. Thus, $u$ is not an outneighbour for any vertex in $T$. Thus, $T$ has at most one vertex with outdegree $n-1$.
+\end{proof}
+
+\begin{exercise}
+	Show that for each positive integer $n \ge 3$, there exists a non-Hamiltonian tournament of order $n$.
+\end{exercise}
+\begin{proof}[Solution]
+	Let $T$ be a tournament of order $n \ge 3$. Suppose $T$ has a vertex $v$ with outdegree( or indegree) $n-1$. Then $T$ is not Hamiltonian.
+\end{proof}
+
+\begin{exercise}
+	Show that if a tournament contains a directed cycle, then it contains a directed cycle of length $3$.
+\end{exercise}
+\begin{proof}[Solution]
+	Suppose a tournament $T$ is Hamiltonian. Then $T$ is diconnected. By Moon's theorem, a diconnected tournament $T$ of order $n \ge 3$ contains a cycle of length $3$.
+\end{proof}
+
+\begin{exercise}
+	Show that every tournament $T$ contains a vertex $v$ such that every other vertex of $T$ is reachable from $v$ by a directed path of length at most $2$.
+\end{exercise}
+\begin{proof}[Solution]
+	Suppose there are no such vertices in a tournament $T$. Then every vertex in $T$ must have a vertex at distance $3$.\\
+
+	Let $u$ be vertex of $T$, there should exists at least one vertex $v$ such that $d(u,v) = 3$ and $u$ in an out-neighbour of $v$. By hypothesis, there is another vertex $w$ such that $d(v,w) = 3$ and arcs $(w,v), (w,u)$ belongs to $T$. By hypothesis, there should exists a vertex different from $u$ and $v$, which is at a distance $3$ from $w$ and the vertices $u,v,w$ are out-neighbours of $x$.\\
+
+	Continuing like this, we get a tournament $T$ with infinite number of vertices which is a contradiction.
+\end{proof}
+\pagebreak
+
+{\Large Module 2}
 %\chapter{Connectivity}
+\section{Connectivity}
+\setcounter{subsection}{1}
+\subsection{Vertex/Edge Cut}
+\begin{definition}
+	Let $G$ be a connected graph. A proper subset $S \subset V(G)$ is a \textbf{vertex cut} if $G-S$ is disconnected. Let $S' = V(G)-S$. Then the set of all edge $[S,S']$ is an \textbf{edge cut}.\\
+
+	If vertex cut is singleton, then its a \textbf{cut vertex}. Similarly, if $[S,S']$ is singleton, then the edge cut is a \textbf{cut edge}.
+\end{definition}
+\begin{remark}
+	If $e = uv$ belongs to an edge cut $[S,S']$, then every edge parallel to $uv$ also belongs to the edge cut. Edge cuts won't contain any loop.\\
+
+	The set of edges $E$ such that $G-E$ is disconnected is a \textbf{separating set of edges}.
+\end{remark}
+
+\begin{exercise}
+	Show that if $\{x,y\}$ is a $2$-edge cut of a graph $G$, then every cycle of $G$ that contains $x$ also contains $y$.
+\end{exercise}
+\begin{proof}[Solution]
+	Let $\{x,y\}$ be an edge cut $[S,S']$ of a graph $G$. Suppose there exists a cycle $C$ containing the edge $x = uv$. Then the cycle should contain another edge from $[S,S']$. Since $y$ is the only remaining edge in $[S,S']$, the cycle should contain $y$. Thus, every cycle containing $x$ (if any) contains $y$.
+\end{proof}
+
+\begin{theorem}
+	A vertex $v$ of a connected graph $G$ with at least three vertices is a cut vertex if and only if there exists vertices $u$ and $w$ of $G$ distinct from $v$ such that $v$ is in every $u-w$ path in $G$.
+\end{theorem}
+\begin{proof}
+	Suppose $v$ belongs to every $u-w$ path in $G$. Then $G-v$ won't have any $u-v$ path. Therefore, $G-v$ is disconnected and $v$ is a cut vertex.\\
+
+	Suppose $v$ is a cut vertex of $G$. Then $G-v$ has at least two components, $G_1,G_2$. Let $u \in V(G_1)$ and $w \in V(G_2)$. Since $G$ is connected, there exists a $u-w$ path in $G$. Clearly, $v$ belongs to every such $u-w$ path in $G$. Otherwise we have a contradiction since the vertices $u,w$ are chosen from two different components of $G-v$.
+\end{proof}
+
+\begin{theorem}
+	An edge $e = xy$ of a connected graph $G$ is a cut edge of $G$ if and only if $e$ belongs to no cycle of $G$.
+\end{theorem}
+\begin{proof}
+	Let $e = xy$ be a cut edge of $G$. Then $G-e$ has two components $G_1$ and $G_2$. Suppose $e$ belongs to a cycle $C : x,y,\dots,w,x$. Then $C$ must contain another edge between $G_1$ and $G_2$ which is a contradiction.\\
+
+	Suppose $e = xy$ is not a cut edge of $G$. Then $G-e$ is connected. Therefore, between $x$ and $y$ there exists a path $P : x,u,\dots,y$ in $G-e$. Clearly, the path $P$ together with the edge $e$ is a cycle containing $e$. By contrapositivity, if there is no cycle containing $e$, then $e$ is a cut edge of $G$.
+\end{proof}
+
+\begin{theorem}
+	An edge $e = xy$ is a cut edge of a connected graph $G$ if and only if there exists vertices $u,v$ such that $e$ belongs to every $u-v$ path in $G$.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a connected graph. Let $e = xy$ be a cut ege of $G$. Since $G$ is connected, there exists at least one $u-v$ path in $G$. Since $e$ is a cut edge of $G$, $G-e$ is a disconnected graph with components $G_1$ and $G_2$. Thus, there exists vertices $u \in V(G_1)$ and $v \in V(G_2)$. Clearly, there is not $u-v$ path in $G-e$. Therefore, it is evident that every $u-v$ path in $G$ contains the edge $e$.\\
+
+	Let $G$ be a connected graph. Suppose there exists two vertices $u,v$ such that an edge $e$ belongs to every $u-v$ path in $G$. Then there is not $u-v$ path in $G-e$. Thus, $G-e$ is disconnected and edge $e$ is a cut edge of $G$.
+\end{proof}
+
+\begin{theorem}
+	A connected graph $G$ with at least two vertices contains at least two vertices that are not cut vertices.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a connected graph. If $G$ has only two vertices, then $G \cong K_2$. And both vertices are not cut vertices.\\
+
+	Suppose $n \ge 3$. Let $u,v$ be two vertices of $G$ such that $d(u,v)$ is maximum. We claim that both $u,v$ are not cut vertices of $G$. Suppose that $u$ is a cut vertex of $G$. Then $G$ has at least two components $G_1$ and $G_2$ such that $v \in G_1$ and $w \in G_2$. Then every $v-w$ path in $G$ contains $u$. Then $d(u,v) < d(w,v)$ which is a contradiction. Therefore, $u$ is not a cut vertex. Similarly, $v$ is not a cut vertex.
+\end{proof}
+
+\begin{proposition}
+	A simple cubic connected graph $G$ has a cut vertex if and only if it has a cut edge.
+\end{proposition}
+\begin{proof}
+	Let $G$ be a simple cubic connected graph.\\
+
+	Suppose $G$ has a cut vertex $u$ with adjacent vertices $v,w,x$. Then $G-u$ has either two or three component. If $G-u$ has only two components, then $G$ has a cut edge $uv$. If $G-u$ has three components, WLoG suppose that $v,w$ belongs the the same component. Then $G$ has a cut edge $ux$.\\
+
+	Suppose $G$ a cut edge $uv$. Then $G$ has a cut vertex $u$.
+\end{proof}
+
+\begin{exercise}
+	Find the vertex cuts and edge cuts of the graph
+\end{exercise}
+\begin{proof}[Solution]
+	do it yourself
+\end{proof}
+
+\begin{exercise}
+	Prove or disprove : Let $G$ be a simple connected graph with $n \ge 3$. Then $G$ has a cut edge if and only if $G$ has a cut vertex.
+\end{exercise}
+\begin{proof}[Solution]
+	do it yourself
+\end{proof}
+
+\begin{exercise}
+	Show that in a graph, the number of edges common to a cycle and an edge cut is even.
+\end{exercise}
+\begin{proof}[Solution]
+	Let $G$ be a graph and $C$ be a cycle in $G$. Let $S,S'$ be a partition of $V(G)$ such that $C$ contains at least one edge from $[S,S']$. Since $C$ is a closed trail, for each edge in $C$ from $[S,S']$, $C$ must contain another edge from $[S,S']$. Thus the number of edges common to a cycle and an edge cut is always an even integer.
+\end{proof}
+
+\subsection{Connectivity and Edge connectivity}
+\begin{definition}
+	The (vertex) \textbf{connectivity}, $\kappa(G)$ is the minimum number $k$ for which there exists a $k$-vertex cut.\\
+
+	If $G$ is trivial or disconnected, then $\kappa = \lambda = 0$. Thus, $\kappa(K_n) = n-1$.
+\end{definition}
+
+\begin{exercise}
+	Prove that a simple graph $G$ with $n$ vertices is complete if and only if $\kappa(G) = n-1$.
+\end{exercise}
+\begin{proof}[Solution]
+	We know that $\kappa(K_n) = n-1$. Suppose $\kappa(G) = n-1$. Suppose $G$ has a non-adjacent pair of vertices $u,v$. Then $V(G)-\{u,v\}$ is a vertex cut of $G$ and $\kappa(G) \le n-2$. This is a contradiction. Thus, every pair of vertices are adjacent in $G$. Therefore $G$ is complete.
+\end{proof}
+\begin{definition}
+	The \textbf{edge connectivity}, $\lambda(G)$ is the minimum number $k$ for which there exists a $k$-edge cut.
+\end{definition}
+
+\begin{exercise}
+	Let $[S,S']$ be a minimum edge cut. Then $G-[S,S']$ has exactly two components.
+\end{exercise}
+\begin{proof}[Solution]
+	Let $G$ be a connected graph with minimum edge cut $[S,S']$. Suppose $G-[S,S']$ has more than two components. Let $G_1$ be one of the components. Define $M = V(G_1)$. Then $[M,M']$ is a proper subset of $[S,S']$ and $G-[M,M']$ is disconnected. This is a contradiction as $[S,S']$ is a minimum edge cut. Therefore, $G - [S,S']$ has only two components.
+\end{proof}
+
+\begin{definition}
+	A graph $G$ is $r$-connected if $\kappa(G) \ge r$. Similarly, $G$ is $r$-edge connected if $\lambda(G) \ge r$.
+\end{definition}
+
+\begin{theorem}
+	For any loopless connected graph $G$,
+	$$ \kappa(G) \le \lambda(G) \le \delta(G) $$
+\end{theorem}
+\begin{proof}
+	Suppose $G$ is connected. Otherwise the result is trivial. Let $\delta$ be the minimum degree $\delta(G)$. Then there exists a vertex $v$ such that $d(v) = \delta$. Consider $S = \{v\}$ and $S'= V(G)-\{v\}$. Then $[S,S']$ is the set of all edges incident on $v$. Clearly, $[S,S']$ is an edge cut which is not necessarily one of the smallest edge cuts. Thus, $\lambda(G) \le k = \delta(G)$.\\
+
+	Let $E$ be an edge cut of $G$ with cardinality $\lambda = \lambda(G)$. Since $G$ is connected, $\lambda \ge 1$. Thus there exists an edge $uv \in E$. For each edge in $G$, delete an end vertex which is neither $u$ nor $v$. Clearly, the number of vertices deleted, $t \le \lambda-1$ and the deletion of $t$ vertices results in the deletion of every edge in $E$ except the edge $uv$. The deletion of either $u$ or $v$ from this graph gives a disconnected/trivial graph. Thus $\kappa(G) = t+1 \le \lambda$.
+\end{proof}
+
+\begin{exercise}
+Prove or disprove : If $H$ is a subgraph of $G$, then\\ \begin{enumerate*} \item $\kappa(H) \le \kappa(G)$ \item $\lambda(H) \le \lambda(G)$ \end{enumerate*}
+\end{exercise}
+\begin{proof}[Solution]
+	do it yourself
+\end{proof}
+
+\begin{exercise}
+	Determine $\lambda(K_n)$ 
+\end{exercise}
+\begin{proof}[Solution]
+	The complete graph $K_n$ is $(n-1)$-regular and $\lambda(K_n) \le n-1$.
+	Suppose $[S,S']$ be an edge cut of $K_n$. Then $[S,S'] = \binom{n-1}{k}$ where $|S| = k$. Clearly, $[S,S']$ is minimum, when $k$ is extremum. Therefore, $k = 1$ and $\lambda(K_n) = n-1$.
+\end{proof}
+
+\begin{exercise}
+	Determine the connectivity and edge connectivity of the Petersen graph $P$.
+\end{exercise}
+\begin{proof}[Solution]
+	The Petersen graph $P$ is a simple, connected, cubic graph.  \footnote{This theorem is proved next, but the proof does not depend on this result.} Therefore, $1 \le \kappa = \lambda \le 3$. Clearly, every edge cut $[S,S']$ of $P$ has cardinality $\ge 3$. Therefore, $\kappa = \lambda = 3$.
+\end{proof}
+
+\begin{theorem}
+	The connectivity and edge connectivity of a simple cubic graph $G$ are equal.
+\end{theorem}
+\begin{proof}
+	Trivially, if simple cubic graph $G$ is disconnected, then $\lambda = \kappa = 0$.
+	We know that a simple cubic connected graph has a cut vertex if and only if it has a cut edge. Therefore, $\lambda = 1$ if and only if $\kappa = 1$.
+	Also we know that $\kappa \le \lambda \le \delta$. Thus, if $\kappa = 3$ then $\lambda = 3$. It is enough to prove that if $\kappa = 2$, then $\lambda = 2$.\\
+
+	Let $\kappa(G) = 2$ and $\{ u,v \}$ be a vertex cut of $G$. Since both $G-u$ and $G-v$ are connected, both $u,v$ must have an edge with every component of $G-\{ u,v \}$. If $G-\{ u, v \}$ has three components $G_1,G_2,G_3$, then the two edges incident on $G_1$ is an edge cut of $G$. If $G-\{ u,v\}$ has only two components $G_1$ and $G_2$, then there are three possibilities
+	\begin{enumerate}
+		\item WLoG $u$ has two edges incident with $G_1$ and one edge incident with $G_2$, $v$ has two edges incident with $G_1$ and one edge incident with $G_2$.
+		\item WLoG $u$ has two edges incident with $G_1$ and one edge incident with $G_2$, $v$ has two edge incident with $G_2$ and one edge incident with $G_1$.
+		\item $u$ is adjacent to $v$ and both $u$ and $v$ have one edge each incident with $G_1$ and $G_2$.
+	\end{enumerate}
+	In the first case, the two edges incident with $G_2$ forms an edge cut of $G$. In the second case, the edge from $u$ incident with $G_2$ and the edge from $v$ incident with $G_1$ forms an edge cut of $G$. In the third case, the two edges incident on $G_1$ forms an edge cut of $G$. Therefore, if $\kappa = 2$ then $\lambda = 2$. Thus, $\kappa = 2$ if and only if $\lambda = 2$.\\
+
+	Suppose $\lambda = 3$. Then $\kappa \ne 0$ since $G$ is connected, $\kappa \ne 1$ since $\lambda \ne 1$, and $\kappa \ne 2$ since $\lambda \ne 2$. Therefore, $\kappa = 3$. Therefore, $\kappa = 3$ if and only if $\lambda = 3$. Clearly, $\kappa = \lambda$ for a simple, cubic graph.
+\end{proof}
+
+\begin{exercise}
+	Give examples of cubic graphs $G_1,G_2,G_3$ with $\kappa = 1,2,3$.
+\end{exercise}
+\begin{proof}[Solution]
+	do it yourself
+\end{proof}
+
+\begin{definition}
+	A family of paths are \textbf{internally disjoint} if no vertex is an internal vertex for more than one path in it.
+\end{definition}
+
+\begin{theorem}[Whitney]
+	A graph with at least three vertices is $2$-connected if and only if any two vertices of $G$ are connected by at least two internally disjoint paths.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a $2$-connected graph with at least three vertices. Let $u,v$ be two distinct vertices of $G$. The proof is by induction on the distance $d(u,v)$.\\
+	
+	Suppose $d(u,v) = 1$. Then $e = uv$ is an edge of $G$. Since $G$ is $2$-connected graph with at least three vertices, $G$ does not have a cut edge. Therefore $G-e$ is connected. That is, there is $u-v$ path $P$ in $G-e$. Then the path $P$ is internally disjoint from the the path $u-v$. Clearly, there two internally disjoint path between $u$ and $v$.\\
+
+	Suppose a $2$-connected graph $G$ has two internally disjoint paths between vertices $x,y$ whenever $d(x,y) = k-1$. Let $d(u,v) = k$. Then there exists a vertex $w$ such that $w$ is adjacent to $v$ and $d(u,w) = k-1$. By induction hypothesis, there exists two internally disjoint $u-w$ paths $P,Q$ in $G$. Since $G$ is $2$-connected, $G-w$ is connected and there exists a $u-v$ path $R$ in $G-w$.\\
+
+	Now using the path $P_1,P_2$ and $Q$ we can construct two internally disjoint $u-v$ paths in $G$. Let $x$ be a vertex on path $Q$ such that the $x-v$ section of $Q$ contains only $x$ in common with $P_1 \cup P_2$. WLoG suppose $x \in P_1$. Then the $u-x$ section of $P_1$ together with $x-v$ section of $Q$ forms a $u-v$ path. And the other $u-w$ path $P_2$ together with the edge $w-v$ forms a $u-v$ path which internally disjoint from the former. Thus there exists two internally disjoint paths between any two vertices $u,v$ of a $2$-connected graph.\\
+
+	Suppose any two vertices $u,v$ of a graph has two internally disjoint paths. Then $G$ does not have any cut vertex. Therefore, $G$ is $2$-connected.
+\end{proof}
+
+\begin{theorem}
+	A graph $G$ with at least three vertices is $2$-connected if and only if any two vertices of $G$ lie on a common cycle.
+\end{theorem}
+\begin{proof}
+	Let $G$ be a $2$-connected graph with at least three vertices. Let $u,v$ be any two vertices of $G$. There there exists two internally disjoint paths $P,Q$ between $u$ and $v$. Then $P \cup Q$ is a cycle containing both $u$ and $v$.\\
+
+	Suppose any two vertices $u,v$ of $G$ belongs to a common cycle. Then, there are two internally disjoint paths between any two pair of vertices in $G$. Therefore, by Whitney's theorem $G$ is $2$-connected.
+\end{proof}
+
+\begin{remark}
+	A $2$-connected graph $G$ has at least two internally disjoint $u-v$ paths. However, given a $u-v$ path $P$ there may not exist another $u-v$ path $Q$ such that $P,Q$ are internally disjoint.
+\end{remark}
+
+\begin{exercise}
+	\begin{enumerate}
+		\item Show that a graph $G$ with at least three vertices is $2$-connected if and only if any vertex and any edge of $G$ lie on a common cycle of $G$
+		\item Show that a graph $G$ with at least three vertices is $2$-connected if and only if any two edges of $G$ lie on a common cycle.
+	\end{enumerate}
+\end{exercise}
+\begin{proof}[Solution]
+	Let $G$ be a $2$-connected graph. Let $v$ be a vertex and $e = xy$ be an edge of $G$.
+	yet to complete
+\end{proof}
+
+\begin{exercise}
+	Prove that a graph is $2$-connected if and only if for every pair of disjoint connected subgraphs $G_1$ and $G_2$, there exist two internally disjoint paths $P_1$ and $P_2$ of $G$ between $G_1$ and $G_2$.
+\end{exercise}
+\begin{proof}[Solution]
+\end{proof}
+
+\begin{exercise}
+	Prove that a graph $G$ with $n \ge 3$ is $2$-edge connected if and only if any two distinct vertices of $G$ are connected by at least two edge-disjoint paths in $G$.	
+\end{exercise}
+\begin{proof}[Solution]
+\end{proof}
+
+\begin{exercise}
+	\begin{enumerate*}
+		\item Disprove : $\kappa(G) = \kappa(L(G))$.
+		\item Prove : $\lambda(G) = \kappa(L(G))$. Give an example of a graph $G$ for which $\lambda(G) < \kappa(L(G))$.
+	\end{enumerate*}
+\end{exercise}
+\begin{proof}[Solution]
+\end{proof}
+
+\begin{theorem}
+	In a $2$-connected graph $G$ any two longest cycles have at least two vertices in common.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	A connected simple graph $G$ is $3$-edge connected if and only if every edge of $G$ is the intersection of the edge sets of two cycles of $G$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Blocks}
+\begin{definition}
+	A graph $G$ is \textbf{nonseparable} if it is nontrivial, connected and has no cut vertices. A \textbf{block} is a maximal nonseparable subgraph of $G$.\\
+
+	If $G$ has no cut vertices, then $G$ itself is a block. A block having exactly one cut vertex is an \textbf{end block} of $G$.
+\end{definition}
+
+\begin{remark}
+Let $G$ be a connected graph with $n \ge 3$. Then
+\begin{enumerate}
+	\item Each block of $G$ with at least three vertices is a $2$-connected subgraph of $G$.
+	\item Each edge of $G$ belongs to exactly one block. Thus, $G$ is an edge disjoint union of its blocks.
+	\item Any two blocks of $G$ have at most one vertex in common. Such a common vertex is a cut vertex of $G$.
+	\item A vertex of $G$ belongs to exactly on block if it is not a cut vertex.
+	\item A vertex of $G$ is a cut vertex if and only if it belongs to at least two blocks of $G$.
+\end{enumerate}
+\end{remark}
+
+\begin{theorem}
+	If $C$ is any cycle of a simple block $G$, then there exists a sequence of nonseparable subgraphs $C = B_0,B_1,\dots,B_r = G$ such that $B_{i+1}$ is an edge disjoint union of $B_i$ and a path $P_i$ where only vertices in common with $B_i$ and $P_i$ are the edge vertices of $P_i$, $0 \le i \le r-1$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Cyclic Edge Connectivity}
+\begin{definition}
+	Let $G$ be a simple connected graph containing at least two disjoint cycles. Then the \textbf{cyclic edge connectivity} of $G$, $\lambda_c(G)$ is the minimum number of edges whose deletion gives a graph with two components each containing a cycle.
+\end{definition}
+
+\begin{exercise}
+	Show that the cyclic edge connectivity of the Petersen graph is $5$.
+\end{exercise}
+\begin{proof}[Solution]
+	do it yourself
+\end{proof}
+
 %\chapter{Trees}
+\section{Tree}
+\setcounter{subsection}{1}
+\subsection{Properties}
+\subsection{Centers and Centroids}
+\subsection{Counting the number of spanning trees}
+\subsection{Cayley's Formula}
+\setcounter{subsection}{6}
+\subsection{Applications}
+\subsubsection{The connector problem}
+\subsubsection{Kruskal's Algorithm}
+\subsubsection{Prim's Algorithm}
+\subsubsection{Shortest path problems}
+\subsubsection{Dijkstra's Algorithm}
+
+%\chapter{Matchings and Factors}
+\setcounter{section}{5}
+\pagebreak
+
+{\Large Module 3}
 %\chapter{Eulerian \& Hamiltonian Graphs}
+\section{Eulerian \& Hamiltonian Graphs}
+\setcounter{subsection}{1}
+\subsection{Eulerian Graphs}
+\begin{definition}
+	An \textbf{Euler trail} is a spanning trail that contains all edges of $G$. An \textbf{Euler tour} is a closed Euler trail of $G$. Graph $G$ is \textbf{Eulerian} if it has an Euler tour.
+\end{definition}
+
+\begin{theorem}
+	For a nontrivial connected graph $G$, the following are statements are equivalent
+	\begin{enumerate}
+		\item $G$ is Eulerian.
+		\item The degree of each vertex of $G$ is an even positive integer.
+		\item $G$ is an edge-disjoint union of cycles.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	A graph $G$ is Eulerian if and only if each edge $e$ of $G$ belongs to an odd number of cycles of $G$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	A graph is Eulerian if and only if it has an odd number of cycle decompositions.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\subsection{Hamiltonian Graphs}
+\begin{theorem}
+	If $G$ is Hamiltonian, then for every nonempty proper subset $S$ of $V$, $\omega(G-S) \le |S|$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Ore]
+	Let $G$ be a simple graph with $n \ge 3$ vertices. If, for every pair of nonadjacent vertices $u,v$ of $G$, $d(u) + d(v) \ge n$, then $G$ is Hamiltonian.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}[Dirac]
+	If $G$ is a simple graph with $n \ge 3$ and $\delta \ge \frac{n}{2}$, then $G$ is Hamiltonian.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	Let $G$ be a simple graph of order $n \ge 3$. Then $G$ is Hamiltonian if and only if $G + uv$ is Hamiltonian for every pair of nonadjacent vertices $u$ and $v$ with $d(u) + d(v) \ge n$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	The \textbf{closure} of a graph $G$ is the maximal supergraph of $G$ obtained by recursively joining pairs of nonadjacent vertices whose degree sum is  at least $n$.
+\end{definition}
+
+\begin{theorem}
+	The closure $cl(G)$ of a graph $G$ is well defined.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	If $cl(G)$ is Hamiltonian, then $G$ is Hamiltonian.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	If $cl(G)$ is complete, then $G$ is Hamiltonian.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Chv\'atal, Erd\"s]
+	If, for a simple $2$-connected graph $G$, $\alpha \le \kappa$, then $G$ is Hamiltonian.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	A graph $G$ is \textbf{Hamiltonian-connected} if any two vertices of $G$ are connected by a Hamiltonian path.
+\end{definition}
+
+ \begin{theorem}
+	If $G$ is a simple graph with $n \ge 3$ vertices such that $d(u)+d(v) \ge n+1$ for every pair of nonadjacent vertices of $G$, then $G$ is Hamiltonian-connected.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
 %\chapter{Graph Colorings}
+\section{Graph Colorings}
+\setcounter{subsection}{1}
+\subsection{Vertex Colorings}
+\begin{commentary}
+	Usually we will admit a definition and then a few equivalent conditions. Here the author is suggesting two equivalent definitions for the chromatic number.
+\end{commentary}
+
+\begin{definition}
+	The \textbf{chromatic number} $\chi(G)$ of a graph $G$ is the minimum number of indepedent subsets that partition the vertex set of $G$. Any such minimum partition is a \textbf{chromatic partition} of $V(G)$.
+\end{definition}
+
+\begin{definition}
+	The \textbf{vertex coloring} is a map $f : V(G) \to \mathbb{N}$.\footnote{The author suggests $f : V(G) \to S$ where $S$ is the set of colors. I would strongly suggest against it as we are not interested in colors, but chromatic partition.}  And a vertex coloring is \textbf{proper} if adjacent vertices have different colors. The \textbf{chromatic number} of a graph $G$ is the minimum number of colors needed for a proper vertex coloring of $G$. A graph $G$ is $k$-chromatic if $\chi(G) = k$.
+\end{definition}
+
+\begin{definition}
+	A $k$-coloring of a graph $G$ is a vertex coloring of $G$ that used at most $k$ colors.
+\end{definition}
+
+\begin{definition}
+	A graph is $k$-colorable if $G$ has a proper vertex coloring that uses at most $k$ colors.
+\end{definition}
+
+\begin{theorem}
+	If graph $G$ has $n$ vertices and independence number $\alpha$,
+	$$ \frac{n}{\alpha} \le \chi \le n-\alpha+1 $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	For any simple graph $G$
+	$$ 2\sqrt{n} \le \chi + \chi^c \le n+1 \quad \text{and} \quad n \le \chi\chi^c \le \left(\frac{n+1}{2}\right)^2 $$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Critical Graphs}
+\begin{definition}
+	A graph $G$ is \textbf{critical} if for every proper subgraph $H$ of $G$, $\chi(H) < \chi(G)$. A graph $G$ is $k$-critical if it is $k$-chromatic and critical.
+\end{definition}
+
+\begin{remark}
+	If $\chi(G) = 1$, then $G$ is either trivial or totally disconnected. If $\chi(G) = 2$, then $G$ is bipartite. If $\chi(G) = 3$, then $G$ has an odd cycle.\\
+
+	Graph $G$ is $1$-critical if and only if $G \cong K_1$. Graph $G$ is $2$-critical if and only if $G \cong K_2$. Graph $G$ is $3$-critical if and only if $G \cong C_n$ where $n$ is odd.
+\end{remark}
+
+\begin{theorem}
+	If $G$ is $k$-critical, then $\delta(G) \ge k-1$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	For any graph $G$, $\chi(G) \le 1 + \Delta(G)$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	In a critical graph $G$, no vertex cut is a clique.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	Every critical graph is a block.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\subsubsection{Brook's Theorem}
+\begin{theorem}
+	If a connected graph $G$ is neither an odd cycle nor a complete graph, then $\chi(G) \le \Delta(G)$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+\pagebreak
+
+{\Large Module 4}
 %\chapter{Planarity}
+\section{Planarity}
+%\subsection{Introduction}
+\setcounter{subsection}{1}
+\subsection{Planar and Nonplanar Graphs}
+\begin{definition}
+	A graph $G$ is \textbf{planar} if there exists a drawing of $G$ in the plane in which no two edges intersect in a point other than a vertex of $G$, where each edge is a Jordan arc. The drawing of $G$ is the \textbf{plane representation} of $G$.
+	A Plane embedding of planar graph $G$ is a \textbf{plane graph} $G$.
+\end{definition}
+
+\begin{example}
+	$K_4$ is a Planar Graph. All trees, cycles and wheels are planar. Petersen graph is nonplanar.
+\end{example}
+
+\begin{definition}
+	Define the relation $\sim$ such that $A \sim B$ if there exists a Jordan arc from $A$ to $B$. Clearly, it is an equivalence relation on any subset of $\mathbb{R}^2$.
+	The planar representation of a graph $G$ (if exists) divides the rest of the plane $\pi$ into equivalent classes under the relation $\sim$. These equivalence classes are the \textbf{faces} of the planar graph.
+\end{definition}
+
+\begin{remark}
+\begin{itemize}
+	\item A connected graph is a tree if and only if it has only one face.
+	\item Any plane graph has exactly one unbounded face.
+\end{itemize}
+\end{remark}
+
+\begin{theorem}
+	A graph is planar if and only if it is embeddable on a sphere.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+\begin{enumerate}
+	\item Let $G$ be a plane graph and $f$ be a face of $G$. Then there exists a plane embedding of $G$ in which $f$ is the exterior face.
+	\item Let $G$ be a planar graph. Then $G$ can be embedded on a plane such that any specific vertex(edge) belongs to the exterior of the plane graph.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\subsection{Euler Formula and its consequences}
+\begin{theorem}
+	For a connected, plane graph $G$, $n - m + f = 2$, where $n,m,f$ are number of vertices, edges and faces of $G$ respectively.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	All plane embeddings of a given planar graph have the same number of faces.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	If $G$ is a simple, planar graph with at least three vertices, then $m \le 3n-6$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{example}
+	The complement of a simple, planar graph with $11$ vertices is nonplanar.
+\end{example}
+
+\begin{corollary}
+	For a simple, planar graph $G$, $\delta(G) \le 5$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	The girth of a graph $G$ is the length of the shortest cycle in $G$.
+\end{definition}
+
+\begin{theorem}
+	If the girth $k$ of a connected plane graph is at least $3$, then $$m \le \frac{k(n-2)}{k-2}$$
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	The Petersen graph is nonplanar.
+\end{corollary}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Show that every simple bipartite cubic planar graph contains a $C_4$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	A nonplanar graph $G$ is planar-vertex-critical if $G-v$ if planar for every vertex $v$ of $G$.
+\end{definition}
+
+\begin{exercise}
+	Prove that every planar-vertex-critical graph is $2$-connected.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a simple, planar, cubic graph with eight faces. Determine $n(G)$. Draw two such graphs that are nonisomorphic.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Prove that If $G$ is a simple, connected, planar, bipartite graph, then $m \le 2n-4$ where $n \ge 3$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Prove that if $G$ is a simple, planar graph with at least four vertices, then there exists at least four vertices with degree at most $5$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	If $G$ is a nonplanar graph, show that it has either five vertices of degree at least $4$ or six vertices of degree at at least $3$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	A simple planar graph with minimum degree at least five contains at least 12 vertices. Draw simple planar graph with $12$ vertices and minimum degree $5$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Show that there is no $6$-connected planar graph.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a plane graph of order $n$ and size $m$ in which every face is bounded a $k$-cycle. Show that $m = \frac{k(n-2)}{k-2}$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	A graph $G$ is \textbf{maximal planar} if $G$ is planar, but for any pair of nonadjacent vertices $u,v$ of $G$, $G+uv$ is nonplanar.
+\end{definition}
+
+\begin{definition}
+	A plane triangulation is plane graph in which each of its faces are bounded by a triangle.
+\end{definition}
+
+\begin{remark}
+	Show that a plane embedding of a simple, maximal planar graph is a plane triangulation.
+\end{remark}
+
+\begin{exercise}
+	Embed a $3$-cube $Q_3$ in a maximal planar graph having the same vertex set as $Q_3$. Count the number of new edges added.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Prove that for a simple, maximal planar matrix on $n \ge 3$ vertices, $m = 3n-6$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	For any simple planar graph, $m \le 3n - 6$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Show that every triangulation of order $n \ge 4$ is $3$ connected.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Let $G$ be a maximal planar graph with $n \ge 4$. Let $n_i$ be the number of vertices of degree $i$ in $G$. Prove that $$ 3n_3 + 2n_4 + n_5 = 12 + n_7 + 2n_8 + 3n_9 + 4n_{10} + \dots $$
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Generalise Euler Forumula for disconnected plane graphs.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\subsection{$K_5$ and $K_{3,3}$ are Nonplanar Graphs}
+\begin{theorem}
+	$K_5$ is nonplanar.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+	$K_{3,3}$ is nonplanar.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+	Find the maximum number of edges in a planar complete tripartite graph with each part of size at least $2$.
+\end{exercise}
+\begin{proof}
+\end{proof}
+
+\begin{remark} $K_5, K_{3,3}$ have some common features
+\begin{enumerate}
+	\item both are regular.
+	\item both give planar graph when a vertex(or an edge) is deleted.
+	\item both give planar graph on contraction of an edge.
+	\item both are smallest nonplanar graphs.
+\end{enumerate}
+\end{remark}
+
+%\subsection{Dual of a Planar Graph}
+%\subsection{The Four-Colour Theorem and the Heawood Five-Colour Theorem}
+%\subsection{Kuratowski's Theorem}
+%\subsection{Hamiltonian Plane Graphs}
+%\subsection{Tait Colouring}
+
+%\chapter{Triangulated Graphs}
+%\chapter{Domination in Graphs}
 %\chapter{Spectrum of Graphs}
+
+\setcounter{section}{10}
+\section{Spectral Properties of Graphs}
+%\subsection{Introduction}
+
+\setcounter{subsection}{1}
+\subsection{The Spectrum of a Graph}
+\begin{definition}
+	The set of eigenvalues of the adjacency matrix of a graph $G$ is the \textbf{spectrum} of $G$. The spectrum is denoted by $Sp(G)$.
+\end{definition}
+
+\subsection{Spectrum of the Complete Graph $K_n$}
+\subsection{The Spectrum of the Cycle $C_n$}
+\subsubsection{Coefficients of the Characteristic Polynomial}
+%\subsection{The Spectra of Regular Graphs}
+%\subsection{Spectrum of the Complete Bipartite Graph $K_{p,q}$}
+%\subsection{The Determinant of the Adjacency Matrix of a Graph}
+%\subsection{Spectra of Product Graphs}
+%\subsection{Cayley Graphs}
+%\subsection{Strongly Regular Graphs}
+%\subsection{Ramanujan Graphs}
+%\subsection{The Energy of a Graph}
+%\subsection{Energy of Mycielskian of a Regular Graph}

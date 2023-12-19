@@ -1,17 +1,17 @@
 %Text Books : \cite{ahlfors}
 %Module 1:
-%Harmonic Functions - Definitions and Basic Properties, The Mean-Value Property, Poisson`s Formula, Schwarz`s Theorem, The Reflection Principle. A closer look at Harmonic Functions - Functions with Mean Value Property, Harnack`s Principle.
-%The Dirichlet`s Problem - Subharmonic Functions, Solution of Dirichlet`s Problem ( Proof of Dirichlet`s Problem and Proofs of Lemma 1 and 2 excluded )
+%Harmonic Functions - Definitions and Basic Properties, The Mean-Value Property, Poisson's Formula, Schwarz's Theorem, The Reflection Principle. A closer look at Harmonic Functions - Functions with Mean Value Property, Harnack's Principle.
+%The Dirichlet's Problem - Subharmonic Functions, Solution of Dirichlet's Problem ( Proof of Dirichlet's Problem and Proofs of Lemma 1 and 2 excluded )
 %(Chapter 4 : Section 6: 6.1 - 6.5, Chapter 6 : Section 3 : 3.1 - 3.2 , Section 4 : 4.1 - 4.2)
 %Module 2:
-%Power Series Expansions - Weierstrass`s theorem, The Taylor Series, The Laurent Series Partial Fractions and Factorization - Partial Fractions, Infinite Products, Canonical Products, The Gamma Function. Entire Functions - Jensen`s Formula, Hadamard`s Theorem ( Hadamard`s theorem - proof excluded)
+%Power Series Expansions - Weierstrass's theorem, The Taylor Series, The Laurent Series Partial Fractions and Factorization - Partial Fractions, Infinite Products, Canonical Products, The Gamma Function. Entire Functions - Jensen's Formula, Hadamard's Theorem ( Hadamard's theorem - proof excluded)
 %(Chapter 5 : Section 1 : 1.1 - 1.3, Section 2 : 2.1 - 2.4, Section 3 : 3.1 - 3.2 )
 %Module 3:
-%The Riemann Zeta Function - The Product Development, The Extension of $\zeta(s)$ to the Whole Plane, The Functional Equation, The Zeroes of the Zeta Function Normal Families - Normality and Compactness, Arzela`s Theorem
+%The Riemann Zeta Function - The Product Development, The Extension of $\zeta(s)$ to the Whole Plane, The Functional Equation, The Zeroes of the Zeta Function Normal Families - Normality and Compactness, Arzela's Theorem
 %(Chapter 5 : Section 4 : 4.1 - 4.4, Section 5 : 5.2 - 5.3)
 %Module 4:
 %The Riemann Mapping Theorem - Statement and Proof, Boundary Behaviour, Use of the Reflection Principle
-%The Weierstrass`s Theory - The Weierstrass`s $\wp$-function, The functions $\zeta(s)$ and $\sigma(z)$, The Differential Equation
+%The Weierstrass's Theory - The Weierstrass's $\wp$-function, The functions $\zeta(s)$ and $\sigma(z)$, The Differential Equation
 %(Chapter 6 : Section 1: 1.1-1.3, Chapter 7 : Section 3 : 3.1 - 3.3)
 
 %Module 1 - \cite{ahlfors} 4.6, 6.3, 6.4
@@ -25,7 +25,7 @@
 \section{Harmonic Functions(4.6)}
 \subsection{Definition and Basic properties(4.6.1) pp. 162}
 \begin{definition}[harmonic]
-	A real-valued function $u(z)$ defined and single-valued in a region $\Omega$ is harmonic if it is continuous together with its partial derivatives of first two orders and satisfies Laplace`s equation
+	A real-valued function $u(z)$ defined and single-valued in a region $\Omega$ is harmonic if it is continuous together with its partial derivatives of first two orders and satisfies Laplace's equation
 	\[ \Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0 \]
 
 	In polar form,
@@ -55,7 +55,7 @@
 
 \subsection{The Mean-value Property(4.6.2) pp. 165}
 \begin{theorem}
-	The arithmetic mean of a harmonic function over arithmetic circles $z|=r$ is a linear function of $\log r$,	
+	The arithmetic mean of a harmonic function over concentric circles $|z|=r$ is a linear function of $\log r$,	
 	\begin{equation}
 		u(z_0) = \frac{1}{2\pi} \int_0^{2\pi} u\ d\theta = \alpha \log r + \beta
 	\end{equation}
@@ -69,9 +69,9 @@
 \begin{proof}
 \end{proof}
 
-\subsection{Poisson`s Formula(4.6.3) pp. 166}
+\subsection{Poisson's Formula(4.6.3) pp. 166}
 \begin{remark}
-	If $u(z)$ is continous on a closed bounded set $E$ and harmonic in the interior of $E$, then it is uniquely determined by its values on the boundary of $E$.
+	If $u(z)$ is continuous on a closed bounded set $E$ and harmonic in the interior of $E$, then it is uniquely determined by its values on the boundary of $E$.
 \end{remark}
 \begin{theorem}
 	Suppose that $u(z)$ is harmonic for $|z| < R$, continuous for $|z| \le R$. Then
@@ -82,9 +82,9 @@
 \begin{proof}
 \end{proof}
 
-\subsection{Schwarz`s Theorem(4.6.4) pp. 168}
+\subsection{Schwarz's Theorem(4.6.4) pp. 168}
 \begin{definition}[Poisson integral]
-	Let $U$ be a piece-wise continous function on $[0,2\pi]$.
+	Let $U$ be a piece-wise continuous function on $[0,2\pi]$.
 	The Poisson integral of $U$ is given by,
 	\begin{equation}
 		P_U(z) = \frac{1}{2\pi} \int_0^{2\pi} \Re\left(\frac{e^{i\theta}+z}{e^{i\theta}-z}\right)\ U(\theta)\ d\theta
@@ -133,7 +133,7 @@
 
 \begin{theorem}[Reflection Principle]
 	Let $\Omega^+$ be the part in the upper plane of a symmetric region $\Omega$ and $\sigma$ be its part on the real axis.
-	Let $v(z)$ be continuous on $\Omega^+ \cup \sigma$, analytic on $\Omega^+$ and vanishes on $\sigma$.
+	Let $v(z)$ be continuous on $\Omega^+ \cup \sigma$, harmonic on $\Omega^+$ and vanishes on $\sigma$.
 	Then $v$ has a harmonic extension to $\Omega$ satisfying $v(\bar{z}) = -v(z)$.
 	And if $v$ is the imgainary part of an analytic function $f(z)$ in $\Omega^+$, then $f(z)$ has an analytic extension which satisfies $f(z) = \overline{f(\bar{z})}$.
 \end{theorem}
@@ -156,15 +156,15 @@
 \begin{proof}
 \end{proof}
 
-\subsection{Harnack`s Principle (6.3.2) pp. 243}
-\begin{theorem}[Harnack`s Inequality]
+\subsection{Harnack's Principle (6.3.2) pp. 243}
+\begin{theorem}[Harnack's Inequality]
 	\[ \frac{\rho-r}{\rho+r} u(0) \le u(z) \le \frac{\rho+r}{\rho-r}u(0) \]
 	where $u(z)$ is harmonic in $|z| = r < \rho$ and continuous is $|z| \le \rho$.
 \end{theorem}
 \begin{proof}
 \end{proof}
 
-\begin{theorem}[Harnack`s Principle]
+\begin{theorem}[Harnack's Principle]
 	Increasing sequence of harmonic functions on regions $\Omega_n$ converges to either $+\infty$ or a harmonic function $u$ uniformly on every compact subset of $\Omega$ where every point $z \in \Omega$ belongs to all except finitely many $\Omega_n$.
 \end{theorem}
 \begin{proof}
@@ -217,7 +217,7 @@
 	Upper continuous function attains maximum on any compact set.
 \end{remark}
 
-\subsection{Solution of Dirichlet`s Problem (6.4.2) pp. 248}
+\subsection{Solution of Dirichlet's Problem (6.4.2) pp. 248}
 \begin{definition}[$\mathfrak{B}(f)$]
 	Let $f$ be continuous real-vallued function defined on the boundary $\Gamma$ of a bounded region $\Omega$.
 	The family of functions, $\mathfrak{B}(f)$ contains all functions $v$ such that 
@@ -232,17 +232,17 @@
 \begin{proof}
 \end{proof}
 
-\begin{remark}[Perron`s method]
+\begin{remark}[Perron's method]
 	Let $\Omega$ be a bounded\footnote{Bounded Set : A set $\Omega$ of complex numbers is bounded, if there exists $\rho \in \mathbb{R}$ such that $\Omega$ is contained in an open disk of radius $\rho$ about origin.} region.
 	Let $\Gamma$ be the boundary of $\Omega$.
 	Let $f$ be a continuous, real-valued function on $\Gamma$.
-	Then, corresponding to each function $f$, there exists a harmonic function $u$ on $\Omega$ which can be obtained by Perron`s method.\\
+	Then, corresponding to each function $f$, there exists a harmonic function $u$ on $\Omega$ which can be obtained by Perron's method.\\
 
 	Let $\Delta$ be a disk whose closure in contained in $\Omega$.
 	Let $z_0 \in \Delta$ and sequence $\sequence{v_n}$ in $\mathfrak{B}(f)$ such that $\sequence{v_n(z_0)}$ converges.
 	Define $u(z_0) = \lim_{n \to \infty} v_n(z_0)$.
 	Without loss of generality, $\sequence{v_n}$ is nondecreasing.\footnote{If not, consider $V_n = \max\{v_1,v_2,\dots,v_n\}$}
-	By Harnack`s principle, there exists a harmonic function $U$ such that $U \le u$ and $U(z_0) = u(z_0)$.\\
+	By Harnack's principle, there exists a harmonic function $U$ such that $U \le u$ and $U(z_0) = u(z_0)$.\\
 
 	Let $z_1 \in \Delta$ and sequence $\sequence{w_n}$ in $\mathfrak{B}(f)$ converges.
 	Define $u(z_1) = \lim_{n \to \infty} w_n(z_1)$.
@@ -253,7 +253,7 @@
 \end{remark}
 
 \begin{lemma}
-	Suppose there exists a harmonic function $w(z)$ in $\Omega$ whos continuous boundary values $w(\zeta)$ are strictly positive except at one point $\zeta_0 = 0$. Then, if $f(\zeta)$ is continuous at $\zeta_0$, the corresponding function $u$ determined by Perron`s method satisfies $\displaystyle \lim_{z \to \zeta_0} u(z) = f(\zeta_0)$.
+	Suppose there exists a harmonic function $w(z)$ in $\Omega$ whos continuous boundary values $w(\zeta)$ are strictly positive except at one point $\zeta_0 = 0$. Then, if $f(\zeta)$ is continuous at $\zeta_0$, the corresponding function $u$ determined by Perron's method satisfies $\displaystyle \lim_{z \to \zeta_0} u(z) = f(\zeta_0)$.
 \end{lemma}
 \begin{proof}
 \end{proof}
@@ -268,10 +268,10 @@
 %Module 2 - 5.1, 5.2, 5.3
 {\Large Module 2}
 \section{Power Series Expansions(5.1)}
-\subsection{Weierstrass`s Theorem(5.1.1) pp.175}
+\subsection{Weierstrass's Theorem(5.1.1) pp.175}
 \begin{important}
-	Weierstrass`s theorem gives a sufficient condition for convergence to preserve analyticity, that is uniform convergence on every compact subset of the region. 
-	And Hurwitz`s theorem characterises such analytic, limit functions.
+	Weierstrass's theorem gives a sufficient condition for convergence to preserve analyticity, that is uniform convergence on every compact subset of the region. 
+	And Hurwitz's theorem characterises such analytic, limit functions.
 \end{important}
 \begin{theorem}[Weierstrass]
 	Suppose $f_n(z)$ is analytic in the region $\Omega_n$, and the sequence $\sequence{f_n(z)}$ converges to $f(z)$ in a region $\Omega$ uniformly on every compact subset of $\Omega$. Then the limit function $f(z)$ is analytic in $\Omega$. Moreover, $f_n^\prime(z)$ converges to $f^\prime(z)$ on every compact subset of $\Omega$.
@@ -385,7 +385,7 @@ Computational techniques to obtain Taylor series representation,
 \begin{theorem}[Mittag-Leffler]
 	Let $\sequence{b_\nu}$ be a sequence of complex numbers with $\displaystyle \lim_{\nu \to \infty} b_\nu = \infty$, and let $P_\nu(\zeta)$ be polynomials without constant term. Then there are functions which are meromorphic in the whole plane with poles are the points $b_\nu$ and the corresponding singular parts $P_\nu(\frac{1}{z-b_\nu})$. Moreover, the most general meromorphic function of this kind can be written in the form
 	\begin{equation}
-		f(z) = \sum_\nu \left( P_v(\frac{1}{z-b_nu} - p_\nu(z) \right) + g(z)
+		f(z) = \sum_\nu \left[ P_v\left(\frac{1}{z-b_\nu}\right) - p_\nu(z) \right] + g(z)
 	\end{equation}
 	where $p_\nu(z)$ are suitably chosen polynomials and $g(z)$ is analytic in the whole plane.
 \end{theorem}
@@ -440,7 +440,7 @@ Computational techniques to obtain Taylor series representation,
 	\begin{equation}
 		f(z) = z^m e^{g(z)} \prod_{n=1}^\infty \left( 1- \frac{z}{a_n} \right) e^{\frac{z}{a_n} + \frac{1}{2}(\frac{z}{a_n})^2 + \dotsb + \frac{1}{m_n}(\frac{z}{a_n})^{m_n}}
 	\end{equation}
-	where all the product is taken over all $a_n \ne 0$, then $m_n$ are certain integers, and $g(z)$ is an entire function.
+	where all the product is taken over all $a_n \ne 0$, the $m_n$ are certain integers, and $g(z)$ is an entire function.
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -453,11 +453,11 @@ Computational techniques to obtain Taylor series representation,
 
 \subsection{The Gamma Function (5.2.4) pp 198}
 \begin{definition}
-	Euler`s gamma function is defined as,
+	Euler's gamma function is defined as,
 \begin{equation}
 	\Gamma(z) = \frac{e^{-\gamma z}{z}}{z} \prod_{n=1}^\infty \left( 1+\frac{z}{n}\right)^{-1} e^\frac{z}{n}
 \end{equation}
-	where $\gamma = \displaystyle \lim_{n \to \infty} \left( 1+ \frac{1}{2} + \frac{1}{3} + \dotsb + \frac{1}{n} - \log n \right) \approx 0.57722 $ is the Euler`s constant.
+	where $\gamma = \displaystyle \lim_{n \to \infty} \left( 1+ \frac{1}{2} + \frac{1}{3} + \dotsb + \frac{1}{n} - \log n \right) \approx 0.57722 $ is the Euler's constant.
 \end{definition}
 \begin{remark}
 	\begin{equation}
@@ -469,13 +469,13 @@ Computational techniques to obtain Taylor series representation,
 		\Gamma(z) \Gamma(1-z) = \frac{\pi}{\sin \pi z}
 	\end{equation}
 \end{remark}
-\begin{remark}[Legendre`s Duplication Formula]
+\begin{remark}[Legendre's Duplication Formula]
 	\begin{equation}
 		\sqrt{\pi} \Gamma(2z) = 2^{2z-1} \Gamma\left(z+\frac{1}{2}\right)
 	\end{equation}
 \end{remark}
 \subsection*{Exercise}
-\begin{remark}[Gauss`s Formula]
+\begin{remark}[Gauss's Formula]
 	\begin{equation}
 		(2\pi)^\frac{n-1}{2} \Gamma(z) = n^{z-\frac{1}{2}} \ \Gamma\left(\frac{z}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \Gamma\left(\frac{z+1}{n}\right) \ \dotsm \ \Gamma\left(\frac{z+n+1}{n}\right)
 	\end{equation}
@@ -487,10 +487,10 @@ Computational techniques to obtain Taylor series representation,
 	\end{equation}
 \end{remark}
 
-%\subsection{Stirling`s Formula (5.2.5) pp 201}
+%\subsection{Stirling's Formula (5.2.5) pp 201}
 \section{Entire Functions(5.3)}
-\subsection{Jensen`s Formula (5.3.1) pp 207}
-\begin{remark}[Jensen`s Formula]
+\subsection{Jensen's Formula (5.3.1) pp 207}
+\begin{remark}[Jensen's Formula]
 	Let $f$ be an entire function with zeroes $a_1,a_2,\dots,a_n$ in the interior of $|z| < \rho$.
 	Then,
 	\begin{equation}
@@ -509,7 +509,7 @@ Computational techniques to obtain Taylor series representation,
 \begin{proof}
 \end{proof}
 
-\subsection{Hadamard`s Theorem (5.3.2) pp 208}
+\subsection{Hadamard's Theorem (5.3.2) pp 208}
 \begin{definition}[Order]
 	The order of an entire function $f$ is defined by
 	\begin{equation}
@@ -568,7 +568,7 @@ Computational techniques to obtain Taylor series representation,
 \section{Normal Families (5.5) pp 219}
 \subsection{Equicontinuity (5.5.1) pp 219}
 \subsection{Normality and Compactness (5.5.2) pp 220}
-\subsection{Arzela`s Theorem (5.5.3) pp 222}
+\subsection{Arzela's Theorem (5.5.3) pp 222}
 %\subsection{The Classical Definition (5.5.4) pp 225}
 
 %Module 4 - 6.1, 7.3

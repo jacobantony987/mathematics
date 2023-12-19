@@ -563,7 +563,7 @@ Then $div\ \boldsymbol{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\
 	Then \textbf{surface of revolution obtained by rotating $C$ about the $x_1$ axis} is given $S = g^{-1}(c)$ where $g(x_1,x_2,x_3) = f(x_1,(x_2^2+x_3^2)^\frac{1}{2})$.
 \end{definition}
 
-\begin{theorem}[Lagrange`s Multiplier]
+\begin{theorem}[Lagrange's Multiplier]
 	Let $S$ be an $n$-surface in $\mathbb{R}^{n+1}$, $S = f^{-1}(c)$ where $f : U \to \mathbb{R}$ is such that $\nabla f(q) \ne 0,\ \forall q \in S$. Suppose $g : U \to \mathbb{R}$ is a smooth function and $p \in S$ is an extreme point of $g$ on $S$. Then there exists a real number $\lambda$ such that $\nabla g(p) = \lambda \nabla f(p)$.
 \end{theorem}
 \begin{proof}
@@ -580,7 +580,7 @@ Then $div\ \boldsymbol{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\
 
 \begin{remark}
 	Let $p$ be an extreme point of a smooth function $g$ defined on an $n$-surface $f^{-1}(c)$.
-	The \textbf{Lagrange`s multiplier} $\lambda$ is a real number such that $\nabla g(p) = \lambda \nabla f(p)$.
+	The \textbf{Lagrange's multiplier} $\lambda$ is a real number such that $\nabla g(p) = \lambda \nabla f(p)$.
 	If $S$ is compact, then every smooth function on $S$ attains both minimum and maximum on $S$.
 \end{remark}
 
@@ -590,7 +590,7 @@ Then $div\ \boldsymbol{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\
 		\nabla f(x_1,x_2) & = (x_1,x_2,2x_1,2x_2) \text{ and } \\
 		\nabla g(x_1,x_2) & = (x_1,x_2,2ax_1+2bx_2,2bx_1+2cx_2)
 	\end{align*}
-	By Lagrange`s multiplier theorem, $\nabla g(x_1,x_2) = \lambda \nabla f(x_1,x_2)$. Thus,
+	By Lagrange's multiplier theorem, $\nabla g(x_1,x_2) = \lambda \nabla f(x_1,x_2)$. Thus,
 	\begin{align*}
 		2ax_1 +2bx_2 & = 2\lambda x_1 \\
 		2bx_1 +2cx_2 & = 2\lambda x_2 
@@ -608,7 +608,7 @@ Then $div\ \boldsymbol{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\
 			\nabla f(p) & = (p,2p) \\
 			\nabla g(p) & = (p,2\sum_j a_{1,j}x_j,\dots,2\sum_j a_{n+1,j} x_j) 
 		\end{align*}
-		By Lagrange`s theorem, $\nabla g(p) = \lambda \nabla f(p)$. Thus,
+		By Lagrange's theorem, $\nabla g(p) = \lambda \nabla f(p)$. Thus,
 		$$ \begin{pmatrix} a_{1,1} & a_{1,2} & \dots & a_{n+1,1} \\ a_{2,1} & a_{2,2} & \dots & a_{n+1,2} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n+1,1} & a_{n+1,2} & \dots & a_{n+1,n+1} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_{n+1} \end{pmatrix} = \lambda \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_{n+1} \end{pmatrix}  $$
 	Let $p = (p_1,p_2,\dots,p_{n+1})$. Then, $\|p\|^2 = 1$ since $p \in S^2$.
 	$$ g(p) = [P][a_{i,j}][P]' = [P]\lambda[P]' = \lambda \|p\|^2 = \lambda $$
@@ -663,7 +663,7 @@ Then $div\ \boldsymbol{X}(x_1,x_2) = \frac{\partial X_1}{\partial x_1} + \frac{\
 	By maximal integral theorem, there exists a maximal integral on $\boldsymbol{Y}$ through $p$, say $\alpha : I \to W$.
 	Then $(f \circ \alpha)'(t) = \nabla f(\alpha(t)) \cdot \dot\alpha(t) = \nabla f(\alpha(t)) \cdot \boldsymbol{Y}(\alpha(t)) = 0$, since $\boldsymbol{Y}$ is tangent to the level sets of $f$ by construction. Thus, $f(\alpha(t))$ is constant. However, $f(\alpha(0)) = f(p) = c$. Thus, $f(\alpha(t)) = c, \forall t \in I$. Therefore, $\alpha(t) \in f^{-1}(c) = S,\ \forall t \in I$. Clearly, $\alpha$ is contained in $S$. Now, we have an integral curve on $S$.\\
 
-	Suppose $\beta : \tilde{I} : W$ be another integral curve on $W$ through $p$. Then $\alpha(t) = \beta(t),\ \forall t \in I \cap \tilde{I}$ by the uniqueness of the integral curve on $\boldsymbol{Y}$. Let $\{ \alpha_j : i \in I\}$ be the set of all integral curves on $\boldsymbol{Y}$ passing through $p$. Let $I$ be union of the domain of $\alpha_j$`s.  Clearly, $I$ is an interval containing $0$. Then $\alpha : I \to W$ is a maximal integral on $\boldsymbol{Y}$ passing through $p$ where $\alpha(t) = \alpha_j(t),\ t \in \mathscr{D}(\alpha_j)$.
+	Suppose $\beta : \tilde{I} : W$ be another integral curve on $W$ through $p$. Then $\alpha(t) = \beta(t),\ \forall t \in I \cap \tilde{I}$ by the uniqueness of the integral curve on $\boldsymbol{Y}$. Let $\{ \alpha_j : i \in I\}$ be the set of all integral curves on $\boldsymbol{Y}$ passing through $p$. Let $I$ be union of the domain of $\alpha_j$'s.  Clearly, $I$ is an interval containing $0$. Then $\alpha : I \to W$ is a maximal integral on $\boldsymbol{Y}$ passing through $p$ where $\alpha(t) = \alpha_j(t),\ t \in \mathscr{D}(\alpha_j)$.
 \end{proof}
 
 \begin{corollary}
