@@ -466,122 +466,122 @@
 
 \subsection*{Problem Set 1.5}
 \begin{enumerate}
-	\item Determine whether the degree sequence $s$ is graphical and, if so, find a graph having $s$ as its degree sequence
-	\begin{enumerate}
-		\item $s : 5,5,4,4,3,3,1,0,0$\\
-			$s_1 : 4,3,3,2,2,1,0,0$, $s_2 : 2,2,1,1,1,0,0$, $s_3 : 1,1,1,0,0,0$, \\
-			$s_4 : 1,0,0,0,0$, $s_5 : -1,0,0,0$, Thus, $s$ is not graphical.\\
-			Also the number of odd vertices in $s$ is odd, which is not possible.
-		\item $s : 7,6,2,2,2,1,0,0$\\
-			$s_1 : 5,1,1,1,1,0,-1,-1$. Thus, $s$ is not graphical.
-		\item $s : 5,3,3,3,2,2,1,1$\\
-			$s_1 : 2,2,2,1,1,1,1$, $s_2 : 1,1,1,1,1,1$, $s_3 : 1,1,1,1,0$, \\
-			$s_4 : 1,1,0,0$, $s_5 : 0,0,0$\\
+\item Determine whether the degree sequence $s$ is graphical and, if so, find a graph having $s$ as its degree sequence
+\begin{enumerate}
+	\item $s : 5,5,4,4,3,3,1,0,0$\\
+	$s_1 : 4,3,3,2,2,1,0,0$, $s_2 : 2,2,1,1,1,0,0$, $s_3 : 1,1,1,0,0,0$, \\
+	$s_4 : 1,0,0,0,0$, $s_5 : -1,0,0,0$, Thus, $s$ is not graphical.\\
+	Also the number of odd vertices in $s$ is odd, which is not possible.
+	\item $s : 7,6,2,2,2,1,0,0$\\
+	$s_1 : 5,1,1,1,1,0,-1,-1$. Thus, $s$ is not graphical.
+	\item $s : 5,3,3,3,2,2,1,1$\\
+	$s_1 : 2,2,2,1,1,1,1$, $s_2 : 1,1,1,1,1,1$, $s_3 : 1,1,1,1,0$, \\
+	$s_4 : 1,1,0,0$, $s_5 : 0,0,0$\\
 
-			In figure \ref{dia:ds1} delete the vertices in the order $v_1,v_2,\dots,v_5$ to get degree sequences $s_1,s_2,\dots,s_5$.
-
-			\begin{figure}[hbt]
-				\centering
-				\begin{tikzpicture}[scale=0.6]
-					\draw (0,0) node(v1)[fill,circle,label=right:$v_1$]{};
-					\draw (v1) ++(36:2) node(v2)[fill,circle,label=above:$v_7$]{};
-					\draw (v1) ++(108:2) node(v3)[fill,circle,label=above:$v_3$]{};
-					\draw (v1) ++(180:2) node(v4)[fill,circle,label=left:$v_2$]{};
-					\draw (v1) ++(-108:2) node(v5)[fill,circle,label=below:$v_4$]{};
-					\draw (v1) ++(-36:2) node(v6)[fill,circle,label=below:$v_6$]{};
-					\draw (3,-1) node(v7)[fill,circle,label=right:$v_5$]{};
-					\draw (3,1) node(v8)[fill,circle,label=right:$v_8$]{};
-
-					\draw (v2)--(v3)--(v4)--(v5)--(v6);
-					\draw[red] (v6)--(v1)--(v2);
-					\draw (v3)--(v1)--(v4);
-					\draw (v1)--(v5);
-					\draw (v7)--(v8);
-					%\draw[dotted,blue] (v7)--(v1)--(v8);
-
-					\draw (10,0) node(v1)[fill,circle,label=right:$v_1$]{};
-					\draw (v1) ++(36:2) node(v2)[fill,circle,label=above:$v_7$]{};
-					\draw (v1) ++(108:2) node(v3)[fill,circle,label=above:$v_3$]{};
-					\draw (v1) ++(180:2) node(v4)[fill,circle,label=left:$v_2$]{};
-					\draw (v1) ++(-108:2) node(v5)[fill,circle,label=below:$v_4$]{};
-					\draw (v1) ++(-36:2) node(v6)[fill,circle,label=below:$v_6$]{};
-					\draw (13,-1) node(v7)[fill,circle,label=right:$v_5$]{};
-					\draw (13,1) node(v8)[fill,circle,label=right:$v_8$]{};
-
-					\draw (v2)--(v3)--(v4)--(v5)--(v6);
-					%\draw[red] (v6)--(v1)--(v2);
-					\draw (v3)--(v1)--(v4);
-					\draw (v1)--(v5);
-					\draw (v7)--(v8);
-					\draw[blue] (v7)--(v1)--(v8);
-				\end{tikzpicture}
-				\caption{Two graphs with Degree Sequence $5,3,3,3,2,2,1,1$}
-				\label{dia:ds1}
-			\end{figure}
-			\begin{commentary}
-				Draw all those five graphs $G_1,G_2,\dots,G_5$.
-				From Havel-Hakini theorem, we have a method for constructing the graph $G$. We start from $G_5$ with degree sequence $s_5$ and vertex set $\{v_6,v_7,v_8\}$. Graph $G_5$ has order $3$ and size $0$. Now we may add vertices $v_5,v_4,\dots,v_1$ and edges as required by the degree sequences $s_4,s_2,\dots,s_1,s$ to get graphs $G_4,G_3,\dots,G_1,G$ respectively.
-			\end{commentary}
-		\item $s : 3,3,2,2,2,2,1$\\
-			$s_1 : 2,2,2,1,1,1$, $s_2 : 1,1,1,1,1$, $s_3 : 1,1,1,0$\\
-			$s_4 : 1,0,0$, $s_5 : -1,0$. Thus, $s$ is not graphical.\\
-			Also the number of odd vertices in $s$ is odd, which is not possible.
-	\end{enumerate}
-	\item Find a graph with degree sequence $\mathcal{D}(G) = \{ 0,4,5\}$.\\
-		The number of odd vertices should be even. And the degree of vertex should be less than the order of the graph. Since there is a vertex with degree $5$ and a vertex of degree $0$, we need at least a graph of order $7$ with exactly one vertex of degree $0$. The possibilities for graph of order seven are $5,5,5,5,4,4,0$ and $5,5,4,4,4,4,0$. If both these sequences are nongraphical, we will have to consider graph of higher order.\\
-
-		Suppose $s : 5,5,5,5,4,4,0$. Then $s_1 : 4,4,4,3,3,0$, $s_2 : 3,3,2,2,0$, $s_3 : 2,1,1,0$, $s_4 : 0,0,0$. Clearly, $s : 5,5,5,5,4,4,0$ is graphical.\\
-
-		Suppose $s : 5,5,4,4,4,4,0$. Then $s_1 : 4,3,3,3,3,0$, $s_2 : 2,2,2,2,0$, $s_3: 2,1,1,0$, $s_4 : 0,0,0$. Clearly, $s : 5,5,4,4,4,4,0$ is also graphical.
+	In figure \ref{dia:ds1} delete the vertices in the order $v_1,v_2,\dots,v_5$ to get degree sequences $s_1,s_2,\dots,s_5$.
 
 	\begin{figure}[hbt]
-		\centering
-		\begin{tikzpicture}
-			\draw (0,0) node(v){};
-			\draw (v) ++(0:2)    node (v1)[fill,circle,label=above:$v_1$]{};
-			\draw[olive] (v) ++(51:2)   node (v2)[fill,circle,label=above:$v_2$]{};
-			\draw[blue] (v) ++(102:2)  node (v3)[fill,circle,label=above:$v_3$]{};
-			\draw[red] (v) ++(153:2)  node (v4)[fill,circle,label=above:$v_4$]{};
-			\draw (v) ++(-153:2) node (v5)[draw,circle,label=above:$v_5$]{};
-			\draw (v) ++(-102:2) node (v6)[draw,circle,label=above:$v_6$]{};
-			\draw (v) ++(-51:2)  node (v7)[draw,circle,label=above:$v_7$]{};
+	\centering
+	\begin{tikzpicture}[scale=0.6]
+		\draw (0,0) node(v1)[fill,circle,label=right:$v_1$]{};
+		\draw (v1) ++(36:2) node(v2)[fill,circle,label=above:$v_7$]{};
+		\draw (v1) ++(108:2) node(v3)[fill,circle,label=above:$v_3$]{};
+		\draw (v1) ++(180:2) node(v4)[fill,circle,label=left:$v_2$]{};
+		\draw (v1) ++(-108:2) node(v5)[fill,circle,label=below:$v_4$]{};
+		\draw (v1) ++(-36:2) node(v6)[fill,circle,label=below:$v_6$]{};
+		\draw (3,-1) node(v7)[fill,circle,label=right:$v_5$]{};
+		\draw (3,1) node(v8)[fill,circle,label=right:$v_8$]{};
 
-			\draw[red] (v5)--(v4)--(v6);
-			\draw[blue] (v6)--(v3)--(v4);
-			\draw[blue] (v3)--(v5);
-			\draw[olive] (v3)--(v2)--(v4);
-			\draw[olive] (v5)--(v2)--(v6);
-			\draw (v2)--(v1)--(v3);
-			\draw (v4)--(v1)--(v5);
-			\draw (v1)--(v6);
+		\draw (v2)--(v3)--(v4)--(v5)--(v6);
+		\draw[red] (v6)--(v1)--(v2);
+		\draw (v3)--(v1)--(v4);
+		\draw (v1)--(v5);
+		\draw (v7)--(v8);
+		%\draw[dotted,blue] (v7)--(v1)--(v8);
 
-			\draw (6,0) node(w){};
-			\draw (w) ++(0:2)    node (w1)[fill,circle,label=above:$v_1$]{};
-			\draw[olive] (w) ++(51:2)   node (w2)[fill,circle,label=above:$v_2$]{};
-			\draw[blue] (w) ++(102:2)  node (w3)[fill,circle,label=above:$v_3$]{};
-			\draw[red] (w) ++(153:2)  node (w4)[fill,circle,label=above:$v_4$]{};
-			\draw (w) ++(-153:2) node (w5)[draw,circle,label=above:$v_5$]{};
-			\draw (w) ++(-102:2) node (w6)[draw,circle,label=above:$v_6$]{};
-			\draw (w) ++(-51:2)  node (w7)[draw,circle,label=above:$v_7$]{};
+		\draw (10,0) node(v1)[fill,circle,label=right:$v_1$]{};
+		\draw (v1) ++(36:2) node(v2)[fill,circle,label=above:$v_7$]{};
+		\draw (v1) ++(108:2) node(v3)[fill,circle,label=above:$v_3$]{};
+		\draw (v1) ++(180:2) node(v4)[fill,circle,label=left:$v_2$]{};
+		\draw (v1) ++(-108:2) node(v5)[fill,circle,label=below:$v_4$]{};
+		\draw (v1) ++(-36:2) node(v6)[fill,circle,label=below:$v_6$]{};
+		\draw (13,-1) node(v7)[fill,circle,label=right:$v_5$]{};
+		\draw (13,1) node(v8)[fill,circle,label=right:$v_8$]{};
 
-			\draw[red] (w5)--(w4)--(w6);
-			\draw[blue] (w5)--(w3)--(w6);
-			\draw[olive] (w3)--(w2)--(w4);
-			\draw[olive] (w5)--(w2)--(w6);
-			\draw (w2)--(w1)--(w3);
-			\draw (w4)--(w1)--(w5);
-			\draw (w1)--(w6);
-		\end{tikzpicture}
-		\caption{Graphs of order $7$ with degree sequence $\mathcal{D}(G) = \{0,4,5\}$}
+		\draw (v2)--(v3)--(v4)--(v5)--(v6);
+		%\draw[red] (v6)--(v1)--(v2);
+		\draw (v3)--(v1)--(v4);
+		\draw (v1)--(v5);
+		\draw (v7)--(v8);
+		\draw[blue] (v7)--(v1)--(v8);
+	\end{tikzpicture}
+	\caption{Two graphs with Degree Sequence $5,3,3,3,2,2,1,1$}
+	\label{dia:ds1}
 	\end{figure}
+	\begin{commentary}
+		Draw all those five graphs $G_1,G_2,\dots,G_5$.
+		From Havel-Hakini theorem, we have a method for constructing the graph $G$. We start from $G_5$ with degree sequence $s_5$ and vertex set $\{v_6,v_7,v_8\}$. Graph $G_5$ has order $3$ and size $0$. Now we may add vertices $v_5,v_4,\dots,v_1$ and edges as required by the degree sequences $s_4,s_2,\dots,s_1,s$ to get graphs $G_4,G_3,\dots,G_1,G$ respectively.
+	\end{commentary}
+	\item $s : 3,3,2,2,2,2,1$\\
+	$s_1 : 2,2,2,1,1,1$, $s_2 : 1,1,1,1,1$, $s_3 : 1,1,1,0$\\
+	$s_4 : 1,0,0$, $s_5 : -1,0$. Thus, $s$ is not graphical.\\
+	Also the number of odd vertices in $s$ is odd, which is not possible.
+\end{enumerate}
+\item Find a graph with degree sequence $\mathcal{D}(G) = \{ 0,4,5\}$.\\
+	The number of odd vertices should be even. And the degree of vertex should be less than the order of the graph. Since there is a vertex with degree $5$ and a vertex of degree $0$, we need at least a graph of order $7$ with exactly one vertex of degree $0$. The possibilities for graph of order seven are $5,5,5,5,4,4,0$ and $5,5,4,4,4,4,0$. If both these sequences are nongraphical, we will have to consider graph of higher order.\\
 
-	\item
-	\item
-	\item
-	\item
-	\item
-	\item
-	\item
+	Suppose $s : 5,5,5,5,4,4,0$. Then $s_1 : 4,4,4,3,3,0$, $s_2 : 3,3,2,2,0$, $s_3 : 2,1,1,0$, $s_4 : 0,0,0$. Clearly, $s : 5,5,5,5,4,4,0$ is graphical.\\
+
+	Suppose $s : 5,5,4,4,4,4,0$. Then $s_1 : 4,3,3,3,3,0$, $s_2 : 2,2,2,2,0$, $s_3: 2,1,1,0$, $s_4 : 0,0,0$. Clearly, $s : 5,5,4,4,4,4,0$ is also graphical.
+
+	\begin{figure}[hbt]
+	\centering
+	\begin{tikzpicture}
+		\draw (0,0) node(v){};
+		\draw (v) ++(0:2)    node (v1)[fill,circle,label=above:$v_1$]{};
+		\draw[olive] (v) ++(51:2)   node (v2)[fill,circle,label=above:$v_2$]{};
+		\draw[blue] (v) ++(102:2)  node (v3)[fill,circle,label=above:$v_3$]{};
+		\draw[red] (v) ++(153:2)  node (v4)[fill,circle,label=above:$v_4$]{};
+		\draw (v) ++(-153:2) node (v5)[draw,circle,label=above:$v_5$]{};
+		\draw (v) ++(-102:2) node (v6)[draw,circle,label=above:$v_6$]{};
+		\draw (v) ++(-51:2)  node (v7)[draw,circle,label=above:$v_7$]{};
+
+		\draw[red] (v5)--(v4)--(v6);
+		\draw[blue] (v6)--(v3)--(v4);
+		\draw[blue] (v3)--(v5);
+		\draw[olive] (v3)--(v2)--(v4);
+		\draw[olive] (v5)--(v2)--(v6);
+		\draw (v2)--(v1)--(v3);
+		\draw (v4)--(v1)--(v5);
+		\draw (v1)--(v6);
+
+		\draw (6,0) node(w){};
+		\draw (w) ++(0:2)    node (w1)[fill,circle,label=above:$v_1$]{};
+		\draw[olive] (w) ++(51:2)   node (w2)[fill,circle,label=above:$v_2$]{};
+		\draw[blue] (w) ++(102:2)  node (w3)[fill,circle,label=above:$v_3$]{};
+		\draw[red] (w) ++(153:2)  node (w4)[fill,circle,label=above:$v_4$]{};
+		\draw (w) ++(-153:2) node (w5)[draw,circle,label=above:$v_5$]{};
+		\draw (w) ++(-102:2) node (w6)[draw,circle,label=above:$v_6$]{};
+		\draw (w) ++(-51:2)  node (w7)[draw,circle,label=above:$v_7$]{};
+
+		\draw[red] (w5)--(w4)--(w6);
+		\draw[blue] (w5)--(w3)--(w6);
+		\draw[olive] (w3)--(w2)--(w4);
+		\draw[olive] (w5)--(w2)--(w6);
+		\draw (w2)--(w1)--(w3);
+		\draw (w4)--(w1)--(w5);
+		\draw (w1)--(w6);
+	\end{tikzpicture}
+	\caption{Graphs of order $7$ with degree sequence $\mathcal{D}(G) = \{0,4,5\}$}
+\end{figure}
+
+\item
+\item
+\item
+\item
+\item
+\item
+\item
 \end{enumerate}
 
 \subsection{Connected Graphs}

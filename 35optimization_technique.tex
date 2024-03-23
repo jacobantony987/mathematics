@@ -201,8 +201,161 @@ A general ILPP is of the form,
 	
 	Finding optimal solution from $T_F$ is a much more difficult than finding optimal solution from $[T_F]$. Using Simplex method on $[T_F]$, we can find the optimal integer solutions.
 \end{remark}
+\pagebreak
+
 %Module 3
 \section{Networks}
+\subsection{Introduction}
+	Networks finds its applications in electrical circuits, transportation/logistics, communication systems.
+
+\subsection{Graphs : Definition, Notation}
+\begin{commentary}
+	You don't have to learn the exact definition. But should know the differences. Definition of $\Omega^+, \Omega^-$ are important.
+\end{commentary}
+
+\begin{description}
+	\item[Graph] $G(V,U)$ or $G$ is a set $V$ of elements $v_1,v_2,\dots,v_n$ represented by points and a set $U$ of pairs $(v_j,v_k),\ v_j,v_k \in V$ represented by arcs joining points of $V$.
+	\item[Vertices] are the elements of $V$ in graph $G(V,U)$.
+	\item[Arcs] are the elements of $U$ in graph $G(V,U)$.
+	\item[Directed Arcs] An arc is directed if the pair $(v_j,v_k)$ is an ordered pair. Directed arcs are represented by arcs with a direction. 
+	\item[Directed Graph] is the graph with directed arcs.
+	\item[Subgraph] $G_1(V_1,U_1)$ of a graph $G(U,V)$ is a graph $G_1(V_1,U_1)$ such that $V_1 \subset V$ and $U_1$ contains \textcolor{red}{all arcs} of $G$ between the vertices of $G$.
+	\item[Partial Graph] $G_1(V_1,U_1)$ of a graph $G(U,V)$ is a graph $G_1(V_1,U_1)$ such that $V_1 \subset V$ and $U_1 \subset U$.
+	\item[$\Omega^+(v_k)$] is the set of all vertices incident to $v_k$.
+	\item[$\Omega^-(v_k)$] is the set of all vertices incident from $v_k$.
+	\item[Chain] is a sequence of arcs $u_1,u_2,\dots,u_q$ in which every intermediate arc $u_k$ has one vertex common with both previous $u_{k-1}$ and next $u_{k+1}$ vertices.
+	\item[Cycle] is a chain in which no arc is used twice and first and last vertices have a common vertex.
+	\item[Path] is a chain in which all arcs are directed in the same sense such that terminal vertex of preceeding arc is the initial vertex of the succeeding arc.
+	\item[Circuit] is a cycle in which all arcs are directed in the same sense. 
+	\item[Connected] A graph is connected if every pair of vertices have a chain connecting them. 
+	\item[Component] is the set a vertex $v_a$ of all other vertices connetced to $v_a$ by chains.
+	\item[Strongly Connected] A graph is strongly connected if there is a path connecting every pair of vertices in it.
+	\item[Tree] is a connected graph with at least two verties and no cycles.
+	\item[Centre] is a vertex which is connected to every other vertex of the graph by a path.
+	\item[Arborescence] is a tree with a centre.
+\end{description}
+
+\subsection{Minimum Path Problem}
+\begin{definition}[Minimum Path Problem]
+	Let $x_{jk}$ be the real numbers associated to each arc $(v_j,v_k$. Let $v_a, v_b$ be two vertices of $G$. The length of a path from $v_a$ to $v_b$ is $\sum x_{jk}$ where the summation is over sequence of all arcs forming the path. The minimum path problem is to find the path of the smallest length among various path from $v_a$ to $v_b$.
+\end{definition}
+
+\begin{remark}
+In general, $x_{jk}$ is unrestricted in sign.
+\end{remark}
+
+\subsubsection{All arc lengths are nonnegative}
+\begin{commentary}
+	The problem solved using an algorithm which is similar to proof by mathematical induction. 
+	Initial step is trivial $V_0 = \{ v_a \}$. Hypothesis is that problem is solved for every vertex in $V_p$ for $p = k$. Our task is to find $V_{k+1}$ using $V_k$. The process is repeated till $v_b \in V_p$.
+\end{commentary}
+
+	Let $f_j$ be the length of the minimum path from $v_a$ to $v_j$. Then $f_a = 0$. And our goal is to find $f_b$.
+
+\begin{commentary}
+	Here, $p$ represents the stage. $V_p$ is the set of all vertices for which $f_j$ is known for every $v_j \in V_p$.
+\end{commentary}
+
+	$V_p$ is the set of all vertices for which minimum path problem is solved. The problem is solved when $v_b \in V_p$ for some $p$.
+
+\begin{commentary}
+	In each step, we find the vertex $v_s \notin V_p$ such that out of all the arcs leaving $V_p$, a particular arc incident on $v_s$ forms the minimum length path.
+\end{commentary}
+
+	$\Omega^-(V_p)$ is the set of all arcs going out a vertex in $V_p$ and let 
+$$ f_r + x_{rs} = \min_{\Omega^-(V_p)} f_j + x_{jk} $$
+
+\begin{commentary}
+	This means that, we have found vertices $v_r \in V_p$, $v_s \notin V_p$ such that the arc $(v_r,v_s)$ forms the minimum length path leaving out of $V_p$ when it is combined with minimum length path to $v_r$ which is already known.
+\end{commentary}
+
+	Then, we repeat the process with $V_p = V_p \cup \{ v_s \}$ as $f_s = f_r + x_{rs}$ is the length of minimum path from $v_a$ to $v_s$.
+
+	We start with $p = 0$, $V_0 = \{v_a\}$ and $f_a = 0$. Repeating the process we will get a sequence of sets $V_1,V_2,\dots$ if there is a set $V_k$ containing $v_b$ then minimum path length $f_b$ is found. If there is not such set in that sequence, then there is no path from $v_a$ to $v_b$.
+
+\begin{example}
+	Question : Find minimum path from $v_0$ to $v_8$ in the graph shown in figure \ref{dia:minPath1}. The number along the a directed arc denotes its length.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+	\tikzset{arc/.style={postaction={decorate}, decoration={markings,mark=at position #1  with {\arrow{latex}}, }}}
+	\begin{scope}
+	\tikzstyle every node=[draw,circle]
+	\draw (0,0) node(v0){$0$};
+	\draw (2,2) node(v1){$1$};
+	\draw (2,0) node(v2){$2$};
+	\draw (2,-2) node(v3){$3$};
+	\draw (6,2) node(v4){$4$};
+	\draw (4,0) node(v5){$5$};
+	\draw (6,-2) node(v6){$6$};
+	\draw (8,1) node(v7){$7$};
+	\draw (10,-1) node(v8){$8$};
+	\end{scope}
+	\draw[arc=0.5] (v0)--(v1) node (l1)[midway,label=above:$2$]{};
+	\draw[arc=0.5] (v0)--(v2) node (l2)[midway,label=above:$6$]{};
+	\draw[arc=0.5] (v0)--(v3) node (l3)[midway,label=above:$8$]{};
+	\draw[arc=0.5] (v1)--(v4) node (l4)[midway,label=above:$10$]{};
+	\draw[arc=0.5] (v1)--(v5) node (l5)[midway,label=above:$8$]{};
+	\draw[arc=0.5] (v2)--(v5) node (l6)[midway,label=above:$1$]{};
+	\draw[arc=0.5] (v3)--(v5) node (l7)[midway,label=above:$2$]{};
+	\draw[arc=0.5] (v3)--(v6) node (l8)[midway,label=above:$4$]{};
+	\draw[arc=0.5] (v4.30) to[out=20,in=100] (v7.90);
+	\path (v4)--(v7) node(l9)[midway,label=above:$3$]{};
+	\draw[arc=0.5] (v7.150) to[out=180,in=300] (v4.330);
+	\path (v7)--(v4) node(l10)[midway,label=right:$2$]{};
+	\draw[arc=0.5] (v5)--(v4) node (l11)[midway,label=above:$1$]{};
+	\draw[arc=0.5] (v5)--(v7) node (l12)[midway,label=above:$5$]{};
+	\draw[arc=0.5] (v6)--(v5) node (l13)[midway,label=above:$4$]{};
+	\draw[arc=0.5] (v6.90) to[out=100,in=200] (v7.210);
+	\path (v6)--(v7) node(l14)[midway,label=left:$6$]{};
+	\draw[arc=0.5] (v7.270) to[out=280,in=20] (v6.30);
+	\path (v7)--(v6) node(l15)[midway,label=right:$1$]{};
+	\draw[arc=0.5] (v6)--(v8) node (l16)[midway,label=above:$7$]{};
+	\draw[arc=0.5] (v7)--(v8) node (l17)[midway,label=above:$10$]{};
+\end{tikzpicture}
+\caption{Minimum Path Problem : Non-negative Arc Length}
+\label{dia:minPath1}
+\end{figure}
+
+\begin{center}
+\begin{tabular}{*{8}{c}}
+	$p$ & $V_p$ & $f$ & $\Omega^-(V_p)$ & $x$ & $f+x$ & $f_s$ & $v_s$ \\ \hline
+	0 & 0 & 0 & (0,1) & 2 & 2 & 2 & 1 \\
+	& & & (0,2) & 6 & 6 & & \\
+	& & & (0,3) & 8 & 8 & & \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{commentary}
+	In Step 0, $p = 0$ and $V_p = \{ v_0 \}$. In column $V_p$, we wrote $0$ instead of $v_0$. And we know that, $f_0 = 0$. The arc incidents out of $v_0$ are $(0,1), (0,2), (0,3)$. These arcs are listed in column $\Omega^-(V_p)$. The arc length of $(0,1)$ is $x_{01} = 2$ which is wrote under the column $x$. In the first row, $f_j + x_{jk} = f_0 + x_{01}$, the sum is wrote under the column $f+x$.
+
+	After completing all these columns, the least sum in column $f+x$ is seleted and wrote in the same row in column $f_s$ and the respective vertex is available in $\Omega^-(V_p)$ column in the same row as the second vertex of the arc. Here, it is $(0,1)$ and thus $v_s = 1$. Now Step 0 is complete and $V_p = \{ 0,1 \}$ as $v_s$ added to $V_p$. But, problem is not solved as $v_8 \notin V_p$. Thus we proceed to Step 1.
+\end{commentary}
+
+\begin{center}
+\begin{tabular}{*{8}{c}}
+	$p$ & $V_p$ & $f$ & $\Omega^-(V_p)$ & $x$ & $f+x$ & $f_s$ & $v_s$ \\ \hline
+	1 & 0 & 0 & (0,2) & 6 & 6 & & \\
+	& & & (0,3) & 8 & 8 & & \\
+	& 1 & 2 & (1,2) & 3 & 5 & 5 & 2 \\
+	& & & (1,4) & 10 & 12 & & \\
+	& & & (1,5) & 8 & 10 & & \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{commentary}
+	In Step 1, $p = 1$ and $V_p = \{v_0,v_1\}$. Each row of the table corresponds to each arc going out of $V_p$. There are two arcs incident from $v_0$ and three arcs incident from $v_1$.Thus there are two row for $v_0$ and three rows for $v_1$. Note that the arc $(0,1)$ is not considered as it has both end vertices in $V_p$.
+	
+	Then length of the arcs are wrote. It is added to the value in column $f$ and wrote in column $f+x$. The minimum value in column $f+x$ is selected. It corresponds to the arc $(1,2)$. Thus the vertex is $v_2$ and the length of minimum path from $v_0$ to $v_2$ is $5$.
+\end{commentary}
+
+Repeating the process a few more times, you will find that the minimum length path from $v_0$ to $v_8$ is $0,1,2,6,8$ and its length is $17$.(do it yourself)
+\end{example}
+
+\subsubsection{Arc lengths unrestricted in sign}
+\pagebreak
+
 %Module 4
 \section{Non-linear Programming}
 
